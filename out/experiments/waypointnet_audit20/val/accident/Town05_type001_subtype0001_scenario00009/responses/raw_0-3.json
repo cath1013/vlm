@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V008\",\n        \"V012\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"V010\",\n        \"V014\"\n      ],\n      \"reason\": \"Multiple vehicles are on a collision course at the junction with very low linear-extrapolated Time To Contact (TTCs), including V008 and V012 (TTC 1.0s, opposing traffic), EGO_ego_vehicle and EGO_other_vehicle (TTC 1.1s, orthogonal paths), V008 and V010 (TTC 1.2s, opposing traffic), V010 and V012 (TTC 1.2s, lane change contention), and EGO_other_vehicle and V014 (TTC 1.3s, orthogonal paths).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V012\",\n        \"M009\",\n        \"C017\",\n        \"EGO_other_vehicle\",\n        \"V001\",\n        \"V014\",\n        \"T013\",\n        \"V008\"\n      ],\n      \"reason\": \"Numerous additional vehicles are converging on the highly congested junction with low TTCs, including EGO_ego_vehicle_behind and V012 (TTC 1.9s, opposing traffic), M009 and C017 (TTC 2.0s, opposing traffic with a bicycle), EGO_other_vehicle and V001 (TTC 2.1s, junction conflict with a stopped vehicle), EGO_ego_vehicle_behind and EGO_other_vehicle (TTC 2.1s, orthogonal paths), V001 and V014 (TTC 2.2s, junction conflict), EGO_other_vehicle and T013 (TTC 2.2s, orthogonal paths), and EGO_ego_vehicle_behind and T013 (TTC 2.3s, potential side-by-side conflict at junction).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"V001\",\n        \"V002\",\n        \"V003\",\n        \"V005\",\n        \"N006\",\n        \"V008\",\n        \"M009\",\n        \"V010\",\n        \"V011\",\n        \"V012\",\n        \"T013\",\n        \"V014\",\n        \"V015\",\n        \"V016\",\n        \"C017\",\n        \"V019\",\n        \"C004\"\n      ],\n      \"reason\": \"Following the initial collisions, a large number of vehicles are either entering or are already inside the busy junction, creating a high likelihood of secondary collisions and a multi-vehicle pile-up due to congestion and cascading events.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"V001\",\n        \"V002\",\n        \"V003\",\n        \"V005\",\n        \"N006\",\n        \"V008\",\n        \"M009\",\n        \"V010\",\n        \"V011\",\n        \"V012\",\n        \"T013\",\n        \"V014\",\n        \"V015\",\n        \"V016\",\n        \"C017\",\n        \"V019\",\n        \"C004\"\n      ],\n      \"reason\": \"The chaotic conditions and high density of vehicles in and around the junction, exacerbated by likely earlier accidents, suggest continued high risk for further collisions and expanded involvement of nearby road users.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"V001\",\n        \"V002\",\n        \"V003\",\n        \"V005\",\n        \"N006\",\n        \"V008\",\n        \"M009\",\n        \"V010\",\n        \"V011\",\n        \"V012\",\n        \"T013\",\n        \"V014\",\n        \"V015\",\n        \"V016\",\n        \"C017\",\n        \"V019\",\n        \"C004\"\n      ],\n      \"reason\": \"The sustained high volume of traffic attempting to navigate a heavily impacted junction will likely lead to ongoing disruptions and additional conflicts, contributing to a prolonged accident scenario.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The situation presents an extremely high risk of multiple concurrent accidents beginning in the first second due to numerous vehicles with very low Time To Contact values converging at a complex four-way junction. The high speeds of several vehicles and the lack of traffic signal information further exacerbate the danger, leading to a highly chaotic scenario where multiple collisions are expected to occur and potentially cascade over several seconds.\",\n  \"data_limitations\": \"The absence of traffic signal state, stop line information, and detailed lane marking types (solid/dashed) prevents an accurate assessment of right-of-way, which is critical for junction behavior prediction. Additionally, linear-extrapolated TTC values do not account for driver braking, turning intent, or evasive maneuvers, which might otherwise mitigate some conflicts, thus potentially overstating the certainty of collisions in later intervals.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 16155,
+  "candidatesTokenCount": 1638,
+  "totalTokenCount": 25744,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 16155
+   }
+  ],
+  "thoughtsTokenCount": 7951,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PRuVapvhL4LOrfcPgtWJiQg"
+}

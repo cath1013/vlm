@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted trajectories maintain a safe minimum clearance of at least 1.01m, primarily between EGO_other_vehicle_behind and T025, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted trajectories maintain a safe minimum clearance of at least 1.45m between EGO_ego_vehicle_behind and V016, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have a minimum clearance of 0.26m at 2.7 seconds after observation, which constitutes physical contact or severe body overlap, especially given their high speeds (27kph and 53kph) and crossing paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted trajectories maintain a safe minimum clearance of at least 4.6m between EGO_ego_vehicle_behind and EGO_other_vehicle, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted trajectories maintain a safe minimum clearance of at least 5.83m, primarily between EGO_ego_vehicle_behind and V003, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the 3rd 1-second interval (4.0, 5.0]s, involving EGO_ego_vehicle and EGO_other_vehicle. This is due to an extremely small predicted minimum clearance of 0.26m at a point where their high-speed paths intersect. For all other intervals, predicted clearances between vehicles are sufficient, and no accidents are expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10437,
+  "candidatesTokenCount": 671,
+  "totalTokenCount": 15247,
+  "cachedContentTokenCount": 921,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10437
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 921
+   }
+  ],
+  "thoughtsTokenCount": 4139,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "vuWYat_eDu3I0-kPxOGLIA"
+}

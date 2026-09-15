@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show positive minimum clearances in this interval, indicating no expected contact between vehicles or pedestrians.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show positive minimum clearances, confirming no contact is expected between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted minimum clearance between EGO_ego_vehicle and V001 is 1.58m; V001 is stationary and EGO_ego_vehicle is passing by, making contact unlikely.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted closest pairs indicate a risk of contact in this interval; all actors maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to have a rear-end collision with EGO_other_vehicle, as their predicted paths result in a 0.0m minimum clearance at 5.0s after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final 1-second interval (k=5) involving a rear-end collision between EGO_other_vehicle and EGO_ego_vehicle_behind. Both vehicles are initially accelerating northbound in the same lane, with the rear vehicle accelerating faster. For all other intervals, no accidents are predicted, as all actors maintain clear separation based on their predicted paths.\",\n  \"data_limitations\": \"A discrepancy was noted between manual calculation of the gap based on 1-second waypoints and the reported minimum_clearance_m=0.0 for the predicted collision, suggesting the 0.1s interpolation or footprint model in predicted_closest_pairs captures finer interaction details not immediately apparent from the 1-second waypoints. The explicit 0.0m clearance value from predicted_closest_pairs was prioritized as evidence for contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6954,
+  "candidatesTokenCount": 688,
+  "totalTokenCount": 16462,
+  "cachedContentTokenCount": 877,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6954
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 877
+   }
+  ],
+  "thoughtsTokenCount": 8820,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "isOYatjZKvOc0-kPieTH4Qw"
+}

@@ -1,0 +1,62 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 37.76,
+ "usage": {
+  "input": 9199,
+  "output": 643
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and follow their respective paths without any predicted points of contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and follow their respective paths without any predicted points of contact, including EGO_ego_vehicle passing stopped vehicles with sufficient lateral clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and follow their respective paths without any predicted points of contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and follow their respective paths without any predicted points of contact, including EGO_ego_vehicle passing other vehicles with sufficient lateral clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "N017",
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "Two separate rear-end collisions are predicted: EGO_ego_vehicle is expected to collide with N017 at 4.7s due to overtaking in the same lane, and EGO_other_vehicle_behind is expected to collide with EGO_other_vehicle at 4.8s due to a closing speed differential in the same lane.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct rear-end collisions are predicted to occur in the final 1-second interval (k=5). EGO_ego_vehicle is expected to collide with N017, and EGO_other_vehicle_behind is expected to collide with EGO_other_vehicle, both scenarios resulting from significant speed differentials between vehicles traveling in the same lane without sufficient space to avoid contact. All preceding intervals show no expected accidents.",
+  "data_limitations": ""
+ }
+}

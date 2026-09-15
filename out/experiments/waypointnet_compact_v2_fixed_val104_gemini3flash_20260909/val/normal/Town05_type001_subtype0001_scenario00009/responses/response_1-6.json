@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 45.01,
+ "usage": {
+  "input": 10150,
+  "output": 609
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are approaching the junction but are separated by sufficient distance and time.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles continue to converge toward the intersection area, maintaining a narrow but safe clearance as they adjust positions.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "A collision occurs at t=8.3s as EGO_other_vehicle and EGO_ego_vehicle_behind both enter the same intersection space simultaneously while crossing paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The involved vehicles remain in a state of collision within the intersection area following the initial impact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in a post-collision state, obstructing the intersection.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The intersection of Road 17 and Road 1516 is the site of a predicted collision between two moving vehicles. EGO_ego_vehicle_behind is performing a left turn to travel north while EGO_other_vehicle is moving into the intersection from the north; their predicted future paths result in physical body overlap at approximately 8.3 seconds total time.",
+  "data_limitations": ""
+ }
+}

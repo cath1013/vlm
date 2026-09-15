@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No direct physical contact or overlap is predicted between any actors in this interval; paths remain safely separated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"M039\"],\n      \"reason\": \"M039 (motorcycle) is predicted to collide with the stopped V005 (car) at t=3.6s, indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T029\", \"V032\", \"V001\", \"N002\"],\n      \"reason\": \"Two accidents are predicted: T029 (truck) and V032 (car) paths cross causing a collision at t=4.7s, and N002 (van) is predicted to rear-end the stopped V001 (car) at t=4.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V024\", \"T025\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"Two rear-end collisions are predicted: T025 (truck) will collide with V024 (car) at t=5.1s, and EGO_other_vehicle_behind (car) will collide with EGO_other_vehicle (car) at t=6.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C019\", \"V020\"],\n      \"reason\": \"V020 (car) is predicted to rear-end C019 (bicycle) at t=6.4s, indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted throughout the 5-second prediction window. These include several rear-end collisions (V005/M039, V001/N002, V024/T025, EGO_other_vehicle/EGO_other_vehicle_behind, C019/V020) and one orthogonal entry conflict involving T029 and V032, as V032 turns into T029's path. All predicted contacts show 0.0m clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10990,
+  "candidatesTokenCount": 771,
+  "totalTokenCount": 16062,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10990
+   }
+  ],
+  "thoughtsTokenCount": 4301,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "usaYaqCUB8fE0-kP7OODmA0"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"P006 approaches and enters the junction towards the end of this interval, but other vehicles are still on approach and not yet in conflicting positions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"P006 continues to traverse the junction, while EGO_other_vehicle_behind and EGO_ego_vehicle_behind are still several meters from their respective junction entrances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"P006 is still in the junction, and EGO_other_vehicle_behind and EGO_ego_vehicle_behind are approaching their junction entrances, but not yet entering.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P006\",\n        \"EGO_other_vehicle_behind\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"P006 is predicted to still be in the junction, while EGO_ego_vehicle_behind (~11.37s) and EGO_other_vehicle_behind (~11.62s) are predicted to enter the three-way junction almost simultaneously from different approaches, leading to an orthogonal conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P006\",\n        \"EGO_other_vehicle_behind\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"Following their near-simultaneous entry in the previous interval, P006, EGO_other_vehicle_behind, and EGO_ego_vehicle_behind will all be within the junction area with intersecting paths, making a collision highly probable.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple vehicles are converging on a three-way junction. Specifically, P006, EGO_ego_vehicle_behind, and EGO_other_vehicle_behind are predicted to enter the junction from different approaches within a tight timeframe in the k=4 interval. This simultaneous presence with intersecting predicted paths will create a high-risk orthogonal conflict, making an accident highly likely in intervals k=4 and k=5.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop lines, or lane marking types makes precise right-of-way determination difficult and increases the reliance on vehicle trajectories and proximity.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9009,
+  "candidatesTokenCount": 773,
+  "totalTokenCount": 21939,
+  "cachedContentTokenCount": 907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9009
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 907
+   }
+  ],
+  "thoughtsTokenCount": 12157,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "1RmVavanNer72roPxrKtwQ8"
+}

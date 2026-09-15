@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles T007 and C008 pass with sufficient lateral clearance, and all other actors maintain safe distances from each other.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle safely passes the stopped vehicle V001 with adequate lateral separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show vehicles maintaining safe distances and no clear contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind, traveling at a higher speed, is predicted to rear-end EGO_other_vehicle on the same road at approximately 3.5 seconds after observation (6.5s absolute time), with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the previous interval contains an accident, no further independent contact events are clearly indicated for this interval, and other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision between EGO_other_vehicle_behind and EGO_other_vehicle is highly probable within the (6.0, 7.0] second interval, as EGO_other_vehicle_behind is significantly faster and closes the gap on the same path. All other interactions, including EGO_ego_vehicle passing stopped vehicles, are predicted to be safe due to sufficient lateral separation.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5803,
+  "candidatesTokenCount": 601,
+  "totalTokenCount": 10747,
+  "cachedContentTokenCount": 853,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5803
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 853
+   }
+  ],
+  "thoughtsTokenCount": 4343,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "j8GYatvOF4DU1e8P2PiQgQY"
+}

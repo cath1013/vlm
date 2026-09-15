@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close clearances between any vehicles in this interval; all minimum clearances are greater than 0.9m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V010\", \"N011\", \"V002\", \"V001\"],\n      \"reason\": \"N011 is predicted to collide with the stopped V010, and V002 is predicted to collide with the stopped V001, based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts between any vehicles in this interval; the minimum clearance is 0.52m between EGO_ego_vehicle and V008, which is not direct contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V009\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped V009 as its path intersects V009's static position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts between any vehicles in this interval; the minimum clearance is 0.65m between EGO_ego_vehicle_behind and V008, which is not direct contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted in this scenario. In interval k=2, vehicle N011 is expected to rear-end the stopped V010, and vehicle V002 is expected to collide with the stopped V001. Later, in interval k=4, the EGO_ego_vehicle is predicted to collide with the stopped V009.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6148,
+  "candidatesTokenCount": 643,
+  "totalTokenCount": 8919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6148
+   }
+  ],
+  "thoughtsTokenCount": 2128,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "OsWYauvSCKKi9tMP0Z3tkQY"
+}

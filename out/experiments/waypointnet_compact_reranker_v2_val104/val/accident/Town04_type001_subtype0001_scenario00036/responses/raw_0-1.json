@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and their predicted paths do not show any instances of contact or overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and their predicted paths do not show any instances of contact or overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and their predicted paths do not show any instances of contact or overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with EGO_other_vehicle in a rear-end collision at t=4.7s, with 0.0m clearance according to the closest pair predictions, indicating body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No other predicted closest pairs indicate contact or overlap; all other vehicles maintain sufficient clearance, or their paths diverge.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision between EGO_other_vehicle and EGO_other_vehicle_behind is predicted to occur in the fourth 1-second interval after the observation, around t=4.7s. Both vehicles are following the same straight path, and the trailing vehicle is predicted to overtake and collide with the leading vehicle. All other interactions show sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8009,
+  "candidatesTokenCount": 584,
+  "totalTokenCount": 13954,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8009
+   }
+  ],
+  "thoughtsTokenCount": 5361,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Q-WYaurUCcTRosUPv4TQiQY"
+}

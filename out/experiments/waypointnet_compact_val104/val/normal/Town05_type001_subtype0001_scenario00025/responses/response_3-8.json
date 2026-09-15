@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 26.68,
+ "usage": {
+  "input": 10502,
+  "output": 763
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles are predicted to have physical contact or insufficient clearance in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V029"
+    ],
+    "reason": "V029 is predicted to rear-end EGO_other_vehicle_behind, which is stopped on the same road, with zero minimum clearance at approximately t=1.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "V006"
+    ],
+    "reason": "V006 is predicted to rear-end V005, which is stopped on the same road, with zero minimum clearance at approximately t=2.3s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "N020",
+     "V019"
+    ],
+    "reason": "Multiple intersection conflicts are predicted in this interval: EGO_other_vehicle and N020 are predicted to collide at t=3.3s, V019 and N020 at t=3.8s, and EGO_other_vehicle and V019 at t=3.9s, all with zero minimum clearance as their paths cross.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M027",
+     "C028"
+    ],
+    "reason": "C028 (bicycle) is predicted to rear-end M027 (motorcycle), which is stopped on the same road, with zero minimum clearance at approximately t=4.2s.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Several accidents are predicted within the 5-second prediction window. These include two rear-end collisions in the early intervals (k=2, k=3), followed by a cluster of multiple intersection conflicts involving three vehicles (EGO_other_vehicle, N020, V019) in the fourth interval (k=4). A final rear-end collision involving a bicycle and motorcycle is predicted in the last interval (k=5).",
+  "data_limitations": "Traffic signal states, stop lines, and detailed lane marking types are not available, which limits the ability to infer right-of-way or the underlying reasons for the predicted intersection conflicts, though the geometric paths clearly indicate contact."
+ }
+}

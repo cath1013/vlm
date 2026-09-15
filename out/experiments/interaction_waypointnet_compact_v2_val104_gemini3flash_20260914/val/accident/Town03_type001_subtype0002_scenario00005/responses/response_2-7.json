@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 24.65,
+ "usage": {
+  "input": 12951,
+  "output": 493
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle are on a collision course at the junction of Road 853 and Road 742/3, with a predicted T-bone contact at t=7.3s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No physical contact or overlapping footprints are predicted between any actors during this specific interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The trailing vehicles EGO_ego_vehicle_behind and EGO_other_vehicle_behind are also predicted to have an orthogonal collision at the same junction at t=9.8s.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths do not result in any vehicle-to-vehicle or vehicle-to-pedestrian contact during this period.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are predicted to maintain safe clearances and follow non-conflicting paths for the duration of this interval.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The junction of Road 853 and Road 742/3 is the site of two predicted T-bone collisions between Eastbound and Southbound vehicle streams. The first occurs between EGO_ego_vehicle and EGO_other_vehicle shortly after the observation window ends, followed by a second collision involving the trailing vehicles EGO_ego_vehicle_behind and EGO_other_vehicle_behind which are not mutually observing one another.",
+  "data_limitations": ""
+ }
+}

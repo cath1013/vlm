@@ -1,0 +1,620 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-1",
+    "t_start_s": 0.0,
+    "t_end_s": 1.0,
+    "n_snapshots": 3
+   },
+   "scenario_ref": "scn_fd4ee598013e",
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 4,
+    "FN": 0
+   },
+   "accuracy": 0.8,
+   "precision": 0.0,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": []
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "excluded_buckets": [],
+   "data_end_s": 6.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All moving actors maintain sufficient separation, and stopped vehicles remain stationary, preventing any clear path overlaps during this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "FP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "V016 (eastbound on Road 62) and V031 (initially southwestbound, then westbound on Road 62) are predicted to have a head-on collision. Their future paths show their North coordinates converging to within 0.2m and their East coordinates overlapping as they travel in opposite directions.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "Apart from the collision between V016 and V031 already predicted in the previous interval, other actors maintain safe distances from each other.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All remaining active actors continue on their paths without significant convergence or overlap, and no new conflicts are identified.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "No clear physical contact or body overlap is observed among any actors in this final interval, as paths remain separated.",
+     "confidence": "high"
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "0-2",
+    "t_start_s": 0.0,
+    "t_end_s": 2.0,
+    "n_snapshots": 5
+   },
+   "scenario_ref": "scn_fd4ee598013e",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 2,
+    "FN": 1
+   },
+   "accuracy": 0.667,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     3,
+     4,
+     5
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "excluded_buckets": [],
+   "data_end_s": 6.5,
+   "event": {
+    "k_true": 5,
+    "credit_buckets": [
+     3,
+     4,
+     5
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All predicted paths show clear separation between vehicles and pedestrians, with no overlaps in space and time.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All predicted paths show clear separation between vehicles and pedestrians, with no overlaps in space and time.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All predicted paths show clear separation between vehicles and pedestrians, with no overlaps in space and time.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All predicted paths show clear separation between vehicles and pedestrians, with no overlaps in space and time.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All predicted paths show clear separation between vehicles and pedestrians, with no overlaps in space and time.",
+     "confidence": "high"
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "0-3",
+    "t_start_s": 0.0,
+    "t_end_s": 3.0,
+    "n_snapshots": 7
+   },
+   "scenario_ref": "scn_fd4ee598013e",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.5,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 6.5,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     2,
+     3,
+     4
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All predicted vehicle and pedestrian paths maintain sufficient separation, with no clear geometric overlap or conflict identified.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicles and pedestrians continue on their predicted paths without any clear spatial overlap or dangerous convergence points.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Predicted trajectories show adequate clearance between all actors; the closest interactions, such as EGO_ego_vehicle_behind with pedestrians P019/P024, maintain a separation of over 2 meters, which is not a clear overlap.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Actors continue to navigate safely, with no predicted paths converging to the point of physical contact or body overlap.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All actors maintain safe distances from each other throughout this interval, and no collisions are evident from their projected movements."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "0-4",
+    "t_start_s": 0.0,
+    "t_end_s": 4.0,
+    "n_snapshots": 9
+   },
+   "scenario_ref": "scn_fd4ee598013e",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 6.5,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles and pedestrians maintain sufficient separation at their predicted positions, indicating no clear physical contact.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles and pedestrians maintain sufficient separation at their predicted positions, indicating no clear physical contact.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Vehicle N013 (van), traveling northbound on Road 62, collides with the stopped vehicle V012 (car), also on Road 62 northbound. Their predicted paths overlap, with a center-to-center distance of approximately 2.08m, indicating body overlap given standard vehicle widths.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      3019,
+      3018
+     ],
+     "extra_actor_ids": [
+      "N013",
+      "V012"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The collision between N013 and V012 continues. Vehicle V014 (car), also traveling northbound on Road 62 and approaching the scene, collides with V012/N013. V014's path at t=8s places its center approximately 3.9m from V012's center in the same lane, resulting in body overlap with the stopped vehicle or the primary collision."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The multi-vehicle collision involving N013, V012, and V014 persists, with all three vehicles' predicted positions showing continued body overlap."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fd4ee598013e",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 6.5,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All observed vehicles maintain safe distances from each other and from stopped actors in this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Vehicle V014 is predicted to collide with the stopped van N013 due to insufficient lateral clearance while passing. V014's path at t=7s places its center within 1.7m of N013's center, indicating a body overlap.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      3019,
+      3018
+     ],
+     "extra_actor_ids": [
+      "N013",
+      "V014"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Apart from the prior interaction, all vehicles are maintaining safe distances and their paths do not suggest further conflicts."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicles continue to proceed along their predicted paths with no new collision scenarios identified."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All actors are moving or remaining stopped in clear separation without any projected overlaps."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 5,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fd4ee598013e",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 6.5,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle's predicted paths converge at (68.5, -69.6) and (68.2, -67.0) respectively in this interval, indicating an orthogonal collision at a junction with only 2.6 meters separation between vehicle centers.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      3019,
+      3018
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "After the initial conflict in k=1, EGO_ego_vehicle and EGO_other_vehicle diverge, and no other vehicle paths show clear signs of collision."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicles are maintaining safe distances from each other, and no converging paths suggest a collision."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No clear path overlaps or dangerously close proximities are observed among any actors."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All predicted trajectories show vehicles continuing to drive safely without any critical conflicts."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 6,
+  "counts": {
+   "TP": 3,
+   "FP": 1,
+   "TN": 7,
+   "FN": 2
+  },
+  "accuracy": 0.769,
+  "precision": 0.75,
+  "recall": 0.6,
+  "vehicle_recall_mean": 0.333,
+  "actor_precision_mean": 0.333,
+  "events": {
+   "n": 5,
+   "exact": 3,
+   "early": 0,
+   "none": 2,
+   "detection_rate": 0.6,
+   "mean_lead_s": -0.4
+  },
+  "response_issue_counts": {}
+ }
+}

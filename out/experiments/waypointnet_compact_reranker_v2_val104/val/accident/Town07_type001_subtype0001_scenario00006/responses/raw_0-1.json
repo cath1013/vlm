@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are observed to pass each other with sufficient lateral separation, avoiding physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle at approximately 3.2 seconds due to insufficient following distance and a higher speed, resulting in a 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new direct contacts are explicitly predicted for this interval following the earlier collision event, and other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision between EGO_ego_vehicle and EGO_ego_vehicle_behind is predicted to occur in the (4.0, 5.0] second interval. EGO_ego_vehicle_behind is traveling faster and will close the distance to EGO_ego_vehicle, resulting in contact. All other actor pairs maintain safe clearances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6261,
+  "candidatesTokenCount": 574,
+  "totalTokenCount": 10714,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6261
+   }
+  ],
+  "thoughtsTokenCount": 3879,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "1eWYaomuCsmj9tMPm6HGkQY"
+}

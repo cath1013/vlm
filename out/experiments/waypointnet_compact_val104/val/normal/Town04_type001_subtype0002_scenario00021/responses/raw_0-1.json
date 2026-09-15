@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and no predicted contacts indicate an accident in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M018\", \"M019\", \"V014\", \"V015\"],\n      \"reason\": \"M019 collides with the stopped M018 as M019 travels northbound. Separately, V015 collides with the stopped V014 as V015 travels eastbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and no predicted contacts indicate an accident in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M018\", \"V020\", \"V002\", \"T001\"],\n      \"reason\": \"V020 collides with the stopped M018 as V020 travels northbound. Separately, V002 and T001 paths intersect, indicating a collision between the two moving vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and no predicted contacts indicate an accident in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are expected across the prediction window. In interval k=2, two separate rear-end collisions are predicted: M019 into M018, and V015 into V014. In interval k=4, another rear-end collision is predicted (V020 into M018), along with an orthogonal collision between V002 and T001.\",\n  \"data_limitations\": \"None.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7381,
+  "candidatesTokenCount": 620,
+  "totalTokenCount": 10288,
+  "cachedContentTokenCount": 885,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7381
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 885
+   }
+  ],
+  "thoughtsTokenCount": 2287,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fcuYauKVJ9GMvr0Po7mDkQQ"
+}

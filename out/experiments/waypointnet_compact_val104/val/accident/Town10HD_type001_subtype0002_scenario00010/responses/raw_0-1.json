@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted vehicle paths show imminent physical contact or overlap within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\",\n        \"V010\",\n        \"V029\"\n      ],\n      \"reason\": \"EGO_other_vehicle's right turn trajectory is predicted to conflict orthogonally with EGO_ego_vehicle's straight path. Additionally, V010 is predicted to collide with the stopped V029 in a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V010\",\n        \"V018\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"V016\"\n      ],\n      \"reason\": \"V010 is predicted to collide with the stopped V018. EGO_ego_vehicle is involved in two distinct crossing path conflicts, first with EGO_other_vehicle_behind and subsequently with V016.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V003\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind's southbound path is predicted to collide with V003's northeastbound path at their intersection point.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts a series of severe accidents across multiple future intervals, starting from k=3. Key conflicts include multiple crossing-path collisions involving the ego vehicle and other observer vehicles, as well as two instances of a moving vehicle colliding with a stopped vehicle. The predicted clearances of 0.0m strongly indicate physical contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7935,
+  "candidatesTokenCount": 690,
+  "totalTokenCount": 16394,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7935
+   }
+  ],
+  "thoughtsTokenCount": 7769,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kMmYavuLN_j91e8PnrXZoQY"
+}

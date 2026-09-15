@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle will enter the junction late in this interval, but other vehicles are still some distance from their respective junction entry points.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle (northbound) is expected to be crossing the junction while EGO_ego_vehicle_behind (westbound) enters the junction simultaneously, creating an orthogonal collision conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V012\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"Following the initial collision, the junction will be blocked. V012 (westbound) is predicted to enter the junction around 6.16s, leading to a secondary collision with the blocked intersection.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V012\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle (westbound) is predicted to enter the junction around 6.65s, likely resulting in a tertiary collision with the already blocked intersection.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V012\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"The junction will remain blocked by the prior collisions, posing a continued hazard and maintaining an accident state due to the existing wreckage.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A series of multi-vehicle collisions is highly probable at the three-way junction. The primary conflict arises from EGO_other_vehicle (northbound) and EGO_ego_vehicle_behind (westbound) attempting to cross the junction simultaneously. This initial accident is expected to block the junction, leading to subsequent collisions involving V012 and EGO_ego_vehicle as they are also predicted to proceed straight into the same intersection.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, or lane marking types significantly impacts the certainty of right-of-way assumptions at the junction. Predictions are based solely on observed motion and predicted paths, which may not account for unobserved traffic control.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10460,
+  "candidatesTokenCount": 809,
+  "totalTokenCount": 20678,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10460
+   }
+  ],
+  "thoughtsTokenCount": 9409,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XxqVauvyO4XK0-kPkfmxWA"
+}

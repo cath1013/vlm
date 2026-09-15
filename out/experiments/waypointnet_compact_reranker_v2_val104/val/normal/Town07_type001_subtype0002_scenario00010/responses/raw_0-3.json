@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles maintain safe distances from each other, and no converging paths suggest a risk of collision in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are on their predicted paths with sufficient separation, indicating no immediate risk of collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have a direct orthogonal collision at approximately 5.6 seconds after observation, as indicated by a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the predicted contact, the remaining vehicles continue along their paths with adequate separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances or are on diverging paths, thus no accident is expected.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the k=3 interval (5.0-6.0s after observation) involving EGO_ego_vehicle and EGO_other_vehicle due to an orthogonal intersection conflict where both vehicles are predicted to occupy the same space at the same time. No other accident scenarios are predicted during the entire 5-second window, and all other predicted closest pairs show safe clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5727,
+  "candidatesTokenCount": 575,
+  "totalTokenCount": 9742,
+  "cachedContentTokenCount": 851,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5727
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 851
+   }
+  ],
+  "thoughtsTokenCount": 3440,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5PKYaq_bFaHFvr0P69D5wAo"
+}

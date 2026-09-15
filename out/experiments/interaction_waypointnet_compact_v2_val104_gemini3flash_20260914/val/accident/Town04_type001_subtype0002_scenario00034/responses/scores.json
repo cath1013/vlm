@@ -1,0 +1,469 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_dbd0865cc304",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 3,
+    "FN": 1
+   },
+   "status": "mixed",
+   "accuracy": 0.75,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_buckets": 4,
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 8.5,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicles are maintaining safe lateral and longitudinal separation on their respective paths.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Actors are following converging but non-intersecting trajectories with sufficient clearance.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Trajectories of the ego vehicles and surrounding traffic show consistent spacing and no physical overlap.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "FN",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Maintained predicted clearance between EGO_ego_vehicle and EGO_other_vehicle exceeds the contact threshold.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Predicted minimum clearance between the closest actors remains positive at approximately 2 metres, avoiding contact."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_dbd0865cc304",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 2,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "n_buckets": 3,
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 8.5,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicles are approaching the convergence point with sufficient clearance in this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Clearance is narrowing as actors converge, but no physical contact is predicted within this timeframe.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at 8.5s (2.5s post-observation) due to converging paths at a junction/merge point.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5047,
+      5046
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Predicted footprints for these actors continue to overlap following the initial impact."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The vehicles remain in a state of collision based on their projected trajectories and lack of braking."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_dbd0865cc304",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "status": "mixed",
+   "accuracy": 0.5,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "n_buckets": 2,
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 8.5,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles maintain safe lateral and longitudinal separation within their respective lanes.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "FN",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Trajectories remain clear of physical overlap as vehicles continue through the junction.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Converging vehicles EGO_ego_vehicle and EGO_other_vehicle maintain a minimum predicted clearance of 1.0 meter."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind are on intersecting paths at a merge point and are predicted to collide at t=10.8s with 0.0m clearance."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new accidents are expected in this interval following the predicted contact in the previous second."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "3-8",
+    "t_start_s": 3.0,
+    "t_end_s": 8.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_dbd0865cc304",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "status": "TP",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 8.5,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle is predicted to sideswipe EGO_other_vehicle during an overtake with insufficient lateral clearance.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5047,
+      5046
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new collision is expected as vehicles follow their predicted trajectories with sufficient clearance."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new collision is expected as vehicles follow their predicted trajectories with sufficient clearance."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind have converging paths that lead to a side-on collision as they enter the same lane space."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new collision is expected as vehicles follow their predicted trajectories with sufficient clearance."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 4,
+  "n_buckets": 10,
+  "counts": {
+   "TP": 2,
+   "FP": 0,
+   "TN": 6,
+   "FN": 2
+  },
+  "accuracy": 0.8,
+  "precision": 1.0,
+  "recall": 0.5,
+  "vehicle_recall_mean": 1.0,
+  "actor_precision_mean": 1.0,
+  "events": {
+   "n": 4,
+   "exact": 2,
+   "early": 0,
+   "none": 2,
+   "detection_rate": 0.5,
+   "mean_lead_s": -0.4
+  },
+  "response_issue_counts": {}
+ }
+}

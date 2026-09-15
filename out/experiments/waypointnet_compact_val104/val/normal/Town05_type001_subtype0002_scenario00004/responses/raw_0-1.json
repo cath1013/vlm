@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are maintaining safe distances or diverging, with the closest pair (T026, T029) having a predicted clearance of 0.65m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V002\", \"V024\", \"V025\", \"V011\", \"V012\", \"V016\"],\n      \"reason\": \"Multiple collisions are predicted: V003 is projected to collide with stopped V002, V025 is predicted to rear-end stopped V024, V012 is predicted to collide with stopped V011, and V012 and V016 are on a collision course with crossing paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No direct physical contact is predicted; the closest pair (V024, T029) maintains a clearance of 0.67m, indicating safe passage.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V019\", \"M020\", \"EGO_ego_vehicle_behind\", \"V012\"],\n      \"reason\": \"V019 is predicted to rear-end M020 as both proceed eastbound in the same lane, and V012 is predicted to collide with EGO_ego_vehicle_behind, which remains stopped.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"C015\"],\n      \"reason\": \"C015 (bicycle) is predicted to rear-end V014 (car), which remains stopped in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high probability of multiple accidents, primarily rear-end collisions with stopped vehicles and crossing path conflicts. V012 is particularly involved in several predicted collision events across different intervals. The independent path predictions suggest these scenarios as potential risks for the respective vehicles.\",\n  \"data_limitations\": \"The trajectory predictor generates independent paths for each actor, leading to a single actor (V012) being involved in multiple, potentially simultaneous, collision events. This suggests that the predicted interactions do not account for real-time arbitration or behavioral adjustments that would occur in a real-world scenario.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9139,
+  "candidatesTokenCount": 758,
+  "totalTokenCount": 14299,
+  "cachedContentTokenCount": 908,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9139
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 908
+   }
+  ],
+  "thoughtsTokenCount": 4402,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kMyYasCiLNf01e8P3vnBkQY"
+}

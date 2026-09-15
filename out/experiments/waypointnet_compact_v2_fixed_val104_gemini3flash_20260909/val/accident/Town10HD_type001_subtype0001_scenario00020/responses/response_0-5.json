@@ -1,0 +1,67 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 75.78,
+ "usage": {
+  "input": 9076,
+  "output": 695
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are approaching a potential conflict zone but maintain safe clearance during this first one-second interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind is traveling South and drifting into the opposing lane, resulting in a sideswipe collision with the stopped EGO_ego_vehicle at approximately 1.9s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind continues its Southbound encroachment, finishing its contact with the first vehicle and initiating a head-on collision with EGO_ego_vehicle_behind at approximately 2.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The head-on collision between EGO_other_vehicle_behind and EGO_ego_vehicle_behind continues as their projected trajectories show significant physical overlap while passing through each other.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "By this interval, the projected paths of the Southbound and Northbound vehicles have passed each other and no longer show physical contact.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The sequence of events is driven by EGO_other_vehicle_behind traveling South and drifting laterally into the Northbound lane (Road 296/466). This causes an initial sideswipe of the stopped EGO_ego_vehicle at t=6.9s followed immediately by a direct head-on collision with EGO_ego_vehicle_behind at t=7.8s.",
+  "data_limitations": ""
+ }
+}

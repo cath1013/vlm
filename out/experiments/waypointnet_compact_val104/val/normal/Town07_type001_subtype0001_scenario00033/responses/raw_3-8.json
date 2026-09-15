@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe positive clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe positive clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle, performing a right turn onto Road 11, is predicted to collide with V001 which is stopped on Road 11, resulting in zero minimum clearance at approximately 2.9 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"EGO_other_vehicle, continuing its right turn, is predicted to collide with V002 which is stopped on Road 11, resulting in zero minimum clearance at approximately 4.0 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_other_vehicle continues to be in close proximity to T003 and V014, the predicted paths show a minimum clearance of 1.52m and 5.95m respectively, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts two sequential accidents involving 'EGO_other_vehicle' colliding with stopped vehicles 'V001' and 'V002' as it executes a right turn across their stationary positions on Road 11. These collisions are expected in the k=3 and k=4 intervals. All other interactions show sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6446,
+  "candidatesTokenCount": 635,
+  "totalTokenCount": 10258,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6446
+   }
+  ],
+  "thoughtsTokenCount": 3177,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "q8WYap7vBZ7N0-kPwemOqQI"
+}

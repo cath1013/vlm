@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V002\", \"V025\", \"V026\", \"M001\", \"V022\", \"V012\", \"V013\", \"V017\"],\n      \"reason\": \"Multiple collisions are predicted: V003 collides with stopped V002 (rear-end). V026 collides with stopped V025 (rear-end). M001 collides with V022 at a junction (orthogonal conflict). V013 collides with stopped V012 (angled). V013 also collides with V017 (head-on/angled).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No clear physical contact or body overlap is predicted between any actors in this interval based on their future trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V020\", \"M021\", \"EGO_ego_vehicle_behind\", \"V013\"],\n      \"reason\": \"Two collisions are predicted: V020 collides with M021 (rear-end) as V020 overtakes M021 on a converging path. V013 collides with the stopped EGO_ego_vehicle_behind (angled).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No clear physical contact or body overlap is predicted between any actors in this interval based on their future trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"C016\"],\n      \"reason\": \"C016 collides with the stopped V015 (rear-end collision) as C016 proceeds westbound.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts multiple accidents occurring across several 1-second intervals. The first interval (1-2s) is particularly congested with five distinct collision events, followed by two more in the third interval (3-4s), and one in the fifth interval (5-6s). Most incidents involve a moving vehicle colliding with a stopped vehicle or vehicles having orthogonal or head-on conflicts at converging points.\",\n  \"data_limitations\": \"The 'interval_index' field in 'predicted_closest_pairs' appears to be inconsistent with the strict definition of 'k-th interval is (k-1, k] seconds after the last observed timestep', as it seems to be off by one for several entries. The 'k' values for predictions were determined by strictly interpreting 'time_after_observation_s' against the given interval definitions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9182,
+  "candidatesTokenCount": 824,
+  "totalTokenCount": 17065,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9182
+   }
+  ],
+  "thoughtsTokenCount": 7059,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "MciYavL6Ho392roPoaynGQ"
+}

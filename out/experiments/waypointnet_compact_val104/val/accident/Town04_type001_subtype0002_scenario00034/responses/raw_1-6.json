@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance from each other, with the closest pair having a minimum clearance of 1.53m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with the closest pair having a minimum clearance of 7.66m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"The predicted paths of EGO_ego_vehicle and EGO_other_vehicle show an orthogonal entry conflict, resulting in simultaneous body contact or overlap with 0.0m minimum clearance at approximately 2.4 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle_behind and EGO_other_vehicle_behind have a small minimum clearance of 0.57m, predicted contact is explicitly false, indicating no physical overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with the closest pair having a minimum clearance of 7.82m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is expected in the third 1-second interval (k=3) between EGO_ego_vehicle and EGO_other_vehicle due to a clear path intersection leading to predicted body contact. For all other intervals, vehicles are predicted to maintain sufficient clearance, and no accidents are expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7403,
+  "candidatesTokenCount": 599,
+  "totalTokenCount": 11246,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7403
+   }
+  ],
+  "thoughtsTokenCount": 3244,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "e8iYatacLd-_1e8Pt9fX8AY"
+}

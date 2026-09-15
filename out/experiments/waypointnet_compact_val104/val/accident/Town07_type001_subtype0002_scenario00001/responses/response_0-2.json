@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 32.31,
+ "usage": {
+  "input": 5481,
+  "output": 618
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V006",
+     "V007"
+    ],
+    "reason": "V007 is predicted to collide with the rear of V006 at approximately 4.8s. V006 is stopped on Road 47, while V007 is moving eastbound along the same road, leading to a rear-end collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V016",
+     "V002"
+    ],
+    "reason": "V016 is predicted to collide with V002 at approximately 6.4s. V016, moving northbound at a higher speed, appears to rear-end V002, which is moving slower and possibly decelerating or turning.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two potential rear-end collisions are predicted within the next five 1-second intervals. The first involves V007 colliding with a stopped V006 in interval (4, 5]s. The second involves V016 colliding with the rear of V002 in interval (6, 7]s, as V016's path overtakes V002's slower trajectory.",
+  "data_limitations": ""
+ }
+}

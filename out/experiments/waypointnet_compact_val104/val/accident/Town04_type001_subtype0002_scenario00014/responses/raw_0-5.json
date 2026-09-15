@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths show sufficient clearance between actors, with the closest pair (P007 and P008) maintaining a safe distance of 0.52m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind, moving north, is predicted to collide with EGO_other_vehicle_behind, moving east, at 7.0s, as their paths intersect orthogonally, resulting in 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\", \"M022\", \"N023\"],\n      \"reason\": \"V003 (car) is predicted to collide with the stopped V002 (car) at 7.1s, as V003's westward path directly overlaps V002's stationary position. Additionally, N023 (van) is predicted to collide with the stopped M022 (motorcycle) at 7.2s, as N023's westward path also directly overlaps M022's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No significant conflicts or dangerously close interactions are predicted, with the closest pair maintaining a clearance of 1.15m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P012\", \"P015\", \"EGO_ego_vehicle_behind\", \"P010\"],\n      \"reason\": \"P012 and P015 (persons), both moving west, are predicted to collide at 9.2s due to overlapping parallel paths. Simultaneously, EGO_ego_vehicle_behind (car) moving north is predicted to collide with P010 (person) also moving north at 9.9s, due to a lateral overlap of their paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the next 5 seconds. EGO_ego_vehicle_behind is involved in two distinct collision events: one with another observer vehicle (EGO_other_vehicle_behind) at an intersection, and another with a pedestrian (P010) in a lateral overlap situation. Additionally, two separate rear-end collisions are predicted where moving vehicles collide with stationary vehicles, and two pedestrians are predicted to collide while walking in close parallel paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11184,
+  "candidatesTokenCount": 807,
+  "totalTokenCount": 18359,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11184
+   }
+  ],
+  "thoughtsTokenCount": 6368,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "uMeYarKiCbOM1e8P-JqlgQY"
+}

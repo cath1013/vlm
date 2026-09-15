@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap during this interval, maintaining safe clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T021\", \"V022\"],\n      \"reason\": \"V022 (car) is predicted to rear-end the stopped truck T021 along the southbound lane at approximately 2.1 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T021\", \"V022\", \"V023\"],\n      \"reason\": \"V023 (car) is predicted to rear-end T021 (truck) at approximately 3.4 seconds, and V022 (car) is predicted to rear-end V023 (car) at approximately 3.7 seconds. This forms a multi-vehicle rear-end collision sequence, following the initial collision between V022 and T021 in the prior interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts or overlaps are predicted to occur in this interval, and existing collision events were identified in previous intervals.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind (car) is predicted to rear-end EGO_ego_vehicle (car) at approximately 5.4 seconds after the last observation, as EGO_ego_vehicle decelerates and EGO_ego_vehicle_behind accelerates and closes the gap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario involves two distinct accident sequences. First, a multi-vehicle rear-end collision is predicted to occur in the southbound lane involving T021, V022, and V023 across intervals k=2 and k=3. Second, a rear-end collision is predicted between the observer's vehicle and a following observer vehicle in interval k=5, as the following vehicle accelerates and the leading vehicle slows.\",\n  \"data_limitations\": \"The future paths for EGO_ego_vehicle and EGO_ego_vehicle_behind are only explicitly provided up to 5 seconds. The predicted contact at 5.4 seconds requires extrapolation beyond the provided waypoints, although the system explicitly marked predicted contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9035,
+  "candidatesTokenCount": 765,
+  "totalTokenCount": 19334,
+  "cachedContentTokenCount": 907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9035
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 907
+   }
+  ],
+  "thoughtsTokenCount": 9534,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "W8OYatKuJrDM0-kPwPDAoAw"
+}

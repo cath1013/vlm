@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances based on their predicted paths; no contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_other_vehicle passes T004 with a clearance of 0.85m, this is not a contact given T004 is stopped and EGO_other_vehicle is passing by.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances, with the closest pair, EGO_other_vehicle and V005, having a clearance of 1.33m as EGO_other_vehicle passes a stopped V005.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle (southbound) and EGO_other_vehicle_behind (eastbound) are predicted to have simultaneous body contact (0.0m clearance) at 3.8s after observation, indicating an orthogonal intersection collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new accident is predicted in this interval, as the closest pair listed, EGO_ego_vehicle_behind and EGO_other_vehicle_behind, maintain a large clearance of 14.32m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the (11.0, 12.0] second interval between EGO_ego_vehicle and EGO_other_vehicle_behind due to conflicting paths at a perpendicular intersection. All other interactions throughout the 5-second prediction window maintain safe clearances or involve passing stopped vehicles.\",\n  \"data_limitations\": \"The independent prediction of future paths means that the later intervals (e.g., k=5) do not account for the consequences of the predicted collision in k=4, but this does not affect the prediction of collision occurrence itself.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7758,
+  "candidatesTokenCount": 693,
+  "totalTokenCount": 13730,
+  "cachedContentTokenCount": 891,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7758
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 891
+   }
+  ],
+  "thoughtsTokenCount": 5279,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "dvGYao6tFJf91e8PppTJgQY"
+}

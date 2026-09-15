@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The paths of all actors maintain sufficient clearance throughout this interval, with no geometric indication of contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted future paths indicate safe distances are maintained between vehicles, and no contact is geometrically supported.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"C011\", \"N034\", \"V003\", \"V030\", \"V028\"],\n      \"reason\": \"Multiple collisions are predicted: C011 (bicycle) collides with EGO_other_vehicle (car) from behind on Road 1; N034 (van) rear-ends V003 (car) on Road 675; and V030 (car) collides with V028 (stopped car) on Road 8.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V012\"],\n      \"reason\": \"V012 (car) is predicted to collide with V001 (stopped car) as V012 proceeds from Road 675 onto Road 2.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths of all remaining actors maintain sufficient clearance, and no further contacts are geometrically supported.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the forecast window, specifically in intervals k=3 and k=4. These involve a bicycle rear-ending a car, a van rear-ending a car, a car colliding with a stopped vehicle, and another car colliding with a stopped vehicle at a junction. The predictions are based on zero minimum clearance values from the trajectory predictor.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10414,
+  "candidatesTokenCount": 651,
+  "totalTokenCount": 14681,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10414
+   }
+  ],
+  "thoughtsTokenCount": 3616,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Dc-YavvtI6Gz1e8P5f-xiAY"
+}

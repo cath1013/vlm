@@ -1,0 +1,468 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-1",
+    "t_start_s": 0.0,
+    "t_end_s": 1.0,
+    "n_snapshots": 3
+   },
+   "scenario_ref": "scn_d3f8245ff9e4",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     2,
+     3,
+     4
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "early",
+    "lead_s": 1.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "Vehicles are still approaching the junction; no direct orthogonal conflicts are predicted to occur within this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "V021 is predicted to enter the junction at t=2.62s, but no other vehicle is projected to enter an orthogonal path within this interval to create an immediate conflict.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Multiple vehicles are predicted to enter the four-way junction with crossing paths within a very tight timeframe: V016 (Westbound) at t=3.03s, EGO_other_vehicle (Northbound) at t=3.50s, and V018 (Westbound) at t=3.80s. V021 (Eastbound), having entered at t=2.62s, is also likely still traversing the junction. All are predicted to go straight, leading to high-confidence orthogonal conflicts between EGO_other_vehicle and V016/V018, and potentially V021.",
+     "confidence": "high",
+     "vehicle_recall": 0.5,
+     "actor_precision": 0.25,
+     "matched_carla_ids": [
+      3017
+     ],
+     "missed_carla_ids": [
+      3024
+     ],
+     "extra_actor_ids": [
+      "V016",
+      "V018",
+      "V021"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "While the aftermath of the predicted accident in k=3 would be present, no new primary conflicts are projected to initiate within this interval from the current observation.",
+     "confidence": "medium"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "P010 (person) is predicted to enter the junction at t=5.3s, but no direct vehicle-to-vehicle conflicts are identified to occur in this interval, especially given the potential for prior accidents."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "0-2",
+    "t_start_s": 0.0,
+    "t_end_s": 2.0,
+    "n_snapshots": 5
+   },
+   "scenario_ref": "scn_d3f8245ff9e4",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": 0.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "A linear-extrapolated contact in 1.3s is predicted between pedestrian P014 (7km/h) and stopped car V021, which are only 5.9m apart near a junction, indicating an imminent pedestrian-vehicle collision.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "An orthogonal entry conflict is expected at junction J5 between pedestrians P013 and P014, with a Time To Contact (TTC) of 3.8s, indicating a collision within this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "An orthogonal entry conflict is expected at junction J5 between car V002 and pedestrian P014 (TTC 4.3s). Additionally, a car-following collision is expected between motorcycle M027 and bicycle C028 (TTC 4.6s) due to their closing speeds.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      3024,
+      3017
+     ],
+     "extra_actor_ids": [
+      "C028",
+      "M027",
+      "P014",
+      "V002"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new imminent conflicts with low Time To Contact (TTC) or explicit interaction warnings are identified for this interval beyond those already addressed."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new imminent conflicts with low Time To Contact (TTC) or explicit interaction warnings are identified for this interval."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "0-3",
+    "t_start_s": 0.0,
+    "t_end_s": 3.0,
+    "n_snapshots": 7
+   },
+   "scenario_ref": "scn_d3f8245ff9e4",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": 0.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_other_vehicle_behind has a linear-extrapolated time to contact (TTC) of 0.4 seconds with C028, indicating an imminent rear-end collision on Road 43 southbound.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle has a linear-extrapolated TTC of 1.2 seconds with N020 (rear-end on Road 3 eastbound), and V015 has a linear-extrapolated TTC of 1.2 seconds with M027 (rear-end on Road 43 northbound), both indicating high likelihood of collision early in this interval.",
+     "confidence": "high",
+     "vehicle_recall": 0.5,
+     "actor_precision": 0.25,
+     "matched_carla_ids": [
+      3024
+     ],
+     "missed_carla_ids": [
+      3017
+     ],
+     "extra_actor_ids": [
+      "M027",
+      "N020",
+      "V015"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "P010 (Road 44 southbound) and P013 (Road 868 eastbound) are both pedestrians converging on an orthogonal junction around t=5.5s and t=5.8s respectively, posing a high risk of pedestrian-pedestrian conflict."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The pedestrian conflict between P010 and P013 at the junction is likely to persist or resolve in this interval if not already concluded in k=3."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Based on the observed trajectories and extrapolated linear movements, no new high-risk conflicts are immediately apparent for this interval, assuming prior collisions have resolved."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "0-4",
+    "t_start_s": 0.0,
+    "t_end_s": 4.0,
+    "n_snapshots": 9
+   },
+   "scenario_ref": "scn_d3f8245ff9e4",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": 0.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle has an orthogonal entry conflict with EGO_other_vehicle at junction J6 with a TTC of 0.1s. Additionally, EGO_ego_vehicle is in immediate conflict with P014 (0.5s TTC) and V021 (0.8s TTC). Multiple vehicles on Road 43 (V015, V026, C028, V029) also have linear-extrapolated contacts with TTCs between 0.8s and 1.0s, indicating imminent conflicts at or near the junction.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 0.25,
+     "matched_carla_ids": [
+      3024,
+      3017
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [
+      "C028",
+      "P014",
+      "V015",
+      "V021",
+      "V026",
+      "V029"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle is involved in linear-extrapolated contacts with P008 (1.2s TTC) and P014 (1.3s TTC). EGO_ego_vehicle_behind is closing on V019 (1.5s TTC), and V001 and P013 have an imminent junction conflict (1.8s TTC), indicating a high likelihood of multiple collisions."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Multiple linear-extrapolated contacts and junction conflicts with TTCs between 2.0s and 2.6s are expected, including C028 rear-ending the stopped EGO_other_vehicle_behind, V002 rear-ending the stopped V001, an orthogonal junction conflict between EGO_ego_vehicle_behind and EGO_other_vehicle, and numerous other conflicts involving EGO_other_vehicle and other road users."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "V005 is following V006 with a TTC of 3.1s, indicating a likely rear-end collision."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "M004 is following V005 with a TTC of 4.7s, indicating a likely rear-end collision."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 4,
+  "counts": {
+   "TP": 4,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0
+  },
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "vehicle_recall_mean": 0.5,
+  "actor_precision_mean": 0.188,
+  "events": {
+   "n": 4,
+   "exact": 3,
+   "early": 1,
+   "none": 0,
+   "detection_rate": 1.0,
+   "mean_lead_s": 0.25
+  },
+  "response_issue_counts": {}
+ }
+}

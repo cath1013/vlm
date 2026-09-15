@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient separation, with no path overlaps or critical clearances indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient separation, with no path overlaps or critical clearances indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain sufficient separation, with the closest pair (EGO_other_vehicle_behind and M008) having a clearance of 5.88m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"The predicted paths of EGO_other_vehicle and EGO_other_vehicle_behind indicate a body overlap with a minimum clearance of 0.0m at 3.7 seconds after observation (within this interval), suggesting a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the previous interval, no new contacts or body overlaps are explicitly predicted for this interval from the supplied path geometry.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur in the (7.0, 8.0] second interval (k=4) involving EGO_other_vehicle and EGO_other_vehicle_behind due to their predicted paths converging to a 0.0m clearance. For all other intervals and vehicle pairs, sufficient separation is maintained, and no other collisions are predicted based on the provided data.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7494,
+  "candidatesTokenCount": 600,
+  "totalTokenCount": 11944,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7494
+   }
+  ],
+  "thoughtsTokenCount": 3850,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xumYapG5MZOe0-kPs6XjoA8"
+}

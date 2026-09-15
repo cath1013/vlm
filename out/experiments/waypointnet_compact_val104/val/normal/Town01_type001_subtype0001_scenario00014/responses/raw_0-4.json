@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain clear separation based on their predicted paths, with the closest predicted clearances being over 2 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002 is predicted to collide with V001, which is stopped ahead in the same lane, leading to a rear-end collision at approximately 1.9 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain clear separation based on their predicted paths; the closest predicted pair (V002 and P006) has over 4 meters clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain clear separation based on their predicted paths, with no conflicts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind (northbound) and EGO_other_vehicle (westbound) are predicted to have an orthogonal intersection conflict at approximately 4.7 seconds after the last observation, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted within the 5-second prediction window. A rear-end collision between V001 and V002 is expected in the second interval, followed by an orthogonal intersection conflict between EGO_ego_vehicle_behind and EGO_other_vehicle in the fifth interval. All other actors are predicted to maintain safe clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6075,
+  "candidatesTokenCount": 613,
+  "totalTokenCount": 11460,
+  "cachedContentTokenCount": 860,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6075
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 860
+   }
+  ],
+  "thoughtsTokenCount": 4772,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "psGYaoyjCbeArfcPhcDukAg"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or close interactions indicate an accident in this interval; all vehicles maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N002\", \"V003\"],\n      \"reason\": \"V003 (car) is predicted to collide with N002 (van) at approximately 5.8 seconds, indicating a potential side-swipe or overtaking conflict as V003 overtakes N002 while moving south.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"P004\"],\n      \"reason\": \"V003 (car) is predicted to collide with P004 (person) at approximately 6.7 seconds, suggesting an orthogonal entry conflict as the car moves south and the person moves east.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V026\", \"V011\", \"N002\", \"P004\"],\n      \"reason\": \"Two separate collisions are predicted: V026 (car) collides with V011 (car) at approximately 7.2 seconds in a rear-end or side-swipe during an overtaking maneuver, and N002 (van) collides with P004 (person) at approximately 7.7 seconds in an orthogonal entry conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\", \"V003\", \"C024\"],\n      \"reason\": \"Two separate collisions are predicted: EGO_ego_vehicle (car) collides with EGO_other_vehicle_behind (car) at approximately 8.8 seconds in a head-on conflict, and V003 (car) collides with C024 (bicycle) at approximately 8.9 seconds in a rear-end conflict while traveling in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window reveals a series of escalating conflicts across the five future 1-second intervals. After an initially clear interval, multiple collisions are predicted involving both observer and other road users, including overtaking side-swipes, orthogonal junction conflicts, head-on collisions, and rear-end impacts. The scene indicates significant safety concerns.\",\n  \"data_limitations\": \"The position quality for V026 is 0.75, which introduces a slight uncertainty for the predicted collision involving V026 and V011, though the 0.0m clearance still strongly indicates contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9211,
+  "candidatesTokenCount": 806,
+  "totalTokenCount": 20905,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9211
+   }
+  ],
+  "thoughtsTokenCount": 10888,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "e76YauWkO6unvr0PhP_X4QY"
+}

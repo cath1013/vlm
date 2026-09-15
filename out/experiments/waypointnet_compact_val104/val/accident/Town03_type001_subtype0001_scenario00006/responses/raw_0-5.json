@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, and no conflicts are indicated for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, and no conflicts are indicated for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T003\"],\n      \"reason\": \"V005 is predicted to make a left turn, directly crossing the path of T003 which is proceeding straight, resulting in an orthogonal entry collision at t=8.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"T006\", \"M002\", \"T003\"],\n      \"reason\": \"An orthogonal entry collision is predicted between EGO_other_vehicle_behind and T006 at t=8.1s as their paths intersect at a junction. Additionally, T003 is predicted to collide with M002 from behind at t=9.0s due to converging paths while both move eastbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"V004\"],\n      \"reason\": \"V004 is predicted to collide with T003 at t=9.8s as V004's path converges with and overlaps T003's path from behind.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of multiple collisions occurring in the latter half of the 5-second prediction window. These include two orthogonal intersection conflicts and two rear-end or side-swipe collisions involving vehicles traveling in similar directions.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9377,
+  "candidatesTokenCount": 627,
+  "totalTokenCount": 14131,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9377
+   }
+  ],
+  "thoughtsTokenCount": 4127,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "tL6YaqPeFuff1e8PzIHF2AY"
+}

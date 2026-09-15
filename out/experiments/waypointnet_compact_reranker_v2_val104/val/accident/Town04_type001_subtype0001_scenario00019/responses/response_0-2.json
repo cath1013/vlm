@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 9.26,
+ "usage": {
+  "input": 8401,
+  "output": 536
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted vehicle paths indicate vehicles maintaining safe distances and proceeding without conflict in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted vehicle paths indicate vehicles maintaining safe distances and proceeding without conflict in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted vehicle paths indicate vehicles maintaining safe distances and proceeding without conflict in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted vehicle paths indicate vehicles maintaining safe distances and proceeding without conflict in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "An orthogonal intersection conflict is predicted between EGO_ego_vehicle and EGO_other_vehicle, resulting in simultaneous body contact or overlap at approximately 5.0 seconds after observation.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is predicted in the final interval (k=5) involving the EGO_ego_vehicle and EGO_other_vehicle due to an intersection conflict. For intervals k=1 through k=4, all vehicles are expected to maintain safe clearances based on their predicted trajectories.",
+  "data_limitations": ""
+ }
+}

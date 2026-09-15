@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.34,
+ "usage": {
+  "input": 7803,
+  "output": 577
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient clearance, and no contacts are indicated in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient clearance, and no contacts are indicated in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V013",
+     "M025"
+    ],
+    "reason": "M025 (motorcycle) is predicted to collide with the stopped V013 (car) at 2.8 seconds after observation, as M025's straight path intersects with V013's stationary position.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new physical contact or body overlap is predicted to initiate in this interval, and other actors maintain sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient clearance, and no contacts are indicated in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A high-confidence collision is predicted between the motorcycle M025 and the stopped car V013 in the third 1-second interval (8.0, 9.0] seconds after the observation. M025 is predicted to continue on a straight path, directly impacting V013 which is expected to remain stationary. All other observed actors are predicted to maintain safe clearances throughout the 5-second prediction window.",
+  "data_limitations": ""
+ }
+}

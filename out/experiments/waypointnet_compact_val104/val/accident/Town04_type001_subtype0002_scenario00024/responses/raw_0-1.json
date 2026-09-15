@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and follow their respective lanes, with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V007\", \"V008\"],\n      \"reason\": \"Vehicle V008 is predicted to rear-end the stopped vehicle V007 as V008 proceeds eastbound in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle while both are traveling westbound in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and continue along their predicted paths without intersecting.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M004\", \"V005\", \"V003\"],\n      \"reason\": \"Vehicle V005 is predicted to first rear-end M004, and subsequently V003, as all three vehicles travel northbound in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple rear-end collisions are predicted within the 5-second prediction window. Specifically, a stopped vehicle (V007) is hit by V008 in interval k=2. The ego vehicle (EGO_ego_vehicle) is predicted to be rear-ended by EGO_ego_vehicle_behind in interval k=3. Later, in interval k=5, V005 is predicted to cause a chain collision by rear-ending M004 and then V003.\",\n  \"data_limitations\": \"No information on traffic signal states or dynamic road rules (e.g., stop signs) is available. All path predictions assume independent maneuvering without explicit cooperative behavior.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7449,
+  "candidatesTokenCount": 658,
+  "totalTokenCount": 11854,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7449
+   }
+  ],
+  "thoughtsTokenCount": 3747,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "s8eYaqe6Efqb0-kPtv6CeA"
+}

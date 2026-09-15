@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 42.02,
+ "usage": {
+  "input": 9308,
+  "output": 471
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The southbound vehicle EGO_other_vehicle_behind is still approximately 6.5 metres north of the stopped EGO_ego_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind drifts laterally from its lane into the space occupied by the stopped EGO_ego_vehicle, resulting in a collision at approximately 6.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in a state of collision as the tilted footprint of EGO_other_vehicle_behind continues to overlap with the stopped vehicle.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The rear portion of EGO_other_vehicle_behind is still passing through the longitudinal footprint of the stopped EGO_ego_vehicle.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The southbound vehicle has now moved entirely south of the stopped vehicle's longitudinal position.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The southbound vehicle EGO_other_vehicle_behind is on a trajectory that includes a significant lateral shift towards the east, crossing the center line or lane boundary. This leads to a predicted collision with the stopped EGO_ego_vehicle starting at approximately 1.5 seconds after the observation window, with the overlap persisting for roughly two seconds.",
+  "data_limitations": ""
+ }
+}

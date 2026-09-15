@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind performs a right turn into the path of EGO_ego_vehicle, resulting in a predicted body contact at 0.7 seconds into the interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle_behind makes a left turn, resulting in predicted contact with EGO_ego_vehicle at 2.0 seconds into the interval. Additionally, EGO_other_vehicle_behind's right turn path intersects the stopped V001, leading to predicted contact at 1.6 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V002\", \"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle_behind's continued right turn path leads to predicted contact with the stopped V002 at 2.6 seconds. Concurrently, EGO_ego_vehicle's straight path leads to predicted contact with the stopped V001 at 3.0 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"T003\"],\n      \"reason\": \"EGO_other_vehicle_behind's right turn path continues to intersect with the position of the stopped T003, leading to predicted body contact at 3.8 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle's straight path leads to predicted contact with the stopped V002 at 4.2 seconds into the interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts multiple accidents involving EGO vehicles and other stopped or turning vehicles over the next five seconds. These include intersection conflicts where turning EGO vehicles collide with stopped vehicles (V001, V002, T003) and potential rear-end/side-swipe incidents between moving EGO vehicles due to conflicting paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6191,
+  "candidatesTokenCount": 775,
+  "totalTokenCount": 13979,
+  "cachedContentTokenCount": 862,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6191
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 862
+   }
+  ],
+  "thoughtsTokenCount": 7013,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "-OaYatbZL_rdvr0P3YSPkQk"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap within this interval; all closest pair clearances are positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\"],\n      \"reason\": \"V003 is predicted to rear-end the stopped V002 at 1.5 seconds after observation (t=8.5s) with a minimum clearance of 0.0m, indicating body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V006\", \"C001\", \"V004\"],\n      \"reason\": \"Two separate collisions are predicted: EGO_other_vehicle and V006 will collide at a junction at 2.4s (t=9.4s), and V004 will rear-end C001 at 2.9s (t=9.9s), both with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap within this interval; all closest pair clearances are positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap within this interval; all closest pair clearances are positive.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Three distinct accidents are predicted within the 5-second prediction window. The first is a rear-end collision between V003 and V002 in the second interval. The third interval features two independent collisions: a junction conflict involving EGO_other_vehicle and V006, and another rear-end collision where V004 impacts C001.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7723,
+  "candidatesTokenCount": 651,
+  "totalTokenCount": 15285,
+  "cachedContentTokenCount": 890,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7723
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 890
+   }
+  ],
+  "thoughtsTokenCount": 6911,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "tMOYaq_EEeP82roP777joQo"
+}

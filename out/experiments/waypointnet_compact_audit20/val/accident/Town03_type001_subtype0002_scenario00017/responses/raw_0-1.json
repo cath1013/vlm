@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe following distances or clear separation while proceeding along their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe following distances or clear separation while proceeding along their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe following distances or clear separation while proceeding along their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V002\", \"M005\", \"V004\"],\n      \"reason\": \"V003 is expected to rear-end V002 on Road 19, with their paths converging to an overlap around t+4s. Similarly, M005 is expected to rear-end V004 on Road 2, with an overlap predicted around t+4s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M019\", \"V018\"],\n      \"reason\": \"M019 is expected to rear-end V018 on Road 20, as M019's higher speed causes its path to overlap with V018's path by t+5s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple rear-end collisions are predicted in the later intervals (k=4 and k=5). V003 and M005, both traveling faster than the vehicles ahead of them, are predicted to collide with V002 and V004 respectively around the 4-second mark. A third collision between M019 and V018 is anticipated around the 5-second mark due to similar speed differentials.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8585,
+  "candidatesTokenCount": 634,
+  "totalTokenCount": 21378,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8585
+   }
+  ],
+  "thoughtsTokenCount": 12159,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "y0WVarfrNryb1e8P5petkQM"
+}

@@ -1,0 +1,1353 @@
+{
+ "provider": "gemini",
+ "modes": [
+  "binary",
+  "strict",
+  "early",
+  "weighted"
+ ],
+ "late_decay": 0.2,
+ "early_decay": 0.0,
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-1",
+    "t_start_s": 0.0,
+    "t_end_s": 1.0,
+    "n_snapshots": 3
+   },
+   "scenario_ref": "scn_ac2528323e5c",
+   "modes": [
+    "binary",
+    "strict",
+    "early",
+    "weighted"
+   ],
+   "response_issues": [],
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 5,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     1,
+     2,
+     5
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 0,
+     "label": "0-1",
+     "t_start_s": 0.0,
+     "t_end_s": 1.0,
+     "n_snapshots": 3
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 2,
+     "TN": 2,
+     "FN": 0
+    },
+    "accuracy": 0.6,
+    "precision": 0.333,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      5
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "excluded_buckets": [],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 5,
+     "credit_buckets": [
+      5
+     ],
+     "credited_k": 5,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.8
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_ego_vehicle_behind (car) and T003 (truck) are predicted to have a collision as their paths converge and overlap at the end of this interval, indicated by a 0.0m minimum clearance.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "V006 (car) is predicted to collide with V005 (car) which is stopped, as V006's projected path overlaps with the stationary V005 during this interval, indicated by a 0.0m minimum clearance.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All predicted paths maintain sufficient clearance, and no overlaps or conflicts are indicated by the trajectory predictor for this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All predicted paths maintain sufficient clearance, and no overlaps or conflicts are indicated by the trajectory predictor for this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "V007 (car) is predicted to collide with V005 (car) which is stopped, as V007's projected path overlaps with the stationary V005 during this interval, indicated by a 0.0m minimum clearance.",
+      "confidence": "high",
+      "vehicle_recall": 0.0,
+      "actor_precision": 0.0,
+      "matched_carla_ids": [],
+      "missed_carla_ids": [
+       145,
+       137
+      ],
+      "extra_actor_ids": [
+       "V005",
+       "V007"
+      ],
+      "all_involved_observed": true
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 0,
+     "label": "0-1",
+     "t_start_s": 0.0,
+     "t_end_s": 1.0,
+     "n_snapshots": 3
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 2,
+     "TN": 0,
+     "FN": 0
+    },
+    "accuracy": 0.333,
+    "precision": 0.333,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 2.0,
+     "buckets": [
+      3,
+      4,
+      5
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "excluded_buckets": [],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 5,
+     "credit_buckets": [
+      3,
+      4,
+      5
+     ],
+     "credited_k": 5,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.8
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_ego_vehicle_behind (car) and T003 (truck) are predicted to have a collision as their paths converge and overlap at the end of this interval, indicated by a 0.0m minimum clearance.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "V006 (car) is predicted to collide with V005 (car) which is stopped, as V006's projected path overlaps with the stationary V005 during this interval, indicated by a 0.0m minimum clearance.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "All predicted paths maintain sufficient clearance, and no overlaps or conflicts are indicated by the trajectory predictor for this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "All predicted paths maintain sufficient clearance, and no overlaps or conflicts are indicated by the trajectory predictor for this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "V007 (car) is predicted to collide with V005 (car) which is stopped, as V007's projected path overlaps with the stationary V005 during this interval, indicated by a 0.0m minimum clearance.",
+      "confidence": "high",
+      "vehicle_recall": 0.0,
+      "actor_precision": 0.0,
+      "matched_carla_ids": [],
+      "missed_carla_ids": [
+       145,
+       137
+      ],
+      "extra_actor_ids": [
+       "V005",
+       "V007"
+      ],
+      "all_involved_observed": true
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 5,
+    "alarm_k": 1,
+    "delta": -4,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "0-2",
+    "t_start_s": 0.0,
+    "t_end_s": 2.0,
+    "n_snapshots": 5
+   },
+   "scenario_ref": "scn_ac2528323e5c",
+   "modes": [
+    "binary",
+    "strict",
+    "early",
+    "weighted"
+   ],
+   "response_issues": [],
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 4,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     3,
+     5
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 1,
+     "label": "0-2",
+     "t_start_s": 0.0,
+     "t_end_s": 2.0,
+     "n_snapshots": 5
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 0,
+     "FP": 1,
+     "TN": 2,
+     "FN": 1
+    },
+    "accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      4
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "excluded_buckets": [
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 4,
+     "credit_buckets": [
+      4
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "V007 is predicted to collide with the rear of V006 at approximately 4.8s. V006 is stopped on Road 47, while V007 is moving eastbound along the same road, leading to a rear-end collision.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V016 is predicted to collide with V002 at approximately 6.4s. V016, moving northbound at a higher speed, appears to rear-end V002, which is moving slower and possibly decelerating or turning."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 1,
+     "label": "0-2",
+     "t_start_s": 0.0,
+     "t_end_s": 2.0,
+     "n_snapshots": 5
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 2.0,
+     "buckets": [
+      2,
+      3,
+      4
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "excluded_buckets": [
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 4,
+     "credit_buckets": [
+      2,
+      3,
+      4
+     ],
+     "credited_k": 3,
+     "detected": true,
+     "timing": "early",
+     "lead_s": 0.2
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TP",
+      "truth": false,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "V007 is predicted to collide with the rear of V006 at approximately 4.8s. V006 is stopped on Road 47, while V007 is moving eastbound along the same road, leading to a rear-end collision.",
+      "confidence": "high",
+      "vehicle_recall": 0.0,
+      "actor_precision": 0.0,
+      "matched_carla_ids": [],
+      "missed_carla_ids": [
+       145,
+       137
+      ],
+      "extra_actor_ids": [
+       "V006",
+       "V007"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 4,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V016 is predicted to collide with V002 at approximately 6.4s. V016, moving northbound at a higher speed, appears to rear-end V002, which is moving slower and possibly decelerating or turning."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 4,
+    "alarm_k": 3,
+    "delta": -1,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "0-3",
+    "t_start_s": 0.0,
+    "t_end_s": 3.0,
+    "n_snapshots": 7
+   },
+   "scenario_ref": "scn_ac2528323e5c",
+   "modes": [
+    "binary",
+    "strict",
+    "early",
+    "weighted"
+   ],
+   "response_issues": [],
+   "binary": {
+    "scorable": true,
+    "status": "FN",
+    "truth": true,
+    "pred": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_scorable": 3,
+    "n_positive_buckets": 0,
+    "positive_ks": []
+   },
+   "strict": {
+    "window": {
+     "index": 2,
+     "label": "0-3",
+     "t_start_s": 0.0,
+     "t_end_s": 3.0,
+     "n_snapshots": 7
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 1
+    },
+    "accuracy": 0.667,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      3
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 3,
+     "credit_buckets": [
+      3
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles maintain sufficient clearance; the closest interaction between EGO_other_vehicle_behind and V005 has a minimum clearance of 0.26m, which is a gap and not physical contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles maintain safe distances from one another, with no predicted contact or body overlap.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "Vehicles are predicted to maintain safe separation, with no instances of physical contact or body overlap indicated.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The predicted paths show vehicles proceeding with ample clearance, without any intersections or tight convergences leading to contact."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All predicted clearances are well above zero, indicating no physical contact or body overlap between any vehicles."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 2,
+     "label": "0-3",
+     "t_start_s": 0.0,
+     "t_end_s": 3.0,
+     "n_snapshots": 7
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "accuracy": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 2.0,
+     "buckets": [
+      1,
+      2,
+      3
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 3,
+     "credit_buckets": [
+      1,
+      2,
+      3
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "All vehicles maintain sufficient clearance; the closest interaction between EGO_other_vehicle_behind and V005 has a minimum clearance of 0.26m, which is a gap and not physical contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "All vehicles maintain safe distances from one another, with no predicted contact or body overlap.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "Vehicles are predicted to maintain safe separation, with no instances of physical contact or body overlap indicated.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The predicted paths show vehicles proceeding with ample clearance, without any intersections or tight convergences leading to contact."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All predicted clearances are well above zero, indicating no physical contact or body overlap between any vehicles."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 0.0,
+    "k_true": 3,
+    "alarm_k": null,
+    "delta": null,
+    "detected": false,
+    "false_alarm": false,
+    "scorable": true
+   }
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "0-4",
+    "t_start_s": 0.0,
+    "t_end_s": 4.0,
+    "n_snapshots": 9
+   },
+   "scenario_ref": "scn_ac2528323e5c",
+   "modes": [
+    "binary",
+    "strict",
+    "early",
+    "weighted"
+   ],
+   "response_issues": [],
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     2,
+     3,
+     5
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 3,
+     "label": "0-4",
+     "t_start_s": 0.0,
+     "t_end_s": 4.0,
+     "n_snapshots": 9
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      2
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 2,
+     "credit_buckets": [
+      2
+     ],
+     "credited_k": 2,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.8
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Vehicles maintain sufficient separation as they proceed on their respective paths, with the closest predicted clearance exceeding 1 meter.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "V012 is predicted to rear-end the stopped V002 as V012 continues north on Road 37.",
+      "confidence": "high",
+      "vehicle_recall": 0.0,
+      "actor_precision": 0.0,
+      "matched_carla_ids": [],
+      "missed_carla_ids": [
+       145,
+       137
+      ],
+      "extra_actor_ids": [
+       "V002",
+       "V012"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V018 is predicted to rear-end T001 as V018, moving faster, closes the gap on the slower-moving T001 on Road 46."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Vehicles maintain sufficient separation as they proceed on their respective paths, with the closest predicted clearance exceeding 1 meter."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle is predicted to have a side-swipe contact with T001 due to their parallel paths converging and footprints overlapping, despite being on different roads."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 3,
+     "label": "0-4",
+     "t_start_s": 0.0,
+     "t_end_s": 4.0,
+     "n_snapshots": 9
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 2.0,
+     "buckets": [
+      1,
+      2
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 2,
+     "credit_buckets": [
+      1,
+      2
+     ],
+     "credited_k": 2,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.8
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "IN_WINDOW_NO_CALL",
+      "truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "Vehicles maintain sufficient separation as they proceed on their respective paths, with the closest predicted clearance exceeding 1 meter.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "V012 is predicted to rear-end the stopped V002 as V012 continues north on Road 37.",
+      "confidence": "high",
+      "vehicle_recall": 0.0,
+      "actor_precision": 0.0,
+      "matched_carla_ids": [],
+      "missed_carla_ids": [
+       145,
+       137
+      ],
+      "extra_actor_ids": [
+       "V002",
+       "V012"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V018 is predicted to rear-end T001 as V018, moving faster, closes the gap on the slower-moving T001 on Road 46."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Vehicles maintain sufficient separation as they proceed on their respective paths, with the closest predicted clearance exceeding 1 meter."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle is predicted to have a side-swipe contact with T001 due to their parallel paths converging and footprints overlapping, despite being on different roads."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 2,
+    "alarm_k": 2,
+    "delta": 0,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_ac2528323e5c",
+   "modes": [
+    "binary",
+    "strict",
+    "early",
+    "weighted"
+   ],
+   "response_issues": [],
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     1,
+     2,
+     5
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 4,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": 1,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.8
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "EGO_ego_vehicle making a left turn is predicted to collide orthogonally with EGO_other_vehicle traveling straight. Additionally, V018 is predicted to rear-end the stopped truck T001.",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 0.5,
+      "matched_carla_ids": [
+       145,
+       137
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [
+       "T001",
+       "V018"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Car V016 is predicted to rear-end the stopped car V012."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All vehicles maintain sufficient clearance, and no physical contact or overlap is predicted."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All vehicles maintain sufficient clearance, and no physical contact or overlap is predicted."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Car V016 is predicted to rear-end the stopped car V002."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 4,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_ac2528323e5c",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 2.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 5.0,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": 1,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.8
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "EGO_ego_vehicle making a left turn is predicted to collide orthogonally with EGO_other_vehicle traveling straight. Additionally, V018 is predicted to rear-end the stopped truck T001.",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 0.5,
+      "matched_carla_ids": [
+       145,
+       137
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [
+       "T001",
+       "V018"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Car V016 is predicted to rear-end the stopped car V012."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All vehicles maintain sufficient clearance, and no physical contact or overlap is predicted."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All vehicles maintain sufficient clearance, and no physical contact or overlap is predicted."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Car V016 is predicted to rear-end the stopped car V002."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 1,
+    "alarm_k": 1,
+    "delta": 0,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "binary": {
+   "n_windows": 5,
+   "counts": {
+    "TP": 4,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.8,
+   "precision": 1.0,
+   "recall": 0.8,
+   "f1": 0.889,
+   "mean_positive_buckets": 2.2
+  },
+  "strict": {
+   "n_windows": 5,
+   "counts": {
+    "TP": 3,
+    "FP": 3,
+    "TN": 7,
+    "FN": 2
+   },
+   "accuracy": 0.667,
+   "precision": 0.5,
+   "recall": 0.6,
+   "vehicle_recall_mean": 0.333,
+   "actor_precision_mean": 0.167,
+   "events": {
+    "n": 5,
+    "exact": 3,
+    "early": 0,
+    "none": 2,
+    "detection_rate": 0.6,
+    "mean_lead_s": -0.8
+   },
+   "response_issue_counts": {}
+  },
+  "early": {
+   "n_windows": 5,
+   "counts": {
+    "TP": 4,
+    "FP": 2,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.625,
+   "precision": 0.667,
+   "recall": 0.8,
+   "vehicle_recall_mean": 0.25,
+   "actor_precision_mean": 0.125,
+   "events": {
+    "n": 5,
+    "exact": 3,
+    "early": 1,
+    "none": 1,
+    "detection_rate": 0.8,
+    "mean_lead_s": -0.55
+   },
+   "response_issue_counts": {}
+  },
+  "weighted": {
+   "n_event_windows": 5,
+   "mean_score": 0.8,
+   "n_detected": 4,
+   "n_missed": 1,
+   "detection_rate": 0.8,
+   "n_no_event_windows": 0,
+   "false_alarms": 0,
+   "false_alarm_rate": null
+  }
+ }
+}

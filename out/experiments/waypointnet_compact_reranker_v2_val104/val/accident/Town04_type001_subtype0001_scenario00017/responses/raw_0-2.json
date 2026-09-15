@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance; no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance; no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle attempts a left turn across the path of EGO_other_vehicle_behind, which is proceeding straight. Predicted paths indicate a simultaneous body overlap at the intersection point, with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the expected collision in k=3, no further distinct accidents are predicted, and other vehicles maintain safe distances.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts are indicated by the predicted paths for this interval; vehicles maintain sufficient clearance.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the (4.0, 5.0] second interval (k=3). EGO_ego_vehicle, while performing a left turn, is predicted to collide with EGO_other_vehicle_behind, which is proceeding straight. The predicted paths show a clear overlap with 0.0m minimum clearance. No other accidents are expected in the remaining intervals.\",\n  \"data_limitations\": \"Traffic-signal state, stop lines, and lane-marking types are not available, which could otherwise provide crucial context for the left-turn maneuver of EGO_ego_vehicle at the intersection.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8469,
+  "candidatesTokenCount": 611,
+  "totalTokenCount": 12618,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8469
+   }
+  ],
+  "thoughtsTokenCount": 3538,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "E-WYaoybGOjJ0-kPwJet4Aw"
+}

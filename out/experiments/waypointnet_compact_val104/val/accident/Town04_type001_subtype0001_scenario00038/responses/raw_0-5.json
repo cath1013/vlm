@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or body overlap in this interval; the closest pair (V003 and V004) maintains a substantial clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V005\", \"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"V004 and V005 are predicted to collide at 1.6s after observation as their paths intersect with zero clearance. Additionally, EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to collide at 2.0s as their paths also intersect with zero clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While there is a close interaction between EGO_other_vehicle_behind and M008 at 3.0s, the predicted minimum clearance is 2.0m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C001\", \"V005\"],\n      \"reason\": \"C001 and V005 are predicted to collide at 3.6s after observation as their paths intersect with zero clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle pairs maintain sufficient clearance, and no physical contact or body overlap is predicted in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted within the 5-second prediction window due to intersecting paths with zero clearance. Specifically, V004 and V005 are expected to collide, EGO_ego_vehicle_behind and EGO_other_vehicle are expected to collide, and C001 and V005 are expected to collide. All predicted collisions involve paths with 100% probability.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8112,
+  "candidatesTokenCount": 665,
+  "totalTokenCount": 11080,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8112
+   }
+  ],
+  "thoughtsTokenCount": 2303,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Wr-YasHjN5Sz1e8P1_KUgAc"
+}

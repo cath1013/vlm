@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 20.76,
+ "usage": {
+  "input": 9911,
+  "output": 628
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest predicted interaction in this interval between EGO_ego_vehicle_behind and EGO_ego_vehicle maintains a clearance of 8.07m, indicating no risk of contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted interactions in this interval show significant clearances, with the closest pair (EGO_other_vehicle and P004) maintaining over 10m of separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest predicted interaction, involving EGO_other_vehicle and N002, maintains a clearance of 11.97m, ensuring no contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicle interactions in this interval maintain significant distances, with the smallest predicted clearance being 9.0m between EGO_other_vehicle_behind and EGO_other_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_ego_vehicle_behind and V011 show a very close predicted minimum clearance of 0.13m at t=10.0s, this still indicates a gap and not physical contact or body overlap according to the provided definition.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The simulation predicts no accidents across the entire 5-second future window. While some interactions show close proximity, such as EGO_ego_vehicle_behind and V011 with a 0.13m gap at t=10.0s, all minimum clearances remain positive, indicating no physical contact or overlap. Most other interactions maintain substantial distances.",
+  "data_limitations": ""
+ }
+}

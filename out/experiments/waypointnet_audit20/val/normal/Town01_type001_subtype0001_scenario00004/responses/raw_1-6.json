@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate conflicts are indicated by linear-extrapolated time to contact values within this interval, as the earliest predicted collision is at 7.3 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An imminent orthogonal junction collision is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle at 7.3 seconds, indicated by a linear-extrapolated time to contact of 1.3 seconds. EGO_ego_vehicle_behind is accelerating into the junction while EGO_other_vehicle is decelerating, but their paths are predicted straight.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The next potential conflict involving EGO_other_vehicle and N004 (TTC 2.8s) is superseded as EGO_other_vehicle is already projected to be involved in a prior collision in the k=2 interval. No other un-involved vehicles have imminent conflicts in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate conflicts are indicated by linear-extrapolated time to contact values within this interval for un-involved vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"N004\"\n      ],\n      \"reason\": \"An orthogonal junction collision is predicted between EGO_other_vehicle_behind and N004 at 10.2 seconds, indicated by a linear-extrapolated time to contact of 4.2 seconds. Both vehicles are approaching a junction with predicted straight paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"This scenario presents multiple high-risk junction-crossing conflicts over the next 5 seconds. The most immediate and significant accident is predicted at 7.3 seconds between EGO_ego_vehicle_behind and EGO_other_vehicle. Subsequently, a collision between EGO_other_vehicle_behind and N004 is predicted at 10.2 seconds, assuming the earlier collision does not alter N004's trajectory.\",\n  \"data_limitations\": \"The 'predicted path' values are outputs of a trajectory predictor and do not necessarily reflect actual driver intent (e.g., turn signals). The absence of traffic signal states, stop lines, or lane marking types prevents making judgments based on right-of-way rules at junctions. The linear-extrapolated time to contact assumes constant velocity, which may not hold true for accelerating or decelerating vehicles near a junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8916,
+  "candidatesTokenCount": 832,
+  "totalTokenCount": 19240,
+  "cachedContentTokenCount": 906,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8916
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 906
+   }
+  ],
+  "thoughtsTokenCount": 9492,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GhmVaouPAYCB1e8Px4KzyQU"
+}

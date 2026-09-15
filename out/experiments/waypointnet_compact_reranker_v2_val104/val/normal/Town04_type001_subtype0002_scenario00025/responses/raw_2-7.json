@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles, including EGO_other_vehicle and V002, maintain safe distances and do not have converging paths leading to physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"P008\"\n      ],\n      \"reason\": \"EGO_ego_vehicle's northbound path clearly intersects P008's westbound path, resulting in a predicted minimum clearance of only 0.18m, which indicates an unavoidable collision between the car and the pedestrian given their footprints.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional predicted contacts or close approaches are identified for this interval, as the earlier collision would have already occurred.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no converging paths lead to predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, with the closest approaches having clearances greater than 1 meter, indicating safe interactions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high probability of a collision is predicted between the ego vehicle (EGO_ego_vehicle) and a pedestrian (P008) in the second future 1-second interval, due to their clearly intersecting paths and an extremely small predicted minimum clearance of 0.18m. For all other intervals and actor pairs, the predicted clearances are sufficient to avoid physical contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12056,
+  "candidatesTokenCount": 599,
+  "totalTokenCount": 16596,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12056
+   }
+  ],
+  "thoughtsTokenCount": 3941,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xfGYau26F4qd0-kPt5m_CQ"
+}

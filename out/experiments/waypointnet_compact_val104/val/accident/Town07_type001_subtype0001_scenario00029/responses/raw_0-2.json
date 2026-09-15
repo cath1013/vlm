@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicle paths remain clear of each other in this interval, with the closest pair maintaining a clearance of 0.55m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V013\", \"T015\"],\n      \"reason\": \"Vehicle V014 is predicted to collide with the stopped vehicle V013 at t=3.5s, followed by truck T015 colliding with V014 at t=3.8s, indicating a multi-vehicle rear-end collision chain.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V011\", \"V013\", \"T015\"],\n      \"reason\": \"An intersection collision is predicted between V005 and V011 at t=4.1s due to their orthogonal paths, and T015 is predicted to collide with the stopped V013 at t=4.5s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C020\", \"V003\"],\n      \"reason\": \"Bicycle C020 and car V003 are predicted to collide at t=5.4s, likely a rear-end collision as V003 catches up to C020 in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\", \"T015\", \"V021\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V001 at t=6.6s during an intersection maneuver, and T015 is predicted to collide with the stopped V021 at t=6.7s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows a high likelihood of multiple accidents. Several rear-end collisions are predicted on Road 11 involving V014, V013, T015, V021, C020, and V003. Additionally, two intersection conflicts are predicted, one between V005 and V011, and another involving the observer vehicle EGO_ego_vehicle and V001.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6676,
+  "candidatesTokenCount": 751,
+  "totalTokenCount": 11397,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6676
+   }
+  ],
+  "thoughtsTokenCount": 3970,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "-b-YaobuO8ndvr0P6tWKmQQ"
+}

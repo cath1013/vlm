@@ -1,0 +1,1785 @@
+{
+ "provider": "gemini",
+ "modes": [
+  "binary_scenario",
+  "binary_window",
+  "strict",
+  "early",
+  "weighted",
+  "binary_bucket"
+ ],
+ "late_decay": 0.2,
+ "early_decay": 0.0,
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_e2842ab9c6a7",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 4,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "mixed",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 1,
+     "TN": 3,
+     "FN": 0
+    },
+    "n_scorable": 4,
+    "n_buckets": 4,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles maintain safe longitudinal separation and follow predicted paths in their respective lanes."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Longitudinal separation between EGO_other_vehicle_behind and V017 remains sufficient as they both travel southbound."
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Although V017 is closing the gap with EGO_other_vehicle_behind, physical contact is not expected within this interval."
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "A rear-end collision is predicted at t=3.9s because EGO_other_vehicle_behind decelerates sharply to a near-stop while V017 continues at a higher speed in the same lane."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "mixed",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 1,
+     "TN": 3,
+     "FN": 0
+    },
+    "n_scorable": 4,
+    "n_buckets": 4,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles maintain safe longitudinal separation and follow predicted paths in their respective lanes."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Longitudinal separation between EGO_other_vehicle_behind and V017 remains sufficient as they both travel southbound."
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Although V017 is closing the gap with EGO_other_vehicle_behind, physical contact is not expected within this interval."
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "A rear-end collision is predicted at t=3.9s because EGO_other_vehicle_behind decelerates sharply to a near-stop while V017 continues at a higher speed in the same lane."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 1,
+     "TN": 3,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.75,
+    "precision": 0.0,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "n_buckets": 4,
+    "excluded_buckets": [
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles maintain safe longitudinal separation and follow predicted paths in their respective lanes.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Longitudinal separation between EGO_other_vehicle_behind and V017 remains sufficient as they both travel southbound.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Although V017 is closing the gap with EGO_other_vehicle_behind, physical contact is not expected within this interval.",
+      "confidence": "medium"
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "A rear-end collision is predicted at t=3.9s because EGO_other_vehicle_behind decelerates sharply to a near-stop while V017 continues at a higher speed in the same lane.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The longitudinal overlap between EGO_other_vehicle_behind and V017 increases as V017 fails to match the leader's deceleration."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 1,
+     "TN": 3,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.75,
+    "precision": 0.0,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "n_buckets": 4,
+    "excluded_buckets": [
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles maintain safe longitudinal separation and follow predicted paths in their respective lanes.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Longitudinal separation between EGO_other_vehicle_behind and V017 remains sufficient as they both travel southbound.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Although V017 is closing the gap with EGO_other_vehicle_behind, physical contact is not expected within this interval.",
+      "confidence": "medium"
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "A rear-end collision is predicted at t=3.9s because EGO_other_vehicle_behind decelerates sharply to a near-stop while V017 continues at a higher speed in the same lane.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The longitudinal overlap between EGO_other_vehicle_behind and V017 increases as V017 fails to match the leader's deceleration."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": 4,
+    "delta": null,
+    "detected": null,
+    "false_alarm": true,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 1,
+     "TN": 3,
+     "FN": 0
+    },
+    "n_buckets": 4,
+    "bucket_accuracy": 0.75,
+    "bucket_false_alarm_rate": 0.25,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles maintain safe longitudinal separation and follow predicted paths in their respective lanes."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Longitudinal separation between EGO_other_vehicle_behind and V017 remains sufficient as they both travel southbound."
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Although V017 is closing the gap with EGO_other_vehicle_behind, physical contact is not expected within this interval."
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "A rear-end collision is predicted at t=3.9s because EGO_other_vehicle_behind decelerates sharply to a near-stop while V017 continues at a higher speed in the same lane."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_e2842ab9c6a7",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 3,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TN",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 3,
+     "FN": 0
+    },
+    "n_scorable": 3,
+    "n_buckets": 3,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles maintain safe lateral separation or longitudinal gaps as they move through the scene."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Convergence between moving vehicles and stopped ones is managed by lane discipline or sufficient following distance."
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Clearance values between vehicles and surrounding traffic remain positive, indicating no physical contact."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TN",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 3,
+     "FN": 0
+    },
+    "n_scorable": 3,
+    "n_buckets": 3,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles maintain safe lateral separation or longitudinal gaps as they move through the scene."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Convergence between moving vehicles and stopped ones is managed by lane discipline or sufficient following distance."
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Clearance values between vehicles and surrounding traffic remain positive, indicating no physical contact."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 3,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "n_buckets": 3,
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles maintain safe lateral separation or longitudinal gaps as they move through the scene.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Convergence between moving vehicles and stopped ones is managed by lane discipline or sufficient following distance.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Clearance values between vehicles and surrounding traffic remain positive, indicating no physical contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Fast-moving actors like M001 and V023 are traveling in the same direction with stable gaps."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Predicted gaps for converging vehicles such as V015 and V017 remain above the collision threshold."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 3,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "n_buckets": 3,
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles maintain safe lateral separation or longitudinal gaps as they move through the scene.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Convergence between moving vehicles and stopped ones is managed by lane discipline or sufficient following distance.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Clearance values between vehicles and surrounding traffic remain positive, indicating no physical contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Fast-moving actors like M001 and V023 are traveling in the same direction with stable gaps."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Predicted gaps for converging vehicles such as V015 and V017 remain above the collision threshold."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 3,
+     "FN": 0
+    },
+    "n_buckets": 3,
+    "bucket_accuracy": 1.0,
+    "bucket_false_alarm_rate": 0.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles maintain safe lateral separation or longitudinal gaps as they move through the scene."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Convergence between moving vehicles and stopped ones is managed by lane discipline or sufficient following distance."
+     },
+     {
+      "k": 3,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Clearance values between vehicles and surrounding traffic remain positive, indicating no physical contact."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_e2842ab9c6a7",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 2,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TN",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles in the southbound lanes are moving in a controlled queue, maintaining safe separation as they approach the intersection."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V025 is decelerating strongly (-2.69 m/s^2) and is kinematics-capable of stopping safely before reaching the stationary V024."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TN",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles in the southbound lanes are moving in a controlled queue, maintaining safe separation as they approach the intersection."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V025 is decelerating strongly (-2.69 m/s^2) and is kinematics-capable of stopping safely before reaching the stationary V024."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "The vehicles in the southbound lanes are moving in a controlled queue, maintaining safe separation as they approach the intersection.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "V025 is decelerating strongly (-2.69 m/s^2) and is kinematics-capable of stopping safely before reaching the stationary V024.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Traffic flow on Road 4 and Road 23 remains stable with no physical overlaps between predicted paths in this interval."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V017 is observing EGO_other_vehicle_behind and is expected to maintain its following distance despite the independent predictor's convergence."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All moving actors are decelerating within their lanes and are expected to come to a halt without contact in the established queue."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "The vehicles in the southbound lanes are moving in a controlled queue, maintaining safe separation as they approach the intersection.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "V025 is decelerating strongly (-2.69 m/s^2) and is kinematics-capable of stopping safely before reaching the stationary V024.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Traffic flow on Road 4 and Road 23 remains stable with no physical overlaps between predicted paths in this interval."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V017 is observing EGO_other_vehicle_behind and is expected to maintain its following distance despite the independent predictor's convergence."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All moving actors are decelerating within their lanes and are expected to come to a halt without contact in the established queue."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_buckets": 2,
+    "bucket_accuracy": 1.0,
+    "bucket_false_alarm_rate": 0.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles in the southbound lanes are moving in a controlled queue, maintaining safe separation as they approach the intersection."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V025 is decelerating strongly (-2.69 m/s^2) and is kinematics-capable of stopping safely before reaching the stationary V024."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "3-8",
+    "t_start_s": 3.0,
+    "t_end_s": 8.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_e2842ab9c6a7",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 1,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     3,
+     4
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles are maintaining sufficient clearance and following their initial predicted trajectories without conflict."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     3,
+     4
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles are maintaining sufficient clearance and following their initial predicted trajectories without conflict."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 3,
+     "label": "3-8",
+     "t_start_s": 3.0,
+     "t_end_s": 8.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles are maintaining sufficient clearance and following their initial predicted trajectories without conflict.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No path overlaps or clearance violations are predicted within this one-second window as vehicles approach the junction."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to have a side-swipe or crossing collision at the junction (t=10.3s) as their paths intersect with zero clearance."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V017 is predicted to rear-end EGO_other_vehicle_behind due to insufficient braking (t=11.5s), and EGO_other_vehicle is predicted to strike pedestrian P009 (t=11.1s)."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No new collisions are predicted to occur in this interval, and other nearby users like V015 and P011 maintain a positive safety margin."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 3,
+     "label": "3-8",
+     "t_start_s": 3.0,
+     "t_end_s": 8.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles are maintaining sufficient clearance and following their initial predicted trajectories without conflict.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No path overlaps or clearance violations are predicted within this one-second window as vehicles approach the junction."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to have a side-swipe or crossing collision at the junction (t=10.3s) as their paths intersect with zero clearance."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V017 is predicted to rear-end EGO_other_vehicle_behind due to insufficient braking (t=11.5s), and EGO_other_vehicle is predicted to strike pedestrian P009 (t=11.1s)."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No new collisions are predicted to occur in this interval, and other nearby users like V015 and P011 maintain a positive safety margin."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_buckets": 1,
+    "bucket_accuracy": 1.0,
+    "bucket_false_alarm_rate": 0.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles are maintaining sufficient clearance and following their initial predicted trajectories without conflict."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "4-9",
+    "t_start_s": 4.0,
+    "t_end_s": 9.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_e2842ab9c6a7",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 0,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": null,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 0,
+    "n_buckets": 0,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": []
+   },
+   "binary": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": null,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 0,
+    "n_buckets": 0,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": []
+   },
+   "strict": {
+    "window": {
+     "index": 4,
+     "label": "4-9",
+     "t_start_s": 4.0,
+     "t_end_s": 9.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "UNSCORABLE",
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [],
+    "n_buckets": 0,
+    "excluded_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Vehicles and pedestrians are approaching the intersection but maintain safe separation distances during this interval."
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "A multi-actor collision occurs as EGO_ego_vehicle, EGO_other_vehicle, and pedestrian P009 converge simultaneously on the same coordinates at the junction entrance."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The EGO_ego_vehicle and EGO_other_vehicle maintain physical body overlap as their predicted paths continue to cross through the intersection conflict point."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The vehicles involved in the previous junction conflict have projected paths that move toward separation, and no new contacts are predicted."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "A rear-end collision occurs on Road 298 as V017 fails to maintain clearance behind EGO_other_vehicle_behind, which is decelerating toward a stop."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 4,
+     "label": "4-9",
+     "t_start_s": 4.0,
+     "t_end_s": 9.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_e2842ab9c6a7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "UNSCORABLE",
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [],
+    "n_buckets": 0,
+    "excluded_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Vehicles and pedestrians are approaching the intersection but maintain safe separation distances during this interval."
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "A multi-actor collision occurs as EGO_ego_vehicle, EGO_other_vehicle, and pedestrian P009 converge simultaneously on the same coordinates at the junction entrance."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The EGO_ego_vehicle and EGO_other_vehicle maintain physical body overlap as their predicted paths continue to cross through the intersection conflict point."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The vehicles involved in the previous junction conflict have projected paths that move toward separation, and no new contacts are predicted."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "A rear-end collision occurs on Road 298 as V017 fails to maintain clearance behind EGO_other_vehicle_behind, which is decelerating toward a stop."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_buckets": 0,
+    "bucket_accuracy": null,
+    "bucket_false_alarm_rate": null,
+    "per_interval": []
+   }
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "binary_window": {
+   "n_windows": 0,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": null,
+   "precision": null,
+   "recall": null,
+   "f1": null,
+   "n_scorable_windows": 0,
+   "n_censored_windows": 5
+  },
+  "binary_bucket": {
+   "n_windows": 4,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 9,
+    "FN": 0
+   },
+   "accuracy": 0.9,
+   "precision": 0.0,
+   "recall": null,
+   "f1": null,
+   "mean_positive_buckets": 1.0
+  },
+  "binary_scenario": {
+   "n_scenarios": 1,
+   "n_scorable_scenarios": 0,
+   "n_censored_scenarios": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": null,
+   "precision": null,
+   "recall": null,
+   "f1": null,
+   "per_scenario": [
+    {
+     "scenario_ref": "scn_e2842ab9c6a7",
+     "outcome": "normal",
+     "status": "UNSCORABLE",
+     "scorable": false,
+     "n_windows": 5,
+     "n_eligible_windows": 0
+    }
+   ]
+  },
+  "binary": {
+   "n_windows": 4,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 9,
+    "FN": 0
+   },
+   "accuracy": 0.9,
+   "precision": 0.0,
+   "recall": null,
+   "f1": null,
+   "mean_positive_buckets": 1.0
+  },
+  "strict": {
+   "n_windows": 5,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 9,
+    "FN": 0
+   },
+   "accuracy": 0.9,
+   "precision": 0.0,
+   "recall": null,
+   "vehicle_recall_mean": null,
+   "actor_precision_mean": null,
+   "events": {
+    "n": 0,
+    "exact": 0,
+    "early": 0,
+    "none": 0,
+    "detection_rate": null,
+    "mean_lead_s": null
+   },
+   "response_issue_counts": {}
+  },
+  "early": {
+   "n_windows": 5,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 9,
+    "FN": 0
+   },
+   "accuracy": 0.9,
+   "precision": 0.0,
+   "recall": null,
+   "vehicle_recall_mean": null,
+   "actor_precision_mean": null,
+   "events": {
+    "n": 0,
+    "exact": 0,
+    "early": 0,
+    "none": 0,
+    "detection_rate": null,
+    "mean_lead_s": null
+   },
+   "response_issue_counts": {}
+  },
+  "weighted": {
+   "n_event_windows": 0,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 9,
+    "FN": 0
+   },
+   "bucket_accuracy": 0.9,
+   "mean_score": null,
+   "n_detected": 0,
+   "n_missed": 0,
+   "detection_rate": null,
+   "n_no_event_windows": 4,
+   "false_alarms": 1,
+   "window_false_alarm_rate": 0.25,
+   "false_alarm_rate": 0.1
+  }
+ }
+}

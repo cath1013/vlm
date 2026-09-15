@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"P014\", \"V015\", \"V026\", \"C028\", \"V029\", \"V021\"],\n      \"reason\": \"EGO_ego_vehicle has an orthogonal entry conflict with EGO_other_vehicle at junction J6 with a TTC of 0.1s. Additionally, EGO_ego_vehicle is in immediate conflict with P014 (0.5s TTC) and V021 (0.8s TTC). Multiple vehicles on Road 43 (V015, V026, C028, V029) also have linear-extrapolated contacts with TTCs between 0.8s and 1.0s, indicating imminent conflicts at or near the junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P008\", \"P014\", \"EGO_ego_vehicle_behind\", \"V019\", \"V001\", \"P013\"],\n      \"reason\": \"EGO_other_vehicle is involved in linear-extrapolated contacts with P008 (1.2s TTC) and P014 (1.3s TTC). EGO_ego_vehicle_behind is closing on V019 (1.5s TTC), and V001 and P013 have an imminent junction conflict (1.8s TTC), indicating a high likelihood of multiple collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"C028\", \"P008\", \"P011\", \"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\", \"V026\", \"V029\", \"P013\", \"V021\", \"V001\", \"P010\", \"V002\"],\n      \"reason\": \"Multiple linear-extrapolated contacts and junction conflicts with TTCs between 2.0s and 2.6s are expected, including C028 rear-ending the stopped EGO_other_vehicle_behind, V002 rear-ending the stopped V001, an orthogonal junction conflict between EGO_ego_vehicle_behind and EGO_other_vehicle, and numerous other conflicts involving EGO_other_vehicle and other road users.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V006\"],\n      \"reason\": \"V005 is following V006 with a TTC of 3.1s, indicating a likely rear-end collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M004\", \"V005\"],\n      \"reason\": \"M004 is following V005 with a TTC of 4.7s, indicating a likely rear-end collision.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene at t=4s depicts an extremely hazardous four-way junction with multiple vehicles converging. Immediate and cascading collisions are predicted across all five future intervals, starting with orthogonal junction conflicts and rear-end collisions within the first second. The high density of short TTC values indicates a high likelihood of a multi-vehicle pile-up.\",\n  \"data_limitations\": \"The linear-extrapolated contact values do not account for turning, braking, or signals, which could affect the exact timing or occurrence of some predicted collisions, especially for opposing traffic on the 'same road'. The absence of traffic signal states also limits the accuracy of junction conflict predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 16286,
+  "candidatesTokenCount": 1054,
+  "totalTokenCount": 29423,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 16286
+   }
+  ],
+  "thoughtsTokenCount": 12083,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "MRyVavKbFI7E0-kP5t-V2AY"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V012\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"V012's northbound path merges laterally into the path of EGO_ego_vehicle, resulting in a predicted direct body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No significant conflicts or close encounters are predicted for any vehicles in this interval; all maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"V001\",\n        \"M020\",\n        \"V016\",\n        \"EGO_other_vehicle\",\n        \"V012\",\n        \"M003\"\n      ],\n      \"reason\": \"Multiple critical conflicts are predicted: V002 side-swipes the stopped V001; M020 merges into V016's path; EGO_other_vehicle and V012 are on a collision course at an intersection; and M003 is predicted to overtake V002 with lateral path overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V012\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind and V012 are on a collision course at an intersection. The predicted contact between N021 and T024 is not supported by geometry, as their paths indicate sufficient lateral clearance.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V022\",\n        \"M023\",\n        \"T014\",\n        \"V015\"\n      ],\n      \"reason\": \"M023 is predicted to rear-end V022, and V015 is predicted to rear-end T014, as both following vehicles close the distance on slower lead vehicles in their respective lanes.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted throughout the 5-second window. In interval k=1, V012 is predicted to merge into EGO_ego_vehicle. Interval k=3 shows the highest density of conflicts, including side-swipes and an orthogonal intersection collision. Interval k=4 features another orthogonal collision between EGO_other_vehicle_behind and V012. Finally, interval k=5 predicts two separate rear-end collisions.\",\n  \"data_limitations\": \"The predicted closest pair for N021 and T024 in interval k=4 incorrectly indicated physical contact (minimum_clearance_m=0.0) despite a clear lateral separation of over 1 meter based on their provided paths and footprints.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9613,
+  "candidatesTokenCount": 853,
+  "totalTokenCount": 23974,
+  "cachedContentTokenCount": 1827,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9613
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1827
+   }
+  ],
+  "thoughtsTokenCount": 13508,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "sMyYas6DN-O40-kPtvDz2AQ"
+}

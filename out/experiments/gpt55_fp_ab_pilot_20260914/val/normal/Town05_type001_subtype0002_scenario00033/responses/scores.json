@@ -1,0 +1,122 @@
+{
+ "provider": "openai",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_63f0e5308e9d",
+   "counts": {
+    "TP": 0,
+    "FP": 3,
+    "TN": 1,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 0.25,
+   "precision": 0.0,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": []
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_buckets": 4,
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 9.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "No supplied future paths show body overlap in the first second; the closest listed pairs retain positive clearance.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "C025's eastbound bicycle path runs into the stopped truck T024 on Road 3, and M018's motorcycle path overlaps the eastbound truck T014 as their future paths converge on Road 415.",
+     "confidence": "medium"
+    },
+    {
+     "k": 3,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "The right-turning EGO_other_vehicle's predicted footprint overlaps the stopped EGO_ego_vehicle near the junction, and V010/V011 also show clear same-direction body overlap on the curving Road 24 paths.",
+     "confidence": "medium"
+    },
+    {
+     "k": 4,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "The northbound EGO_ego_vehicle_behind continues into the stopped EGO_ego_vehicle and also overlaps the westbound EGO_other_vehicle_behind at the junction; separately, M003 reaches the stopped V002 and M023 reaches the stopped V022.",
+     "confidence": "medium"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The right-turning EGO_other_vehicle's projected footprint overlaps the northbound EGO_ego_vehicle_behind near the junction, and V015 closes into T014 on the eastbound Road 9/Road 415 path."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 1,
+  "n_buckets": 4,
+  "counts": {
+   "TP": 0,
+   "FP": 3,
+   "TN": 1,
+   "FN": 0
+  },
+  "accuracy": 0.25,
+  "precision": 0.0,
+  "recall": null,
+  "vehicle_recall_mean": null,
+  "actor_precision_mean": null,
+  "events": {
+   "n": 0,
+   "exact": 0,
+   "early": 0,
+   "none": 0,
+   "detection_rate": null,
+   "mean_lead_s": null
+  },
+  "response_issue_counts": {}
+ }
+}

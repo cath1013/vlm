@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances from each other with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances from each other with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances from each other with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"T016\"],\n      \"reason\": \"A multi-vehicle collision is predicted involving EGO_other_vehicle, EGO_other_vehicle_behind, and T016. EGO_other_vehicle and T016 are on a head-on collision course, and EGO_other_vehicle_behind's turning path intersects this conflict, leading to simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances from each other with no predicted contacts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence multi-vehicle collision is expected in the fourth interval (11-12s after observation). This involves EGO_other_vehicle, T016, and EGO_other_vehicle_behind colliding due to T016's conflicting southbound trajectory against its stated northbound direction and EGO_other_vehicle_behind's turning maneuver intersecting this conflict zone. All other time intervals appear safe with no predicted contacts.\",\n  \"data_limitations\": \"T016's predicted path direction (southbound waypoints) contradicts its reported current heading (north) and road direction ('northbound'). This inconsistency affects the interpretability of the specific collision dynamics but the explicit predicted contact with zero clearance is used for the judgement.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9647,
+  "candidatesTokenCount": 652,
+  "totalTokenCount": 14715,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9647
+   }
+  ],
+  "thoughtsTokenCount": 4416,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7MqYavLsJsa40-kPlt-TgA8"
+}

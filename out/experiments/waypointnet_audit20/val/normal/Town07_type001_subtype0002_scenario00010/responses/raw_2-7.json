@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle (7m to junction, 32km/h, predicted left turn) and EGO_other_vehicle_behind (6m to junction, 22km/h, predicted straight) are approaching an intersection simultaneously, with EGO_other_vehicle turning left across the path of EGO_other_vehicle_behind, leading to an imminent orthogonal collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"The collision between EGO_other_vehicle and EGO_other_vehicle_behind, initiated in the previous interval due to conflicting paths at the junction, is expected to be ongoing or its immediate aftermath.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the primary junction conflict has occurred or been averted, no other immediate accident risks are apparent for the remaining vehicles.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The remaining vehicles are either stopped, following safely, or sufficiently far from potential conflict points.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new critical interactions or insufficient clearances are anticipated for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-likelihood accident is predicted in the initial future intervals (7-9s) involving EGO_other_vehicle and EGO_other_vehicle_behind. EGO_other_vehicle is predicted to execute a left turn at a junction while EGO_other_vehicle_behind proceeds straight into the same intersection, resulting in an imminent orthogonal conflict. Subsequent intervals appear safe for other road users, assuming the primary conflict resolves.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values were misleading for vehicles on different road segments or with turning maneuvers, as they did not account for complex junction interactions. The discrepancy between M008's observed maneuver ('turning right') and its 'predicted path: left turn' introduced ambiguity regarding its future trajectory, though it was not the primary driver of the predicted accident.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8665,
+  "candidatesTokenCount": 749,
+  "totalTokenCount": 18408,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8665
+   }
+  ],
+  "thoughtsTokenCount": 8994,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qh2VaqeJLK-b1e8Pof_uiAE"
+}

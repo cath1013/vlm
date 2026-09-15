@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"P016\",\n        \"EGO_other_vehicle\",\n        \"V018\",\n        \"V001\",\n        \"M005\",\n        \"V006\"\n      ],\n      \"reason\": \"Multiple critical conflicts are imminent, including a junction conflict between EGO_ego_vehicle and P016 (TTC 0.9s), a junction conflict between EGO_other_vehicle and V018 (TTC 1.3s), a junction conflict between EGO_ego_vehicle and stopped V001 (TTC 1.3s), and a severe car-following collision risk between V006 and M005 (TTC 1.6s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V027\",\n        \"M019\",\n        \"V022\",\n        \"V004\",\n        \"V006\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"Several high-risk situations are expected to lead to accidents, including a potential side-swipe or merge conflict between EGO_other_vehicle_behind and V027 (TTC 2.0s), a head-on collision risk between M019 and V022 (TTC 2.0s), a car-following collision between V006 and stopped V004 (TTC 2.0s), and an orthogonal junction conflict between EGO_ego_vehicle_behind and EGO_other_vehicle (TTC 2.0s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V003\",\n        \"V002\",\n        \"V020\",\n        \"V021\",\n        \"EGO_other_vehicle\",\n        \"M019\"\n      ],\n      \"reason\": \"Continuing high-risk scenarios include car-following conflicts between V003 and stopped V002 (TTC 2.7s), and V020 closing on V021 (TTC 3.1s), along with an orthogonal junction conflict between EGO_other_vehicle and M019 (TTC 3.2s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"N007\",\n        \"M005\"\n      ],\n      \"reason\": \"A significant car-following conflict between N007 and M005, with a TTC of 3.9s, indicates a high likelihood of a rear-end collision if speeds do not adjust.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new direct conflicts with critical Time-To-Contact are explicitly predicted to manifest within this specific interval based on the provided linear extrapolations. Earlier predicted accidents would have likely already occurred or be in their immediate aftermath.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation presents an extremely high risk of multiple accidents across the initial forecast intervals. Several vehicles, including observer vehicles, are converging on a complex four-way junction with multiple orthogonal and car-following conflicts, many exhibiting Time-To-Contact values well below 2 seconds, indicating imminent collisions.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values do not account for turning, braking, or driver intent beyond current acceleration and heading. This could lead to inaccuracies in predicted collision times. Crucially, the absence of traffic signal states, stop line information, or lane marking types prevents a full assessment of junction right-of-way and driver compliance.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 15379,
+  "candidatesTokenCount": 1089,
+  "totalTokenCount": 23312,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 15379
+   }
+  ],
+  "thoughtsTokenCount": 6844,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "yhiVavLfHpnD0-kPptW4uAg"
+}

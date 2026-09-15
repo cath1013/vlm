@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs indicate positive minimum clearance, and no clear contact is evident from the projected paths for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M021\", \"V011\"],\n      \"reason\": \"Motorcycle M021 is predicted to collide with the stopped car V011 at 1.7 seconds after observation, as M021's projected path clearly overlaps V011's static position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts, and the paths of all vehicles show sufficient clearance to avoid an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although predicted_contact=true for EGO_ego_vehicle and EGO_other_vehicle_behind, their future paths show EGO_ego_vehicle is ahead and moving faster than EGO_other_vehicle_behind, indicating an increasing separation rather than contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"M021\"],\n      \"reason\": \"Motorcycle M021 is predicted to collide with the stopped car V003 at 4.4 seconds after observation, as M021's projected path clearly overlaps V003's static position.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scene predominantly features several stopped vehicles and a few moving ones. Two accidents are expected, both involving the motorcycle M021 colliding with stopped cars (V011 and V003) as it follows its projected path. Other close proximity predictions do not result in contact based on path analysis.\",\n  \"data_limitations\": \"The predicted_closest_pairs entry for EGO_ego_vehicle and EGO_other_vehicle_behind incorrectly indicated contact despite the vehicles' future paths showing increasing separation. This required manual override of the 'predicted_contact' flag for that specific pair.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7687,
+  "candidatesTokenCount": 686,
+  "totalTokenCount": 13854,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7687
+   }
+  ],
+  "thoughtsTokenCount": 5481,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "t8uYapKFIfH_1e8P4Z_tiQY"
+}

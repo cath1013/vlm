@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While V012 and T026 have a small predicted clearance of 0.58m, this does not indicate physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle's predicted path shows it steering south and then east, directly crossing into the space occupied by the stationary V002, resulting in a predicted body overlap at 4.7 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval (k=5) involving EGO_ego_vehicle and V002, where EGO_ego_vehicle's path crosses into the stationary V002's position. For all other intervals, no accidents are expected as all actors maintain sufficient clearances or no contact is predicted.\",\n  \"data_limitations\": \"The predicted path for EGO_ego_vehicle shows an abrupt change in direction (from westbound to south-east) and path curvature which is inconsistent with its current 'decelerating' and 'straight' maneuver label, possibly indicating a prediction artifact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11902,
+  "candidatesTokenCount": 619,
+  "totalTokenCount": 18649,
+  "cachedContentTokenCount": 933,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11902
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 933
+   }
+  ],
+  "thoughtsTokenCount": 6128,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qOqYasXgBNqr1e8Pw_3ZiAY"
+}

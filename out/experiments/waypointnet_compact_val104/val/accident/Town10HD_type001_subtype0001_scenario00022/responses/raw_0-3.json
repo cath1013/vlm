@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are identified within this interval, and all actors maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"P010\",\n        \"V021\"\n      ],\n      \"reason\": \"Multiple conflicts are expected: EGO_ego_vehicle and EGO_other_vehicle have an orthogonal entry conflict as EGO_other_vehicle turns into EGO_ego_vehicle's path; additionally, P010 and V021 have an orthogonal entry conflict as V021 turns into P010's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T001\",\n        \"V002\"\n      ],\n      \"reason\": \"A rear-end collision is expected between T001 and V002, as T001 is predicted to catch up to and collide with the slower V002 while both are traveling southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"T001\"\n      ],\n      \"reason\": \"An intersection conflict is expected between EGO_other_vehicle and T001, as EGO_other_vehicle's left turn trajectory crosses the path of T001, which is moving straight southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V025\",\n        \"P012\",\n        \"P015\"\n      ],\n      \"reason\": \"Multiple conflicts are expected: EGO_ego_vehicle is predicted to rear-end the stopped vehicle V025, and pedestrians P012 and P015 are predicted to have body contact as their paths converge while moving westbound.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple potential accidents are identified across the prediction window. Interval k=2 shows two separate orthogonal intersection conflicts. Interval k=3 indicates a rear-end collision between two vehicles. Interval k=4 predicts another intersection conflict. Finally, interval k=5 includes both a rear-end collision with a stopped vehicle and a pedestrian-pedestrian contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10328,
+  "candidatesTokenCount": 765,
+  "totalTokenCount": 16342,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10328
+   }
+  ],
+  "thoughtsTokenCount": 5249,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "mMCYavBU9YDT6Q_TwIXxDg"
+}

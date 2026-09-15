@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs show sufficient minimum clearance between all actors, indicating no expected contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient separation, with the closest pair having over 10 meters of clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While paths converge, the closest predicted pair still shows a clearance of over 9 meters, and no contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"An orthogonal entry collision is expected between EGO_ego_vehicle (southbound) and EGO_other_vehicle (southeastbound) at 9.2 seconds after observation, with predicted simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the collision in k=4 occurs, this interval would be a post-collision state. If it does not occur, all other predicted pairs show large clearances, and the vehicles would have passed the intersection point.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"There is a high likelihood of an accident occurring at approximately 9.2 seconds (within interval k=4) between the observer's ego vehicle (EGO_ego_vehicle) and another observer vehicle (EGO_other_vehicle). Both vehicles are on high-probability straight paths that converge, leading to an predicted orthogonal entry collision. No other accidents are predicted within the 5-second window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7153,
+  "candidatesTokenCount": 601,
+  "totalTokenCount": 11514,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7153
+   }
+  ],
+  "thoughtsTokenCount": 3760,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PMyYaorQKc6Y0-kPndaJ2QI"
+}

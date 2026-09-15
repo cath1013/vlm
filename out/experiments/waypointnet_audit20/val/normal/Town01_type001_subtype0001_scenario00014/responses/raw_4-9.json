@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V002\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is closing rapidly on V002, which is stopped in the opposing lane on the same road, with a linear-extrapolated contact time of 0.8 seconds, indicating an imminent head-on or sideswipe collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is closing rapidly on V001, which is stopped in the opposing lane on the same road, with a linear-extrapolated contact time of 1.2 seconds, indicating a collision after the initial conflict with V002.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new distinct high-risk conflicts are apparent in this interval, as EGO_ego_vehicle_behind's trajectory would have been significantly altered by prior predicted collisions, or it would have successfully avoided them.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming prior severe interactions, further specific accident predictions are speculative; otherwise, no new immediate conflicts are evident.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The immediate conflicts would have resolved or occurred by this interval, and no new independent collision risks are identified.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents a high immediate risk of collision for EGO_ego_vehicle_behind. It is approaching two stopped vehicles (V002, then V001) in opposing lanes with critically low linear-extrapolated contact times of 0.8s and 1.2s, respectively. While EGO_ego_vehicle_behind also has a stopped vehicle (EGO_ego_vehicle) ahead in its own lane, its 'predicted path: straight' does not account for necessary braking or evasive action, leading to the expectation of multiple collisions.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for potential braking or steering maneuvers by drivers, which could avert the predicted collisions. The interpretation of a 'contact' with 4m lateral separation on opposing single-lane roads is assumed to imply a physical overlap or high-risk close pass.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8912,
+  "candidatesTokenCount": 784,
+  "totalTokenCount": 18075,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8912
+   }
+  ],
+  "thoughtsTokenCount": 8379,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FBqVas7tAYG-vr0Pw5mU-Q4"
+}

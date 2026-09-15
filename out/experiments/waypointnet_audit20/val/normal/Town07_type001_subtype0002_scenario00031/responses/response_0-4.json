@@ -1,0 +1,62 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 32.78,
+ "usage": {
+  "input": 10987,
+  "output": 759
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V002",
+     "P003",
+     "V001"
+    ],
+    "reason": "V002 has orthogonal entry conflicts with P003 (TTC 0.5s) and EGO_other_vehicle (TTC 0.7s) at junction J87, indicating an imminent multi-vehicle collision. V001 is also entering the same junction area, with a linear-extrapolated contact time of 1.5s with EGO_other_vehicle, making its involvement highly probable.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The accident involving EGO_other_vehicle, V002, P003, and V001 is expected to have occurred in the previous interval, meaning these vehicles are no longer following their predicted paths. No new independent conflicts are identified for other road users in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The primary accident has concluded. No new independent conflicts are identified for other road users, as remaining predicted path interactions are either resolved or too distant for an immediate collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The primary accident has concluded. No new independent conflicts are identified for other road users, as remaining predicted path interactions are either resolved or too distant for an immediate collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The primary accident has concluded. No new independent conflicts are identified for other road users, as remaining predicted path interactions are either resolved or too distant for an immediate collision.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An immediate multi-vehicle accident is highly probable in the first interval due to multiple orthogonal entry conflicts at junction J87 involving EGO_other_vehicle, V002, P003, and V001, all with extremely low Times-To-Collision. Subsequent intervals are expected to be safe for other road users as the primary collision would alter the scene for the involved vehicles.",
+  "data_limitations": "The linear-extrapolated contact times do not account for turning or braking maneuvers, which might slightly alter the exact timing of collisions but do not negate the high probability given the low TTC values."
+ }
+}

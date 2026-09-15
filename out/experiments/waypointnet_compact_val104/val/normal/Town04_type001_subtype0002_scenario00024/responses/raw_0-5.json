@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths of all vehicles maintain safe distances, with the closest pair having a clearance of 6.44m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe clearances, with the closest pair having a minimum clearance of 10.69m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have simultaneous body contact (0.0m clearance) at 2.7 seconds after observation (within this interval), as their paths intersect at a junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a clearance of 1.35m between V005 and V006, without predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V003\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stationary V003, with 0.0m minimum clearance and predicted contact at 4.8 seconds after observation (within this interval).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window. The first involves EGO_ego_vehicle and EGO_other_vehicle in interval k=3, where their paths intersect with predicted contact. The second involves EGO_other_vehicle and the stationary V003 in interval k=5, also with predicted contact. All other interactions show sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9147,
+  "candidatesTokenCount": 626,
+  "totalTokenCount": 13400,
+  "cachedContentTokenCount": 909,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9147
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 3627,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FsyYavy0Ltuq0-kPyq2r8Qw"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and no physical contact is predicted during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T015\", \"V003\"],\n      \"reason\": \"T015 (truck) and V003 (car) are predicted to have a head-on collision at approximately 2.0 seconds after observation due to opposing travel on the same path with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the previous interval, no new specific contact is predicted within this interval, and other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T015\", \"C016\"],\n      \"reason\": \"T015 (truck) and C016 (bicycle) are predicted to collide at approximately 3.4 seconds after observation due to T015 overtaking C016 on the same path with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002 (car) is predicted to rear-end V001 (car) at approximately 4.5 seconds after observation, as V001 remains stopped while V002 approaches on the same path with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates multiple serious collision events. T015 is involved in two separate predicted collisions: a head-on with V003 in k=2, and overtaking a bicycle C016 in k=4. Additionally, V002 is predicted to rear-end a stopped V001 in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7921,
+  "candidatesTokenCount": 653,
+  "totalTokenCount": 11527,
+  "cachedContentTokenCount": 893,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7921
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 893
+   }
+  ],
+  "thoughtsTokenCount": 2953,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IsCYaoW-K_qb0-kPtv6CeA"
+}

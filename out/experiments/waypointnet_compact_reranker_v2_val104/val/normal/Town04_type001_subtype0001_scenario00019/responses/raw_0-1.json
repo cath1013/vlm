@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with no clear indication of physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with no clear indication of physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind and EGO_other_vehicle are predicted to have a minimum clearance of 0.41m at 3.8 seconds. Given both are cars (width 1.93m), this small clearance clearly supports body contact or overlap as they converge laterally.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle_behind and P006 are predicted to have a clearance of 1.24m at 4.2 seconds, this is not a clear indication of physical contact or body overlap, and the predictor explicitly states no contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with no clear indication of physical contact or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected between EGO_other_vehicle_behind and EGO_other_vehicle in the (3.0, 4.0] second interval due to converging paths leading to a minimal 0.41m clearance. Other close interactions, such as EGO_other_vehicle_behind and P006 at 4.2 seconds, are judged as near misses given the specific clearance and 'predicted_contact' flag.\",\n  \"data_limitations\": \"The 'interval_index' in 'predicted_closest_pairs' was inconsistent with the 'time_after_observation_s' for some critical events, requiring reliance on 'time_after_observation_s' to correctly map events to the defined 1-second intervals.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7320,
+  "candidatesTokenCount": 692,
+  "totalTokenCount": 15273,
+  "cachedContentTokenCount": 884,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7320
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 884
+   }
+  ],
+  "thoughtsTokenCount": 7261,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_-iYap7FNLq20-kPyMLMgQI"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted paths. The closest pair V005 and P009 have a minimum clearance of 7.0m, which is safe.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or significantly small clearances between any actors in this interval. All predicted paths show safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, with the closest predicted interaction between V005 and C001 showing a minimum clearance of 2.69m, which is not an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or close calls between any actors in this interval. The closest pair V005 and M002 maintain a 2.74m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V015\"],\n      \"reason\": \"EGO_ego_vehicle and V015 are predicted to make contact with a minimum clearance of 0.0m at 4.9 seconds after observation, indicating a body overlap or side-swipe during their parallel southbound travel.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first four 1-second intervals appear safe with all vehicles maintaining adequate separation. However, in the fifth interval (8.0-9.0s absolute time), a collision is predicted between the ego vehicle and V015. This is flagged with zero minimum clearance and predicted contact, indicating a high likelihood of a side-swipe or close lane encroachment.\",\n  \"data_limitations\": \"The interpretation of 'lane 2 of 2' along with lateral offsets for EGO_ego_vehicle and V015 was slightly ambiguous in defining their exact relative lane positions, but the direct prediction of 0.0m clearance by the closest pair analysis provides clear evidence of contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9421,
+  "candidatesTokenCount": 682,
+  "totalTokenCount": 15294,
+  "cachedContentTokenCount": 911,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9421
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 911
+   }
+  ],
+  "thoughtsTokenCount": 5191,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "AsKYaomgJsm21e8P7d_YiAY"
+}

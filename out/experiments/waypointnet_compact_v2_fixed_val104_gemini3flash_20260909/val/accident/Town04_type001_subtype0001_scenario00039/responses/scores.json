@@ -1,0 +1,130 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fd217e339e3b",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "status": "FN",
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "FN",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicles and pedestrians are maintaining safe margins and following their predicted trajectories without overlap.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle fails to decelerate and rear-ends the slow-moving V023 on Road 30, and is subsequently struck from behind by EGO_other_vehicle which is closing at a higher speed."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "In addition to the ongoing pileup on Road 30, EGO_ego_vehicle_behind follows a trajectory that intersects with and strikes pedestrian P011 at approximately 2.4s after the observation window."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The multiple collisions from previous intervals result in ongoing physical contact and body overlap as actors come to a rest."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The scene remains in an accident state with multi-vehicle and pedestrian contact continuing throughout the final interval."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 1,
+  "n_buckets": 1,
+  "counts": {
+   "TP": 0,
+   "FP": 0,
+   "TN": 0,
+   "FN": 1
+  },
+  "accuracy": 0.0,
+  "precision": null,
+  "recall": 0.0,
+  "vehicle_recall_mean": null,
+  "actor_precision_mean": null,
+  "events": {
+   "n": 1,
+   "exact": 0,
+   "early": 0,
+   "none": 1,
+   "detection_rate": 0.0,
+   "mean_lead_s": null
+  },
+  "response_issue_counts": {}
+ }
+}

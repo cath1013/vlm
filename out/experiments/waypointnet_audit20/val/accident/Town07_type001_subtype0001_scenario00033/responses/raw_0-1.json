@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"V013\",\n        \"EGO_other_vehicle\",\n        \"V016\",\n        \"V001\",\n        \"V014\",\n        \"EGO_other_vehicle_behind\",\n        \"V015\"\n      ],\n      \"reason\": \"Multiple vehicles are on a linear-extrapolated collision course within this interval: V002 and V013 (TTC 0.7s), EGO_other_vehicle and V016 (TTC 1.3s), V001 and V014 (TTC 1.8s), and EGO_other_vehicle_behind and V015 (TTC 1.8s), indicating imminent head-on or intersection collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T003\",\n        \"V012\",\n        \"V013\",\n        \"EGO_ego_vehicle\",\n        \"V007\",\n        \"EGO_other_vehicle_behind\",\n        \"V016\",\n        \"N011\",\n        \"V010\"\n      ],\n      \"reason\": \"Further imminent collisions are predicted: T003 and V012 (TTC 2.1s), T003 and V013 (TTC 2.5s), EGO_ego_vehicle and V007 (TTC 2.7s), EGO_other_vehicle_behind and V016 (TTC 2.9s), and N011 is closing rapidly on the stopped V010 (TTC 3.1s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V014\",\n        \"V013\"\n      ],\n      \"reason\": \"V014 is predicted to collide with V013 (TTC 4.1s at t=1s) in a car-following scenario. While V013 is involved in earlier head-on conflicts, V014 is still closing rapidly.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All immediate linear-extrapolated conflicts with TTCs less than 4 seconds would have occurred in previous intervals. Without further information on new interactions or path changes, no new specific accidents are predicted.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V005\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is closing on V005 in a car-following situation with a TTC of 5.6 seconds, indicating a potential rear-end collision within this interval if speeds are maintained.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene at t=1s is highly critical with multiple vehicles on collision courses, primarily head-on or crossing conflicts at a three-way junction. Several linear-extrapolated collision times are below 2 seconds, indicating an extremely high likelihood of multiple simultaneous or rapidly cascading accidents in the very near future. Further car-following collisions are predicted in later intervals.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for turning, braking, or evasive maneuvers, which could alter or avert predicted collisions. The implications of 'same road' and 'lane 1/1' for vehicles in opposing directions are ambiguous without detailed lane geometry or traffic rules at the junction, but the explicit 'contact in X.Xs' is interpreted as a collision course. The model does not explicitly account for cascading accidents where an initial collision could stop vehicles and lead to subsequent impacts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7848,
+  "candidatesTokenCount": 1078,
+  "totalTokenCount": 17387,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7848
+   }
+  ],
+  "thoughtsTokenCount": 8461,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "thyVasLuJu_dvr0PsqOFwQM"
+}

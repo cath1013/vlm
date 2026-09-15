@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted conflicts with body contact are identified for this interval; all vehicles maintain sufficient clearance based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"C016\", \"V013\", \"V014\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide in a rear-end fashion with C016 (bicycle) due to a significant speed differential while traveling in the same southbound lane. Additionally, V013 is predicted to collide with V014 in a rear-end fashion while both travel southbound, indicated by 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V006\"],\n      \"reason\": \"V006 is predicted to collide with the stopped EGO_other_vehicle_behind, as V006's path converges on the stationary vehicle with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted conflicts with body contact are identified for this interval; all vehicles maintain sufficient clearance based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted conflicts with body contact are identified for this interval; all vehicles maintain sufficient clearance based on their predicted paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high probability of multiple collisions. EGO_ego_vehicle is expected to rear-end a bicycle (C016), and another pair of vehicles (V013 and V014) are expected to collide in the second interval. A third collision is anticipated in the third interval, where V006 impacts the stopped EGO_other_vehicle_behind.\",\n  \"data_limitations\": \"The 1-second waypoints sometimes make it difficult to visually confirm a collision when a 0.0m clearance is reported, especially for vehicles traveling in the same general direction. However, the explicit 'predicted_contact=true' and 'minimum_clearance_m=0.0' from the interpolation were followed as instructed.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7669,
+  "candidatesTokenCount": 735,
+  "totalTokenCount": 12880,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7669
+   }
+  ],
+  "thoughtsTokenCount": 4476,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "z8WYaqeIE-T11e8PqLWp8Qg"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind and T024 maintain a minimum clearance of 1.0m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously small clearances between any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle_behind and V033 maintain a minimum clearance of 0.88m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V029\", \"V032\"],\n      \"reason\": \"Predicted contact between V029 and V032 with 0.0m minimum clearance at 3.6 seconds after observation (within this interval), suggesting a turning vehicle conflict where V032 turns into V029's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P037\"],\n      \"reason\": \"Predicted contact between EGO_ego_vehicle and P037 with 0.0m minimum clearance at 4.4 seconds after observation (within this interval), indicating a turning vehicle/pedestrian conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are expected within the prediction window. In the (8.0, 9.0] second interval, V029 and V032 are predicted to collide during a turning maneuver. Subsequently, in the (9.0, 10.0] second interval, the EGO_ego_vehicle is predicted to collide with a pedestrian, P037, while performing a right turn.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13244,
+  "candidatesTokenCount": 633,
+  "totalTokenCount": 17324,
+  "cachedContentTokenCount": 1883,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13244
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1883
+   }
+  ],
+  "thoughtsTokenCount": 3447,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xe-Yasu-J8uy1e8PneeVwQo"
+}

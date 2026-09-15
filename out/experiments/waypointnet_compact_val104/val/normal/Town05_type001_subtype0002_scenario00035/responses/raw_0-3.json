@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances or are on non-colliding paths during this interval, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V001\", \"T018\", \"N004\"],\n      \"reason\": \"V002 is predicted to rear-end the stopped V001, and N004 is predicted to rear-end the slower T018, both with 0.0m minimum clearance in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m clearance are indicated for this interval, and vehicles appear to maintain safe separations.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V021\", \"V001\"],\n      \"reason\": \"V021 is predicted to rear-end the stopped V001, with 0.0m minimum clearance at 3.8s after observation (6.8s absolute time).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances or are on non-colliding paths during this interval, with no predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are expected within the 5-second prediction window. In interval (4.0, 5.0]s, V002 is predicted to rear-end a stopped V001, and N004 is predicted to rear-end T018. Later, in interval (6.0, 7.0]s, V021 is also predicted to rear-end the same stopped V001.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8281,
+  "candidatesTokenCount": 636,
+  "totalTokenCount": 11984,
+  "cachedContentTokenCount": 898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8281
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 898
+   }
+  ],
+  "thoughtsTokenCount": 3067,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3syYaqCCJObC0-kPzvzlwA4"
+}

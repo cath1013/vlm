@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain a safe minimum clearance according to their predicted paths, with the closest pair having a clearance of 0.9 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All road users maintain a safe minimum clearance according to their predicted paths, with the closest pair (P007 and P008) having a clearance of 0.41 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V015\", \"N001\", \"V002\"],\n      \"reason\": \"V011 is predicted to collide with the stopped V015 at approximately t=4.4s. Additionally, V002 is predicted to rear-end N001 at approximately t=4.5s due to insufficient following distance, both leading to simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V016\"],\n      \"reason\": \"V011 is predicted to collide with the stopped V016 at approximately t=5.6s as V011 continues its eastbound trajectory, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M005\", \"V004\"],\n      \"reason\": \"M005 (motorcycle) is predicted to collide with the stopped V004 (car) at approximately t=6.1s, indicating simultaneous body contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows a high likelihood of multiple collisions, starting in interval k=3. V011 is involved in two separate predicted collisions with stopped vehicles (V015 and V016) in successive intervals (k=3 and k=4). A rear-end collision between V002 and N001 is also expected in k=3, and a motorcycle (M005) is predicted to collide with a stopped car (V004) in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8343,
+  "candidatesTokenCount": 703,
+  "totalTokenCount": 15261,
+  "cachedContentTokenCount": 1798,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8343
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1798
+   }
+  ],
+  "thoughtsTokenCount": 6215,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7sKYarK1MJew1e8PxZ2poAY"
+}

@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 38.92,
+ "usage": {
+  "input": 7720,
+  "output": 601
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient spatial separation, and no physical contact or body overlap is evident in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient spatial separation, and no physical contact or body overlap is evident in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient spatial separation, and no physical contact or body overlap is evident in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient spatial separation, and no physical contact or body overlap is evident in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient spatial separation, and no physical contact or body overlap is evident in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "No accidents are expected across the entire 5-second prediction window. All active vehicles and pedestrians are predicted to follow paths that maintain safe distances, either by occupying different lanes, being longitudinally separated, or safely passing stationary objects with adequate lateral clearance. Specifically, there's no clear evidence of geometric overlap between any actor's predicted future path at any given timestep.",
+  "data_limitations": "Some actors (e.g., EGO_ego_vehicle_behind and M027) share the same reported lane number and lateral offset but have significantly different E-coordinates, implying they are in different physical lanes. Judgement prioritized the raw E/N coordinates to assess geometric separation over potentially ambiguous lane assignment data."
+ }
+}

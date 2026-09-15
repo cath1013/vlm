@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 46.05,
+ "usage": {
+  "input": 7247,
+  "output": 447
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_other_vehicle is performing a left turn across the path of the eastbound EGO_ego_vehicle, with both vehicles maintaining speed into an intersection crossing conflict that results in contact at t=5.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Following the initial conflict in the first interval, the independent future paths for the involved vehicles begin to diverge.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Clearance between EGO_other_vehicle and EGO_ego_vehicle increases, and other nearby vehicles such as V002 remain at a safe distance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No physical contact is predicted as vehicles move away from the junction conflict point.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are established on diverging trajectories with increasing clearance between previously conflicting actors.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary conflict occurs in the first second after observation (t=5.8s) when EGO_ego_vehicle and EGO_other_vehicle converge at an intersection. EGO_other_vehicle is turning left into the path of EGO_ego_vehicle, and with neither vehicle showing evidence of braking or yielding in their history or predicted paths, a side-swipe or T-bone collision is predicted with 0m clearance.",
+  "data_limitations": ""
+ }
+}

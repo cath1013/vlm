@@ -1,0 +1,130 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fd217e339e3b",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "status": "FN",
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "FN",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Minimal clearance of 0.25m between EGO_other_vehicle and EGO_ego_vehicle_behind suggests close proximity without physical contact.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle collides with the stationary vehicle V001 at 1.4s as it executes a left turn into the lane occupied by the stopped car."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Two distinct collisions are predicted: EGO_ego_vehicle_behind strikes pedestrian P011 at 2.4s, and EGO_other_vehicle impacts oncoming vehicle V003 at 2.9s."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Minimal clearance of 0.11m between EGO_ego_vehicle and V023 at 3.6s indicates a very near miss, but no overlap is predicted."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All vehicles maintain separate paths without predicted contact or dangerously low clearance."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 1,
+  "n_buckets": 1,
+  "counts": {
+   "TP": 0,
+   "FP": 0,
+   "TN": 0,
+   "FN": 1
+  },
+  "accuracy": 0.0,
+  "precision": null,
+  "recall": 0.0,
+  "vehicle_recall_mean": null,
+  "actor_precision_mean": null,
+  "events": {
+   "n": 1,
+   "exact": 0,
+   "early": 0,
+   "none": 1,
+   "detection_rate": 0.0,
+   "mean_lead_s": null
+  },
+  "response_issue_counts": {}
+ }
+}

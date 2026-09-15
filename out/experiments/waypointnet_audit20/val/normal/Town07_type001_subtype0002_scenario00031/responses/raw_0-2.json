@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"P003\",\n        \"V001\"\n      ],\n      \"reason\": \"Multiple immediate junction conflicts are expected: EGO_other_vehicle and P003 have an explicit orthogonal entry conflict with a TTC of 1.2s, while EGO_other_vehicle and V001 are predicted to have a junction conflict with linear-extrapolated contact in 1.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"P007\",\n        \"EGO_other_vehicle_behind\",\n        \"V011\",\n        \"EGO_other_vehicle\",\n        \"V001\",\n        \"P003\"\n      ],\n      \"reason\": \"Several junction conflicts are indicated by linear-extrapolated contact times: V002 and P007 at 3.3s, EGO_other_vehicle_behind and V011 at 3.4s, EGO_other_vehicle and V002 at 3.6s, and V001 and P003 at 3.7s, suggesting multiple potential collisions as vehicles navigate the complex junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V009\",\n        \"V010\"\n      ],\n      \"reason\": \"V009 is following the stopped V010 with a TTC of 3.0s, and V009 is accelerating, making a rear-end collision highly probable in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V001\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"Junction conflicts are indicated by linear-extrapolated contact times: EGO_other_vehicle_behind and V001 at 5.1s, and EGO_ego_vehicle and V001 at 5.3s, suggesting continued risk in the junction area.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most immediate and critical conflicts identified by TTC values would likely have occurred or been resolved in previous intervals, and no new imminent accidents are clearly evident for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at this three-way junction is highly complex with multiple vehicles and pedestrians converging. Several immediate high-risk interactions are identified with very low TTC values, including explicit orthogonal junction conflicts and high-probability rear-end scenarios. Accidents are expected across the first four prediction intervals due to these numerous conflicts.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values do not constitute full path predictions accounting for braking, steering, or traffic rules, requiring careful interpretation for collision assessment. The 'predicted path: off-candidate path' for EGO_ego_vehicle reduces certainty about its future movement. There is no information regarding traffic signal states or specific lane marking types (solid/dashed) to infer right-of-way.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9297,
+  "candidatesTokenCount": 940,
+  "totalTokenCount": 20559,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9297
+   }
+  ],
+  "thoughtsTokenCount": 10322,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_R2VaqCzFLTD0-kPobir-AE"
+}

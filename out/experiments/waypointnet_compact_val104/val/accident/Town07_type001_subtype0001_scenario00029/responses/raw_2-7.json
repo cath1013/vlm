@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact is predicted in this interval, as all closest pairs have positive minimum clearance values and are explicitly marked as predicted_contact=false.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"C016\",\n        \"T015\",\n        \"V003\",\n        \"C020\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with both stopped bicycle C016 and stopped truck T015. Separately, V003 is predicted to collide with stopped bicycle C020. All predicted contacts show 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"T015\",\n        \"EGO_ego_vehicle\",\n        \"V014\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped truck T015. EGO_ego_vehicle is also predicted to collide with the stopped car V014. Both predicted contacts have 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V014\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped car V014, with a predicted contact and 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact is predicted in this interval, as the only closest pair has a positive minimum clearance and is explicitly marked as predicted_contact=false.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts a series of rear-end collisions involving both observer vehicles and several stopped or slow-moving road users. EGO_ego_vehicle is predicted to collide sequentially with C016, T015, and V014, while EGO_other_vehicle is predicted to collide with T015 and V014. Additionally, V003 is predicted to collide with C020. All predicted contacts indicate 0.0m clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8047,
+  "candidatesTokenCount": 756,
+  "totalTokenCount": 12886,
+  "cachedContentTokenCount": 895,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8047
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 895
+   }
+  ],
+  "thoughtsTokenCount": 4083,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XcCYaveJLIDU1e8P2PiQgQY"
+}

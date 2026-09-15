@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"T018\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is approaching T018 with a current distance of 3.6m and a linear-extrapolated time to contact of 1.2s, with EGO_ego_vehicle accelerating while T018 is stopped, indicating an imminent collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"P016\"\n      ],\n      \"reason\": \"EGO_other_vehicle and P016 are identified as having an orthogonal entry conflict at junction J37 with an arrival time gap of 2.1s and a time to contact of 2.9s from t=8s; they will be entering the conflicting paths of the junction during this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"P016\"\n      ],\n      \"reason\": \"The collision between EGO_other_vehicle and P016, due to an orthogonal entry conflict at the junction, is expected around t=10.9s (TTC 2.9s from t=8s), falling within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After accounting for the immediate conflicts, no other high-likelihood accident scenarios are indicated by the current data for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new or escalating conflicts are present in the provided data to suggest an accident in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future holds a high risk of collision between EGO_ego_vehicle and the stationary T018 due to close proximity and EGO_ego_vehicle's acceleration. Subsequently, an orthogonal conflict between EGO_other_vehicle and P016 at a junction is highly probable. Beyond these two critical events, the scene appears stable with many vehicles stopped or maintaining safe distances.\",\n  \"data_limitations\": \"The absence of traffic signal states and detailed lane marking types limits the ability to infer legal right-of-way at junctions. The 'linear-extrapolated contact' is a simplified projection and does not account for evasive maneuvers, while 'predicted path' values are model outputs and not direct observations of driver intent.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 14180,
+  "candidatesTokenCount": 787,
+  "totalTokenCount": 20731,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 14180
+   }
+  ],
+  "thoughtsTokenCount": 5764,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IR2VaryBG5GM1e8P36u9gQk"
+}

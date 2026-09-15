@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with 0.0m clearance in this interval; the closest pairs maintain sufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V005\", \"T015\", \"C016\"],\n      \"reason\": \"V011 and V005 are predicted to collide at 1.6s (intersection conflict) while T015 and C016 are predicted to collide at 1.8s (same-lane overtaking conflict) due to overlapping trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with 0.0m clearance in this interval; the closest pairs maintain sufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T015\", \"V003\"],\n      \"reason\": \"T015 (truck) and V003 (car) are predicted to collide head-on or side-swipe at 3.8s while traveling in opposing directions on Road 11, indicated by 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C016\", \"V014\", \"EGO_ego_vehicle\", \"V007\"],\n      \"reason\": \"C016 (bicycle) is predicted to rear-end V014 (stopped car) at 4.1s, and EGO_ego_vehicle and V007 are predicted to collide at 5.0s in an intersection conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the 5-second prediction window. These include intersection conflicts involving cars, a bicycle rear-ending a stopped car, a truck and bicycle in an overtaking conflict, and a potential head-on collision between a truck and a car.\",\n  \"data_limitations\": \"Detailed road geometry, traffic light states, or stop sign information are not available, which could affect the precise nature or avoidance of certain intersection or opposing-lane conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7453,
+  "candidatesTokenCount": 701,
+  "totalTokenCount": 11932,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7453
+   }
+  ],
+  "thoughtsTokenCount": 3778,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DsCYaqqgIMmj9tMPm6HGkQY"
+}

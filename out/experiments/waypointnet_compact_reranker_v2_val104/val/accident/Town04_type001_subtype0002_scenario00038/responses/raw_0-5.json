@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances and continue on their respective paths without conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances and continue on their respective paths without conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances and continue on their respective paths without conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T003\"],\n      \"reason\": \"A rear-end collision is expected between T003 and EGO_ego_vehicle_behind. T003, moving faster and accelerating, is predicted to collide with the slower EGO_ego_vehicle_behind from behind in the same lane, as indicated by a predicted minimum clearance of 0.0m at 3.6s after observation (t=8.6s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contact or body overlap is explicitly predicted in this interval based on the supplied future paths and predicted closest pairs data.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the fourth interval, where a faster truck (T003) is expected to rear-end the observer's vehicle (EGO_ego_vehicle_behind) while both are traveling in the same lane. All other observed and predicted trajectories suggest safe clearances or close calls without contact.\",\n  \"data_limitations\": \"The future paths provided do not account for post-collision dynamics, meaning predictions for intervals after the predicted accident (k=4) might not accurately reflect real-world outcomes.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7819,
+  "candidatesTokenCount": 633,
+  "totalTokenCount": 11778,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7819
+   }
+  ],
+  "thoughtsTokenCount": 3326,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "8O2YavnHAZWH0-kPmKrWgQ0"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap is observed between any actors in this interval; the closest pair maintains over 1.5 meters of clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap is observed between any actors in this interval; all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap is observed between any actors in this interval; the closest pairs maintain positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"V011\"\n      ],\n      \"reason\": \"Multiple predicted contacts occur: EGO_ego_vehicle_behind is predicted to collide with EGO_other_vehicle from behind at 3.2s, and EGO_other_vehicle is predicted to have a head-on collision with V011 at 3.7s due to opposing travel in the same road space.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V003\",\n        \"C024\"\n      ],\n      \"reason\": \"V003 is predicted to collide with the bicycle C024 from behind at 5.0s, as both are traveling southbound in the same lane and their paths converge to zero clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts no accidents in the first three intervals. However, severe accidents are expected in intervals k=4 and k=5. Interval 4 features two distinct collisions involving an observer vehicle, EGO_other_vehicle: a rear-end collision with EGO_ego_vehicle_behind and a head-on collision with V011. Interval 5 shows a rear-end collision between a car (V003) and a bicycle (C024).\",\n  \"data_limitations\": \"None.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8864,
+  "candidatesTokenCount": 688,
+  "totalTokenCount": 12953,
+  "cachedContentTokenCount": 905,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8864
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 905
+   }
+  ],
+  "thoughtsTokenCount": 3401,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Z76YasK-F86Y0-kPndaJ2QI"
+}

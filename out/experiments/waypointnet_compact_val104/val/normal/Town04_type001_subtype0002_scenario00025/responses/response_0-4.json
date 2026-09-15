@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.57,
+ "usage": {
+  "input": 11621,
+  "output": 581
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V018",
+     "V019"
+    ],
+    "reason": "V019 is predicted to collide with the stopped V018 from behind in the same lane, with a predicted contact at 0.9 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are predicted to maintain safe clearances or are stationary during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "V004",
+     "V013",
+     "V014"
+    ],
+    "reason": "V005 is predicted to collide with the stopped V004 at 2.4s, and V014 is predicted to collide with the stopped V013 at 3.0s, both indicating rear-end collisions within their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T001",
+     "V002"
+    ],
+    "reason": "V002 is predicted to collide with the stopped T001 from behind at 3.5s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are predicted to maintain safe clearances or are stationary during this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple rear-end collisions are predicted across the 5-second prediction window. In each case, a moving vehicle is predicted to collide with a vehicle that is stopped in the same lane of travel.",
+  "data_limitations": ""
+ }
+}

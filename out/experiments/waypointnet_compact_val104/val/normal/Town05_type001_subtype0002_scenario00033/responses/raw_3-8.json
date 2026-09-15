@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance, with no geometrically supported physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V026\"],\n      \"reason\": \"V026 is predicted to rear-end the stopped EGO_other_vehicle, with their paths showing simultaneous body contact and overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V026\"],\n      \"reason\": \"The rear-end collision between V026 and EGO_other_vehicle, initiated in the previous interval, is expected to continue with persistent body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V026\"],\n      \"reason\": \"The rear-end collision between V026 and EGO_other_vehicle is expected to continue with persistent body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V026\", \"EGO_other_vehicle\"],\n      \"reason\": \"V026 is predicted to be involved in an orthogonal collision with EGO_ego_vehicle_behind, with simultaneous body contact. This occurs while V026 is also still predicted to be in a persistent rear-end collision with EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the 5-second prediction window. A primary rear-end collision is expected between V026 and EGO_other_vehicle starting in the second interval and persisting through the fourth. In the final interval, V026 is additionally predicted to collide orthogonally with EGO_ego_vehicle_behind while still involved in the first collision.\",\n  \"data_limitations\": \"The predicted paths do not account for physical collision dynamics; therefore, subsequent predicted collisions involving an already impacted vehicle might not unfold as described if the initial collision alters trajectories.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8974,
+  "candidatesTokenCount": 687,
+  "totalTokenCount": 17343,
+  "cachedContentTokenCount": 907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8974
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 907
+   }
+  ],
+  "thoughtsTokenCount": 7682,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bc2Yaq3FIt_A1e8P1fi7gQY"
+}

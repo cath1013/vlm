@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance or are on paths that do not intersect, with no predicted contacts indicating collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the stopped EGO_other_vehicle at 1.5s after observation during its right turn, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new predicted contacts, and other vehicles maintain safe distances or have already been involved in the previous interval's collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with the stopped EGO_other_vehicle at 3.3s after observation while continuing straight, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new predicted contacts, and other vehicles maintain safe distances or have already been involved in previous intervals' collisions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted in the forecast window, both involving the stopped EGO_other_vehicle. First, EGO_ego_vehicle_behind is predicted to collide with EGO_other_vehicle while making a right turn in the second interval. Second, EGO_other_vehicle_behind is predicted to collide with the same stopped EGO_other_vehicle while moving straight in the fourth interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5963,
+  "candidatesTokenCount": 626,
+  "totalTokenCount": 8934,
+  "cachedContentTokenCount": 857,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5963
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 857
+   }
+  ],
+  "thoughtsTokenCount": 2345,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "CO2YaomzDI392roPoaynGQ"
+}

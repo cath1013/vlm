@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 49.06,
+ "usage": {
+  "input": 13143,
+  "output": 819
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V020"
+    ],
+    "reason": "EGO_other_vehicle_behind, accelerating southbound, is on a linear-extrapolated collision course with V020, stopped northbound, with a time-to-contact of 1.3s in the junction area.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V006",
+     "EGO_ego_vehicle",
+     "V008"
+    ],
+    "reason": "EGO_ego_vehicle_behind, accelerating northbound, is on a linear-extrapolated collision course with V006, stopped southbound at the junction entrance, with a time-to-contact of 2.2s. Additionally, EGO_ego_vehicle, though moving slowly, shows a linear-extrapolated contact with V008 in 2.2s at the junction.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V019"
+    ],
+    "reason": "EGO_other_vehicle_behind, accelerating southbound, is on a linear-extrapolated collision course with V019, stopped northbound at the junction entrance, with a time-to-contact of 2.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No linear-extrapolated time-to-contact values are below 3.0s for this interval, indicating no immediate kinematic conflicts.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No linear-extrapolated time-to-contact values are below 3.0s for this interval, indicating no immediate kinematic conflicts.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Several observer vehicles are accelerating towards a four-way junction where other vehicles are stopped in opposing lanes very close to or within the junction area. The low linear-extrapolated Time-To-Contact values (1.3s, 2.2s, 2.9s) between accelerating observer vehicles and stopped vehicles on opposing sides of the same road strongly indicate head-on or crossing conflicts at the junction within the first three prediction intervals if no evasive action is taken and paths remain unmitigated.",
+  "data_limitations": "The absence of traffic signal states makes it impossible to judge right-of-way at the junction. The linear-extrapolated time-to-contact for EGO_ego_vehicle and V008 seemed high relative to EGO_ego_vehicle's slow speed, but the calculation was used as instructed."
+ }
+}

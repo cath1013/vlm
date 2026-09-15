@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance in this interval; all vehicles maintain safe distances or are stationary.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\", \"V010\", \"V012\", \"V005\", \"N006\", \"C018\", \"V019\"],\n      \"reason\": \"Multiple rear-end collisions are predicted: V003 collides with V002 (at 1.5s after observation), V012 collides with the stopped V010 (at 1.5s), N006 collides with the stopped V005 (at 1.7s), and V019 collides with C018 (at 1.9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance in this interval; all vehicles maintain safe distances or are stationary.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance in this interval; all vehicles maintain safe distances or are stationary.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"Three collisions are predicted: EGO_ego_vehicle and EGO_other_vehicle have an intersection conflict (at 4.2s after observation), EGO_ego_vehicle_behind rear-ends EGO_ego_vehicle (at 4.3s), and EGO_ego_vehicle_behind and EGO_other_vehicle have an intersection conflict (at 5.0s).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted in this scenario. The second interval (k=2) shows four distinct rear-end collisions involving both moving and stationary vehicles. The fifth interval (k=5) features complex interactions with two intersection conflicts involving observer vehicles and one rear-end collision between two observer vehicles.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9045,
+  "candidatesTokenCount": 721,
+  "totalTokenCount": 17309,
+  "cachedContentTokenCount": 907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9045
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 907
+   }
+  ],
+  "thoughtsTokenCount": 7543,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "SL-YauiXB4DU1e8P2PiQgQY"
+}

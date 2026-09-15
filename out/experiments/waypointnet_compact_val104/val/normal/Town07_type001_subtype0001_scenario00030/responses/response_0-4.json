@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 27.29,
+ "usage": {
+  "input": 10425,
+  "output": 633
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are predicted to maintain safe clearances, and no physical contact or overlap is expected.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V026",
+     "V011",
+     "N012"
+    ],
+    "reason": "EGO_ego_vehicle_behind and V026 are predicted to have a head-on or severe side-swipe collision as they travel in opposing directions on the same road, and N012 is predicted to collide with the stopped V011.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N025",
+     "V026"
+    ],
+    "reason": "V026 is predicted to collide with the stopped N025, leading to a rear-end collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N012",
+     "V013",
+     "V011"
+    ],
+    "reason": "V013 is predicted to collide with N012 and also with the stopped V011, resulting in multiple rear-end collisions.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are predicted to maintain safe clearances, and no physical contact or overlap is expected.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The forecast predicts several significant collisions involving multiple vehicles. Interval 2 shows a potential head-on/side-swipe between an observer vehicle and another car, as well as a rear-end collision. Interval 3 has another rear-end collision. Interval 4 features multiple rear-end collisions involving a third car colliding with two vehicles ahead, including one that was already involved in a collision in an earlier interval.",
+  "data_limitations": ""
+ }
+}

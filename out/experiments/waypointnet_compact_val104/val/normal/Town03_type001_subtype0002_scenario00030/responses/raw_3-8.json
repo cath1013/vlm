@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other, and there is no predicted physical contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind, proceeding straight southbound, is predicted to collide with EGO_other_vehicle_behind, performing a right turn, as their future paths intersect at a common point with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V008\"\n      ],\n      \"reason\": \"EGO_other_vehicle, traveling southbound, is predicted to collide with V008, also traveling southbound, resulting in a rear-end collision or overlap as indicated by 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V011\"\n      ],\n      \"reason\": \"EGO_other_vehicle, traveling southbound, is predicted to collide with the stationary vehicle V011, as EGO_other_vehicle's path overlaps V011's position with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V008\",\n        \"V011\"\n      ],\n      \"reason\": \"V008, traveling southbound, is predicted to collide with the stationary vehicle V011, as V008's path overlaps V011's position with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A series of accidents is predicted across the forecasting window. In the second interval, two observer vehicles, EGO_ego_vehicle_behind and EGO_other_vehicle_behind, are predicted to collide at an intersection. Subsequently, in intervals three, four, and five, EGO_other_vehicle and V008 are predicted to collide with each other and with the stationary vehicle V011, indicating a multi-vehicle collision scenario on the southbound road.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5494,
+  "candidatesTokenCount": 747,
+  "totalTokenCount": 9877,
+  "cachedContentTokenCount": 845,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5494
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 845
+   }
+  ],
+  "thoughtsTokenCount": 3636,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "UMuYaoLLBZf91e8PppTJgQY"
+}

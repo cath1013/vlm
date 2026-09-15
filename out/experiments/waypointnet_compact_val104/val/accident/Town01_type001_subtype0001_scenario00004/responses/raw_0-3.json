@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show that all vehicles maintain safe distances from each other, with the closest pair (N004 and V005) having over 7 meters of clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths indicate no clear physical contact; the closest vehicles (EGO_ego_vehicle and V001) maintain over 2 meters of clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite a predicted contact for EGO_other_vehicle and EGO_ego_vehicle_behind by the predictor, their future paths show them moving in the same direction with an increasing longitudinal separation of approximately 16-18 meters, which does not clearly support physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"M003\"],\n      \"reason\": \"Motorcycle M003 is predicted to rear-end the stopped car V002. At 6.5s, M003's interpolated path places its front directly in contact with V002's rear, aligning with the minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V006\", \"V017\"],\n      \"reason\": \"Car V006 is predicted to rear-end car V017. At 7.1s, V006's interpolated path places its front in contact with V017's rear, with only 4.54m separating their centers for two 4.6m long cars, aligning with the minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial two 1-second intervals show no expected accidents, and a predicted contact in the third interval is deemed a false positive upon closer inspection of the relative vehicle positions. However, two distinct rear-end collisions are expected in the later intervals: M003 colliding with a stopped V002 in (6.0, 7.0]s, and V006 colliding with V017 in (7.0, 8.0]s.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5988,
+  "candidatesTokenCount": 738,
+  "totalTokenCount": 14242,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5988
+   }
+  ],
+  "thoughtsTokenCount": 7516,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "8vGXavn2OLHv0-kPvMGy0AU"
+}

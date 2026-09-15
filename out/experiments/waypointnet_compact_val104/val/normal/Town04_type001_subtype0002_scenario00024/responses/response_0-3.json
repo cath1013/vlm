@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 11.84,
+ "usage": {
+  "input": 8297,
+  "output": 613
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths for all actors show sufficient clearance, and no contacts are indicated in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N002",
+     "V001"
+    ],
+    "reason": "Actor N002, a van, is predicted to rear-end the stopped car V001, which is ahead in its path, at approximately 4.4 seconds (1.4 seconds after observation).",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths for all actors show sufficient clearance, and no contacts are indicated in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths for all actors show sufficient clearance, and no contacts are indicated in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "The observer's ego vehicle (EGO_ego_vehicle) and another observer vehicle (EGO_other_vehicle) are predicted to collide orthogonally at an intersection at approximately 7.7 seconds (4.7 seconds after observation).",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two accidents are predicted within the 5-second prediction window. First, a rear-end collision between N002 and V001 is expected in the (4.0, 5.0] second interval. Second, an orthogonal intersection collision between EGO_ego_vehicle and EGO_other_vehicle is predicted in the (7.0, 8.0] second interval.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V027\",\n        \"P007\",\n        \"P008\",\n        \"EGO_other_vehicle_behind\",\n        \"V026\",\n        \"P016\",\n        \"P012\",\n        \"EGO_ego_vehicle\",\n        \"C020\"\n      ],\n      \"reason\": \"Multiple imminent collisions are predicted with linear-extrapolated contact times well within this interval. EGO_other_vehicle has a rear-end conflict with V027 (TTC 0.3s) and a potential side-swipe/rear-end with P016 (TTC 0.8s). P007 and P008 (TTC 0.6s) as well as P007 and P012 (TTC 0.9s) are on a head-on collision course. EGO_other_vehicle_behind is on a head-on collision course with V026 (TTC 0.7s). EGO_ego_vehicle and C020 are on a head-on collision course (TTC 0.9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P011\",\n        \"P014\",\n        \"P013\",\n        \"V028\",\n        \"EGO_other_vehicle\",\n        \"V001\",\n        \"T024\"\n      ],\n      \"reason\": \"Accidents are expected to continue or involve additional actors that were slightly further out in the previous interval. P011 and P014 are in a rear-end conflict (TTC 1.2s). P013 and V028 (TTC 1.3s), and EGO_other_vehicle and V028 (TTC 1.3s) represent head-on or orthogonal junction conflicts. V001 is on a collision course with stopped T024 (TTC 1.5s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P016\",\n        \"V027\",\n        \"P007\",\n        \"P010\",\n        \"P008\",\n        \"EGO_other_vehicle\",\n        \"P013\"\n      ],\n      \"reason\": \"Given the initial high closing rates, conflicts with TTCs between 1.5s and 2.5s are likely to materialize in this interval. P016 and V027 (TTC 1.7s) are in a head-on conflict. P007 and P010 (TTC 1.7s), P008 and P010 (TTC 2.2s), and EGO_other_vehicle and P013 (TTC 2.2s) are also expected to collide, assuming continued linear motion.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V001\",\n        \"P007\",\n        \"T024\"\n      ],\n      \"reason\": \"V001 and P007 have a linear-extrapolated contact in 2.0s, indicating a collision within this interval. While T024 is stopped, it is still in the predicted path of V001 and potential subsequent collisions may involve it.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [],\n      \"reason\": \"With numerous imminent collisions occurring in previous intervals, it is highly probable that the traffic situation will be chaotic, leading to further secondary collisions or compounding of existing ones. However, specific new direct collisions are hard to predict with just linear extrapolation beyond the immediate threats. No additional distinct linear-extrapolated contacts are beyond 2.3s, so previous conflicts are likely still unfolding.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation presents an extremely high risk of multiple collisions starting immediately after the last observed timestep. Several observer vehicles (EGO_ego_vehicle, EGO_other_vehicle, EGO_other_vehicle_behind) and numerous other road users (cars, persons, bicycle) are on imminent collision courses with linear-extrapolated contact times mostly under 1 second. These include head-on conflicts, rear-end collisions, and potential side-swipes, primarily concentrated around the junction area. The situation is critical and accidents are certain in the immediate future.\",\n  \"data_limitations\": \"The linear-extrapolated contact times do not account for turning, braking, or evasive maneuvers. The absence of traffic signal information prevents assessing right-of-way at the junction. The high number of low TTC values suggests that actual evasive actions would be very difficult to execute in time.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 15190,
+  "candidatesTokenCount": 1318,
+  "totalTokenCount": 19532,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 15190
+   }
+  ],
+  "thoughtsTokenCount": 3024,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jxmVasLoI4bu2roPjsmcsQ8"
+}

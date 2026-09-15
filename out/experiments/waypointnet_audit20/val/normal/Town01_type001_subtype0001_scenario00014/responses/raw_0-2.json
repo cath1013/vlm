@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"C008\", \"EGO_other_vehicle_behind\", \"N010\"],\n      \"reason\": \"EGO_ego_vehicle_behind and C008 are approaching each other in opposing lanes with a lateral separation of approximately 4m (one lane width) and a linear-extrapolated contact time of 0.9s, indicating an imminent side-swipe collision. Similarly, EGO_other_vehicle_behind and N010 are approaching each other in opposing lanes with a lateral separation of approximately 4m and a linear-extrapolated contact time of 1.0s, also indicating an imminent side-swipe collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P005\"],\n      \"reason\": \"EGO_other_vehicle is rapidly accelerating and closing in on P005 (a pedestrian) ahead in the same lane, with a calculated time to collision of approximately 1.62s from t=2s (meaning collision around t=3.62s), which is insufficient for safe following, especially for a pedestrian approaching a junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new critical interactions are identified in this interval; the primary conflicts are expected to have occurred in previous intervals.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new critical interactions are identified in this interval; existing conflicts are expected to have resolved or resulted in accidents.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new critical interactions are identified in this interval; the traffic situation appears to have stabilized after initial conflicts.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future intervals present a high risk of multiple accidents. Within the first second, two pairs of vehicles (EGO_ego_vehicle_behind/C008 and EGO_other_vehicle_behind/N010) are projected to have side-swipe collisions due to extremely tight lateral passing distances on opposing lanes. Following this, EGO_other_vehicle is on a collision course with pedestrian P005 due to high closing speed and acceleration while approaching a junction.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values are based on current speed and direction and do not account for evasive maneuvers, braking, or detailed lane positioning within the nominal lane width, which could slightly alter collision timing or outcome. The exact behavior of pedestrians (P005) at the junction is also subject to higher uncertainty than vehicles.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7524,
+  "candidatesTokenCount": 816,
+  "totalTokenCount": 18858,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7524
+   }
+  ],
+  "thoughtsTokenCount": 10518,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bhiVauGRCJ-e0-kPnOPogAs"
+}

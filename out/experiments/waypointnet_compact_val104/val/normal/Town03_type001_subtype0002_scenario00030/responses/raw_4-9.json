@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances and continue on their respective paths without any conflicts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V008\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stationary vehicle V008, which is stopped directly in its projected path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have body contact or overlap in this interval, maintaining safe separations.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V008\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stationary vehicle V008, which remains stopped in its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although predicted_contact indicated an issue, manual path analysis reveals a significant lateral separation of approximately 2.45 meters between EGO_ego_vehicle_behind and T001 when their longitudinal positions align, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions show two distinct rear-end collisions involving EGO_other_vehicle and EGO_ego_vehicle with the stationary vehicle V008 at 1.2s and 3.3s respectively. Other vehicle interactions are predicted to result in safe clearances, including a potential contact flagged by the predictor that was manually verified as a safe pass.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5466,
+  "candidatesTokenCount": 596,
+  "totalTokenCount": 11638,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5466
+   }
+  ],
+  "thoughtsTokenCount": 5576,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "YsuYaurpLZGE0-kP58S-iAw"
+}

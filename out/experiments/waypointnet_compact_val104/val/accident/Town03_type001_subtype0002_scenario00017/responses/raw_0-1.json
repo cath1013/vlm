@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs show all vehicles maintain sufficient clearance in this interval, with the smallest predicted clearance being 1.43m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V020\"\n      ],\n      \"reason\": \"V020, traveling faster, is predicted to rear-end EGO_other_vehicle_behind in the same lane (Road 3, northbound) at approximately 1.2 seconds after the observation (absolute time 2.2s), resulting in 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"V003\"\n      ],\n      \"reason\": \"V003, traveling faster, is predicted to rear-end V002 in the same lane (Road 19, westbound) at approximately 2.6 seconds after the observation (absolute time 3.6s), resulting in 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"M005\"\n      ],\n      \"reason\": \"M005, a faster motorcycle, is predicted to rear-end V004 (car) in the same lane (Road 2, southbound) at approximately 3.1 seconds after the observation (absolute time 4.1s), resulting in 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V018\",\n        \"M019\",\n        \"P012\",\n        \"V022\",\n        \"EGO_ego_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"Multiple predicted contacts: M019 is predicted to rear-end V018 on Road 20 at 4.2s (absolute 5.2s). P012 (person) is predicted to be hit by V022 (car) on Road 20 at 4.4s (absolute 5.4s). EGO_ego_vehicle and V001 are predicted to collide due to opposing traffic or a crossing path conflict at 4.9s (absolute 5.9s). All show 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a series of concerning rear-end collisions involving multiple vehicles due to speed differentials in the same lane. Additionally, a pedestrian is predicted to be hit by a car, and the ego vehicle is predicted to have a collision with an opposing vehicle. The presence of multiple predicted contact events with 0.0m clearance suggests a high likelihood of accidents across intervals 2 through 5.\",\n  \"data_limitations\": \"Manual interpolation of coarse waypoints for verification sometimes showed small positive clearances, conflicting with the `predicted_closest_pairs` reporting 0.0m clearance and `predicted_contact=true`. The system's more precise footprint intersection logic was trusted for collision detection.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8930,
+  "candidatesTokenCount": 928,
+  "totalTokenCount": 22235,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8930
+   }
+  ],
+  "thoughtsTokenCount": 12377,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "u8aYaqWZEur92roPl6y38A4"
+}

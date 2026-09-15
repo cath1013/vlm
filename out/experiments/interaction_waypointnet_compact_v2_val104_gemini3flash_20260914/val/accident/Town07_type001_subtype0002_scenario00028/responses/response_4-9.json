@@ -1,0 +1,72 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 58.37,
+ "usage": {
+  "input": 7279,
+  "output": 544
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles maintain sufficient clearance during this interval, with the closest approaching pair still approximately 0.8 meters apart at the end of the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014"
+    ],
+    "reason": "EGO_ego_vehicle_behind is accelerating at 36 kph and its predicted trajectory results in a rear-end or side-swipe collision with the stopped vehicle V014 at t=10.1s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The initial collision persists, and a secondary collision is predicted as EGO_other_vehicle_behind also enters the space occupied by the stopped vehicle V014 at t=11.9s.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The multi-vehicle accident involving these three actors continues as their paths remain overlapping at the same location.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in contact through the end of the prediction window according to their predicted future trajectories.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The primary conflict is a collision at t=10.1s where EGO_ego_vehicle_behind accelerates directly into the stopped vehicle V014. A subsequent impact is predicted at t=11.9s as EGO_other_vehicle_behind also reaches V014's position, resulting in a multi-vehicle accident that persists through the end of the 5-second future window.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and no physical contact is predicted between any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and no physical contact is predicted between any actors in this interval, with the closest interaction having 0.41m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V004\"],\n      \"reason\": \"V003 (southbound) and V004 (southeastbound) are predicted to have simultaneous body contact (0.0m clearance) at 3.4s after the last observation, indicating a crossing path collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T005\", \"V006\"],\n      \"reason\": \"T005 (northbound truck) and V006 (northbound car) are predicted to have simultaneous body contact (0.0m clearance) at 4.1s after the last observation, suggesting a rear-end or side-swipe collision as V006 is faster and catches up to T005.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and no physical contact is predicted between any actors in this interval, with the closest interaction having 0.5m clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are expected within the prediction window. The first involves vehicles V003 and V004 in the (3.0, 4.0]s interval due to converging paths. The second involves T005 and V006 in the (4.0, 5.0]s interval, likely a rear-end collision on the same road. Other interactions show sufficient clearance, although some are very close calls.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6439,
+  "candidatesTokenCount": 661,
+  "totalTokenCount": 13887,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6439
+   }
+  ],
+  "thoughtsTokenCount": 6787,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ib6YavWLCcP92roPlrzZ6As"
+}

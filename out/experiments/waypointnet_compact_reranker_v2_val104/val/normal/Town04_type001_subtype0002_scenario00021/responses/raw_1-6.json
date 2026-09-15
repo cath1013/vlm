@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances based on predicted paths, and no physical contact or body overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances based on predicted paths, and no physical contact or body overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances based on predicted paths, and no physical contact or body overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances based on predicted paths, with the closest interaction having a 1.14m margin.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain positive clearances based on predicted paths, although some interactions involve very tight margins as low as 0.38m.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"No accidents are expected across the entire 5-second prediction window, as all predicted minimum clearances are positive and no physical contact is indicated by the trajectory predictor. However, some predicted interactions, particularly involving EGO_other_vehicle and T001, show extremely tight clearances of less than 0.4 meters, which represents a high risk in real-world scenarios.\",\n  \"data_limitations\": \"The instruction to set 'accident_expected=true' only for 'physical contact or body overlap at the same time' (clearance <= 0) means that very tight clearances with positive values are not categorized as accidents, despite their inherent real-world risk due to sensor noise or minor path deviations.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9309,
+  "candidatesTokenCount": 600,
+  "totalTokenCount": 16564,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9309
+   }
+  ],
+  "thoughtsTokenCount": 6655,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ovGYapb4GO2x1e8Pudns8A8"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining a safe distance from each other, with no clear geometric overlap or contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V038\", \"V025\", \"V003\", \"T004\", \"EGO_other_vehicle\", \"P009\"],\n      \"reason\": \"Multiple rear-end collisions are predicted: V038 with V025, and V003 with T004, as both leading vehicles are stopped and trailing vehicles continue along the same path. Additionally, EGO_other_vehicle and P009 have a predicted contact due to converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V038\", \"V024\"],\n      \"reason\": \"A rear-end collision is expected between V038 and V024, as V024 is stopped and V038's predicted path shows it continuing into V024's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining a safe distance from each other, with the closest pair (EGO_ego_vehicle and P009) having a 0.49m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V026\", \"V017\"],\n      \"reason\": \"A rear-end collision is expected between V026 (motorcycle) and V017 (car) as V026 is predicted to collide with V017, which is moving slower ahead in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple accidents. Several rear-end collisions are expected where moving vehicles encounter stopped vehicles in their path. There is also one instance of a predicted contact between a vehicle and a pedestrian at a convergence point.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11908,
+  "candidatesTokenCount": 685,
+  "totalTokenCount": 16093,
+  "cachedContentTokenCount": 933,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11908
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 933
+   }
+  ],
+  "thoughtsTokenCount": 3500,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3sKYarvoM8yc0-kP2e7x6A4"
+}

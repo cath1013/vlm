@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 35.84,
+ "usage": {
+  "input": 6561,
+  "output": 756
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths show all vehicles maintaining sufficient clearance from each other, indicating no expected contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V014",
+     "T015"
+    ],
+    "reason": "A rear-end collision is expected between truck T015 and car V014 on Road 11 southbound at approximately 3.8s after observation, as T015 approaches V014 from behind with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V011",
+     "V005"
+    ],
+    "reason": "An orthogonal intersection collision is expected between car V011 and car V005 on Road 21 at approximately 4.2s after observation, due to their paths converging to the same point with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T017",
+     "V008"
+    ],
+    "reason": "A head-on collision is expected between truck T017 (southbound) and car V008 (northbound) on Road 20 at approximately 6.0s after observation, as they approach each other in the same road space with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "T015"
+    ],
+    "reason": "A rear-end collision is expected between truck T015 and the stopped car V021 on Road 11 southbound at approximately 6.7s after observation, as T015 is predicted to drive into the stationary V021 with a minimum clearance of 0.0m.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The predictions indicate a series of four distinct accidents over the 5-second prediction window. These include multiple rear-end collisions (V014-T015, V021-T015), an orthogonal intersection collision (V011-V005), and a head-on collision (T017-V008). In each case, the path geometry clearly supports physical contact or body overlap based on the 0.0m minimum clearance predictions.",
+  "data_limitations": ""
+ }
+}

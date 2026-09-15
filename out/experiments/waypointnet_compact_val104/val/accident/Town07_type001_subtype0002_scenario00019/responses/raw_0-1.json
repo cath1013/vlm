@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clear separation, with no physical contact or body overlap expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite a close minimum clearance of 0.38m between EGO_ego_vehicle and M004, they are in opposing adjacent lanes, and the prediction explicitly indicates no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clear separation, with no physical contact or body overlap expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clear separation, with no physical contact or body overlap expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_other_vehicle and EGO_other_vehicle_behind at t=4.7s (within this interval), with a minimum clearance of 0.0m and explicit predicted contact, as the trailing vehicle catches up to the leading one in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval between EGO_other_vehicle and EGO_other_vehicle_behind due to a rear-end collision. All other close-proximity interactions throughout the 5-second window are predicted to maintain sufficient clearance, or involve vehicles in separate lanes with no explicit contact prediction.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4000,
+  "candidatesTokenCount": 598,
+  "totalTokenCount": 12465,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4000
+   }
+  ],
+  "thoughtsTokenCount": 7867,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9MiYaqu5AeT11e8PuqSkuQI"
+}

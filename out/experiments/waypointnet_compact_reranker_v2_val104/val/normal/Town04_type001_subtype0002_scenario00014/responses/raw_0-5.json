@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction between EGO_ego_vehicle_behind and V021 maintains a minimum clearance of 1.46m, indicating no physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Multiple closest pairs, including EGO_other_vehicle with V002 (1.44m clearance) and P012 (2.44m clearance), maintain positive minimum clearances, with no predicted contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction between EGO_other_vehicle and V003 maintains a minimum clearance of 1.59m, indicating no physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors are predicted to maintain safe distances from each other, with no close interactions leading to contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle_behind and EGO_ego_vehicle show an extremely close minimum clearance of 0.3m, the `predicted_contact` flag is false, indicating no physical overlap according to the geometric calculation.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"No accidents are predicted to occur within the 5-second forecast horizon. While several interactions involve tight clearances between vehicles and pedestrians (e.g., 1.44m to 2.46m), the most critical interaction is between EGO_ego_vehicle_behind and EGO_ego_vehicle, showing a 0.3m minimum clearance. Despite the proximity, the explicit `predicted_contact: false` flag indicates that no physical contact or overlap is expected based on the detailed geometric simulation.\",\n  \"data_limitations\": \"The strict interpretation of 'clearly supports physical contact or body overlap' means that a positive minimum clearance, even if very small (e.g., 0.3m), combined with `predicted_contact: false`, prevents marking an accident, even if in real-world driving it would be considered a severe near-collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10507,
+  "candidatesTokenCount": 704,
+  "totalTokenCount": 16071,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10507
+   }
+  ],
+  "thoughtsTokenCount": 4860,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "pfCYao-2JMTRosUPv4TQiQY"
+}

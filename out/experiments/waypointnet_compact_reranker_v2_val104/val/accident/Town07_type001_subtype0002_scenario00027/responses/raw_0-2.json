@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining safe distances or passing without physical contact, with the closest interaction having a minimum clearance of 1.57m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining safe distances without any indication of contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining safe distances without any indication of contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V007\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"Two separate collision events are predicted in this interval: EGO_ego_vehicle_behind is predicted to have 0.0m minimum clearance with V007 at 3.4 seconds after observation, indicating a rear-end or side-swipe collision. Additionally, EGO_other_vehicle_behind is predicted to have 0.0m minimum clearance with EGO_other_vehicle at 3.4 seconds after observation, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Beyond the predicted contact points in the previous interval, all vehicles are expected to continue on their paths without further contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision scenarios are predicted to occur in the fourth 1-second interval (3-4 seconds after the last observation). In the first, EGO_ego_vehicle_behind is expected to collide with V007. In the second, EGO_other_vehicle_behind is expected to collide with EGO_other_vehicle. All other intervals show safe clearances between vehicles.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6369,
+  "candidatesTokenCount": 642,
+  "totalTokenCount": 10433,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6369
+   }
+  ],
+  "thoughtsTokenCount": 3422,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "pO6YaqS1Dt_A1e8P0Yq8sQY"
+}

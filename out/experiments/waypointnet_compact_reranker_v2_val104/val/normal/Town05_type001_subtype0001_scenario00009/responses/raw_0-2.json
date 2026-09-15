@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are on separate paths and maintain significant clearances; no collision is predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue on their respective paths with ample separation; no contact is imminent.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While paths are converging, a physical contact is not expected in this interval based on the predicted trajectories and clearance data.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle traveling eastbound is predicted to collide orthogonally with EGO_other_vehicle traveling southbound at approximately t=5.8s, as indicated by a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind, following the ego vehicle, is predicted to collide with EGO_other_vehicle at approximately t=6.9s, likely a secondary impact after the initial collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts a series of two collisions involving the observer vehicles. EGO_ego_vehicle and EGO_other_vehicle are expected to collide orthogonally in the (5.0, 6.0] second interval, followed by EGO_ego_vehicle_behind impacting EGO_other_vehicle in the subsequent (6.0, 7.0] second interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8849,
+  "candidatesTokenCount": 607,
+  "totalTokenCount": 14670,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8849
+   }
+  ],
+  "thoughtsTokenCount": 5214,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_OmYaoT7H86j9tMP49m--AQ"
+}

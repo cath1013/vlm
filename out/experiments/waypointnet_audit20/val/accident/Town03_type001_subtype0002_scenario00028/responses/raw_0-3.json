@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and V001 are predicted to have an orthogonal entry conflict at junction J72 with a critical Time-To-Contact of 0.4 seconds, indicating an imminent collision within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V001\",\n        \"V004\"\n      ],\n      \"reason\": \"V001 and V004 are on converging paths towards a junction, with a linear-extrapolated contact expected at 1.3 seconds from the last observation (t=4.3s), suggesting a collision within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V004\",\n        \"V006\",\n        \"M009\"\n      ],\n      \"reason\": \"A car-following conflict between V006 and M009 is linearly extrapolated to contact at 2.9 seconds (t=5.9s), and an orthogonal conflict between EGO_other_vehicle and V004 is linearly extrapolated to contact at 3.0 seconds (t=6.0s), both within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While earlier expected collisions could impact the scene, no new specific conflict is directly indicated by the provided data for this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The situation is highly dynamic due to prior collision risks, but no specific new conflict is directly predicted for this interval based on current observations.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents a very high immediate risk of collision between EGO_ego_vehicle and V001 at a junction within the first prediction interval due to a critical TTC of 0.4 seconds. Further, multiple other vehicles are on converging paths or in close following proximity, leading to additional linearly extrapolated contact predictions in subsequent intervals. The situation suggests a high likelihood of cascading accidents.\",\n  \"data_limitations\": \"The predictions are based on linear extrapolation for several conflicts, which does not account for vehicle braking, turning maneuvers, or driver reactions, limiting accuracy. The potential for cascading accidents means that the predicted outcomes of earlier intervals would significantly alter the conditions for later intervals, making independent predictions for later intervals less certain.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7415,
+  "candidatesTokenCount": 787,
+  "totalTokenCount": 13369,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7415
+   }
+  ],
+  "thoughtsTokenCount": 5167,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "tRiVaoHWD4aj9tMP1PWggAM"
+}

@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 30.15,
+ "usage": {
+  "input": 7233,
+  "output": 440
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_ego_vehicle_behind maintain sufficient separation of over 7 metres as they approach the turn area.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle slows to perform a left turn, and the faster-moving EGO_ego_vehicle_behind fails to maintain clearance, resulting in a rear-end or side-swipe collision at approximately t=8.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles move past the point of intersection and their predicted paths begin to diverge.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All remaining active actor pairs maintain a clearance of at least 5 metres.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to be on non-conflicting paths with increasing separation.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The primary conflict occurs in the second second after observation, where EGO_ego_vehicle decelerates for a left-hand turn while EGO_ego_vehicle_behind continues at 40 kph, leading to a collision as their paths overlap. Other vehicles in the scene, including V005 and V014, maintain safe distances from the ego vehicles throughout the prediction window.",
+  "data_limitations": ""
+ }
+}

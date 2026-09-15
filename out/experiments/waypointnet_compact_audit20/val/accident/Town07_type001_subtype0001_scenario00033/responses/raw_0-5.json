@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient distances from each other and follow their predicted paths without immediate conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C004\", \"V008\"],\n      \"reason\": \"Car V008 and bicycle C004 are predicted to collide head-on at approximately (40.7, 203.1) at t=7s, with only 2.9m lateral separation while traveling in opposite directions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V009\", \"C004\"],\n      \"reason\": \"Car V009 and bicycle C004 are predicted to collide at approximately (40.3, 207.5) at t=8s due to crossing paths with insufficient clearance (approx. 3m separation).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, having cleared previous interaction points in their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other and continue on their paths without further expected collisions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two collisions are predicted in this 5-second window, both involving the bicycle C004. First, a head-on collision between car V008 and bicycle C004 is expected at t=7s. Subsequently, car V009 and bicycle C004 are predicted to collide at t=8s due to crossing paths with insufficient clearance.\",\n  \"data_limitations\": \"The prediction does not account for the physical consequences of the first predicted collision, which could alter subsequent vehicle trajectories and potentially prevent the second predicted collision. Lack of explicit traffic signal state or right-of-way information could influence real-world outcomes.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6266,
+  "candidatesTokenCount": 658,
+  "totalTokenCount": 16596,
+  "cachedContentTokenCount": 864,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6266
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 864
+   }
+  ],
+  "thoughtsTokenCount": 9672,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "mUqVavCDK7yb1e8P5petkQM"
+}

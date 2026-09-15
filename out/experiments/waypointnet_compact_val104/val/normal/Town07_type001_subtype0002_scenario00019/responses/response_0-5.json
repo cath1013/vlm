@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 23.23,
+ "usage": {
+  "input": 7209,
+  "output": 742
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show sufficient clearance between all actors in this interval; the closest predicted interaction has a minimum clearance of 0.63 meters, indicating no contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "C004",
+     "V008",
+     "V007"
+    ],
+    "reason": "V005 (car) is predicted to collide with C004 (stopped bicycle) at t=1.4s, and V008 (car) is predicted to collide with V007 (stopped car) at t=1.7s, both indicating rear-end collisions with zero minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "M003"
+    ],
+    "reason": "V005 (car) is predicted to collide with M003 (stopped motorcycle) at t=3.0s, indicating a rear-end collision with zero minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or insufficient clearances are indicated for any actor pairs in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind",
+     "V010",
+     "V011"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to collide with EGO_other_vehicle_behind at t=4.2s in an orthogonal intersection, and V010 is predicted to collide with V011 at t=4.8s due to converging paths, both with zero minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across the future 5-second window. In interval k=2, two rear-end collisions are expected: V005 with C004 and V008 with V007. Another rear-end collision between V005 and M003 is predicted in interval k=3. In interval k=5, two intersection-related collisions are predicted: EGO_ego_vehicle with EGO_other_vehicle_behind, and V010 with V011.",
+  "data_limitations": ""
+ }
+}

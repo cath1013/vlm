@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or overlaps between any actors during this interval, indicating safe travel.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or overlaps between any actors during this interval, indicating safe travel.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T001\", \"V002\"],\n      \"reason\": \"A rear-end or sideswipe collision is expected between truck T001 and car V002 at approximately t=5.5s, as T001 is predicted to make contact with V002 while both are traveling west.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V013\"],\n      \"reason\": \"A rear-end collision is expected between car V014 and the stopped car V013 at approximately t=6.5s, as V014 is predicted to strike V013 from behind.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"V019\", \"EGO_other_vehicle\", \"T001\"],\n      \"reason\": \"Two separate accidents are expected: a rear-end collision between car V019 and the stopped car V018 at t=7.2s, and a head-on or sideswipe collision between EGO_other_vehicle and truck T001 at t=7.6s as they travel in opposing directions with predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a clear increase in accident risk from k=3 onwards. Multiple rear-end collisions are expected where moving vehicles collide with stopped vehicles. Additionally, a head-on or sideswipe collision is predicted between an observer vehicle and a truck traveling in opposing directions.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11097,
+  "candidatesTokenCount": 657,
+  "totalTokenCount": 16834,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11097
+   }
+  ],
+  "thoughtsTokenCount": 5080,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LsyYaviaMJWH0-kPmKrWgQ0"
+}

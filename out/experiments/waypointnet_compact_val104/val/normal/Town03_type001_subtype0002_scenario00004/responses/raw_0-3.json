@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation based on their predicted paths, with no clear indication of physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V004\"],\n      \"reason\": \"V003 and V004 are predicted to collide at approximately 2.0 seconds after the observation, indicating a clear physical contact between them.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V005\", \"V006\"],\n      \"reason\": \"V004, V005, and V006 are predicted to be involved in multiple collisions, with V004 having contacts with both V005 and V006, suggesting a complex intersection or merging conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V005\", \"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"Multiple collisions are predicted; V003 and V005 are expected to collide, and EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation based on their predicted paths, with no clear indication of physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predicted trajectories indicate a high potential for multiple accidents involving several 'other road users' (V003, V004, V005, V006) and the ego vehicles (EGO_ego_vehicle_behind, EGO_ego_vehicle) over intervals k=2, k=3, and k=4. These involve both intersection-like conflicts and a rear-end collision. Interval k=1 and k=5 appear to be clear of predicted accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7831,
+  "candidatesTokenCount": 672,
+  "totalTokenCount": 12947,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7831
+   }
+  ],
+  "thoughtsTokenCount": 4444,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0cmYavCGJI392roP8e2NiQw"
+}

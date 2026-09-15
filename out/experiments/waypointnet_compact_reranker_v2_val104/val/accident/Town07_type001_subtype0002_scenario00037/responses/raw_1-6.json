@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or body overlap is predicted between any actors; all vehicles maintain safe distances, with the closest predicted clearance being 1.45m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to have a simultaneous body contact with 0.0m clearance at 1.8 seconds after observation (t=7.8s) due to their converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle_behind and V001 are predicted to have a minimum clearance of 0.4m, explicit contact is not indicated, and no other clear contact or body overlap is predicted in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or body overlap is predicted between any actors; all vehicles maintain safe distances or are stationary.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle_behind and V001 are predicted to have a minimum clearance of 0.23m, explicit contact is not indicated, and no other clear contact or body overlap is predicted in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the (7.0, 8.0] second interval between EGO_ego_vehicle_behind and EGO_other_vehicle_behind due to their converging trajectories. No other accidents are explicitly predicted in the remaining intervals, although a few close passes with clearances under 0.5m are noted.\",\n  \"data_limitations\": \"The `predicted_closest_pairs` sometimes indicate very small minimum clearances (e.g., 0.23m, 0.4m) but with `predicted_contact` set to `false`. While adhering to the `predicted_contact` flag, minor trajectory deviations or sensor noise could potentially lead to contact in these cases.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7177,
+  "candidatesTokenCount": 724,
+  "totalTokenCount": 13321,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7177
+   }
+  ],
+  "thoughtsTokenCount": 5420,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Vu-YapTJGaDC0-kPoaWNYQ"
+}

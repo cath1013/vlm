@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V008\",\n        \"C004\",\n        \"V006\",\n        \"EGO_ego_vehicle\",\n        \"V009\",\n        \"T003\",\n        \"V014\"\n      ],\n      \"reason\": \"Multiple imminent collisions are expected in this interval: EGO_ego_vehicle_behind and V008 have a linear-extrapolated contact in 0.5s at the junction, C004 and V006 have a head-on linear-extrapolated contact in 0.6s, EGO_ego_vehicle will rear-end V009 with a 0.7s linear-extrapolated contact, and T003 and V014 are on a head-on collision course with a 0.7s linear-extrapolated contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"V016\",\n        \"T003\",\n        \"V013\"\n      ],\n      \"reason\": \"V005 and V016 are on a head-on collision course with a linear-extrapolated contact in 1.1s. T003 is approaching the stopped V013 on an opposing lane with a linear-extrapolated contact in 2.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V009\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind continues to close on V009, with a linear-extrapolated contact expected in 2.2s, indicating a potential rear-end collision or crossing path conflict if V009 has not moved out of the way.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V007\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is projected to make linear-extrapolated contact with V007 in 3.5s, suggesting a collision if both vehicles maintain their current paths and speeds.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional imminent linear-extrapolated contacts are indicated for this interval, and previous conflicts would have altered the scene dynamics significantly.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at t=4s presents a very high risk of multiple collisions within the next two seconds, with several vehicles having linear-extrapolated contact times below 1.1 seconds. These include rear-end collisions, junction conflicts, and head-on scenarios. Subsequent intervals show continued elevated risk based on remaining short time-to-contact predictions.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values are simple projections and do not account for driver reactions like braking or steering, which could mitigate some predicted collisions. The exact geometric layout, specifically whether 'lane 1/1' for opposing traffic on the same road number implies separate physical lanes or a potential merge/crossing point, is ambiguous for head-on contact predictions. Absence of traffic signal states also limits judgment on junction interactions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8972,
+  "candidatesTokenCount": 979,
+  "totalTokenCount": 16904,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8972
+   }
+  ],
+  "thoughtsTokenCount": 6953,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Lx2VatqKOLia0-kP3cDw0Qo"
+}

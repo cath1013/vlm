@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to make a left turn, crossing the path of EGO_other_vehicle_behind which is following it, resulting in a predicted contact at t=6.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P005\"],\n      \"reason\": \"EGO_ego_vehicle, while turning left, is predicted to collide with pedestrian P005 who is moving westbound, with contact predicted at t=7.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V013\", \"C024\", \"V003\"],\n      \"reason\": \"Two separate collisions are predicted: EGO_other_vehicle and V013 are on opposing paths with a head-on collision predicted at t=8.8s. Additionally, bicycle C024 is predicted to collide with the stopped vehicle V003 at t=8.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe minimum clearance, and no physical contact or body overlap is expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"C025\"],\n      \"reason\": \"Bicycle C025 is predicted to collide with the stationary vehicle V003 at t=10.4s, as C025's path intersects the location of V003.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the 5-second prediction horizon. The ego vehicle is involved in two incidents while turning left, first with a following vehicle, then with a pedestrian. Separately, two other vehicle pairs (EGO_other_vehicle and V013, C024 and V003) are predicted to collide, and later in the window, another bicycle (C025) is predicted to collide with the same stopped vehicle (V003).\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9803,
+  "candidatesTokenCount": 729,
+  "totalTokenCount": 15034,
+  "cachedContentTokenCount": 915,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9803
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 915
+   }
+  ],
+  "thoughtsTokenCount": 4502,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "y76Yaq3UGJf91e8Ps9_RmQ8"
+}

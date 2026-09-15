@@ -1,0 +1,74 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 26.11,
+ "usage": {
+  "input": 10621,
+  "output": 773
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V003 and V023 maintain a minimum clearance of 1.49m, and there is no predicted contact between any other actors.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V023"
+    ],
+    "reason": "EGO_ego_vehicle and V023, both traveling southbound on Road 30, are predicted to have a rear-end collision with 0.0m clearance at t=8.6s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle",
+     "V023",
+     "V022"
+    ],
+    "reason": "EGO_other_vehicle turning left onto Road 30 is predicted to collide with EGO_ego_vehicle and V023 (both proceeding straight southbound). Additionally, EGO_ego_vehicle and EGO_other_vehicle are predicted to collide with V022, which is stopped on Road 30.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T021",
+     "V022",
+     "V023",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "EGO_other_vehicle turning left is predicted to collide with T021 (stopped). V023 is predicted to collide with V022 (stopped). EGO_ego_vehicle is predicted to collide with T021 (stopped).",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "P010"
+    ],
+    "reason": "EGO_other_vehicle completing its left turn is predicted to collide with P010, who is moving westbound, due to their converging paths.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted throughout the 5-second prediction window. EGO_ego_vehicle, EGO_other_vehicle, V023, V022, and T021 are frequently involved in predicted collisions, primarily due to EGO_other_vehicle executing a left turn into oncoming/stopped traffic and other vehicles proceeding into stopped vehicles ahead. A pedestrian (P010) is also predicted to be involved in a collision with EGO_other_vehicle.",
+  "data_limitations": ""
+ }
+}

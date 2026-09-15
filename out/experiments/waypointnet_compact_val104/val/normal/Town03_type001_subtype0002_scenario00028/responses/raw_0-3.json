@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P004\", \"P012\"],\n      \"reason\": \"Predicted paths show P004 turning right into the path of P012, resulting in simultaneous body contact or overlap with 0.0m minimum clearance at approximately 3.9 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"The predicted paths of EGO_other_vehicle and EGO_ego_vehicle converge, indicating an intersection conflict with 0.0m minimum clearance at approximately 4.6 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m minimum clearance are indicated for this interval, and all other predicted closest pairs show positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs for this interval show positive minimum clearances, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"T016\"],\n      \"reason\": \"V015 is predicted to collide with the rear of T016, which is moving slower in the same lane, resulting in 0.0m minimum clearance at approximately 7.7 seconds.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple potential accidents are identified across the prediction horizon. An orthogonal conflict between two pedestrians (P004 and P012) is expected in the first interval. A collision between the EGO_other_vehicle and EGO_ego_vehicle is predicted in the second interval due to converging paths. Finally, a rear-end collision between V015 (car) and T016 (truck) is expected in the fifth interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7800,
+  "candidatesTokenCount": 645,
+  "totalTokenCount": 10929,
+  "cachedContentTokenCount": 891,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7800
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 891
+   }
+  ],
+  "thoughtsTokenCount": 2484,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kcqYauLVPLb62roP6YzvoA4"
+}

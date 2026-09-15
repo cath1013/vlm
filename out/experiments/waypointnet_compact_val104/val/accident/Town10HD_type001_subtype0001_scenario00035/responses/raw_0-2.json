@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles EGO_ego_vehicle and V016 maintain sufficient clearance in their projected paths, and no other predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are on conflicting orthogonal paths, leading to a high-speed intersection collision at approximately (98.7, -32.0) at 3.8 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V016\"],\n      \"reason\": \"EGO_other_vehicle and V016 are on conflicting orthogonal paths, resulting in an intersection collision at approximately (102.8, -35.6) at 4.5 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All involved actors maintain sufficient clearance in their projected paths, and no predicted contact with zero clearance indicates an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"V040\"],\n      \"reason\": \"V018 is on a southbound trajectory that directly collides with the stopped vehicle V040 at approximately (99.0, -131.1) at 6.1 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high probability of three distinct accidents. The first involves two observer vehicles (EGO_ego_vehicle and EGO_other_vehicle) in an orthogonal intersection collision. The second involves an observer vehicle (EGO_other_vehicle) and another road user (V016) in a similar intersection conflict. The third involves a moving vehicle (V018) colliding with a stopped vehicle (V040).\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10224,
+  "candidatesTokenCount": 674,
+  "totalTokenCount": 16841,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10224
+   }
+  ],
+  "thoughtsTokenCount": 5943,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "JMGYasaWAfv01e8P3Y6noQY"
+}

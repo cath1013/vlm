@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show clear separation, with no physical contact or overlap expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"EGO_other_vehicle\",\n        \"V014\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V001 as it attempts a left turn. Additionally, EGO_other_vehicle is predicted to collide with V014, which is stopped in its straight path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V002 as it continues its left turn, with V002 remaining stopped directly in its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"T003\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with T003 as it completes its left turn, with T003 remaining stopped directly in its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"T003\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with T003 as it executes its left turn, with T003 remaining stopped in its projected path.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple observer vehicles are predicted to collide with stationary vehicles as they navigate through an intersection. EGO_ego_vehicle is involved in a series of collisions with V001, V002, and T003 during its left turn. EGO_other_vehicle is predicted to collide with V014, and EGO_other_vehicle_behind also collides with T003 during its left turn.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5658,
+  "candidatesTokenCount": 722,
+  "totalTokenCount": 9792,
+  "cachedContentTokenCount": 850,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5658
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 850
+   }
+  ],
+  "thoughtsTokenCount": 3412,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "wcCYasbCMur92roPl6y38A4"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and are predicted to continue on their paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V025\"],\n      \"reason\": \"V025 is predicted to rear-end V003, which is stopped in the same lane, resulting in contact at approximately 4.5 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V025\"],\n      \"reason\": \"V004 is predicted to rear-end V025 at approximately 6.0 seconds after observation, as both vehicles proceed southbound in the same lane, with V004 approaching from behind at a higher speed.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V003\", \"V001\", \"V002\"],\n      \"reason\": \"Two separate rear-end collisions are predicted: V004 rear-ending V003 at approximately 6.5 seconds, and V002 rear-ending V001 at approximately 6.6 seconds, as V002 is following V001 westbound in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle and V001 are predicted to collide head-on or with significant overlap at approximately 7.3 seconds after observation, as they travel in opposing directions on the same or adjacent road segments.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a series of significant collision events. V025 is predicted to rear-end a stopped V003. Subsequently, V004, approaching from behind, is predicted to rear-end V025 and then the stopped V003. Additionally, V002 is predicted to rear-end V001, and finally, EGO_ego_vehicle is predicted to have a head-on collision with V001.\",\n  \"data_limitations\": \"The independent prediction of each actor's path means that subsequent collisions are predicted based on trajectories that may have been altered by prior collisions within the same window. However, judgments are made based on the provided independent paths.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9151,
+  "candidatesTokenCount": 759,
+  "totalTokenCount": 17529,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9151
+   }
+  ],
+  "thoughtsTokenCount": 7619,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "M8OYaqOCBJSz1e8P06SasAQ"
+}

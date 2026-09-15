@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances throughout this interval based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P014\", \"V022\", \"V024\"],\n      \"reason\": \"P014 (person) is predicted to collide with EGO_ego_vehicle_behind (car) at approximately 1.8 seconds after the last observation, while V024 (car) is predicted to collide with the stationary V022 (car) at approximately 2.0 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances throughout this interval based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P013\", \"V006\"],\n      \"reason\": \"P013 (person) is predicted to collide with V006 (car) at approximately 3.7 seconds after the last observation, indicating an intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"T004\"],\n      \"reason\": \"V003 (car) and T004 (truck) are predicted to collide at approximately 4.7 seconds after the last observation, likely due to an intersection conflict as their paths converge.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted across the 5-second prediction window, involving both observer vehicles and other road users. Specifically, a pedestrian (P014) is predicted to collide with EGO_ego_vehicle_behind, two cars (V022, V024) are predicted to collide, another pedestrian (P013) with a car (V006), and a car (V003) with a truck (T004). These indicate several significant safety concerns.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10689,
+  "candidatesTokenCount": 679,
+  "totalTokenCount": 16033,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10689
+   }
+  ],
+  "thoughtsTokenCount": 4665,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Xr6YaovzL8OXosUP4_vEsA8"
+}

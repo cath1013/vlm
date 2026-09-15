@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 53.51,
+ "usage": {
+  "input": 12309,
+  "output": 473
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are either stopped or moving at low speeds with sufficient clearance from pedestrians and other actors during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicle V015 is decelerating significantly as it approaches the crossing pedestrians, indicating it is yielding despite the reducing gap.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although the predictor suggests a marginal contact between V015 and P004, the strong braking history of V015 (slowing from 23.7 to 6.4 kph) indicates it will stop or yield safely.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Pedestrians P004 and P012 are expected to have cleared the immediate path of the southbound vehicles by this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe separation as they continue their respective paths or remain stopped.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a busy intersection with multiple pedestrians (P004, P009, P012, P014) crossing the paths of southbound vehicles. Vehicle V015 demonstrates a very strong deceleration trend (dropping over 17 kph in the final observed second), which strongly suggests it is reacting to and yielding to the crossing pedestrians. While the independent trajectory predictor anticipates a minor contact with P004 in interval 3, the observed braking behavior makes a collision highly unlikely in a realistic driving context.",
+  "data_limitations": ""
+ }
+}

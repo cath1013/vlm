@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance throughout this interval, with the closest pair (EGO_ego_vehicle and V014) having a minimum clearance of 1.37m at 1.8s absolute time.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance throughout this interval, with the closest pair (V017 and V020) having a minimum clearance of 0.85m at 2.9s absolute time.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\"],\n      \"reason\": \"A direct physical contact is predicted between V002 and V003 at approximately 3.9s absolute time (2.9s after observation) as their southbound paths converge, resulting in a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V016\", \"V020\"],\n      \"reason\": \"A direct physical contact is predicted between V016 and V020 at approximately 4.2s absolute time (3.2s after observation) as their eastbound/northeastbound paths converge, resulting in a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance throughout this interval, with the closest pair (EGO_ego_vehicle_behind and V014) having a minimum clearance of 1.22m at 5.3s absolute time.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. The first involves vehicles V002 and V003 in interval k=3 (3-4s absolute time), and the second involves V016 and V020 in interval k=4 (4-5s absolute time). These predictions are based on direct physical contact (0.0m clearance) indicated by the trajectory predictor for their most probable paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7547,
+  "candidatesTokenCount": 704,
+  "totalTokenCount": 14557,
+  "cachedContentTokenCount": 887,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7547
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 887
+   }
+  ],
+  "thoughtsTokenCount": 6306,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "NsaYasTADvfJrfcP16-Z4QE"
+}

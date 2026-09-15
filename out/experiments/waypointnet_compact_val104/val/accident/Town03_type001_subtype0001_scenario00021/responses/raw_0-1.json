@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, indicating no physical contact among vehicles or pedestrians.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T022\",\n        \"T028\"\n      ],\n      \"reason\": \"Truck T022 is predicted to collide with the stopped truck T028 as T022 continues its path along Road 76.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"V003\"\n      ],\n      \"reason\": \"Car V003 is predicted to rear-end car V002 as V003 accelerates and V002 decelerates in the same lane on Road 76.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V003\",\n        \"T022\"\n      ],\n      \"reason\": \"Car V003 is predicted to collide with truck T022, likely a rear-end collision, given their predicted paths and speeds on Road 76.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"T022\"\n      ],\n      \"reason\": \"Car V002 is predicted to collide with truck T022, likely a rear-end collision, given their predicted paths and speeds on Road 76.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple sequential collisions are predicted on Road 76. Initially, truck T022 collides with the stopped truck T028. This is followed by car V003 rear-ending car V002, and then V003 also colliding with T022. Finally, V002 is predicted to collide with T022, indicating a multi-vehicle pileup.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8102,
+  "candidatesTokenCount": 666,
+  "totalTokenCount": 13113,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8102
+   }
+  ],
+  "thoughtsTokenCount": 4345,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "NL6Yapz6LZue0-kP07Tc4Qs"
+}

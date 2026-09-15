@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle has multiple orthogonal entry conflicts at junction J15 with EGO_ego_vehicle_behind and EGO_other_vehicle_behind, both having an extremely low Time To Collision (TTC) of 0.8s, indicating an imminent multi-vehicle collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind have a predicted TTC of 2.5s due to conflicting left and right turns at junction J15. Even if the immediate conflict from k=1 is considered, a separate collision between these two vehicles remains highly probable.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the likely multi-vehicle accidents in the preceding intervals, it is difficult to predict further distinct collisions without specific post-impact dynamics. The most critical, immediate conflicts should have unfolded by this time.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary conflicts at the junction are expected to have occurred or been significantly altered by this interval, leading to a reduced likelihood of new, distinct accidents based on current predictions.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the most critical junction conflicts have been resolved in prior intervals, there are no immediate new threats with low TTCs identified for this period.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents a high risk of multiple collisions at junction J15. EGO_ego_vehicle, EGO_ego_vehicle_behind, and EGO_other_vehicle_behind are converging on the junction with conflicting paths and extremely low Time To Collision (TTC) values of 0.8s, making an accident highly probable in the first second. A subsequent conflict between EGO_ego_vehicle_behind and EGO_other_vehicle_behind with a TTC of 2.5s is also expected.\",\n  \"data_limitations\": \"No traffic signal state, stop lines, or lane marking types are available, which could influence driver behavior at the junction, though the explicit TTC values are a strong indicator of imminent conflict.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8397,
+  "candidatesTokenCount": 795,
+  "totalTokenCount": 12988,
+  "cachedContentTokenCount": 899,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8397
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   }
+  ],
+  "thoughtsTokenCount": 3796,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "vR2Vat-ODdzN2roPsMTmqAs"
+}

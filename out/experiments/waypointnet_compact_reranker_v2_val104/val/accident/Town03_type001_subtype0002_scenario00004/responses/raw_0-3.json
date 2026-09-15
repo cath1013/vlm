@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle passes V015 with a clearance of 1.6 meters, and their paths do not suggest contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle making a left turn is predicted to collide with EGO_other_vehicle proceeding straight through the intersection at approximately 4.4 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted vehicle paths show geometric overlap or insufficient clearance that would lead to an accident in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle passes the stopped V001 with adequate clearance, and no other paths show signs of conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V010\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V010 are both predicted to be in the same lane (lane 2, same lateral offset), moving side-by-side with a minimum clearance of 0.66m. Given their car class and width (1.93m), this geometric configuration indicates unavoidable physical contact or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. The first occurs in interval k=2 where EGO_ego_vehicle turning left intersects the path of EGO_other_vehicle. The second occurs in interval k=5, where EGO_ego_vehicle_behind and V010 are predicted to occupy the same lane space, leading to a side-by-side collision.\",\n  \"data_limitations\": \"The 'predicted_contact' field in the 'predicted_closest_pairs' was not always consistent with the geometric interpretation of 'minimum_clearance_m' and vehicle dimensions, particularly for the EGO_ego_vehicle_behind and V010 interaction, requiring manual re-evaluation based on raw path coordinates and lateral offsets.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8758,
+  "candidatesTokenCount": 717,
+  "totalTokenCount": 15213,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8758
+   }
+  ],
+  "thoughtsTokenCount": 5738,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "HuyYaoroL7LJrfcPtLHi8Ac"
+}

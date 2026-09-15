@@ -1,0 +1,368 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_03a6c44405a7",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 2,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "n_buckets": 3,
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 7.5,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "early",
+    "lead_s": 0.6
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles are approaching the junction but maintain safe separation within this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": false,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "A T-bone collision occurs at the intersection as the southbound EGO_other_vehicle and the westbound EGO_ego_vehicle_behind arrive at the same coordinate simultaneously with zero clearance.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      4088,
+      4095
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": true,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles' projected paths diverge after the intersection conflict point.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Projected trajectories continue to diverge with increasing clearance."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Projected trajectories continue to diverge with increasing clearance."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_03a6c44405a7",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "n_buckets": 2,
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 7.5,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "early",
+    "lead_s": 0.6
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": false,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "A T-bone intersection collision occurs as EGO_other_vehicle (southbound) crosses the path of EGO_ego_vehicle_behind (westbound) with zero clearance at approximately 0.9s after observation.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      4088,
+      4095
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": true,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles from the previous collision have moved past the conflict point, and their paths are no longer overlapping by the end of the interval.",
+     "confidence": "medium"
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "A rear-end or side-swipe collision occurs as the faster motorcycle M008 catches up to and overlaps with EGO_other_vehicle_behind at approximately 2.5s after observation."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new primary collisions are predicted to originate in this interval, and previous actors are either diverging or the impact has already occurred."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All remaining vehicle pairs maintain physical clearance, including a close pass between EGO_other_vehicle and V004."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_03a6c44405a7",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "status": "TP",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 7.5,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_other_vehicle merges southwest into the path of EGO_ego_vehicle_behind, resulting in a collision at 0.7 seconds after observations end.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      4088,
+      4095
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No trajectories indicate body overlap or insufficient clearance between any active road users in this interval."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicles remain on non-conflicting paths with safe separation distances."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle_behind and V006 reach the same spatial coordinate at 3.6 seconds after observations, causing a crossing collision."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All projected vehicle waypoints maintain safe clearance, and no further accidents are predicted."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 3,
+  "n_buckets": 6,
+  "counts": {
+   "TP": 3,
+   "FP": 0,
+   "TN": 3,
+   "FN": 0
+  },
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "vehicle_recall_mean": 1.0,
+  "actor_precision_mean": 1.0,
+  "events": {
+   "n": 3,
+   "exact": 1,
+   "early": 2,
+   "none": 0,
+   "detection_rate": 1.0,
+   "mean_lead_s": 0.267
+  },
+  "response_issue_counts": {}
+ }
+}

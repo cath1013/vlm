@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 33.5,
+ "usage": {
+  "input": 10285,
+  "output": 778
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V001"
+    ],
+    "reason": "EGO_other_vehicle is proceeding northbound on a straight path, while V001 is making a left turn (southwest to southeast) across the northbound lanes, resulting in a predicted contact at 5.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle is proceeding eastbound and EGO_other_vehicle is proceeding northbound, leading to an orthogonal intersection conflict with predicted contact at 6.7s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V002"
+    ],
+    "reason": "EGO_other_vehicle continues northbound through the intersection, while V002 proceeds westbound, resulting in an orthogonal intersection conflict with predicted contact at 7.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "C012"
+    ],
+    "reason": "V001 is making a left turn across the path of C012, which is moving straight southbound, leading to a predicted conflict at 8.7s as V001 cuts in front of C012.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V004 is moving southbound and V025 is observed to be stopped at (255.0, 195.2); V004's predicted path does not reach V025's position, maintaining a clearance of approximately 3.9m.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a series of intersection conflicts, primarily involving observer vehicles EGO_ego_vehicle and EGO_other_vehicle, and other road users V001 and V002, due to their predicted paths crossing. An additional conflict is predicted between V001 and C012 during V001's turning maneuver. However, the last predicted contact between V004 and V025 is deemed unlikely as V025 remains stopped and V004's path does not reach its location.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation, with the closest pair (V014 and V017) having a predicted minimum clearance of 0.98m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T026\", \"T029\", \"V025\", \"V011\", \"V019\"],\n      \"reason\": \"Multiple collisions are predicted: Truck T026 is predicted to collide with truck T029; car V025 is predicted to collide with truck T029; and car V011 is predicted to collide with the stopped car V019.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V025\", \"T026\"],\n      \"reason\": \"Truck T026 is predicted to collide with the stopped car V025, which is directly ahead in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"M020\"],\n      \"reason\": \"Car V011 is predicted to collide with the stopped motorcycle M020, which is directly ahead in the same road.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V012\", \"V019\"],\n      \"reason\": \"Car V012 is predicted to collide with the stopped car V019, which is directly ahead in the same road.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window reveals a high probability of multiple accidents, primarily rear-end collisions. Several moving vehicles (V011, V012, T026) are predicted to collide with other vehicles that are stopped (V019, M020, V025) or moving slowly. There is also an initial predicted lateral conflict between T026, T029, and V025.\",\n  \"data_limitations\": \"The predicted contact between V025 (stopped in lane 2) and T029 (in lane 1) implies a lateral collision across lanes. While the prediction indicates contact, the extent of lateral deviation leading to this specific conflict might be a limitation of the trajectory predictor or interpolation given the typical lane width.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11145,
+  "candidatesTokenCount": 741,
+  "totalTokenCount": 16082,
+  "cachedContentTokenCount": 1855,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11145
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1855
+   }
+  ],
+  "thoughtsTokenCount": 4196,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Rs2YatXXB8md2roPrsbtqAI"
+}

@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 30.89,
+ "usage": {
+  "input": 12798,
+  "output": 592
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P016"
+    ],
+    "reason": "The vehicle EGO_ego_vehicle enters the intersection at 47 kph and strikes pedestrian P016, who is crossing northeast across its path, at approximately t=6.4s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "The southbound vehicle EGO_other_vehicle collides with the eastbound EGO_ego_vehicle in a side-impact crossing conflict at the junction center at approximately t=7.2s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted clearance for all other actor pairs remains above safe margins.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicle trajectories do not indicate any further physical overlap or contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Remaining actors are predicted to maintain safe lateral and longitudinal separation.",
+    "confidence": "low"
+   }
+  ],
+  "overall_assessment": "The scene involves two significant accidents at a junction: first, a car-to-pedestrian collision involving EGO_ego_vehicle and P016 at 0.4s post-observation, followed immediately by a car-to-car crossing collision between EGO_other_vehicle and EGO_ego_vehicle at 1.2s. Both incidents occur due to high-speed entries into the junction without sufficient yielding to crossing traffic.",
+  "data_limitations": ""
+ }
+}

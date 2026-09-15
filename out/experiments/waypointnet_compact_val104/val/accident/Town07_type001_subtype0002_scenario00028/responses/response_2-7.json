@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 13.56,
+ "usage": {
+  "input": 6952,
+  "output": 662
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and proceed on their predicted paths without physical contact, with minimum clearances ranging from 0.5m to 1.82m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V014"
+    ],
+    "reason": "EGO_ego_vehicle and V014 are predicted to have a direct collision with 0.0m minimum clearance around 1.5 seconds after observation, as EGO_ego_vehicle turns right into V014's path.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and proceed on their predicted paths without physical contact, with minimum clearances of 0.78m and 1.79m.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V001"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to collide with the stopped vehicle V001 with 0.0m minimum clearance around 3.8 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and proceed on their predicted paths without physical contact, with a minimum clearance of 1.51m.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collisions are predicted within the 5-second prediction horizon. The first incident, involving EGO_ego_vehicle and V014, is expected in the (8.0, 9.0] second interval. The second incident, between EGO_ego_vehicle_behind and the stopped vehicle V001, is anticipated in the (10.0, 11.0] second interval. All other predicted interactions show positive clearances.",
+  "data_limitations": ""
+ }
+}

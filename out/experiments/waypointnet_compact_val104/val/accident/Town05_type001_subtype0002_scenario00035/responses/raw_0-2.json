@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clearance greater than zero, indicating no physical contact is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\", \"P012\"],\n      \"reason\": \"EGO_other_vehicle and V001 are predicted to have simultaneous body contact (0.0m clearance) at 3.9s, and P012 and V001 are predicted to have simultaneous body contact (0.0m clearance) at 4.0s, indicating an orthogonal collision involving these three actors at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle are predicted to have simultaneous body contact (0.0m clearance) at 4.7s, suggesting an orthogonal collision between these two observer vehicles at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pairs in this interval maintain positive clearances (0.99m and 1.31m), which indicates no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair in this interval maintains a positive clearance (1.59m), indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the 5-second prediction window. A severe collision involving two cars (EGO_other_vehicle, V001) and a person (P012) is expected around 3.9-4.0 seconds after the observation, due to converging paths at an intersection. Subsequently, an additional collision between EGO_other_vehicle and EGO_ego_vehicle is predicted around 4.7 seconds, also at an intersection.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7338,
+  "candidatesTokenCount": 677,
+  "totalTokenCount": 12050,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7338
+   }
+  ],
+  "thoughtsTokenCount": 4035,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "sMiYarfTFZue0-kP07Tc4Qs"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M009\", \"N008\", \"V016\", \"V017\", \"V014\"],\n      \"reason\": \"Multiple immediate conflicts are expected: M009 is on a collision course with N008 due to insufficient TTC (2.0s) while following, V016 is closing on a stopped V017 with insufficient TTC (2.5s), and M009 and V014 are projected for head-on contact in 1.3s as they approach the junction from opposite directions on Road 48.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"M009\", \"EGO_other_vehicle\", \"V002\", \"V007\", \"V011\", \"T010\", \"V014\", \"N008\", \"V016\", \"V017\"],\n      \"reason\": \"Previous collisions involving M009, N008, V014, V016, and V017 may continue or escalate. Additionally, EGO_ego_vehicle and M009 are predicted to have contact in 2.2s at the junction, while EGO_other_vehicle, V002, V007, V011, and T010 are simultaneously entering the congested junction from perpendicular and turning paths, indicating high risk of orthogonal collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"M009\", \"EGO_other_vehicle\", \"V002\", \"V007\", \"V011\", \"T010\", \"V014\", \"N008\", \"V016\", \"V017\", \"C013\", \"V012\"],\n      \"reason\": \"The junction remains highly congested with continued conflicts from previous intervals, and new head-on/crossing conflicts are predicted between M009 and C013 (contact in 3.0s), V012 and V014 (contact in 3.3s), and N008 and C013 (contact in 3.9s), as these vehicles converge on the intersection from opposing directions on Road 48.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"M009\", \"EGO_other_vehicle\", \"V002\", \"V007\", \"V011\", \"T010\", \"V014\", \"N008\", \"V016\", \"V017\", \"C013\", \"V012\", \"EGO_ego_vehicle_behind\", \"V005\", \"M006\", \"V003\", \"V001\", \"V004\", \"N019\", \"V018\"],\n      \"reason\": \"The entire junction area remains extremely hazardous due to multiple ongoing conflicts and the continuous arrival of more vehicles (including EGO_ego_vehicle_behind and V005) into the congested intersection, making chain-reaction collisions highly likely.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"M009\", \"EGO_other_vehicle\", \"V002\", \"V007\", \"V011\", \"T010\", \"V014\", \"N008\", \"V016\", \"V017\", \"C013\", \"V012\", \"EGO_ego_vehicle_behind\", \"V005\", \"M006\", \"V003\", \"V001\", \"V004\", \"N019\", \"V018\"],\n      \"reason\": \"The extreme congestion and numerous overlapping conflicts in the junction, with vehicles still entering or navigating through potential accident sites, indicate a continued high likelihood of collisions and secondary impacts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents immediate and severe accident risks, starting with critical rear-end conflicts in the first second. Multiple vehicles are converging on a three-way junction from various directions at high speeds, leading to highly probable orthogonal and head-on collisions across all subsequent intervals. The lack of traffic signals exacerbates the risk of a multi-vehicle pile-up.\",\n  \"data_limitations\": \"The absence of traffic signal states or explicit right-of-way rules at the junction, along with the 'off-candidate path' predictions for some vehicles, limits the ability to precisely determine driver intent and junction priority. The linear extrapolation of contact times also does not account for potential braking or evasive maneuvers.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8947,
+  "candidatesTokenCount": 1302,
+  "totalTokenCount": 18794,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8947
+   }
+  ],
+  "thoughtsTokenCount": 8545,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VRqVaurnCJ_L2roPvIe4yQg"
+}

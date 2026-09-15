@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles and pedestrians maintain clear paths and sufficient separation within this interval, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or significant clearance violations are indicated for any actors during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P004\", \"V015\"],\n      \"reason\": \"A pedestrian (P004) and a car (V015) are predicted to collide with simultaneous body contact at approximately 2.2 seconds after the last observation, corresponding to this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors are predicted to maintain safe distances, and no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P007\", \"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"A pedestrian (P007) is predicted to collide with 'EGO_other_vehicle' at approximately 4.1 seconds. Additionally, 'EGO_ego_vehicle_behind' is predicted to rear-end the stopped 'EGO_ego_vehicle' at approximately 4.3 seconds, both within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts two distinct accident events. A pedestrian (P004) and a car (V015) are expected to collide in the third interval. In the final interval, 'EGO_other_vehicle' is predicted to collide with a pedestrian (P007), and 'EGO_ego_vehicle_behind' is predicted to collide with the stopped 'EGO_ego_vehicle'.\",\n  \"data_limitations\": \"The paths of each actor are predicted independently, which may not fully capture complex interactive behaviors or evasive maneuvers that could alter the outcome of predicted collisions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11998,
+  "candidatesTokenCount": 684,
+  "totalTokenCount": 15932,
+  "cachedContentTokenCount": 933,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11998
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 933
+   }
+  ],
+  "thoughtsTokenCount": 3250,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qMaYasKKAeKJvr0PqcGZ2AY"
+}

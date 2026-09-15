@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"N017\",\n        \"P011\"\n      ],\n      \"reason\": \"EGO_other_vehicle (westbound, 7m to junction) and N017 (eastbound, 2m to junction) are on a collision course as they simultaneously enter the junction from opposing directions on Road 24. Pedestrian P011 is already at the junction entrance and is highly exposed to these vehicle movements.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V012\",\n        \"V016\"\n      ],\n      \"reason\": \"Following the likely collision in K=1, EGO_other_vehicle_behind is approaching the scene and will likely collide with the wreckage or be forced into a dangerous evasive maneuver. Additionally, V012 (Road 4 northbound) and V016 (Road 110 northeastbound) will both enter the junction during this interval, increasing the risk of secondary collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T006\",\n        \"C001\"\n      ],\n      \"reason\": \"T006 (Road 69 northbound) and C001 (Road 23 eastbound) will enter the complex junction during this interval. Given the prior accidents, the junction will likely be congested, posing a high risk for T006 and C001 to collide with existing obstacles or each other.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V015\",\n        \"V013\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and V015 (Road 4 southbound, straight) will enter the junction, directly conflicting with V013 (Road 967 northbound, predicted left turn). V013's left turn will cross the path of EGO_ego_vehicle and V015. EGO_ego_vehicle_behind is following EGO_ego_vehicle with a low headway (1.9s) and will likely be involved in a rear-end collision if EGO_ego_vehicle collides.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\"\n      ],\n      \"reason\": \"V005 (Road 282 northbound) will enter the complex junction during this interval. Given the preceding cascade of accidents and congestion, further collisions involving V005 are highly likely.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene depicts a highly dangerous and congested four-way junction with numerous vehicles and pedestrians converging from multiple directions. Multiple orthogonal conflicts and low headways between following vehicles create a cascading series of high-risk collision scenarios throughout the entire 5-second prediction window.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop lines, and lane marking types significantly affected the judgement as it prevented assessing priority rules and assuming controlled intersection behavior. Judgements were based purely on kinematic conflicts and relative positions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11893,
+  "candidatesTokenCount": 950,
+  "totalTokenCount": 22942,
+  "cachedContentTokenCount": 933,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11893
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 933
+   }
+  ],
+  "thoughtsTokenCount": 10099,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "WxmVaomqBZ7KrfcP_oOh2QQ"
+}

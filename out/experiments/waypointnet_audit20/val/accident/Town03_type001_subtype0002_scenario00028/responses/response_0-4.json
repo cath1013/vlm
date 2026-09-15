@@ -1,0 +1,82 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 37.36,
+ "usage": {
+  "input": 7679,
+  "output": 967
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V001",
+     "EGO_other_vehicle",
+     "V004"
+    ],
+    "reason": "Multiple critical conflicts exist at the junction: EGO_ego_vehicle and V001 have a linear-extrapolated time-to-contact (TTC) of 1.0s, EGO_other_vehicle and V004 have a TTC of 1.4s, and V001 and V004 have a TTC of 1.5s. These vehicles are converging at high speeds on intersecting paths at or near junction entry points, indicating an imminent multi-vehicle collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V001",
+     "EGO_other_vehicle",
+     "V004"
+    ],
+    "reason": "Following the imminent collisions projected for the k=1 interval, the involved vehicles are likely to experience further impact or entanglement in this interval as the initial accident unfolds and potentially involves secondary movements.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V001",
+     "EGO_other_vehicle",
+     "V004"
+    ],
+    "reason": "Given the high-speed multi-vehicle accident expected in the preceding intervals, the scene is likely to remain hazardous with potential for further impacts or the full development of a severe collision event.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V001",
+     "EGO_other_vehicle",
+     "V004"
+    ],
+    "reason": "The severe multi-vehicle accident and its immediate aftermath are expected to continue, with potential for vehicles to come to rest or for additional impacts in this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V001",
+     "EGO_other_vehicle",
+     "V004"
+    ],
+    "reason": "The prolonged and severe nature of the predicted multi-vehicle collision and its consequences are likely to extend into this interval, requiring a continued expectation of accident conditions.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "A high-risk multi-vehicle collision involving EGO_ego_vehicle, V001, EGO_other_vehicle, and V004 is highly probable within the first second following the observation window due to multiple simultaneous and extremely low time-to-contact values at a complex junction. The predicted paths of these vehicles indicate intersecting trajectories without sufficient time or indication of yielding. The accident and its immediate aftermath are expected to extend across the entire prediction window.",
+  "data_limitations": "Predicted paths are outputs of a predictor, not direct observations of intent (e.g., turn signals or braking). The map was synthesized from trajectories, meaning lanes and roads nobody drove are absent, and lane counts are lower bounds, potentially leading to an incomplete understanding of the junction layout. No traffic-signal state, stop lines, or lane-marking types are available, which limits assumptions about yielding behavior at the junction."
+ }
+}

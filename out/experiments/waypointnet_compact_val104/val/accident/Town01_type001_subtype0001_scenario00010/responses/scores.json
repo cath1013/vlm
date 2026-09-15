@@ -1,0 +1,527 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-1",
+    "t_start_s": 0.0,
+    "t_end_s": 1.0,
+    "n_snapshots": 3
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 2,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     3,
+     4,
+     5
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "excluded_buckets": [],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 5,
+    "credit_buckets": [
+     3,
+     4,
+     5
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "early",
+    "lead_s": 1.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Motorcycle M005, traveling faster and behind bicycle C004 in the same southbound lane on Road 19, is predicted to collide with C004 in a rear-end collision at approximately 3.1 seconds after the last observed timestep.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      7928,
+      7926
+     ],
+     "extra_actor_ids": [
+      "C004",
+      "M005"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.",
+     "confidence": "high"
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "0-2",
+    "t_start_s": 0.0,
+    "t_end_s": 2.0,
+    "n_snapshots": 5
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.5,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     2,
+     3,
+     4
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "Predicted paths for all actors show sufficient clearance, with the closest pair (EGO_ego_vehicle_behind and M005) having a minimum clearance of 2.57m.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicles continue on their predicted paths with adequate separation; the closest predicted interaction (V002 and M005) has a minimum clearance of 2.59m.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "There are no predicted contacts or dangerously small clearances between any vehicles in this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles maintain safe distances from each other, with the closest predicted interaction (T003 and M005) showing a minimum clearance of 2.24m.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The closest predicted interaction (EGO_ego_vehicle_behind and EGO_ego_vehicle) has a minimum clearance of 0.18m, which, while extremely tight, is a positive value and does not indicate physical contact or overlap."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "0-3",
+    "t_start_s": 0.0,
+    "t_end_s": 3.0,
+    "n_snapshots": 7
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All predicted paths maintain sufficient clearance; the smallest gap of 2.85m is between vehicles in opposing lanes that are laterally separated.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All predicted paths maintain sufficient clearance; the smallest gap of 2.54m is between vehicles in opposing lanes that are laterally separated.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All predicted paths maintain sufficient clearance; the smallest gap of 2.33m is between vehicles in opposing lanes that are laterally separated.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All predicted paths maintain sufficient clearance; the smallest gap of 2.0m is between vehicles in opposing lanes that are laterally separated."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All predicted paths maintain sufficient clearance; the smallest gap of 1.51m is between two vehicles following each other, which is a safe distance."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "0-4",
+    "t_start_s": 0.0,
+    "t_end_s": 4.0,
+    "n_snapshots": 9
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles, including EGO_ego_vehicle, EGO_ego_vehicle_behind, V002, M005, and C004 maintain sufficient minimum clearances, with the smallest being 2.6m, indicating no predicted contact.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The closest predicted interaction between EGO_ego_vehicle and EGO_other_vehicle shows a minimum clearance of 1.99m, and other pairs also maintain safe distances, with no predicted contact.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "There are no predicted contacts or close interactions indicated for any actor pairs within this interval, suggesting all vehicles maintain safe separation."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicles continue to maintain safe distances; the closest interactions, such as between EGO_ego_vehicle and V001, have a minimum clearance of 2.86m, with no predicted contact."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All predicted closest pairs, including EGO_other_vehicle and V002, indicate minimum clearances above 2.28m, with no physical contact or overlap expected."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.6
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to have an orthogonal collision with 0.0m minimum clearance at 0.6 seconds after the observation, as EGO_other_vehicle makes a right turn into the path of EGO_ego_vehicle.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      7928,
+      7926
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No physical contact or body overlap is predicted based on the supplied future paths and closest pair analysis for this interval; the closest predicted interaction has a minimum clearance of 1.61m."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No physical contact or body overlap is predicted based on the supplied future paths and closest pair analysis for this interval; the closest predicted interaction has a minimum clearance of 2.29m."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No physical contact or body overlap is predicted based on the supplied future paths and closest pair analysis for this interval; the closest predicted interaction has a minimum clearance of 2.69m."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No physical contact or body overlap is predicted based on the supplied future paths and closest pair analysis for this interval; the closest predicted interaction has a minimum clearance of 1.23m."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "counts": {
+   "TP": 2,
+   "FP": 0,
+   "TN": 3,
+   "FN": 3
+  },
+  "accuracy": 0.625,
+  "precision": 1.0,
+  "recall": 0.4,
+  "vehicle_recall_mean": 0.5,
+  "actor_precision_mean": 0.5,
+  "events": {
+   "n": 5,
+   "exact": 1,
+   "early": 1,
+   "none": 3,
+   "detection_rate": 0.4,
+   "mean_lead_s": 0.4
+  },
+  "response_issue_counts": {}
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero minimum clearance in this interval, and all actors maintain safe distances based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"T016\"],\n      \"reason\": \"Truck T016 is predicted to rear-end the stopped car V015 at 1.2 seconds after observation, indicated by a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts indicate an accident in this interval; all actors' paths maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V003\", \"P011\", \"P009\"],\n      \"reason\": \"EGO_other_vehicle and V003 are predicted to have an orthogonal intersection collision at 3.1 seconds, and pedestrians P011 and P009 are predicted to have a head-on collision at 3.8 seconds, both with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P008\", \"P035\", \"EGO_ego_vehicle_behind\", \"T016\", \"EGO_ego_vehicle\", \"M002\"],\n      \"reason\": \"P035 is predicted to rear-end the stopped pedestrian P008 at 4.2 seconds; EGO_ego_vehicle_behind and T016 are predicted to have an intersection collision at 4.4 seconds; and M002 is predicted to collide with the stopped EGO_ego_vehicle at 5.0 seconds, all with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows a high probability of multiple collisions. These include a vehicle rear-ending another stopped vehicle in k=2, two separate incidents of orthogonal intersection conflicts and pedestrian collisions in k=4, and a combination of pedestrian rear-end, vehicle intersection, and vehicle-stopped-observer collisions in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12193,
+  "candidatesTokenCount": 723,
+  "totalTokenCount": 16283,
+  "cachedContentTokenCount": 935,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12193
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 935
+   }
+  ],
+  "thoughtsTokenCount": 3367,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "osKYaoyvJNqr1e8P98fkiAM"
+}

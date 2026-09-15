@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving vehicles maintain safe distances from each other and from stopped actors in this interval. V043 is approaching N006 but is still approximately 5.5m away.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V043\", \"N006\"],\n      \"reason\": \"V043, moving westbound, collides with the stopped van N006. At 4s, V043's predicted center is at [-5.6, 1.1] while N006's center is at [-5.0, 0.9], indicating body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V043\", \"V005\"],\n      \"reason\": \"Assuming V043 continues on its predicted path after the collision with N006, it will then collide with the stopped car V005. At 5s, V043's predicted center is at [-11.9, 1.3] while V005's center is at [-13.6, 0.9], indicating body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further accidents are expected in this interval based on the provided trajectories, as V043 (after the prior collisions) would be well ahead of C004.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe separation in this interval. The primary conflict involving V043 is already concluded in earlier intervals.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The primary safety concern in this scenario is a sequential rear-end collision on Road 0. V043, moving westbound, is predicted to first collide with the stopped van N006 at k=2, and then, if it continues on its path, with the stopped car V005 at k=3. Other vehicles, including the EGO vehicles, maintain safe distances throughout the prediction window.\",\n  \"data_limitations\": \"The prediction assumes that V043 follows its projected future path even after being involved in an accident, which would likely alter its actual trajectory. This affects the certainty of the second collision with V005.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9519,
+  "candidatesTokenCount": 747,
+  "totalTokenCount": 20372,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9519
+   }
+  ],
+  "thoughtsTokenCount": 10106,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bUiVapPUHKXn1e8PlO2-iAM"
+}

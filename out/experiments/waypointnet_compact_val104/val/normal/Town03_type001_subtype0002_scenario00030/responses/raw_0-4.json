@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances during this interval, although EGO_ego_vehicle and EGO_other_vehicle are converging.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have simultaneous body contact or overlap at approximately 6.5 seconds after the observation, due to their paths intersecting at the same location.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional contact is explicitly predicted in this interval, following the collision in the prior interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances during this interval, with the closest pair having a clearance of 0.65m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence collision is predicted between EGO_ego_vehicle and EGO_other_vehicle at approximately 6.5 seconds after the last observation, falling within the (6.0, 7.0] second interval. Their projected paths indicate a direct intersection conflict. All other actor pairs are predicted to maintain safe clearances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4972,
+  "candidatesTokenCount": 570,
+  "totalTokenCount": 8057,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4972
+   }
+  ],
+  "thoughtsTokenCount": 2515,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "AMuYavrOBb2l0-kP6KrGoQw"
+}

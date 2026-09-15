@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance, with no indication of physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction between C001 and V003 shows a minimum clearance of 2.63m, which is a safe distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V005\"],\n      \"reason\": \"V004 and V005 are predicted to have simultaneous body contact (0.0m minimum clearance) at t=2.1s after observation, indicating an intersection conflict as their paths clearly cross.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle and EGO_other_vehicle_behind are predicted to have simultaneous body contact (0.0m minimum clearance) at t=3.7s after observation, suggesting a rear-end or side-swipe collision as EGO_other_vehicle_behind's path overlaps that of EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain sufficient clearance, indicating safe trajectories.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. The first involves a crossing path collision between V004 and V005 in the (6.0, 7.0] second interval. The second is a potential rear-end or side-swipe collision between EGO_other_vehicle and EGO_other_vehicle_behind in the (7.0, 8.0] second interval. All other vehicle interactions are predicted to maintain safe clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7406,
+  "candidatesTokenCount": 659,
+  "totalTokenCount": 10744,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7406
+   }
+  ],
+  "thoughtsTokenCount": 2679,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "eMOYavqiGOud0-kP57WNkQI"
+}

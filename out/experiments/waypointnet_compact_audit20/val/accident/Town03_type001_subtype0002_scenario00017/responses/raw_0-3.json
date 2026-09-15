@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation and continue on their predicted paths without any clear overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue on their paths with sufficient clearance, although V006 and M005 are in increasingly close proximity but not yet overlapping.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M005\", \"V006\"],\n      \"reason\": \"M005 (motorcycle) and V006 (car) have intersecting future paths at (-84.8, 157.3) and (-87.1, 157.3) respectively, indicating a clear side-by-side collision while traveling southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M005\", \"V006\", \"N007\"],\n      \"reason\": \"The collision between M005 and V006 continues, and N007 (van) approaches their position (-84.0, 157.4) and merges into the conflict zone, leading to a multi-vehicle collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M005\", \"V006\", \"N007\"],\n      \"reason\": \"M005, V006, and N007 continue to occupy the same spatial area with their predicted paths, confirming a sustained multi-vehicle collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur between a motorcycle (M005) and a car (V006) traveling southbound, starting at the 3-second interval due to direct side-by-side path overlap. A van (N007) is then predicted to merge into this conflict zone during the 4-second interval, resulting in a three-vehicle collision that persists through the entire prediction window. All other vehicles in the scene maintain safe separation.\",\n  \"data_limitations\": \"The lateral offsets for M005 and V006 in their current states, in conjunction with the lane numbering convention, appear inconsistent with their predicted waypoints. However, the predicted path geometry itself clearly indicates an overlap, which is the primary basis for the collision judgment.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9442,
+  "candidatesTokenCount": 743,
+  "totalTokenCount": 24203,
+  "cachedContentTokenCount": 912,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9442
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 912
+   }
+  ],
+  "thoughtsTokenCount": 14018,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PkaVauugGd6-vr0P6cSduAo"
+}

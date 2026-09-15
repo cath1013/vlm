@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"V023 and V019 are traveling in opposing directions on Road 20 but maintain a safe lateral clearance as they pass each other.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V029\", \"V032\"],\n      \"reason\": \"V032 is projected to overtake V029 on Road 2, leading to a side-swipe or merging conflict due to insufficient lateral clearance at approximately 1.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C022\", \"V023\", \"V019\", \"T024\", \"V031\", \"V032\", \"EGO_ego_vehicle\", \"P037\"],\n      \"reason\": \"Multiple conflicts are predicted: V023 is projected to rear-end C022; V019 and T024 are on a head-on collision course; V032 is projected to side-swipe or rear-end V031; and EGO_ego_vehicle is projected to collide with P037 who is crossing its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V019\", \"V042\", \"T024\"],\n      \"reason\": \"V042 is projected to rear-end V019, and V042 and T024 are on a head-on collision course, continuing the trend of opposing traffic on Road 20.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All closest pairs in this interval maintain a positive minimum clearance, indicating near-misses or safe passages rather than physical contact.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions, particularly in the middle intervals (k=2, 3, 4). These include several rear-end collisions and side-swipes due to vehicles overtaking or merging with insufficient clearance, two head-on collisions involving opposing traffic on Road 20, and a pedestrian crossing conflict with the EGO_ego_vehicle. The first and last intervals appear to be clear of predicted accidents.\",\n  \"data_limitations\": \"The judgment relies solely on predicted geometric paths and footprints, without information on driver intent signals (e.g., turn signals, brake lights) or explicit road rules (e.g., traffic signals, stop signs). Each actor's path is predicted independently, which may not account for real-world interactive evasive actions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13077,
+  "candidatesTokenCount": 804,
+  "totalTokenCount": 21405,
+  "cachedContentTokenCount": 1881,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13077
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1881
+   }
+  ],
+  "thoughtsTokenCount": 7524,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XcqYapC4EdGMvr0Po7mDkQQ"
+}

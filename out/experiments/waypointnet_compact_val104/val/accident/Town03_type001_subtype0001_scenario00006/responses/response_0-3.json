@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 26.64,
+ "usage": {
+  "input": 8486,
+  "output": 584
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths for all actors maintain sufficient clearance, with the closest pair having a minimum clearance of 1.62 meters.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show no physical contact or body overlap between any vehicles during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M002",
+     "T003"
+    ],
+    "reason": "A motorcycle (M002) and a truck (T003) are predicted to have a body overlap at 2.3 seconds after observation (t=5.3s) due to the truck's faster speed and converging trajectory while the motorcycle's path slightly deviates, resulting in a minimum clearance of 0.0 meters.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance; no physical contact or body overlap is expected between any actors.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show adequate clearance, with the closest pair having a minimum clearance of 0.75 meters, which is not physical contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "One accident is predicted during the 5-6 second interval, involving a motorcycle (M002) and a truck (T003) due to converging trajectories resulting in direct body overlap. For all other intervals, predicted paths indicate that vehicles maintain sufficient clearance, and no other accidents are expected.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other as they continue on their predicted paths, with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle is approaching the location of the stopped V001, no physical contact is predicted within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle is predicted to execute a right turn into Road 12 and collide with V001, which remains stopped in its path, indicated by 0.0m minimum clearance and predicted_contact=true at t=10.2s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the predicted collision in the previous interval, no further close interactions or contacts are indicated between any vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other as they continue on their predicted paths, with no predicted contacts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence collision is predicted in the third 1-second interval (k=3) between EGO_other_vehicle and V001. EGO_other_vehicle is making a right turn into a road where V001 is stationary, leading to a direct contact according to the trajectory predictions. All other vehicles maintain safe distances from each other throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5799,
+  "candidatesTokenCount": 601,
+  "totalTokenCount": 9201,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5799
+   }
+  ],
+  "thoughtsTokenCount": 2801,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "CsKYaqWRLvOc0-kPieTH4Qw"
+}

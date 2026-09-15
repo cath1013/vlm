@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V011\"],\n      \"reason\": \"EGO_other_vehicle_behind (southbound) and V011 (northbound) are predicted to be in the same lane (lane 1, similar lateral offsets) on Road 34 with a minimum clearance of 1.37m; given the car width of 1.93m, this indicates body overlap during their opposing movement.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and their paths indicate safe trajectories without convergence or conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances are well above zero, and path geometry does not support physical contact between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain clear separation, and no paths converge to cause contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are traveling in the same lane and direction, with the leading EGO_ego_vehicle being significantly faster and accelerating, causing their separation to increase rather than collide.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high likelihood of a head-on collision is predicted in the first interval between EGO_other_vehicle_behind and V011 due to their opposing movements in the same lane with insufficient clearance. For all subsequent intervals, no accidents are expected as vehicles maintain adequate separation or their paths diverge safely, even when the predictor's `predicted_contact` flag suggested otherwise.\",\n  \"data_limitations\": \"The `predicted_closest_pairs` entries were inconsistent; for instance, it flagged `predicted_contact: true` for EGO_ego_vehicle and EGO_other_vehicle_behind when their paths and relative speeds clearly indicate divergence, and `predicted_contact: false` for EGO_other_vehicle_behind and V011 despite insufficient clearance leading to overlap. This required manual geometric verification against the future paths.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6414,
+  "candidatesTokenCount": 703,
+  "totalTokenCount": 15333,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6414
+   }
+  ],
+  "thoughtsTokenCount": 8216,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "i_OYarDjI7T72roPt9i3yAE"
+}

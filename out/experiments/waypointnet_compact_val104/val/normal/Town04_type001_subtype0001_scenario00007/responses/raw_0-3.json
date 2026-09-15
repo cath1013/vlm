@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"T006\"],\n      \"reason\": \"V004, moving southeast, and T006, moving north, are predicted to have zero clearance at 1.0s after observation, indicating a collision where their paths intersect.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and no clear contact is predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V007\", \"N005\", \"T006\"],\n      \"reason\": \"Multiple collision events are predicted: V004 and V007 are expected to collide at 2.1s as V004 moves southeast and V007 moves north; additionally, N005 (eastbound) and T006 (northwest-bound) are predicted to collide at 2.2s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and no clear contact is predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N005\", \"V007\"],\n      \"reason\": \"N005, continuing eastbound, and V007, continuing northbound with a slight westward turn, are predicted to have zero clearance at 5.0s, indicating a collision where their paths cross.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts multiple collision events involving vehicles V004, T006, N005, and V007 due to converging trajectories across three distinct 1-second intervals. These vehicles appear to be navigating an intersection or complex road segment where their predicted paths geometrically overlap at specific times, leading to zero minimum clearance. The remaining intervals show sufficient clearance between all observed actors.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7361,
+  "candidatesTokenCount": 661,
+  "totalTokenCount": 12328,
+  "cachedContentTokenCount": 884,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7361
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 884
+   }
+  ],
+  "thoughtsTokenCount": 4306,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6sKYapPBFITcvr0PqvbHwAg"
+}

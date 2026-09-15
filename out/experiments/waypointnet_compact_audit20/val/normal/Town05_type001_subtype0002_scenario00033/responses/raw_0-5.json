@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles, including the observer vehicles, maintain sufficient separation and continue along their predicted paths without clear contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue to maintain safe distances from each other based on their predicted trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle's predicted path shows it turning right directly into the lane occupied by the stopped EGO_ego_vehicle, resulting in clear body overlap at this time.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"The predicted paths of EGO_other_vehicle and the stopped EGO_ego_vehicle continue to show significant body overlap, indicating an ongoing collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the likely point of impact in previous intervals, EGO_other_vehicle's path indicates it is moving past EGO_ego_vehicle, suggesting the primary contact event has concluded.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted between two observer vehicles. EGO_other_vehicle, while executing a right turn, is projected to collide with the stationary EGO_ego_vehicle in the (7.0, 8.0] and (8.0, 9.0] second intervals due to direct path overlap. All other observed road users maintain safe distances from each other and the primary conflict area.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10049,
+  "candidatesTokenCount": 608,
+  "totalTokenCount": 15690,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10049
+   }
+  ],
+  "thoughtsTokenCount": 5033,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "JEmVauuKNcfLrfcPjri7uAg"
+}

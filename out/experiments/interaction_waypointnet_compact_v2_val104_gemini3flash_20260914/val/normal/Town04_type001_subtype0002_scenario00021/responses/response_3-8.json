@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 27.54,
+ "usage": {
+  "input": 8530,
+  "output": 498
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles EGO_other_vehicle and T001 pass each other in opposite directions with nearly a metre of lateral clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicle EGO_ego_vehicle_behind is braking heavily and will come to a halt before entering the junction area.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although a path intersection is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind, the former is decelerating significantly and is nearly stopped at the last observation.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Southbound and westbound traffic flows have separated, and other vehicles are stationary.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle passes the stationary van N008 with a sufficient lateral gap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a busy junction with several vehicles and pedestrians. The primary potential conflict involves EGO_ego_vehicle_behind and EGO_other_vehicle_behind at k=3; however, the observed history shows EGO_ego_vehicle_behind is decelerating at -2.74 m/s2 and has slowed to 4 kph, indicating it is yielding. The future waypoints for that actor erroneously suggest it continues or even increases speed into the intersection, leading to a false-positive contact prediction in the geometry-based candidate list.",
+  "data_limitations": "The future waypoints for EGO_ego_vehicle_behind are inconsistent with its high observed deceleration (-2.74 m/s2) and low current speed (4 kph)."
+ }
+}

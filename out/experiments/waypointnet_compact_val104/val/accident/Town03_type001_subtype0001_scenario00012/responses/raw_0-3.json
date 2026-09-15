@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle traveling west and EGO_other_vehicle traveling south are predicted to have an orthogonal intersection conflict with zero clearance at approximately t=3.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M001\", \"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"M001 (motorcycle) making a left turn is predicted to collide orthogonally with EGO_ego_vehicle at t=4.3s and EGO_ego_vehicle_behind at t=4.9s as they proceed straight, both showing zero clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P014\", \"V016\"],\n      \"reason\": \"P014 (person) moving northwest is predicted to collide orthogonally with V016 (car) moving west at t=5.1s, with zero clearance indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No direct physical contact or overlap is predicted between any actors during this interval; all predicted closest pairs maintain a positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T004\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide orthogonally with T004 (truck) at t=7.3s, and EGO_ego_vehicle_behind is predicted to collide with T004 at t=8.0s, both indicating zero clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple orthogonal intersection conflicts are predicted throughout the 5-second prediction horizon, involving observer vehicles (EGO_ego_vehicle, EGO_ego_vehicle_behind, EGO_other_vehicle), a motorcycle (M001), a person (P014), a car (V016), and a truck (T004). These interactions consistently show zero minimum clearance in the trajectory predictions, indicating a high likelihood of accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11047,
+  "candidatesTokenCount": 731,
+  "totalTokenCount": 15309,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11047
+   }
+  ],
+  "thoughtsTokenCount": 3531,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "db6Yaq_OOaf91e8P7rbKwAY"
+}

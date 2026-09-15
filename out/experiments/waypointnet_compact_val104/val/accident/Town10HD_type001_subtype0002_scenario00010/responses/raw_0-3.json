@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pair between V003 and V029 shows a minimum clearance of 1.16m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind, performing a right turn, is predicted to collide with EGO_ego_vehicle, which is proceeding straight, resulting in 0.0m minimum clearance at 4.3s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V016\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V016 with 0.0m minimum clearance at 5.6s, as their paths intersect while EGO_ego_vehicle travels eastbound and V016 travels southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V023\", \"V026\"],\n      \"reason\": \"EGO_other_vehicle, moving southbound, is predicted to collide with both V023 and V026 at 7.0s, as both are stationary vehicles located directly in its predicted path with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs for this interval show a minimum clearance greater than 0.0m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions involving observer vehicles. EGO_ego_vehicle is involved in two distinct predicted accidents: first with EGO_other_vehicle_behind at 4.3s and then with V016 at 5.6s. Additionally, EGO_other_vehicle is predicted to collide with two stationary vehicles, V023 and V026, at 7.0s.\",\n  \"data_limitations\": \"The trajectory predictor provided a single path with 1.0 probability for each actor, potentially oversimplifying potential alternative maneuvers that could avoid collisions. The position quality for M004 and V026 is slightly lower (0.78 and 0.75 respectively) but still considered sufficient for judgement.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8884,
+  "candidatesTokenCount": 760,
+  "totalTokenCount": 16260,
+  "cachedContentTokenCount": 906,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8884
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 906
+   }
+  ],
+  "thoughtsTokenCount": 6616,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "x8mYaq2BOqe21e8PpaT4iAY"
+}

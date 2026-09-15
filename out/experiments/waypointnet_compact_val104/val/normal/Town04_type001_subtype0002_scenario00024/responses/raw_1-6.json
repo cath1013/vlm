@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observer vehicles and other road users maintain safe distances and follow their predicted paths without clear physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle, which is stopped, is predicted to be rear-ended by EGO_ego_vehicle_behind (0.0m clearance at t=7.7s). Concurrently, EGO_other_vehicle, making a left turn, is predicted to collide laterally with the stopped EGO_ego_vehicle (0.0m clearance at t=7.1s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle_behind and EGO_other_vehicle approach with a small minimum clearance of 0.28m, the prediction explicitly indicates no physical contact or body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observer vehicles and other road users maintain safe distances and follow their predicted paths without clear physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observer vehicles and other road users maintain safe distances and follow their predicted paths without clear physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The primary risk for this scenario occurs in the second 1-second interval, where the stopped EGO_ego_vehicle is predicted to be involved in two distinct collision events: a rear-end collision by EGO_ego_vehicle_behind and a lateral collision by EGO_other_vehicle making a left turn. All other predicted interactions show sufficient clearance or are explicitly marked as not involving physical contact.\",\n  \"data_limitations\": \"The independent prediction of actor paths means that the potential interactions are judged in isolation. If EGO_ego_vehicle were to be impacted by one collision, its subsequent trajectory would likely change, potentially altering or negating the other predicted collision event at a similar time.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9180,
+  "candidatesTokenCount": 699,
+  "totalTokenCount": 14417,
+  "cachedContentTokenCount": 909,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9180
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 4538,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "KsyYaseDDvOt0-kPypiE6Qs"
+}

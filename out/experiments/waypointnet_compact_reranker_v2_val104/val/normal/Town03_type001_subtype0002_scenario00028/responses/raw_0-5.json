@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to make physical contact with zero minimum clearance at t=5.8s, indicating a collision due to their converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain significant positive clearance, suggesting no accidents are expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain positive clearance (minimum 1.11m), indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (EGO_ego_vehicle and T016) has a clearance of 4.83m, which is sufficient to avoid an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_other_vehicle and T016 have a small predicted clearance of 0.66m, it is not zero, and no contact is predicted by the geometric analysis.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly probable in the first 1-second interval (5-6s) between EGO_ego_vehicle and EGO_other_vehicle, as their predicted paths indicate simultaneous body contact. For all subsequent intervals (6-10s), no accidents are expected, as all other vehicle pairs maintain positive clearance.\",\n  \"data_limitations\": \"The predictions are based on independently generated future paths. While the closest pair analysis indicates contact, the actual outcome might differ if vehicles react to each other's presence, which is not factored into these independent path predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9095,
+  "candidatesTokenCount": 634,
+  "totalTokenCount": 13182,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9095
+   }
+  ],
+  "thoughtsTokenCount": 3453,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "M_CYapK0NraM1e8PkrHKiAY"
+}

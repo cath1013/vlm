@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors, with the closest pair having a 1.48m gap, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors, with the closest pair having a 1.3m gap, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors, with the closest interaction being the start of a rear-end approach that results in contact in the next interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to rear-end EGO_other_vehicle at approximately 3.9s, as both vehicles are on the same southbound path and EGO_other_vehicle_behind closes the gap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P015\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end P015 (person) at approximately 4.3s, as both are on the same northbound path and the car overtakes the slower-moving pedestrian.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts two distinct rear-end collisions. In the interval (4.0, 5.0]s, EGO_other_vehicle_behind is expected to collide with EGO_other_vehicle. Subsequently, in the interval (5.0, 6.0]s, EGO_ego_vehicle_behind is predicted to collide with P015, a pedestrian.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7098,
+  "candidatesTokenCount": 648,
+  "totalTokenCount": 11911,
+  "cachedContentTokenCount": 880,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7098
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 880
+   }
+  ],
+  "thoughtsTokenCount": 4165,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5eWYap_zNbbw2roP0aWMmAs"
+}

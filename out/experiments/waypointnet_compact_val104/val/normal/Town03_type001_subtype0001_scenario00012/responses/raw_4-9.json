@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other, indicating safe travel.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"P009\", \"T004\", \"N005\"],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle and EGO_other_vehicle have an orthogonal intersection conflict, EGO_other_vehicle and P009 have an intersection conflict, and N005 is predicted to collide with the stopped T004.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new contacts with zero clearance are predicted in this interval, and existing collision events were identified in the previous interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other, indicating safe travel.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other, indicating safe travel.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts a high probability of multiple accidents occurring within the second 1-second interval after the observation. These include an orthogonal intersection collision involving observer vehicles, a vehicle-pedestrian collision, and a rear-end collision between two other road users. All other intervals (k=1, 3, 4, 5) appear safe with no predicted contacts.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11772,
+  "candidatesTokenCount": 591,
+  "totalTokenCount": 16532,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11772
+   }
+  ],
+  "thoughtsTokenCount": 4169,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "8cKYaqaOJqz81e8Pk5vOqAo"
+}

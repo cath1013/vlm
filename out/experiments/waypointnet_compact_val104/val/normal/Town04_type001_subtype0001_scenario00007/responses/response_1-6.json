@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 16.03,
+ "usage": {
+  "input": 8570,
+  "output": 705
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N005",
+     "V007"
+    ],
+    "reason": "N005, making a right turn, conflicts with V007 proceeding straight, resulting in an intersection collision as their paths cross at approximately (350.0, 239.0) at 0.8s into the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle, executing a left turn, enters the path of EGO_other_vehicle, which is proceeding straight, leading to an orthogonal entry conflict at 1.2s into the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although EGO_ego_vehicle passes near V002, the predicted minimum clearance of 1.69m indicates no physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind and EGO_ego_vehicle_behind maintain a safe minimum clearance of 0.96m, preventing a collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "V004"
+    ],
+    "reason": "V004 is predicted to rear-end V003, as V004 travels southbound at a higher speed and closes the distance to V003, resulting in contact at 4.8s into the interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple collisions. Intersection conflicts are predicted between N005 and V007, and between EGO_other_vehicle and EGO_ego_vehicle. Additionally, a rear-end collision is expected between V004 and V003 as V004 gains on V003.",
+  "data_limitations": "All predicted paths are given a probability of 1.0, which may overstate the certainty of the predicted maneuvers. No alternative paths were available for consideration."
+ }
+}

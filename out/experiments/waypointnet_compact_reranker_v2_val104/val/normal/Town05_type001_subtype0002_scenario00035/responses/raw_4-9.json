@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation according to their predicted paths, with no contacts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle_behind and V001 are predicted to have a body overlap at t=1.6s, indicating an orthogonal entry conflict as their paths intersect with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional collisions are predicted for this interval based on the provided future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contact in this interval; the closest pair (EGO_ego_vehicle_behind and V001) maintains a minimum clearance of 0.59m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation according to their predicted paths, with no contacts indicated.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second 1-second interval involving EGO_other_vehicle_behind and V001 due to intersecting paths and zero predicted minimum clearance. Apart from this primary conflict, other vehicles are predicted to maintain safe distances throughout the 5-second prediction window, with no other contacts expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8562,
+  "candidatesTokenCount": 565,
+  "totalTokenCount": 14081,
+  "cachedContentTokenCount": 902,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8562
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 902
+   }
+  ],
+  "thoughtsTokenCount": 4954,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "OPOYavPtCraM1e8PkrHKiAY"
+}

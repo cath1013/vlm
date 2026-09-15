@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths maintain sufficient clearance, with the closest interaction being 1.1m between EGO_ego_vehicle and T003, which are on parallel paths in separate lanes.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts occur, and the minimum clearance of 0.98m between EGO_other_vehicle and V015 is adequate as they are moving in different lanes or directions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts are indicated, and all actors maintain clear separation based on their projected trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V009\", \"V001\"],\n      \"reason\": \"Actor V001, moving northbound, is predicted to collide with V009, which is stopped at approximately the same longitudinal position, resulting in a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the predicted collision in the previous interval, no additional contacts are expected in this interval as the remaining pairs maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the 4th second interval after the observation (12.0s to 13.0s) involving V001 and V009 due to V001's northbound path intersecting with V009's stopped position. All other interactions show sufficient clearances based on the predicted trajectories and closest pair analysis.\",\n  \"data_limitations\": \"Traffic signal states and explicit lane configurations (e.g., lane markings or road divisions) are not available, which might offer additional context for some close-passing maneuvers, though the predicted contact provides clear evidence for the identified collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6990,
+  "candidatesTokenCount": 657,
+  "totalTokenCount": 12252,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6990
+   }
+  ],
+  "thoughtsTokenCount": 4605,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DuuYavT_C-KM1e8PvfyMgQY"
+}

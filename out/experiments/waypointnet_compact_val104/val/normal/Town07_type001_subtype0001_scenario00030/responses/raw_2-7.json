@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between actors are positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T034\",\n        \"T033\"\n      ],\n      \"reason\": \"T034 is predicted to collide with the stopped T033 at 1.6 seconds after the last observation, resulting in a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V014\",\n        \"V013\",\n        \"V015\"\n      ],\n      \"reason\": \"V014 is predicted to collide with the stopped V013 at 2.4 seconds, and V014 is also predicted to collide with V015 at 2.6 seconds, likely a rear-end or sideswipe collision as they move on the same road.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"V015\",\n        \"V013\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind's right turn path is predicted to cross and collide with EGO_ego_vehicle's straight path at 3.2 seconds. Additionally, V015 is predicted to collide with the stopped V013 at 3.9 seconds, resulting in a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m clearance are reported for this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted within the 5-second prediction window. These include two instances of moving vehicles colliding with stopped vehicles (T034 into T033, V014 into V013, and V015 into V013), and two moving vehicles (V014 and V015) colliding with each other. A significant conflict is also predicted between the ego vehicle (EGO_ego_vehicle) and another observer vehicle (EGO_ego_vehicle_behind) due to crossing paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10199,
+  "candidatesTokenCount": 749,
+  "totalTokenCount": 15020,
+  "cachedContentTokenCount": 919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10199
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 919
+   }
+  ],
+  "thoughtsTokenCount": 4072,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ncWYatPpLryx0-kP0OzB-Aw"
+}

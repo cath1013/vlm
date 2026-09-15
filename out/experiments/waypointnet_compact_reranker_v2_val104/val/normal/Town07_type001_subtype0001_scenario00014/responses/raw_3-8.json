@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show clear separation and no immediate conflict during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and no paths converge to indicate a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn, resulting in a collision with V004, which is stopped at the intersection, at approximately 2.4 seconds after the observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle at approximately 4.0 seconds after the observation, indicating insufficient following distance or braking.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V010\"\n      ],\n      \"reason\": \"EGO_other_vehicle's continued left turn path is predicted to collide with the stopped V010 at approximately 4.5 seconds after the observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial two seconds of the prediction window appear clear. However, significant collision risks emerge from 10 seconds onwards, including an intersection collision involving EGO_other_vehicle and two separate rear-end collisions. The predictions indicate a high probability of multiple accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8232,
+  "candidatesTokenCount": 622,
+  "totalTokenCount": 11624,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8232
+   }
+  ],
+  "thoughtsTokenCount": 2770,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "G-uYarnZM5zO2roPhNqUqA4"
+}

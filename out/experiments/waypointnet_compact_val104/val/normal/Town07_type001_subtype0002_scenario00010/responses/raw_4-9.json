@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close interactions between any actors in this interval, and all vehicles appear to maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show no physical contact or unsafe clearances between any actors in this interval; all vehicles are predicted to proceed safely.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V013\"],\n      \"reason\": \"A collision is predicted between EGO_ego_vehicle_behind and V013 at approximately t=12.0s, as EGO_ego_vehicle_behind, moving eastbound on Road 47, is predicted to overlap with the stationary V013 in an adjacent or opposing lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No direct physical contact or critically close interactions are predicted between any actors during this interval, indicating a safe progression of all vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"M005\"],\n      \"reason\": \"A rear-end collision is predicted between M005 and EGO_other_vehicle_behind at approximately t=13.1s, as M005, moving northbound, is predicted to collide with the stopped EGO_other_vehicle_behind.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. The first occurs in interval k=3, where EGO_ego_vehicle_behind is expected to collide with the stationary V013. The second occurs in interval k=5, involving a rear-end collision between M005 and the stopped EGO_other_vehicle_behind.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6143,
+  "candidatesTokenCount": 657,
+  "totalTokenCount": 13003,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6143
+   }
+  ],
+  "thoughtsTokenCount": 6203,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Es6Yaq_IIJG31e8P3YbTqAY"
+}

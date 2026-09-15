@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close interactions are indicated within this interval, and all vehicles maintain safe distances based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining safe separation, with no overlaps or extremely low clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V004\"],\n      \"reason\": \"V004 is predicted to collide with EGO_other_vehicle_behind, which is stopped, as V004's projected path intersects the stationary vehicle's footprint.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although V004 and V018 have a small clearance of 0.48m, the predicted contact is false, indicating no physical overlap based on their trajectories and footprints.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted interactions show sufficient clearance between vehicles, with no geometric overlaps or dangerous convergences.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the third 1-second interval (k=3) between EGO_other_vehicle_behind and V004, as V004's predicted path directly intersects the stopped position of EGO_other_vehicle_behind, resulting in a predicted contact with zero clearance. For all other intervals, no accidents are expected as vehicles maintain safe distances or have minimal, non-contacting clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8850,
+  "candidatesTokenCount": 597,
+  "totalTokenCount": 12187,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8850
+   }
+  ],
+  "thoughtsTokenCount": 2740,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "U8aYaoXSKN_A1e8P0Yq8sQY"
+}

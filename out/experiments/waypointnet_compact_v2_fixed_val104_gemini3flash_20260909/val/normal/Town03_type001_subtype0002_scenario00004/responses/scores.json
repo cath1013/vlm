@@ -1,0 +1,483 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fbeb0b5d2b3f",
+   "counts": {
+    "TP": 0,
+    "FP": 3,
+    "TN": 1,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 0.25,
+   "precision": 0.0,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": []
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_buckets": 4,
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 9.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "The vehicles are approaching the junction and each other but maintain sufficient clearance during this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "A side-impact collision is expected at the junction between EGO_ego_vehicle (northbound) and EGO_other_vehicle (westbound) as their paths intersect at approximately t=6.6s.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "A second accident, a rear-end collision between van N012 and EGO_other_vehicle_behind, occurs at approximately t=7.5s due to a high speed differential on Road 19, alongside the persistent junction accident.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "Both the junction collision and the rear-end collision on Road 19 are expected to persist throughout this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Both the junction collision and the rear-end collision on Road 19 are expected to persist throughout this interval."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fbeb0b5d2b3f",
+   "counts": {
+    "TP": 0,
+    "FP": 1,
+    "TN": 2,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 0.667,
+   "precision": 0.0,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": []
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "n_buckets": 3,
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 9.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "The vehicles and other road users are maintaining safe separation as they approach the intersection.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "V006 is rapidly closing the gap with the stopped V004, but they remain approximately 0.1m apart at the end of this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "FP",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "V006 rear-ends the stopped V004 at t=8.1s, and EGO_ego_vehicle collides with EGO_other_vehicle_behind at a junction crossing at t=9.0s.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new collisions are initiated in this interval; previously involved actors are moving past their respective points of contact."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All actors have either maintained safe separation or completed their crossing/passing maneuvers."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fbeb0b5d2b3f",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 2,
+    "FN": 0
+   },
+   "status": "TN",
+   "accuracy": 1.0,
+   "precision": null,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": []
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "n_buckets": 2,
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 9.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "Vehicles are maintaining safe distances while navigating the junction, with several vehicles remaining stopped at what appears to be a traffic signal.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "EGO_other_vehicle continues west safely past stopped vehicles with over 1.5m of clearance.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No conflicting trajectories are observed as actors follow their predicted paths within their respective lanes."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Moving actors like EGO_ego_vehicle and T011 maintain consistent longitudinal spacing."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The turning maneuver of EGO_ego_vehicle_behind completes without entering the path of westbound traffic on Road 19."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "3-8",
+    "t_start_s": 3.0,
+    "t_end_s": 8.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fbeb0b5d2b3f",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 1,
+    "FN": 0
+   },
+   "status": "TN",
+   "accuracy": 1.0,
+   "precision": null,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": []
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 9.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "Actors maintain safe lateral and longitudinal separation as they navigate the intersection.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The northward and westward vehicles continue on non-intersecting paths with sufficient clearance."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Pedestrian P009 and the right-turning EGO_ego_vehicle_behind approach each other but remain on distinct trajectories."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicle EGO_ego_vehicle_behind and pedestrian P009 pass each other with a predicted clearance of approximately 0.7m."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All active participants continue along their projected paths, increasing separation from one another."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "4-9",
+    "t_start_s": 4.0,
+    "t_end_s": 9.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fbeb0b5d2b3f",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "status": "UNSCORABLE",
+   "accuracy": null,
+   "precision": null,
+   "recall": null,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": []
+   },
+   "scored_buckets": [],
+   "n_buckets": 0,
+   "excluded_buckets": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 9.5,
+   "event": null,
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The Northbound ego vehicles clear the junction crossing line before the slow-moving Westbound vehicle EGO_other_vehicle_behind reaches the intersection."
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All vehicles maintain non-conflicting trajectories with significant lateral and longitudinal separation."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle_behind reaches the Northbound lane position well after both Northbound EGO vehicles have passed."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Nearby actors such as V003 and V005 are stopped, and the EGO vehicles have already passed their locations safely."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle_behind maintains a safe following distance behind EGO_ego_vehicle as they continue North."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "n_buckets": 10,
+  "counts": {
+   "TP": 0,
+   "FP": 4,
+   "TN": 6,
+   "FN": 0
+  },
+  "accuracy": 0.6,
+  "precision": 0.0,
+  "recall": null,
+  "vehicle_recall_mean": null,
+  "actor_precision_mean": null,
+  "events": {
+   "n": 0,
+   "exact": 0,
+   "early": 0,
+   "none": 0,
+   "detection_rate": null,
+   "mean_lead_s": null
+  },
+  "response_issue_counts": {}
+ }
+}

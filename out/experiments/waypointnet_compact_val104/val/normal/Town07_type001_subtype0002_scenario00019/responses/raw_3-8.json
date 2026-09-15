@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances between all actor pairs are positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no converging paths result in contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no converging paths result in contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V012\", \"EGO_ego_vehicle\", \"V005\", \"V010\"],\n      \"reason\": \"Multiple collisions are predicted within this interval. V011 and V012 paths intersect at approximately 11.3s. EGO_ego_vehicle's path intersects the stopped V005 at approximately 11.5s. V011 is predicted to collide with the stopped V010 at approximately 11.7s. V012's path also intersects the stopped V010 at approximately 11.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances between all actor pairs are positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts a period of safety for the first three seconds, followed by a high likelihood of multiple collisions in the fourth second (k=4). Specifically, there are predicted contact events between V011 and V012, EGO_ego_vehicle and V005, V010 and V011, and V010 and V012, all with zero minimum clearance. The final second (k=5) is predicted to be safe again, assuming the paths are followed.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7002,
+  "candidatesTokenCount": 662,
+  "totalTokenCount": 13584,
+  "cachedContentTokenCount": 878,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7002
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 878
+   }
+  ],
+  "thoughtsTokenCount": 5920,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Oc6YaoKuJKLB1e8PrK2K0Ak"
+}

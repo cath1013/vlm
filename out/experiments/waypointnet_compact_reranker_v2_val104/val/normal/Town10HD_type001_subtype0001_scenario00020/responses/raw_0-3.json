@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and clear separation in their predicted paths, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some clearances are small (e.g., EGO_ego_vehicle and P009 at 0.63m), there is no predicted physical contact or overlap between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"A head-on collision is expected between EGO_other_vehicle and EGO_ego_vehicle at approximately 5.3 seconds after the last observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There is no predicted physical contact or overlap between any actors during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"A head-on collision is expected between EGO_other_vehicle_behind and EGO_ego_vehicle at approximately 7.1 seconds after the last observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate two distinct head-on collisions involving EGO_ego_vehicle. The first is with EGO_other_vehicle in the (5.0, 6.0] second interval, and the second is with EGO_other_vehicle_behind in the (7.0, 8.0] second interval. Both involve zero minimum clearance and a joint path probability of 1.0, suggesting high certainty in these predicted contacts.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9100,
+  "candidatesTokenCount": 641,
+  "totalTokenCount": 13643,
+  "cachedContentTokenCount": 908,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9100
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 908
+   }
+  ],
+  "thoughtsTokenCount": 3902,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "c-uYapffJ8OXosUP4_vEsA8"
+}

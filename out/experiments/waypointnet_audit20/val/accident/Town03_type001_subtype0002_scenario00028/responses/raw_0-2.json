@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While multiple vehicles are approaching a junction, the calculated Time To Contact (TTC) values and linear contact extrapolations indicate that the earliest potential conflicts are expected to occur after this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\", \"V004\"],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J72 involving EGO_ego_vehicle, V001, and V004, with a predicted Time To Contact (TTC) of 1.9s from t=2s, placing the collision within this interval (at t=3.9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M009\", \"V006\"],\n      \"reason\": \"A rear-end collision is expected between M009 and V006 on Road 69 northbound, as M009 is closing on V006 with a linear-extrapolated contact in 2.3s from t=2s, placing the collision within this interval (at t=4.3s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary conflicts are expected in previous intervals. Without further predictive information or re-simulation accounting for the consequences of those potential collisions, no new additional accident initiation is specifically identified for this interval.\",\n      \"confidence\": \"low\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary conflicts are expected in previous intervals. Without further predictive information or re-simulation accounting for the consequences of those potential collisions, no new additional accident initiation is specifically identified for this interval.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future holds a high risk of multiple accidents. An orthogonal entry conflict at junction J72 is expected around t=3.9s, involving EGO_ego_vehicle, V001, and V004. Shortly after, a rear-end collision between M009 and V006 is predicted around t=4.3s on Road 69 northbound.\",\n  \"data_limitations\": \"The 'Predicted path' values are from a trajectory predictor and not direct observations of turn signals or brake lights, which could affect the confidence in maneuver outcomes. The scene also lacks traffic-signal state, stop line, and lane-marking information, which are crucial for precise junction conflict assessment. Linear extrapolation for contact time between M009 and V006 does not account for potential turning or braking maneuvers.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6719,
+  "candidatesTokenCount": 798,
+  "totalTokenCount": 12154,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6719
+   }
+  ],
+  "thoughtsTokenCount": 4637,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "lRiVauSgM52Tvr0P0ejFyQU"
+}

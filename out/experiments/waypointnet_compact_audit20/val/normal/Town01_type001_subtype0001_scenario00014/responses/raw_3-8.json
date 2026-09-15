@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles, particularly EGO_ego_vehicle and EGO_ego_vehicle_behind, maintain safe distances from each other, with EGO_ego_vehicle_behind stopping at its current position, preventing any rear-end collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are maintaining their respective lanes and trajectories without any physical overlap. The closest following vehicles (EGO_ego_vehicle_behind and EGO_ego_vehicle) maintain a gap of approximately 15.6 meters.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted paths intersect or cause body overlap. The closest distance between EGO_ego_vehicle_behind and EGO_ego_vehicle is approximately 12.1 meters.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors follow distinct or sufficiently separated paths. The closest gap between EGO_ego_vehicle_behind and EGO_ego_vehicle is approximately 9.8 meters.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show all actors maintaining safe distances, with the smallest longitudinal gap between EGO_ego_vehicle_behind and EGO_ego_vehicle remaining at approximately 8.5 meters, which is sufficient to prevent contact.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"Over the entire 5-second prediction window, no accidents are expected. While there is a decreasing longitudinal gap between EGO_ego_vehicle_behind and EGO_ego_vehicle, the minimum distance predicted is approximately 8.5 meters, which does not constitute physical contact or body overlap. All other moving actors maintain clear separation.\",\n  \"data_limitations\": \"The predicted paths for EGO_ego_vehicle and EGO_ego_vehicle_behind show an instantaneous stop (0 movement for the first second) despite their current state indicating forward motion (6.0 kph and 30.0 kph respectively) and a positive acceleration for EGO_ego_vehicle_behind. This discrepancy between the current state and the immediate future path reduces confidence in the realism of these specific path predictions, but the judgement strictly adheres to the provided path geometry.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5342,
+  "candidatesTokenCount": 741,
+  "totalTokenCount": 13119,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5342
+   }
+  ],
+  "thoughtsTokenCount": 7036,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "B0eVatq-DvXKrfcPo-u68Qs"
+}

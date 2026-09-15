@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance to avoid physical contact during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance to avoid physical contact during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T001\"],\n      \"reason\": \"The EGO_ego_vehicle's predicted straight path directly intersects with the stationary truck T001, resulting in a predicted body overlap at approximately 5.9 seconds after observation, which falls within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T001\"],\n      \"reason\": \"The body overlap between EGO_ego_vehicle and the stationary truck T001, which began in the previous interval, continues as EGO_ego_vehicle's path proceeds through T001's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T001\"],\n      \"reason\": \"The body overlap between EGO_ego_vehicle and the stationary truck T001 persists at the beginning of this interval as EGO_ego_vehicle's path continues to cross T001's footprint, although it clears by the end of the interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The observer vehicle EGO_ego_vehicle is predicted to collide with the stationary truck T001, with initial contact occurring in the (5.0, 6.0] second interval. This body overlap is expected to persist through the (6.0, 7.0] and (7.0, 8.0] second intervals as EGO_ego_vehicle's path crosses T001's position. All other actors maintain safe clearances throughout the 5-second prediction horizon.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8713,
+  "candidatesTokenCount": 671,
+  "totalTokenCount": 18155,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8713
+   }
+  ],
+  "thoughtsTokenCount": 8771,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "R-2Yauy_IY-N1e8PgY_jiAY"
+}

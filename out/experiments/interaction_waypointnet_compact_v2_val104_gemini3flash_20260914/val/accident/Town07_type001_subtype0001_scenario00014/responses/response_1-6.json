@@ -1,0 +1,71 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 26.4,
+ "usage": {
+  "input": 8881,
+  "output": 694
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_other_vehicle initiates a left turn across the path of the northbound EGO_ego_vehicle_behind, resulting in a collision at 0.3s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V004",
+     "V005"
+    ],
+    "reason": "The predicted left-turn path of EGO_other_vehicle causes it to collide with stopped vehicles V004 and V005 on the intersecting road.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V010",
+     "V002"
+    ],
+    "reason": "EGO_other_vehicle continues its path, colliding with further stopped vehicles V010 and V002 further along Road 26.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind is traveling faster than EGO_ego_vehicle and its predicted path results in a rear-end collision at 3.1s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No additional path overlaps or body contacts are predicted for the remaining actors in this interval.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario is characterized by a series of severe collisions involving the observer vehicles and multiple stationary road users. It begins with a left-turn conflict between EGO_other_vehicle and EGO_ego_vehicle_behind, followed by EGO_other_vehicle plowing through a queue of stopped cars and a separate high-speed rear-end collision between the two northbound observer vehicles.",
+  "data_limitations": ""
+ }
+}

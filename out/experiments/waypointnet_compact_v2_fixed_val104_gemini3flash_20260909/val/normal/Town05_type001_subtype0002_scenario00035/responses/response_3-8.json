@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 64.0,
+ "usage": {
+  "input": 9413,
+  "output": 480
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The eastbound car EGO_other_vehicle_behind and northbound pedestrian P012 are approaching the intersection but maintain safe separation during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "P012"
+    ],
+    "reason": "The eastbound car EGO_other_vehicle_behind and northbound pedestrian P012 reach the junction intersection at the same time, resulting in a collision at approximately 1.6 seconds into the future.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "P012"
+    ],
+    "reason": "The physical overlap between the footprints of EGO_other_vehicle_behind and P012 continues for approximately 0.3 seconds into this interval before their trajectories diverge.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The actors have cleared the intersection and no further conflicts are predicted along their projected paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles and pedestrians maintain safe lateral and longitudinal clearance through the end of the prediction window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary conflict is a junction accident between car EGO_other_vehicle_behind (eastbound) and pedestrian P012 (northbound). Based on their current speeds and headings, they arrive at the intersection center simultaneously approximately 1.6s after the observation window, with the vehicle's footprint overlapping the pedestrian until approximately 2.3s into the future. Other actors, including several stopped vehicles and ongoing northbound traffic, maintain sufficient clearance.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P007\",\n        \"P010\",\n        \"EGO_other_vehicle\",\n        \"V028\",\n        \"EGO_other_vehicle_behind\",\n        \"V027\",\n        \"V026\"\n      ],\n      \"reason\": \"Imminent conflicts are predicted with very short linear-extrapolated times to contact (TTC). Pedestrians P007 and P010 are on a direct collision course with a 0.4s TTC. Additionally, EGO_other_vehicle, EGO_other_vehicle_behind, V028, V027, and V026 are on Road 29 approaching each other in opposing lanes with TTCs ranging from 0.5s to 0.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"N003\",\n        \"P010\",\n        \"P012\",\n        \"P007\",\n        \"P008\",\n        \"V022\",\n        \"T024\"\n      ],\n      \"reason\": \"Multiple high-risk conflicts continue: pedestrian conflicts (P010, P012, P007, P008) have TTCs between 1.3s and 1.6s. V022 and T024 have a linear-extrapolated contact in 1.8s. EGO_ego_vehicle and EGO_other_vehicle are both in the main junction conflict zone, with EGO_ego_vehicle entering at ~t=3.5s and EGO_other_vehicle at ~t=3.8s, leading to a critical orthogonal conflict. N003 also enters the junction at ~t=4.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"P006\",\n        \"V001\"\n      ],\n      \"reason\": \"The major orthogonal junction collision between EGO_ego_vehicle and EGO_other_vehicle (linear-extrapolated TTC 2.3s, collision estimated at t=5.3s) is expected in this interval. Other significant junction conflicts involve EGO_ego_vehicle with P006 (TTC 2.3s) and EGO_other_vehicle with V001 (TTC 2.5s), indicating ongoing high danger at the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most immediate high-TTC conflicts are predicted to occur in earlier intervals. No new imminent conflicts are indicated for this interval based on current trajectories and the provided linear-extrapolated TTCs.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Similar to the previous interval, the most critical conflicts should have already been resolved. While vehicles are still approaching the junction, no new immediate collision risks are explicitly indicated by the data for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario depicts an extremely high-risk multi-way junction with numerous vehicles and pedestrians converging. Multiple direct head-on/sideswipe and orthogonal crossing conflicts are predicted within the first three 1-second intervals, involving several observer vehicles, other vehicles, and pedestrians, with very short linear-extrapolated times to contact. The situation rapidly escalates into a complex, multi-actor collision scene, making accidents highly probable in the early prediction window.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values are based on simple range rate and do not account for potential steering, braking, or other evasive maneuvers by actors, which could alter outcomes. Additionally, the lack of traffic signal information, lane marking types (solid/dashed), and dynamic modeling of collision impacts limits the ability to predict precise consequences and subsequent interactions beyond the initial conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 17459,
+  "candidatesTokenCount": 1139,
+  "totalTokenCount": 30884,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 17459
+   }
+  ],
+  "thoughtsTokenCount": 12286,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "pxmVarfZO82V9tMPsuvp-Q4"
+}

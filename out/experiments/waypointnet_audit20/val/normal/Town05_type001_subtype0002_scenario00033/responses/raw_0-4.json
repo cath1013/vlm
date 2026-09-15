@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P004\",\n        \"P006\",\n        \"EGO_other_vehicle\",\n        \"P007\",\n        \"C025\",\n        \"V026\"\n      ],\n      \"reason\": \"Multiple immediate collisions are predicted within this interval, including a 0.0s TTC between P004 and P006, and linear-extrapolated contacts at 0.7s between EGO_other_vehicle and P007, and at 0.8s between C025 and V026.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M023\",\n        \"V026\",\n        \"EGO_ego_vehicle\",\n        \"P004\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"P007\",\n        \"P006\",\n        \"V001\"\n      ],\n      \"reason\": \"Numerous linear-extrapolated collisions are predicted to occur throughout this interval, with several contact times ranging from 1.2s to 1.9s, involving various combinations of vehicles and pedestrians.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V012\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"V001\",\n        \"P004\",\n        \"EGO_ego_vehicle_behind\",\n        \"P008\",\n        \"V026\"\n      ],\n      \"reason\": \"Several linear-extrapolated collisions are predicted to occur within this interval, with contact times ranging from 2.0s to 2.5s, indicating continued high risk across multiple interactions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V026\"\n      ],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J7 between EGO_ego_vehicle_behind and V026 with a TTC of 3.1s, indicating a high likelihood of collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J7 between EGO_ego_vehicle_behind and EGO_other_vehicle with a TTC of 4.4s and a very small arrival time gap of 0.2s, making an accident highly probable.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation is highly hazardous throughout the entire 5-second prediction window. The first three intervals feature a multitude of immediate linear-extrapolated collisions involving numerous actors, signaling a chaotic and dangerous environment. This is followed by two distinct orthogonal junction conflicts with low TTCs, extending the high-risk scenario to the very end of the forecast.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values do not account for predicted paths, braking, or turning, potentially overstating the certainty or specific timing of some direct collisions. There was ambiguity in the 'arrival time gap' definition for junction conflicts, which required interpretation and could introduce minor inaccuracies.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 15006,
+  "candidatesTokenCount": 1000,
+  "totalTokenCount": 24209,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 15006
+   }
+  ],
+  "thoughtsTokenCount": 8203,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7xuVaubhDMfQosUPsZqX0Qk"
+}

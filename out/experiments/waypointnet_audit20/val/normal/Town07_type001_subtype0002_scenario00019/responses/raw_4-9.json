@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"M003\", \"C004\"],\n      \"reason\": \"EGO_ego_vehicle is northbound on Road 36, while M003 and C004 are southbound on the same road. M003 is at the junction (0m away) and EGO_ego_vehicle has just passed it (34m beyond), with a linear-extrapolated contact time of 0.8s. C004 is also southbound on Road 36, 14m from the junction, with a linear-extrapolated contact time of 1.3s with EGO_ego_vehicle. Given the opposing directions in single lanes on the same road and very short TTCs, a head-on collision or extremely close pass involving all three vehicles is highly probable.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary head-on conflict between EGO_ego_vehicle, M003, and C004 is expected to occur in the previous interval. No other immediate critical conflicts are evident.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The rear-end collision risk between EGO_ego_vehicle_behind and T006 is still developing, but not yet critical in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T006\"],\n      \"reason\": \"EGO_ego_vehicle_behind is decelerating towards a junction (2m away) at 15km/h, while T006 is following behind in the same lane at 24km/h, with an estimated time to contact of approximately 3.5 seconds based on their current speeds and decelerations. This closing rate and the approaching junction create a high risk of a rear-end collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T006\"],\n      \"reason\": \"Following the expected collision in the previous interval, the aftermath or ongoing collision between EGO_ego_vehicle_behind and T006 would continue into this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are anticipated in the prediction window. An imminent head-on collision or extremely close pass is expected in the first interval between EGO_ego_vehicle and two motorcycles (M003, C004) due to their opposing paths on the same road at a junction with very short estimated times to contact. A subsequent rear-end collision is predicted for the fourth interval between EGO_ego_vehicle_behind and T006, as T006 is closing rapidly on the decelerating observer vehicle near a junction.\",\n  \"data_limitations\": \"The 'predicted path' for EGO_other_vehicle_behind is 'constant-speed straight (no road match)', which may not accurately reflect its future trajectory, but it is not directly involved in the predicted accidents.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10753,
+  "candidatesTokenCount": 914,
+  "totalTokenCount": 18308,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10753
+   }
+  ],
+  "thoughtsTokenCount": 6641,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fR6VavqwLvnM0-kPmIrDWA"
+}

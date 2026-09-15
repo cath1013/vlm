@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap; all predicted minimum clearances are positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap; all predicted minimum clearances are positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to make a right turn and collide with V001, which is stationary at the intersection, resulting in simultaneous body contact at 2.2 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted collision between EGO_other_vehicle and V001 occurs in the previous interval (k=3); no new contact is predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap; all predicted minimum clearances are positive.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A clear collision is predicted in the (10.0, 11.0] s interval (k=3) between EGO_other_vehicle and V001. EGO_other_vehicle, while executing a right turn, is predicted to make contact with V001, which remains stopped. All other observed and predicted vehicle interactions show sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5878,
+  "candidatesTokenCount": 585,
+  "totalTokenCount": 7947,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5878
+   }
+  ],
+  "thoughtsTokenCount": 1484,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5-eYarWqGdGA0-kP8-SK8Qs"
+}

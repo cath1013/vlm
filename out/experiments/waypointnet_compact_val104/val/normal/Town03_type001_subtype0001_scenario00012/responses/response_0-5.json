@@ -1,0 +1,72 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 18.21,
+ "usage": {
+  "input": 12193,
+  "output": 723
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero minimum clearance in this interval, and all actors maintain safe distances based on their predicted paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V015",
+     "T016"
+    ],
+    "reason": "Truck T016 is predicted to rear-end the stopped car V015 at 1.2 seconds after observation, indicated by a minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts indicate an accident in this interval; all actors' paths maintain sufficient separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V003",
+     "P011",
+     "P009"
+    ],
+    "reason": "EGO_other_vehicle and V003 are predicted to have an orthogonal intersection collision at 3.1 seconds, and pedestrians P011 and P009 are predicted to have a head-on collision at 3.8 seconds, both with 0.0m minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P008",
+     "P035",
+     "EGO_ego_vehicle_behind",
+     "T016",
+     "EGO_ego_vehicle",
+     "M002"
+    ],
+    "reason": "P035 is predicted to rear-end the stopped pedestrian P008 at 4.2 seconds; EGO_ego_vehicle_behind and T016 are predicted to have an intersection collision at 4.4 seconds; and M002 is predicted to collide with the stopped EGO_ego_vehicle at 5.0 seconds, all with 0.0m minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window shows a high probability of multiple collisions. These include a vehicle rear-ending another stopped vehicle in k=2, two separate incidents of orthogonal intersection conflicts and pedestrian collisions in k=4, and a combination of pedestrian rear-end, vehicle intersection, and vehicle-stopped-observer collisions in k=5.",
+  "data_limitations": ""
+ }
+}

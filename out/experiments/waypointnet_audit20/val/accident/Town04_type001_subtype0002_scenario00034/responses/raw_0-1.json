@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V007\"],\n      \"reason\": \"V007 is 4m from a three-way junction entrance at 18km/h, while EGO_ego_vehicle_behind is already at 0m from the junction entrance at 8km/h. Both are predicted to proceed straight on different roads (Road 48 and Road 901), creating an imminent orthogonal conflict within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V007\"],\n      \"reason\": \"The orthogonal junction conflict between EGO_ego_vehicle_behind and V007, which began in the previous interval, is expected to continue or escalate into a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts are indicated by linear extrapolation or simultaneous junction entries from significantly different paths. The conflict from previous intervals is likely in the process of resolving or has already occurred.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T010\"],\n      \"reason\": \"EGO_other_vehicle (on Road 33 eastbound) will be approximately 4.1m from the junction, and T010 (on Road 912 northbound) will be approximately 5m from the junction at the start of this interval. Both are predicted to proceed into the three-way junction at similar times, creating a high risk of orthogonal collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T010\", \"V002\"],\n      \"reason\": \"The junction entry conflict involving EGO_other_vehicle and T010 is expected to escalate, with V002 (on Road 47 northbound) also entering the junction during this interval, further increasing the risk of a multi-vehicle collision.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"There is an immediate and high-risk junction conflict between EGO_ego_vehicle_behind and V007 as they simultaneously enter a three-way junction from different roads in the first two seconds. Later in the prediction window, EGO_other_vehicle and T010 are projected to enter the same junction from different approaches around k=4, with V002 joining the conflict in k=5, leading to further potential collisions.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, lane marking types (solid/dashed), and explicit right-of-way rules for the junction significantly impacted the judgment of junction conflicts. Without these details, simultaneous approaches from different roads into a junction are deemed high risk.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7959,
+  "candidatesTokenCount": 841,
+  "totalTokenCount": 16336,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7959
+   }
+  ],
+  "thoughtsTokenCount": 7536,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LRqVauGBHvnM0-kPzL_N-AQ"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearance from each other, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearance from each other, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T015\", \"V016\"],\n      \"reason\": \"A predicted closest pair shows T015 (truck) and V016 (car) with 0.0m minimum clearance and predicted contact at 2.6 seconds. V016 appears to be closing in on T015 as T015 potentially makes a slight turn.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the prior interval, no further contact is explicitly predicted by the closest pairs in this interval, and the post-collision trajectories are not provided.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in an earlier interval, no further contact is explicitly predicted by the closest pairs in this interval, and the post-collision trajectories are not provided.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the third 1-second interval (2.0s to 3.0s after observation), specifically at 2.6 seconds, involving truck T015 and car V016. V016 is predicted to make physical contact with T015 as both vehicles proceed northbound, with T015 potentially making a right turn. All other actors are predicted to maintain safe clearances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6132,
+  "candidatesTokenCount": 624,
+  "totalTokenCount": 10038,
+  "cachedContentTokenCount": 861,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6132
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 861
+   }
+  ],
+  "thoughtsTokenCount": 3282,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "JMmYarz5G6fE0-kPmtLk8AE"
+}

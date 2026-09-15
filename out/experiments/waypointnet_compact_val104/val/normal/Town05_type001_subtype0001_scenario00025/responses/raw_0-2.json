@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are indicated. All vehicles maintain safe distances or are on diverging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V024\", \"M023\", \"V005\", \"V006\"],\n      \"reason\": \"V024 (car) is predicted to collide with the stopped M023 (motorcycle) at 1.3s. Additionally, V006 (car) is predicted to rear-end the slower V005 (car) on Road 44 at 2.0s due to insufficient following distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are indicated. All vehicles maintain safe distances or are on diverging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V001\", \"M004\", \"V005\"],\n      \"reason\": \"V001 (car) is predicted to rear-end the slower V002 (car) on Road 2 at 3.7s. M004 (motorcycle) is also predicted to rear-end the slower V005 (car) on Road 44 at 4.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted contact between EGO_ego_vehicle and EGO_ego_vehicle_behind is disregarded as an artifact; the lead vehicle is faster and their paths are parallel, indicating safe following distance will be maintained or increased. Other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple rear-end collisions are predicted in the future window within intervals k=2 and k=4, involving cars colliding with slower or stopped vehicles. An anomalous predicted contact between EGO_ego_vehicle and EGO_ego_vehicle_behind was identified and disregarded due to inconsistencies with their relative speeds and parallel trajectories.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' included a false positive for predicted contact between EGO_ego_vehicle and EGO_ego_vehicle_behind (at 4.1s, interval k=5), which contradicted their relative speeds and predicted parallel paths. This required manual override of the predicted_contact flag for that specific pair to assess the accident likelihood accurately.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9896,
+  "candidatesTokenCount": 766,
+  "totalTokenCount": 16349,
+  "cachedContentTokenCount": 916,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9896
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 916
+   }
+  ],
+  "thoughtsTokenCount": 5687,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "JMSYarLfOZyf0-kP_qnaiQ8"
+}

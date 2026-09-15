@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V019\",\n        \"V018\",\n        \"V015\",\n        \"V016\",\n        \"T001\",\n        \"V002\",\n        \"T012\",\n        \"V013\"\n      ],\n      \"reason\": \"Multiple rear-end collisions are predicted: V019 with V018, V016 with stopped V015, V002 with T001, and V013 with stopped T012, all occurring in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V005\"\n      ],\n      \"reason\": \"V005 is predicted to rear-end the stopped V004 while following in the same southbound lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"T006\"\n      ],\n      \"reason\": \"T006 is predicted to rear-end V005 while following in the same southbound lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple rear-end collisions, particularly concentrated in the (3.0, 4.0] second interval. Several vehicles are predicted to collide with either stopped vehicles or slower-moving vehicles in their respective lanes. The later intervals show a diminishing but still present risk, with the final interval (6.0, 7.0] appearing safe.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10175,
+  "candidatesTokenCount": 661,
+  "totalTokenCount": 16917,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10175
+   }
+  ],
+  "thoughtsTokenCount": 6081,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "E8yYatPlGqGz1e8PqZi36Ak"
+}

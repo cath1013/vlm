@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\", \"V003\"],\n      \"reason\": \"EGO_ego_vehicle, EGO_other_vehicle_behind, and V003 are predicted to have simultaneous body contact in an orthogonal junction conflict at approximately 10.6s-10.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to have body contact at approximately 11.3s due to an orthogonal junction conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"M004\"],\n      \"reason\": \"EGO_other_vehicle_behind and M004 are predicted to have simultaneous body contact at approximately 13.4s in a near head-on collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high probability of multiple accidents. A complex orthogonal junction conflict is expected in interval k=2 involving EGO_ego_vehicle, EGO_other_vehicle_behind, and V003. This is followed by another orthogonal conflict between EGO_ego_vehicle and EGO_other_vehicle_behind in k=3. Subsequently, EGO_other_vehicle_behind is predicted to have a near head-on collision with M004 in interval k=5.\",\n  \"data_limitations\": \"The predictions assume independent future paths for all actors. If an accident occurs in an earlier interval, the trajectories of the involved vehicles, and potentially others reacting to the incident, would be altered, making subsequent accident predictions less certain.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8790,
+  "candidatesTokenCount": 706,
+  "totalTokenCount": 15392,
+  "cachedContentTokenCount": 904,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8790
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 904
+   }
+  ],
+  "thoughtsTokenCount": 5896,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "dcyYapHQFpn-2roPtvfP0AE"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (EGO_other_vehicle_behind and T026) has a minimum clearance of 0.62m, which is very close but the model predicts no contact, and their paths are parallel.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V018\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and V018 are predicted to have a minimum clearance of 0.0m at 3.6 seconds after observation (within this interval), with a predicted contact, suggesting a lateral collision as they travel northbound in adjacent lanes.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Most road users maintain safe distances throughout the prediction window. However, a high-confidence accident is predicted in the fourth interval between EGO_ego_vehicle_behind and V018, where their paths indicate a lateral overlap. Other close encounters do not result in predicted contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10165,
+  "candidatesTokenCount": 587,
+  "totalTokenCount": 14624,
+  "cachedContentTokenCount": 919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10165
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 919
+   }
+  ],
+  "thoughtsTokenCount": 3872,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_MOYav-DD_fo2roPosSdcQ"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain a safe distance according to their predicted paths, with the closest pair having a minimum clearance of 1.58m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"T003\"],\n      \"reason\": \"Truck T003 is predicted to collide with the stopped car V002 at approximately 1.8 seconds after observation, as T003's northbound path directly overlaps with V002's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"T003\"],\n      \"reason\": \"Following the collision between T003 and V002 in the previous interval, their predicted paths indicate continued body overlap, suggesting the accident persists into this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"T003\"],\n      \"reason\": \"The collision between T003 and V002 from earlier intervals is expected to continue, as their predicted paths still indicate persistent body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"T003\"],\n      \"reason\": \"The initial collision between T003 and V002 in k=2 continues, as their predicted paths show persistent body overlap throughout this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur between truck T003 and car V002. T003 is moving northbound and collides with the stopped V002 starting in the (8.0, 9.0] s interval. This collision is expected to persist through the entire prediction window, as T003's path continues to overlap with V002's stationary footprint.\",\n  \"data_limitations\": \"The trajectory predictor's future waypoints for T003 do not account for the predicted collision with V002, leading to continued overlap in subsequent intervals that would not occur in a real-world post-collision scenario.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6813,
+  "candidatesTokenCount": 701,
+  "totalTokenCount": 11931,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6813
+   }
+  ],
+  "thoughtsTokenCount": 4417,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2sSYapiGIJDD0-kPku3IoQ8"
+}

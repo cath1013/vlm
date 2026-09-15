@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite a predicted minimum clearance of 1.65m between EGO_other_vehicle_behind and V008, the trajectory predictor indicates they manage to pass without physical contact while traveling in opposing directions.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V006\"],\n      \"reason\": \"EGO_other_vehicle and V006 have crossing paths at an intersection, with a predicted minimum body clearance of only 0.81m. This extremely small gap, given the car footprints, clearly supports physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts mostly safe interactions, with vehicles maintaining sufficient clearances. However, a critical crossing conflict is identified in the final interval (k=5) between EGO_other_vehicle and V006, where the predicted clearance is too small to avoid physical contact in a real-world scenario.\",\n  \"data_limitations\": \"The `lane_count=1` for `Road 73` with both northbound and southbound traffic (EGO_other_vehicle_behind and V008) creates some ambiguity in interpreting the 1.65m clearance as either safe passing in separate physical lanes or an impending head-on collision in a single shared lane. The absence of traffic signal states and stop lines also limits the ability to fully contextualize intersection behavior.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5788,
+  "candidatesTokenCount": 653,
+  "totalTokenCount": 13247,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5788
+   }
+  ],
+  "thoughtsTokenCount": 6806,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3OSYasGtMr230-kP4Iaz-QE"
+}

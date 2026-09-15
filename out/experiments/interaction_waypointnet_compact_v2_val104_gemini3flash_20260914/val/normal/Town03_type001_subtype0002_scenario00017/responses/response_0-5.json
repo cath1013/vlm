@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 44.1,
+ "usage": {
+  "input": 11510,
+  "output": 622
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle is performing a left turn and enters the path of EGO_ego_vehicle_behind, which is traveling straight through the intersection; the geometry shows 0.0m clearance at 0.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "P016"
+    ],
+    "reason": "EGO_ego_vehicle_behind continues through the intersection and strikes P016, who is crossing the road and does not observe the oncoming vehicle; the geometry shows 0.0m clearance at 1.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No additional path conflicts are predicted in this interval as vehicles and pedestrians maintain safe clearance.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No additional path conflicts are predicted in this interval as vehicles and pedestrians maintain safe clearance.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No additional path conflicts are predicted in this interval as vehicles and pedestrians maintain safe clearance.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The analysis reveals two distinct path conflicts following the observation window. The first is a left-turn across path collision at 0.9s involving EGO_other_vehicle and EGO_ego_vehicle_behind, and the second is a vehicle-pedestrian collision at 1.8s involving EGO_ego_vehicle_behind and P016.",
+  "data_limitations": ""
+ }
+}

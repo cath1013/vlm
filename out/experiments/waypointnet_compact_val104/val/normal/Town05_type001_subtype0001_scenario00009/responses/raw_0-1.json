@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are identified in this interval; all vehicles maintain safe distances according to their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\", \"V005\", \"N006\"],\n      \"reason\": \"V003 is predicted to rear-end V002, and N006 is predicted to rear-end the stopped V005, both with zero minimum clearance, at 1.5s and 1.7s after observation respectively.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle at 2.7s after observation with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V044\", \"N006\"],\n      \"reason\": \"V044 is predicted to collide with the stopped V005 at 3.3s after observation, and N006 is predicted to rear-end V044 at 3.6s after observation, both with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are identified in this interval; all vehicles maintain safe distances according to their predicted paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple rear-end collisions are predicted across intervals k=2, k=3, and k=4, all with high confidence based on the provided predicted closest pairs data showing zero minimum clearance and predicted contact. The collisions involve V002-V003, V005-N006, EGO_ego_vehicle_behind-EGO_ego_vehicle, V044-V005, and N006-V044.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8856,
+  "candidatesTokenCount": 696,
+  "totalTokenCount": 22190,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8856
+   }
+  ],
+  "thoughtsTokenCount": 12638,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "68OYauK-Au2i9tMPkZDL2AQ"
+}

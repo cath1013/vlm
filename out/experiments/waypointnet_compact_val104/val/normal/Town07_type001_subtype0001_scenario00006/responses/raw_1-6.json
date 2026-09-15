@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, with the closest pair (EGO_ego_vehicle and V001) having a minimum clearance of 1.39m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V001\",\n        \"P005\"\n      ],\n      \"reason\": \"V001 (car) and P005 (person) are predicted to collide at 7.7 seconds after the last observation (1.7s into the future), with their paths overlapping and a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"T003\"\n      ],\n      \"reason\": \"EGO_ego_vehicle (car) and T003 (truck) are predicted to have a head-on collision at 8.6 seconds after the last observation (2.6s into the future), as they are travelling in opposite directions in the same lane (Road 15, Lane 1) with insufficient clearance (0.28m), implying physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show vehicles maintaining safe distances and diverging from potential conflict points.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and there are no predicted conflicts based on the future trajectories.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the next five seconds. A car (V001) is expected to collide with a person (P005) in the second interval. Additionally, a head-on collision between the observer's vehicle (EGO_ego_vehicle) and a truck (T003) is expected in the third interval, as they travel in opposing directions in the same lane with negligible predicted clearance.\",\n  \"data_limitations\": \"The 'predicted_contact' flag for the EGO_ego_vehicle and T003 interaction was 'false' despite a minimum clearance of 0.28m. This was overridden to 'true' for accident expectation based on the physical dimensions of a car and a truck, which would result in body overlap with such a small clearance.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7309,
+  "candidatesTokenCount": 762,
+  "totalTokenCount": 13087,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7309
+   }
+  ],
+  "thoughtsTokenCount": 5016,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "vsSYauHoMeek0-kPraj9kAI"
+}

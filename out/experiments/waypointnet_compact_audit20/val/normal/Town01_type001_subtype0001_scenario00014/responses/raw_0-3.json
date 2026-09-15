@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient separation, and their projected paths show no signs of imminent physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient separation, and their projected paths show no signs of imminent physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle_behind is closing the gap with EGO_other_vehicle, a clear body overlap is not yet evident at the end of this interval (gap of 6.2m between centers for cars).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with EGO_other_vehicle in a rear-end collision, as the gap between their centers reduces to 2.4m while both are traveling in the same lane (Road 9, lane 1), indicating significant body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"The rear-end collision between EGO_other_vehicle_behind and EGO_other_vehicle is expected to continue or intensify, with EGO_other_vehicle_behind's waypoint showing it has effectively passed EGO_other_vehicle's waypoint by 0.6m in the direction of travel, indicating severe overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The primary risk identified is a rear-end collision between EGO_other_vehicle_behind and EGO_other_vehicle. EGO_other_vehicle_behind is projected to close the gap and collide with the slower EGO_other_vehicle, with contact beginning in the (6.0, 7.0]s interval and persisting into the final interval. All other road users maintain safe distances, and no other conflicts are predicted.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5206,
+  "candidatesTokenCount": 691,
+  "totalTokenCount": 13846,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5206
+   }
+  ],
+  "thoughtsTokenCount": 7949,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "MkaVavaWEseA0-kPmaWW0Qk"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving actors maintain safe distances or are too far apart to interact; no path overlaps are observed.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C003\", \"V002\"],\n      \"reason\": \"C003 (bicycle) is predicted to collide with the stopped vehicle V002, with a clear body overlap at their predicted positions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient separation distances in their predicted paths, and no overlaps are detected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind (eastbound) and EGO_other_vehicle (northbound) predict paths that clearly overlap at the intersection, while EGO_other_vehicle_behind simultaneously rear-ends EGO_other_vehicle due to insufficient following distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind continues to follow too closely behind EGO_other_vehicle, resulting in a prolonged rear-end collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of two separate accident events. A bicycle (C003) is predicted to collide with a stopped car (V002) in the earlier intervals. Later, a complex multi-vehicle incident is predicted where EGO_other_vehicle is simultaneously involved in an orthogonal collision at an intersection with EGO_ego_vehicle_behind and a rear-end collision with EGO_other_vehicle_behind.\",\n  \"data_limitations\": \"The exact physical dimensions (length and width) of the vehicles were not provided and were estimated (e.g., 5m length and 2m width for cars, 1m length and 0.5m width for bicycles) to determine body overlap for accident prediction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5592,
+  "candidatesTokenCount": 708,
+  "totalTokenCount": 17829,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5592
+   }
+  ],
+  "thoughtsTokenCount": 11529,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "b0qVav-ZO8Ox2roP4sbS0A8"
+}

@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 17.37,
+ "usage": {
+  "input": 9269,
+  "output": 607
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between vehicles, with the closest pair maintaining over 1.5 meters clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between vehicles, with the closest pair maintaining over 4.9 meters clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "T006"
+    ],
+    "reason": "T006 is predicted to collide with V005 at 2.5 seconds (within interval k=3) while both are moving southeast on Road 10, suggesting an overtaking or lane change conflict.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V004"
+    ],
+    "reason": "V004 is predicted to collide with the stopped EGO_other_vehicle_behind at 3.3 seconds (within interval k=4) as V004 continues southbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between vehicles, with the closest pair maintaining over 2.3 meters clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct accidents are predicted within the 5-second prediction window. The first involves V005 and T006 on Road 10 during the (7.0, 8.0]s interval. The second involves V004 colliding with the stopped EGO_other_vehicle_behind during the (8.0, 9.0]s interval.",
+  "data_limitations": ""
+ }
+}

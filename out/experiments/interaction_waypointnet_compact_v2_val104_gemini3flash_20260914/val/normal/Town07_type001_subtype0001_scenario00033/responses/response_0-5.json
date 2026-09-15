@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 28.99,
+ "usage": {
+  "input": 7452,
+  "output": 442
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle_behind and V009 pass each other in opposing lanes with a minimum predicted clearance of 0.53m and no physical contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe lateral and longitudinal separation as they follow their predicted lane-keeping and turning paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The actors continue to move along non-conflicting trajectories, maintaining a clearance of several meters.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Lateral separation between the vehicles remains sufficient, and no intersection of footprints is predicted.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All pairs of actors are either diverging or have established safe follow distances by the end of the prediction window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene involves multiple vehicles navigating an intersection area where Roads 20, 21, and 11 meet. While EGO_ego_vehicle_behind and V009 pass closely in the first second (t=5.4s), their paths do not overlap, and all other actors maintain safe distances or remain stopped. The predicted trajectories and clearances do not indicate any imminent collisions.",
+  "data_limitations": "Observation of V009 is unidirectional, as its own sensor data is not available to confirm it detects the EGO vehicles, and some metadata for several other road users is incomplete."
+ }
+}

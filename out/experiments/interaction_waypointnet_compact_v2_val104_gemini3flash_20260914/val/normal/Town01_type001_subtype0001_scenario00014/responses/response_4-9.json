@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 37.43,
+ "usage": {
+  "input": 6242,
+  "output": 488
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle_behind is maintaining a safe gap of approximately 8.8m while decelerating behind the stopped EGO_ego_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The following vehicle continues to decelerate with mutual observation of the lead vehicle, maintaining a safe distance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although the gap is narrowing to roughly 0.9m, the follower's significant deceleration trend suggests it will stop safely.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Despite waypoints showing a minor 0.4m overlap, the follower has sufficient distance and braking history (3.3 m/s2) to come to a complete halt before contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicle is expected to remain stationary after stopping behind the queue, maintaining separation from the lead vehicle.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario depicts a typical queue-forming situation on Road 21. EGO_ego_vehicle has just stopped, and EGO_ego_vehicle_behind is slowing down behind it (decelerating from 30.6 to 17.7 kph in the last second). While the predictor's future waypoints show a slight geometric overlap starting in interval 4, the follower's strong deceleration history and mutual observation of the lead vehicle strongly indicate it will complete its stop safely before impact. Other road users like T007 and various pedestrians are moving in parallel or are far enough away to avoid conflict.",
+  "data_limitations": ""
+ }
+}

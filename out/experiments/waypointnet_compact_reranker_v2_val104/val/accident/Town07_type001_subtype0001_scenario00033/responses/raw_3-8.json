@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to make physical contact or overlap during this interval; all maintain safe clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\", \"EGO_other_vehicle\", \"V014\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped V001 at 9.2s as it attempts a left turn. Concurrently, EGO_other_vehicle is predicted to rear-end the stopped V014 at 9.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped V002 at 10.3s while continuing its left turn across the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T003\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped T003 (truck) at 11.6s as it completes its left turn.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"T003\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with the stopped T003 (truck) at 12.9s while making a right turn.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple 'EGO_' vehicles are predicted to collide with stationary vehicles located within or immediately after an intersection. EGO_ego_vehicle is predicted to hit V001, V002, and T003 sequentially during its left turn. EGO_other_vehicle is predicted to hit V014, and EGO_other_vehicle_behind is predicted to hit T003 during a right turn.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5711,
+  "candidatesTokenCount": 692,
+  "totalTokenCount": 11001,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5711
+   }
+  ],
+  "thoughtsTokenCount": 4598,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4-aYatOECtWjvr0Ps9yR0AY"
+}

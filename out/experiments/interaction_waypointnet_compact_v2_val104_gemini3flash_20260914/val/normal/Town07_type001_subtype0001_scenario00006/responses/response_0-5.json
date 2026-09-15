@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 36.37,
+ "usage": {
+  "input": 7077,
+  "output": 592
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and EGO_ego_vehicle are moving away from the intersection on perpendicular paths, maintaining safe separation as they exit the junction.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V007 passes the stopped EGO_other_vehicle_behind in an adjacent lane with a tight but non-colliding lateral clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are following their respective lanes or remain stationary with no intersecting trajectories or insufficient gaps predicted.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle continues its southbound path, safely passing stopped or opposing vehicles in adjacent lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Traffic flow remains stable as vehicles reach their predicted destinations or continue along established road paths without conflict.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene involves multiple vehicles navigating an urban intersection with several stopped actors. While the trajectory predictor identifies a few close-proximity passes, such as V007 passing EGO_other_vehicle_behind and EGO_ego_vehicle passing V001, these occur in adjacent lanes or with adequate longitudinal separation. No physical contact is predicted or supported by the historical kinematics and lane positions.",
+  "data_limitations": "The future path for actor V001 shows an unexpected reversal in direction which may be a prediction artifact, and road user P005 is traveling at speeds more typical of a cyclist than a pedestrian."
+ }
+}

@@ -1,0 +1,487 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 3,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_buckets": 4,
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "credited_k": 4,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles maintain safe longitudinal and lateral separation while approaching the merge point.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles maintain safe longitudinal and lateral separation while approaching the merge point.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles are approaching a merge point but do not have overlapping footprints within this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle reach a convergence point on Road 1072 at approximately 3.3 seconds after the observation window, with their predicted paths resulting in an overlap.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Based on the provided future waypoints, the vehicles have sufficient lateral separation by the end of this interval as their paths diverge."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 2,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "n_buckets": 3,
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles are approaching a merge point on converging paths but maintain safe lateral and longitudinal separation.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles continue to converge, but their predicted footprints do not yet overlap.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "The EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at approximately t=8.5s as their paths converge at a merge point.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The EGO_ego_vehicle and EGO_other_vehicle remain in physical contact as they continue through the merge area."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The predicted collision persists for the first half of this interval before the vehicles clear the conflict point."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "n_buckets": 2,
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles are converging toward a merge point but maintain a minimum footprint clearance of over 5 meters during this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to collide as their footprints overlap approximately 1.7 seconds after the observation period due to merging into the same lane.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The physical overlap between EGO_ego_vehicle and EGO_other_vehicle persists as their center-to-center distance remains less than the vehicle width."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to collide at their merge point approximately 3.9 seconds after the observation period."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The collision between EGO_ego_vehicle_behind and EGO_other_vehicle_behind persists as their predicted trajectories result in a 2.2-meter longitudinal overlap at the end of the interval."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "3-8",
+    "t_start_s": 3.0,
+    "t_end_s": 8.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "status": "TP",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle experience a side-swipe collision at 8.6s due to lateral convergence and insufficient longitudinal gap during a lane merge.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicles maintain safe lateral and longitudinal separation during this interval as they continue along their predicted trajectories."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Truck T003 causes a high-speed rear-end collision with EGO_ego_vehicle and EGO_other_vehicle at 10.6s, while EGO_ego_vehicle_behind and EGO_other_vehicle_behind collide during lateral convergence at 10.9s."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No further physical overlaps are predicted following the primary collision events in the preceding intervals."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The projected paths show no further vehicle contacts in this final interval."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 4,
+  "n_buckets": 10,
+  "counts": {
+   "TP": 4,
+   "FP": 0,
+   "TN": 6,
+   "FN": 0
+  },
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "vehicle_recall_mean": 1.0,
+  "actor_precision_mean": 1.0,
+  "events": {
+   "n": 4,
+   "exact": 4,
+   "early": 0,
+   "none": 0,
+   "detection_rate": 1.0,
+   "mean_lead_s": -0.8
+  },
+  "response_issue_counts": {}
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V002\",\n        \"M003\",\n        \"EGO_ego_vehicle_behind\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_ego_vehicle (39km/h) is 3m behind stopped V002 and 5m behind stopped M003, with linear-extrapolated Times-To-Contact of 0.7s. EGO_ego_vehicle_behind (37km/h) is 11m behind stopped V001 with a linear-extrapolated Time-To-Contact of 1.7s, indicating imminent rear-end collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new specific vehicle interactions are predicted to result in an accident in this interval based on the provided linear extrapolation or junction geometry, as earlier imminent conflicts would have already occurred.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"N004\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle (turning left) and N004 (going straight) are converging at the junction with a linear-extrapolated Time-To-Contact of 2.5s; EGO_ego_vehicle_behind (going straight) also has a linear-extrapolated Time-To-Contact of 2.7s with EGO_other_vehicle, indicating a complex junction conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"N004\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind (12km/h, predicted straight) and N004 (10km/h, predicted straight) are on a collision course at the junction with a linear-extrapolated Time-To-Contact of 3.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All explicit linear-extrapolated contacts from the initial state are predicted to occur in earlier intervals; no new immediate conflicts are apparent for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1) presents a very high risk of multiple rear-end collisions involving EGO_ego_vehicle and EGO_ego_vehicle_behind with several stopped vehicles. Subsequent intervals (k=3 and k=4) indicate high probabilities of junction conflicts among EGO_other_vehicle, N004, and EGO_other_vehicle_behind, based on their current speeds and paths converging at the intersection.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values are based on simple extrapolation and do not account for dynamic factors such as braking, evasive maneuvers, or the actual turning intentions of vehicles. The absence of traffic signal states or specific right-of-way rules for the junction limits the precision of collision prediction for crossing conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8683,
+  "candidatesTokenCount": 933,
+  "totalTokenCount": 16789,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8683
+   }
+  ],
+  "thoughtsTokenCount": 7173,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "TBmVao-gLu7I0-kPnLzi0Qk"
+}

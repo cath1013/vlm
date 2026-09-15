@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 29.34,
+ "usage": {
+  "input": 6661,
+  "output": 712
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and no predicted contacts occur within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and no predicted contacts occur within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M003",
+     "C004"
+    ],
+    "reason": "The bicycle C004 is predicted to collide with the stopped motorcycle M003 at approximately 2.2 seconds after the last observation, indicating a rear-end collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V008",
+     "V007",
+     "M001",
+     "T002"
+    ],
+    "reason": "The car V008 is predicted to rear-end the car V007 at 3.8 seconds, and the truck T002 is predicted to rear-end the stopped motorcycle M001 at 4.0 seconds after the last observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M003",
+     "V005"
+    ],
+    "reason": "The car V005 is predicted to collide with the stopped motorcycle M003 at 5.0 seconds after the last observation, despite the 'predicted_contact' flag being false, as the geometry shows a 0.0m clearance and clear body overlap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple rear-end collisions are predicted in the future window. The stopped motorcycle M003 is involved in two distinct predicted collisions by different vehicles (C004 and V005) at different times. Additionally, a truck (T002) is predicted to rear-end a stopped motorcycle (M001), and a car (V008) is predicted to rear-end another car (V007).",
+  "data_limitations": "The 'predicted_contact' flag in 'predicted_closest_pairs' for the M003-V005 pair contradicted a 0.0m minimum clearance and clear geometric overlap, requiring manual verification of the collision."
+ }
+}

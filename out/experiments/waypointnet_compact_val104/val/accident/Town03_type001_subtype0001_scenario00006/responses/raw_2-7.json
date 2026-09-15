@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite a predicted contact in the input, the future paths of EGO_ego_vehicle and EGO_other_vehicle_behind show them on distinct, non-converging trajectories, spatially separated by a significant distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"V004\", \"EGO_other_vehicle_behind\", \"V015\"],\n      \"reason\": \"T003 (stopped truck) is predicted to be contacted by V004 (car) at t=1.6s, indicating a rear-end collision. Additionally, EGO_other_vehicle_behind and V015 are predicted to collide at t=1.8s due to an orthogonal intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (EGO_other_vehicle and M002) maintains a minimum clearance of 2.06m, indicating safe passage.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close interactions are identified within this interval from the provided closest pairs.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts are identified, and the closest interaction has a minimum clearance of 0.73m between EGO_other_vehicle and T003, which is not physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial two 1-second intervals (k=1, k=2) present high potential for accidents. While one predicted contact in k=1 was discarded due to spatial inconsistency with path waypoints, multiple collisions are predicted in k=2 involving a stopped truck and a car, and two cars at an intersection. The subsequent intervals (k=3, k=4, k=5) appear clear with no predicted physical contacts.\",\n  \"data_limitations\": \"The `predicted_closest_pairs` list is capped at 12 entries, potentially omitting other critical close interactions. One predicted contact in the list was geometrically inconsistent with actor paths, requiring manual verification.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8937,
+  "candidatesTokenCount": 716,
+  "totalTokenCount": 15336,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8937
+   }
+  ],
+  "thoughtsTokenCount": 5683,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3r6Yaq--DcfE0-kP7OODmA0"
+}

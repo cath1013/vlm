@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 35.78,
+ "usage": {
+  "input": 9683,
+  "output": 530
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicle V021 is approaching the stopped vehicle V020 from behind, but the gap remains sufficient during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "V020"
+    ],
+    "reason": "Vehicle V021 rear-ends the stopped vehicle V020 in the same lane at approximately 9.6 seconds, as its predicted path fails to account for the obstacle.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "V020"
+    ],
+    "reason": "The collision between V021 and V020 persists as the predicted center of V021 continues into the space occupied by V020.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "V020"
+    ],
+    "reason": "The collision between V021 and V020 persists as the predicted center of V021 continues into the space occupied by V020.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "V020"
+    ],
+    "reason": "The collision between V021 and V020 persists as the predicted center of V021 continues into the space occupied by V020.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a line of vehicles stopped in the northbound lanes of Road 3. Vehicle V021 is moving at approximately 24 kph in the right-hand northbound lane (Lane 2) and is rapidly closing the gap to V020, which has come to a stop. The supplied future waypoints for V021 show it continuing directly into the rear of V020 without an adequate reduction in speed or a lane change, resulting in a certain rear-end collision starting in the second second of the prediction window.",
+  "data_limitations": ""
+ }
+}

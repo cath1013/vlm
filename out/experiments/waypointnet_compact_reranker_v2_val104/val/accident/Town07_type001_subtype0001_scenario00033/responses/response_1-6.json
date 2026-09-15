@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 27.76,
+ "usage": {
+  "input": 7095,
+  "output": 617
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance, with the closest pair (EGO_other_vehicle and EGO_other_vehicle_behind) having a minimum clearance of 12.61m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance; the closest interaction between EGO_ego_vehicle and EGO_other_vehicle shows a minimum clearance of 4.98m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance; the closest pair in this interval is not listed as a minimal clearance event.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_ego_vehicle and V001 have a tight predicted clearance of 1.33m, and EGO_other_vehicle has similar clearances with T003 and V002, the path geometry does not clearly support physical contact or overlap for any pair.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and V002 are predicted to have a minimum clearance of 1.41m, but this value indicates a close pass rather than physical contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene involves multiple observer vehicles making turns while other vehicles are stopped or moving. Despite several very close passing maneuvers predicted by the trajectory predictor, all minimum clearances remain positive and the 'predicted_contact' flag is false for all pairs across the entire 5-second prediction window. Therefore, no physical contact or body overlap is expected.",
+  "data_limitations": ""
+ }
+}

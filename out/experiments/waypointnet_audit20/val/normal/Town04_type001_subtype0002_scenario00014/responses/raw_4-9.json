@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P010\",\n        \"P013\",\n        \"P008\",\n        \"P004\",\n        \"EGO_other_vehicle\",\n        \"V003\"\n      ],\n      \"reason\": \"Multiple imminent conflicts are predicted within this interval, including rear-end collisions (P010-P013, P008-P004) with TTCs below 1.0 second, and a high-risk junction conflict between EGO_other_vehicle and V003 with an extrapolated contact time of 0.7 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P012\",\n        \"P015\",\n        \"EGO_other_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"Multiple collisions are expected, including a rear-end between P012 and P015 (TTC 1.1s) and junction conflicts involving EGO_other_vehicle with P015 (contact 1.33s) and V002 (contact 1.9s), all occurring within this interval based on their time to contact from the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"P012\",\n        \"M016\",\n        \"V021\"\n      ],\n      \"reason\": \"Continuing the observed trajectories, EGO_other_vehicle is predicted to conflict with P012 (contact 2.2s), and M016 with V021 (contact 2.76s), indicating junction collisions within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"T001\",\n        \"M017\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"Accidents are highly probable in this interval, with EGO_ego_vehicle projected to collide with stopped T001 (TTC 3.23s) and M017 projected to rear-end the stopped EGO_other_vehicle_behind (TTC 3.3s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"P012\",\n        \"EGO_ego_vehicle\",\n        \"V002\",\n        \"P015\"\n      ],\n      \"reason\": \"Multiple conflicts are projected, including EGO_ego_vehicle_behind with P012 (TTC 4.0s), EGO_ego_vehicle with V002 (TTC 4.1s), and EGO_ego_vehicle_behind with P015 (TTC 4.25s), all falling within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation rapidly degrades with a series of highly probable accidents predicted to occur in every 1-second interval following the last observation. Multiple vehicles are on collision courses, primarily due to insufficient gaps in car-following scenarios or orthogonal conflicts at junctions with very low Time-To-Contact values. The pattern suggests a high-risk environment with several critical conflicts unfolding consecutively.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, and detailed lane markings (solid/dashed) limits the ability to precisely judge right-of-way and driver intent at junctions. The 'linear-extrapolated contact in' values and predicted paths do not account for driver braking, turning reactions, or potential evasive maneuvers beyond simple straight-line or constant-speed projections. Position and speed uncertainty for some critical actors (P008, P004) could affect the exact timing of predicted collisions, though the proximity and relative speeds still indicate high risk.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 17041,
+  "candidatesTokenCount": 1120,
+  "totalTokenCount": 26230,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 17041
+   }
+  ],
+  "thoughtsTokenCount": 8069,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fhuVav-EMJGM1e8P36u9gQk"
+}

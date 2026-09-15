@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle is projected to have linear-extrapolated contact with stopped V002 on Road 21 in 0.5 seconds, indicating an imminent collision due to insufficient clearance despite being in opposite lanes.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No imminent conflicts are identified in this interval, as other vehicles maintain their paths and distances appear safe.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P006\"],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J35 between EGO_other_vehicle (turning right) and P006 (proceeding straight) with a time to contact of 2.2 seconds from the last observed timestep.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new immediate conflicts are identified in this interval, and previous conflicts are accounted for in earlier intervals.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new immediate conflicts are identified in this interval, and road users appear to be proceeding safely.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two high-risk situations are identified. In the first interval (t=7.0-8.0s), EGO_ego_vehicle has a linear-extrapolated contact with V002 in 0.5 seconds, implying an imminent collision or very close side-swipe. In the third interval (t=9.0-10.0s), EGO_other_vehicle and P006 are predicted to have an orthogonal entry conflict at a junction with a 2.2-second time to contact. Other closing pairs do not present a clear geometric collision path based on their predicted movements.\",\n  \"data_limitations\": \"The 'predicted path' values are outputs of a trajectory predictor, not direct observations of driver intent. The absence of traffic signal states and lane marking types limits the certainty of right-of-way assumptions at junctions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9279,
+  "candidatesTokenCount": 708,
+  "totalTokenCount": 18902,
+  "cachedContentTokenCount": 910,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9279
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 910
+   }
+  ],
+  "thoughtsTokenCount": 8915,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "oxmVarGLJru4vr0Pqe6GqQM"
+}

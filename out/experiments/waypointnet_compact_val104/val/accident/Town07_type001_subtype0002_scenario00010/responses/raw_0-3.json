@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance from each other, with no clear geometric overlap or contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and EGO_other_vehicle have a small minimum clearance of 0.42m, it is not zero and does not constitute physical contact based on the provided path geometry.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Several vehicles exhibit close approaches but maintain non-zero minimum clearances, indicating no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V012\", \"V002\", \"C003\"],\n      \"reason\": \"Two separate collisions are predicted: V012 is predicted to collide with the stopped V001 as V012 continues westbound on Road 47, and C003 is predicted to collide with V002 as C003 moves southbound on Road 36, both with zero minimum clearance at 3.5s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The remaining predicted interactions show sufficient minimum clearance between vehicles, indicating no physical contact is expected.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted to occur in the fourth 1-second interval (6.0-7.0s after observation). V012 is expected to collide with the stationary V001, and C003 is expected to collide with V002. All other vehicle interactions across the 5-second prediction window maintain non-zero clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5837,
+  "candidatesTokenCount": 628,
+  "totalTokenCount": 11713,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5837
+   }
+  ],
+  "thoughtsTokenCount": 5248,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "-8iYar__Lruj9tMPnvjvqAk"
+}

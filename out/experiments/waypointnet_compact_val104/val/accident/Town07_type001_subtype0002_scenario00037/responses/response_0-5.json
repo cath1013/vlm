@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.87,
+ "usage": {
+  "input": 7283,
+  "output": 631
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to turn right into the path of EGO_other_vehicle, resulting in an orthogonal collision with 0.0m clearance at t=0.5s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and do not show any predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and do not show any predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and do not show any predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M004",
+     "M003",
+     "V002",
+     "EGO_ego_vehicle",
+     "M009"
+    ],
+    "reason": "M004 is predicted to rear-end M003, M003 is predicted to rear-end V002 (stopped), and EGO_ego_vehicle is predicted to rear-end M009 (stopped), all occurring with 0.0m clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is expected in the first 1-second interval involving EGO_ego_vehicle_behind and EGO_other_vehicle due to an orthogonal intersection conflict. Multiple rear-end collisions are predicted in the fifth 1-second interval, specifically between M004 and M003, M003 and V002, and EGO_ego_vehicle and M009.",
+  "data_limitations": ""
+ }
+}

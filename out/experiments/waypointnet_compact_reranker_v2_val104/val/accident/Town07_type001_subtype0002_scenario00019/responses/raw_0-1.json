@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles EGO_ego_vehicle and V003 pass each other with a minimum predicted clearance of 1.16m, and other vehicles maintain safe distances or travel on diverging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles EGO_ego_vehicle and M004 pass each other with a minimum predicted clearance of 0.38m, and EGO_other_vehicle and V006 pass with 1.21m clearance. While these are very close, no contact or overlap is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no close interactions or predicted contacts between any actors in this interval, and all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no close interactions or predicted contacts between any actors in this interval, and all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_other_vehicle_behind and EGO_other_vehicle, with a minimum clearance of 0.0m at 4.7 seconds after observation, indicating body contact or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Throughout the prediction window, most vehicles maintain safe distances. However, a high-confidence rear-end collision is predicted for interval k=5 between EGO_other_vehicle and EGO_other_vehicle_behind as the trailing vehicle rapidly closes the longitudinal gap while maintaining similar lateral positions. Other close interactions in earlier intervals show small but non-zero clearances during opposing passes.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4058,
+  "candidatesTokenCount": 640,
+  "totalTokenCount": 13026,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4058
+   }
+  ],
+  "thoughtsTokenCount": 8328,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ZO6YasCYNJn-2roPtvfP0AE"
+}

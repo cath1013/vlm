@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and there are no predicted contacts or conflicting paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V010\", \"T011\"],\n      \"reason\": \"A rear-end collision is predicted between T011 (truck) and V010 (car) at approximately 3.6s after observation, as T011 is moving into the space occupied by the stopped V010, resulting in 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or critical clearances; the minor proximity between V002 and T011 does not constitute contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_ego_vehicle (leading car) and EGO_ego_vehicle_behind (following car) at approximately 5.8s after observation, as the leading vehicle decelerates while the following vehicle accelerates in the same lane, resulting in 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and there are no predicted contacts or conflicting paths in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window. The first is a rear-end collision in interval (3.0, 4.0]s involving a moving truck (T011) impacting a stopped car (V010). The second is also a rear-end collision in interval (5.0, 6.0]s between the EGO_ego_vehicle and EGO_ego_vehicle_behind, caused by the leading vehicle decelerating while the trailing vehicle accelerates.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7530,
+  "candidatesTokenCount": 681,
+  "totalTokenCount": 15143,
+  "cachedContentTokenCount": 887,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7530
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 887
+   }
+  ],
+  "thoughtsTokenCount": 6932,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "18SYaqjyIrb-1e8PgKXW-QY"
+}

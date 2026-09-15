@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"The predicted paths of EGO_ego_vehicle_behind (right turn) and EGO_other_vehicle (straight) converge, leading to a direct collision with 0.0m clearance at t=5.5s as indicated by the predicted closest pairs.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new accidents are clearly supported by the supplied path geometry or predicted closest pairs for this interval. While an accident is predicted in the previous interval involving EGO_ego_vehicle_behind and EGO_other_vehicle, no further contact with 0.0m clearance is predicted between any actors for this specific interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no entries in predicted_closest_pairs for this interval indicating contact, and no other supplied path geometry clearly supports physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All listed predicted closest pairs for this interval show positive minimum clearances, and no other supplied path geometry clearly supports physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no entries in predicted_closest_pairs for this interval indicating contact, and no other supplied path geometry clearly supports physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence collision is predicted in the first interval (t=5.5s) between EGO_ego_vehicle_behind and EGO_other_vehicle as their predicted paths for a right turn and straight maneuver, respectively, clearly converge. For subsequent intervals, no further accidents are explicitly predicted with zero clearance based on the supplied path geometry and closest pair data, although the initial collision would likely alter the actual future trajectories of the involved vehicles.\",\n  \"data_limitations\": \"The independent prediction of future paths means that the predicted collision in k=1 does not explicitly alter the predicted paths for subsequent intervals for the involved actors, which may lead to an unrealistic representation of post-collision dynamics. The `predicted_closest_pairs` data can be sparse, potentially omitting interactions that are not ranked highly enough.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7356,
+  "candidatesTokenCount": 732,
+  "totalTokenCount": 11404,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7356
+   }
+  ],
+  "thoughtsTokenCount": 3316,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Qu-YapvPEMP92roPw9XW-Aw"
+}

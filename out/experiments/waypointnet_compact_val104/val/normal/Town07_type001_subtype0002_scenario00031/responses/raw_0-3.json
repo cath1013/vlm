@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles and pedestrians maintaining safe clearances and no contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors are projected to maintain sufficient separation, with the closest pair having a clearance of 4.55m, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The forecasted trajectories for all vehicles and pedestrians show clear separation, and no physical contact is indicated by the closest pair predictions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle and V001 are predicted to collide at approximately 3.6s after the last observation, with a minimum clearance of 0.0m as their paths intersect.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"P003\"],\n      \"reason\": \"V002 and P003 are predicted to collide at approximately 4.3s after the last observation, with a minimum clearance of 0.0m where their paths converge.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial three 1-second intervals after the observation window appear to be safe, with all actors maintaining clear separation. However, an accident involving EGO_ego_vehicle and V001 is predicted in the fourth interval (6.0-7.0s absolute time), followed by a second accident involving V002 and P003 in the fifth interval (7.0-8.0s absolute time). These predicted collisions are based on zero minimum clearance from the provided trajectory predictions.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7256,
+  "candidatesTokenCount": 631,
+  "totalTokenCount": 12134,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7256
+   }
+  ],
+  "thoughtsTokenCount": 4247,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Xs6YauS3FJOe0-kPs6XjoA8"
+}

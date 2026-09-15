@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 117.95,
+ "usage": {
+  "input": 8728,
+  "output": 442
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle is accelerating into a left turn that intersects the front of the stopped EGO_ego_vehicle_behind, with physical body overlap beginning at t=6.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind is decelerating and maintains a lateral clearance of approximately 2.4m while passing the stopped EGO_ego_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles are on a collision course, as most actors have either stopped or are following safe trajectories.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted trajectories for all active vehicles maintain safe separation distances.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Traffic in the junction area is either stationary or moving away from potential conflict points.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves two southbound vehicles and two northbound vehicles stopped at an intersection. EGO_other_vehicle is expected to collide with EGO_ego_vehicle_behind at approximately t=6.9s as it accelerates into a left turn that overlaps the stopped vehicle's footprint. Other predicted contacts are discounted as the second southbound vehicle (EGO_other_vehicle_behind) is decelerating to a stop and maintains sufficient lateral clearance.",
+  "data_limitations": ""
+ }
+}

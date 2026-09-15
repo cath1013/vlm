@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 35.87,
+ "usage": {
+  "input": 8815,
+  "output": 739
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and proceed on their paths without any predicted physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "M004",
+     "P014",
+     "V021"
+    ],
+    "reason": "A motorcycle (M004) is predicted to collide with a stopped car (V003) at t=1.6s. Additionally, a person (P014) is predicted to collide with a car (V021) at an intersection at t=1.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles are predicted to have physical contact or critical clearances during this interval, as they maintain their respective paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "P008",
+     "V003",
+     "V005"
+    ],
+    "reason": "A car (V001) is predicted to collide with a person (P008) at an intersection at t=3.2s. Simultaneously, a car (V005) is predicted to rear-end a stopped car (V003) at t=3.3s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N020",
+     "V021"
+    ],
+    "reason": "A van (N020) is predicted to rear-end a car (V021) at t=4.5s, as the van's predicted path shows it catching up significantly to the car in the same lane.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accident scenarios are predicted across the 5-second prediction horizon. Interval k=2 shows both a rear-end/side-swipe collision between M004 and V003, and an intersection collision between P014 and V021. Interval k=4 includes an intersection collision between V001 and P008, as well as a rear-end collision between V005 and V003. Finally, interval k=5 predicts a rear-end collision between N020 and V021.",
+  "data_limitations": ""
+ }
+}

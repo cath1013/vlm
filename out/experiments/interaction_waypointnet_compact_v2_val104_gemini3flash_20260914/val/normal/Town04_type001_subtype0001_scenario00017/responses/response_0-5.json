@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 39.45,
+ "usage": {
+  "input": 10065,
+  "output": 606
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are maintaining safe distances, and V006 is decelerating significantly from a low speed of 4 kph.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Ego vehicles are following their lanes or are safely stopped while other road users pass with sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Despite a predicted path overlap, V006's low speed and strong deceleration make it much more likely to stop before contacting the stationary EGO_ego_vehicle_behind.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are expected to remain stationary or maintain at least 1.5m of lateral clearance while passing through the intersection.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Future trajectories show all vehicles continuing safely on their respective paths or remaining stopped as required by the traffic situation.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "While the trajectory predictor identifies a potential contact at t+2.3s between the stopped EGO_ego_vehicle_behind and the approaching V006, the observed kinematics suggest V006 is braking hard and will stop safely before reach. Other interactions in the scene, such as the ego vehicle passing stopped vehicles V002 and V003, maintain a minimum clearance of approximately 1.6 metres.",
+  "data_limitations": "The future waypoints for V006 show an acceleration that is physically inconsistent with its observed deceleration of -2.18 mps2 and low current speed of 4 kph."
+ }
+}

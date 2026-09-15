@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors, including observer vehicles, maintain safe distances and clear paths from each other, indicating no expected contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show no physical overlap or close proximity between any actors, ensuring a safe passage for all vehicles and pedestrians.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths remain distinct, with sufficient clearance between vehicles and pedestrians, precluding any collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P012\", \"P015\"],\n      \"reason\": \"Pedestrian P015 is predicted to attempt to overtake P012, leading to an overlap in their predicted positions (P012 at [208.6, 165.5] and P015 at [208.7, 165.7]), indicating physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P012\", \"P015\"],\n      \"reason\": \"Pedestrian P015 continues its overtaking maneuver, resulting in an overlap with P012 (P012 at [207.7, 165.5] and P015 at [207.3, 165.5]), signifying ongoing physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The observer vehicles and other vehicular traffic maintain safe distances throughout the prediction window. However, two pedestrians, P012 and P015, are predicted to collide in the later intervals (k=4 and k=5) as P015 attempts to overtake P012 in a narrow space, resulting in clear path overlaps.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8919,
+  "candidatesTokenCount": 649,
+  "totalTokenCount": 16682,
+  "cachedContentTokenCount": 906,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8919
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 906
+   }
+  ],
+  "thoughtsTokenCount": 7114,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6UiVau7cDfqQvr0Pm_3KqQk"
+}

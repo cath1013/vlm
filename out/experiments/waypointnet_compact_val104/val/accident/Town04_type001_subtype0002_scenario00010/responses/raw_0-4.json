@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"P010\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at an intersection (0.0m clearance at t=4.7s). Additionally, P010 is predicted to collide with EGO_other_vehicle at t=5.0s at the same intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P009\", \"P014\"],\n      \"reason\": \"P009 is predicted to collide with the stopped P014 at t=5.8s, as P009 moves into P014's position with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T024\", \"P009\", \"P011\", \"V027\", \"V028\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to rear-end the slowly moving T024 at t=6.3s. P009 is predicted to collide with the stopped P011 at t=6.3s. V028 is predicted to rear-end the stopped V027 at t=6.4s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P007\", \"P015\"],\n      \"reason\": \"P007 and P015, both pedestrians, are predicted to collide head-on at t=7.1s while moving in opposite directions on the same path with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P008\", \"P005\"],\n      \"reason\": \"P008 and P005, both pedestrians, are predicted to collide at t=8.3s with 0.0m clearance while moving in the same direction, indicating a potential sideswipe or close contact while passing.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collision events are predicted across all five 1-second intervals. These include intersection conflicts between vehicles, rear-end collisions involving stopped or slow-moving vehicles/pedestrians, and head-on or close-proximity collisions between pedestrians. All predicted contacts show 0.0m clearance with 1.0 joint path probability.\",\n  \"data_limitations\": \"Some actors (P014, P011, V027) have a non-zero speed in their current state but are labeled 'remains stopped' with empty future paths. This contradiction was interpreted as the actors remaining stationary at their current position for the purpose of collision prediction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11970,
+  "candidatesTokenCount": 844,
+  "totalTokenCount": 18482,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11970
+   }
+  ],
+  "thoughtsTokenCount": 5668,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "l8eYavWaIcmd2roPrsbtqAI"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T006\",\n        \"V008\",\n        \"V005\",\n        \"V012\"\n      ],\n      \"reason\": \"Imminent head-on/lateral collisions are predicted between T006 and V008 on Road 37, and V005 and V012 on Road 36, both with a linear-extrapolated contact predicted within 1.0 second.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"C004\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"An imminent rear-end collision between V005 and a stopped C004 is expected due to a TTC of 1.7 seconds. Additionally, EGO_ego_vehicle_behind is rapidly closing on EGO_ego_vehicle, which is decelerating towards a junction, making a rear-end collision highly probable in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V008\",\n        \"V007\"\n      ],\n      \"reason\": \"An imminent rear-end collision between V008 and a stopped V007 is expected due to a TTC of 2.5 seconds, placing the estimated collision time within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate high-confidence conflicts are apparent, assuming prior imminent collisions have either occurred or been averted, and other road users maintain their predicted paths or remain stopped.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate high-confidence conflicts are apparent, assuming prior imminent collisions have either occurred or been averted, and other road users maintain their predicted paths or remain stopped.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at t=5s presents multiple critical and immediate collision risks. Several vehicles are predicted to have head-on/lateral contact within the first second due to insufficient lateral separation while on the same road in opposing lanes. Additionally, multiple car-following scenarios involve vehicles closing rapidly on stopped or decelerating vehicles with very short times-to-collision, indicating a very high likelihood of accidents occurring within the first three seconds of the prediction window.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for evasive maneuvers like turning or braking. The lack of traffic signal states, stop line information, and lane-marking types (solid/dashed) limits the ability to precisely judge right-of-way and potential conflicts at the four-way junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11086,
+  "candidatesTokenCount": 834,
+  "totalTokenCount": 24164,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11086
+   }
+  ],
+  "thoughtsTokenCount": 12244,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0R2VatfGDPnM0-kPmIrDWA"
+}

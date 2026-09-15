@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance, with the closest pair having a minimum clearance of 1.62 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show no physical contact or body overlap between any vehicles during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M002\", \"T003\"],\n      \"reason\": \"A motorcycle (M002) and a truck (T003) are predicted to have a body overlap at 2.3 seconds after observation (t=5.3s) due to the truck's faster speed and converging trajectory while the motorcycle's path slightly deviates, resulting in a minimum clearance of 0.0 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance; no physical contact or body overlap is expected between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show adequate clearance, with the closest pair having a minimum clearance of 0.75 meters, which is not physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One accident is predicted during the 5-6 second interval, involving a motorcycle (M002) and a truck (T003) due to converging trajectories resulting in direct body overlap. For all other intervals, predicted paths indicate that vehicles maintain sufficient clearance, and no other accidents are expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8486,
+  "candidatesTokenCount": 584,
+  "totalTokenCount": 14676,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8486
+   }
+  ],
+  "thoughtsTokenCount": 5606,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fr6YavXGBvq11e8PmuKGkQY"
+}

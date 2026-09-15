@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 16.46,
+ "usage": {
+  "input": 7921,
+  "output": 653
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and no physical contact is predicted during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T015",
+     "V003"
+    ],
+    "reason": "T015 (truck) and V003 (car) are predicted to have a head-on collision at approximately 2.0 seconds after observation due to opposing travel on the same path with 0.0m minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While an accident is predicted in the previous interval, no new specific contact is predicted within this interval, and other vehicles maintain safe distances.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T015",
+     "C016"
+    ],
+    "reason": "T015 (truck) and C016 (bicycle) are predicted to collide at approximately 3.4 seconds after observation due to T015 overtaking C016 on the same path with 0.0m minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "V002"
+    ],
+    "reason": "V002 (car) is predicted to rear-end V001 (car) at approximately 4.5 seconds after observation, as V001 remains stopped while V002 approaches on the same path with 0.0m minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates multiple serious collision events. T015 is involved in two separate predicted collisions: a head-on with V003 in k=2, and overtaking a bicycle C016 in k=4. Additionally, V002 is predicted to rear-end a stopped V001 in k=5.",
+  "data_limitations": ""
+ }
+}

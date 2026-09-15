@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap is indicated by the trajectory data for any pair of vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002 is predicted to collide with the stationary V001 at approximately 3.4 seconds after observation, with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V006\"],\n      \"reason\": \"V006 is predicted to rear-end V014 at approximately 4.1 seconds after observation, with 0.0m minimum clearance, as V006 is moving faster in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and no predicted physical contact or body overlap is indicated by the trajectory data.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, with the closest interaction being a safe following distance between EGO_ego_vehicle_behind and N004.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted within the 5-second prediction window. The first involves V002 colliding with the stationary V001 in the (3.0, 4.0] second interval, and the second involves V006 rear-ending V014 in the (4.0, 5.0] second interval. All other interactions show sufficient clearance, with vehicles maintaining their respective lanes or safe distances.\",\n  \"data_limitations\": \"None significant enough to affect the judgment for the explicit contacts, as they are clearly indicated by the provided minimum clearance and contact flags in the predicted pairs. The absence of traffic signal states or brake light information means the full contextual reason for vehicle maneuvers is not available, but the geometric outcome is clear.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5314,
+  "candidatesTokenCount": 674,
+  "totalTokenCount": 10763,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5314
+   }
+  ],
+  "thoughtsTokenCount": 4775,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2PGXavDwMpLKrfcPg4W6kQQ"
+}

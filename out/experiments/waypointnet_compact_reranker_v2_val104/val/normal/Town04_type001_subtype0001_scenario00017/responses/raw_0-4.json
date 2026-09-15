@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle_behind and V006 have a very small predicted clearance of 0.26m, predicted_contact is false, indicating no physical contact or overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V006\"],\n      \"reason\": \"An orthogonal entry conflict is expected between EGO_ego_vehicle and V006 as V006 makes a left turn across the path of EGO_ego_vehicle, resulting in a predicted minimum clearance of 0.0m at approximately t=5.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No clear evidence of physical contact or body overlap is observed for any actors in this interval, as the primary predicted collision occurred in the previous interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No clear evidence of physical contact or body overlap is observed for any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances are sufficient to avoid contact between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second 1-second interval (5.0-6.0s after observation) involving EGO_ego_vehicle and V006 due to V006's left turn conflicting with EGO_ego_vehicle's path. While there is a very close encounter between EGO_ego_vehicle_behind and V006 in the first interval, it does not result in predicted contact. All other intervals show no expected accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9667,
+  "candidatesTokenCount": 626,
+  "totalTokenCount": 13412,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9667
+   }
+  ],
+  "thoughtsTokenCount": 3119,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "SOmYao6ZJMaMvr0P4sH7gAY"
+}

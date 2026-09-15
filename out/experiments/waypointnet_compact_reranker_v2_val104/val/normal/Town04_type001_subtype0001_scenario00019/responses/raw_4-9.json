@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance, with EGO_ego_vehicle continuing to accelerate while other vehicles either remain stopped or are far from its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance; EGO_ego_vehicle continues to move without immediate conflict with other road users.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance; EGO_ego_vehicle is still approaching the area where V010 is stopped, but no contact is imminent.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance; EGO_ego_vehicle is on a collision course with V010 but contact is expected in the subsequent interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V010\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V010, which remains stopped directly in its path. The predicted minimum clearance of 0.18m at t=13.7s indicates body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The EGO_ego_vehicle is predicted to accelerate and proceed straight, which leads to a rear-end collision with the stationary vehicle V010 at the very end of the prediction horizon (k=5). Other road users maintain safe distances or remain stopped, posing no additional immediate threats.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9376,
+  "candidatesTokenCount": 600,
+  "totalTokenCount": 14314,
+  "cachedContentTokenCount": 911,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9376
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 911
+   }
+  ],
+  "thoughtsTokenCount": 4338,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "1OmYarGAGe201e8PvYabgQY"
+}

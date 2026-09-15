@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation, indicating no clear physical contact or body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation, indicating no clear physical contact or body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"N017\"],\n      \"reason\": \"Vehicle V018's predicted path shows it rear-ending vehicle N017, with their k=3 waypoints being less than 1 meter apart in both E and N coordinates, indicating clear body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T006\"],\n      \"reason\": \"Vehicle V005 is predicted to stop and reverse course while T006 continues northbound, leading to a collision with waypoints showing a 2-meter longitudinal and 0.2-meter lateral separation, indicating clear body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All other predicted paths maintain sufficient separation, and any previous predicted collisions would have already occurred in earlier intervals.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates two distinct collision events. In the (3,4]s interval, vehicle V018 is predicted to rear-end vehicle N017 due to V018 gaining significantly on N017. Subsequently, in the (4,5]s interval, vehicle V005 is predicted to collide with vehicle T006 as V005 abruptly changes direction and moves southbound while T006 continues northbound.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6620,
+  "candidatesTokenCount": 614,
+  "totalTokenCount": 16131,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6620
+   }
+  ],
+  "thoughtsTokenCount": 8897,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "p0aVarzSKuyj9tMPqpHHmAk"
+}

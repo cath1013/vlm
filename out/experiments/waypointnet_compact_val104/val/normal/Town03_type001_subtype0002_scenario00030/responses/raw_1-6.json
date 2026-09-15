@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T001\"],\n      \"reason\": \"EGO_other_vehicle is performing a left turn and its predicted path intersects with T001's predicted path, leading to a collision at approximately t=6.6s (0.6s after observation).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close convergences between actors are indicated for this interval. The closest pair (EGO_other_vehicle and EGO_ego_vehicle) maintains a safe clearance of 3.94m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"T001\"],\n      \"reason\": \"EGO_other_vehicle_behind is proceeding straight while T001 is also proceeding straight, resulting in an orthogonal collision at approximately t=8.5s (2.5s after observation).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is closing the gap and is predicted to rear-end EGO_ego_vehicle at approximately t=9.1s (3.1s after observation) due to a significant speed differential while both proceed southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close convergences between actors are indicated for this interval. The closest pair (EGO_other_vehicle and P003) maintains a safe clearance of 5.73m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a series of three distinct collision events. First, EGO_other_vehicle is predicted to collide with T001 during a left turn. Subsequently, EGO_other_vehicle_behind is predicted to collide orthogonally with T001. Finally, EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle due to a closing speed differential.\",\n  \"data_limitations\": \"None.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5358,
+  "candidatesTokenCount": 716,
+  "totalTokenCount": 9755,
+  "cachedContentTokenCount": 842,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5358
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 842
+   }
+  ],
+  "thoughtsTokenCount": 3681,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "HcuYaqLNAqjX2roPn4yleQ"
+}

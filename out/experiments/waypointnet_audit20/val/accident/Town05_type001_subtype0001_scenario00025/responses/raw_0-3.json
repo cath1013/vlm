@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"C028\"],\n      \"reason\": \"EGO_other_vehicle_behind has a linear-extrapolated time to contact (TTC) of 0.4 seconds with C028, indicating an imminent rear-end collision on Road 43 southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"N020\", \"V015\", \"M027\"],\n      \"reason\": \"EGO_ego_vehicle has a linear-extrapolated TTC of 1.2 seconds with N020 (rear-end on Road 3 eastbound), and V015 has a linear-extrapolated TTC of 1.2 seconds with M027 (rear-end on Road 43 northbound), both indicating high likelihood of collision early in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P010\", \"P013\"],\n      \"reason\": \"P010 (Road 44 southbound) and P013 (Road 868 eastbound) are both pedestrians converging on an orthogonal junction around t=5.5s and t=5.8s respectively, posing a high risk of pedestrian-pedestrian conflict.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P010\", \"P013\"],\n      \"reason\": \"The pedestrian conflict between P010 and P013 at the junction is likely to persist or resolve in this interval if not already concluded in k=3.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Based on the observed trajectories and extrapolated linear movements, no new high-risk conflicts are immediately apparent for this interval, assuming prior collisions have resolved.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents several high-risk scenarios. Within the first second, a rear-end collision between an observer vehicle (EGO_other_vehicle_behind) and a bicycle (C028) is highly probable due to extremely short TTC. In the subsequent second, two additional rear-end collisions are expected involving EGO_ego_vehicle and V015. Further into the prediction window, a pedestrian-pedestrian conflict at an orthogonal junction becomes a significant concern.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, and lane marking types limits the ability to fully assess right-of-way and predict junction behaviors, particularly for EGO_other_vehicle entering the junction. Linear extrapolation of contact time does not account for potential braking, steering, or evasive maneuvers.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 14582,
+  "candidatesTokenCount": 823,
+  "totalTokenCount": 21635,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 14582
+   }
+  ],
+  "thoughtsTokenCount": 6230,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DxyVaqKEEYqe2roPjNbWuAc"
+}

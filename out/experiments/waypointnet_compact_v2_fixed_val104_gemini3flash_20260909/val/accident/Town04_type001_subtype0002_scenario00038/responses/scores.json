@@ -1,0 +1,490 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 3,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_buckets": 4,
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "credited_k": 4,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "All vehicles are maintaining safe separation distances at this time, with the truck T003 following EGO_ego_vehicle_behind by over 20 metres.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicle T003 is closing the gap with EGO_ego_vehicle_behind but remains safely behind at a distance of approximately 16 metres.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The separation between T003 and EGO_ego_vehicle_behind is reduced to approximately 10 metres, but no physical contact is expected within this interval.",
+     "confidence": "medium"
+    },
+    {
+     "k": 4,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "A rear-end collision occurs as T003, traveling significantly faster at 41 kph and accelerating, catches up to EGO_ego_vehicle_behind in the same lane.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      5400,
+      5392
+     ],
+     "extra_actor_ids": [
+      "EGO_ego_vehicle_behind",
+      "T003"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The vehicles remain in contact as the truck T003 has not yet fully cleared the longitudinal footprint of the car it struck."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 2,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "n_buckets": 3,
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The vehicles maintain sufficient longitudinal and lateral separation as they approach the junction area.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Separation between EGO_ego_vehicle and EGO_other_vehicle is narrowing, but no physical overlap occurs in this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_other_vehicle performs a sharp northwestward cut-in, resulting in a side-swipe or merging collision with the northbound EGO_ego_vehicle.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The projected paths for these actors continue to show significant body overlap following the initial collision."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "By this interval, the independent future paths of the involved vehicles have diverged enough to provide clear lateral separation."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 0
+   },
+   "status": "mixed",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "n_buckets": 2,
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "actual_truth": false,
+     "scoring_truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "Vehicles are converging toward a merge area but maintain sufficient clearance during this initial interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Side-swipe or merge collision predicted at t=8.8s as both vehicles converge into the same lane position on Road 1080 with 0.0m clearance.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new vehicle contacts are predicted in this interval as following vehicles have not yet reached the collision zone."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "A secondary merge collision is predicted at t=10.7s between vehicles from Road 1072 and Road 1080 entering the same stream."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "The truck T003 collides with the first set of merged vehicles at approximately t=11.2s due to high closing speed and shared path geometry."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "3-8",
+    "t_start_s": 3.0,
+    "t_end_s": 8.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_700c1c003841",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "status": "TP",
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 5.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "n_buckets": 1,
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 8.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": 1,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.8
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP",
+     "truth": true,
+     "actual_truth": true,
+     "scoring_truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle converge laterally into the same lane space while traveling northbound, resulting in a side-swipe or merging collision at t=8.7s.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      5400,
+      5392
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No new vehicle contacts are predicted in the second following the initial collision."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "A high-speed truck (T003) strikes the rear of the initial collision pair at t=10.5s, while trailing vehicles EGO_ego_vehicle_behind and EGO_other_vehicle_behind also collide with each other at t=10.8s."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Following the secondary impacts in the previous interval, no further vehicle contacts are predicted."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "scoring_truth": null,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All remaining road users and previously involved vehicles continue on paths that do not result in new contact for the remainder of the forecast."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 4,
+  "n_buckets": 10,
+  "counts": {
+   "TP": 4,
+   "FP": 0,
+   "TN": 6,
+   "FN": 0
+  },
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "vehicle_recall_mean": 0.75,
+  "actor_precision_mean": 0.75,
+  "events": {
+   "n": 4,
+   "exact": 4,
+   "early": 0,
+   "none": 0,
+   "detection_rate": 1.0,
+   "mean_lead_s": -0.8
+  },
+  "response_issue_counts": {}
+ }
+}

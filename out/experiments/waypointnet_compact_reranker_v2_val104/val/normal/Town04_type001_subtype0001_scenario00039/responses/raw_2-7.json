@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and their paths do not intersect within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V023\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to rear-end V023 while both are traveling southbound on Road 30, due to insufficient following distance as indicated by 0.0m minimum clearance at 1.6s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\", \"V023\", \"V022\"],\n      \"reason\": \"EGO_other_vehicle, making a left turn, is predicted to collide with EGO_ego_vehicle and V023 which are traveling straight southbound, representing orthogonal junction conflicts. EGO_other_vehicle is also predicted to collide with the stopped V022.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T021\"],\n      \"reason\": \"EGO_other_vehicle, continuing its left turn, is predicted to collide with the stopped truck T021, as its path directly overlaps T021's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional physical contacts or overlaps are predicted between any actors in this interval, and previous conflicts occur earlier.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are expected in the prediction window. EGO_ego_vehicle is predicted to rear-end V023 in the second interval. EGO_other_vehicle is involved in multiple collisions during its left turn, conflicting with EGO_ego_vehicle and V023 at the junction, and subsequently hitting the stopped V022 and T021.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10677,
+  "candidatesTokenCount": 668,
+  "totalTokenCount": 15514,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10677
+   }
+  ],
+  "thoughtsTokenCount": 4169,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GeqYavC1F9mD2roPxc_RmAM"
+}

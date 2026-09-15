@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe clearance, indicating no imminent physical contact between vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or dangerous close proximity between any actors is indicated for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\"],\n      \"reason\": \"V003, travelling northbound in Road 40, is predicted to rear-end V002, which is moving very slowly or nearly stopped in the same lane, at approximately 2.1 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, moving eastbound, and EGO_other_vehicle, moving southbound, are predicted to collide at an orthogonal intersection at approximately 3.8 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind, moving eastbound, and EGO_other_vehicle, moving southbound, are predicted to collide at an orthogonal intersection at approximately 4.9 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first two intervals (k=1, k=2) appear to be safe with no predicted contact. However, significant collision risks emerge from interval k=3, starting with a rear-end collision between V003 and V002. Subsequently, both the EGO vehicle and the vehicle behind EGO are predicted to collide with EGO_other_vehicle at a junction in intervals k=4 and k=5, respectively, due to orthogonal intersection conflicts.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8777,
+  "candidatesTokenCount": 653,
+  "totalTokenCount": 15216,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8777
+   }
+  ],
+  "thoughtsTokenCount": 5786,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IcSYavCrH6Gz1e8PqZi36Ak"
+}

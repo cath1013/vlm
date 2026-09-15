@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.51,
+ "usage": {
+  "input": 9545,
+  "output": 448
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle, making a left turn, collides with EGO_ego_vehicle_behind, which is proceeding straight, due to an orthogonal entry conflict at the start of the prediction window.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All other predicted paths maintain sufficient clearance throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All other predicted paths maintain sufficient clearance throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "C013",
+     "V014"
+    ],
+    "reason": "V014, making a right turn, collides with C013, which is proceeding straight, as V014 turns into C013's path.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All other predicted paths maintain sufficient clearance throughout this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collisions are predicted within the 5-second prediction window. The first involves EGO_other_vehicle and EGO_ego_vehicle_behind in the first second (t=6.1s), likely due to a turning vehicle cutting off a straight-moving vehicle. The second collision involves a car (V014) turning right into the path of a bicycle (C013) in the fourth second (t=9.8s).",
+  "data_limitations": ""
+ }
+}

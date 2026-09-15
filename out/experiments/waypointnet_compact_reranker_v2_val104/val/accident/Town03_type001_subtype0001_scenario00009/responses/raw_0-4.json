@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other according to their predicted paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and EGO_other_vehicle have a closest approach, their minimum predicted clearance is 1.56m, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other according to their predicted paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other according to their predicted paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"A head-on collision is expected between EGO_ego_vehicle and EGO_other_vehicle_behind, as their predicted paths indicate direct body contact with 0.0m minimum clearance at 4.8s after the last observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions show that no accidents are expected in the first four 1-second intervals following the observation window. However, a high-confidence head-on collision is predicted between EGO_ego_vehicle and EGO_other_vehicle_behind in the final interval (4.0-5.0s after observation, i.e., between 8.0s and 9.0s absolute time), based on a calculated 0.0m minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9288,
+  "candidatesTokenCount": 600,
+  "totalTokenCount": 14842,
+  "cachedContentTokenCount": 910,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9288
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 910
+   }
+  ],
+  "thoughtsTokenCount": 4954,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "vOSYapq8HZLJrfcPktTqqAE"
+}

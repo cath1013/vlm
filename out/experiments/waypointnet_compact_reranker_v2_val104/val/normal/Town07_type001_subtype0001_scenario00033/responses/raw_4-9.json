@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances; no predicted conflicts or close encounters are present in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_ego_vehicle (left turn) and EGO_other_vehicle (right turn) are predicted to collide at 10.3s after observation at the junction, followed by EGO_other_vehicle colliding with the stopped V001 at 10.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Based on the provided future paths, no new physical contact is predicted in this interval; the primary collision event is indicated in the previous interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances; although EGO_other_vehicle has a very close encounter with V002 (0.75m clearance), no direct contact is predicted.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances; no predicted conflicts or close encounters are present in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second interval (10.0, 11.0]s, involving EGO_ego_vehicle, EGO_other_vehicle, and V001, due to multiple predicted contacts at a junction. EGO_ego_vehicle and EGO_other_vehicle collide during their turns, and EGO_other_vehicle subsequently collides with a stopped vehicle, V001. Other intervals do not show clear contact evidence, although one very close call is noted in k=4.\",\n  \"data_limitations\": \"The provided trajectory predictor does not account for post-collision vehicle dynamics or driver reactions, meaning the paths for intervals k=3 onwards may not accurately reflect real-world outcomes following the predicted accident in k=2.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6263,
+  "candidatesTokenCount": 707,
+  "totalTokenCount": 10640,
+  "cachedContentTokenCount": 864,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6263
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 864
+   }
+  ],
+  "thoughtsTokenCount": 3670,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6euYaqmwNZLKrfcP_afymA8"
+}

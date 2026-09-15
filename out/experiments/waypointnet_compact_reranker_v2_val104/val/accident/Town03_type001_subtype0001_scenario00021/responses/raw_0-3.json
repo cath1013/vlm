@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind, making a left turn, is predicted to have simultaneous body contact or overlap with EGO_other_vehicle_behind at 0.8s into the interval, as EGO_other_vehicle_behind proceeds straight.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap between any actors is indicated in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle_behind continues its left turn and is predicted to have simultaneous body contact or overlap with V002 at 2.5s into the interval, as V002 proceeds straight westbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap between any actors is indicated in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact or body overlap between any actors is indicated in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct potential accidents are predicted within the 5-second window. The first occurs in the (3.0, 4.0]s interval between EGO_ego_vehicle_behind and EGO_other_vehicle_behind during a left turn maneuver. The second occurs in the (5.0, 6.0]s interval, also involving EGO_ego_vehicle_behind as it continues its turn, conflicting with V002.\",\n  \"data_limitations\": \"The future paths are predicted independently for each actor. In reality, a collision occurring in an earlier interval (e.g., k=1) would alter the subsequent trajectories and prevent a later collision (e.g., k=3) from occurring exactly as predicted.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10232,
+  "candidatesTokenCount": 681,
+  "totalTokenCount": 16574,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10232
+   }
+  ],
+  "thoughtsTokenCount": 5661,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "v-SYaumgEMO91e8Pvq7RgQY"
+}

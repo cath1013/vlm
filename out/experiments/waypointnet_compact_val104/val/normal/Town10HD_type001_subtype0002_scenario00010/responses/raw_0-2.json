@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show vehicles maintaining safe distances from each other, with the closest pair having a clearance of 0.36m, which is not considered an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V013\", \"V014\", \"T010\", \"V023\"],\n      \"reason\": \"Two separate collisions are predicted: V013 is predicted to collide with V014 due to path convergence (0.0m clearance at 1.2s), and T010 is predicted to rear-end the stopped V023 (0.0m clearance at 1.9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end the stopped EGO_ego_vehicle, with a minimum clearance of 0.0m at 3.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction in this interval maintains a clearance of 1.08m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No accidents are predicted in this interval as all predicted interactions show positive minimum clearances between vehicles.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of multiple collisions within the 5-second forecast window. Specifically, a rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle is expected in interval k=3, as the ego vehicle remains stopped. Additionally, two other collisions are predicted in interval k=2: V013 with V014 due to converging paths, and T010 rear-ending the stopped V023.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8289,
+  "candidatesTokenCount": 669,
+  "totalTokenCount": 11572,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8289
+   }
+  ],
+  "thoughtsTokenCount": 2614,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "is6YaoyHPNWjvr0Ps9yR0AY"
+}

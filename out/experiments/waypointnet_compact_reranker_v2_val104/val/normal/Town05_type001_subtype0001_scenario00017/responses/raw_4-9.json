@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero minimum clearance in this interval, and all vehicles maintain safe distances from one another.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V016\", \"V012\", \"T026\"],\n      \"reason\": \"Two distinct collisions are predicted: EGO_other_vehicle is predicted to rear-end V016, which is stopped on Road 52. Simultaneously, V012 and T026 are predicted to have a head-on collision as their paths significantly overlap while traveling in opposite directions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V015\"],\n      \"reason\": \"EGO_other_vehicle is predicted to rear-end V015, which is stopped on Road 52, as their paths indicate direct overlap at approximately t=11.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts with zero minimum clearance are predicted between any actors in this interval based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts with zero minimum clearance are predicted between any actors in this interval based on their future paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts multiple collisions involving EGO_other_vehicle in subsequent 1-second intervals after the last observation. EGO_other_vehicle is expected to rear-end V016 in the (10, 11]s interval and then V015 in the (11, 12]s interval, both of which are stopped vehicles. Additionally, a head-on collision between V012 and T026 is expected in the (10, 11]s interval. The other intervals appear safe with sufficient clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11852,
+  "candidatesTokenCount": 687,
+  "totalTokenCount": 17453,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11852
+   }
+  ],
+  "thoughtsTokenCount": 4914,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xOqYasvfL6HFvr0P39D5wAo"
+}

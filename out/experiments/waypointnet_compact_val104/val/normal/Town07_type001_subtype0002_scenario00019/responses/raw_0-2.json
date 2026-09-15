@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact; minimum clearances remain positive, and vehicles generally maintain safe distances or are stationary.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain positive clearances and trajectories do not indicate convergence leading to contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts occur in this interval, and all actors maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to rear-end EGO_other_vehicle at approximately t=5.9s, as indicated by a minimum clearance of 0.0m and predicted_contact=true while both are moving westbound in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some vehicles, like EGO_ego_vehicle_behind and EGO_ego_vehicle, show small positive clearances, no physical contact is predicted during this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The primary risk identified is a predicted rear-end collision between EGO_other_vehicle_behind and EGO_other_vehicle in interval k=4 (5-6s after observation). Other close proximity events in later intervals do not result in predicted contact. Most other vehicles are either stopped, moving in separated lanes, or maintaining clear distances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5823,
+  "candidatesTokenCount": 591,
+  "totalTokenCount": 12994,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5823
+   }
+  ],
+  "thoughtsTokenCount": 6580,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "r82YasjEDcndvr0P6tWKmQQ"
+}

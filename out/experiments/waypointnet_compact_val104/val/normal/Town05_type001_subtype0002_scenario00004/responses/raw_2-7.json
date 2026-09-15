@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles, with the closest pair maintaining over 1.5 meters of separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V019\"],\n      \"reason\": \"V011, moving eastbound, is predicted to collide rear-end with V019, which is stopped in the same eastbound lane on Road 24.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T029\", \"T026\", \"V025\"],\n      \"reason\": \"Multiple collisions are predicted on Road 43 northbound: EGO_ego_vehicle is expected to rear-end T029, T026 is expected to rear-end V025, and T026 and T029 are predicted to side-swipe each other, as are T029 and V025, due to lane contention and speed differences among the nearly stationary or slowly moving vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"M020\", \"V012\", \"V019\"],\n      \"reason\": \"V011 is predicted to rear-end M020, which is stopped on Road 706. Separately, V012 is predicted to rear-end V019, which is stopped on Road 24.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind, traveling eastbound on Road 24, and EGO_other_vehicle_behind, traveling southbound on Road 43, are predicted to collide orthogonally at a junction.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a series of significant accidents, primarily rear-end collisions with stopped or nearly stopped vehicles, and a junction collision. Intervals k=2, k=3, k=4, and k=5 all show strong evidence of physical contact based on the predicted paths and zero minimum clearances. The accidents involve multiple observer vehicles and other road users.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10794,
+  "candidatesTokenCount": 749,
+  "totalTokenCount": 15550,
+  "cachedContentTokenCount": 924,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10794
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 924
+   }
+  ],
+  "thoughtsTokenCount": 4007,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XM2YaqrNEKDC0-kPoaWNYQ"
+}

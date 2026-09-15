@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 34.42,
+ "usage": {
+  "input": 5794,
+  "output": 434
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are maintaining safe lateral or longitudinal separation as they approach the intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The turning vehicle EGO_other_vehicle remains at a safe distance from other road users while completing its maneuver.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No conflicting trajectories are predicted within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle is approaching stationary vehicle V001 but has not yet reached the point of contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V001"
+    ],
+    "reason": "EGO_other_vehicle completes a left turn into the westbound lane of Road 10 and, while traveling east, collides with the stationary vehicle V001 at approximately 4.4 seconds after the observation window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple stationary and moving vehicles at a junction. The primary conflict arises from EGO_other_vehicle, which is predicted with high probability to turn left from Road 341 into the westbound lane of Road 10 while continuing to travel east. This wrong-way maneuver leads to a frontal collision with vehicle V001, which is stopped in its designated lane, at approximately t=11.4s.",
+  "data_limitations": ""
+ }
+}

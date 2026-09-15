@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 35.24,
+ "usage": {
+  "input": 8323,
+  "output": 616
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation, with no predicted contact between any actors in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "A lateral collision is expected between EGO_other_vehicle and EGO_other_vehicle_behind at 2.6 seconds absolute time, as their predicted paths converge while driving southbound in adjacent lanes on Road 22, resulting in zero minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation, with no predicted contact between any actors in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V002",
+     "N001"
+    ],
+    "reason": "A rear-end collision is expected between N001 and V002 at 4.5 seconds absolute time, as N001 is predicted to catch up to and collide with the slower V002 in the same lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation, with no predicted contact between any actors in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct accidents are predicted within the 5-second prediction window. A lateral collision between EGO_other_vehicle and EGO_other_vehicle_behind is expected in the k=2 interval. Subsequently, a rear-end collision between N001 and V002 is expected in the k=4 interval.",
+  "data_limitations": ""
+ }
+}

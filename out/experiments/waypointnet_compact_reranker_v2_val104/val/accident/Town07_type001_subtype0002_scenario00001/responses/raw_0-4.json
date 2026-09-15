@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other, with the closest interaction being a 1.28m clearance between EGO_other_vehicle_behind and V006.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with the closest interaction being a 1.29m clearance between EGO_other_vehicle_behind and V007.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have a minimum clearance of 0.03m at 2.2 seconds into the interval, indicating an orthogonal intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with the closest interaction being a 1.45m clearance between EGO_ego_vehicle_behind and EGO_other_vehicle, which is sufficient for a safe pass.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T001\"],\n      \"reason\": \"EGO_other_vehicle and T001 are predicted to have a minimum clearance of 0.0m and explicit contact at 4.6 seconds into the interval, indicating an opposing traffic collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. An orthogonal intersection conflict is expected in interval k=3 between EGO_ego_vehicle and EGO_other_vehicle with a minimal clearance. A second collision is predicted in interval k=5, where EGO_other_vehicle and T001 are expected to have a head-on or side-swipe contact due to opposing traffic.\",\n  \"data_limitations\": \"The 'predicted_contact' field was false for a 0.03m clearance in interval k=3, which is an extremely small gap and was interpreted as contact based on the geometric proximity.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6179,
+  "candidatesTokenCount": 713,
+  "totalTokenCount": 13694,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6179
+   }
+  ],
+  "thoughtsTokenCount": 6802,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "mu6YarTUPKGz1e8P5f-xiAY"
+}

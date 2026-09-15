@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain a safe distance from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V009\", \"V010\"],\n      \"reason\": \"V010 is predicted to collide with the stopped V009 as it proceeds westbound on Road 40, with a predicted contact at 1.7 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no new predicted contacts, and vehicles maintain safe distances or have already resolved conflicts from prior intervals.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain a safe distance from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\", \"V009\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to have an orthogonal conflict at a junction, and V001 is predicted to collide with the stopped V009 as V001 completes its left turn onto Road 40.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted by the model over the 5-second window. The first involves V010 colliding with the stopped V009 in interval k=2. The second involves two separate incidents in interval k=5: EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to collide at a junction, and V001 is predicted to collide with the stopped V009. The geometric paths clearly support these contact predictions.\",\n  \"data_limitations\": \"No traffic signal or stop line information is available, which could influence driver behavior at junctions and potentially resolve some predicted conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6337,
+  "candidatesTokenCount": 664,
+  "totalTokenCount": 13358,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6337
+   }
+  ],
+  "thoughtsTokenCount": 6357,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "L86Yau7xEPrcvr0P9_e_sAY"
+}

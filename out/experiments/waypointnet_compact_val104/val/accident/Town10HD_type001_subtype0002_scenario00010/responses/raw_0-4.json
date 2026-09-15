@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining positive clearance with no direct conflicts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V026\", \"V027\"],\n      \"reason\": \"V026's predicted path shows it colliding with the stopped V027, resulting in 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V016\", \"EGO_other_vehicle\", \"M004\", \"V026\", \"V027\"],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle makes a right turn into the path of V016, EGO_other_vehicle proceeds south into the path of M004 and V026 (which is moving northeast), and EGO_other_vehicle also collides with the stopped V027.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient clearance, and there are no instances of 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V010\"],\n      \"reason\": \"EGO_ego_vehicle's right turn path intersects with V010's straight path, leading to a predicted collision with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates a high likelihood of multiple collisions, particularly in intervals k=2, k=3, and k=5. EGO_ego_vehicle and EGO_other_vehicle are both involved in potential conflicts with other road users at intersections or with stopped vehicles, where predicted paths show direct contact.\",\n  \"data_limitations\": \"None.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8850,
+  "candidatesTokenCount": 647,
+  "totalTokenCount": 13600,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8850
+   }
+  ],
+  "thoughtsTokenCount": 4103,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5smYavvLLcmj9tMP-bjGwQY"
+}

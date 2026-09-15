@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 12.16,
+ "usage": {
+  "input": 8180,
+  "output": 577
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N005",
+     "T006"
+    ],
+    "reason": "N005 (van) making a right turn and T006 (truck) making a left turn are predicted to collide at 0.9 seconds with 0.0m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N005",
+     "V007"
+    ],
+    "reason": "N005 (van) completing a right turn and V007 (car) proceeding straight are predicted to collide at 2.5 seconds with 0.0m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collision events are predicted in the future 5-second window. The first involves a van (N005) and a truck (T006) during turning maneuvers at 0.9 seconds. The second collision occurs at 2.5 seconds between the same van (N005) and a car (V007) as the van completes its turn and the car proceeds straight through an intersection.",
+  "data_limitations": ""
+ }
+}

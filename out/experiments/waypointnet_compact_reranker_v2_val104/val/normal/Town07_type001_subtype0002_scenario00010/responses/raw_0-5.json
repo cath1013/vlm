@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances and follow their predicted paths without any overlaps or close encounters indicating contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to maintain safe distances based on their predicted trajectories, with no predicted contacts or dangerously close maneuvers.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle passes V001 and V013 closely, the predicted minimum clearances are greater than 0.8 meters, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"Multiple collision events are predicted at an intersection: EGO_other_vehicle is rear-ended by EGO_other_vehicle_behind, and both EGO_other_vehicle and EGO_other_vehicle_behind are involved in orthogonal conflicts with EGO_ego_vehicle_behind as they converge in the intersection at approximately 8.7-9.0 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new contacts are predicted in this interval by the trajectory predictor; any further interaction would be a consequence of the k=4 collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial three 1-second intervals show safe vehicle progression with no expected accidents. However, a significant multi-vehicle accident is predicted to occur in the fourth interval (8-9 seconds after observation), involving a rear-end collision between EGO_other_vehicle and EGO_other_vehicle_behind, alongside orthogonal collisions between these two and EGO_ego_vehicle_behind at an intersection. No further distinct accident events are predicted in the final interval, assuming the k=4 collisions dramatically alter the subsequent trajectories.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6232,
+  "candidatesTokenCount": 677,
+  "totalTokenCount": 13514,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6232
+   }
+  ],
+  "thoughtsTokenCount": 6605,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DPOYau7-NrGw2roP0qzmoQI"
+}

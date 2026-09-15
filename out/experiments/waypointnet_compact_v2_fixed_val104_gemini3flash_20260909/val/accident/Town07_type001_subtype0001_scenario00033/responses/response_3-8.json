@@ -1,0 +1,71 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 15.44,
+ "usage": {
+  "input": 5711,
+  "output": 568
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are approaching the stopped traffic on Road 11 but no physical contact is predicted within the first second.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V001",
+     "EGO_other_vehicle",
+     "V014"
+    ],
+    "reason": "EGO_ego_vehicle turns into stationary car V001 (1.2s), and EGO_other_vehicle drives straight into the rear of stationary car V014 (1.8s).",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V002"
+    ],
+    "reason": "EGO_ego_vehicle continues its left turn through the intersection and collides with stationary vehicle V002 at 2.3s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T003"
+    ],
+    "reason": "EGO_ego_vehicle continues its forward momentum after previous impacts and overlaps with the position of the stationary truck T003.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "T003"
+    ],
+    "reason": "EGO_other_vehicle_behind completes a right turn into the same lane and collides with the rear of the stationary truck T003 at 4.9s.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a significant multiple-vehicle collision event on Road 11. Three separate approaching vehicles (EGO_ego_vehicle, EGO_other_vehicle, and EGO_other_vehicle_behind) all have future paths that pass directly through a line of stationary vehicles (V001, V014, V002, and T003), suggesting a failure to observe or stop for a queue of traffic.",
+  "data_limitations": "Traffic signal states are unavailable, which likely explain why the vehicles V001, V014, V002, and T003 are stopped in the roadway."
+ }
+}

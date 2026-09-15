@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show clearances greater than 0.9 meters, indicating no physical contact or overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"T017\",\n        \"V008\",\n        \"V026\",\n        \"V029\"\n      ],\n      \"reason\": \"Multiple predicted contacts: EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to collide at 1.3s (crossing paths). V008 is predicted to rear-end the stopped T017 at 1.5s. V026 is predicted to rear-end the stopped V029 at 1.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M003\",\n        \"V004\"\n      ],\n      \"reason\": \"V004 is predicted to rear-end M003 at 2.2s, as M003 is moving slower ahead of V004 on the same road.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M015\",\n        \"N016\"\n      ],\n      \"reason\": \"N016 making a right turn is predicted to collide with M015 proceeding straight at 3.5s, indicating a crossing conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0 minimum clearance are found in this interval, and all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. Specific incidents include a crossing conflict between two observer vehicles, two rear-end collisions with stopped vehicles, a rear-end collision between a car and a motorcycle, and a turning conflict. All predicted collisions show a 0.0m minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9618,
+  "candidatesTokenCount": 702,
+  "totalTokenCount": 13811,
+  "cachedContentTokenCount": 914,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9618
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 914
+   }
+  ],
+  "thoughtsTokenCount": 3491,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "BseYavSUCIyr0-kPkO6u0Qw"
+}

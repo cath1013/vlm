@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, with the closest pair (EGO_ego_vehicle and T024) having a minimum clearance of 1.1 meters, which is safe.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V023\",\n        \"T024\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"Vehicle T024 is predicted to collide with V023 at t=4.5s with a 0.0m clearance. Additionally, T024 is predicted to have a clearance of only 0.46m with EGO_ego_vehicle_behind at t=4.8s; given the vehicles' dimensions, this indicates a second contact or extreme overlap. Both conflicts stem from intersecting paths on Road 20.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No critical close encounters or predicted contacts are identified in this interval, and no listed closest pairs fall within this time.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction (EGO_ego_vehicle_behind and P009) maintains a safe clearance of 7.37 meters, with no other critical events identified.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No critical close encounters or predicted contacts are identified in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the (4.0, 5.0] second interval, involving truck T024 colliding first with car V023 and then with EGO_ego_vehicle_behind due to multiple predicted path conflicts with insufficient clearance. The initial predicted contact between V023 and T024 at 0.0m clearance is a clear collision. The subsequent minimum clearance of 0.46m between T024 and EGO_ego_vehicle_behind also indicates an unavoidable contact given their physical dimensions. All other intervals show no predicted collisions or dangerously close encounters.\",\n  \"data_limitations\": \"The future paths of actors are predicted independently. If an accident occurs between V023 and T024 at t=4.5s, the subsequent predicted path for T024 (and thus its near-collision with EGO_ego_vehicle_behind at t=4.8s) would likely be altered, but this assessment assumes independent adherence to predicted trajectories.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11597,
+  "candidatesTokenCount": 794,
+  "totalTokenCount": 17549,
+  "cachedContentTokenCount": 1862,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11597
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1862
+   }
+  ],
+  "thoughtsTokenCount": 5158,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "je-YauiyJcP92roPwtXW-Aw"
+}

@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 13.78,
+ "usage": {
+  "input": 7544,
+  "output": 443
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles EGO_other_vehicle and EGO_other_vehicle_behind are following each other with a large clearance of over 11 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle pass through the junction area at different times, maintaining a clearance of 4.75 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected trajectories for all active actors show no converging paths or insufficient clearances during this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle passes the stationary truck T002 with a predicted lateral clearance of 0.65 metres, which is narrow but avoids contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind converge near the junction but maintain a positive clearance of 0.71 metres.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple vehicles navigating a complex intersection where Roads 37, 46, 249, and 188 meet. Although several predicted clearances are tight (specifically between moving vehicles and stationary objects or converging paths), none of the supplied future paths result in physical body contact or overlap. All actors appear to be either following, passing, or stopped in a controlled manner.",
+  "data_limitations": ""
+ }
+}

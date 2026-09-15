@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 20.11,
+ "usage": {
+  "input": 12084,
+  "output": 737
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths for all actors maintain sufficient clearance, with the closest interaction between EGO_ego_vehicle_behind and T024 having 0.22m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V032",
+     "V029",
+     "N002",
+     "V041",
+     "N004",
+     "V003"
+    ],
+    "reason": "Multiple collisions are predicted: V032 and V029 have an orthogonal entry conflict during V032's right turn; V041 is predicted to rear-end the stopped N002; and N004 is predicted to rear-end the stopped V003.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths indicate all actors maintain sufficient clearance, with the closest interaction between EGO_other_vehicle_behind and V033 having 1.29m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "C018",
+     "T024",
+     "V019",
+     "V041",
+     "V001"
+    ],
+    "reason": "Multiple collisions are predicted: C018 and T024 have an opposing direction conflict on Road 20; T024 and V019 have a junction conflict during V019's right turn; and V041 is predicted to rear-end the stopped V001.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths for all actors maintain sufficient clearance, with the closest interaction between pedestrians P007 and P016 having 0.2m clearance but no contact predicted.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window shows a high risk of multiple accidents in the second and fourth 1-second intervals, primarily involving rear-end collisions with stopped vehicles and orthogonal/junction conflicts. The first, third, and fifth intervals appear to be safe, with all actors maintaining predicted clearances.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle's path brings it to pass the stopped EGO_other_vehicle with a minimum clearance of 0.55m at t=8.1s. Given the width of a car, this gap is insufficient to prevent physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicle paths predict physical contact or excessively close proximity during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V007\"],\n      \"reason\": \"EGO_ego_vehicle's path brings it to pass the stopped V007 with a minimum clearance of 0.22m at t=10.5s. Given the width of a car, this gap is insufficient to prevent physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicle paths predict physical contact or excessively close proximity during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V006\"],\n      \"reason\": \"EGO_ego_vehicle's path brings it to pass the stopped V006 with a minimum clearance of 0.88m at t=12.9s. Given the width of a car, this gap is insufficient to prevent physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The EGO_ego_vehicle is predicted to proceed along its path at speed, encountering multiple stopped vehicles (EGO_other_vehicle, V007, V006). Its path geometry consistently results in extremely small minimum clearances (0.22m to 0.88m) while passing these stopped vehicles. Such narrow margins are practically impossible to maintain without physical contact, leading to an expectation of accidents in intervals k=1, k=3, and k=5.\",\n  \"data_limitations\": \"The precise definition of 'physical contact or body overlap' for very small non-zero minimum clearance values required practical interpretation. A strict adherence to 'minimum_clearance_m=0' would imply no accidents, which contradicts real-world driving expectations for the given clearances.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6923,
+  "candidatesTokenCount": 748,
+  "totalTokenCount": 14878,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6923
+   }
+  ],
+  "thoughtsTokenCount": 7207,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "N_OYavKIPMTRosUPrYTQiQY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance within this interval, with no overlaps or conflicts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance within this interval, with no overlaps or conflicts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle traveling East is predicted to collide with EGO_other_vehicle traveling South, as their paths intersect around (97, -70) at approximately 2.7 seconds after the last observation, resulting in body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance within this interval, with no overlaps or conflicts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V015\"],\n      \"reason\": \"EGO_ego_vehicle traveling East is predicted to collide with V015 traveling South, as their paths intersect around (102, -69) at approximately 4.2 seconds after the last observation, resulting in body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. EGO_ego_vehicle and EGO_other_vehicle are expected to collide in the (3.0, 4.0] second interval. Later, EGO_ego_vehicle is predicted to collide with V015 in the (5.0, 6.0] second interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7612,
+  "candidatesTokenCount": 615,
+  "totalTokenCount": 13732,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7612
+   }
+  ],
+  "thoughtsTokenCount": 5505,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "-_OYarPBKcyc0-kP2e7x6A4"
+}

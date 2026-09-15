@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances according to their predicted paths, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances according to their predicted paths, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances according to their predicted paths, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V006\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end V006 at approximately 3.6 seconds after observation (absolute time 5.6s) as EGO_ego_vehicle_behind closes the gap while both are traveling in the same lane, resulting in body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V006\"],\n      \"reason\": \"The contact between EGO_ego_vehicle_behind and V006, initiated in the previous interval, is expected to persist, indicating continued body overlap or collision state.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the latter half of the prediction window. EGO_ego_vehicle_behind is expected to rear-end V006 in interval k=4, with the collision likely continuing through interval k=5 due to sustained body overlap. All other vehicle interactions appear safe.\",\n  \"data_limitations\": \"There is a potential inconsistency between the current state's reported accelerations and the implied velocity changes from the future path waypoints for EGO_ego_vehicle_behind and V006, which show a closing gap leading to collision despite V006 being initially faster and having higher acceleration. However, the future path geometry clearly supports the predicted contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6532,
+  "candidatesTokenCount": 658,
+  "totalTokenCount": 15668,
+  "cachedContentTokenCount": 869,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6532
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 869
+   }
+  ],
+  "thoughtsTokenCount": 8478,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VuWYasWHBISw0-kPtcmTiA8"
+}

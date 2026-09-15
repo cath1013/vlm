@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clearance greater than 1 meter, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P009\"],\n      \"reason\": \"EGO_other_vehicle and P009 are predicted to have a direct body contact with 0.0m minimum clearance at 2.0 seconds after the last observation, indicating a collision as P009 crosses the path of the southbound EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clearance greater than 1 meter, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and P009 have a small minimum clearance of 0.49m, the predicted_contact flag is false, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clearance greater than 3 meters, with no predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second 1-second interval between EGO_other_vehicle and pedestrian P009, as their predicted paths result in a direct contact. For all other intervals, predicted clearances are sufficient, and no physical contact is indicated by the trajectory predictor.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11986,
+  "candidatesTokenCount": 589,
+  "totalTokenCount": 15127,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11986
+   }
+  ],
+  "thoughtsTokenCount": 2552,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4OiYasqUEZf91e8PppTJgQY"
+}

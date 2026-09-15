@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle paths indicate a simultaneous body overlap at 0.8 seconds into the interval, as EGO_ego_vehicle turns right and EGO_other_vehicle turns left, resulting in zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance throughout this interval, with no explicit contact indicated by the predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\", \"V003\"],\n      \"reason\": \"EGO_other_vehicle's path indicates simultaneous body contact with stationary V002 at 2.1s and with moving V003 at 2.8s into the interval, both resulting in zero minimum clearance as EGO_other_vehicle completes a turn near other vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance throughout this interval, with no explicit contact indicated by the predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle_behind and V001 have a small predicted minimum clearance of 0.26m, the predicted_contact flag is false, and the path geometry does not clearly support body overlap.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are expected within the prediction window. The first occurs in interval k=1 between EGO_ego_vehicle and EGO_other_vehicle as they converge during turns. The second, more complex collision, occurs in interval k=3, where EGO_other_vehicle makes contact with both stationary V002 and moving V003 during its turn. Other intervals show no clear predicted contact.\",\n  \"data_limitations\": \"The interpretation of 0.26m minimum clearance with predicted_contact=false for k=5 required careful manual assessment against the 'clearly supports physical contact or body overlap' rule, as it represents a very close encounter for which the model did not predict contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8160,
+  "candidatesTokenCount": 734,
+  "totalTokenCount": 17255,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8160
+   }
+  ],
+  "thoughtsTokenCount": 8361,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "W-aYavXtE9GMvr0Po7mDkQQ"
+}

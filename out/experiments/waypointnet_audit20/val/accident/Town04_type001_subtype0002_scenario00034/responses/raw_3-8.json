@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V004\", \"V014\", \"N019\"],\n      \"reason\": \"EGO_other_vehicle is closing on EGO_ego_vehicle with a linear-extrapolated contact time of 0.6s. Simultaneously, V004 and N019 are closing on V014 with linear-extrapolated contact times of 1.0s, indicating imminent multi-vehicle collisions at the junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V004\", \"V014\", \"N019\", \"V003\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"Following the initial impacts, EGO_ego_vehicle has a linear-extrapolated contact time of 1.6s with V004, V003 has 1.6s with V014, and EGO_ego_vehicle has 1.8s with EGO_other_vehicle_behind, indicating an escalation of the multi-vehicle accident scenario.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V004\", \"V014\", \"N019\", \"V003\", \"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\", \"V005\"],\n      \"reason\": \"By this interval, all directly identified linear-extrapolated contacts with TTCs up to 2.3s would have occurred, involving a large number of vehicles (EGO_ego_vehicle, EGO_other_vehicle, V004, V014, N019, V003, EGO_other_vehicle_behind, EGO_ego_vehicle_behind, V005) in a major pile-up at the junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V004\", \"V014\", \"N019\", \"V003\", \"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\", \"V005\"],\n      \"reason\": \"Given the severity and multiple points of collision predicted in previous intervals, it is highly probable that secondary collisions, impacts from swerving vehicles, or chain reactions will continue within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V004\", \"V014\", \"N019\", \"V003\", \"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\", \"V005\"],\n      \"reason\": \"The complex multi-vehicle accident initiated in earlier intervals would still be actively unfolding, leading to continued disruption and potential further collisions as the scene develops.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A highly dangerous situation is developing at the junction with multiple imminent collisions. EGO_other_vehicle is closing rapidly on EGO_ego_vehicle, and a cluster of vehicles (V004, N019, V003) on Road 782 northbound is converging with V014 on Road 775 southbound, all with extremely low linear-extrapolated TTCs (0.6s-1.6s) within the first two seconds. This is highly likely to result in a major, multi-vehicle pile-up involving most vehicles in the immediate junction area over the prediction window.\",\n  \"data_limitations\": \"The judgment relies heavily on linear-extrapolated Time-To-Contact (TTC) values, which do not account for potential evasive actions like braking or steering, nor the complex physical dynamics of collisions and subsequent chain reactions. No traffic signal information was available for the junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9948,
+  "candidatesTokenCount": 1143,
+  "totalTokenCount": 18098,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9948
+   }
+  ],
+  "thoughtsTokenCount": 7007,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qRuVapq8Od6-vr0P6cSduAo"
+}

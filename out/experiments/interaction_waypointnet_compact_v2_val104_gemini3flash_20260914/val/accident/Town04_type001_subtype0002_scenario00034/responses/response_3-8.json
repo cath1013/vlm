@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 38.14,
+ "usage": {
+  "input": 7163,
+  "output": 486
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to sideswipe EGO_other_vehicle during an overtake with insufficient lateral clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new collision is expected as vehicles follow their predicted trajectories with sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new collision is expected as vehicles follow their predicted trajectories with sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind have converging paths that lead to a side-on collision as they enter the same lane space.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new collision is expected as vehicles follow their predicted trajectories with sufficient clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two separate accidents are predicted involving four observer vehicles. First, EGO_ego_vehicle is expected to sideswipe EGO_other_vehicle at 0.8s (k=1) during an overtake with insufficient lateral clearance. Second, EGO_ego_vehicle_behind is expected to collide with EGO_other_vehicle_behind at 3.1s (k=4) as their paths converge into the same lane space.",
+  "data_limitations": ""
+ }
+}

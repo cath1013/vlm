@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance; the closest pair (EGO_ego_vehicle and V008) has a minimum clearance of 1.55m, which is above the contact threshold.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance, and no close interactions leading to contact are indicated by the predicted pairs.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"A rear-end collision is expected between EGO_other_vehicle_behind and EGO_other_vehicle. EGO_other_vehicle is stopped at [-4.5, 6.1], while EGO_other_vehicle_behind is predicted to continue southbound along the same lane, resulting in contact with 0.0m minimum clearance at 2.8s after observation (t=9.8s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the collision between EGO_other_vehicle and EGO_other_vehicle_behind is predicted in the previous interval, no new contacts are predicted in this interval based on the future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance; the closest pair (EGO_ego_vehicle and T018) has a minimum clearance of 0.95m, which is above the contact threshold.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision is predicted to occur in the third 1-second interval (t=9.8s) between EGO_other_vehicle_behind, which is moving southbound, and EGO_other_vehicle, which is stopped. All other vehicles are predicted to maintain safe distances throughout the 5-second prediction horizon, with no other contacts expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8283,
+  "candidatesTokenCount": 696,
+  "totalTokenCount": 12797,
+  "cachedContentTokenCount": 898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8283
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 898
+   }
+  ],
+  "thoughtsTokenCount": 3818,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "B-uYarjHCbGw2roP0qzmoQI"
+}

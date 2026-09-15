@@ -1,0 +1,72 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 27.17,
+ "usage": {
+  "input": 10175,
+  "output": 661
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance between vehicles in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V019",
+     "V018",
+     "V015",
+     "V016",
+     "T001",
+     "V002",
+     "T012",
+     "V013"
+    ],
+    "reason": "Multiple rear-end collisions are predicted: V019 with V018, V016 with stopped V015, V002 with T001, and V013 with stopped T012, all occurring in the same lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V004",
+     "V005"
+    ],
+    "reason": "V005 is predicted to rear-end the stopped V004 while following in the same southbound lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "T006"
+    ],
+    "reason": "T006 is predicted to rear-end V005 while following in the same southbound lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance between vehicles in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple rear-end collisions, particularly concentrated in the (3.0, 4.0] second interval. Several vehicles are predicted to collide with either stopped vehicles or slower-moving vehicles in their respective lanes. The later intervals show a diminishing but still present risk, with the final interval (6.0, 7.0] appearing safe.",
+  "data_limitations": ""
+ }
+}

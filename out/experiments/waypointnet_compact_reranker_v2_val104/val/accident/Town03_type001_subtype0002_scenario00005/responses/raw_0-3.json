@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe positive clearance, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V024\", \"T025\"],\n      \"reason\": \"V024 (car) and T025 (truck) are predicted to collide with 0.0m minimum clearance at 1.5s after observation (t=4.5s), as V024 proceeds southbound and T025 moves southwestbound, causing their paths to overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with 0.0m clearance for any actor pair within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with 0.0m clearance for any actor pair within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P016\"],\n      \"reason\": \"EGO_ego_vehicle (car) and P016 (person) are predicted to collide with 0.0m minimum clearance at 4.2s after observation (t=7.2s), due to EGO_ego_vehicle making a right turn while P016 proceeds straight northbound, leading to an intersection of their paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate two distinct accident events over the 5-second horizon. A collision between a car (V024) and a truck (T025) is expected in the second interval due to converging paths. Another collision between the EGO_ego_vehicle and a pedestrian (P016) is expected in the fifth interval, likely from the vehicle's right turn path intersecting the pedestrian's straight path.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11837,
+  "candidatesTokenCount": 670,
+  "totalTokenCount": 15822,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11837
+   }
+  ],
+  "thoughtsTokenCount": 3315,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "cOyYapvUIJf91e8PppTJgQY"
+}

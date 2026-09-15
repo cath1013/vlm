@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Most vehicles are either stopped, moving slowly, or far from immediate conflict points; V011 continues to approach V017, but contact is not expected in this first interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V011\",\n        \"V017\"\n      ],\n      \"reason\": \"V011 is rapidly approaching the stopped V017 from behind on the same road; given V011's speed of 32km/h and positive acceleration, and V017 remaining stopped, a rear-end collision is expected with a Time To Contact (TTC) of approximately 1.95 seconds from t=8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V011\",\n        \"V017\"\n      ],\n      \"reason\": \"The collision between V011 and V017 is expected to have occurred in the previous interval, and this interval would involve the immediate aftermath and continued hazard at the collision site.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Beyond the V011-V017 collision, no new direct conflicts are evident for other vehicles based on their current states and predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new direct conflicts are evident for other vehicles in this interval; the primary collision event would have already occurred.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The most significant risk in the forecast window is a rear-end collision between V011 and V017. V011 is rapidly closing on the stopped V017 on the same road and is predicted to make contact within the second future interval. Other vehicles are navigating junctions or are too far apart to pose an immediate collision threat under current predictions.\",\n  \"data_limitations\": \"The absence of traffic signal states and lane marking types (solid/dashed) limits the ability to fully assess potential conflicts at junctions or during lane-keeping maneuvers. Some predicted paths, like for V010 and P005, are noted as 'constant-speed straight (no road match)', indicating potentially less reliable trajectory predictions for those actors.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12353,
+  "candidatesTokenCount": 746,
+  "totalTokenCount": 18264,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12353
+   }
+  ],
+  "thoughtsTokenCount": 5165,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2R6VarexI4bu2roP5cicqQ8"
+}

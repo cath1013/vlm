@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other and continue on their respective paths without conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show sufficient clearance between all road users; the closest pair EGO_ego_vehicle and EGO_other_vehicle maintains a minimum clearance of 3.87m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No clear physical contact or overlap is predicted; the closest interaction between EGO_ego_vehicle and N002 shows a safe minimum clearance of 1.51m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"An orthogonal entry conflict is predicted at approximately 3.8s after the last observation (within this interval), where EGO_ego_vehicle_behind (westbound) and EGO_other_vehicle (southbound) are projected to collide with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the predicted conflict in the previous interval, remaining vehicles maintain safe distances, and no further physical contact or overlap is predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the (6.0, 7.0]s interval, specifically around 3.8 seconds after the last observation, involving EGO_ego_vehicle_behind and EGO_other_vehicle. These two vehicles are on a collision course at an intersection, with one moving west and the other moving south, leading to an orthogonal entry conflict. All other vehicles are predicted to maintain safe clearances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7835,
+  "candidatesTokenCount": 656,
+  "totalTokenCount": 13675,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7835
+   }
+  ],
+  "thoughtsTokenCount": 5184,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "gO2YapzmOuGM1e8PkrzliQY"
+}

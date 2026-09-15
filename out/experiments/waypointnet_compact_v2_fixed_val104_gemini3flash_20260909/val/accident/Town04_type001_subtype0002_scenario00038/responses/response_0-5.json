@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 31.81,
+ "usage": {
+  "input": 7819,
+  "output": 656
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are maintaining safe separation distances at this time, with the truck T003 following EGO_ego_vehicle_behind by over 20 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicle T003 is closing the gap with EGO_ego_vehicle_behind but remains safely behind at a distance of approximately 16 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The separation between T003 and EGO_ego_vehicle_behind is reduced to approximately 10 metres, but no physical contact is expected within this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T003"
+    ],
+    "reason": "A rear-end collision occurs as T003, traveling significantly faster at 41 kph and accelerating, catches up to EGO_ego_vehicle_behind in the same lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T003"
+    ],
+    "reason": "The vehicles remain in contact as the truck T003 has not yet fully cleared the longitudinal footprint of the car it struck.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a group of vehicles traveling north on Road 46. The truck T003 is significantly faster than the car directly ahead of it (EGO_ego_vehicle_behind) and is accelerating, leading to a high-speed-differential rear-end collision in the fourth second of the prediction window. Other vehicles in the vicinity, including those on the intersecting Road 31/1080, appear to maintain sufficient clearance.",
+  "data_limitations": ""
+ }
+}

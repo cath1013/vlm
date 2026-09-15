@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pair between P010 and V038 shows a minimum clearance of 1.36m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pair between EGO_ego_vehicle and P016 shows a minimum clearance of 0.7m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N002\", \"M037\", \"C019\", \"T025\"],\n      \"reason\": \"M037 (car) is predicted to rear-end the stopped N002 (van) at 2.4s. Additionally, C019 (bicycle) and T025 (truck) are predicted to collide at an intersection at 2.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V020\", \"T025\", \"N004\", \"M039\", \"V030\", \"V033\", \"EGO_ego_vehicle\", \"P006\"],\n      \"reason\": \"Multiple predicted contacts: V020 (car) and T025 (truck) collide at 3.1s; M039 (motorcycle) rear-ends the stopped N004 (van) at 3.6s; V030 (car) and V033 (car) collide during V033's turn at 3.6s; EGO_ego_vehicle (car) collides with P006 (person) at an intersection at 4.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V032\", \"V033\", \"EGO_ego_vehicle_behind\", \"P016\"],\n      \"reason\": \"V032 (car) and V033 (car) are predicted to collide as V033 makes a right turn into V032's path at 4.1s. EGO_ego_vehicle_behind (car) is also predicted to collide with P016 (person) at an intersection at 4.4s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts no accidents in the first two 1-second intervals. However, significant collision risks emerge from interval 3 onwards, involving multiple vehicles and a person. These predicted incidents include rear-end collisions, intersection conflicts, and turning conflicts, all with 0.0m minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12970,
+  "candidatesTokenCount": 823,
+  "totalTokenCount": 18015,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12970
+   }
+  ],
+  "thoughtsTokenCount": 4222,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "BceYarG9H_i20-kPkNOI8Qs"
+}

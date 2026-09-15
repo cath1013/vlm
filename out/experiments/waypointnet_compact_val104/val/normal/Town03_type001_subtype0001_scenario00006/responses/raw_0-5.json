@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicle paths indicate sufficient clearance and no converging trajectories during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicle paths indicate sufficient clearance and no converging trajectories during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T003\"],\n      \"reason\": \"V005 is predicted to make a left turn, crossing the path of T003 which is proceeding straight, resulting in a direct contact at t=3.0s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T006\", \"M002\", \"T003\"],\n      \"reason\": \"An orthogonal intersection conflict is predicted between EGO_other_vehicle (moving west) and T006 (moving north) at t=3.5s. Additionally, M002 and T003 are predicted to have contact at t=4.0s, suggesting a rear-end or side-swipe as they proceed eastward.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"V004\", \"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"T003 and V004 are predicted to have a conflict at t=4.8s as V004's southeastward path crosses T003's eastward path. Also, EGO_ego_vehicle is predicted to be rear-ended by EGO_ego_vehicle_behind at t=4.9s due to path convergence.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple potential accidents are predicted in the later intervals (k=3, k=4, k=5). These include a left-turn conflict between V005 and T003, an orthogonal intersection conflict involving EGO_other_vehicle and T006, a potential same-direction collision between M002 and T003, and a rear-end collision between EGO_ego_vehicle and EGO_ego_vehicle_behind.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9593,
+  "candidatesTokenCount": 728,
+  "totalTokenCount": 13549,
+  "cachedContentTokenCount": 913,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9593
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 913
+   }
+  ],
+  "thoughtsTokenCount": 3228,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "HMKYavHBJ7X72roPis6NwQE"
+}

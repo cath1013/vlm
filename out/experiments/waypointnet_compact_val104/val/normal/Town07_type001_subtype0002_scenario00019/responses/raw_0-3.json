@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and safe trajectories during this interval, with the closest pair having a clearance of 0.66m and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and safe trajectories during this interval, with the closest pair having a clearance of 0.76m and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and safe trajectories during this interval, with the closest pair having a clearance of 1.11m and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M003\", \"C004\"],\n      \"reason\": \"Motorcycle M003, predicted to remain stopped, is on the trajectory of bicycle C004, which is moving straight southbound on the same road, resulting in a rear-end collision around 3.2 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, predicted to continue northbound, and EGO_other_vehicle, predicted to continue westbound, are on conflicting trajectories that lead to an orthogonal intersection collision around 4.3 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. A rear-end collision is expected between the stopped motorcycle M003 and the bicycle C004 in interval k=4. Subsequently, an orthogonal intersection collision is predicted between EGO_ego_vehicle and EGO_other_vehicle in interval k=5, where their paths clearly overlap.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6311,
+  "candidatesTokenCount": 641,
+  "totalTokenCount": 10657,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6311
+   }
+  ],
+  "thoughtsTokenCount": 3705,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "z82YatGQBout0-kP55TD4Aw"
+}

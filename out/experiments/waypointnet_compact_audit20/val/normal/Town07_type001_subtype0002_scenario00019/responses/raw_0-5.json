@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain their respective lanes and safe distances; no converging paths or points of conflict are observed.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to proceed along their predicted paths with ample separation, and no intersections are apparent.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show vehicles remaining well-separated, with no indications of converging paths or imminent conflicts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to have sufficient clearance from each other, and no paths are predicted to intersect dangerously in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V010\", \"V011\"],\n      \"reason\": \"V010 and V011 are predicted to collide due to an orthogonal intersection conflict. V011 proceeds eastbound while V010, also moving eastbound and then curving slightly north, intersects V011's path, leading to an estimated separation of approximately 1.44m between their centers, indicating body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scene evolves safely for the first four prediction intervals with all vehicles maintaining adequate separation. However, in the final interval, a clear intersection conflict is predicted between two cars, V010 and V011, which will lead to a collision. All other vehicles remain unimpacted and maintain safe distances throughout the entire prediction horizon.\",\n  \"data_limitations\": \"The 'right turn' maneuver label for actor V010 appears inconsistent with its predicted path coordinates, which show it moving slightly north rather than south. However, the explicit path geometry was used for collision assessment.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6707,
+  "candidatesTokenCount": 624,
+  "totalTokenCount": 15332,
+  "cachedContentTokenCount": 873,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6707
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 873
+   }
+  ],
+  "thoughtsTokenCount": 8001,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "F0uVasP5LoCB1e8Px4KzyQU"
+}

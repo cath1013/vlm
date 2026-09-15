@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances between all actor pairs remain positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances between all actor pairs remain positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T001\", \"V002\", \"V003\", \"M019\", \"V020\"],\n      \"reason\": \"Multiple simultaneous contacts are predicted within this interval: T001 and V002 are predicted to collide at 2.1s and V003 and V002 at 2.2s, V003 and T001 at 2.9s. Additionally, M019 and V020 are predicted to collide at 2.8s due to V020 (car) catching up to M019 (motorcycle) while moving northbound on Road 17.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or close clearances are indicated within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V005\"],\n      \"reason\": \"V003 and V005 are predicted to collide at 4.8s, indicating a potential intersection conflict as V003 moves northwest and V005 moves east.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates a high probability of multiple accidents. The third interval (4.0-5.0s) shows a cluster of vehicles (T001, V002, V003) converging at an intersection, leading to several predicted contacts. Additionally, M019 and V020 are predicted to collide due to V020 overtaking M019. In the fifth interval (6.0-7.0s), V003 and V005 are predicted to collide.\",\n  \"data_limitations\": \"The trajectory predictor does not account for dynamic behavior changes or interaction between actors, which might lead to a different outcome in a real-world scenario where drivers might react to avoid collisions. No traffic signal information is available to assess right-of-way at potential intersection conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9187,
+  "candidatesTokenCount": 748,
+  "totalTokenCount": 13196,
+  "cachedContentTokenCount": 909,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9187
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 3261,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jMuYapqtDffJrfcPhY704A8"
+}

@@ -1,0 +1,72 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.79,
+ "usage": {
+  "input": 10164,
+  "output": 727
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind, making a left turn, is predicted to collide with EGO_other_vehicle_behind, which is proceeding straight, resulting in simultaneous body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V002",
+     "M001"
+    ],
+    "reason": "V002, proceeding straight, is predicted to collide with the stopped motorcycle M001, resulting in simultaneous body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V002"
+    ],
+    "reason": "EGO_ego_vehicle_behind, continuing its left turn, is predicted to collide with V002, which is proceeding straight, resulting in simultaneous body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V003"
+    ],
+    "reason": "EGO_ego_vehicle_behind, continuing its left turn, is predicted to collide with V003, which is proceeding straight, resulting in simultaneous body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T022"
+    ],
+    "reason": "EGO_ego_vehicle_behind, completing its left turn, is predicted to collide with T022, which is proceeding straight, resulting in simultaneous body contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary observer vehicle, EGO_ego_vehicle_behind, is predicted to be involved in multiple severe orthogonal intersection conflicts while executing a left turn across the path of several oncoming vehicles (EGO_other_vehicle_behind, V002, V003, T022) across all five prediction intervals. Additionally, V002 is predicted to collide with the stopped motorcycle M001 in interval k=2.",
+  "data_limitations": ""
+ }
+}

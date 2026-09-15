@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"M009\",\n        \"EGO_ego_vehicle_behind\",\n        \"V008\",\n        \"V005\",\n        \"V011\",\n        \"T006\",\n        \"V007\"\n      ],\n      \"reason\": \"Multiple head-on collisions are predicted within this interval due to extremely short 'linear-extrapolated contact in' times (0.4s to 0.9s) between vehicles on the same road, but heading in opposite directions, suggesting direct path overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new accidents are specifically predicted for this interval, as the most immediate head-on conflicts are expected to occur in the prior interval, and the next sequential collisions have longer predicted times-to-contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"T006\"\n      ],\n      \"reason\": \"A rear-end collision between EGO_ego_vehicle_behind and T006 is expected around t=5.6s (TTC of 2.6s from t=3s), as EGO_ego_vehicle_behind is accelerating while T006 is moving much slower ahead.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T002\",\n        \"M001\"\n      ],\n      \"reason\": \"A rear-end collision between T002 and M001 is expected around t=6.8s (TTC of 3.8s from t=3s), as T002 is following M001 which is stopped.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"C004\",\n        \"M003\"\n      ],\n      \"reason\": \"A rear-end collision between C004 and M003 is expected around t=7.0s (TTC of 4.0s from t=3s), as C004 is following M003 which is stopped.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents an extremely hazardous situation with multiple simultaneous head-on collisions predicted within the first second due to opposing vehicles on single lanes of the same roads. Following these initial critical conflicts, a series of rear-end collisions are anticipated in subsequent intervals, driven by significant speed differentials between following and leading vehicles.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' metric does not account for potential evasive maneuvers (braking or steering) by drivers, which could prevent the predicted head-on collisions. Similarly, predicted paths are based on current motion and do not include dynamic responses to impending hazards. The interpretation of 'lane 1/1' for opposing traffic as direct conflict rather than passing lanes is based on the extremely short 'contact in' times.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8974,
+  "candidatesTokenCount": 902,
+  "totalTokenCount": 16424,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8974
+   }
+  ],
+  "thoughtsTokenCount": 6548,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fx2VarepDsHI1e8P6cW-0QU"
+}

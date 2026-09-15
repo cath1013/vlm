@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show a minimum clearance greater than zero, indicating no physical contact or overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs maintain a minimum clearance above zero throughout this interval, suggesting no accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles are predicted to maintain safe distances, with all minimum clearances being positive and no contact predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V018\", \"V021\", \"N022\"],\n      \"reason\": \"Two distinct accidents are predicted: EGO_other_vehicle_behind and V018 are predicted to have an intersection collision at t=7.9s. Additionally, N022 is predicted to rear-end the stopped V021 at t=7.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"V016\"],\n      \"reason\": \"V015, which is traveling faster in an adjacent lane, is predicted to collide with V016 in an overtaking or lane convergence scenario at t=9.0s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first three intervals (4-7 seconds after observation) are predicted to be clear of accidents, with all vehicles maintaining safe distances. However, the last two intervals (7-9 seconds after observation) show strong predictions of multiple accidents, including an intersection collision, a rear-end collision, and a side-swipe/overtaking incident. The explicit 'predicted_contact=true' with 'minimum_clearance_m=0.0' for these events provides clear evidence.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11333,
+  "candidatesTokenCount": 643,
+  "totalTokenCount": 19471,
+  "cachedContentTokenCount": 929,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11333
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 929
+   }
+  ],
+  "thoughtsTokenCount": 7495,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "H8SYasW0FZSj9tMPl-S9mQY"
+}

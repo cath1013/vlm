@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (V002 and T003) maintains a clearance of 1.04 meters, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (EGO_ego_vehicle and EGO_other_vehicle_behind) maintains a clearance of 2.07 meters, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (V011 and V001) maintains a clearance of 0.73 meters, which is tight but does not indicate physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N010\", \"V001\", \"V002\", \"V005\", \"V014\", \"V013\"],\n      \"reason\": \"Multiple collisions are predicted: N010 and V001 have a rear-end or side-swipe conflict, V002 and V005 have an intersection conflict, and V014 and V013 have a rear-end conflict, all with 0.0m minimum clearance and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"V005\"],\n      \"reason\": \"T003 and V005 are predicted to collide with 0.0m minimum clearance at 4.3 seconds, indicating an intersection conflict as V005 crosses T003's path.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first three intervals are predicted to be safe with sufficient clearances between all road users. However, in the fourth interval (k=4), three distinct collisions are predicted between N010/V001, V002/V005, and V014/V013. A fourth collision between T003 and V005 is predicted in the fifth interval (k=5).\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7628,
+  "candidatesTokenCount": 709,
+  "totalTokenCount": 13243,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7628
+   }
+  ],
+  "thoughtsTokenCount": 4906,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4syYavatA8aMvr0P4sH7gAY"
+}

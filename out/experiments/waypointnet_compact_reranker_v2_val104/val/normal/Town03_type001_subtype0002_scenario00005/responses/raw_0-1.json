@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs indicate that all vehicles maintain significant clearance, and no physical contact is expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V020\"],\n      \"reason\": \"V020 is predicted to collide with the stopped EGO_other_vehicle_behind at approximately 2.4 seconds after the last observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some vehicles, like EGO_ego_vehicle and T024, have very small predicted clearances (0.39m), the prediction explicitly states no contact is expected, indicating a near miss rather than an accident.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V019\"],\n      \"reason\": \"V019 is predicted to collide with the stopped EGO_ego_vehicle_behind at approximately 4.2 seconds after the last observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs show sufficient clearance between all vehicles, and no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. The first involves V020 colliding with the stopped EGO_other_vehicle_behind in the second interval. The second involves V019 colliding with the stopped EGO_ego_vehicle_behind in the fourth interval. Other close interactions are predicted, but without actual contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9976,
+  "candidatesTokenCount": 627,
+  "totalTokenCount": 15527,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9976
+   }
+  ],
+  "thoughtsTokenCount": 4924,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Uu-YavXHGcP92roPwtXW-Aw"
+}

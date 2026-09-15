@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or body overlap is predicted between any actors in this interval based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\", \"V023\", \"V022\"],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle is predicted to rear-end V023 and V022, while EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to have an orthogonal collision at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T021\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to rear-end T021, which is moving much slower in the same southbound path.\",\n      \"confidence\": \"high\"\n    }\n    ,\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or body overlap is predicted between any actors in this interval based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to collide as their paths converge while traveling in opposing directions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions involving observer vehicles. EGO_ego_vehicle is predicted to rear-end two vehicles (V023, V022) in interval k=2 and another truck (T021) in interval k=3, suggesting it is approaching slow or stopped traffic at high speed. Additionally, EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to collide in an orthogonal conflict at an intersection in interval k=2, and EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to have a converging path collision in interval k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11473,
+  "candidatesTokenCount": 711,
+  "totalTokenCount": 17905,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11473
+   }
+  ],
+  "thoughtsTokenCount": 5721,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "n-WYaovxOdbG0-kP2ezG-A4"
+}

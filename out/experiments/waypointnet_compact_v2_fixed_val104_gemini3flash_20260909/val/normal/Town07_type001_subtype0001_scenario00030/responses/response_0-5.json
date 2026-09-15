@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 24.48,
+ "usage": {
+  "input": 10620,
+  "output": 579
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle_behind remains more than 10 meters behind the stationary EGO_ego_vehicle as it begins its approach.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Maintaining a safe distance while closing the gap towards the stationary lead vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are approaching each other on Road 24, but separation remains sufficient during this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Separation is narrowing significantly but the bodies of the vehicles have not yet made contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind fails to decelerate or steer away from the stationary EGO_ego_vehicle, resulting in a rear-end collision at approximately 4.4s after the observation window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario focuses on Road 24 where EGO_ego_vehicle has come to a stop. EGO_ego_vehicle_behind is following the same longitudinal path at approximately 11 kph and its predicted trajectory leads directly into the rear of the stationary vehicle. Kinematic calculation and the supplied closest-pair data confirm that contact occurs in the fifth second following the observation window.",
+  "data_limitations": ""
+ }
+}

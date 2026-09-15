@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind and V014 maintain sufficient lateral separation as EGO_ego_vehicle_behind passes the stopped V014. EGO_other_vehicle and V020 are moving in opposing lanes with adequate clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle_behind and V020 maintain sufficient lateral separation while traveling in opposing lanes, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind passes the stopped V015 with sufficient lateral clearance, and no predicted contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no close interactions with predicted contact indicated by the closest pairs data in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and V003 have a very small predicted minimum clearance of 0.84m at their closest point, the prediction explicitly states no contact, indicating their paths do not physically overlap.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts several close interactions, particularly involving ego vehicles and other road users at intersection areas, but none result in physical contact. The smallest predicted clearance is 0.84m between EGO_ego_vehicle and V003, which is very tight but technically avoids overlap according to the provided geometry. All other interactions maintain larger positive clearances.\",\n  \"data_limitations\": \"The `predicted_contact` flag being false for very small positive minimum clearances (e.g., 0.84m for two cars) implies no physical overlap by the model's calculation, but in real-world scenarios, such tight clearances at intersections carry a high risk of collision due to minor trajectory deviations, sensor inaccuracies, or driver behavior, which are not fully captured by geometric path prediction alone.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9259,
+  "candidatesTokenCount": 677,
+  "totalTokenCount": 16741,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9259
+   }
+  ],
+  "thoughtsTokenCount": 6805,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GvGYatmQNN7PrfcPlI2f0Qo"
+}

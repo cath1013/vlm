@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances based on their predicted paths, and no physical contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V014\"],\n      \"reason\": \"V014, moving at 30 kph, is predicted to rear-end V001, which is almost stopped, resulting in 0.0m clearance at 2.5 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V014\"],\n      \"reason\": \"The rear-end collision between V014 and V001, which initiated in the previous interval, is projected to continue with significant body overlap throughout this interval based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V014\"],\n      \"reason\": \"The ongoing rear-end collision between V014 and V001 is still indicated by their projected paths showing body overlap through this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The body overlap between V001 and V014 has resolved in the prediction, and no other contacts are predicted, indicating safe distances for all vehicles.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high probability of a rear-end collision between V014 and V001 is predicted to occur in the second 1-second interval. This conflict, marked by significant body overlap, is expected to persist through the third and fourth intervals. By the fifth interval, the predicted paths show the overlap resolving, and no other accidents are expected within the 5-second prediction horizon.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5485,
+  "candidatesTokenCount": 627,
+  "totalTokenCount": 11182,
+  "cachedContentTokenCount": 845,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5485
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 845
+   }
+  ],
+  "thoughtsTokenCount": 5070,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "-cCYauKyLcP92roPlrzZ6As"
+}

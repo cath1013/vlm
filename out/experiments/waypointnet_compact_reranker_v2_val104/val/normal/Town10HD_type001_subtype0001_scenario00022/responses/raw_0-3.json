@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles and pedestrians maintain safe clearances, with the closest pair (EGO_ego_vehicle_behind and V028) having a minimum clearance of 2.38m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show no contact, and the minimum clearance for any pair in this interval is 6.6m (between EGO_other_vehicle and V021), indicating safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously small clearances are identified for any actor pair within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances, with the closest predicted interaction being EGO_ego_vehicle and EGO_other_vehicle with a 2.56m clearance, without predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T001\"],\n      \"reason\": \"A crossing path collision is predicted between EGO_ego_vehicle and T001, with zero minimum clearance and a predicted contact at 4.9 seconds after observation (within this interval).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly likely in the final interval (k=5), involving the EGO_ego_vehicle and truck T001, as their predicted paths result in a direct intersection with simultaneous body contact. For all other intervals (k=1 through k=4), no accidents are expected, as all vehicle and pedestrian pairs maintain safe minimum clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10378,
+  "candidatesTokenCount": 611,
+  "totalTokenCount": 13431,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10378
+   }
+  ],
+  "thoughtsTokenCount": 2442,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "t-uYaqDHHZGE0-kP58S-iAw"
+}

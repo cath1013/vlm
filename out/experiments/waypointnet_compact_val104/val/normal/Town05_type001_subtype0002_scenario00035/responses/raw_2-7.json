@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There is a minimum clearance of 0.12m between EGO_other_vehicle and V001, and predicted contact is false, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"EGO_other_vehicle is predicted to turn left and collide with V002, which is stopped on Road 19, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V021\"],\n      \"reason\": \"EGO_other_vehicle is predicted to continue its left turn and collide with V021, which is moving southbound on Road 19, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V015\", \"EGO_other_vehicle\", \"C024\"],\n      \"reason\": \"Two separate collisions are predicted: V015 is expected to rear-end V014 which is stopped, and EGO_other_vehicle is expected to collide with C024 as both occupy the same space on Road 19.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V003\", \"C024\"],\n      \"reason\": \"Two separate collisions are predicted: EGO_other_vehicle is expected to collide with V003 in a head-on or near head-on scenario on Road 19, and V003 is expected to rear-end C024 as both travel southbound on Road 19.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of multiple collisions involving EGO_other_vehicle, V002, V014, V015, C024, and V003 throughout the 5-second prediction window. EGO_other_vehicle's left turn maneuver appears to be the primary cause for conflicts with multiple southbound vehicles and a stopped vehicle. Additionally, a rear-end collision between V014 and V015, and between C024 and V003, is also predicted.\",\n  \"data_limitations\": \"The multiple predicted collisions involving the same actor (EGO_other_vehicle, V003) across different intervals or even within the same interval suggest the independent path prediction approach does not account for collision avoidance or reaction to prior collisions, which might overestimate the total number of accidents.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9423,
+  "candidatesTokenCount": 816,
+  "totalTokenCount": 14203,
+  "cachedContentTokenCount": 912,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9423
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 912
+   }
+  ],
+  "thoughtsTokenCount": 3964,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Os2YavKbMvq11e8PtpeNgQY"
+}

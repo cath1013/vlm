@@ -1,0 +1,76 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 34.21,
+ "usage": {
+  "input": 9115,
+  "output": 723
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle are on orthogonal paths at an intersection and are predicted to collide at t=3.7s, resulting in simultaneous body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "V026"
+    ],
+    "reason": "V026 is predicted to rear-end the stopped vehicle V003 at t=4.6s, indicating a collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V004",
+     "V026"
+    ],
+    "reason": "V026 is predicted to collide with V004 at t=5.6s, suggesting a rear-end collision as both travel southbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V004",
+     "V003",
+     "V001",
+     "V002",
+     "EGO_ego_vehicle",
+     "V010"
+    ],
+    "reason": "Multiple collisions are predicted: V004 will rear-end the stopped V003 at t=6.5s, V002 will rear-end V001 at t=6.6s, and EGO_ego_vehicle will rear-end the stopped V010 at t=6.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V001"
+    ],
+    "reason": "EGO_ego_vehicle_behind and V001 are predicted to collide at t=7.9s, indicating an intersection conflict as they traverse converging paths.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a series of high-risk scenarios involving multiple vehicles. The EGO_ego_vehicle and EGO_ego_vehicle_behind are involved in junction conflicts, while several other vehicles are predicted to experience rear-end collisions with both moving and stopped traffic. The path geometry clearly supports physical contact for all indicated incidents.",
+  "data_limitations": ""
+ }
+}

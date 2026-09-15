@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V009\"],\n      \"reason\": \"EGO_ego_vehicle, while executing a left turn, collides with V009, which is nearly stopped or slowly moving, resulting in simultaneous body contact approximately 0.5 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted conflicts or insufficient clearances between any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted conflicts or insufficient clearances between any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, continuing its left turn, collides with EGO_other_vehicle, which is proceeding straight, with their paths intersecting and resulting in simultaneous body contact approximately 4.0 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted conflicts or insufficient clearances between any actors in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct potential accidents are predicted involving EGO_ego_vehicle. The first is in interval k=1, where EGO_ego_vehicle collides with V009 during a left turn. The second is in interval k=4, where EGO_ego_vehicle again collides with EGO_other_vehicle while turning left across EGO_other_vehicle's path.\",\n  \"data_limitations\": \"The provided trajectory predictions are independent, meaning the occurrence of an accident in an earlier interval (k=1) does not impact the predicted paths or potential collisions in later intervals (k=4). Each interval is judged based on its independent predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6923,
+  "candidatesTokenCount": 642,
+  "totalTokenCount": 11107,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6923
+   }
+  ],
+  "thoughtsTokenCount": 3542,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "euaYarmmNvrdvr0P3YSPkQk"
+}

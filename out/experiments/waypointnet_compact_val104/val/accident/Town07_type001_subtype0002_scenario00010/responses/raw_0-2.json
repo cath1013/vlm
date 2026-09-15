@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and their predicted paths do not show any contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle (northbound) and EGO_ego_vehicle (eastbound) are predicted to collide at 3.0s after observation, with their paths intersecting and resulting in simultaneous body contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and their predicted paths do not show any contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance and their predicted paths do not show any contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle (eastbound) and V001 (westbound) are predicted to have a head-on collision at 4.5s after observation, with their paths overlapping and resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. The first involves EGO_other_vehicle and EGO_ego_vehicle in interval k=2 due to an intersection conflict. The second involves EGO_ego_vehicle and V001 in interval k=5, resulting from a head-on conflict.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5411,
+  "candidatesTokenCount": 595,
+  "totalTokenCount": 9772,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5411
+   }
+  ],
+  "thoughtsTokenCount": 3766,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6ciYaoKRLPWA0-kP08CF8Q4"
+}

@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 29.43,
+ "usage": {
+  "input": 7011,
+  "output": 625
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain safe separation during this interval; no contact is indicated by the trajectory predictor.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain safe separation during this interval; no contact is indicated by the trajectory predictor.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V007"
+    ],
+    "reason": "V007 is predicted to make physical contact or body overlap with EGO_other_vehicle_behind at approximately t=2.5s after observation (6.5s absolute), likely due to an overtaking or merging conflict while both are moving westbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain safe separation during this interval; no contact is indicated by the trajectory predictor.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V007"
+    ],
+    "reason": "V007 is predicted to make physical contact or body overlap with the stopped EGO_other_vehicle at approximately t=4.4s after observation (8.4s absolute), suggesting V007 attempts to pass the stationary vehicle too closely.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct potential accidents are predicted involving V007. In the third interval, V007 is expected to collide with EGO_other_vehicle_behind during an overtaking maneuver. In the fifth interval, V007 is expected to collide with the stopped EGO_other_vehicle, suggesting V007's predicted path leads to contact with the stationary vehicle.",
+  "data_limitations": ""
+ }
+}

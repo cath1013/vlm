@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance and no indications of contact during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle and EGO_ego_vehicle have a close encounter with 1.41m clearance, this is not a predicted physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain significant distances from each other, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle_behind and EGO_ego_vehicle have a 2.06m clearance, which is not a predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to have simultaneous body contact or overlap with 0.0m minimum clearance at t=4.9s, indicating a head-on collision as their paths converge to the same E-coordinate while moving in opposite N-directions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval (k=5) between EGO_other_vehicle and EGO_ego_vehicle_behind due to their future paths converging to the same physical space at the same time. All other intervals show sufficient clearance between vehicles.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4650,
+  "candidatesTokenCount": 584,
+  "totalTokenCount": 7731,
+  "cachedContentTokenCount": 819,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4650
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 819
+   }
+  ],
+  "thoughtsTokenCount": 2497,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ne6YavfuKOO40-kPtvDz2AQ"
+}

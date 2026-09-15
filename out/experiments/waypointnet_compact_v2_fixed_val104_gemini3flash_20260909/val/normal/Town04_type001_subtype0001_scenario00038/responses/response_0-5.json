@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 77.17,
+ "usage": {
+  "input": 8151,
+  "output": 479
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are traveling in the same direction with sufficient longitudinal separation as M008 approaches from the north.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Motorcycle M008 is closing the gap with the car EGO_other_vehicle_behind but maintains a safe clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The motorcycle continues its approach as it prepares to turn, but no physical overlap is predicted in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "M008"
+    ],
+    "reason": "Motorcycle M008 collides with car EGO_other_vehicle_behind at approximately 8.1s as their paths converge while M008 slows for a turn and the car overtakes it.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "M008"
+    ],
+    "reason": "The collision between EGO_other_vehicle_behind and M008 is expected to persist into this interval due to their footprints' overlap as the car continues past the motorcycle.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The motorcycle M008 is traveling significantly faster than car EGO_other_vehicle_behind on Road 23. A collision is predicted starting at t=8.1s (interval k=4) as M008 slows to turn onto Road 1450 and the car's path on Road 23/1442 overlaps with it during an overtaking maneuver. Other vehicles maintain safe following distances.",
+  "data_limitations": ""
+ }
+}

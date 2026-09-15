@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.0,
+ "usage": {
+  "input": 7479,
+  "output": 579
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain sufficient clearance with each other during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain sufficient clearance with each other during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to have a body overlap with a minimum clearance of 0.0m at 2.4 seconds after observation, indicating a clear contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_ego_vehicle_behind and EGO_other_vehicle_behind have a small predicted minimum clearance of 0.57m, actual contact is not predicted.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain sufficient clearance with each other during this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is clearly expected between EGO_ego_vehicle and EGO_other_vehicle during the 3rd 1-second interval (8.0, 9.0] seconds after observation, indicated by a predicted minimum clearance of 0.0m and explicit contact prediction. For all other intervals and vehicle pairs, no accidents are predicted, with vehicles maintaining sufficient or explicitly non-contacting clearances.",
+  "data_limitations": ""
+ }
+}

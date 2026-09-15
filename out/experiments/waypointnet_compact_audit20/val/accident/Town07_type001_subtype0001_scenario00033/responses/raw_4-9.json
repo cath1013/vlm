@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind perform a close merge, but their predicted paths maintain sufficient separation (approximately 3.1 meters between centers) to avoid physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to perform a right turn that brings it into direct conflict with EGO_ego_vehicle's southbound path, with their predicted waypoints being approximately 2.1 meters apart, indicating an orthogonal entry/merging collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V002\"],\n      \"reason\": \"EGO_other_vehicle_behind's predicted path directly overlaps with the stopped vehicle V002, with their waypoints being approximately 1.5 meters apart, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V014\"],\n      \"reason\": \"EGO_other_vehicle's predicted path directly overlaps with the stopped vehicle V014, with their waypoints being approximately 1.2 meters apart, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other, either having passed potential conflict points or being far removed from any interactions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"This scenario predicts multiple critical interactions among observer vehicles and with stopped traffic at an intersection. Specifically, EGO_other_vehicle_behind is involved in two separate predicted collisions: first with EGO_ego_vehicle during a merge, and subsequently a rear-end collision with a stopped vehicle (V002). Additionally, EGO_other_vehicle is predicted to rear-end another stopped vehicle (V014).\",\n  \"data_limitations\": \"The predicted path for N011 shows an unusual reversal of direction towards the end of the prediction window, but this does not affect the identified accident predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5550,
+  "candidatesTokenCount": 731,
+  "totalTokenCount": 14723,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5550
+   }
+  ],
+  "thoughtsTokenCount": 8442,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "QkuVau-xHfXKrfcPo-u68Qs"
+}

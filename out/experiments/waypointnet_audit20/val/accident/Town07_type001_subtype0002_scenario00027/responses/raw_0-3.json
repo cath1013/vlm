@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M008\", \"V010\", \"EGO_other_vehicle_behind\", \"V016\", \"V007\", \"V011\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"Multiple critical head-on collision risks are indicated by linear extrapolation with TTCs below 1 second for vehicles on the same named road but in opposing lanes, with predicted paths remaining straight.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P003\", \"EGO_other_vehicle_behind\", \"P005\"],\n      \"reason\": \"A junction conflict is expected between EGO_other_vehicle and P003 as both proceed straight into the junction, and a head-on collision is expected between EGO_other_vehicle_behind and P005 on Road 15 due to their opposing paths and short TTC.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M008\", \"V011\"],\n      \"reason\": \"A head-on collision is expected between M008 and V011 on Road 55, as indicated by linear extrapolation with a TTC of 2.0 seconds and their continued straight paths, assuming prior collisions involving these vehicles did not occur.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"A significant junction conflict is expected as EGO_ego_vehicle and EGO_other_vehicle approach the junction on orthogonal paths, with V001 stopped directly in the junction area, posing an additional collision risk.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All immediate conflicts with short Time-To-Contact values have passed, and no new imminent collision risks are identified in this interval based on the provided linear extrapolations or predicted paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The situation involves multiple imminent head-on collision risks on the same named roads with opposing traffic flows, as well as several complex junction conflicts involving both observer and other vehicles. The majority of these critical interactions are predicted to occur within the first two seconds, with further significant conflicts continuing into the third and fourth seconds.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in X.Xs, same road' for vehicles identified as 'eastbound' and 'westbound' or 'northbound' and 'southbound' is interpreted as head-on collision risks in opposing lanes of a shared physical road, as the data does not specify if these roads are physically divided. The consequences of accidents predicted in earlier intervals are not factored into later interval predictions, which could lead to an unrealistic cascade of events. The precise geometry of the junction and specific lanes is not fully detailed, which makes it challenging to ascertain right-of-way or exact conflict points for junction interactions beyond what TTC values suggest.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9472,
+  "candidatesTokenCount": 886,
+  "totalTokenCount": 19277,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9472
+   }
+  ],
+  "thoughtsTokenCount": 8919,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "zx2VavXTBcKy2roP0Ni4wQg"
+}

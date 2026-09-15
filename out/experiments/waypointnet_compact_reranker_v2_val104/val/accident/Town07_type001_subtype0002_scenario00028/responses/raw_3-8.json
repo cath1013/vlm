@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance and no overlap during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the stationary EGO_other_vehicle_behind at approximately 1.5 seconds after observation (t=9.5s), with a minimum clearance of 0.0m indicating body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the stationary V001 at approximately 2.6 seconds after observation (t=10.6s), with a minimum clearance of 0.0m indicating body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V002\"],\n      \"reason\": \"V002 is predicted to collide with the stationary EGO_other_vehicle_behind at approximately 3.7 seconds after observation (t=11.7s), with a minimum clearance of 0.0m indicating body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V014\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with V014 at approximately 4.8 seconds after observation (t=12.8s), with a minimum clearance of 0.0m indicating body contact as their paths cross.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a series of collisions involving EGO_ego_vehicle_behind and EGO_other_vehicle_behind. EGO_ego_vehicle_behind is predicted to collide with a stationary vehicle in k=2, then another stationary vehicle in k=3, and finally with V014 in k=5. Additionally, V002 is predicted to collide with the stationary EGO_other_vehicle_behind in k=4. These predicted contacts are consistent with the supplied future paths, where vehicles' trajectories clearly intersect or overlap with others.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7182,
+  "candidatesTokenCount": 761,
+  "totalTokenCount": 14602,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7182
+   }
+  ],
+  "thoughtsTokenCount": 6659,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Re-YaqXwENiN0-kPmqaZiAw"
+}

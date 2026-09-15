@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn, crossing into the path of EGO_ego_vehicle_behind which is proceeding straight, resulting in a collision at t=1.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\"],\n      \"reason\": \"V003 is predicted to rear-end the stopped vehicle V002 in the same lane at t=1.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P016\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with pedestrian P016 as their paths intersect at t=2.2s, indicating a junction conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M005\", \"N007\", \"V004\"],\n      \"reason\": \"N007 is predicted to rear-end M005 at t=3.2s, and M005 is predicted to then rear-end the stopped V004 at t=4.0s, both in a chain of rear-end collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N007\", \"V004\"],\n      \"reason\": \"N007 is predicted to rear-end the stopped vehicle V004 at t=4.2s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predicted trajectories indicate multiple collision events across all five 1-second intervals. These include a junction conflict between turning vehicles, a vehicle-pedestrian collision, and several rear-end collisions with stopped or slower-moving vehicles. The 'predicted_closest_pairs' explicitly show zero minimum clearance and confirm contact for these events.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10219,
+  "candidatesTokenCount": 677,
+  "totalTokenCount": 14754,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10219
+   }
+  ],
+  "thoughtsTokenCount": 3858,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "MMeYatapOPi20-kPkNOI8Qs"
+}

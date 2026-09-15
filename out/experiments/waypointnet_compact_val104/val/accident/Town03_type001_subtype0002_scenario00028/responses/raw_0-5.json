@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance from other actors, with the closest predicted clearance being 1.65m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind, while attempting a right turn, is predicted to collide with the stopped EGO_other_vehicle at 6.5 seconds, with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact events are identified in this interval; all vehicles maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\", \"V007\", \"V004\"],\n      \"reason\": \"Two separate collisions are predicted: EGO_other_vehicle_behind collides with the stopped EGO_other_vehicle at 8.3 seconds, and V007 collides with V004 at 8.8 seconds due to converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted physical contact events in this interval; all actor paths are clear of each other.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. EGO_ego_vehicle_behind is expected to collide with EGO_other_vehicle (stopped) in the (6.0, 7.0]s interval. Additionally, in the (8.0, 9.0]s interval, EGO_other_vehicle_behind is also expected to collide with the same stopped EGO_other_vehicle, and a separate collision is predicted between V007 and V004.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5904,
+  "candidatesTokenCount": 664,
+  "totalTokenCount": 11236,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5904
+   }
+  ],
+  "thoughtsTokenCount": 4668,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LMeYau_LD_rcvr0P9_e_sAY"
+}

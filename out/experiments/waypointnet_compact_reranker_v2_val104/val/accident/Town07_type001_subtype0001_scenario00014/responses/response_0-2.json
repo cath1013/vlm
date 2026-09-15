@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 25.85,
+ "usage": {
+  "input": 7566,
+  "output": 567
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0] s",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain sufficient clearance, and no conflicts are predicted within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0] s",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain sufficient clearance, and no conflicts are predicted within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0] s",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain sufficient clearance, and no conflicts are predicted within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0] s",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain sufficient clearance, and no conflicts are predicted within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T018"
+    ],
+    "reason": "A physical contact is predicted between EGO_ego_vehicle_behind and T018 at 4.3 seconds after the last observation, with a minimum clearance of 0.0m. EGO_ego_vehicle_behind appears to encroach on the space of the stopped truck (T018) during its northbound trajectory.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Four observer vehicles are proceeding along their paths while many other road users remain stopped. A significant conflict is predicted in the final interval (k=5) where EGO_ego_vehicle_behind is expected to make contact with the stopped truck T018. The rest of the intervals show no expected accidents.",
+  "data_limitations": ""
+ }
+}

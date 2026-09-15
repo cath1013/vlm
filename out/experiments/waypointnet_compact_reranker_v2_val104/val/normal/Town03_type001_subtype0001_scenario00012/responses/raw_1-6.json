@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles, with the closest pair maintaining a 1.56m gap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close clearances are identified in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V003\"],\n      \"reason\": \"EGO_other_vehicle (southbound) and V003 (eastbound) are predicted to collide at an intersection, indicated by a minimum clearance of 0.0m at 3.0s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V003\"],\n      \"reason\": \"EGO_other_vehicle_behind (southbound) and V003 (eastbound) are predicted to collide, indicated by a minimum clearance of 0.0m at 3.8s after observation, likely a secondary impact following the initial collision involving V003.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While some vehicles have small clearances (e.g., 0.48m between EGO_ego_vehicle_behind and V015), no physical contact or overlap is predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the third 1-second interval involving EGO_other_vehicle and V003, stemming from an orthogonal intersection conflict. This is closely followed by a second predicted accident in the fourth interval, where EGO_other_vehicle_behind collides with the same V003, indicating a potential multi-vehicle incident. All other vehicle interactions are predicted to maintain sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12649,
+  "candidatesTokenCount": 647,
+  "totalTokenCount": 17977,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12649
+   }
+  ],
+  "thoughtsTokenCount": 4681,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "seiYatTpO97PrfcPlI2f0Qo"
+}

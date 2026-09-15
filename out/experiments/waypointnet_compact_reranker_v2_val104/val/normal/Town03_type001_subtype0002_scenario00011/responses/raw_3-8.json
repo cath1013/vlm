@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero minimum clearance are found in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero minimum clearance are found in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind (southbound) and EGO_other_vehicle (eastbound) are predicted to have a body overlap at 2.9s after observation due to orthogonal path convergence at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind and EGO_other_vehicle are both moving eastbound and are predicted to have a body overlap at 3.2s after observation, suggesting a lane-change or merge conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind (southbound) and EGO_other_vehicle_behind (eastbound) are predicted to have a body overlap at 4.7s after observation due to orthogonal path convergence at an intersection.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple potential accidents are predicted involving observer vehicles in the latter half of the prediction window. EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to collide in interval k=3 due to orthogonal path convergence. Subsequently, EGO_other_vehicle_behind and EGO_other_vehicle are predicted to collide in interval k=4, likely from a merge or lane-change conflict. Finally, EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to collide in interval k=5, also due to orthogonal path convergence.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9285,
+  "candidatesTokenCount": 696,
+  "totalTokenCount": 16710,
+  "cachedContentTokenCount": 1821,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9285
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1821
+   }
+  ],
+  "thoughtsTokenCount": 6729,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "I_CYauaEN7LJrfcPtLHi8Ac"
+}

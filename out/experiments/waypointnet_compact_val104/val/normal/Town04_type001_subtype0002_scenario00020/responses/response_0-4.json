@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 12.78,
+ "usage": {
+  "input": 5540,
+  "output": 628
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances from each other, with no predicted path overlaps or close encounters indicating contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T004",
+     "V005"
+    ],
+    "reason": "V005 is predicted to collide with the rear of the stopped T004 approximately 1.1 seconds after the last observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "N002"
+    ],
+    "reason": "N002 is predicted to collide with the rear of the stopped V001 approximately 2.6 seconds after the last observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N002",
+     "V003"
+    ],
+    "reason": "V003 and N002 are predicted to collide at approximately 3.9 seconds after the last observation as their paths converge while driving northbound/northwestbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although V001 and V003 show a very small minimum clearance (0.09m), the prediction explicitly indicates no contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Several collisions are predicted within the future 5-second window. A rear-end collision between V005 and the stopped T004 is expected in k=2. Another rear-end collision between N002 and the stopped V001 is expected in k=3. A merging or side-swipe collision between N002 and V003 is expected in k=4 as their paths converge. Intervals k=1 and k=5 show no expected accidents.",
+  "data_limitations": ""
+ }
+}

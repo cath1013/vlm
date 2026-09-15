@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving actors maintain sufficient separation, and stopped actors remain stationary, preventing any imminent collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving actors maintain sufficient separation, and stopped actors remain stationary, preventing any imminent collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Moving vehicles and pedestrians maintain clear distances, with no predicted path intersections that would lead to contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P006\"],\n      \"reason\": \"EGO_other_vehicle (car) and P006 (person) are predicted to be in close proximity with overlapping trajectories. EGO_other_vehicle's path from (89.6,-51.3) to (86.9,-49.3) clearly intersects P006's path from (84.7,-47.6) to (84.8,-49.7). At their closest predicted points, their centers are approximately 2.1 meters apart, which is insufficient for a car and pedestrian to avoid physical contact given their estimated body sizes and crossing paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is expected in the previous interval, the predicted paths show the actors moving past the point of conflict in this interval, and no new conflicts emerge.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the fourth interval (k=4) between EGO_other_vehicle and P006 due to their paths intersecting with insufficient clearance. The EGO_other_vehicle is turning right while the pedestrian is crossing, leading to a direct conflict point. All other actors maintain safe distances throughout the prediction window.\",\n  \"data_limitations\": \"The precise dimensions and bounding box orientations for actors are not provided, which required an estimation of vehicle and pedestrian sizes for overlap determination. The lack of detailed lane information also prevents precise right-of-way assessment, though the geometric overlap is clear enough to indicate a collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5590,
+  "candidatesTokenCount": 708,
+  "totalTokenCount": 17549,
+  "cachedContentTokenCount": 848,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5590
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 848
+   }
+  ],
+  "thoughtsTokenCount": 11251,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "1EaVau6fIu6x2roPzYbTwQQ"
+}

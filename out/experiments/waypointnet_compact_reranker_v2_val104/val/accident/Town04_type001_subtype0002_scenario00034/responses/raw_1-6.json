@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient clearance with each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient clearance with each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have a body overlap with a minimum clearance of 0.0m at 2.4 seconds after observation, indicating a clear contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle_behind and EGO_other_vehicle_behind have a small predicted minimum clearance of 0.57m, actual contact is not predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient clearance with each other during this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is clearly expected between EGO_ego_vehicle and EGO_other_vehicle during the 3rd 1-second interval (8.0, 9.0] seconds after observation, indicated by a predicted minimum clearance of 0.0m and explicit contact prediction. For all other intervals and vehicle pairs, no accidents are predicted, with vehicles maintaining sufficient or explicitly non-contacting clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7479,
+  "candidatesTokenCount": 579,
+  "totalTokenCount": 10637,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7479
+   }
+  ],
+  "thoughtsTokenCount": 2579,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DO6YaqDEGc6Y0-kPndaJ2QI"
+}

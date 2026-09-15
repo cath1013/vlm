@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V018\"\n      ],\n      \"reason\": \"EGO_other_vehicle turning left and V018 proceeding straight southeast have intersecting paths, resulting in a predicted minimum clearance of 0.94m at 1.5s, which indicates body overlap for these vehicles (each 1.93m wide).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V018\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind proceeding straight north and V018 proceeding straight southeast have intersecting paths, resulting in a predicted minimum clearance of 1.51m at 2.6s, which indicates body overlap for these vehicles (each 1.93m wide).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation, and no vehicle trajectories indicate a conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation, and no vehicle trajectories indicate a conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation, with the closest predicted clearance being over 4 meters, indicating no contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct potential accidents are predicted within the first two 1-second intervals. EGO_other_vehicle and V018 are projected to collide at an intersection at approximately 1.5 seconds, followed by EGO_other_vehicle_behind and V018 colliding at the same junction around 2.6 seconds. For both incidents, the minimum clearance values indicate a clear body overlap. The remaining future intervals (k=3 to k=5) do not show any expected accidents, as all vehicles maintain sufficient separation.\",\n  \"data_limitations\": \"The 'predicted_contact' flag in 'predicted_closest_pairs' was explicitly 'false' for pairs with minimum clearances (0.94m and 1.51m) that geometrically imply body overlap for vehicles of 1.93m width, given a contact margin of 0.0m. This flag was not relied upon; the judgment was based on the provided minimum clearance and vehicle footprint dimensions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6295,
+  "candidatesTokenCount": 767,
+  "totalTokenCount": 11937,
+  "cachedContentTokenCount": 865,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6295
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 865
+   }
+  ],
+  "thoughtsTokenCount": 4875,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6-WYarGzJMq02roP4LyOiQI"
+}

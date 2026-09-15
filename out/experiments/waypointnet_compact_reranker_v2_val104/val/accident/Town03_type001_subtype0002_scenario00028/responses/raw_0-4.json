@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance, with the closest interaction being a 2.13m gap between EGO_ego_vehicle and EGO_other_vehicle, which is not physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted minimum clearances are substantial, indicating that vehicles will pass each other safely without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"An orthogonal collision is predicted at t=2.6s after observation (within this interval) between EGO_ego_vehicle_behind, which is turning right, and EGO_other_vehicle_behind, which is proceeding straight, resulting in a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new accidents are predicted to occur in this interval, as the primary collision event involving EGO_ego_vehicle_behind and EGO_other_vehicle_behind is expected in the preceding interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Apart from the prior accident in k=3, all other vehicles maintain safe distances, and no new accident events are predicted to occur in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected to occur in the third 1-second interval between EGO_ego_vehicle_behind and EGO_other_vehicle_behind due to their intersecting paths and a predicted 0.0m clearance. No other significant conflicts leading to accidents are identified within the 5-second prediction window.\",\n  \"data_limitations\": \"The provided data does not model the post-collision state or secondary impacts following an initial accident, which could influence events in subsequent intervals. The `predicted_closest_pairs` array has a cap, potentially omitting other less severe interactions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5755,
+  "candidatesTokenCount": 673,
+  "totalTokenCount": 10515,
+  "cachedContentTokenCount": 852,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5755
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 852
+   }
+  ],
+  "thoughtsTokenCount": 4087,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9OyYasLDIYDJ0-kPmryCmQI"
+}

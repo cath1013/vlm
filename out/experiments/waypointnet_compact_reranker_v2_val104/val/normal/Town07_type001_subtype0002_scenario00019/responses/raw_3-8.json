@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are maintaining their lanes and paths, with no predicted conflicts or insufficient clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue on their predicted paths with sufficient separation, indicating no expected accidents.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show clear separation between all actors, with no signs of impending contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V005\"],\n      \"reason\": \"EGO_ego_vehicle's northbound path intersects with V005, which is predicted to remain stopped. The paths lead to a direct body overlap, indicated by a minimum clearance of 0.0m at 11.5s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the previous interval, no new or continued contacts are predicted in this interval based on the supplied future paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A clear collision is predicted in the fourth 1-second interval (11.0-12.0s after observation) between EGO_ego_vehicle and V005. EGO_ego_vehicle is projected to drive into the static position of V005, leading to body overlap. All other vehicles maintain safe distances throughout the prediction window.\",\n  \"data_limitations\": \"The independent prediction of actor paths, especially V005 remaining stopped while EGO_ego_vehicle proceeds directly into its space, is a limitation as real-world driving would likely involve evasive action from EGO_ego_vehicle. However, the judgment adheres strictly to the provided trajectories.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7074,
+  "candidatesTokenCount": 633,
+  "totalTokenCount": 12571,
+  "cachedContentTokenCount": 880,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7074
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 880
+   }
+  ],
+  "thoughtsTokenCount": 4864,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "f_OYasvSHKrQosUP_e2PsQk"
+}

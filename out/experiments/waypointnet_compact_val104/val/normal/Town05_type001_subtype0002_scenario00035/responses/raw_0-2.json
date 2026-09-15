@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and clear separation based on their predicted paths; the closest pairs have clearances greater than 0.97m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P012\", \"V001\"],\n      \"reason\": \"Person P012 and car V001 are predicted to collide at approximately t=4.0s due to their paths intersecting, resulting in zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have body contact; all minimum clearances are positive, indicating safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"Observer vehicles EGO_other_vehicle_behind and EGO_other_vehicle are predicted to have a rear-end collision at approximately t=5.8s, as the trailing vehicle rapidly closes the distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and safe separation; the closest predicted pair has a clearance of 0.99m while passing in opposite directions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction horizon. In the second interval, person P012 and car V001 are predicted to collide due to crossing paths. Subsequently, in the fourth interval, observer vehicles EGO_other_vehicle_behind and EGO_other_vehicle are predicted to have a rear-end collision.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7326,
+  "candidatesTokenCount": 605,
+  "totalTokenCount": 11371,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7326
+   }
+  ],
+  "thoughtsTokenCount": 3440,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "zMyYatbML8aMvr0P4sH7gAY"
+}

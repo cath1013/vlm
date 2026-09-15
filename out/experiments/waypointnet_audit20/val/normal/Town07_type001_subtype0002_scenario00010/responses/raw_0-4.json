@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V006\", \"V010\"],\n      \"reason\": \"V006 (northbound) and V010 (southbound), both on Road 37, are only 6.5m apart at t=4s with a linear-extrapolated contact time of 0.6s, indicating an imminent head-on collision or severe sideswipe.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V009\"],\n      \"reason\": \"EGO_other_vehicle (northbound) enters the junction around t=4.94s, and V009 (southbound) enters around t=5.28s, both on Road 37 and predicted to go straight, leading to a high-risk crossing path conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C003\", \"V002\"],\n      \"reason\": \"C003 is following V002 which is stopped at a junction. At t=4s, C003 is 12.4m behind with a TTC of 3.3s, indicating an expected rear-end collision by this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle enters the junction, but other vehicles in its immediate vicinity (V001, N007, M008) are predicted to remain stopped, allowing EGO_ego_vehicle to proceed without collision. The 'off-candidate path' prediction is too vague to assert a collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the previous collisions and movements, no new high-risk interactions are identified among the remaining vehicles in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario presents multiple high-risk interactions at a four-way junction. An immediate head-on collision between V006 and V010 is expected, followed by a crossing path conflict between EGO_other_vehicle and V009, and a rear-end collision between C003 and V002. These events dominate the early prediction intervals, making the overall situation highly accident-prone.\",\n  \"data_limitations\": \"The lack of traffic signal state and lane marking types prevents a definitive understanding of junction right-of-way. The 'off-candidate path' prediction for EGO_ego_vehicle is ambiguous, limiting detailed conflict assessment for that actor.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8739,
+  "candidatesTokenCount": 793,
+  "totalTokenCount": 21059,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8739
+   }
+  ],
+  "thoughtsTokenCount": 11527,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Hh2VatiuMsOx2roP4sbS0A8"
+}

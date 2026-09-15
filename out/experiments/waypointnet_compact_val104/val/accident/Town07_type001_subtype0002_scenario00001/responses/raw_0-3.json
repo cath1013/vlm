@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance; the closest interaction between EGO_other_vehicle_behind and V005 has a minimum clearance of 0.26m, which is a gap and not physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another, with no predicted contact or body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe separation, with no instances of physical contact or body overlap indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show vehicles proceeding with ample clearance, without any intersections or tight convergences leading to contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances are well above zero, indicating no physical contact or body overlap between any vehicles.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"All vehicles appear to maintain safe distances from each other throughout the 5-second prediction window. Although some clearances are very tight (e.g., 0.26m between EGO_other_vehicle_behind and V005), none indicate physical contact or body overlap based on the provided geometry and the strict definition that a positive minimum clearance is not a collision. The observer vehicles and other road users navigate their respective paths without predicted collisions.\",\n  \"data_limitations\": \"The smallest predicted clearance of 0.26m is extremely tight for real-world driving conditions and could easily result in a scrape or minor collision due to minor trajectory deviations or sensor noise. However, based on the strict definition provided in the prompt that requires 'physical contact or body overlap' (i.e., minimum_clearance_m <= 0), this value does not meet the criteria for an expected accident.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5410,
+  "candidatesTokenCount": 648,
+  "totalTokenCount": 11416,
+  "cachedContentTokenCount": 843,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5410
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 843
+   }
+  ],
+  "thoughtsTokenCount": 5358,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "68iYavKoN7SD0-kPtcbR2QE"
+}

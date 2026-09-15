@@ -1,0 +1,65 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 34.77,
+ "usage": {
+  "input": 6438,
+  "output": 722
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted clearances between vehicles remain positive and no contact is indicated by the trajectory predictor.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted clearances between vehicles remain positive and no contact is indicated by the trajectory predictor.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M002",
+     "V001",
+     "V012",
+     "V017"
+    ],
+    "reason": "The trajectory predictor indicates two separate collisions in this interval: M002 and V001 are predicted to have body contact at 4.8s, likely a side-swipe or rear-end collision as they converge on similar westbound paths. Additionally, V012 and V017 are predicted to have body contact at 4.9s, suggesting a merging or lane-change conflict as they move eastbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted clearances between vehicles remain positive and no contact is indicated by the trajectory predictor.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The trajectory predictor indicates body contact between EGO_other_vehicle and EGO_other_vehicle_behind at 6.7s. Both vehicles are moving southbound, suggesting a rear-end or side-swipe collision as EGO_other_vehicle approaches or attempts to pass EGO_other_vehicle_behind.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The predictions indicate a high likelihood of multiple accidents occurring in this future window. Specifically, the interval k=3 shows two distinct collisions involving M002 with V001, and V012 with V017. A third collision involving EGO_other_vehicle and EGO_other_vehicle_behind is predicted in interval k=5.",
+  "data_limitations": "The precise nature of the contact for the EGO_other_vehicle and EGO_other_vehicle_behind collision in k=5 was not immediately evident from a manual path interpolation, requiring reliance on the 'predicted_contact' flag for a definitive judgement."
+ }
+}

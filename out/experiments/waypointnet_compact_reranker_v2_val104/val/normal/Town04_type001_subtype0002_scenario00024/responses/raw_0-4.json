@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without any indication of contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to continue on their paths with ample separation, and no contacts are indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show no convergence leading to physical contact; all minimum clearances are positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"An orthogonal intersection conflict is predicted between EGO_ego_vehicle and EGO_other_vehicle at approximately 7.6 seconds absolute time, with predicted contact and zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite the previous interval's predicted contact, no further accidents are indicated in this interval as vehicles either resolve conflict or are predicted to have sufficient clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected within the (7.0, 8.0] second interval, involving EGO_ego_vehicle and EGO_other_vehicle due to an orthogonal intersection conflict. For all other intervals (4.0, 5.0], (5.0, 6.0], (6.0, 7.0], and (8.0, 9.0], no accidents are predicted, as all vehicles maintain safe distances according to their predicted trajectories.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8459,
+  "candidatesTokenCount": 586,
+  "totalTokenCount": 10919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8459
+   }
+  ],
+  "thoughtsTokenCount": 1874,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "YPGYau6sI7q20-kPyMLMgQI"
+}

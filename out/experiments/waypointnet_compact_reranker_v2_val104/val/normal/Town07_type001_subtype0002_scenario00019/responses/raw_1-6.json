@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without any geometric conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle has a small predicted clearance of 0.77m with the stopped T002, this is a passing maneuver without predicted contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to collide with zero minimum clearance at approximately 2.6 seconds after observation (t=8.6s), due to their orthogonal paths intersecting.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new conflicts are predicted in this interval, as the primary collision occurred in the previous interval, and other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All remaining predicted pairs show significant clearances, indicating no further accidents are expected.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected between EGO_ego_vehicle and EGO_other_vehicle_behind in the third future 1-second interval (8-9s), as their predicted paths intersect with zero clearance. Other vehicles maintain generally safe distances, with some close passing maneuvers that do not result in predicted contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7006,
+  "candidatesTokenCount": 573,
+  "totalTokenCount": 9857,
+  "cachedContentTokenCount": 878,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7006
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 878
+   }
+  ],
+  "thoughtsTokenCount": 2278,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "WvOYat66KPOc0-kP7OXMoQ4"
+}

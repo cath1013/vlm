@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths maintain sufficient clearance between actors, and no collision candidates are identified in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V015\",\n        \"V016\",\n        \"T001\",\n        \"V002\",\n        \"T012\",\n        \"V013\"\n      ],\n      \"reason\": \"V016 is predicted to rear-end V015 (a stopped car). T001 is predicted to rear-end V002, both travelling westbound. V013 is predicted to rear-end T012 (a stopped truck).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V005\",\n        \"EGO_other_vehicle\",\n        \"T001\",\n        \"V002\",\n        \"V019\",\n        \"V018\"\n      ],\n      \"reason\": \"V005 is predicted to rear-end V004 (a stopped car). EGO_other_vehicle is predicted to collide with T001 and V002 in separate orthogonal intersection conflicts. V019 is predicted to rear-end V018, both travelling westbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"T006\"\n      ],\n      \"reason\": \"T006 is predicted to rear-end V005, both travelling southbound, as V005 appears to significantly decelerate or T006 catches up.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"N003\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with N003 in an orthogonal intersection conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario involves multiple collision predictions. In intervals k=2 and k=3, several rear-end collisions are predicted between vehicles traveling in the same lane where one is either stopped or decelerating. Additionally, the observer vehicle, EGO_other_vehicle, is predicted to be involved in orthogonal intersection conflicts with other vehicles in k=3 and k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10209,
+  "candidatesTokenCount": 776,
+  "totalTokenCount": 18155,
+  "cachedContentTokenCount": 919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10209
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 919
+   }
+  ],
+  "thoughtsTokenCount": 7170,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DsiYaq73J-P82roP7r7joQo"
+}

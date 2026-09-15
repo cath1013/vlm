@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any geometric conflicts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"V033\", \"V012\", \"N013\"],\n      \"reason\": \"V015 is predicted to collide with the stopped V033 at t=4.3s. Additionally, N013 is predicted to collide with the stopped V012 at t=4.7s as N013 performs a left turn across V012's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N026\", \"V027\", \"EGO_ego_vehicle_behind\", \"P024\"],\n      \"reason\": \"V027 is predicted to collide with the stopped N026 at t=5.3s. Also, EGO_ego_vehicle_behind, turning right, is predicted to collide with P024, moving straight, at a junction at t=5.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V016\", \"V033\"],\n      \"reason\": \"V016 is predicted to collide with the stopped V033 at t=6.2s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V033\", \"V038\", \"EGO_ego_vehicle\", \"T036\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"N013\"],\n      \"reason\": \"V038 is predicted to collide with the stopped V033 at t=7.7s. EGO_ego_vehicle is predicted to collide with the stopped T036 at t=7.8s. EGO_other_vehicle_behind is predicted to rear-end EGO_other_vehicle at t=7.8s. EGO_other_vehicle is predicted to collide with N013 at a junction at t=7.9s as N013 turns left across EGO_other_vehicle's path.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. These include several instances of moving vehicles colliding with stopped vehicles, two distinct junction conflicts involving turning and straight-moving vehicles, and one rear-end collision between two following vehicles. The predicted paths clearly show geometric overlap at the specified times for all accident candidates.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9709,
+  "candidatesTokenCount": 804,
+  "totalTokenCount": 15768,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9709
+   }
+  ],
+  "thoughtsTokenCount": 5255,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "RMCYaqLOG57N0-kPwemOqQI"
+}

@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 25.74,
+ "usage": {
+  "input": 9035,
+  "output": 691
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance; no physical contact or overlap is expected between any actors.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026"
+    ],
+    "reason": "V026, moving west, is predicted to collide with EGO_other_vehicle, which is stopped at coordinates (-260.0, 3.9), resulting in physical contact or overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026"
+    ],
+    "reason": "The collision between V026 and EGO_other_vehicle is expected to persist as V026 continues its westward trajectory through the space occupied by the stationary EGO_other_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026"
+    ],
+    "reason": "The contact between V026 and EGO_other_vehicle is expected to continue through this interval as V026 moves past the stopped vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V026"
+    ],
+    "reason": "V026, continuing its westward movement, is predicted to collide orthogonally with EGO_ego_vehicle_behind, which is moving north, as their future paths intersect.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The predictions indicate a complex series of events, primarily involving V026. Initially, V026 is predicted to collide with the stationary EGO_other_vehicle in the (9.0, 10.0] second interval, and this contact is expected to persist through the subsequent two intervals. Following this, V026 is also predicted to be involved in a separate, orthogonal collision with EGO_ego_vehicle_behind in the (12.0, 13.0] second interval.",
+  "data_limitations": ""
+ }
+}

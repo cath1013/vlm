@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to make contact at 0.4 seconds after the observation, indicating a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicle paths are predicted to intersect or cause physical contact; the closest predicted interaction has a a 1.25-meter clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V002\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the stopped V002 at 2.2 seconds after the observation, as their paths directly overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"M003\"\n      ],\n      \"reason\": \"Two separate collisions are predicted: EGO_other_vehicle and EGO_ego_vehicle are predicted to collide at 3.9 seconds, and EGO_ego_vehicle_behind is predicted to collide with the stopped M003 at 3.8 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving vehicles maintain clear separation from each other and from stopped vehicles, with no predicted path intersections or physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates multiple potential collision points involving observer vehicles. EGO_ego_vehicle_behind is predicted to be involved in collisions in intervals k=1, k=3, and k=4. EGO_other_vehicle_behind is involved in k=1, and EGO_other_vehicle along with EGO_ego_vehicle are involved in k=4. Many of these involve collisions with stopped vehicles.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7490,
+  "candidatesTokenCount": 713,
+  "totalTokenCount": 12759,
+  "cachedContentTokenCount": 886,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7490
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 886
+   }
+  ],
+  "thoughtsTokenCount": 4556,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "c--YapqqJtOB1e8PguOGuAU"
+}

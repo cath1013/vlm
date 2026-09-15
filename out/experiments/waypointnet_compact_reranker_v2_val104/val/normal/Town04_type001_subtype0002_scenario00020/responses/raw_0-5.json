@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show EGO_other_vehicle_behind maintaining a safe following distance from EGO_other_vehicle, and all other actors are either stationary or have clear paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles continue on their predicted paths with sufficient separation; EGO_other_vehicle_behind is still trailing EGO_other_vehicle at a safe distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle_behind is closing the gap on EGO_other_vehicle, there is still enough clearance, and no other conflicts are evident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The gap between EGO_other_vehicle and EGO_other_vehicle_behind narrows considerably, but direct physical contact is not yet predicted within this interval based on their footprints.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to rear-end EGO_other_vehicle at approximately 9.1s absolute time, as indicated by a predicted minimum clearance of 0.0m and confirmed by bounding box overlap from their future trajectories.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval (k=5) where EGO_other_vehicle_behind, traveling at a higher speed, rear-ends EGO_other_vehicle. This is strongly supported by the predicted closest pairs data showing zero clearance and the future path trajectories indicating direct overlap. All other actors maintain safe distances throughout the prediction horizon.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6456,
+  "candidatesTokenCount": 642,
+  "totalTokenCount": 11784,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6456
+   }
+  ],
+  "thoughtsTokenCount": 4686,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IvGYatqcHtmD2roPxc_RmAM"
+}

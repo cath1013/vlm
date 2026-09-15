@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances during this interval. The closest interaction between V018 and V022 shows a minimum clearance of 1.34m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances during this interval. No contacts are expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\", \"V004\", \"M005\", \"N007\", \"V006\"],\n      \"reason\": \"Multiple collisions are expected: V002 and V003 are predicted to collide on Road 19. Additionally, M005, N007, and V006 are predicted to collide with the stopped vehicle V004, resulting in a pile-up.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V006\", \"M005\", \"N007\"],\n      \"reason\": \"Vehicles V006, M005, and N007 are predicted to continue colliding, likely as a secondary impact or continuation of the pile-up initiated in the previous interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While collisions were predicted in previous intervals, no new instances of physical contact or body overlap are explicitly predicted for this interval based on the provided data.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of multiple collisions in intervals k=3 and k=4. Specifically, a major pile-up is expected around the stopped vehicle V004, involving M005, N007, and V006. Separately, V002 and V003 are predicted to collide. The first two and last interval show safe clearances, but the preceding collisions will likely impact subsequent movements.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10065,
+  "candidatesTokenCount": 673,
+  "totalTokenCount": 15126,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10065
+   }
+  ],
+  "thoughtsTokenCount": 4388,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "SsqYauCzAp7N0-kPwemOqQI"
+}

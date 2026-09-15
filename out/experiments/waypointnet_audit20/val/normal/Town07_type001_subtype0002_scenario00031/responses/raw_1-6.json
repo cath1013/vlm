@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"P003\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"Multiple imminent collisions are indicated by low linear-extrapolated Time-To-Contact (TTC) values: P003 is on a collision course with stopped V002 (TTC 0.9s), EGO_other_vehicle_behind is on a collision course with stopped EGO_ego_vehicle (TTC 1.2s), and EGO_other_vehicle is on a collision course with stopped V002 (TTC 1.6s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"The collision between EGO_other_vehicle and V002, with a linear-extrapolated TTC of 1.6s, is highly likely to occur in this interval if not already in the preceding one.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the immediate threats from k=1 and k=2 have resulted in collisions or successful evasive actions, no new imminent conflicts are apparent for this interval based on the provided data.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts with critically low TTC values are identified for this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts with critically low TTC values are identified for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1, k=2) presents a very high risk of multiple collisions due to several moving vehicles rapidly approaching stopped vehicles or a person with dangerously low Time-To-Contact values. Specifically, a pedestrian (P003) is on a direct collision course with a stopped car (V002), and two observer vehicles (EGO_other_vehicle_behind and EGO_other_vehicle) are approaching stopped vehicles (EGO_ego_vehicle and V002 respectively) with insufficient time to react without evasive action.\",\n  \"data_limitations\": \"The linear extrapolation for Time-To-Contact does not account for potential braking, steering, or other evasive maneuvers by the involved actors, which could avert some predicted collisions. Additionally, the absence of traffic signal states and detailed junction rules limits the ability to precisely predict interactions at the multiple junctions involved.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12020,
+  "candidatesTokenCount": 819,
+  "totalTokenCount": 17679,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12020
+   }
+  ],
+  "thoughtsTokenCount": 4840,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "pB6VatWPDYTJrfcP7KeqgAo"
+}

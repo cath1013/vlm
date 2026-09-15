@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.35,
+ "usage": {
+  "input": 9565,
+  "output": 642
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T016"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to collide with the stopped truck T016, which is in its path on Road 69, resulting in a minimum clearance of 0.0m at 1.0s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts or converging paths indicating a collision during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T016"
+    ],
+    "reason": "EGO_other_vehicle is predicted to collide with the stopped truck T016 on Road 69, resulting in a minimum clearance of 0.0m at 2.6s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V018"
+    ],
+    "reason": "EGO_other_vehicle_behind and V018 are predicted to have converging paths on Road 1933 and Road 69 respectively, leading to a collision with 0.0m minimum clearance at 3.5s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts or converging paths indicating a collision during this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across the 5-second prediction window. EGO_ego_vehicle and EGO_other_vehicle are both predicted to collide with the stationary truck T016 in their respective lanes. Additionally, EGO_other_vehicle_behind and V018 are predicted to collide due to their converging trajectories.",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 10.26,
+ "usage": {
+  "input": 10578,
+  "output": 627
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V012"
+    ],
+    "reason": "EGO_other_vehicle is predicted to make contact with V012 at 0.8 seconds into the interval, indicating a collision during a right turn.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between vehicles in this interval, with no contact points indicated.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V001"
+    ],
+    "reason": "EGO_other_vehicle is predicted to make contact with V001 at 2.5 seconds into the interval, suggesting a collision with the stopped vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest pair (EGO_ego_vehicle_behind and P004) maintains a small but positive clearance of 0.11m, and no predicted contact is indicated.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V009"
+    ],
+    "reason": "EGO_other_vehicle_behind is predicted to make contact with V009 at 4.5 seconds into the interval, indicating a rear-end or merging collision.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates three distinct accident events involving observer vehicles and other road users. EGO_other_vehicle is predicted to collide with V012 early in the first interval, and later with the stopped V001 in the third interval. Additionally, EGO_other_vehicle_behind is predicted to collide with V009 in the fifth interval.",
+  "data_limitations": ""
+ }
+}

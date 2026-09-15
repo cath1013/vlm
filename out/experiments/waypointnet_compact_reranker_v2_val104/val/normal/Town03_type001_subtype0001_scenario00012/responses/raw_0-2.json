@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or close interactions are observed between any actors in this interval. All vehicles maintain safe clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Actors V022 and V026 have a predicted closest approach, but maintain a minimum clearance of 4.0m, indicating no accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P011\", \"P012\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with pedestrian P011 at t=4.7s and pedestrian P012 at t=4.4s, both with 0.0m minimum clearance, as the ego vehicle makes a left turn across the pedestrians' paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts are observed. EGO_ego_vehicle_behind and P013 maintain a safe clearance of 1.81m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with EGO_other_vehicle at t=6.9s with 0.0m minimum clearance. Both vehicles are in the same lane, and EGO_other_vehicle_behind overtakes EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The ego vehicle (EGO_ego_vehicle) is predicted to be involved in collisions with two pedestrians (P011 and P012) while making a left turn in the third 1-second interval. Additionally, two observer vehicles (EGO_other_vehicle_behind and EGO_other_vehicle) are predicted to collide in the fifth interval due to one overtaking the other in the same lane.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10622,
+  "candidatesTokenCount": 678,
+  "totalTokenCount": 16097,
+  "cachedContentTokenCount": 923,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10622
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 923
+   }
+  ],
+  "thoughtsTokenCount": 4797,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PuiYasOvK8fL2roP4diU0Q4"
+}

@@ -1,0 +1,555 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-1",
+    "t_start_s": 0.0,
+    "t_end_s": 1.0,
+    "n_snapshots": 3
+   },
+   "scenario_ref": "scn_d6eb8b7c498d",
+   "counts": {
+    "TP": 1,
+    "FP": 1,
+    "TN": 1,
+    "FN": 0
+   },
+   "accuracy": 0.667,
+   "precision": 0.5,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     3,
+     4,
+     5
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "excluded_buckets": [],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 5,
+    "credit_buckets": [
+     3,
+     4,
+     5
+    ],
+    "credited_k": 5,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": 0.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TN",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": false,
+     "reason": "There are no predicted contacts with zero clearance in this interval; all vehicles maintain safe distances or are stationary.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "FP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "Multiple rear-end collisions are predicted: V003 collides with V002 (at 1.5s after observation), V012 collides with the stopped V010 (at 1.5s), N006 collides with the stopped V005 (at 1.7s), and V019 collides with C018 (at 1.9s).",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "There are no predicted contacts with zero clearance in this interval; all vehicles maintain safe distances or are stationary.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "There are no predicted contacts with zero clearance in this interval; all vehicles maintain safe distances or are stationary.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Three collisions are predicted: EGO_ego_vehicle and EGO_other_vehicle have an intersection conflict (at 4.2s after observation), EGO_ego_vehicle_behind rear-ends EGO_ego_vehicle (at 4.3s), and EGO_ego_vehicle_behind and EGO_other_vehicle have an intersection conflict (at 5.0s).",
+     "confidence": "high",
+     "vehicle_recall": 0.5,
+     "actor_precision": 0.333,
+     "matched_carla_ids": [
+      1112
+     ],
+     "missed_carla_ids": [
+      1114
+     ],
+     "extra_actor_ids": [
+      "EGO_ego_vehicle",
+      "EGO_other_vehicle"
+     ],
+     "all_involved_observed": true
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "0-2",
+    "t_start_s": 0.0,
+    "t_end_s": 2.0,
+    "n_snapshots": 5
+   },
+   "scenario_ref": "scn_d6eb8b7c498d",
+   "counts": {
+    "TP": 1,
+    "FP": 1,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 0.5,
+   "precision": 0.5,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     2,
+     3,
+     4
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "early",
+    "lead_s": 2.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "FP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "V012, predicted to be changing lanes, collides with V010, which starts moving from a stopped position, as their paths intersect with a minimum clearance of 0.0m.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "V043 is predicted to collide with the stopped N006 as V043 continues on its westbound path directly into N006's position.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      1112,
+      1114
+     ],
+     "extra_actor_ids": [
+      "N006",
+      "V043"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Two separate collisions are predicted: V003 rear-ends V002 as both proceed northbound on converging paths, and V043 collides with the stopped V005 as V043 continues on its westbound path.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "There are no predicted contacts between any actors in this interval based on the supplied data.",
+     "confidence": "high"
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle_behind is predicted to rear-end V008 as EGO_ego_vehicle_behind, moving faster, closes the distance and their eastbound paths converge."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "0-3",
+    "t_start_s": 0.0,
+    "t_end_s": 3.0,
+    "n_snapshots": 7
+   },
+   "scenario_ref": "scn_d6eb8b7c498d",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": 0.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "There are no predicted contacts with zero minimum clearance in this interval, and all vehicles maintain safe distances based on their predicted trajectories.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "V002 is predicted to collide with V001, which is stopped, at 1.7 seconds after the observation window, indicating a rear-end or side-swipe collision.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "V011 is predicted to collide with V010 at 3.0 seconds after the observation window, indicating a rear-end or side-swipe collision as both vehicles proceed westbound.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      1112,
+      1114
+     ],
+     "extra_actor_ids": [
+      "V010",
+      "V011"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "V005 is predicted to collide with C004 at 3.3 seconds after the observation, indicating a rear-end collision. Additionally, V003 is predicted to collide with the stopped V001 at 3.4 seconds after the observation, indicating a rear-end or side-swipe collision."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "V003 is predicted to collide with V002 at 4.2 seconds after the observation window. Both vehicles are moving northbound, and V003 appears to catch up to and impact V002."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "0-4",
+    "t_start_s": 0.0,
+    "t_end_s": 4.0,
+    "n_snapshots": 9
+   },
+   "scenario_ref": "scn_d6eb8b7c498d",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": 0.0
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "V010 is predicted to collide with V011, which is stopped, as V010 attempts to pass or merge, resulting in contact at 0.9 seconds into the interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_other_vehicle_behind, moving southbound, is predicted to collide with EGO_ego_vehicle, which is turning left and moving northeast, resulting in an orthogonal conflict at 1.4 seconds into the interval.",
+     "confidence": "high",
+     "vehicle_recall": 0.5,
+     "actor_precision": 0.5,
+     "matched_carla_ids": [
+      1114
+     ],
+     "missed_carla_ids": [
+      1112
+     ],
+     "extra_actor_ids": [
+      "EGO_ego_vehicle"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "V001, which is stopped, is predicted to be involved in a multi-vehicle collision. V002 is predicted to rear-end V001 at 2.6 seconds, and T013 is predicted to collide with V001 from a crossing path at 2.9 seconds."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle_behind, moving southbound, is predicted to collide with EGO_ego_vehicle_behind, moving eastbound, as their paths intersect, resulting in contact at 3.1 seconds into the interval."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "V005 is predicted to collide with C004 (bicycle) as both travel westbound, with V005 either catching up or merging into C004's path, leading to contact at 4.2 seconds into the interval."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_d6eb8b7c498d",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 6.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The predicted paths for all vehicles in this interval show sufficient clearance, with the closest interaction having a minimum clearance of 0.66 meters and no predicted contact.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_ego_vehicle_behind is predicted to execute a left turn at 1.2 seconds into the interval, directly intersecting the path of EGO_other_vehicle_behind, which is proceeding straight, resulting in an orthogonal collision with 0.0m clearance."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "N006 (van) is predicted to rear-end V043 (car) at 3.0 seconds into the interval, as both vehicles proceed westbound in very close proximity on Road 0, resulting in body overlap."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "All predicted interactions in this interval maintain a safe distance, with the closest pair having a minimum clearance of 0.41 meters and no predicted contact."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Vehicles are predicted to maintain safe separation throughout this interval, with the closest interaction showing a minimum clearance of 0.56 meters and no predicted contact."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "counts": {
+   "TP": 4,
+   "FP": 2,
+   "TN": 1,
+   "FN": 1
+  },
+  "accuracy": 0.625,
+  "precision": 0.667,
+  "recall": 0.8,
+  "vehicle_recall_mean": 0.25,
+  "actor_precision_mean": 0.208,
+  "events": {
+   "n": 5,
+   "exact": 3,
+   "early": 1,
+   "none": 1,
+   "detection_rate": 0.8,
+   "mean_lead_s": 0.5
+  },
+  "response_issue_counts": {}
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"T001\", \"V018\"],\n      \"reason\": \"EGO_ego_vehicle making a left turn is predicted to collide orthogonally with EGO_other_vehicle traveling straight. Additionally, V018 is predicted to rear-end the stopped truck T001.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V016\", \"V012\"],\n      \"reason\": \"Car V016 is predicted to rear-end the stopped car V012.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and no physical contact or overlap is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and no physical contact or overlap is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V016\", \"V002\"],\n      \"reason\": \"Car V016 is predicted to rear-end the stopped car V002.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple distinct collision events are predicted across the 5-second future window. In the first interval (5-6s), EGO_ego_vehicle is predicted to collide with EGO_other_vehicle, and V018 is predicted to collide with a stopped T001. In the second interval (6-7s), V016 is predicted to collide with a stopped V012, and in the fifth interval (9-10s), V016 is predicted to collide with another stopped vehicle, V002.\",\n  \"data_limitations\": \"No significant data limitations affected this judgement. The position quality and range for involved actors are good, and the predicted contact flag is explicitly true with zero minimum clearance for the identified accidents.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6565,
+  "candidatesTokenCount": 665,
+  "totalTokenCount": 10988,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6565
+   }
+  ],
+  "thoughtsTokenCount": 3758,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "G8mYao66LJG31e8P3YbTqAY"
+}

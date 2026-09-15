@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"P007\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind (westbound) and P007 (eastbound) are on opposing approaches to the junction and will enter simultaneously, leading to a direct collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"V015\"\n      ],\n      \"reason\": \"EGO_other_vehicle (westbound) is entering the junction, while EGO_ego_vehicle and V015 are closely approaching on parallel southbound paths, creating an orthogonal intersection conflict with high closing rates, exacerbated by the ongoing accident from the previous interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming previous accidents are either resolved or have significantly altered vehicle trajectories, no new high-probability, distinct accident is initiated in this interval as EGO_ego_vehicle and V015 are still some distance from the main junction conflict zone, and EGO_other_vehicle should be clearing.\",\n      \"confidence\": \"low\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V015\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and V015 are both proceeding straight southbound on parallel paths, entering the junction simultaneously around 10.74s and 10.89s respectively, creating a high risk of a side-swipe or squeeze within the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The accident from the previous interval is either ongoing or resolved, and no new immediate high-risk conflicts are identified with other vehicles in this interval.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at this four-way junction is highly dynamic, with several vehicles converging from different directions. Multiple direct and orthogonal intersection conflicts are predicted due to simultaneous entries and high closing rates. A primary head-on conflict is expected between EGO_other_vehicle_behind and P007 in the initial interval, followed by high-risk orthogonal conflicts involving EGO_ego_vehicle, EGO_other_vehicle, and V015, and finally, a simultaneous entry conflict between EGO_ego_vehicle and V015.\",\n  \"data_limitations\": \"The absence of traffic signal states prevents a definitive right-of-way assignment at the junction, forcing reliance on general rules (e.g., right-of-way to the right) which may not apply. The 'linear-extrapolated contact' values provide critical warnings but are not trajectory predictions and may not perfectly reflect actual collision timing given specific maneuvering.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13593,
+  "candidatesTokenCount": 855,
+  "totalTokenCount": 29403,
+  "cachedContentTokenCount": 943,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13593
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 943
+   }
+  ],
+  "thoughtsTokenCount": 14955,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "KBqVatm_AenF0-kPk6uz6A8"
+}

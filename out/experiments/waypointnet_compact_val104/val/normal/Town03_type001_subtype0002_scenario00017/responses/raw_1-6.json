@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show a minimum clearance of 1.02m between EGO_other_vehicle_behind and V027, which does not constitute physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind's path directly intersects with EGO_other_vehicle, which is predicted to remain stopped, resulting in a predicted rear-end collision with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While P016 and V027 have a tight predicted minimum clearance of 0.57m, the geometry does not support physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No close interactions or potential conflicts are predicted for any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V024\", \"V026\"],\n      \"reason\": \"V024 and V026, both cars moving south, are predicted to have physical contact with 0.0m minimum clearance at 4.9 seconds after observation, indicating a collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window. The first occurs between EGO_other_vehicle_behind and EGO_other_vehicle due to EGO_other_vehicle remaining stopped in the path of a following vehicle. The second involves V024 and V026, which are predicted to collide while moving in the same direction, likely due to lateral convergence or an unexpected maneuver not captured by current paths.\",\n  \"data_limitations\": \"The absence of traffic signal states or detailed junction rules limits the ability to fully assess the risk of small clearances, particularly where turning vehicles interact with through traffic.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9979,
+  "candidatesTokenCount": 675,
+  "totalTokenCount": 14562,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9979
+   }
+  ],
+  "thoughtsTokenCount": 3908,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jMqYavyIH6jX2roPn4yleQ"
+}

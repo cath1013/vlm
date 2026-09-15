@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"C004\",\n        \"M005\"\n      ],\n      \"reason\": \"Motorcycle M005, traveling faster and behind bicycle C004 in the same southbound lane on Road 19, is predicted to collide with C004 in a rear-end collision at approximately 3.1 seconds after the last observed timestep.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance throughout this interval, and no physical contact is predicted by the trajectory predictor.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A single accident is predicted to occur during the k=3 interval (absolute time 4.0-5.0s) between actors C004 and M005. M005, a motorcycle, is traveling faster and behind C004, a bicycle, and is expected to rear-end C004 in the same lane. All other vehicles maintain sufficient clearance throughout the entire 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4429,
+  "candidatesTokenCount": 594,
+  "totalTokenCount": 12817,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4429
+   }
+  ],
+  "thoughtsTokenCount": 7794,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "tPGXav_7O4aG1e8PyavdqAQ"
+}

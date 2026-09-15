@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are found in this interval, as all actors maintain positive minimum clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted interactions show positive minimum clearance, indicating no physical contact between any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V009\"],\n      \"reason\": \"V009 is predicted to make a left turn that intersects the northbound path of EGO_ego_vehicle_behind, resulting in an orthogonal conflict at approximately 5.1 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C001\", \"V011\"],\n      \"reason\": \"V011 is predicted to overtake or converge with C001 with insufficient lateral clearance while both vehicles are traveling westbound, leading to contact at approximately 6.8 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are found in this interval, as all actors maintain positive minimum clearances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second forecast horizon. The first is an orthogonal conflict in interval 3 between EGO_ego_vehicle_behind and V009 during V009's left turn. The second is a lateral collision in interval 4 involving C001 and V011, likely due to an overtaking maneuver with insufficient clearance.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, or lane-marking types limits the ability to infer right-of-way rules at junctions or during lane changes, which could influence the underlying cause of the predicted contacts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5628,
+  "candidatesTokenCount": 638,
+  "totalTokenCount": 10679,
+  "cachedContentTokenCount": 849,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5628
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 849
+   }
+  ],
+  "thoughtsTokenCount": 4413,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VMeYasDiJf3M2roPot66mQI"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn and conflict with EGO_ego_vehicle_behind, which is traveling straight, resulting in an orthogonal collision at 0.9 seconds into the interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"P016\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with pedestrian P016 at 1.8 seconds after observation, as P016 crosses the path of EGO_ego_vehicle_behind, leading to an intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted conflicts with zero minimum clearance are identified in this interval; all actors maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V018\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind and V018 are predicted to have an orthogonal collision at 4.1 seconds after observation, as their paths intersect at a common point.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates three distinct intersection conflicts. The first occurs early at t=5.9s between EGO_other_vehicle and EGO_ego_vehicle_behind. The second involves EGO_ego_vehicle_behind and a pedestrian P016 at t=6.8s. The final conflict is between EGO_other_vehicle_behind and V018 at t=9.1s.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11266,
+  "candidatesTokenCount": 683,
+  "totalTokenCount": 17623,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11266
+   }
+  ],
+  "thoughtsTokenCount": 5674,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2--YavK1BMyc0-kP2e7x6A4"
+}

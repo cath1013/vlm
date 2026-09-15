@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 42.74,
+ "usage": {
+  "input": 7557,
+  "output": 473
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are approaching the intersection but maintain safe clearance during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind (southbound) and EGO_other_vehicle_behind (eastbound) are involved in a side-impact collision at the intersection of Road 17 and Road 9/10 at approximately t=8.2s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles have moved past each other and the intersection conflict point based on the provided future paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Safe separation is maintained as the actors continue along their predicted trajectories.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No further conflicts or contacts are predicted as the actors move away from the intersection.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary safety concern is a predicted side-impact collision at a road junction between EGO_ego_vehicle_behind and EGO_other_vehicle_behind. Both vehicles enter the intersection simultaneously about 1.2 seconds after the observation period ends, resulting in body overlap. Other vehicles, including EGO_ego_vehicle and several stopped units (V001, N002, T004), maintain sufficient lateral or longitudinal clearance throughout the window.",
+  "data_limitations": "Future paths are predicted independently for each actor and do not reflect potential reactive behaviors such as emergency braking or evasive steering."
+ }
+}

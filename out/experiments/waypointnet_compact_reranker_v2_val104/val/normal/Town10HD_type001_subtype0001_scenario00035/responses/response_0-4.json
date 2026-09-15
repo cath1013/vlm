@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.68,
+ "usage": {
+  "input": 11751,
+  "output": 626
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts with sufficient path overlap are indicated for this interval, and all minimum clearances are positive.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts with sufficient path overlap are indicated for this interval, and all minimum clearances are positive.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No close interactions or physical contacts are predicted for any actors within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "P004"
+    ],
+    "reason": "A collision is predicted between EGO_ego_vehicle_behind and P004 as P004, a person, attempts a left turn while EGO_ego_vehicle_behind proceeds straight, leading to path overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P014"
+    ],
+    "reason": "A collision is predicted between EGO_ego_vehicle and P014 as P014, a person, attempts a right turn, crossing the path of EGO_ego_vehicle proceeding straight, leading to path overlap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collision events are predicted within the 5-second prediction window. The first occurs between EGO_ego_vehicle_behind and P004 in the (7.0, 8.0] second interval. The second is between EGO_ego_vehicle and P014 in the (8.0, 9.0] second interval. Both involve a vehicle proceeding straight colliding with a pedestrian making a turning maneuver, resulting in predicted path overlap.",
+  "data_limitations": ""
+ }
+}

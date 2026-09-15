@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 51.36,
+ "usage": {
+  "input": 10532,
+  "output": 540
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V023"
+    ],
+    "reason": "EGO_ego_vehicle is traveling southbound on Road 30 and its future path results in a rear-end collision with the stopped vehicle V023 at approximately t=9.6s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V015",
+     "V016",
+     "EGO_other_vehicle_behind",
+     "P011"
+    ],
+    "reason": "A high-speed rear-end collision is predicted on Road 1 between V016 and the slower vehicle V015, while EGO_other_vehicle_behind strikes pedestrian P011 during a left-turn maneuver.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new vehicle or pedestrian contacts are initiated in this interval, as other nearby actors maintain safe clearances.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V023"
+    ],
+    "reason": "EGO_other_vehicle continues south on Road 30 and fails to maintain safe distance, resulting in a secondary rear-end collision with V023 at approximately t=12.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All other predicted path clearances remain positive, including a 0.07m gap between the two southbound EGO vehicles.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The prediction window is characterized by multiple collision events on Road 30 and Road 1. A pile-up scenario develops on Road 30 as both EGO_ego_vehicle and EGO_other_vehicle collide with the stationary V023, while simultaneous independent accidents occur on Road 1 (V015/V016) and at the junction (EGO_other_vehicle_behind strike on pedestrian P011).",
+  "data_limitations": ""
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle and V002 have a close clearance of 1.62m, the predicted paths do not show physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to have simultaneous body contact (0.0m clearance) at 2.5 seconds after observation, indicating an orthogonal entry conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contact or body overlap is explicitly predicted from the given future paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles in this interval, with no explicit physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the k=3 interval between EGO_ego_vehicle_behind and EGO_other_vehicle due to an orthogonal intersection of their predicted paths leading to direct contact. No other physical contacts are predicted in the other intervals based on the provided future trajectories.\",\n  \"data_limitations\": \"The predicted future paths do not account for post-collision behavior, meaning the trajectories for intervals k=4 and k=5 might be unrealistic if the k=3 accident occurs.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6281,
+  "candidatesTokenCount": 588,
+  "totalTokenCount": 9398,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6281
+   }
+  ],
+  "thoughtsTokenCount": 2529,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "nvOYauqoNN_A1e8P1fi7gQY"
+}

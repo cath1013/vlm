@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P016\"],\n      \"reason\": \"EGO_ego_vehicle (car) and P016 (person) have predicted contact at t=0.4s (6.4s absolute time), indicating an intersection conflict as the car moves eastbound and the person moves northeastbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle have predicted contact at t=1.2s (7.2s absolute time), indicating an intersection conflict as EGO_other_vehicle moves southbound and EGO_ego_vehicle moves eastbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V032\", \"V033\", \"V020\", \"T025\"],\n      \"reason\": \"V032 and V033 (cars) have predicted contact at t=2.8s, indicating a potential rear-end or sideswipe as V033, moving faster, converges with V032. Additionally, V020 (car) and T025 (truck) have predicted contact at t=2.9s, indicating an intersection conflict as V020 moves northbound and T025 moves southwestbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs show clearances greater than 0.0m for all actor pairs, with the closest being 0.53m between V021 and V034.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pair shows a clearance of 1.24m between V041 and T025, and no other pairs indicate contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple accidents within the first three seconds. EGO_ego_vehicle is involved in two distinct intersection conflicts, first with a pedestrian (P016) at 0.4s, and then with EGO_other_vehicle at 1.2s. Furthermore, two other vehicle pairs (V032/V033 and V020/T025) are predicted to collide at 2.8s and 2.9s respectively. The later intervals (k=4 and k=5) show no predicted physical contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12733,
+  "candidatesTokenCount": 801,
+  "totalTokenCount": 20066,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12733
+   }
+  ],
+  "thoughtsTokenCount": 6532,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "G8eYaqiENP7w2roP2OvvUQ"
+}

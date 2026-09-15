@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation and follow their respective lanes or paths without predicted conflicts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue on their paths with adequate clearance, and no collisions are indicated by the predicted closest pairs in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T004\", \"V005\"],\n      \"reason\": \"V005 is predicted to rear-end T004 at approximately 4.2 seconds (2.2 seconds after observation) with a minimum clearance of 0.0m, indicating body contact while traveling in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the predicted contact in the previous interval, no further new conflicts are indicated, and other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All active actors continue on diverging or well-separated paths with sufficient minimum clearance, and no further accidents are predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision between V005 (car) and T004 (truck) is predicted to occur in the third interval (4.0, 5.0]s, as V005 closes the gap and makes contact with T004 while both are traveling westbound. All other vehicles are predicted to maintain safe separations throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5444,
+  "candidatesTokenCount": 577,
+  "totalTokenCount": 12192,
+  "cachedContentTokenCount": 844,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5444
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 844
+   }
+  ],
+  "thoughtsTokenCount": 6171,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "iMeYatiqCqbp2roP_ZSJyQI"
+}

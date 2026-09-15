@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 29.59,
+ "usage": {
+  "input": 10070,
+  "output": 605
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind is decelerating significantly (-2.01 m/s2) and has ample distance (over 10m) to stop behind the stationary EGO_other_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind is expected to have come to a complete stop well before reaching the stationary vehicle ahead.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although a path-based contact was predicted in this interval, the observed braking history suggests a safe gap will be maintained.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles remain stationary or maintain safe lateral separation in their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No intersecting trajectories or insufficient clearances are observed among the active or stopped road users.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario features several stationary vehicles and others decelerating toward a stop. The main potential conflict identified by the trajectory predictor (EGO_other_vehicle_behind and EGO_other_vehicle) is discounted because the follower is already braking at a rate that will result in a stop roughly 9 meters before the stationary leader. Other actors, including pedestrians P010 and P016, are maintaining safe distances and lateral offsets.",
+  "data_limitations": "The trajectory predictor's future paths for EGO_other_vehicle_behind appear to ignore its significant current deceleration, leading to a projected contact that is physically inconsistent with the observed state."
+ }
+}

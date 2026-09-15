@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with the closest pair (EGO_other_vehicle and V021) maintaining 0.14m clearance and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V029\"],\n      \"reason\": \"V029 is predicted to collide with the rear of the stopped EGO_other_vehicle_behind, with a minimum clearance of 0.0m predicted at 1.8s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance and do not show any instances of physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"N020\", \"V019\"],\n      \"reason\": \"EGO_other_vehicle is predicted to be involved in two crossing conflicts: first with N020 (0.0m clearance at 3.3s), and then with V019 (0.0m clearance at 3.9s), as their paths intersect.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No accident is expected as all predicted actor paths maintain clearance, although EGO_other_vehicle_behind and EGO_ego_vehicle_behind are predicted to have an extremely close pass with 0.03m clearance but no contact.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"Accidents are predicted in two future intervals. In interval (9.0, 10.0]s, V029 is expected to rear-end the stopped EGO_other_vehicle_behind. In interval (11.0, 12.0]s, EGO_other_vehicle is expected to collide with N020 and V019 in separate crossing conflicts. Other intervals show no predicted physical contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10559,
+  "candidatesTokenCount": 695,
+  "totalTokenCount": 16037,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10559
+   }
+  ],
+  "thoughtsTokenCount": 4783,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7eqYarP-OdbG0-kP2ezG-A4"
+}

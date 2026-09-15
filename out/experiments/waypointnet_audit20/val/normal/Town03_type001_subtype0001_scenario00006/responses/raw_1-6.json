@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate conflicts are projected to occur within this interval, as the shortest predicted time to contact is beyond 1 second.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V005\", \"V015\"],\n      \"reason\": \"V005 (westbound) is predicted to make linear-extrapolated contact with V015 (southbound) in 1.2s (at t=7.2s) and with EGO_ego_vehicle (southbound) in 1.4s (at t=7.4s) due to orthogonal paths at the junction and rapid closing rates.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T006\", \"P007\"],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J30 between T006 and P007 with a predicted Time To Contact (TTC) of 2.4s (at t=8.4s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"M002\", \"EGO_other_vehicle\", \"T006\"],\n      \"reason\": \"T003 is predicted to collide with the stopped M002 due to car following with a TTC of 3.1s (at t=9.1s), and EGO_other_vehicle has an orthogonal entry conflict with T006 at junction J30 with a TTC of 3.5s (at t=9.5s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"T006\"],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J30 between T003 and T006 with a predicted TTC of 4.5s (at t=10.5s).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are highly likely throughout the prediction window, primarily at the central four-way junction. Several vehicles, including observer vehicle EGO_ego_vehicle, are converging with orthogonal paths at high speeds, leading to imminent collisions. A car-following collision is also expected.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values are noted as not path predictions, which means the actual outcome could differ if vehicles alter their course more significantly than anticipated by simple extrapolation. The absence of traffic signal information limits certainty regarding right-of-way at the junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13773,
+  "candidatesTokenCount": 801,
+  "totalTokenCount": 22120,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13773
+   }
+  ],
+  "thoughtsTokenCount": 7546,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_hmVauC1JN3U1e8PrJmSgAo"
+}

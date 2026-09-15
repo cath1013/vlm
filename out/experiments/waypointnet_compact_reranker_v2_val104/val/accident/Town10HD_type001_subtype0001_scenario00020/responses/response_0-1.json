@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.89,
+ "usage": {
+  "input": 8095,
+  "output": 569
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain a safe distance from each other, with the closest predicted clearance being 1.56m between EGO_ego_vehicle_behind and V014.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths indicate safe separation between all actors, with no predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P009"
+    ],
+    "reason": "EGO_ego_vehicle and P009 are predicted to have a direct orthogonal intersection collision with 0.0m minimum clearance at 2.8 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Following the predicted collision in the previous interval, no further close interactions leading to contact are predicted among the remaining pairs.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain safe distances, and no contact is indicated in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A high-confidence accident is predicted in the third 1-second interval (3.0s to 4.0s after observation) between EGO_ego_vehicle and P009 due to an orthogonal intersection. Both actors are on high-probability paths that lead to simultaneous body contact. No other accidents are expected throughout the 5-second prediction window.",
+  "data_limitations": ""
+ }
+}

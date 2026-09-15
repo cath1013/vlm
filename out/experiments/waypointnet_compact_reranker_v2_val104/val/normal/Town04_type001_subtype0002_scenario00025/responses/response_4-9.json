@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 19.81,
+ "usage": {
+  "input": 12191,
+  "output": 542
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted trajectories maintain safe clearances, and no vehicle is predicted to enter a conflicting path.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted trajectories maintain safe clearances, and no vehicle is predicted to enter a conflicting path.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted trajectories maintain safe clearances, and no vehicle is predicted to enter a conflicting path.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted trajectories maintain safe clearances, and no vehicle is predicted to enter a conflicting path.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V017"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to rear-end the stopped vehicle V017 at approximately 4.9 seconds after observation, indicated by a predicted contact with 0.0m minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The EGO vehicle is predicted to collide with the stopped vehicle V017 in the final 1-second interval due to a rear-end collision. All other predicted interactions show safe clearances throughout the 5-second prediction horizon.",
+  "data_limitations": ""
+ }
+}

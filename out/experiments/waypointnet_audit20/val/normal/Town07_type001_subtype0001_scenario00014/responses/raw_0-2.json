@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V019\",\n        \"EGO_ego_vehicle_behind\",\n        \"V006\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is accelerating into a junction at 19km/h, with V019 stopped 3m to its junction in a conflicting orthogonal path, indicating an imminent crossing collision (TTC 2.2s). Simultaneously, EGO_ego_vehicle_behind is moving into a junction at 17km/h, with V006 stopped 4m to its junction in a conflicting orthogonal path (TTC 2.6s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"P015\",\n        \"EGO_other_vehicle_behind\",\n        \"V019\",\n        \"EGO_ego_vehicle_behind\",\n        \"V006\"\n      ],\n      \"reason\": \"In addition to the unresolved junction conflicts from the previous interval, EGO_ego_vehicle is accelerating at 22km/h directly behind P015 (7km/h) with a current gap of 13m. EGO_ego_vehicle's acceleration will rapidly reduce the time to collision for a rear-end impact, making it highly probable in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"P015\",\n        \"EGO_other_vehicle_behind\",\n        \"V019\",\n        \"EGO_ego_vehicle_behind\",\n        \"V006\"\n      ],\n      \"reason\": \"Given the multiple immediate and severe conflicts identified in the preceding intervals, it is highly likely that these situations will result in an accident or be actively in the process of a collision during this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most critical and imminent conflicts are expected to have manifested or been resolved in the earlier intervals, and no new high-risk scenarios are immediately apparent in this time frame.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Similar to the previous interval, the most immediate and dangerous conflicts are expected to have concluded, and no further high-risk events are predicted.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation presents multiple high-risk conflicts at a four-way junction. EGO_other_vehicle_behind and EGO_ego_vehicle_behind are accelerating into orthogonal paths with stopped vehicles (V019, V006) very close to their respective junction entries, leading to immediate crossing collision risks. Additionally, EGO_ego_vehicle is rapidly closing on the slower-moving P015, posing a significant rear-end collision threat.\",\n  \"data_limitations\": \"The linear-extrapolated contact times do not account for potential evasive maneuvers, braking, or turn signals, which could alter the predicted outcomes. Also, the predicted paths for some observer vehicles are simply 'straight' without further detail on intent at the junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11719,
+  "candidatesTokenCount": 947,
+  "totalTokenCount": 19976,
+  "cachedContentTokenCount": 931,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11719
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 931
+   }
+  ],
+  "thoughtsTokenCount": 7310,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6huVavSjEqq20-kPm_fE0Ag"
+}

@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 53.49,
+ "usage": {
+  "input": 8227,
+  "output": 533
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle is entering the intersection and maintains safe clearance from all other moving and stationary actors.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V004"
+    ],
+    "reason": "EGO_other_vehicle performs a left turn and its predicted path results in a collision with stationary vehicle V004 at 1.7s after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V005"
+    ],
+    "reason": "EGO_other_vehicle continues its path and its trajectory results in a collision with stationary vehicle V005 on Road 26.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle is between stationary vehicles V005 and V010, and no new contact is predicted during this specific interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V010"
+    ],
+    "reason": "EGO_other_vehicle's predicted path results in a collision with stationary vehicle V010 located further along Road 26.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The observer vehicle EGO_other_vehicle is executing a left-hand turn into Road 26, but its predicted trajectory carries it directly through a queue of stationary vehicles (V004, V005, and V010), leading to multiple predicted collisions over the 5-second window. The high-confidence stopping state of the other vehicles and the clear geometric overlap of the EGO_other_vehicle's 1.0-probability path support these accident predictions.",
+  "data_limitations": "The future trajectory for EGO_other_vehicle appears to ignore the physical presence of stationary vehicles in its destination lane, which may be a limitation of the motion predictor."
+ }
+}

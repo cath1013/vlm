@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation based on their predicted paths, with no close interactions or contacts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation based on their predicted paths, with no close interactions or contacts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances are above 1.5m for all pairs, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to collide with 0.0m clearance at 3.6 seconds after observation (within this interval) due to their intersecting paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new contacts are predicted for this interval, and previous potential conflicts have already occurred or resolved.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence collision is predicted between EGO_ego_vehicle and EGO_other_vehicle_behind during the (7.0, 8.0] second interval, based on the predicted paths showing a clear intersection and 0.0m minimum clearance. No other accidents are expected in the remaining intervals, with vehicles maintaining safe distances or diverging.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7585,
+  "candidatesTokenCount": 560,
+  "totalTokenCount": 10857,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7585
+   }
+  ],
+  "thoughtsTokenCount": 2712,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2_OYaplG0_raug_4pNWRAg"
+}

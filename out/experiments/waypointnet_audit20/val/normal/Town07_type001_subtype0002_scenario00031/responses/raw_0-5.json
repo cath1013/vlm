@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle is rapidly closing on the stopped V002, the linear-extrapolated contact time of 1.4s suggests the collision itself would occur in the subsequent interval, not this one.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped V002 at t=6.4s, based on a linear extrapolation of their closing rate of 7.5m/s and current distance of 10.6m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional immediate conflicts are predicted in this interval, assuming the primary conflicts from previous intervals have either occurred or been mitigated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional immediate conflicts are predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"An orthogonal entry conflict is expected between EGO_ego_vehicle and EGO_other_vehicle_behind at junction J87, with a predicted Time To Collision (TTC) of 4.3s from t=5s, placing the collision at t=9.3s within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple severe conflicts are predicted within the next five seconds. EGO_other_vehicle is rapidly approaching a stopped V002, with a linear-extrapolated collision time of 1.4 seconds. Additionally, EGO_ego_vehicle and EGO_other_vehicle_behind are on a collision course at junction J87, with a predicted time to collision of 4.3 seconds.\",\n  \"data_limitations\": \"The raw linear extrapolation of 1.2s contact for EGO_ego_vehicle and EGO_other_vehicle_behind conflicts with the path-aware TTC of 4.3s provided in the 'Interactions and hazards' section, which was prioritized for this pair. Additionally, the high closing rate for EGO_other_vehicle and V002 is based solely on linear extrapolation as no trajectory-based hazard was provided for this pair.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11909,
+  "candidatesTokenCount": 756,
+  "totalTokenCount": 22407,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11909
+   }
+  ],
+  "thoughtsTokenCount": 9742,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "cx6VapfBHMrs2roPi5HagQI"
+}

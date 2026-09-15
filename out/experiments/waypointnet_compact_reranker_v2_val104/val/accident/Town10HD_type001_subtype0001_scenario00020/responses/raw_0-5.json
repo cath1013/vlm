@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all observed actors show sufficient clearance, with the closest pair maintaining over 1.2 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with the stopped EGO_ego_vehicle at approximately 1.9 seconds after observation, as its path crosses the stationary ego vehicle's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to have a near head-on collision approximately 2.8 seconds after observation, as their paths converge and overlap while traveling in opposing directions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or critical close clearances were identified for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction is between EGO_ego_vehicle and EGO_ego_vehicle_behind with a clearance of 0.47m, which is very close but not predicted as contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are expected within the prediction window. EGO_other_vehicle_behind is predicted to collide with the stopped EGO_ego_vehicle in the (6.0, 7.0]s interval. Subsequently, in the (7.0, 8.0]s interval, EGO_other_vehicle_behind is predicted to have a near head-on collision with EGO_ego_vehicle_behind as their paths intersect.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9076,
+  "candidatesTokenCount": 650,
+  "totalTokenCount": 14446,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9076
+   }
+  ],
+  "thoughtsTokenCount": 4720,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6eaYat2RMpn-2roPtvfP0AE"
+}

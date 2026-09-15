@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe clearance for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P009\", \"P014\"],\n      \"reason\": \"P009 is predicted to collide with the stopped P014, as indicated by 0.0m minimum clearance and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P009\", \"P011\", \"V027\", \"V028\"],\n      \"reason\": \"P009 is predicted to collide with the stopped P011, and V028 is predicted to collide with the stopped V027, both with 0.0m minimum clearance and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contact is predicted for this interval, although some vehicles would have already been involved in accidents in previous intervals.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P008\", \"P005\"],\n      \"reason\": \"P008 and P005 are predicted to make contact with 0.0m minimum clearance while moving in the same direction, indicating a side-swipe or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted throughout the 5-second window. In interval 2, P009 collides with P014. In interval 3, P009 continues to collide with P011, and V028 collides with V027. Finally, in interval 5, P008 and P005 are predicted to have body contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12184,
+  "candidatesTokenCount": 625,
+  "totalTokenCount": 16308,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12184
+   }
+  ],
+  "thoughtsTokenCount": 3499,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "K8uYaq_MFbX72roPzof3-Aw"
+}

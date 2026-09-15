@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"C004\"\n      ],\n      \"reason\": \"V002 (car) and C004 (bicycle) are on the same road (Road 19) in opposing lanes (northbound vs. southbound lane 1/1). At t=3s, they are 4.8m apart and closing at a high relative speed, with a linear-extrapolated contact in 0.7s, indicating an imminent head-on or severe side-swipe collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary conflict between V002 and C004 would have already occurred in the previous interval. Other vehicles maintain safe following distances or are not on an immediate collision course in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are on converging paths at a three-way junction, with both predicted to go straight. Their linear-extrapolated contact is in 2.3s (at t=5.3s). EGO_ego_vehicle will be in the junction, and EGO_other_vehicle will enter shortly after, leading to an orthogonal conflict. EGO_ego_vehicle_behind is following EGO_ego_vehicle with a 2.2s headway and will enter the junction around t=5.2s, likely causing a secondary collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is following EGO_other_vehicle with a 2.1s headway and is expected to enter the junction around t=6.24s. If the prior collision in k=3 involving EGO_other_vehicle occurs, EGO_other_vehicle_behind will likely be involved in a secondary collision with the wreckage or other vehicles.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While further cascading effects are possible, V002 is expected to arrive at the junction around t=7.37s, offering a slightly larger buffer to react to any prior collisions or blockages, thus a direct accident is not explicitly expected from current data.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents a high risk of a head-on or side-swipe collision between a car and a bicycle on the same road within the first second. Subsequently, a major intersection collision is highly probable between two observer vehicles and their immediate follower, as they are on converging paths at a junction with predicted straight movements. The aftermath of these collisions will likely create further hazards for following vehicles.\",\n  \"data_limitations\": \"The 'predicted path' values are outputs of a trajectory predictor, not direct observations of driver intent (e.g., turn signals or braking). The 'linear-extrapolated contact' values do not account for turning or braking maneuvers, which might occur to avoid a collision. The absence of traffic-signal state, stop lines, and lane-marking types makes it harder to assess legal right-of-way and safe passing margins, especially for the V002/C004 conflict.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6028,
+  "candidatesTokenCount": 990,
+  "totalTokenCount": 16352,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6028
+   }
+  ],
+  "thoughtsTokenCount": 9334,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "aRGVavTYJbTD0-kPobir-AE"
+}

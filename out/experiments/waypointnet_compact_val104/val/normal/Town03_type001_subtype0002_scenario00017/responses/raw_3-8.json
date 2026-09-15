@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, with the closest pair having a clearance of 1.48m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V021\", \"V020\", \"V006\", \"V008\"],\n      \"reason\": \"V021 is predicted to collide with the stopped V020 (rear-end collision) at 1.6s after observation, and V008 is predicted to collide with the stopped V006 (rear-end collision) at 1.9s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new contacts are predicted in this interval beyond the ongoing collisions from the previous interval, which are already noted.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, with the closest pair having a clearance of 3.94m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The smallest predicted clearance is 0.29m between V021 and V027, which is a very small gap but does not represent physical contact or overlap based on the zero-margin definition.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows two distinct rear-end collision events occurring in the second 1-second interval (k=2). V021 collides with the stopped V020, and V008 collides with the stopped V006. Other intervals show no predicted contacts, although a very close clearance (0.29m) is noted for the final interval, which does not strictly meet the definition of contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9609,
+  "candidatesTokenCount": 644,
+  "totalTokenCount": 13912,
+  "cachedContentTokenCount": 913,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9609
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 913
+   }
+  ],
+  "thoughtsTokenCount": 3659,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "tMqYaonTL5GNvr0P27emgQY"
+}

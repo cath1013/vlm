@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation for actors in this interval; the closest pair (P019, P020) has a minimum clearance of 0.21m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V032\", \"V014\", \"V011\", \"N012\"],\n      \"reason\": \"V014's predicted path directly intersects the stopped position of V032. Simultaneously, N012's predicted left turn path intersects the stopped position of V011.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N025\", \"V026\"],\n      \"reason\": \"V026's predicted straight path directly intersects the stopped position of N025, leading to a direct collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V028\", \"T027\"],\n      \"reason\": \"V028 and T027 are predicted to collide as their westbound paths converge and overlap with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V028\", \"V029\"],\n      \"reason\": \"V028 and V029 are predicted to collide as their westbound paths converge and overlap with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts multiple potential accidents across the entire 5-second prediction horizon. Specifically, there are four distinct collision events identified: two rear-end/converging conflicts with stopped vehicles in intervals k=2 and k=3, and two converging/side-swipe conflicts between moving vehicles in intervals k=4 and k=5.\",\n  \"data_limitations\": \"The 'remains stopped' maneuver prediction for several vehicles might be a simplification that contributes to collisions if those vehicles would actually react and move. Additionally, the 'off-candidate path' maneuver for V028 and V029 indicates less certainty in their future trajectory, but the provided paths still show a clear geometric overlap.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10123,
+  "candidatesTokenCount": 695,
+  "totalTokenCount": 15822,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10123
+   }
+  ],
+  "thoughtsTokenCount": 5004,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "OcWYarySFvOc0-kPieTH4Qw"
+}

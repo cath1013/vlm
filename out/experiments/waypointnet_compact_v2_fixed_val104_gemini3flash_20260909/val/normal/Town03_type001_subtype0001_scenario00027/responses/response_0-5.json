@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 43.87,
+ "usage": {
+  "input": 7015,
+  "output": 462
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles maintain safe clearance as they approach the junction area.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle performs a right-turn merge from Road 551 into the path of the faster-moving EGO_ego_vehicle_behind on Road 499, resulting in a collision at t=6.4s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in contact as their predicted paths continue to overlap while moving eastward.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in contact as their predicted paths continue to overlap while moving eastward.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in contact as their predicted paths continue to overlap while moving eastward.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A right-turn merge conflict occurs at the junction of Road 551 and Road 499. EGO_other_vehicle (northbound) turns east into the same lane space as EGO_ego_vehicle_behind (eastbound), which is traveling faster, leading to a collision starting at t=6.4s that persists throughout the prediction window.",
+  "data_limitations": ""
+ }
+}

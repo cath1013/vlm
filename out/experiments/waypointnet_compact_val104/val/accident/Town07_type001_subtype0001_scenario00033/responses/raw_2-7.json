@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all vehicles show clear separation and no geometric conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all vehicles show clear separation and no geometric conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, performing a left turn, and EGO_other_vehicle, performing a right turn, have predicted paths that intersect with zero minimum clearance at approximately 9.6 seconds after observation, indicating a direct collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V014\"],\n      \"reason\": \"EGO_ego_vehicle's predicted left turn path leads directly into the position of the stationary V014 with zero minimum clearance at approximately 10.8 seconds after observation, resulting in a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T003\"],\n      \"reason\": \"EGO_other_vehicle's predicted right turn path leads directly into the position of the stationary T003 with zero minimum clearance at approximately 11.5 seconds after observation, resulting in a collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a highly conflicted scenario. EGO_ego_vehicle and EGO_other_vehicle are predicted to collide with each other in interval 3. Subsequently, EGO_ego_vehicle is predicted to collide with a stationary V014 in interval 4, and EGO_other_vehicle with a stationary T003 in interval 5, suggesting a breakdown of traffic flow and potential misinterpretation of intersection rules.\",\n  \"data_limitations\": \"Traffic-signal state, stop lines, and lane-marking types are not available, which makes it challenging to infer the intended right-of-way or traffic control at the intersection where the predicted collisions occur.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6378,
+  "candidatesTokenCount": 696,
+  "totalTokenCount": 9105,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6378
+   }
+  ],
+  "thoughtsTokenCount": 2031,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "tMCYavvyIIjPrfcPypH8qA0"
+}

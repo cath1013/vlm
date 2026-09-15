@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 39.86,
+ "usage": {
+  "input": 8376,
+  "output": 578
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths for all vehicles show clear separation, with the closest pair (EGO_other_vehicle and V018) maintaining a minimum clearance of 4.28m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted vehicle trajectories maintain safe distances from each other, indicating no physical contact or overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths show no instances of physical contact or overlap between any vehicles.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are predicted to maintain safe clearances; the closest interaction (EGO_other_vehicle_behind and V004) has a minimum clearance of 2.49m, which is not an accident.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest predicted interaction (EGO_other_vehicle_behind and V018) shows a minimum clearance of 0.88m, which is a positive gap and does not constitute physical contact or overlap based on the supplied path geometry and `predicted_contact` flag.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Throughout the 5-second prediction window, no accidents are expected. Many observer and other road users are predicted to remain stopped. The moving vehicles maintain their trajectories with sufficient clearances, and none of the `predicted_closest_pairs` indicate actual physical contact or overlap.",
+  "data_limitations": ""
+ }
+}

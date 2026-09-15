@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show sufficient clearance between all road users in this interval, with no clear contact evidence.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V010\", \"V001\"],\n      \"reason\": \"V001, making a left turn, is predicted to collide with V010, which is predicted to remain stopped on Road 40, leading to body overlap at approximately 3.4 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the previous interval, no new physical contact is expected between any actors in this specific interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V010\"],\n      \"reason\": \"EGO_other_vehicle, making a right turn, is predicted to collide with V010, which is predicted to remain stopped at the intersection, resulting in body overlap at approximately 5.2 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted accidents occur in earlier intervals, and no new physical contact is expected between any actors in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted, both involving V010 remaining stopped in the path of other vehicles. V001 is predicted to collide with V010 during a left turn in the (3, 4]s interval. Subsequently, EGO_other_vehicle is predicted to collide with V010 during a right turn in the (5, 6]s interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6747,
+  "candidatesTokenCount": 611,
+  "totalTokenCount": 10451,
+  "cachedContentTokenCount": 874,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6747
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 874
+   }
+  ],
+  "thoughtsTokenCount": 3093,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Tc6YaqPMFP3M2roPot66mQI"
+}

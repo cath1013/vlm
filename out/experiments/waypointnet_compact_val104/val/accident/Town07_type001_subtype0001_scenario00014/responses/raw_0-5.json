@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn, crossing the path of EGO_ego_vehicle, which is proceeding straight, leading to an orthogonal entry conflict at approximately 0.3 seconds into the interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show no physical contact or overlap between any actors in this interval; closest approaches maintain a clearance greater than 0.9m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V005\", \"V004\"],\n      \"reason\": \"EGO_other_vehicle's left turn path is predicted to collide with V005 (at ~2.1s) and V004 (at ~2.3s), both of which are stopped in the intersection area.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V020\"],\n      \"reason\": \"EGO_ego_vehicle, proceeding straight, is predicted to collide with V020 at approximately 3.7 seconds into the interval, as V020 is stopped directly in its projected path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show no physical contact or overlap between any actors in this interval; closest approaches maintain a clearance greater than 0.3m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted in this scenario. EGO_ego_vehicle and EGO_other_vehicle are expected to collide during an intersection conflict in the first interval. Subsequently, EGO_other_vehicle is predicted to collide with two stopped vehicles (V005 and V004) while completing its left turn, and EGO_ego_vehicle is predicted to collide with another stopped vehicle (V020) further along its straight path.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8376,
+  "candidatesTokenCount": 688,
+  "totalTokenCount": 12374,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8376
+   }
+  ],
+  "thoughtsTokenCount": 3310,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GsCYaoyyIuud0-kP57WNkQI"
+}

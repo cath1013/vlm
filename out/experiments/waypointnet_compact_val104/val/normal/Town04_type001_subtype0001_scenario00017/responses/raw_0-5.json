@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between actors remain positive, and no contacts are indicated by the trajectory predictor in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V003\"],\n      \"reason\": \"V004 is predicted to collide with the stopped V003 at approximately 1.8 seconds after observation, indicated by a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new accidents are predicted within this interval; previous contact occurred in interval k=2.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V006\"],\n      \"reason\": \"V006 is predicted to collide with the stopped EGO_ego_vehicle_behind at approximately 3.7 seconds after observation, indicated by a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P007\", \"V006\"],\n      \"reason\": \"Multiple collisions are predicted: P007 is expected to collide with the stopped EGO_ego_vehicle_behind at approximately 4.7 seconds, and V006 is expected to collide with P007 at approximately 5.0 seconds, both indicated by 0.0m minimum clearance and predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. V004 is expected to collide with V003 early in the prediction, followed by V006 colliding with the stopped EGO_ego_vehicle_behind. In the final interval, the pedestrian P007 is involved in two separate collision events: first with EGO_ego_vehicle_behind, and then with V006.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9752,
+  "candidatesTokenCount": 674,
+  "totalTokenCount": 14197,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9752
+   }
+  ],
+  "thoughtsTokenCount": 3771,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "OMOYavnRGOT11e8P9e79oAY"
+}

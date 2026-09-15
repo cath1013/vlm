@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or critical close clearances are identified in this interval; all vehicles maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or critical close clearances are identified in this interval; all vehicles maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V015\"],\n      \"reason\": \"EGO_ego_vehicle and V015 are predicted to have a minimum clearance of 0.59m while traveling in parallel, indicating a high likelihood of a side-swipe or lane encroachment collision given their car footprints.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T006\"],\n      \"reason\": \"EGO_other_vehicle and T006 are predicted to have simultaneous body contact (0.0m clearance) at 3.5s after observation, indicating an orthogonal intersection collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_ego_vehicle are predicted to have simultaneous body contact (0.0m clearance) at 4.9s after observation, indicating a rear-end collision due to EGO_ego_vehicle slowing down significantly.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. A side-swipe between EGO_ego_vehicle and V015 is expected in the third interval. Following this, an orthogonal collision between EGO_other_vehicle and T006 is predicted in the fourth interval. Finally, a rear-end collision involving EGO_ego_vehicle_behind and EGO_ego_vehicle is expected in the fifth interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9673,
+  "candidatesTokenCount": 664,
+  "totalTokenCount": 13181,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9673
+   }
+  ],
+  "thoughtsTokenCount": 2844,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "G-iYaoGxOduq0-kPyq2r8Qw"
+}

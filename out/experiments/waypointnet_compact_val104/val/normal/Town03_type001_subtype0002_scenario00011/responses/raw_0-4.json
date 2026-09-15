@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance from other road users during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V008\", \"T017\"],\n      \"reason\": \"V008 is predicted to collide with the stopped truck T017 at approximately t=5.6s (1.6s after observation), as V008's path directly intersects T017's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"M003\"],\n      \"reason\": \"M003 (motorcycle) is predicted to rear-end the stopped car V002 at approximately t=6.8s (2.8s after observation), as M003 is moving directly into V002's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V008\", \"N018\"],\n      \"reason\": \"V008 is predicted to collide with the stopped van N018 at approximately t=7.4s (3.4s after observation), as V008's path continues to intersect N018's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some vehicles pass closely, such as EGO_ego_vehicle_behind and EGO_ego_vehicle with a 0.12m clearance, no physical contact or overlap is predicted for this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a series of collisions involving moving vehicles striking stationary vehicles. Specifically, V008 is predicted to collide with two different stopped vehicles (T017 and N018) in successive intervals, while M003 is predicted to rear-end V002. Other close interactions, such as EGO_ego_vehicle_behind and EGO_ego_vehicle, are predicted to have small but positive clearances, preventing contact.\",\n  \"data_limitations\": \"The predicted paths for V008 show it continuing straight and colliding with two successive stopped vehicles, suggesting a lack of collision avoidance in the path prediction for V008, or that the path is invalid after the first predicted collision. However, the judgment relies strictly on the provided path geometry for each interval.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9235,
+  "candidatesTokenCount": 756,
+  "totalTokenCount": 15702,
+  "cachedContentTokenCount": 909,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9235
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 5711,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "g8qYarmXMNGMvr0Po7mDkQQ"
+}

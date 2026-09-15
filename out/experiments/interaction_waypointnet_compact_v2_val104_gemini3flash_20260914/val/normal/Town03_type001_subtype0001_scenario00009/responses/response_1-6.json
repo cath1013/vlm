@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 112.08,
+ "usage": {
+  "input": 10182,
+  "output": 519
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles maintain safe longitudinal and lateral separation during this interval as they approach the intersection area.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to collide as the ego vehicle turns across the path of the oncoming vehicle, with their oriented footprints overlapping at t=8.0s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "The collision between EGO_ego_vehicle and EGO_other_vehicle continues as they pass with significant lateral overlap while the ego vehicle is in the oncoming lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Following the initial conflict, the predicted waypoints for the involved vehicles move apart, and other close passes maintain sufficient lateral clearance.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles continue on diverging or parallel paths with no predicted footprint overlaps during this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary conflict in this scenario involves EGO_ego_vehicle and EGO_other_vehicle. The ego vehicle is traveling westbound but predicted to shift significantly southward into the oncoming lane (N=-131 to N=-142). This path results in a side-swipe or frontal-offset collision with the eastbound EGO_other_vehicle, with their footprints overlapping from approximately t=8.0s through t=8.6s. Other predicted contacts in the data, such as those between the ego-following vehicle and the other vehicle in interval 4, are judged to be safe near-misses (approx. 0.4m clearance) rather than clear accidents.",
+  "data_limitations": ""
+ }
+}

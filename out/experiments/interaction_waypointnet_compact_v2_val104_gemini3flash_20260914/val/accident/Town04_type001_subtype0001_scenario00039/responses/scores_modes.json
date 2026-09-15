@@ -1,0 +1,517 @@
+{
+ "provider": "gemini",
+ "modes": [
+  "binary_scenario",
+  "binary_window",
+  "strict",
+  "early",
+  "weighted",
+  "binary_bucket"
+ ],
+ "late_decay": 0.2,
+ "early_decay": 0.0,
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_fd217e339e3b",
+   "scenario_outcome": "accident",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_fd217e339e3b",
+    "scenario_outcome": "accident",
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 1,
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "eligible_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n_positive_buckets": 2,
+    "per_window": [
+     {
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "eligible_buckets": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "n_buckets": 1
+     }
+    ]
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "FN",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     2,
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "Minimal clearance of 0.25m between EGO_other_vehicle and EGO_ego_vehicle_behind suggests close proximity without physical contact."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "FN",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     2,
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "Minimal clearance of 0.25m between EGO_other_vehicle and EGO_ego_vehicle_behind suggests close proximity without physical contact."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_fd217e339e3b",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "status": "FN",
+    "accuracy": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 6.0,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "Minimal clearance of 0.25m between EGO_other_vehicle and EGO_ego_vehicle_behind suggests close proximity without physical contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle collides with the stationary vehicle V001 at 1.4s as it executes a left turn into the lane occupied by the stopped car."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Two distinct collisions are predicted: EGO_ego_vehicle_behind strikes pedestrian P011 at 2.4s, and EGO_other_vehicle impacts oncoming vehicle V003 at 2.9s."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Minimal clearance of 0.11m between EGO_ego_vehicle and V023 at 3.6s indicates a very near miss, but no overlap is predicted."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All vehicles maintain separate paths without predicted contact or dangerously low clearance."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_fd217e339e3b",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "status": "FN",
+    "accuracy": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 6.0,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "Minimal clearance of 0.25m between EGO_other_vehicle and EGO_ego_vehicle_behind suggests close proximity without physical contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle collides with the stationary vehicle V001 at 1.4s as it executes a left turn into the lane occupied by the stopped car."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Two distinct collisions are predicted: EGO_ego_vehicle_behind strikes pedestrian P011 at 2.4s, and EGO_other_vehicle impacts oncoming vehicle V003 at 2.9s."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Minimal clearance of 0.11m between EGO_ego_vehicle and V023 at 3.6s indicates a very near miss, but no overlap is predicted."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All vehicles maintain separate paths without predicted contact or dangerously low clearance."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 0.0,
+    "k_true": 1,
+    "alarm_k": null,
+    "delta": null,
+    "detected": false,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_buckets": 1,
+    "bucket_accuracy": 0.0,
+    "bucket_false_alarm_rate": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "Minimal clearance of 0.25m between EGO_other_vehicle and EGO_ego_vehicle_behind suggests close proximity without physical contact."
+     }
+    ]
+   }
+  }
+ ],
+ "aggregate": {
+  "n_windows": 1,
+  "binary_window": {
+   "n_windows": 1,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "n_scorable_windows": 1,
+   "n_censored_windows": 0
+  },
+  "binary_bucket": {
+   "n_windows": 1,
+   "n_buckets": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "f1": null,
+   "mean_positive_buckets": 2.0
+  },
+  "binary_scenario": {
+   "n_scenarios": 1,
+   "n_scorable_scenarios": 1,
+   "n_censored_scenarios": 0,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "per_scenario": [
+    {
+     "scenario_ref": "scn_fd217e339e3b",
+     "outcome": "accident",
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "scorable": true,
+     "n_windows": 1,
+     "n_eligible_windows": 1,
+     "n_positive_windows": 1
+    }
+   ]
+  },
+  "binary": {
+   "n_windows": 1,
+   "n_buckets": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "f1": null,
+   "mean_positive_buckets": 2.0
+  },
+  "strict": {
+   "n_windows": 1,
+   "n_buckets": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "vehicle_recall_mean": null,
+   "actor_precision_mean": null,
+   "events": {
+    "n": 1,
+    "exact": 0,
+    "early": 0,
+    "none": 1,
+    "detection_rate": 0.0,
+    "mean_lead_s": null
+   },
+   "response_issue_counts": {}
+  },
+  "early": {
+   "n_windows": 1,
+   "n_buckets": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "vehicle_recall_mean": null,
+   "actor_precision_mean": null,
+   "events": {
+    "n": 1,
+    "exact": 0,
+    "early": 0,
+    "none": 1,
+    "detection_rate": 0.0,
+    "mean_lead_s": null
+   },
+   "response_issue_counts": {}
+  },
+  "weighted": {
+   "n_event_windows": 1,
+   "n_buckets": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "bucket_accuracy": 0.0,
+   "mean_score": 0.0,
+   "n_detected": 0,
+   "n_missed": 1,
+   "detection_rate": 0.0,
+   "n_no_event_windows": 0,
+   "false_alarms": 0,
+   "window_false_alarm_rate": null,
+   "false_alarm_rate": null
+  }
+ }
+}

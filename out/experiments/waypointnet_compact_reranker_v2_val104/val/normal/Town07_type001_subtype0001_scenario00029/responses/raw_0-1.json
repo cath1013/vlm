@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and stable trajectories, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show vehicles maintaining safe distances without any contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V012\"],\n      \"reason\": \"EGO_ego_vehicle and V012 are predicted to have a head-on collision on Road 21 at approximately 2.9s after the last observation, with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V005\"],\n      \"reason\": \"V011 and V005 are predicted to collide on Road 21 at approximately 3.1s after the last observation, with 0.0m minimum clearance, due to converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V012\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V012 are predicted to have a head-on collision on Road 21 at approximately 4.5s after the last observation, with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple head-on or converging collisions are predicted on Road 21 from k=3 to k=5. The ego vehicle and its follower are involved in separate incidents with V012, while V011 and V005 also collide due to conflicting trajectories on the same road.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6639,
+  "candidatesTokenCount": 612,
+  "totalTokenCount": 9734,
+  "cachedContentTokenCount": 872,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6639
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 872
+   }
+  ],
+  "thoughtsTokenCount": 2483,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3eqYau78FtGMvr0Po7mDkQQ"
+}

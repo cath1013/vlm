@@ -1,0 +1,74 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 44.98,
+ "usage": {
+  "input": 7034,
+  "output": 771
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014"
+    ],
+    "reason": "The accelerating car EGO_ego_vehicle_behind is predicted to have a 0.0m clearance collision with the stationary vehicle V014 at the 1.0s mark.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014"
+    ],
+    "reason": "EGO_ego_vehicle_behind and V014 remain involved in the collision that began at the end of the previous interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014"
+    ],
+    "reason": "The vehicles remain entangled at the accident site as V014 is stationary and EGO_ego_vehicle_behind has no predicted avoidance maneuver.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "At t=12.4s, EGO_other_vehicle_behind is also predicted to reach and make contact with the stationary V014, joining the existing accident cluster.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "All three vehicles remain involved in the multi-vehicle accident scene at the end of the prediction window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene involves two separate observer vehicles crashing into the same stationary road user (V014) on Road 61. EGO_ego_vehicle_behind strikes V014 at the 1.0s mark (t=10.0s), followed by EGO_other_vehicle_behind striking the same stationary target at 3.4s (t=12.4s), resulting in a multi-vehicle cluster.",
+  "data_limitations": "Lack of traffic signal state and lane marking details, though the geometrical overlap of the predicted paths is sufficient for judgement."
+ }
+}

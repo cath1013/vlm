@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V001, which is stopped directly in its right-turn path, resulting in 0.0m clearance at t=0.7s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V002, which is stopped further along its right-turn path, resulting in 0.0m clearance at t=1.4s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V006\"],\n      \"reason\": \"EGO_other_vehicle_behind and V006 are predicted to collide as their paths converge and overlap around (19, 240) while traveling northwestbound, resulting in 0.0m clearance at t=2.9s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to collide as their paths cross and overlap around (0, 238-239), resulting in 0.0m clearance at t=3.4s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All other predicted closest pairs in this interval show sufficient minimum clearance, and no other clear conflicts are evident in the future paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are expected within the 5-second prediction window. EGO_ego_vehicle is predicted to collide with two stopped vehicles, V001 and V002, during its right turn in the first two intervals. Additionally, EGO_other_vehicle_behind and V006 are predicted to collide in the third interval due to converging paths, and EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to collide in the fourth interval as their paths cross.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7682,
+  "candidatesTokenCount": 746,
+  "totalTokenCount": 10416,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7682
+   }
+  ],
+  "thoughtsTokenCount": 1988,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ZeuYaveOAv3M2roPot66mQI"
+}

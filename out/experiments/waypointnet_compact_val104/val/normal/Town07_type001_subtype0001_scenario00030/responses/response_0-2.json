@@ -1,0 +1,79 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 41.15,
+ "usage": {
+  "input": 9656,
+  "output": 738
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T034",
+     "T035"
+    ],
+    "reason": "Truck T035 is predicted to rear-end the stopped truck T034, with their paths overlapping at the end of the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M031",
+     "V030",
+     "V016",
+     "V029"
+    ],
+    "reason": "Motorcycle M031 is predicted to collide with the stopped car V030. Additionally, car V016 and car V029 are on a direct head-on collision course, moving in opposite directions.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths show that all actors maintain a safe minimum clearance of at least 0.12m during this interval, indicating no expected contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V032",
+     "V030",
+     "N012",
+     "V011",
+     "P018",
+     "P023",
+     "N025",
+     "V026",
+     "V028",
+     "T027"
+    ],
+    "reason": "Multiple collision events are predicted: V032 will rear-end the stopped V030; N012 and V011 will have a converging paths collision; P018 and P023 are expected to collide while walking; V026 will rear-end N025; and V028 will rear-end T027.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V016",
+     "V030"
+    ],
+    "reason": "Car V016 is predicted to collide with the stopped car V030 as V016 proceeds eastbound through V030's stationary position.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high probability of multiple accidents across all intervals except k=3. The primary accident types include rear-end collisions with stopped vehicles, head-on collisions, and converging path conflicts between moving vehicles and pedestrians. All predicted contacts indicate a minimum clearance of 0.0m, signifying physical overlap.",
+  "data_limitations": ""
+ }
+}

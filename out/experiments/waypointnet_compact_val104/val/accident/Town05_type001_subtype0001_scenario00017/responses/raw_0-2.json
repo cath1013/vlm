@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show clearances greater than 1.0 meter, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show clearances greater than 1.0 meter, with no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction between EGO_ego_vehicle and EGO_other_vehicle has a minimum clearance of 0.26m. Although tight, the predicted_contact flag is false, indicating no physical contact or body overlap according to the provided geometry assessment.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction between V012 and T025 has a minimum clearance of 0.51m, which is a small gap but does not indicate contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction between C024 and T025 shows a clearance of 1.68m, with no predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Throughout the 5-second prediction window, no accidents are expected based on the supplied trajectory predictor's output. While some interactions indicate very small minimum clearances (0.26m and 0.51m), the `predicted_contact` flag is consistently false, meaning no physical contact or body overlap is predicted by the geometry assessment.\",\n  \"data_limitations\": \"The explicit definition of 'accident' (requiring minimum_clearance_m=0 for contact/overlap, and `predicted_contact=true` to confirm) means that very tight clearances (e.g., 0.26m) are not classified as accidents within this framework, even though they might pose significant real-world collision risk.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10371,
+  "candidatesTokenCount": 648,
+  "totalTokenCount": 21041,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10371
+   }
+  ],
+  "thoughtsTokenCount": 10022,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "k7-YaobKLa621e8PpPu-yAc"
+}

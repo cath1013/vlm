@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all vehicles in this interval show sufficient clearance, with the closest interaction having a minimum clearance of 0.66 meters and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to execute a left turn at 1.2 seconds into the interval, directly intersecting the path of EGO_other_vehicle_behind, which is proceeding straight, resulting in an orthogonal collision with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N006\", \"V043\"],\n      \"reason\": \"N006 (van) is predicted to rear-end V043 (car) at 3.0 seconds into the interval, as both vehicles proceed westbound in very close proximity on Road 0, resulting in body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted interactions in this interval maintain a safe distance, with the closest pair having a minimum clearance of 0.41 meters and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe separation throughout this interval, with the closest interaction showing a minimum clearance of 0.56 meters and no predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second forecast window. The first is an orthogonal collision at k=2 between two observer vehicles during a left turn. The second is a rear-end collision at k=3 involving N006 and V043, both travelling westbound on the same road.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11771,
+  "candidatesTokenCount": 646,
+  "totalTokenCount": 18329,
+  "cachedContentTokenCount": 932,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11771
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 932
+   }
+  ],
+  "thoughtsTokenCount": 5912,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "t7-YaoX4JpSz1e8P06SasAQ"
+}

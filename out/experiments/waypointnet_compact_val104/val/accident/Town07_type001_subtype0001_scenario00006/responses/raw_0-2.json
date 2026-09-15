@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"T003\"\n      ],\n      \"reason\": \"Truck T003 is predicted to rear-end the stopped car V002, with initial contact occurring around 3.4 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"T003\"\n      ],\n      \"reason\": \"The rear-end collision between truck T003 and stopped car V002, initiated in the previous interval, is expected to continue.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"T003\"\n      ],\n      \"reason\": \"The rear-end collision between truck T003 and stopped car V002, initiated earlier, is expected to continue.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"EGO_ego_vehicle\",\n        \"V002\",\n        \"T003\"\n      ],\n      \"reason\": \"An intersection collision is predicted between EGO_other_vehicle_behind and EGO_ego_vehicle around 6.7 seconds after the last observation. Additionally, the collision between T003 and V002 continues.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accident events are predicted within the 5-second window. A rear-end collision between truck T003 and the stopped car V002 is expected to occur in interval k=2 and persist throughout the remainder of the prediction window. Furthermore, an intersection collision between EGO_other_vehicle_behind and EGO_ego_vehicle is predicted to occur in interval k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6569,
+  "candidatesTokenCount": 691,
+  "totalTokenCount": 13320,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6569
+   }
+  ],
+  "thoughtsTokenCount": 6060,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7L-YavqjDdGA0-kP8-SK8Qs"
+}

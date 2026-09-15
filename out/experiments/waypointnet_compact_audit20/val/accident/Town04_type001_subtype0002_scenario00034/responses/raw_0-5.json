@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are maintaining safe distances from each other, either moving in parallel lanes or well-separated longitudinally.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to maintain safe separation, with no path overlaps detected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle and EGO_other_vehicle approach each other, their paths still maintain a small but clear gap, indicating no physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle (southbound) and EGO_other_vehicle (southeastbound) are predicted to collide at coordinates [-16.7, 60.5] and [-17.5, 61.4] respectively, indicating clear body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"The collision between EGO_ego_vehicle and EGO_other_vehicle is expected to continue or be ongoing in this interval, with their predicted positions still showing significant overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur in interval k=4 (t=8-9s) between EGO_ego_vehicle and EGO_other_vehicle due to their converging trajectories leading to path overlap. This overlap continues into interval k=5. All other vehicles appear to maintain safe distances throughout the prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6790,
+  "candidatesTokenCount": 608,
+  "totalTokenCount": 16944,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6790
+   }
+  ],
+  "thoughtsTokenCount": 9546,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "hkiVase6Dpjt2roPzfjUyQc"
+}

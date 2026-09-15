@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are following their predicted paths with ample clearance, and no conflicts are indicated by the predicted closest pairs.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances along their predicted trajectories, and no conflicts are indicated by the predicted closest pairs.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue on their paths without any predicted conflicts or close interactions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V007\", \"V008\"],\n      \"reason\": \"V008, traveling at 27.0 kph, is predicted to rear-end V007, which is traveling at 14.0 kph, as both vehicles are on the same straight eastbound path (Road 26/457) at approximately 4.5 seconds after the observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted contacts between M004 and V005, V003 and V005, and EGO_other_vehicle and EGO_other_vehicle_behind are deemed unlikely as the leading vehicle in each pair is faster or significantly ahead on parallel paths, preventing a collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One accident is expected in the k=4 interval, involving a rear-end collision between V008 and V007 due to V008 traveling significantly faster than V007 in the same lane. Other predicted contacts are not supported by the relative speeds and positions of the vehicles, indicating they are likely false positives.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' table indicated several predicted contacts with 0.0m clearance, but upon examining the individual future paths and current speeds, multiple predicted contacts appear to be false positives as the 'following' vehicle is actually slower than or too far behind the 'leading' vehicle to cause contact on the projected paths.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7683,
+  "candidatesTokenCount": 684,
+  "totalTokenCount": 15559,
+  "cachedContentTokenCount": 889,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7683
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 889
+   }
+  ],
+  "thoughtsTokenCount": 7192,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "v8uYapHwGIut0-kP55TD4Aw"
+}

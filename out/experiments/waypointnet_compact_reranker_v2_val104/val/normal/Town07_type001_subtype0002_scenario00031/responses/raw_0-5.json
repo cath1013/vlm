@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation, and no conflicts are indicated by the predicted paths for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to collide at 2.0s after observation, as indicated by a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional predicted contacts or dangerously close clearances are indicated for this interval, beyond the collision in the prior interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation, and no new conflicts are predicted for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and EGO_ego_vehicle_behind have a close predicted clearance of 0.96m, no physical contact or overlap is indicated by the trajectory predictor.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high likelihood of an accident is predicted in the k=2 interval (6-7s after observation) between EGO_ego_vehicle and EGO_other_vehicle_behind, where their paths converge, resulting in a predicted contact. Other intervals do not show explicit predicted contact, although EGO_ego_vehicle and EGO_ego_vehicle_behind are predicted to have a very close interaction in the final interval.\",\n  \"data_limitations\": \"The lack of traffic signal state, stop lines, or lane-marking types prevents a full understanding of right-of-way at the predicted conflict point. All future paths have a probability of 1.0, suggesting a single, definitive prediction without alternative scenarios being considered.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7863,
+  "candidatesTokenCount": 652,
+  "totalTokenCount": 11637,
+  "cachedContentTokenCount": 892,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7863
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 892
+   }
+  ],
+  "thoughtsTokenCount": 3122,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6vOYapTUCo392roP8e2NiQw"
+}

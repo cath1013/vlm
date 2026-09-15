@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"C001\"],\n      \"reason\": \"V002, a faster car, is predicted to collide with C001, a slower bicycle, while both are traveling eastbound in the same lane, indicating an overtaking collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"M016\", \"T014\"],\n      \"reason\": \"M016, a motorcycle moving westbound, is predicted to collide with V015 and then T014, both of which are stopped in its path on Road 41.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All other actors maintain safe distances, and no new contacts are predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances, and no contacts are predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances, with positive minimum clearances predicted for all pairs.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future predicts two distinct accident scenarios. In the first interval, a car (V002) is expected to collide with a bicycle (C001) during an overtake. In the second interval, a motorcycle (M016) is predicted to collide with two stopped vehicles (V015 and T014). No further accidents are expected in the later intervals based on the current trajectory predictions.\",\n  \"data_limitations\": \"The trajectory predictor assumes independent paths; thus, the predicted paths for M016 in k=3 onwards do not account for the potential alteration of its trajectory due to the collision expected in k=2.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5775,
+  "candidatesTokenCount": 631,
+  "totalTokenCount": 10439,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5775
+   }
+  ],
+  "thoughtsTokenCount": 4033,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_L6YapC2HpWH0-kPmKrWgQ0"
+}

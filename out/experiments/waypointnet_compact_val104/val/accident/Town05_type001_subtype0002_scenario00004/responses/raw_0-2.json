@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or hazardous convergences are indicated in this interval based on the provided data.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V022\",\n        \"V002\",\n        \"T027\",\n        \"V026\"\n      ],\n      \"reason\": \"V022 and V002 are predicted to have a head-on or angular collision at 3.2s (1.2s after observation end). T027 is predicted to rear-end V026 at 3.6s (1.6s after observation end) as it rapidly closes the gap on the slower V026.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle are predicted to collide at 4.1s (2.1s after observation end) due to an orthogonal intersection conflict as one travels southbound and the other eastbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V003\",\n        \"V024\",\n        \"C029\",\n        \"M021\",\n        \"V020\"\n      ],\n      \"reason\": \"V004 is predicted to rear-end the slower V003 at 5.1s. V024 is predicted to collide with C029 at 5.3s due to converging paths. M021 and V020 are predicted to have a head-on collision at 5.6s as M021's path reverses direction into V020's lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V015\",\n        \"C016\",\n        \"V019\",\n        \"V013\",\n        \"V024\",\n        \"T030\"\n      ],\n      \"reason\": \"V015 and C016 are predicted to have a lateral collision at 6.3s as C016 passes V015 with zero clearance. V019 is predicted to rear-end the stationary V013 at 6.3s. V024 is predicted to collide with T030 at 6.3s as V024's path veers into T030's trajectory.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across all intervals from k=2 to k=5, primarily involving rear-end collisions, orthogonal intersection conflicts, and lateral collisions due to vehicles veering or changing directions. The predicted clearances of 0.0m and high path probabilities indicate a strong likelihood of these events.\",\n  \"data_limitations\": \"The future paths for some actors, such as V024 and M021, exhibit unusual changes in direction (veering or reversing) that might be anomalous predictions, but the judgment is based on the provided path geometry which indicates clear contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10215,
+  "candidatesTokenCount": 950,
+  "totalTokenCount": 18780,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10215
+   }
+  ],
+  "thoughtsTokenCount": 7615,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "UsiYao7HMMS40-kP2L22yQE"
+}

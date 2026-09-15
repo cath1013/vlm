@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance from each other, with the closest pair (EGO_other_vehicle and V003) having a minimum clearance of 0.75m, which is not contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts occur, and the closest interaction (EGO_ego_vehicle_behind and EGO_other_vehicle_behind) maintains a minimum clearance of 0.56m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"T001\"],\n      \"reason\": \"EGO_other_vehicle_behind (car) and T001 (truck) are on a head-on collision course. The prediction indicates simultaneous body contact or overlap (0.0m minimum clearance) at time 2.7s after observation, which falls within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts are predicted in this interval. The collision from k=3 would have already occurred.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts are predicted in this interval. The collision from k=3 would have already occurred.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence head-on collision is expected between EGO_other_vehicle_behind and T001 in the (11.0, 12.0]s interval. These vehicles are traveling in opposing directions and their predicted paths clearly show an overlap, confirmed by a 0.0m minimum clearance. All other predicted interactions throughout the 5-second prediction window maintain sufficient clearance, indicating no further accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7920,
+  "candidatesTokenCount": 655,
+  "totalTokenCount": 12906,
+  "cachedContentTokenCount": 1786,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7920
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1786
+   }
+  ],
+  "thoughtsTokenCount": 4331,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7_GYapTRDOjJ0-kPwJet4Aw"
+}

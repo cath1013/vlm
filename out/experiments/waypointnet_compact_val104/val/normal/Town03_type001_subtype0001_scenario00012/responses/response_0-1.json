@@ -1,0 +1,71 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 31.09,
+ "usage": {
+  "input": 9947,
+  "output": 653
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V017 and V025, and T004 and M020 are predicted to maintain sufficient clearance, and no other contacts are identified.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V015"
+    ],
+    "reason": "V015 is predicted to rear-end EGO_ego_vehicle_behind at 1.8 seconds, as V015 is significantly faster and following in the same lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "T004"
+    ],
+    "reason": "V003 and T004 are predicted to have a body contact at 2.3 seconds due to their converging paths on Road 23.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M002",
+     "T004"
+    ],
+    "reason": "M002 and T004 are predicted to have a body contact at 3.9 seconds as their paths converge on Road 23.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P013",
+     "V015",
+     "V024",
+     "V025"
+    ],
+    "reason": "A pedestrian-vehicle intersection conflict is expected between P013 and V015 at 4.3 seconds. Additionally, V025 is predicted to rear-end V024 at 4.6 seconds.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window shows a series of escalating conflicts. An observer vehicle is involved in a rear-end collision in the second interval. Subsequent intervals feature multiple vehicle-vehicle merging/intersection conflicts and a vehicle-pedestrian intersection conflict, indicating a high-risk scenario throughout the prediction horizon.",
+  "data_limitations": ""
+ }
+}

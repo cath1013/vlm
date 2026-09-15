@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles N004 and V005, and V007 and M008, maintain safe distances and are not on conflicting paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted close interactions or conflicts between any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle and V001 maintain a safe clearance of 1.62m, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"M003\", \"V006\", \"V007\"],\n      \"reason\": \"Motorcycle M003 is predicted to rear-end the stopped car V002 at approximately t=6.5s. Additionally, car V007 is predicted to rear-end the slower-moving car V006 at approximately t=6.9s due to insufficient following distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval show positive minimum clearances and no predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1-3) appears safe, with no predicted contacts. However, the interval k=4 (6.0-7.0s) shows two distinct rear-end collision scenarios involving four different vehicles. The final interval (k=5) is again clear of accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5892,
+  "candidatesTokenCount": 602,
+  "totalTokenCount": 12510,
+  "cachedContentTokenCount": 855,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5892
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 855
+   }
+  ],
+  "thoughtsTokenCount": 6016,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IMGYapKsB8P92roPwtXW-Aw"
+}

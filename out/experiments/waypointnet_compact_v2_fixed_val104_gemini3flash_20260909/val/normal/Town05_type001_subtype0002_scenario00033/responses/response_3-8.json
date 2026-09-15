@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 50.04,
+ "usage": {
+  "input": 9035,
+  "output": 483
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V026 is approaching the stationary EGO_other_vehicle from behind but maintains a safe distance during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026"
+    ],
+    "reason": "V026 fails to stop and rear-ends the stationary EGO_other_vehicle towards the end of the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026"
+    ],
+    "reason": "The rear-end collision between V026 and EGO_other_vehicle continues as the vehicles' footprints overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026"
+    ],
+    "reason": "The rear-end collision between V026 and EGO_other_vehicle continues as the vehicles' footprints overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V026",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "A secondary orthogonal collision occurs when EGO_ego_vehicle_behind, moving north, impacts the side of the Westbound V026.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a primary rear-end collision where V026 impacts the stationary EGO_other_vehicle starting at approximately t=10.0s. This situation develops into a multi-vehicle pile-up at t=12.3s when the Northbound EGO_ego_vehicle_behind collides with the side of V026 as it crosses the intersection.",
+  "data_limitations": ""
+ }
+}

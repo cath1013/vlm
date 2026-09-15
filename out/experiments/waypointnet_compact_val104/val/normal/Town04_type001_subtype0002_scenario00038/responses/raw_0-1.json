@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe clearance, indicating no expected contact between vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe clearance, indicating no expected contact between vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"V002\"],\n      \"reason\": \"A rear-end collision is expected between T003 (truck) and V002 (car) at approximately 2.5 seconds after observation. V002 is predicted to remain stopped while T003 approaches from behind in the same lane, resulting in contact with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Apart from the collision involving V002 that would have occurred earlier, other predicted closest pairs in this interval maintain a safe clearance.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M004\", \"V002\"],\n      \"reason\": \"A rear-end collision is expected between M004 (motorcycle) and V002 (car) at approximately 4.1 seconds after observation. V002 is predicted to remain stopped while M004 approaches from behind in the same lane, resulting in contact with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of two separate rear-end collisions involving V002, which is predicted to remain stopped. First, T003 collides with V002 in interval (3.0, 4.0]s, followed by M004 colliding with V002 in interval (5.0, 6.0]s, assuming V002 remains in its predicted state despite the prior collision. Other vehicle interactions show safe clearances.\",\n  \"data_limitations\": \"The trajectory predictor generates independent future paths for each actor. This means it predicts M004 colliding with V002 even after T003 has already collided with V002 in an earlier interval, without accounting for the physical consequences or altered paths resulting from the first collision. This limits the realism of subsequent collision predictions involving an already impacted vehicle.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5175,
+  "candidatesTokenCount": 745,
+  "totalTokenCount": 10235,
+  "cachedContentTokenCount": 836,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5175
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 836
+   }
+  ],
+  "thoughtsTokenCount": 4315,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "YsyYavixAtiN0-kPmqaZiAw"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain safe distances from each other, indicating no physical contact or body overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain safe distances from each other, indicating no physical contact or body overlap is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles like EGO_ego_vehicle and V001/V002 are in opposing traffic lanes with sufficient lateral separation to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind (eastbound) and EGO_other_vehicle (southbound) are predicted to collide at an intersection, with their path waypoints showing body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the previous interval, the vehicles' paths in this interval indicate they are diverging after the point of impact, not new contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An orthogonal intersection collision is predicted to occur at k=4 (t=8s) between the eastbound EGO_ego_vehicle_behind and the southbound EGO_other_vehicle. All other road users are predicted to maintain safe distances from each other and from these conflicting vehicles throughout the 5-second prediction window. Although V016 approaches a stopped T015 with a short following distance, no direct overlap is predicted.\",\n  \"data_limitations\": \"Lack of explicit bounding box information for actors required an assumption of typical vehicle dimensions for overlap calculation. Specific details on road geometry like the exact number of lanes, presence of medians, or traffic control at intersections were not provided, which could impact the interpretation of close-passing scenarios.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6103,
+  "candidatesTokenCount": 658,
+  "totalTokenCount": 20027,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6103
+   }
+  ],
+  "thoughtsTokenCount": 13266,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "AEuVaqTQJL-w2roPoNK6iQM"
+}

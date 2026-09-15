@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M003\",\n        \"V012\",\n        \"EGO_other_vehicle_behind\",\n        \"V013\",\n        \"EGO_ego_vehicle\",\n        \"V008\"\n      ],\n      \"reason\": \"Multiple head-on collisions are predicted with TTCs of 0.8s, 0.9s, and 1.0s, involving M003 and V012 on Road 36, EGO_other_vehicle_behind and V013 on Road 47, and EGO_ego_vehicle and V008 on Road 37, all on opposing lanes with vehicles moving towards each other or one stopped and the other approaching.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V007\"\n      ],\n      \"reason\": \"A head-on collision is expected between EGO_ego_vehicle_behind (stopped) and V007 (moving) on opposing lanes of Road 37, with a linear-extrapolated contact in 1.8s (by t=2.8s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T006\",\n        \"V007\"\n      ],\n      \"reason\": \"A head-on collision is expected between T006 and V007, both moving on opposing lanes of Road 37, with a linear-extrapolated contact in 2.6s (by t=3.6s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"V012\"\n      ],\n      \"reason\": \"A head-on collision is expected between V005 (stopped) and V012 (moving) on opposing lanes of Road 36, with a linear-extrapolated contact in 4.0s (by t=5.0s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"T006\",\n        \"V008\"\n      ],\n      \"reason\": \"A rear-end collision is expected between EGO_ego_vehicle_behind (stopped) and T006 (moving) on the same lane of Road 37, with a linear-extrapolated contact in 4.2s. Additionally, a head-on collision between T006 (moving) and V008 (stopped) on opposing lanes of Road 37 is expected by t=5.7s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents a very high likelihood of multiple accidents throughout the 5-second prediction window. Several head-on collisions are predicted across different roads due to vehicles proceeding on opposing lanes, and one rear-end collision is predicted where a moving truck approaches a stopped observer vehicle in the same lane. The imminent nature of these conflicts, indicated by low TTCs and consistent predicted paths, suggests a highly hazardous situation.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values do not account for evasive maneuvers, braking, or turning, and no traffic signal information is available for the junction. However, the predicted paths of 'straight' or 'remains stopped' for the involved vehicles support the high confidence in these collision predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7227,
+  "candidatesTokenCount": 1006,
+  "totalTokenCount": 13479,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7227
+   }
+  ],
+  "thoughtsTokenCount": 5246,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IR2VaqrtOoTJrfcP7KeqgAo"
+}

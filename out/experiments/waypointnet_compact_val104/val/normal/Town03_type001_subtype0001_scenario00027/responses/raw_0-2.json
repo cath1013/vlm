@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact between any actors; all closest pairs maintain a safe minimum clearance of over 1.0 meter.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact between any actors; all closest pairs maintain a safe minimum clearance of over 1.5 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact between any actors; the closest pair maintains a safe minimum clearance of 1.42 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\", \"V001\", \"T002\"],\n      \"reason\": \"An intersection collision is predicted at approximately 5.4s between EGO_other_vehicle (northbound) and EGO_ego_vehicle (eastbound). Additionally, a rear-end collision is predicted at approximately 5.7s as T002 (truck) collides with the stopped V001 in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new predicted physical contact between any actors; closest pairs maintain safe clearances. Any previous accidents would have already occurred.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are highly probable within the k=4 interval (5.0s to 6.0s after observation). One involves an intersection collision between EGO_other_vehicle and EGO_ego_vehicle. The second is a rear-end collision where T002 impacts the stationary V001. All other vehicle interactions are predicted to maintain safe clearances throughout the 5-second prediction horizon.\",\n  \"data_limitations\": \"The 'interval_index' and 'time_after_observation_s' values in `predicted_closest_pairs` were cross-referenced with the interval definitions to ensure correct assignment to k-intervals. It's assumed `time_after_observation_s` refers to the time after the *last observed timestep* (2.0s).\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5895,
+  "candidatesTokenCount": 701,
+  "totalTokenCount": 14090,
+  "cachedContentTokenCount": 855,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5895
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 855
+   }
+  ],
+  "thoughtsTokenCount": 7494,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jcKYauzDHvj91e8PnrXZoQY"
+}

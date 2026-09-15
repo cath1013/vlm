@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"M009\",\n        \"T006\",\n        \"V008\",\n        \"C004\",\n        \"V012\"\n      ],\n      \"reason\": \"Multiple head-on collisions are expected due to vehicles traveling in opposite directions on the same road with very short linear-extrapolated times to contact: EGO_ego_vehicle_behind and M009 (0.3s TTC), T006 and V008 (0.7s TTC), and C004 and V012 (1.0s TTC).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles V012 and C004 are predicted to collide in the previous interval (at t=5.0s), which would alter their trajectories and invalidate the linear prediction of V005 and V012 colliding at t=5.8s. Other vehicles maintain safe distances or paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"A junction conflict is expected between EGO_ego_vehicle and EGO_other_vehicle, with a linear-extrapolated time to contact of 2.8s (at t=6.8s) as they approach and enter the intersection from different roads. The predicted rear-end collision between M003 and C004 (at t=6.8s) is invalidated by C004's earlier collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No critical conflicts are linearly extrapolated to occur in this interval. Potential junction interactions with M001 and M003 are mitigated by their predicted paths to remain stopped.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No critical conflicts are linearly extrapolated to occur in this interval, and no new hazards are apparent from the provided data.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1) shows multiple imminent head-on collisions on Road 37 and Road 36 due to vehicles traveling in opposite directions with very short times to contact. A junction conflict between two observer vehicles is also highly likely in k=3. Later intervals appear safe as other potential conflicts are either too far in the future or involve vehicles whose prior collisions invalidate linear predictions.\",\n  \"data_limitations\": \"The linear extrapolation for time to contact does not account for evasive actions, braking, or the physical outcome of prior collisions, which means subsequent collision predictions involving already-impacted vehicles may be less accurate.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9762,
+  "candidatesTokenCount": 848,
+  "totalTokenCount": 19898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9762
+   }
+  ],
+  "thoughtsTokenCount": 9288,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "oh2VauXAHPbJ0-kP9In9QA"
+}

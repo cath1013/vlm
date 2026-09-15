@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 20.17,
+ "usage": {
+  "input": 7453,
+  "output": 701
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with 0.0m clearance in this interval; the closest pairs maintain sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V011",
+     "V005",
+     "T015",
+     "C016"
+    ],
+    "reason": "V011 and V005 are predicted to collide at 1.6s (intersection conflict) while T015 and C016 are predicted to collide at 1.8s (same-lane overtaking conflict) due to overlapping trajectories.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with 0.0m clearance in this interval; the closest pairs maintain sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T015",
+     "V003"
+    ],
+    "reason": "T015 (truck) and V003 (car) are predicted to collide head-on or side-swipe at 3.8s while traveling in opposing directions on Road 11, indicated by 0.0m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "C016",
+     "V014",
+     "EGO_ego_vehicle",
+     "V007"
+    ],
+    "reason": "C016 (bicycle) is predicted to rear-end V014 (stopped car) at 4.1s, and EGO_ego_vehicle and V007 are predicted to collide at 5.0s in an intersection conflict.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across the 5-second prediction window. These include intersection conflicts involving cars, a bicycle rear-ending a stopped car, a truck and bicycle in an overtaking conflict, and a potential head-on collision between a truck and a car.",
+  "data_limitations": "Detailed road geometry, traffic light states, or stop sign information are not available, which could affect the precise nature or avoidance of certain intersection or opposing-lane conflicts."
+ }
+}

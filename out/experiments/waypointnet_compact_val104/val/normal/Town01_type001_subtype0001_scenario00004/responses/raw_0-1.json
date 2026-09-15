@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close interactions between vehicles in this interval; all vehicles maintain safe clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts occur in this interval, and all vehicles maintain safe distances from each other.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V007\", \"M008\"],\n      \"reason\": \"A rear-end collision is expected between M008 and V007, as M008 is predicted to collide with the stopped V007 at approximately t=2.3s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is expected as EGO_ego_vehicle_behind, which is accelerating and significantly faster, is predicted to collide with the decelerating EGO_ego_vehicle at approximately t=3.7s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"The rear-end collision between EGO_ego_vehicle and EGO_ego_vehicle_behind, initiated in the previous interval, is expected to continue with significant overlap based on their predicted trajectories.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct rear-end collisions are predicted in this scenario. M008 is expected to collide with the stopped V007 in interval 3. Additionally, EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle in interval 4, with this collision persisting into interval 5 due to the relative speeds and trajectories.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5064,
+  "candidatesTokenCount": 643,
+  "totalTokenCount": 12024,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5064
+   }
+  ],
+  "thoughtsTokenCount": 6317,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "8cCYat7MKMf81e8P2c-ciQY"
+}

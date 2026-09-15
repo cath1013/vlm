@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V012\"],\n      \"reason\": \"EGO_ego_vehicle_behind turning right and V012 going straight result in crossing paths with a minimum predicted clearance of 1.28m at t=4.5s. Given that both are cars (approx. 1.93m width), this clearance is insufficient to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (V004 and V012) maintains a minimum clearance of 2.95m, which is a tight but likely sufficient gap to avoid direct physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted closest pairs indicate physical contact or significantly small clearance in this interval; all vehicles appear to maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (EGO_other_vehicle_behind and EGO_other_vehicle) maintains a minimum clearance of 3.61m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle's path crosses the position of the stopped V001 with a minimum predicted clearance of 1.85m at t=9.0s. Considering both are cars (approx. 1.93m width), this gap is less than the vehicle width, indicating physical contact or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window. The first is in the initial interval, where EGO_ego_vehicle_behind and V012 have a near-miss with insufficient clearance during an intersection maneuver. The second occurs in the final interval, involving EGO_ego_vehicle and the stopped V001, where EGO_ego_vehicle's trajectory leads to a direct conflict with V001's static position.\",\n  \"data_limitations\": \"The 'predicted_contact' flag for all listed closest pairs is 'false', despite minimum clearance values (1.28m, 1.85m) that, when considering car dimensions (1.93m width), strongly suggest physical contact or overlap during crossing maneuvers. This required independent interpretation of 'minimum_clearance_m' against vehicle footprints.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7982,
+  "candidatesTokenCount": 785,
+  "totalTokenCount": 14849,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7982
+   }
+  ],
+  "thoughtsTokenCount": 6082,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FOuYar4o4om-vQ-pwZnYBg"
+}

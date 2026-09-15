@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths maintain sufficient clearance, and there are no indications of conflicts or imminent contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths maintain sufficient clearance, and there are no indications of conflicts or imminent contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"P015\"],\n      \"reason\": \"A car (EGO_other_vehicle_behind) traveling northbound is predicted to collide with a pedestrian (P015) crossing eastbound at an intersection, with a minimum clearance of 0.0m at 3.0 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths maintain sufficient clearance, and there are no indications of conflicts or imminent contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V006\", \"V004\"],\n      \"reason\": \"The EGO_ego_vehicle_behind, turning right at an intersection, is predicted to collide with two cars (V006 and V004) traveling eastbound, with minimum clearances of 0.0m and 0.29m respectively, indicating multiple right-turn conflicts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts three distinct accidents. In interval k=3, a car (EGO_other_vehicle_behind) is expected to collide with a person (P015) at an intersection. In interval k=5, the EGO_ego_vehicle_behind, which is making a right turn, is expected to collide with two cars (V006 and V004) that are proceeding straight through the intersection. The remaining intervals show no immediate accident risk.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9460,
+  "candidatesTokenCount": 659,
+  "totalTokenCount": 16649,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9460
+   }
+  ],
+  "thoughtsTokenCount": 6530,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VeiYauepIbbw2roP0aWMmAs"
+}

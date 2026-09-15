@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle have a predicted overlap (0.0m clearance) at 0.1s, indicating immediate contact or existing overlap due to converging southbound paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T011\", \"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"Two separate collision events are predicted: EGO_ego_vehicle is predicted to merge into T011's path at 1.8s, and EGO_other_vehicle_behind and EGO_ego_vehicle_behind are predicted to have a head-on collision at 1.8s as they travel in opposing directions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or overlap is predicted between any actors in this interval based on their future trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T011\", \"EGO_other_vehicle_behind\", \"N002\"],\n      \"reason\": \"Two separate collision events are predicted: EGO_other_vehicle is predicted to collide with T011 at 3.8s, likely a rear-end or sideswipe during a merge, and EGO_other_vehicle_behind and N002 are predicted to have a head-on collision at 3.4s as they travel in opposing directions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or overlap is predicted between any actors in this interval based on their future trajectories.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a series of significant collision events starting very early, within the first 0.1 seconds of the prediction window, and continuing through the k=2 and k=4 intervals. EGO_ego_vehicle is involved in an immediate collision with EGO_other_vehicle, and a later collision with T011. Additionally, two pairs of vehicles traveling in opposite directions are predicted to have head-on collisions in k=2 and k=4.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7063,
+  "candidatesTokenCount": 754,
+  "totalTokenCount": 14784,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7063
+   }
+  ],
+  "thoughtsTokenCount": 6967,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "c-SYaq7-Jfqb0-kPtv6CeA"
+}

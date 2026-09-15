@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 25.16,
+ "usage": {
+  "input": 8561,
+  "output": 550
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving vehicles maintain a safe distance from other road users and stopped vehicles; the closest predicted clearance is 0.87m between EGO_ego_vehicle and EGO_other_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles are predicted to come into physical contact; all trajectories indicate clear separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show no intersection or insufficient clearance that would lead to an accident.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are expected to proceed along their paths with safe distances maintained, and no collisions are geometrically supported.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There is no geometric evidence of contact or overlap between any vehicle footprints in this interval; all observed and predicted paths remain clear.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Over the entire 5-second prediction window, no accidents are expected. The `predicted_closest_pairs` data indicates all minimum clearances are positive, and no `predicted_contact` events occur. Manual inspection of the future paths confirms that all moving vehicles maintain sufficient separation, including the closest passing event between EGO_ego_vehicle and EGO_other_vehicle.",
+  "data_limitations": ""
+ }
+}

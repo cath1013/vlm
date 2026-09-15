@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, with the closest pair (EGO_ego_vehicle and V001) having a minimum clearance of 1.06m and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, with the closest pair (EGO_ego_vehicle_behind and N002) having a minimum clearance of 11.08m and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle and T011 show a minimum clearance of 0.3m, the prediction tool explicitly indicates no physical contact, suggesting the vehicles' footprints will not overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with the stopped EGO_other_vehicle at 3.4 seconds after observation, indicated by a minimum clearance of 0.0m and explicit predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Beyond the predicted collision in the previous interval, no further physical contact is indicated; all remaining predicted paths maintain safe clearances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the 4th interval (9-10s) where EGO_other_vehicle_behind is predicted to rear-end the stopped EGO_other_vehicle. For all other intervals, no physical contact is expected, with vehicles maintaining either large clearances or very small clearances without actual footprint overlap according to the prediction tool.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6441,
+  "candidatesTokenCount": 636,
+  "totalTokenCount": 12576,
+  "cachedContentTokenCount": 868,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6441
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 868
+   }
+  ],
+  "thoughtsTokenCount": 5499,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "meeYasz4B67W2roPxabR4Q4"
+}

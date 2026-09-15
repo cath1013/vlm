@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero minimum clearance in this interval, and all actors maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002 is predicted to collide with the stopped V001 at 1.4s after observation (5.4s absolute time), indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero minimum clearance in this interval, and all actors maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\", \"T015\", \"V016\"],\n      \"reason\": \"Two separate collisions are predicted: EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to collide in an orthogonal junction conflict at 3.1s after observation (7.1s absolute time). T015 and V016 are predicted to collide at 3.3s after observation (7.3s absolute time) as V016 rear-ends the stopped T015.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero minimum clearance in this interval, and all actors maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the 5-second prediction window. A rear-end collision between V001 and V002 is expected in interval k=2. Interval k=4 is critical, with a junction collision between EGO_other_vehicle and EGO_ego_vehicle_behind, and another rear-end collision involving T015 and V016.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6674,
+  "candidatesTokenCount": 658,
+  "totalTokenCount": 13624,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6674
+   }
+  ],
+  "thoughtsTokenCount": 6292,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "X8mYapCXGuGM1e8PkrzliQY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining safe distances and clearances from each other, with the closest pair (T003 and M004) having over 5 meters of minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths remain clear of each other, with the closest interaction (V008 and V009) maintaining a minimum clearance of over 8 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or close proximity events are indicated for any vehicle pairs within this interval; all vehicles continue on distinct paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"An orthogonal entry conflict is predicted between EGO_ego_vehicle and EGO_other_vehicle at 3.3 seconds after observation (7.3s absolute time), resulting in a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close interactions are identified for this interval; the closest interactions maintain clearances above 1 meter.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence collision is predicted between 'EGO_ego_vehicle' and 'EGO_other_vehicle' during the (7.0, 8.0] second interval after the observation window, specifically at 7.3s absolute time, due to their intersecting trajectories. For all other time intervals, vehicles are predicted to maintain safe distances, with no expected accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6924,
+  "candidatesTokenCount": 614,
+  "totalTokenCount": 10080,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6924
+   }
+  ],
+  "thoughtsTokenCount": 2542,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "U8iYaoWXOfOt0-kPypiE6Qs"
+}

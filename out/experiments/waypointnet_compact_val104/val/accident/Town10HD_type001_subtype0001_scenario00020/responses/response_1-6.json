@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.84,
+ "usage": {
+  "input": 8413,
+  "output": 620
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle is predicted to turn left, intersecting the path of EGO_ego_vehicle_behind which is proceeding straight, leading to contact at approximately t=6.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "V004",
+     "V015",
+     "V019"
+    ],
+    "reason": "V004 is predicted to rear-end the stopped V003 at approximately t=7.5s. Additionally, V015 is predicted to rear-end the stopped V019 at approximately t=7.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new physical contact between actors is predicted in this interval based on their future paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new physical contact between actors is predicted in this interval based on their future paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N001",
+     "V004"
+    ],
+    "reason": "V004 is predicted to continue along its path and rear-end the stopped N001 at approximately t=10.5s.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates multiple rear-end collision scenarios where moving vehicles approach and collide with stopped vehicles. There is also one intersection conflict where a turning vehicle crosses the path of a vehicle proceeding straight. The predicted contacts are supported by the provided future trajectories and 0.0m minimum clearance values.",
+  "data_limitations": ""
+ }
+}

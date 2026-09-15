@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"C013\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"C013 (bicycle) is changing lane right from lane 3 into lane 4, where EGO_ego_vehicle_behind is present, creating a high-risk lane-change contention as C013 is slower and positioned behind EGO_ego_vehicle_behind.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"N008\",\n        \"M009\"\n      ],\n      \"reason\": \"N008 (van) and M009 (motorcycle) have a linear-extrapolated contact in 1.2s (at 6.2s) with only 4.0m separation, indicating an imminent orthogonal collision as they converge at the junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"V001\",\n        \"V002\",\n        \"V014\"\n      ],\n      \"reason\": \"Multiple vehicles are on converging paths towards the junction: V001 and V014 (TTC 2.2s at 7.2s), V002 and V014 (TTC 2.4s at 7.4s), EGO_ego_vehicle and EGO_other_vehicle (TTC 2.5s at 7.5s), and EGO_ego_vehicle and EGO_other_vehicle_behind (TTC 2.8s at 7.8s), leading to a high likelihood of orthogonal collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"V002\",\n        \"V003\",\n        \"V014\"\n      ],\n      \"reason\": \"Additional junction conflicts are expected: EGO_ego_vehicle and V001 (TTC 3.1s at 8.1s), EGO_ego_vehicle and V002 (TTC 3.2s at 8.2s), and V003 and V014 (TTC 3.8s at 8.8s) all indicate high potential for orthogonal collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V014\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind and V014 have a linear-extrapolated contact in 4.2s (at 9.2s), indicating an orthogonal collision as they continue on converging paths towards the junction.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at this three-way junction is highly complex with multiple vehicles converging. Several pairs have short times to collision (TTCs) ranging from 1.2s to 4.2s, indicating a high likelihood of multiple collisions as vehicles enter and cross the intersection, primarily orthogonal conflicts. EGO_ego_vehicle itself is involved in several potential collisions throughout the prediction window.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop lines, and lane-marking types prevents a complete assessment of junction rules and driver behavior, potentially underestimating or overestimating certain collision risks. Predicted path probabilities are model outputs, not direct observations, which introduces uncertainty.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10804,
+  "candidatesTokenCount": 1035,
+  "totalTokenCount": 23378,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10804
+   }
+  ],
+  "thoughtsTokenCount": 11539,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7xqVavT4HrXs2roPzuPZIA"
+}

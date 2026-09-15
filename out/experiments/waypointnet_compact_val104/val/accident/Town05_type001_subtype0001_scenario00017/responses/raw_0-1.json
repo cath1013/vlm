@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, and no converging paths result in contact during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"V016\"],\n      \"reason\": \"Vehicle V016 is predicted to rear-end the stopped vehicle V015 at approximately 1.9 seconds after observation, as its trajectory indicates a direct collision path with V015's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have converging paths that would lead to physical contact; all maintain safe lateral and longitudinal separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V022\", \"V023\"],\n      \"reason\": \"Vehicle V023 is predicted to rear-end vehicle V022 at approximately 3.5 seconds after observation, as V023 is accelerating and its path converges into V022's path within the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"M004\"],\n      \"reason\": \"Motorcycle M004 is predicted to collide with the rear of car V003 at approximately 4.2 seconds after observation while attempting to overtake within the same lane, as M004's faster speed leads to convergence and overlap with V003's trajectory.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Three distinct collision events are predicted across the 5-second forecast window. Two involve rear-end collisions between cars moving in the same direction (V016 into V015, and V023 into V022), while a third predicts an overtaking collision between a motorcycle and a car (M004 into V003). All predicted conflicts show zero minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9636,
+  "candidatesTokenCount": 663,
+  "totalTokenCount": 18410,
+  "cachedContentTokenCount": 1828,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9636
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1828
+   }
+  ],
+  "thoughtsTokenCount": 8111,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "br-YaqbFIO-i9tMPu9vFgAY"
+}

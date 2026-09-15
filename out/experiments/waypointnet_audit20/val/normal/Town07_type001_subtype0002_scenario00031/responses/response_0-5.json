@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 48.76,
+ "usage": {
+  "input": 11909,
+  "output": 756
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_other_vehicle is rapidly closing on the stopped V002, the linear-extrapolated contact time of 1.4s suggests the collision itself would occur in the subsequent interval, not this one.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V002"
+    ],
+    "reason": "EGO_other_vehicle is predicted to collide with the stopped V002 at t=6.4s, based on a linear extrapolation of their closing rate of 7.5m/s and current distance of 10.6m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No additional immediate conflicts are predicted in this interval, assuming the primary conflicts from previous intervals have either occurred or been mitigated.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No additional immediate conflicts are predicted in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "An orthogonal entry conflict is expected between EGO_ego_vehicle and EGO_other_vehicle_behind at junction J87, with a predicted Time To Collision (TTC) of 4.3s from t=5s, placing the collision at t=9.3s within this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple severe conflicts are predicted within the next five seconds. EGO_other_vehicle is rapidly approaching a stopped V002, with a linear-extrapolated collision time of 1.4 seconds. Additionally, EGO_ego_vehicle and EGO_other_vehicle_behind are on a collision course at junction J87, with a predicted time to collision of 4.3 seconds.",
+  "data_limitations": "The raw linear extrapolation of 1.2s contact for EGO_ego_vehicle and EGO_other_vehicle_behind conflicts with the path-aware TTC of 4.3s provided in the 'Interactions and hazards' section, which was prioritized for this pair. Additionally, the high closing rate for EGO_other_vehicle and V002 is based solely on linear extrapolation as no trajectory-based hazard was provided for this pair."
+ }
+}

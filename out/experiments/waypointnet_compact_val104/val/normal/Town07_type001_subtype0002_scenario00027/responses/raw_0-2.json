@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are found in this interval, and all actors maintain sufficient separation based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are found in this interval, and all actors maintain sufficient separation based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"P004\"],\n      \"reason\": \"V001 (car) and P004 (person) are predicted to collide with zero minimum clearance at 2.8 seconds after observation (absolute time 4.8s), indicating a direct contact between their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are found in this interval, and all actors maintain sufficient separation based on their future paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"C007\", \"T006\"],\n      \"reason\": \"EGO_ego_vehicle (car) is predicted to rear-end C007 (bicycle) and T006 (truck) at 4.2s and 4.4s after observation (absolute times 6.2s and 6.4s, respectively) due to higher speed on converging southbound paths. Additionally, T006 is predicted to collide with C007 at 4.3s (absolute time 6.3s), suggesting a complex multi-actor accident.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The overall assessment reveals two distinct accident scenarios. An initial collision is predicted at k=3 between a car (V001) and a pedestrian (P004) where their paths converge. A more complex and severe multi-vehicle collision is anticipated in the final interval, k=5, involving the ego vehicle (EGO_ego_vehicle), a truck (T006), and a bicycle (C007), primarily driven by the ego vehicle's higher speed and converging paths with the slower-moving truck and bicycle.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5803,
+  "candidatesTokenCount": 720,
+  "totalTokenCount": 14695,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5803
+   }
+  ],
+  "thoughtsTokenCount": 8172,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "082YarvBBJf91e8Ps9_RmQ8"
+}

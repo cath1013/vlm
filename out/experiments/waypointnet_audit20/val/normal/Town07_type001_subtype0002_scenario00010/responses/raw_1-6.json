@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An orthogonal entry conflict at junction J63 is expected between EGO_ego_vehicle_behind and EGO_other_vehicle, with a very low time to collision (0.8s), indicating an imminent collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The immediate junction conflict in the previous interval would likely resolve or result in a collision; other identified risks have not yet reached critical collision time.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M004\",\n        \"C003\",\n        \"V006\",\n        \"M005\"\n      ],\n      \"reason\": \"Two rear-end collisions are expected: M004 is approaching the stopped C003 with a TTC of 2.3s, and V006 is rapidly closing on the slower M005, also with a TTC of 2.3s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further immediate conflicts are identified beyond those already expected to occur in earlier intervals.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further immediate conflicts are identified beyond those already expected to occur in earlier intervals.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at t=6s presents multiple critical conflicts. An immediate orthogonal junction conflict between EGO_ego_vehicle_behind and EGO_other_vehicle, with a TTC of 0.8s, is highly likely in the first prediction interval. Subsequently, two separate rear-end collisions are expected around the third interval, involving M004 with the stopped C003, and V006 with the slower M005, both having a TTC of 2.3s.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values are noted to not account for turning, braking, or signals; however, the explicit 'orthogonal entry conflict expected' and the short TTC values for other identified conflicts provide strong indications. The predictions rely on several vehicles remaining stopped as stated in their predicted paths, and any unexpected movement would alter the accident likelihood.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8898,
+  "candidatesTokenCount": 753,
+  "totalTokenCount": 16251,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8898
+   }
+  ],
+  "thoughtsTokenCount": 6600,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "iR2VaoymJoLOrfcPrauO6Qg"
+}

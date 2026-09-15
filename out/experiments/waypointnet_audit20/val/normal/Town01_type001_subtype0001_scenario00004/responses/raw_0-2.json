@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N004\", \"V005\"],\n      \"reason\": \"N004 and V005 are on Road 9, moving in opposing directions (eastbound and westbound, respectively) with a rapid closing rate. A linear extrapolation predicts contact in 0.5 seconds, indicating a high risk of a head-on or side-swipe collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No imminent conflicts are predicted in this interval; vehicles are maintaining their current paths and distances suggest safe passage for most, while EGO_other_vehicle continues to approach a stopped V010.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V010\"],\n      \"reason\": \"EGO_other_vehicle is accelerating towards V010, which is stopped at 0m from the junction on the same road (Road 25 southbound). EGO_other_vehicle will reach V010 around t=4.36s, leading to a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V012\"],\n      \"reason\": \"V005 is approaching a junction at 33km/h on Road 9 westbound, while V012 is stopped at 3m from the junction on Road 22 northbound. A linear extrapolation predicts contact at t=5.1s, indicating a crossing conflict at the junction if V005 proceeds straight.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent primary conflicts are predicted by linear extrapolation for this interval, although the consequences of earlier predicted collisions may affect the traffic flow.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents several high-risk interactions, primarily involving vehicles approaching junctions where other vehicles are stopped or converging at high speeds. Two significant collisions are predicted: a head-on/side-swipe between N004 and V005 on Road 9, and a rear-end collision involving EGO_other_vehicle and V010 at a junction. A third crossing conflict is also likely between V005 and V012 at a junction.\",\n  \"data_limitations\": \"The interpretation of 'lane 1/1' for opposing traffic on Road 9, combined with the 'linear-extrapolated contact' warning for N004 and V005, presents some ambiguity regarding the physical separation. The linear extrapolation for V009 and EGO_other_vehicle_behind was dismissed due to their diverging headings. The specific geometry of junctions and right-of-way rules are not explicitly available, which affects confidence for crossing conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7371,
+  "candidatesTokenCount": 840,
+  "totalTokenCount": 16365,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7371
+   }
+  ],
+  "thoughtsTokenCount": 8154,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XhiVarffMsDH2roPn8ykgAk"
+}

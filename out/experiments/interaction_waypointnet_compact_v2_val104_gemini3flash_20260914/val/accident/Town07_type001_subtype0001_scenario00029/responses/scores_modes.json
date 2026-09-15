@@ -1,0 +1,1373 @@
+{
+ "provider": "gemini",
+ "modes": [
+  "binary_scenario",
+  "binary_window",
+  "strict",
+  "early",
+  "weighted",
+  "binary_bucket"
+ ],
+ "late_decay": 0.2,
+ "early_decay": 0.0,
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_6074170ce531",
+   "scenario_outcome": "accident",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "scenario_outcome": "accident",
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 1,
+    "n_scorable": 1,
+    "n_buckets": 3,
+    "eligible_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n_positive_buckets": 2,
+    "per_window": [
+     {
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "eligible_buckets": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "n_buckets": 3
+     }
+    ]
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "mixed",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 3,
+    "n_buckets": 3,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     2,
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The actors maintain safe separation as EGO_other_vehicle approaches the turn intersection."
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle initiates a left turn onto Road 11 and collides with stationary vehicle V001 due to a path overlap and insufficient stopping distance."
+     },
+     {
+      "k": 3,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle continues its turn trajectory and collides with the next stationary vehicle in the queue, V002."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "mixed",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 3,
+    "n_buckets": 3,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     2,
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The actors maintain safe separation as EGO_other_vehicle approaches the turn intersection."
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle initiates a left turn onto Road 11 and collides with stationary vehicle V001 due to a path overlap and insufficient stopping distance."
+     },
+     {
+      "k": 3,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle continues its turn trajectory and collides with the next stationary vehicle in the queue, V002."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.667,
+    "precision": 0.5,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      3
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "n_buckets": 3,
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 7.5,
+    "event": {
+     "k_true": 3,
+     "credit_buckets": [
+      3
+     ],
+     "credited_k": 3,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.3
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "The actors maintain safe separation as EGO_other_vehicle approaches the turn intersection.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_other_vehicle initiates a left turn onto Road 11 and collides with stationary vehicle V001 due to a path overlap and insufficient stopping distance.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TP",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "EGO_other_vehicle continues its turn trajectory and collides with the next stationary vehicle in the queue, V002.",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 1.0,
+      "matched_carla_ids": [
+       2910,
+       2912
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [],
+      "all_involved_observed": true
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No additional collisions are predicted after the initial turn conflict sequence."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The remaining trajectories do not show any overlaps or dangerously low clearances."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.667,
+    "precision": 0.5,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": [
+      1,
+      2,
+      3
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "n_buckets": 3,
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 7.5,
+    "event": {
+     "k_true": 3,
+     "credit_buckets": [
+      1,
+      2,
+      3
+     ],
+     "credited_k": 3,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.3
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "The actors maintain safe separation as EGO_other_vehicle approaches the turn intersection.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FP_EARLY_DUP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "EGO_other_vehicle initiates a left turn onto Road 11 and collides with stationary vehicle V001 due to a path overlap and insufficient stopping distance.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "TP",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "EGO_other_vehicle continues its turn trajectory and collides with the next stationary vehicle in the queue, V002.",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 1.0,
+      "matched_carla_ids": [
+       2910,
+       2912
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [],
+      "all_involved_observed": true
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No additional collisions are predicted after the initial turn conflict sequence."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The remaining trajectories do not show any overlaps or dangerously low clearances."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 3,
+    "alarm_k": 2,
+    "delta": -1,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_buckets": 3,
+    "bucket_accuracy": 0.667,
+    "bucket_false_alarm_rate": 0.5,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The actors maintain safe separation as EGO_other_vehicle approaches the turn intersection."
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle initiates a left turn onto Road 11 and collides with stationary vehicle V001 due to a path overlap and insufficient stopping distance."
+     },
+     {
+      "k": 3,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle continues its turn trajectory and collides with the next stationary vehicle in the queue, V002."
+     }
+    ],
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_6074170ce531",
+   "scenario_outcome": "accident",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "scenario_outcome": "accident",
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 1,
+    "n_scorable": 1,
+    "n_buckets": 2,
+    "eligible_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n_positive_buckets": 3,
+    "per_window": [
+     {
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "eligible_buckets": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "n_buckets": 2
+     }
+    ]
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "mixed",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     1,
+     2,
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle converge on a junction while entering Road 11, resulting in a collision with each other and stationary vehicle V001 within 0.8 seconds."
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "The predicted paths show a continuation of the junction conflict, with both observer vehicles colliding with stationary vehicles V001 and V002 at the intersection."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "mixed",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     1,
+     2,
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle converge on a junction while entering Road 11, resulting in a collision with each other and stationary vehicle V001 within 0.8 seconds."
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "The predicted paths show a continuation of the junction conflict, with both observer vehicles colliding with stationary vehicles V001 and V002 at the intersection."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      2
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 7.5,
+    "event": {
+     "k_true": 2,
+     "credit_buckets": [
+      2
+     ],
+     "credited_k": 2,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.3
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle converge on a junction while entering Road 11, resulting in a collision with each other and stationary vehicle V001 within 0.8 seconds.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "The predicted paths show a continuation of the junction conflict, with both observer vehicles colliding with stationary vehicles V001 and V002 at the intersection.",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 0.5,
+      "matched_carla_ids": [
+       2910,
+       2912
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [
+       "EGO_ego_vehicle",
+       "V001"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle is predicted to maintain contact with stationary vehicle V002 as it proceeds through the collision zone at the junction."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No further body contact or unsafe clearances are predicted for this interval as vehicles move beyond the immediate conflict points."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Sufficient clearance is maintained between the remaining moving actors and stationary objects."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": [
+      1,
+      2
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 7.5,
+    "event": {
+     "k_true": 2,
+     "credit_buckets": [
+      1,
+      2
+     ],
+     "credited_k": 2,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.3
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP_EARLY_DUP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle converge on a junction while entering Road 11, resulting in a collision with each other and stationary vehicle V001 within 0.8 seconds.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "The predicted paths show a continuation of the junction conflict, with both observer vehicles colliding with stationary vehicles V001 and V002 at the intersection.",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 0.5,
+      "matched_carla_ids": [
+       2910,
+       2912
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [
+       "EGO_ego_vehicle",
+       "V001"
+      ],
+      "all_involved_observed": true
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle is predicted to maintain contact with stationary vehicle V002 as it proceeds through the collision zone at the junction."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No further body contact or unsafe clearances are predicted for this interval as vehicles move beyond the immediate conflict points."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Sufficient clearance is maintained between the remaining moving actors and stationary objects."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 2,
+    "alarm_k": 1,
+    "delta": -1,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 1,
+     "FP": 1,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_buckets": 2,
+    "bucket_accuracy": 0.5,
+    "bucket_false_alarm_rate": 1.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle converge on a junction while entering Road 11, resulting in a collision with each other and stationary vehicle V001 within 0.8 seconds."
+     },
+     {
+      "k": 2,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "The predicted paths show a continuation of the junction conflict, with both observer vehicles colliding with stationary vehicles V001 and V002 at the intersection."
+     }
+    ],
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_6074170ce531",
+   "scenario_outcome": "accident",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "scenario_outcome": "accident",
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 1,
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "eligible_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n_positive_buckets": 3,
+    "per_window": [
+     {
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "eligible_buckets": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "n_buckets": 1
+     }
+    ]
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "FN",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles maintain adequate clearance while approaching the congestion on Road 11."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "FN",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles maintain adequate clearance while approaching the congestion on Road 11."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "status": "FN",
+    "accuracy": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 7.5,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "The vehicles maintain adequate clearance while approaching the congestion on Road 11.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The gap between the approaching vehicles and the queue is closing, but no physical contact occurs in this interval."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle both collide with the stationary queue (T015) and slow-moving oncoming traffic (V003) due to insufficient braking on a single-lane segment."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The vehicles remain in a state of physical overlap as their predicted trajectories continue to pass through the collision points."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle and V003 remain in a state of overlap for the first part of this interval before their predicted paths finally clear one another."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6074170ce531",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "status": "FN",
+    "accuracy": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 7.5,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "The vehicles maintain adequate clearance while approaching the congestion on Road 11.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The gap between the approaching vehicles and the queue is closing, but no physical contact occurs in this interval."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle and EGO_other_vehicle both collide with the stationary queue (T015) and slow-moving oncoming traffic (V003) due to insufficient braking on a single-lane segment."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The vehicles remain in a state of physical overlap as their predicted trajectories continue to pass through the collision points."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle and V003 remain in a state of overlap for the first part of this interval before their predicted paths finally clear one another."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 0.0,
+    "k_true": 1,
+    "alarm_k": null,
+    "delta": null,
+    "detected": false,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 1
+    },
+    "n_buckets": 1,
+    "bucket_accuracy": 0.0,
+    "bucket_false_alarm_rate": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles maintain adequate clearance while approaching the congestion on Road 11."
+     }
+    ]
+   }
+  }
+ ],
+ "aggregate": {
+  "n_windows": 3,
+  "binary_window": {
+   "n_windows": 3,
+   "counts": {
+    "TP": 3,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "n_scorable_windows": 3,
+   "n_censored_windows": 0
+  },
+  "binary_bucket": {
+   "n_windows": 3,
+   "n_buckets": 6,
+   "counts": {
+    "TP": 2,
+    "FP": 2,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.5,
+   "precision": 0.5,
+   "recall": 0.667,
+   "f1": 0.571,
+   "mean_positive_buckets": 2.667
+  },
+  "binary_scenario": {
+   "n_scenarios": 1,
+   "n_scorable_scenarios": 1,
+   "n_censored_scenarios": 0,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "per_scenario": [
+    {
+     "scenario_ref": "scn_6074170ce531",
+     "outcome": "accident",
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "scorable": true,
+     "n_windows": 3,
+     "n_eligible_windows": 3,
+     "n_positive_windows": 3
+    }
+   ]
+  },
+  "binary": {
+   "n_windows": 3,
+   "n_buckets": 6,
+   "counts": {
+    "TP": 2,
+    "FP": 2,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.5,
+   "precision": 0.5,
+   "recall": 0.667,
+   "f1": 0.571,
+   "mean_positive_buckets": 2.667
+  },
+  "strict": {
+   "n_windows": 3,
+   "n_buckets": 6,
+   "counts": {
+    "TP": 2,
+    "FP": 2,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.5,
+   "precision": 0.5,
+   "recall": 0.667,
+   "vehicle_recall_mean": 1.0,
+   "actor_precision_mean": 0.75,
+   "events": {
+    "n": 3,
+    "exact": 2,
+    "early": 0,
+    "none": 1,
+    "detection_rate": 0.667,
+    "mean_lead_s": -0.3
+   },
+   "response_issue_counts": {}
+  },
+  "early": {
+   "n_windows": 3,
+   "n_buckets": 6,
+   "counts": {
+    "TP": 2,
+    "FP": 2,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.5,
+   "precision": 0.5,
+   "recall": 0.667,
+   "vehicle_recall_mean": 1.0,
+   "actor_precision_mean": 0.75,
+   "events": {
+    "n": 3,
+    "exact": 2,
+    "early": 0,
+    "none": 1,
+    "detection_rate": 0.667,
+    "mean_lead_s": -0.3
+   },
+   "response_issue_counts": {}
+  },
+  "weighted": {
+   "n_event_windows": 3,
+   "n_buckets": 6,
+   "counts": {
+    "TP": 2,
+    "FP": 2,
+    "TN": 1,
+    "FN": 1
+   },
+   "bucket_accuracy": 0.5,
+   "mean_score": 0.667,
+   "n_detected": 2,
+   "n_missed": 1,
+   "detection_rate": 0.667,
+   "n_no_event_windows": 0,
+   "false_alarms": 0,
+   "window_false_alarm_rate": null,
+   "false_alarm_rate": 0.667
+  }
+ }
+}

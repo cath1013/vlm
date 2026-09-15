@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are approaching or entering a junction, but no immediate conflicts with a time-to-contact less than 2 seconds are identified.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While several vehicles are in or near the junction and accelerating, no specific conflicts are predicted to result in an accident within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted contact between EGO_ego_vehicle_behind and V002 is at t=4.1s (3.1s from current t=1s), which falls just outside the end of this interval, so an accident is not expected yet.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V002 are projected to have a linear-extrapolated contact at t=4.1s. Both vehicles are accelerating and are in or approaching a junction with crossing paths, indicating an imminent collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V004\"],\n      \"reason\": \"V001 and V004 are predicted to have an orthogonal entry conflict at junction J72 with a time-to-contact of 4.5s (relative to t=1s), leading to an accident at approximately t=5.5s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation involves multiple vehicles approaching or already within a three-way junction, many of them accelerating. Two distinct orthogonal entry conflicts are predicted: one between EGO_ego_vehicle_behind and V002 around t=4.1s, and another between V001 and V004 around t=5.5s. The overall risk is high due to these crossing paths in the junction area.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, and lane-marking types prevents a full assessment of right-of-way rules at the junction, which could influence actual collision outcomes. Predicted paths are outputs of a predictor and do not reflect direct observations of turn signals or braking intent.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5961,
+  "candidatesTokenCount": 737,
+  "totalTokenCount": 9241,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5961
+   }
+  ],
+  "thoughtsTokenCount": 2543,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ghiVauF9jsTT6Q_2opmADg"
+}

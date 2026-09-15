@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 16.77,
+ "usage": {
+  "input": 9256,
+  "output": 696
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient clearance, with the closest pair (EGO_other_vehicle_behind and V020) having a minimum clearance of 2.67 meters.",
+    "confidence": "medium"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_other_vehicle_behind is predicted to rear-end the stopped EGO_other_vehicle, with a minimum clearance of 0.0 meters at 2.0 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V014"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to rear-end V014, with a minimum clearance of 0.0 meters at 3.0 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient clearance, with the closest pair (EGO_ego_vehicle and EGO_other_vehicle) having a minimum clearance of 4.64 meters.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted actor paths maintain sufficient clearance; although EGO_other_vehicle_behind and EGO_ego_vehicle have a small clearance of 0.49 meters, it does not indicate physical contact.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates two separate rear-end collisions. EGO_other_vehicle_behind is expected to collide with the stopped EGO_other_vehicle in the (6.0, 7.0]s interval, and EGO_ego_vehicle_behind is expected to collide with V014 in the (7.0, 8.0]s interval. All other actor interactions maintain sufficient clearances.",
+  "data_limitations": "No specific data limitations were encountered that significantly hindered the judgment; the prediction relies on the geometric output of the supplied trajectory predictor."
+ }
+}

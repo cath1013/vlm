@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance, with the closest pair (EGO_ego_vehicle_behind and EGO_other_vehicle) maintaining a minimum clearance of 1.31 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain significant separation, with no geometric overlap or close convergences indicating an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles continue on their predicted paths with adequate separation; the closest interaction among the listed pairs is EGO_other_vehicle and V001 with 5.23m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C004\", \"V005\"],\n      \"reason\": \"A physical contact is predicted between C004 (bicycle) and V005 (car) at approximately 3.3 seconds after the last observation (t=11.3s). This is due to C004 closing the gap on V005, and both vehicles' footprints overlapping laterally and longitudinally based on their predicted westbound trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new distinct accident is predicted in this interval; the interaction between C004 and V005 would have occurred in the previous interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Throughout the 5-second prediction window, most vehicles are observed to be stationary, or maintaining safe distances. However, a high-confidence accident involving a bicycle (C004) and a car (V005) is predicted in the fourth 1-second interval (11.0-12.0s). This is identified as a collision during their westbound movement, with the bicycle's path conflicting with the car's decelerating path, resulting in body overlap.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10329,
+  "candidatesTokenCount": 674,
+  "totalTokenCount": 19556,
+  "cachedContentTokenCount": 920,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10329
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 920
+   }
+  ],
+  "thoughtsTokenCount": 8553,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jMSYaq3IBNWWosUPzdvFmQg"
+}

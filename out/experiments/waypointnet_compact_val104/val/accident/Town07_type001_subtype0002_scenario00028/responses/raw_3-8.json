@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V009\", \"V014\"],\n      \"reason\": \"V014's predicted path intersects the stopped position of V009 at 0.8 seconds into the interval, indicating a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind's predicted path overlaps with the stopped position of EGO_other_vehicle_behind at 1.5 seconds into the interval, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V001\", \"V014\"],\n      \"reason\": \"V014's and EGO_ego_vehicle_behind's predicted paths both intersect the stopped position of V001 at 2.8 and 2.6 seconds respectively, indicating multiple potential collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V002\"],\n      \"reason\": \"V002's predicted path intersects the stopped position of EGO_other_vehicle_behind at 3.7 seconds into the interval, indicating a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V014\"],\n      \"reason\": \"EGO_ego_vehicle_behind's and V014's predicted paths converge and overlap at 4.8 seconds into the interval, leading to a collision.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of multiple collisions throughout the 5-second window. These incidents primarily involve moving vehicles intersecting the positions of stopped vehicles or two moving vehicles having their predicted paths overlap. EGO_ego_vehicle_behind, V014, V009, V001, and EGO_other_vehicle_behind are frequently involved.\",\n  \"data_limitations\": \"The actor paths are predicted independently, meaning a collision predicted in an earlier interval might alter the subsequent behavior of the involved actors in a real-world scenario, potentially impacting later predictions. However, judgments are based strictly on the provided independent paths.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7125,
+  "candidatesTokenCount": 754,
+  "totalTokenCount": 13363,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7125
+   }
+  ],
+  "thoughtsTokenCount": 5484,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qsmYar3GHM7M0-kPvsz-gAM"
+}

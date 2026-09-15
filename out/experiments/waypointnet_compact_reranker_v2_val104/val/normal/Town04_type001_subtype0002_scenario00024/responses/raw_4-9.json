@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearance, and no conflicts are indicated in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V003\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"An orthogonal entry conflict is predicted: EGO_ego_vehicle (westbound) and V003 (northbound) are predicted to contact at approximately 10.7s, while EGO_other_vehicle_behind (southbound) and V003 are predicted to contact at approximately 10.6s at the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"An orthogonal entry conflict is predicted between EGO_ego_vehicle (westbound) and EGO_other_vehicle_behind (southbound) at approximately 11.3s, as their paths intersect with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No direct contact is predicted in this interval; vehicles previously involved in conflicts appear to be diverging.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearance, and no conflicts are indicated in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are highly expected in the early future intervals. EGO_ego_vehicle, EGO_other_vehicle_behind, and V003 are predicted to collide in a complex intersection conflict starting in the (10.0, 11.0]s interval, with a subsequent conflict involving EGO_ego_vehicle and EGO_other_vehicle_behind in the (11.0, 12.0]s interval. The predictions suggest these conflicts resolve by the later intervals.\",\n  \"data_limitations\": \"The trajectory predictor generates independent paths for each actor. While it identifies potential contacts, it does not model how an initial collision might alter subsequent trajectories or cause secondary chain-reaction events beyond the direct pairwise predictions. The predicted contacts for k=2 and k=3 are treated as independent events by the pair predictor, although they are spatially and temporally proximate and likely related.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8854,
+  "candidatesTokenCount": 752,
+  "totalTokenCount": 13796,
+  "cachedContentTokenCount": 905,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8854
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 905
+   }
+  ],
+  "thoughtsTokenCount": 4190,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "wfGYasojnM2t9w-HjtHxDA"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors; the closest pair (EGO_other_vehicle and EGO_other_vehicle_behind) has a minimum clearance of 10.2 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors, with the closest pair (EGO_other_vehicle and EGO_ego_vehicle) having a minimum clearance of 1.04 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors, with the closest pair (EGO_other_vehicle and V016) having a minimum clearance of 4.48 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle_behind and EGO_other_vehicle have a small minimum clearance of 0.41 meters, the prediction explicitly indicates no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the stopped EGO_ego_vehicle at approximately 4.7 seconds after observation, indicated by a 0.0m minimum clearance and predicted_contact=true.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle, which remains stopped, at approximately t=10.7s (within the k=5 interval). All other actor interactions across the 5-second prediction window show sufficient clearance, with no other accidents expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8515,
+  "candidatesTokenCount": 636,
+  "totalTokenCount": 10924,
+  "cachedContentTokenCount": 901,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8515
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 901
+   }
+  ],
+  "thoughtsTokenCount": 1773,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "seuYao_dEu7U1e8PyK34gA8"
+}

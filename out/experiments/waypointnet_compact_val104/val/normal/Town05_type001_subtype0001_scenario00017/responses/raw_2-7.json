@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs show only clearances greater than 1 meter, indicating no physical contact among vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close clearances in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V017\", \"V018\", \"C025\"],\n      \"reason\": \"V017 is predicted to rear-end the stopped vehicle V014 on Road 52. Additionally, V018 and C025 are predicted to collide as their northbound paths intersect.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a clearance of 0.68m between EGO_other_vehicle_behind and V013, which is a near miss but not a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"V024\", \"N022\", \"EGO_other_vehicle_behind\", \"V012\", \"V016\", \"V015\"],\n      \"reason\": \"Multiple collisions are predicted: V018 collides with the stopped vehicles V024 and N022. EGO_other_vehicle_behind and V012 are predicted to collide due to their opposing paths converging. V016 is also predicted to rear-end the stopped vehicle V015.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high probability of multiple collisions, concentrated in intervals k=3 and k=5. Several moving vehicles are predicted to rear-end stopped vehicles or collide with other moving vehicles in crossing path scenarios. These predictions are based on zero minimum clearance and positive predicted contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11693,
+  "candidatesTokenCount": 666,
+  "totalTokenCount": 17376,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11693
+   }
+  ],
+  "thoughtsTokenCount": 5017,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "c8SYauOzKZyf0-kP_qnaiQ8"
+}

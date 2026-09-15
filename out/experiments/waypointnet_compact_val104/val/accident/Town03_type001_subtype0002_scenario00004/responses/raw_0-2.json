@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show clear separation between all vehicles, with no geometric overlap or conflict points in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V017\", \"V018\"],\n      \"reason\": \"V017 and V018 are predicted to collide at t=3.6s due to V018's path converging with V017's path from behind and to the left, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle are predicted to collide at t=4.9s as their paths intersect orthogonally at a junction, leading to simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V004\", \"EGO_other_vehicle\", \"V015\"],\n      \"reason\": \"Two distinct accidents are predicted: V003 and V004 collide at t=5.1s due to V004's path converging with V003's path, and EGO_other_vehicle and V015 collide at t=5.7s in an orthogonal intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or significant geometric overlaps are observed between any vehicles in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple distinct accidents. An initial collision between V017 and V018 is expected in the second interval. Subsequently, EGO_other_vehicle and EGO_ego_vehicle are predicted to collide at an intersection in the third interval. The fourth interval shows two additional distinct accidents: a convergence collision between V003 and V004, and another intersection conflict involving EGO_other_vehicle and V015.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8177,
+  "candidatesTokenCount": 694,
+  "totalTokenCount": 14162,
+  "cachedContentTokenCount": 897,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8177
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 897
+   }
+  ],
+  "thoughtsTokenCount": 5291,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VMaYariULPaz2roProCLcA"
+}

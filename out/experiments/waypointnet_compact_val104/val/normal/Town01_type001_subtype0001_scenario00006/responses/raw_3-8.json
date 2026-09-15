@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, and no contact is indicated in this interval. For example, EGO_ego_vehicle and V014 have a predicted clearance of 2.05m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no predicted contacts or close proximity indicating an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, and no contact is indicated in this interval. For example, EGO_other_vehicle and V014 have a predicted clearance of 5.16m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no predicted contacts or close proximity indicating an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V004\"\n      ],\n      \"reason\": \"A rear-end collision is expected between EGO_other_vehicle_behind and V004. V004 is ahead of EGO_other_vehicle_behind and both are moving westbound in the same lane; however, EGO_other_vehicle_behind's path predicts it closing the gap significantly, resulting in a predicted body overlap of 0.1m in the east-west axis and 1.23m in the north-south axis at t=5.0s relative to observation, indicating contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"For the first four seconds of the prediction window, all vehicles are expected to maintain safe distances, and no accidents are predicted. However, in the final interval (k=5), a rear-end collision is predicted between EGO_other_vehicle_behind and V004, as EGO_other_vehicle_behind overtakes and contacts V004 while V004 is significantly slowing down.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6290,
+  "candidatesTokenCount": 704,
+  "totalTokenCount": 12230,
+  "cachedContentTokenCount": 864,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6290
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 864
+   }
+  ],
+  "thoughtsTokenCount": 5236,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "x8GYaoWgO_rcvr0P9_e_sAY"
+}

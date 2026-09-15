@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, and no vehicle is predicted to make contact or overlap with another in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end the stopped EGO_ego_vehicle at approximately 4.3 seconds after the last observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"The rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle, which began in the previous interval, is expected to continue as EGO_ego_vehicle_behind proceeds into the stopped EGO_ego_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"The rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle is expected to continue as EGO_ego_vehicle_behind drives into the stopped vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"Two distinct collisions are expected: the ongoing rear-end collision between EGO_ego_vehicle_behind and the stopped EGO_ego_vehicle, and EGO_other_vehicle is predicted to collide with the stopped V001 during its left turn maneuver at approximately 7.9 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A severe rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle is predicted to occur in the second interval and persist through the remainder of the prediction window. Additionally, a separate collision between EGO_other_vehicle and the stopped V001 is predicted to occur in the final interval during EGO_other_vehicle's left turn.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8677,
+  "candidatesTokenCount": 738,
+  "totalTokenCount": 14879,
+  "cachedContentTokenCount": 903,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8677
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 903
+   }
+  ],
+  "thoughtsTokenCount": 5464,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xuaYapufNMuy1e8PneeVwQo"
+}

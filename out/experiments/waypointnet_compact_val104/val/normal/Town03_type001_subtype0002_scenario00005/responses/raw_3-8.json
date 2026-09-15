@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (T024 and V019) maintains a clearance of 1.09m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T028\", \"V029\"],\n      \"reason\": \"Vehicle V029 is predicted to travel eastbound and collide with the stationary truck T028 at approximately 1.6 seconds into the prediction window, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V031\", \"V032\", \"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"Two distinct collisions are predicted: V032 is predicted to collide with the stationary V031 around 2.1 seconds, and EGO_ego_vehicle_behind is predicted to collide with EGO_ego_vehicle around 2.8 seconds as EGO_ego_vehicle_behind attempts a right turn into EGO_ego_vehicle's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P007\", \"P037\"],\n      \"reason\": \"Pedestrian P007 moving southbound is predicted to collide with pedestrian P037 moving northbound at approximately 3.1 seconds after observation, as their paths directly intersect.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P007\", \"V005\", \"P008\"],\n      \"reason\": \"Two distinct pedestrian-vehicle collisions are predicted: EGO_ego_vehicle_behind is predicted to collide with pedestrian P007 around 4.6 seconds, and vehicle V005 is predicted to collide with pedestrian P008 around 4.8 seconds.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple accidents involving both vehicles and pedestrians. The observed future paths show several direct overlaps between active road users and stationary actors, as well as between moving actors and pedestrians.\",\n  \"data_limitations\": \"The position_quality of actor T028 is 0.81, which introduces minor uncertainty, but the predicted path overlap is significant enough to confirm the expected collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12916,
+  "candidatesTokenCount": 751,
+  "totalTokenCount": 17314,
+  "cachedContentTokenCount": 1879,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12916
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1879
+   }
+  ],
+  "thoughtsTokenCount": 3647,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kcqYar7NF4DU1e8P2PiQgQY"
+}

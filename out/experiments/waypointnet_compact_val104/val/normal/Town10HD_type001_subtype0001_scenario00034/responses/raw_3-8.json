@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are either stopped or continue on their paths with sufficient clearances to avoid any contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V004\", \"EGO_other_vehicle\", \"V011\"],\n      \"reason\": \"V004 is predicted to collide with the stopped EGO_other_vehicle_behind at 1.6s, and V011 is predicted to have an orthogonal entry conflict with EGO_other_vehicle at 1.7s while turning right.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T006\", \"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"T006 is predicted to collide with V005 at 2.4s due to an orthogonal entry conflict, and EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle at 3.0s with a 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The remaining predicted pairs in this interval show sufficient clearances, and no other clear conflicts are present.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted pairs for this interval indicate sufficient clearances, and trajectories appear to be safe.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the first three seconds of the prediction window. The k=2 interval shows two distinct collisions: a rear-end collision between V004 and a stopped EGO_other_vehicle_behind, and a junction conflict between EGO_other_vehicle and V011. The k=3 interval also predicts two collisions: an orthogonal conflict between V005 and T006, and a rear-end collision involving EGO_ego_vehicle and EGO_ego_vehicle_behind. No further accidents are predicted in the later intervals.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8971,
+  "candidatesTokenCount": 706,
+  "totalTokenCount": 14839,
+  "cachedContentTokenCount": 907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8971
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 907
+   }
+  ],
+  "thoughtsTokenCount": 5162,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Y8aYarujHLbw2roP8cekEA"
+}

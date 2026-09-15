@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle trajectories maintain sufficient clearance, and no convergence or overlap is predicted within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T006\"],\n      \"reason\": \"Actor T006 (truck) is predicted to collide with the stopped actor V005 (car) at approximately 1.1 seconds after observation, as T006's path leads directly into V005's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T006\"],\n      \"reason\": \"The collision between T006 and V005, initiated in the previous interval, is expected to continue with sustained overlap as T006's path proceeds through V005's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T006\"],\n      \"reason\": \"The contact between T006 and V005 is predicted to persist as T006 continues along its trajectory, maintaining overlap with the stationary V005.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"T006\"],\n      \"reason\": \"The collision and overlap between T006 and V005 are expected to continue throughout this final interval, indicating sustained contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly anticipated between actor T006 (truck) and actor V005 (car) starting in the second 1-second interval (t=9.1s) and continuing throughout the remaining prediction window. T006 is predicted to drive into the stationary V005, leading to clear physical contact. All other actors maintain safe clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9538,
+  "candidatesTokenCount": 655,
+  "totalTokenCount": 13363,
+  "cachedContentTokenCount": 913,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9538
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 913
+   }
+  ],
+  "thoughtsTokenCount": 3170,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "KeeYare7NaKs1e8P7-ndwAo"
+}

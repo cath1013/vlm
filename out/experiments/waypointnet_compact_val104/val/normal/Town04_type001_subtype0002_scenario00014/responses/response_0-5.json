@@ -1,0 +1,62 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 20.22,
+ "usage": {
+  "input": 10431,
+  "output": 637
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe distances, with the closest pair P007 and P008 having a 0.52m minimum clearance, indicating no contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe distances, with the closest pair P010 and P013 having a 0.3m minimum clearance, indicating no contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V002",
+     "V003",
+     "N023",
+     "M022"
+    ],
+    "reason": "Car V003 is predicted to collide with the stopped car V002 (rear-end collision), and van N023 is predicted to collide with the stopped motorcycle M022 (rear-end collision). Both incidents show 0.0m minimum clearance in the predictions.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe distances from each other throughout this interval, and no collisions are predicted.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe distances, with the closest pair P012 and P015 having a 0.09m minimum clearance, which is not physical contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct rear-end collisions are predicted to occur in the third 1-second interval (k=3), which is between 7 and 8 seconds after the last observation. In these incidents, moving vehicles V003 and N023 are expected to strike the stationary vehicles V002 and M022, respectively. No accidents are expected in any other interval.",
+  "data_limitations": "None."
+ }
+}

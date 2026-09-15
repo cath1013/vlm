@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at t=9.6s (2.6s after observation) as their turning paths converge and intersect with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted clearance is 1.21m between EGO_ego_vehicle and V002, which is positive and does not indicate contact, as V002 remains stopped.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T003\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped truck T003 at t=11.5s (4.5s after observation) as its right-turning path crosses T003's position with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are expected within the 5-second prediction window. The first occurs in interval k=3, involving EGO_ego_vehicle and EGO_other_vehicle due to their converging turns at an intersection. The second occurs in interval k=5, where EGO_other_vehicle collides with the stopped truck T003 while completing its right turn.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6452,
+  "candidatesTokenCount": 632,
+  "totalTokenCount": 10201,
+  "cachedContentTokenCount": 868,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6452
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 868
+   }
+  ],
+  "thoughtsTokenCount": 3117,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0-aYava7BtmD2roPxc_RmAM"
+}

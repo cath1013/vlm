@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 22.61,
+ "usage": {
+  "input": 7836,
+  "output": 677
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V006 is approaching EGO_other_vehicle_behind from the southeast on Road 20 but has not yet reached it.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V006"
+    ],
+    "reason": "V006 is performing a left turn while maintaining a speed of 30 kph and rear-ends the stationary EGO_other_vehicle_behind at approximately 7.7 seconds.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V006"
+    ],
+    "reason": "The collision between V006 and EGO_other_vehicle_behind persists as V006's turning path directly overlaps with the stationary vehicle's position.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V006"
+    ],
+    "reason": "The vehicles remain in contact following the rear-end collision as V006 continues its path into the space occupied by the stationary observer.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V006"
+    ],
+    "reason": "The collision state persists throughout the remainder of the prediction window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary safety concern is a rear-end collision occurring at approximately 7.7 seconds after the observation window ends. V006 fails to decelerate or adjust its turning trajectory to avoid EGO_other_vehicle_behind, which had come to a complete stop on Road 20. Other nearby actors, including the ego vehicle and several stopped cars on Road 11, maintain sufficient clearance despite some narrow gaps.",
+  "data_limitations": ""
+ }
+}

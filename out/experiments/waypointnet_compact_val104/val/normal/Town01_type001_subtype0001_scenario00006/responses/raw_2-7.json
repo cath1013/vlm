@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining significant clearance from each other, with the closest pair having a minimum clearance of 1.93 meters, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances are above 1.6 meters, which is sufficient to prevent physical contact between vehicles given their footprints.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No close encounters are predicted by the trajectory predictor for this interval, indicating a safe progression of all actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The minimum clearance predicted for this interval is over 3.5 meters, ensuring no physical contact between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T011\"],\n      \"reason\": \"EGO_ego_vehicle and T011 are predicted to have a minimum clearance of 0.07 meters (less than 3 inches) while traveling in the same general direction. This extremely narrow gap, given vehicle footprints and real-world dynamics, strongly supports physical contact or body overlap as EGO_ego_vehicle passes T011.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first four 1-second intervals show no predicted accidents, with all vehicles maintaining safe distances according to their predicted paths. However, in the fifth interval, EGO_ego_vehicle and T011 are predicted to come into extremely close proximity (0.07m minimum clearance) while moving, which is interpreted as an accident due to the practical impossibility of avoiding contact at such a narrow margin.\",\n  \"data_limitations\": \"The 'predicted_contact' flag for the EGO_ego_vehicle and T011 pair was 'false' despite a 0.07m minimum clearance. This flag may not fully account for practical body contact or overlap at extremely small positive clearance values, requiring a practical interpretation of the clearance distance.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7074,
+  "candidatesTokenCount": 688,
+  "totalTokenCount": 13903,
+  "cachedContentTokenCount": 880,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7074
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 880
+   }
+  ],
+  "thoughtsTokenCount": 6141,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qcGYap_OIbeArfcPhMDukAg"
+}

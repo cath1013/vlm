@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with no indication of contact or overlap during this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V009\"],\n      \"reason\": \"EGO_ego_vehicle performing a left turn is predicted to collide with V009, which is moving straight, resulting in a minimum clearance of 0.0m and predicted contact at approximately 2.0 seconds after observation (t=5.0s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the prior interval, no new physical contact or overlap is predicted to initiate between any actors during this interval based on their independent future paths.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with no indication of contact or overlap during this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show sufficient clearance, with no indication of contact or overlap during this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"One significant accident is predicted between EGO_ego_vehicle and V009 in the second prediction interval (4-5 seconds after observation) due to EGO's left turn conflicting with V009's forward movement. No other accidents are predicted within the 5-second window for any other actor pairs.\",\n  \"data_limitations\": \"Subsequent predicted paths for EGO_ego_vehicle and V009 after the predicted collision in k=2 may be unrealistic as they do not account for the impact, which could affect the accuracy of safety assessments for later intervals involving these specific actors.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6709,
+  "candidatesTokenCount": 631,
+  "totalTokenCount": 12326,
+  "cachedContentTokenCount": 873,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6709
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 873
+   }
+  ],
+  "thoughtsTokenCount": 4986,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VeuYasWMFNSM1e8P9sDqiQU"
+}

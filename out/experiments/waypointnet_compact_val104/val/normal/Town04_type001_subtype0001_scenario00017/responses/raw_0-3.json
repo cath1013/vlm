@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances and follow predictable paths, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"N001\"],\n      \"reason\": \"EGO_ego_vehicle, moving southbound, is predicted to collide with N001, which performs a complex maneuver/turn across its path at an intersection, resulting in simultaneous body contact at 1.2 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N001\", \"V002\", \"V011\", \"V016\"],\n      \"reason\": \"N001, whose path involves slowing and possible direction change, is predicted to collide with V002 at 2.1 seconds. Separately, V011's right turn path is predicted to intersect with V016's stopped position, leading to a collision at 2.4 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances and follow predictable paths, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V003\", \"EGO_other_vehicle\", \"V006\"],\n      \"reason\": \"EGO_ego_vehicle, moving southbound, is predicted to collide with V003, moving northbound, at 4.5 seconds due to an intersection conflict. Separately, EGO_other_vehicle, moving southbound, is predicted to collide with V006, moving westbound, at 4.9 seconds due to an intersection conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple intersection conflicts are predicted throughout the 5-second future window. EGO_ego_vehicle is involved in two separate predicted collisions (with N001 and V003), and EGO_other_vehicle is involved in one (with V006). Additionally, N001 and V002 are predicted to collide, as are V011 and V016.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8285,
+  "candidatesTokenCount": 719,
+  "totalTokenCount": 15350,
+  "cachedContentTokenCount": 898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8285
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 898
+   }
+  ],
+  "thoughtsTokenCount": 6346,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DMOYarm2HZSz1e8P06SasAQ"
+}

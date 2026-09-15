@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle turning left and V001 turning right have intersecting paths at the junction, resulting in a predicted minimum clearance of 1.51m, which is less than the combined half-widths of two cars (1.93m), indicating body overlap or contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind and V002 are traveling in opposing directions in adjacent lanes with a minimum predicted clearance of 1.55m, which allows for a safe passing maneuver.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle_behind is stopped, and P004 is moving along a path with sufficient lateral separation, ensuring no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have converging paths with insufficient clearance in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain safe separation throughout this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is expected in the first interval between EGO_other_vehicle and V001 as their paths intersect at a junction with an insufficient minimum clearance. All other vehicle interactions are predicted to maintain safe distances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"The 'predicted_contact' flag for the EGO_other_vehicle/V001 pair was 'false' despite a minimum clearance (1.51m) being less than the sum of their half-widths (1.93m), requiring manual geometric interpretation to determine body overlap.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6068,
+  "candidatesTokenCount": 642,
+  "totalTokenCount": 11240,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6068
+   }
+  ],
+  "thoughtsTokenCount": 4530,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4vOYarSrAtmM1e8P54aCgAY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show sufficient clearances (minimum 7.42m), indicating no expected contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show sufficient clearances (minimum 5.25m), indicating no expected contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V015\"],\n      \"reason\": \"A minimum clearance of 1.72m is predicted between EGO_ego_vehicle and V015 at 2.9s (t=7.9s). Given that the width of a car is 1.93m, this clearance is less than the vehicle width, indicating a high likelihood of body overlap as the vehicles follow converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"T006\"],\n      \"reason\": \"Predicted contact with 0.0m minimum clearance occurs between EGO_other_vehicle_behind and T006 at 3.1s (t=8.1s), indicating a direct collision at an intersection due to orthogonal paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The only predicted closest pair in this interval (EGO_ego_vehicle and EGO_ego_vehicle_behind) maintains a safe clearance of 3.15m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. In interval k=3, EGO_ego_vehicle and V015 are expected to collide due to insufficient lateral clearance, leading to body overlap. In interval k=4, EGO_other_vehicle_behind and T006 are predicted to have a direct contact collision at an intersection. The remaining intervals show sufficient clearances between all predicted pairs.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9452,
+  "candidatesTokenCount": 675,
+  "totalTokenCount": 14019,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9452
+   }
+  ],
+  "thoughtsTokenCount": 3892,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2eSYaqGkF-3I0-kPxOGLIA"
+}

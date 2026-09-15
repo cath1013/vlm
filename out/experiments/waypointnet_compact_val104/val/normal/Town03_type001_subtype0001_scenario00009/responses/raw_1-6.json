@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed vehicles and road users are predicted to maintain sufficient clearance and avoid contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at approximately 1.9 seconds after the last observation due to crossing paths, indicating a junction conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C024\", \"V003\", \"EGO_ego_vehicle_behind\", \"V011\"],\n      \"reason\": \"Bicycle C024 is predicted to collide with the stopped car V003 at 2.4 seconds, and EGO_ego_vehicle_behind is predicted to collide with V011 at 2.8 seconds, likely a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed vehicles and road users are predicted to maintain sufficient clearance and avoid contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C025\", \"V003\"],\n      \"reason\": \"Bicycle C025 is predicted to collide with the stopped car V003 at approximately 5.0 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the 5-second prediction window. EGO_ego_vehicle and EGO_other_vehicle are expected to collide in the second interval. The third interval predicts two collisions: bicycle C024 with stopped car V003, and EGO_ego_vehicle_behind with V011. A final collision between bicycle C025 and stopped car V003 is predicted in the fifth interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9870,
+  "candidatesTokenCount": 661,
+  "totalTokenCount": 15070,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9870
+   }
+  ],
+  "thoughtsTokenCount": 4539,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "gsKYauyzHeud0-kP57WNkQI"
+}

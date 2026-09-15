@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles appear to be on diverging or parallel paths, maintaining safe distances from each other.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances; EGO_other_vehicle passes stopped V001 with sufficient clearance (2.01m minimum).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at 2.3 seconds after the last observation, with a 0.0m minimum clearance, due to both vehicles attempting turns that lead to path overlap at the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further contacts are predicted after the k=3 collision, and remaining vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue on their predicted paths without any further conflicts or close encounters leading to contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is strongly predicted between EGO_ego_vehicle and EGO_other_vehicle in the 3rd second interval (7-8s after observation). This is due to their predicted paths leading to simultaneous body contact at an intersection, with a 0.0m minimum clearance. No other accidents are expected within the 5-second prediction horizon, as other vehicles maintain sufficient clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7574,
+  "candidatesTokenCount": 584,
+  "totalTokenCount": 9959,
+  "cachedContentTokenCount": 888,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7574
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 888
+   }
+  ],
+  "thoughtsTokenCount": 1801,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "T-aYaoG_M5Oe0-kPs6XjoA8"
+}

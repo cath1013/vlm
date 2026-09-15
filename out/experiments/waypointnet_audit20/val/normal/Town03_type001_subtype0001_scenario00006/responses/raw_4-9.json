@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V005\",\n        \"EGO_other_vehicle\",\n        \"P007\",\n        \"EGO_ego_vehicle\",\n        \"T006\"\n      ],\n      \"reason\": \"Multiple concurrent conflicts are imminent: a head-on collision between V004 and V005 on the same road, an orthogonal junction conflict between EGO_other_vehicle and P007 as EGO_other_vehicle enters the junction, and an orthogonal junction conflict between EGO_ego_vehicle (left turn) and T006 (straight) with a linear-extrapolated contact in 1.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V005\",\n        \"EGO_other_vehicle\",\n        \"P007\",\n        \"EGO_ego_vehicle\",\n        \"T006\"\n      ],\n      \"reason\": \"The severe conflicts from the previous interval are still actively occurring or their immediate consequences are unfolding, maintaining a high risk of accident involving the same actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V005\",\n        \"EGO_other_vehicle\",\n        \"P007\",\n        \"EGO_ego_vehicle\",\n        \"T006\"\n      ],\n      \"reason\": \"The severe conflicts from earlier intervals are expected to continue or their aftermath will create hazardous conditions, maintaining a high risk of accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T006\",\n        \"V015\"\n      ],\n      \"reason\": \"An orthogonal entry conflict at junction J30 between T006 and V015 is developing and becomes critical, with a predicted Time-To-Contact of 4.1 seconds from t=9s, falling within or immediately after this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T006\",\n        \"V015\"\n      ],\n      \"reason\": \"The orthogonal entry conflict at junction J30 between T006 and V015 is expected to culminate, as its predicted Time-To-Contact of 4.1 seconds from t=9s falls precisely within this interval (t=13.1s).\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at t=9s presents multiple immediate and severe accident risks, particularly in the first prediction interval. An imminent head-on collision between V004 and V005, and orthogonal junction conflicts involving EGO_other_vehicle with P007, and EGO_ego_vehicle with T006, are highly likely. Further into the prediction window, a developing orthogonal junction conflict between T006 and V015 is also expected to become critical.\",\n  \"data_limitations\": \"The absence of traffic signal states and lane marking types significantly impacts the certainty of judgments for junction conflicts. Predicted path values are model outputs and may not accurately reflect actual driver intent or real-world reactions to imminent hazards. Linear-extrapolated contact estimates do not account for dynamic changes like braking or turning.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12062,
+  "candidatesTokenCount": 982,
+  "totalTokenCount": 22892,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12062
+   }
+  ],
+  "thoughtsTokenCount": 9848,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "nxqVarVBoqLaug-c77T4DA"
+}

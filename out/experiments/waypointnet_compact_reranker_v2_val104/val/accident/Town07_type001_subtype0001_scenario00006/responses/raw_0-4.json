@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances from each other throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances from each other throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances from each other throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V007\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V007 are predicted to have simultaneous body contact or overlap at an intersection at approximately 7.9 seconds after the start of observation (3.9s after last observation), indicating an orthogonal entry conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances from each other throughout this interval; any small clearances reported do not result in predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is clearly expected in the k=4 interval between EGO_ego_vehicle_behind and V007 due to a predicted intersection collision with 0.0m minimum clearance. Other pairs show very small clearances (e.g., EGO_ego_vehicle with V002 and T003), but the predictor explicitly indicates no contact for these instances, suggesting they are near misses rather than actual collisions.\",\n  \"data_limitations\": \"The interpretation of 'predicted_contact: false' for very small positive minimum clearances (e.g., 0.35m and 0.83m) is strictly followed, relying on the sophisticated contact detection of the trajectory predictor, even if a manual assessment of geometry might suggest a higher risk.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7216,
+  "candidatesTokenCount": 639,
+  "totalTokenCount": 15118,
+  "cachedContentTokenCount": 1765,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7216
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1765
+   }
+  ],
+  "thoughtsTokenCount": 7263,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GOaYapDyKZue0-kP07Tc4Qs"
+}

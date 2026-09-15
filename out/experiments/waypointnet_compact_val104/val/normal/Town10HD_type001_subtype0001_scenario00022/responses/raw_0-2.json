@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a minimum clearance of 1.54m between P014 and P015, which is sufficient to avoid contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a minimum clearance of 1.09m between P012 and P014, which is sufficient to avoid contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V021\"],\n      \"reason\": \"An orthogonal entry conflict is expected between EGO_other_vehicle and V021, as V021 turns left into the path of EGO_other_vehicle, resulting in a predicted body contact at 2.5s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"M020\"],\n      \"reason\": \"A lane contention or sideswipe collision is expected between EGO_ego_vehicle_behind and M020 as they move in the same direction with overlapping predicted footprints, resulting in predicted body contact at 3.6s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a minimum clearance of 0.45m between P012 and P015, which is sufficient to avoid contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted within the 5-second prediction window. The first involves a crossing conflict between EGO_other_vehicle and V021 during the (4.0, 5.0]s interval. The second is a lane contention or sideswipe between EGO_ego_vehicle_behind and M020 during the (5.0, 6.0]s interval, where their predicted trajectories and footprints suggest an overlap.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9059,
+  "candidatesTokenCount": 673,
+  "totalTokenCount": 16933,
+  "cachedContentTokenCount": 1816,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9059
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1816
+   }
+  ],
+  "thoughtsTokenCount": 7201,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "HMaYaueZOtmD2roPxc_RmAM"
+}

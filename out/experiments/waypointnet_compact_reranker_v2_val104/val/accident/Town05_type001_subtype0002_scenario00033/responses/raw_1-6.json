@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V012\"],\n      \"reason\": \"EGO_other_vehicle and V012 are predicted to have a minimum clearance of 0.2m at 0.2s into the interval. Given both are cars (approx. 1.93m wide), this small clearance implies physical body contact or overlap during a lateral merging maneuver.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction, between EGO_ego_vehicle_behind and P006, maintains a safe minimum clearance of 1.41m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient clearances, and no predicted contacts are indicated for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have simultaneous body contact or overlap with a 0.0m minimum clearance at 3.3s into the interval (t=9.3s), during EGO_other_vehicle's right turn into EGO_ego_vehicle's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted interactions show sufficient clearance, with the closest pair maintaining over 2.5m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accident events are predicted. In the first interval (t=6-7s), EGO_other_vehicle and V012 are expected to collide during a lateral merge due to extremely close proximity. In the fourth interval (t=9-10s), EGO_ego_vehicle and EGO_other_vehicle are explicitly predicted to make contact during EGO_other_vehicle's right turn.\",\n  \"data_limitations\": \"For the k=1 interval, the `predicted_contact` flag was `false` for the pair with 0.2m clearance. However, for two cars, a 0.2m gap implies body overlap or contact given their dimensions, necessitating a judgment of 'accident expected' despite the flag.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11461,
+  "candidatesTokenCount": 732,
+  "totalTokenCount": 15583,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11461
+   }
+  ],
+  "thoughtsTokenCount": 3390,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "V-6YaqfUD9GA0-kP8-SK8Qs"
+}

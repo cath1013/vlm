@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation based on their predicted paths, with the closest predicted pair (EGO_ego_vehicle and V016) having a clearance of 1.56m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V004\", \"V019\", \"V020\"],\n      \"reason\": \"V004 is predicted to rear-end the stopped V003 at approximately 6.3s. Simultaneously, V020 is predicted to rear-end the stopped V019 at approximately 6.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V004\"],\n      \"reason\": \"V004 is predicted to collide with the stopped V002 at approximately 7.3s, assuming V004 continues its predicted trajectory after the prior collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pair between V004 and V028 shows a minimum clearance of 1.21m, indicating no physical contact; other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N001\", \"V004\"],\n      \"reason\": \"V004 is predicted to collide with the stopped N001 at approximately 9.4s, assuming V004 continues its predicted trajectory after prior collisions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictor forecasts a cascade of rear-end collisions for vehicle V004 as it proceeds westbound on Road 20, impacting a series of stopped vehicles (V003, V002, and N001) in successive 1-second intervals. Additionally, V020 is predicted to rear-end the stopped V019 on Road 22 in the second interval. These predictions highlight multiple significant accident risks throughout the 5-second window.\",\n  \"data_limitations\": \"The trajectory predictor generates independent paths for each actor, which means it does not account for collision dynamics. Therefore, V004's subsequent collisions with V002 and N001 are predicted to occur despite its prior predicted impact with V003, which would realistically alter its trajectory.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8142,
+  "candidatesTokenCount": 757,
+  "totalTokenCount": 13330,
+  "cachedContentTokenCount": 896,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8142
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 896
+   }
+  ],
+  "thoughtsTokenCount": 4431,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5cWYariUNJWH0-kPmKrWgQ0"
+}

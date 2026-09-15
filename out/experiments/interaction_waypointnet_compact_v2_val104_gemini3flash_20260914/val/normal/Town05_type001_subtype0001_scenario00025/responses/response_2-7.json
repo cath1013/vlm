@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 51.88,
+ "usage": {
+  "input": 11161,
+  "output": 774
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are maintaining safe distances and following their predicted paths without any projected intersections or clearance issues.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are approaching the intersection and potential conflict points, but maintain sufficient clearance during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "N020"
+    ],
+    "reason": "EGO_other_vehicle is predicted to collide with the van N020 at the intersection as it attempts a left turn from Road 920 into Road 3, crossing the van's straight-ahead path.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V029",
+     "EGO_other_vehicle",
+     "V019"
+    ],
+    "reason": "V029 is predicted to rear-end the stopped vehicle EGO_other_vehicle_behind on Road 43, while EGO_other_vehicle is projected to have a side-swipe or secondary conflict with V019 during its turn.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V029"
+    ],
+    "reason": "V029 and EGO_other_vehicle_behind remain in physical contact as their predicted paths continue to overlap following the rear-end collision in the previous interval.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scene is characterized by several high-risk conflicts at an intersection. EGO_other_vehicle initiates a left turn that results in a projected collision with the crossing van N020 at T+2.6s and a secondary conflict with V019 at T+3.6s. Simultaneously, V029 is predicted to fail to stop in time for the stationary EGO_other_vehicle_behind in its lane, leading to a rear-end collision at approximately T+3.1s.",
+  "data_limitations": "There is a contradiction for V029 between its current_state of 'accelerating' at 29 kph and its future_path waypoints which show a sudden, heavy deceleration to 5 kph; the judgment relies on the supplied path geometry."
+ }
+}

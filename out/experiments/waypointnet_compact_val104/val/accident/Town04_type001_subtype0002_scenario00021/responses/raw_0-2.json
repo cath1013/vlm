@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance, with the closest pair (V007 and T016) having a 1.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The paths of EGO_ego_vehicle and EGO_other_vehicle converge closely at a junction, but the predicted minimum clearance is 0.4m, indicating a near-miss rather than a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T001\", \"V002\", \"M019\", \"V020\", \"V003\", \"EGO_other_vehicle\", \"V005\"],\n      \"reason\": \"Multiple collisions are expected: V002 is predicted to collide with T001 (rear-end/sideswipe) at 2.1s after observation; V020 is predicted to collide with M019 (rear-end/sideswipe) at 2.8s; V003 and V002 are predicted to collide (cross-traffic) at 2.8s; and EGO_other_vehicle and V005 are predicted to collide (orthogonal entry conflict) at 2.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"T001\", \"EGO_ego_vehicle\", \"N017\"],\n      \"reason\": \"Two collisions are expected: V003 and T001 are predicted to collide (cross-traffic) at 3.3s after observation, and EGO_ego_vehicle is predicted to collide with the stationary N017 (rear-end) at 3.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, with the closest pairs showing minimum clearances of 0.78m (EGO_other_vehicle and T001) and 1.11m (EGO_ego_vehicle and V007).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple severe accidents are predicted in the mid-range intervals (k=3 and k=4), involving observer vehicles (EGO_ego_vehicle, EGO_other_vehicle) and other road users. These conflicts include rear-end collisions with both moving and stationary vehicles, sideswipes, and orthogonal cross-traffic incidents at junctions due to converging paths. The initial (k=1, k=2) and final (k=5) intervals appear safe with sufficient clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9127,
+  "candidatesTokenCount": 826,
+  "totalTokenCount": 22683,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9127
+   }
+  ],
+  "thoughtsTokenCount": 12730,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xceYavKSF5yf0-kP_qnaiQ8"
+}

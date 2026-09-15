@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No zero-clearance predicted contacts are identified for this interval, and all vehicles maintain safe distances based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V010\", \"N011\", \"V013\", \"V014\", \"V005\", \"V015\"],\n      \"reason\": \"A rear-end collision is expected between N011 and the stopped V010 at approximately 2.4s. V014 is predicted to rear-end V013 at 2.8s as V014 is approaching faster from behind. A head-on collision is expected between V005 and V015 at 2.9s due to their opposing paths on the same road.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V013\", \"V012\", \"V014\", \"V012\", \"V005\", \"V016\"],\n      \"reason\": \"V013 is predicted to rear-end the stopped V012 at 3.2s. V014 is also predicted to rear-end the stopped V012 at 3.7s. A head-on collision is expected between V005 and V016 at 4.0s as they converge on opposing paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"A rear-end collision is predicted between V002 and V001 at 4.4s as V002's path converges with V001 from behind.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No zero-clearance predicted contacts are identified for this interval, indicating that any earlier conflicts have resolved or vehicles are maintaining separation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts multiple collisions starting from the second 1-second interval. This includes several rear-end collisions where moving vehicles impact stationary or slower vehicles, and head-on collisions between vehicles traveling in opposing directions on the same road. The pattern of collisions suggests a complex interaction of predicted paths where vehicles do not yield or adjust to avoid impact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5927,
+  "candidatesTokenCount": 758,
+  "totalTokenCount": 15039,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5927
+   }
+  ],
+  "thoughtsTokenCount": 8354,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "E8WYas2AGP7w2roP2OvvUQ"
+}

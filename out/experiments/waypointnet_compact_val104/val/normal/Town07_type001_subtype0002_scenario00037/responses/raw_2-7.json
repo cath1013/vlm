@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, with the closest pair having a minimum clearance of 1.51 meters, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances throughout this interval, with no predicted contacts or dangerously small gaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N003\", \"V004\"],\n      \"reason\": \"N003 (van) is predicted to remain stopped while V004 (car) is predicted to continue on a straight path, resulting in an orthogonal collision with 0.0m clearance at t=9.6s (2.6s after observation).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, with the closest pair having a minimum clearance of 2.51 meters, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T007\"],\n      \"reason\": \"EGO_other_vehicle (car) and T007 (truck) are predicted to collide with 0.0m clearance at t=11.3s (4.3s after observation) due to their intersecting straight paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first two seconds of the prediction window appear clear. However, two distinct accidents are predicted: one at t=9.6s between a stopped van (N003) and a moving car (V004), and another at t=11.3s between the observer's 'other vehicle' and a truck (T007) due to intersecting paths. These predictions are based on 0.0m minimum clearance and explicit contact flags.\",\n  \"data_limitations\": \"Path probabilities are uniformly 1.0, which may overstate the certainty of the predicted single paths and omit alternative safe maneuvers for actors involved in collisions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7496,
+  "candidatesTokenCount": 687,
+  "totalTokenCount": 10290,
+  "cachedContentTokenCount": 887,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7496
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 887
+   }
+  ],
+  "thoughtsTokenCount": 2107,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Ds-YavHtJs_-1e8PhJDBwQo"
+}

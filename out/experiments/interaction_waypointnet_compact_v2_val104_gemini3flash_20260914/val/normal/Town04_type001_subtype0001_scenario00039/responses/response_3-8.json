@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 47.58,
+ "usage": {
+  "input": 11036,
+  "output": 610
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(0.0, 1.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle is decelerating behind a stationary car and maintains a clear gap during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle's braking history indicates it will stop safely behind the stationary V023, despite the predictor's slightly overextended stopping point.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles on Road 30 are in a stable queue, and EGO_ego_vehicle is expected to have come to a halt safely by this time.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Traffic remains in a safe, queued state with no lane changes or crossing conflicts identified in this area.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No potential collisions are identified as all vehicles have either stopped or are maintaining safe following distances.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "EGO_ego_vehicle is slowing down as it approaches a stationary queue of vehicles on Road 30. While the independent trajectory predictor suggests a minor overlap with the rear of vehicle V023 starting at t=1.9s, the observed deceleration from 23.2 kph to 11.2 kph indicates the vehicle is braking effectively and will stop safely. No other road users are on a collision course during the 5-second projection.",
+  "data_limitations": "The trajectory predictor for EGO_ego_vehicle produces waypoints that physically overlap with a stationary lead vehicle despite significant observed deceleration, suggesting a lack of longitudinal constraint in the prediction model."
+ }
+}

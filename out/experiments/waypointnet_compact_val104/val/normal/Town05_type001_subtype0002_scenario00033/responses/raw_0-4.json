@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without any overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N021\", \"V022\"],\n      \"reason\": \"Car V022 is predicted to collide with the stopped van N021 at approximately t=5.8s as V022 drives directly into N021's static position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T024\", \"C025\"],\n      \"reason\": \"Bicycle C025 is predicted to collide with the stopped truck T024 at approximately t=6.7s as C025 follows a path that intersects T024's static position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without any new identified overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P004\"],\n      \"reason\": \"Observer vehicle EGO_other_vehicle is predicted to collide with pedestrian P004 at approximately t=8.2s as P004 crosses directly into the vehicle's path.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates multiple distinct collision events. In the (5, 6]s interval, car V022 collides with the stopped van N021. This is followed by a collision in the (6, 7]s interval between bicycle C025 and the stopped truck T024. Finally, in the (8, 9]s interval, observer vehicle EGO_other_vehicle is predicted to collide with pedestrian P004.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9920,
+  "candidatesTokenCount": 640,
+  "totalTokenCount": 13653,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9920
+   }
+  ],
+  "thoughtsTokenCount": 3093,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Bs2Yasi-Mqq20-kPu_rxiAw"
+}

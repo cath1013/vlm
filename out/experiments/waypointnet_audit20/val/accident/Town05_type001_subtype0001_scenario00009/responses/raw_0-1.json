@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V011\",\n        \"EGO_ego_vehicle\",\n        \"V012\",\n        \"EGO_other_vehicle_behind\",\n        \"V019\"\n      ],\n      \"reason\": \"Three separate head-on collisions are expected due to extremely short time-to-contact (TTC) values of less than 0.5 seconds, with vehicles on the same road but in opposing lanes and accelerating towards each other.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"V014\"\n      ],\n      \"reason\": \"An orthogonal conflict is highly likely at the four-way junction as EGO_ego_vehicle (eastbound) and EGO_other_vehicle (southbound) are both accelerating and expected to enter the junction nearly simultaneously around t=2.6s, with V014 also proceeding eastbound through the junction ahead of EGO_ego_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"N006\",\n        \"V005\"\n      ],\n      \"reason\": \"A rear-end collision is expected between N006 and V005; N006 is closing on the stopped V005 with a remaining TTC of approximately 1.2 seconds at the start of this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming prior collisions are resolved, no new immediate high-risk conflicts are apparent from the available data for this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming prior collisions are resolved, no new immediate high-risk conflicts are apparent from the available data for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The initial seconds of the prediction window reveal multiple critical head-on collision risks involving observer vehicles and other road users on Road 1 and Road 47, indicated by extremely short TTCs. Following these, an orthogonal conflict is highly probable at the junction involving EGO_ego_vehicle and EGO_other_vehicle, and a rear-end collision is expected between N006 and a stopped vehicle V005. The scene is highly dynamic with several imminent accidents.\",\n  \"data_limitations\": \"The lack of traffic signal state and lane marking types limits the certainty of junction behavior. The 'linear-extrapolated contact in' values appear inconsistent with actual relative speeds and positions at t=1s for head-on scenarios, requiring manual re-calculation of TTC for greater accuracy. Predicted path probabilities were not available, only the chosen path.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12655,
+  "candidatesTokenCount": 843,
+  "totalTokenCount": 20742,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12655
+   }
+  ],
+  "thoughtsTokenCount": 7244,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0xqVavflMrDM2roPnbuZ8QQ"
+}

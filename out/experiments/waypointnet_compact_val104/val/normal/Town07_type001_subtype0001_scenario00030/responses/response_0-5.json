@@ -1,0 +1,74 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.27,
+ "usage": {
+  "input": 10548,
+  "output": 759
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P018",
+     "P023"
+    ],
+    "reason": "P023 is predicted to move into the stopped position of P018, resulting in a collision at approximately 5.4 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N012",
+     "V013"
+    ],
+    "reason": "V013 is predicted to collide with the stopped N012 at approximately 6.3 seconds after observation, as V013's path directly intersects N012's stationary position.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V016",
+     "V032"
+    ],
+    "reason": "V016 and V032 are on intersecting paths, with V032 making a right turn across V016's straight path, leading to a predicted collision at approximately 7.3 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N025",
+     "V026",
+     "V011",
+     "V013"
+    ],
+    "reason": "Two separate collisions are expected: V026 is predicted to collide with the stopped N025 at approximately 8.4 seconds, and V013 is predicted to collide with the stopped V011 at approximately 9.0 seconds, as both moving vehicles' paths intersect the stationary vehicles.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to make a right turn and collide with the stopped EGO_ego_vehicle at approximately 9.4 seconds after observation.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across all five 1-second intervals. These involve moving vehicles colliding with stationary vehicles (P023 into P018, V013 into N012, V026 into N025, V013 into V011, and EGO_ego_vehicle_behind into EGO_ego_vehicle) and one intersection collision between two moving vehicles (V016 and V032). The predicted paths show clear geometric overlap at the times of minimum clearance.",
+  "data_limitations": ""
+ }
+}

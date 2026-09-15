@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show sufficient clearance; no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle is stopped, and EGO_ego_vehicle_behind is predicted to collide with it at approximately 2.9s (1.9s after observation), with a predicted clearance of 0.0m. This indicates a rear-end collision or a severe passing collision as both are on Road 24 with similar lane offsets.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle and T034 have a minimum clearance of 0.46m, actual contact is not predicted. The predicted contact between EGO_other_vehicle and T035 is disregarded as their trajectories are clearly diverging and widely separated, indicating an error in the closest pair calculation.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show sufficient clearance; no physical contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No potential conflicts or close interactions are predicted for this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One accident is expected in the prediction window. EGO_ego_vehicle, which is stopped, is predicted to be involved in a collision with EGO_ego_vehicle_behind at approximately 2.9 seconds after the last observation. Other close encounters do not result in predicted contact, or the predicted contact is contradicted by clearly diverging trajectories.\",\n  \"data_limitations\": \"The predicted_closest_pairs output for EGO_other_vehicle and T035 showed 'predicted_contact=true' and 'minimum_clearance_m=0.0', but their projected paths were clearly diverging and widely separated. This discrepancy required manual override of that specific prediction, suggesting a potential issue with the raw prediction's accuracy in certain geometric configurations.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9263,
+  "candidatesTokenCount": 700,
+  "totalTokenCount": 23035,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9263
+   }
+  ],
+  "thoughtsTokenCount": 13072,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FeuYap-EHfX-1e8PwO7RiAY"
+}

@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.75,
+ "usage": {
+  "input": 11093,
+  "output": 724
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T021",
+     "V022"
+    ],
+    "reason": "V022 is predicted to rear-end the stopped truck T021 at approximately 0.5 seconds into this interval, with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V023"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to rear-end V023 at approximately 1.9 seconds into this interval, as EGO_ego_vehicle is approaching at a significantly higher speed with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0] s",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles or pedestrians are predicted to come into physical contact or overlap during this interval, with all predicted closest pairs maintaining a positive clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0] s",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles or pedestrians are predicted to come into physical contact or overlap during this interval, with all predicted closest pairs maintaining a positive clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0] s",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P011",
+     "P013",
+     "C002",
+     "V003"
+    ],
+    "reason": "Two separate collisions are predicted: P013 is expected to rear-end P011 at 4.3 seconds into the interval, and V003 is expected to rear-end the stopped bicycle C002 at 4.6 seconds, both with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across the 5-second prediction window, primarily rear-end collisions. V022 is expected to collide with the stopped truck T021 in the first interval. EGO_ego_vehicle is predicted to rear-end V023 in the second interval. The final interval shows two separate rear-end collisions involving pedestrians P011 and P013, and a car V003 colliding with a stopped bicycle C002.",
+  "data_limitations": ""
+ }
+}

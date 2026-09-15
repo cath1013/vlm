@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance and no physical contact is indicated in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to make a left turn, crossing the path of EGO_ego_vehicle_behind which is proceeding straight, resulting in simultaneous body contact at t=7.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted actor paths indicate physical contact or overlap in this interval; all maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P006\", \"V014\"],\n      \"reason\": \"P006, a person, is predicted to move into the space occupied by the stopped V014 car, resulting in body contact at t=9.5s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M003\", \"M004\"],\n      \"reason\": \"M004, a motorcycle, is predicted to proceed westbound, colliding with the stopped M003 motorcycle at t=10.3s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted involving observer vehicles EGO_ego_vehicle_behind and EGO_other_vehicle_behind in interval k=2. Additionally, two separate collision events between other road users are predicted in intervals k=4 and k=5, where moving actors collide with stationary ones.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7124,
+  "candidatesTokenCount": 605,
+  "totalTokenCount": 10549,
+  "cachedContentTokenCount": 880,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7124
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 880
+   }
+  ],
+  "thoughtsTokenCount": 2820,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_smYatP4E8mj9tMP-bjGwQY"
+}

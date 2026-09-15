@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation as they proceed on their respective paths, with the closest predicted clearance exceeding 1 meter.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V012\"],\n      \"reason\": \"V012 is predicted to rear-end the stopped V002 as V012 continues north on Road 37.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T001\", \"V018\"],\n      \"reason\": \"V018 is predicted to rear-end T001 as V018, moving faster, closes the gap on the slower-moving T001 on Road 46.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation as they proceed on their respective paths, with the closest predicted clearance exceeding 1 meter.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T001\"],\n      \"reason\": \"EGO_other_vehicle is predicted to have a side-swipe contact with T001 due to their parallel paths converging and footprints overlapping, despite being on different roads.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"Three distinct accidents are predicted within the 5-second prediction window. V012 is expected to rear-end V002 in interval 2, and V018 is expected to rear-end T001 in interval 3. A side-swipe contact between EGO_other_vehicle and T001 is predicted in interval 5.\",\n  \"data_limitations\": \"The predicted contact between EGO_other_vehicle and T001 in interval 5, with zero minimum clearance despite an apparent 3.1m separation between parallel roads, suggests potential limitations in the detailed footprint collision detection or interpolation nuances which are not fully discernible from the raw waypoints alone.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6112,
+  "candidatesTokenCount": 674,
+  "totalTokenCount": 11004,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6112
+   }
+  ],
+  "thoughtsTokenCount": 4218,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "BcmYavDbKPON1e8PmNTPgAY"
+}

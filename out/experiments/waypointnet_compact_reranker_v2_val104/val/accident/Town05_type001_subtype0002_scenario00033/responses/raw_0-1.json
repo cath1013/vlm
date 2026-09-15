@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance throughout this interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance throughout this interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance throughout this interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance throughout this interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V001 are predicted to have a direct body contact (0.0m minimum clearance) during this interval, indicating an orthogonal intersection conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the final interval (k=5) between the observer vehicle 'EGO_ego_vehicle_behind' and 'V001', due to an orthogonal intersection conflict leading to predicted direct body contact. No other accidents are expected in any of the preceding intervals, as all other actor pairs maintain sufficient clearance or are explicitly predicted to avoid contact.\",\n  \"data_limitations\": \"There is a minor inconsistency in the `predicted_closest_pairs` entry for the accident between EGO_ego_vehicle_behind and V001: the `time_after_observation_s` (4.6s) falls outside the strict (5.0, 6.0]s range of the assigned `interval_index=5`. The `interval_index` was prioritized for assigning the event to the prediction interval 'k'.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9250,
+  "candidatesTokenCount": 645,
+  "totalTokenCount": 20281,
+  "cachedContentTokenCount": 910,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9250
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 910
+   }
+  ],
+  "thoughtsTokenCount": 10386,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0u2Yau6yI6fE0-kPmtLk8AE"
+}

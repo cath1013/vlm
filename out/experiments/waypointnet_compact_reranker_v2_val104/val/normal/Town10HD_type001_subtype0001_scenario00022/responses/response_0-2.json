@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.35,
+ "usage": {
+  "input": 9125,
+  "output": 625
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show clear separation between all actors, with no anticipated conflicts or contacts in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe distances, and their projected trajectories do not indicate any impending contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V021"
+    ],
+    "reason": "EGO_other_vehicle and V021 are predicted to have a direct intersectional collision at approximately 4.5 seconds (2.5 seconds after observation) due to their converging paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "M020"
+    ],
+    "reason": "EGO_ego_vehicle_behind and M020 are predicted to make contact at approximately 5.6 seconds (3.6 seconds after observation) due to EGO_ego_vehicle_behind's path encroaching into M020's lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Following the earlier predicted contacts, remaining actors are expected to maintain separation or have already interacted, so no new accidents are predicted in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window reveals two distinct collision events. An intersectional collision is highly probable between EGO_other_vehicle and V021 in the (4.0, 5.0] second interval. Subsequently, a lane encroachment collision is expected between EGO_ego_vehicle_behind and M020 in the (5.0, 6.0] second interval. The other intervals appear safe.",
+  "data_limitations": ""
+ }
+}

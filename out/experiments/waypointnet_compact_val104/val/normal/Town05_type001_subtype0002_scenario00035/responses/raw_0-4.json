@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V021\"],\n      \"reason\": \"V021 is predicted to drive straight south and collide with the stopped V002 at approximately absolute time 6.2s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with EGO_ego_vehicle due to insufficient following distance and a higher speed while both travel northbound in the same lane at approximately absolute time 7.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V021\", \"V001\", \"P012\", \"P013\"],\n      \"reason\": \"V021 is predicted to continue its southbound path and collide with the stopped V001 at approximately absolute time 8.6s. Additionally, P012 and P013 are predicted to collide at an intersection due to their paths converging to almost the same point at approximately absolute time 8.8s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collision events are predicted across the 5-second prediction horizon. V021 is involved in two separate rear-end collisions with stopped vehicles V002 and V001. A significant rear-end collision is also predicted between EGO_ego_vehicle_behind and EGO_ego_vehicle. Furthermore, two pedestrians, P012 and P013, are predicted to collide at an intersection.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8794,
+  "candidatesTokenCount": 656,
+  "totalTokenCount": 13262,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8794
+   }
+  ],
+  "thoughtsTokenCount": 3812,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "7syYatPbIeWM1e8P2MDAgAY"
+}

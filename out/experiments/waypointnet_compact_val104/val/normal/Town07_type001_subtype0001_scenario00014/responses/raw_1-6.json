@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show all vehicles maintaining safe distances, and there is no geometric overlap or conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show all vehicles maintaining safe distances, and there is no geometric overlap or conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V005\"\n      ],\n      \"reason\": \"EGO_other_vehicle, performing a left turn, is predicted to collide with the stopped V005 as its path intersects V005's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V010\"\n      ],\n      \"reason\": \"EGO_other_vehicle, continuing its left turn, is predicted to collide with the stopped V010 as its path intersects V010's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"EGO_other_vehicle, completing its left turn, is predicted to collide with the stopped V002 as its path intersects V002's position.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The EGO_other_vehicle is predicted to make a left turn that will result in multiple collisions with three stationary vehicles (V005, V010, V002) in successive 1-second intervals from k=3 to k=5. The other vehicles are predicted to remain stopped or maintain safe clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8227,
+  "candidatesTokenCount": 627,
+  "totalTokenCount": 11189,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8227
+   }
+  ],
+  "thoughtsTokenCount": 2335,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IcWYaszBGaGz1e8PqZi36Ak"
+}

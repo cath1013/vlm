@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or overlap is predicted between any actors within this interval; all predicted minimum clearances are positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V019\",\n        \"V020\"\n      ],\n      \"reason\": \"V020 is predicted to collide with V019 at 2.0 seconds after the last observation, likely a rear-end or side-swipe as V020 overtakes V019 on Road 18.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional physical contact or overlap is predicted between any actors within this interval based on their projected paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or overlap is predicted between any actors within this interval based on their projected paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V019\",\n        \"V021\",\n        \"M016\"\n      ],\n      \"reason\": \"V019 is predicted to collide with V021 at 4.1 seconds after observation, likely a rear-end or side-swipe, and subsequently with M016 at 4.7 seconds, likely a head-on or high-angle collision as V019 moves southeast and M016 moves west on Road 18.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Based on the provided future paths, an initial collision involving V019 and V020 is predicted at 2.0 seconds after the last observation (within k=2). Following this, V019 is predicted to be involved in two additional collisions in the k=5 interval, first with V021 at 4.1 seconds and then with M016 at 4.7 seconds after observation. The later collisions assume V019's trajectory continues as predicted despite the earlier incident.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7559,
+  "candidatesTokenCount": 699,
+  "totalTokenCount": 16390,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7559
+   }
+  ],
+  "thoughtsTokenCount": 8132,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IMuYatanBJbF0-kPhefOoQ8"
+}

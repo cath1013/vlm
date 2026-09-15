@@ -1,0 +1,128 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 38.22,
+ "usage": {
+  "input": 14378,
+  "output": 1448
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "C025",
+     "M023",
+     "EGO_ego_vehicle_behind",
+     "P007",
+     "EGO_other_vehicle"
+    ],
+    "reason": "Multiple simultaneous conflicts are expected, including head-on/side-swipe situations between EGO_other_vehicle_behind and C025 (TTC 0.4s) and M023 (TTC 0.7s), and orthogonal junction conflicts involving EGO_ego_vehicle_behind with P007 (TTC 1.2s) and EGO_other_vehicle (TTC 1.3s).",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "C025",
+     "M023",
+     "EGO_ego_vehicle_behind",
+     "P007",
+     "EGO_other_vehicle",
+     "P005",
+     "V026",
+     "V022",
+     "P008",
+     "M003",
+     "M020"
+    ],
+    "reason": "The initial collisions will likely continue or cause secondary impacts, with additional conflicts such as P005-V026 (TTC 1.2s), V022-V026 (TTC 1.4s), P008-V026 (TTC 1.8s), and M003-M020 (TTC 1.9s) resolving within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "C025",
+     "M023",
+     "EGO_ego_vehicle_behind",
+     "P007",
+     "EGO_other_vehicle",
+     "P005",
+     "V026",
+     "V022",
+     "P008",
+     "M003",
+     "M020",
+     "EGO_ego_vehicle",
+     "V001",
+     "P004",
+     "P006"
+    ],
+    "reason": "Numerous additional conflicts with short TTCs (2.0s to 2.9s) are expected to mature in this interval, including EGO_ego_vehicle_behind-EGO_other_vehicle_behind (TTC 2.0s) and EGO_ego_vehicle-P007 (TTC 2.1s), leading to further primary and secondary collisions across the junction.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "C025",
+     "M023",
+     "EGO_ego_vehicle_behind",
+     "P007",
+     "EGO_other_vehicle",
+     "P005",
+     "V026",
+     "V022",
+     "P008",
+     "M003",
+     "M020",
+     "EGO_ego_vehicle",
+     "V001",
+     "P004",
+     "P006"
+    ],
+    "reason": "With multiple severe accidents having occurred in previous intervals, the junction area will remain highly obstructed and hazardous, creating a very high risk of further secondary collisions.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "C025",
+     "M023",
+     "EGO_ego_vehicle_behind",
+     "P007",
+     "EGO_other_vehicle",
+     "P005",
+     "V026",
+     "V022",
+     "P008",
+     "M003",
+     "M020",
+     "EGO_ego_vehicle",
+     "V001",
+     "P004",
+     "P006"
+    ],
+    "reason": "The cumulative impact of numerous collisions from earlier intervals will leave the junction in an extremely dangerous state, making additional accidents highly probable as other road users navigate the scene.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "This scenario presents a highly dangerous multi-vehicle conflict at a three-way junction. Several primary collisions are expected almost immediately due to extremely short time-to-contact values, including head-on/side-swipe and orthogonal junction conflicts. These initial accidents will cascade, leading to a severely hazardous environment with high potential for further secondary impacts throughout the prediction window.",
+  "data_limitations": "The 'linear-extrapolated contact in' values do not account for potential braking, steering, or other evasive maneuvers, which are critical for resolving short-TTC situations. The absence of traffic signal states, stop line information, and lane marking types limits the ability to infer right-of-way and expected behaviors at the junction. Several vehicles also have 'off-candidate path' or 'no road match' predictions, adding uncertainty."
+ }
+}

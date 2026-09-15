@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The observed vehicles maintain safe distances from each other, and no predicted paths indicate an impending collision within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_ego_vehicle_behind and EGO_ego_vehicle at approximately 4.5 seconds after observation, with 0.0m minimum clearance, as EGO_ego_vehicle_behind is accelerating towards the nearly stopped EGO_ego_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While a collision occurred in the previous interval, no further contact or new accident scenarios are predicted for any actors within this specific interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances, with the closest interactions having minimum clearances greater than 1.0 meter and no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted paths show vehicles maintaining clear separation, and no contacts are predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision is predicted to occur between EGO_ego_vehicle_behind and EGO_ego_vehicle within the second 1-second interval (4.0-5.0s after observation), due to EGO_ego_vehicle_behind accelerating into the nearly stationary EGO_ego_vehicle. No other accidents are expected in the remaining prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8014,
+  "candidatesTokenCount": 601,
+  "totalTokenCount": 10551,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8014
+   }
+  ],
+  "thoughtsTokenCount": 1936,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "yOqYasaxHo-N1e8PgY_jiAY"
+}

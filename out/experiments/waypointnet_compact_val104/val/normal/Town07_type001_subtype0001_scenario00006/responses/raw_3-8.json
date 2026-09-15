@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have paths that lead to contact or very close proximity within this interval, with all minimum clearances being positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have paths that lead to contact or very close proximity within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have paths that lead to contact or very close proximity within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P005\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with pedestrian P005 at 3.3 seconds after observation, with their paths intersecting and resulting in simultaneous body contact (0.0m clearance).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V009\"],\n      \"reason\": \"Vehicle V001 is predicted to collide with the stopped vehicle V009 at 4.6 seconds after observation, as V001's northward path intersects V009's position, resulting in simultaneous body contact (0.0m clearance).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction horizon. The first involves EGO_ego_vehicle_behind colliding with a pedestrian (P005) in the fourth interval, and the second involves V001 colliding with a stopped vehicle (V009) in the fifth interval. All other interactions show sufficient clearance.\",\n  \"data_limitations\": \"The predictions assume constant future paths, which may not account for potential evasive actions by EGO_ego_vehicle_behind or P005, nor V001 avoiding the clearly stopped V009.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6770,
+  "candidatesTokenCount": 664,
+  "totalTokenCount": 11136,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6770
+   }
+  ],
+  "thoughtsTokenCount": 3702,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "88SYaveVA7uj9tMPu5rvgAY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors in this interval, with no indication of physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors in this interval, with no indication of physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have simultaneous body contact or overlap at 3.0 seconds after observation due to their converging paths, as indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although an accident is expected in the previous interval, no further physical contact or overlap is indicated by the predicted paths for this specific interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance between actors in this interval; a minimum clearance of 0.87m for one pair is considered a safe gap and not an accident.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is clearly expected at the 3-second mark between EGO_ego_vehicle and EGO_other_vehicle due to a predicted path overlap. For all other intervals, no physical contact or overlap is indicated by the predicted trajectories. While some pairs show close proximity, the clearances remain positive, suggesting no direct collision.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7160,
+  "candidatesTokenCount": 591,
+  "totalTokenCount": 11511,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7160
+   }
+  ],
+  "thoughtsTokenCount": 3760,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "8--YaqysAbX72roPzof3-Aw"
+}

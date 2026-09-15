@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 38.68,
+ "usage": {
+  "input": 6090,
+  "output": 684
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All involved actors maintain positive clearance, and no contact is predicted within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "V002"
+    ],
+    "reason": "V002 is predicted to rear-end the stopped V001 at approximately 1.5 seconds after observation, as V002 continues along the same lane towards V001's stationary position.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "C012",
+     "V013"
+    ],
+    "reason": "V013, traveling at a higher speed, is predicted to rear-end the slower C012 at approximately 2.5 seconds after observation, as both vehicles proceed in the same lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No contact is predicted for any actors within this interval; all maintain safe clearances based on their projected trajectories.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "T003"
+    ],
+    "reason": "T003 is predicted to rear-end V001 at approximately 5.0 seconds after observation, as T003's path leads directly into the position of the stopped V001.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple rear-end collisions are predicted across the 5-second prediction horizon. V002 is expected to collide with the stopped V001 in interval k=2. Subsequently, V013 is predicted to collide with C012 in interval k=3 due to speed differences. Finally, T003 is projected to collide with V001 in interval k=5, even though V001 is already expected to be involved in a prior collision.",
+  "data_limitations": "The trajectory predictions are independent and do not account for potential evasive actions, cascading effects from earlier collisions, or changes in actor behavior in response to predicted events."
+ }
+}

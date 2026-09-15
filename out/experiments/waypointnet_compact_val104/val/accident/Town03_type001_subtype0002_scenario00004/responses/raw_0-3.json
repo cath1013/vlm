@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M028\", \"V019\"],\n      \"reason\": \"M028, traveling eastbound at 27 kph, is predicted to collide with V019, which is stopped directly in its path, very early in the interval at t=0.3s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle is performing a left turn and its predicted path intersects with the predicted straight path of EGO_other_vehicle, resulting in an orthogonal collision at t=1.4s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V016\", \"V019\", \"V004\", \"V006\", \"V005\"],\n      \"reason\": \"Multiple distinct collision events are predicted: V016 rear-ending V019 at t=2.4s, V006 turning left into V004's path at t=2.7s, and V004 and V005 converging and colliding at t=3.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V005\"],\n      \"reason\": \"V005, accelerating and traveling southwestbound, is predicted to rear-end the slower-moving V003, which is proceeding southbound, at t=3.4s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance throughout this interval, and no contact is predicted by the provided data.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Several high-confidence collision events are predicted across the future 5-second window. In the first interval (t=3.0-4.0s), a motorcycle is expected to rear-end a stopped truck. The second interval (t=4.0-5.0s) sees the EGO vehicle turning left into the path of another observer vehicle. The third interval (t=5.0-6.0s) is particularly complex with multiple predicted collisions involving several vehicles including a rear-end and two orthogonal conflicts. A final rear-end collision is predicted in the fourth interval (t=6.0-7.0s) between two cars.\",\n  \"data_limitations\": \"The lack of traffic signal state, stop line information, or detailed lane marking types limits the ability to infer right-of-way rules, but the predicted path geometry clearly supports physical contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8689,
+  "candidatesTokenCount": 809,
+  "totalTokenCount": 14573,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8689
+   }
+  ],
+  "thoughtsTokenCount": 5075,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bsaYaoXQHYrcvr0PmobYiAY"
+}

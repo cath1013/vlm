@@ -1,0 +1,70 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 36.81,
+ "usage": {
+  "input": 9474,
+  "output": 576
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The distance between the approaching EGO_other_vehicle_behind and the stationary EGO_other_vehicle remains sufficient to avoid contact during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind rear-ends the stopped EGO_other_vehicle as it fails to decelerate, with contact occurring at approximately 1.7 seconds after the observation period.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The rear-end collision between EGO_other_vehicle_behind and the stationary EGO_other_vehicle persists as their footprints continue to overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "The rear-end collision between EGO_other_vehicle_behind and the stationary EGO_other_vehicle persists as their footprints continue to overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The initial rear-end collision between EGO_other_vehicle_behind and EGO_other_vehicle concludes, while the striking vehicle simultaneously enters the path of the oncoming EGO_ego_vehicle_behind for a secondary side-swipe collision.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The primary hazard is a high-confidence rear-end collision where EGO_other_vehicle_behind fails to stop for the stationary EGO_other_vehicle on its path. A secondary side-swipe conflict is predicted between the striking vehicle and EGO_ego_vehicle_behind in the final interval, though this depends on the striking vehicle maintaining its path after the initial impact.",
+  "data_limitations": "The trajectory predictor allows vehicles to ghost through one another, which permits the prediction of a secondary collision after the initial rear-end impact."
+ }
+}

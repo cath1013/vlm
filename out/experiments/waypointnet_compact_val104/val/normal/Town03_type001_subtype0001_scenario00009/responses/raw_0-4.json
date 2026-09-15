@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show no physical contact or body overlap between any actors in this interval; the closest pair has a clearance of 1.36m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show no physical contact or body overlap between any actors in this interval; the closest predicted interaction has a small gap (0.09m) but is not contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"P004\"],\n      \"reason\": \"V003 (car) and P004 (person) are predicted to collide at t=7.0s, exhibiting an orthogonal entry conflict as V003 moves south and P004 moves east.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N002\", \"P004\"],\n      \"reason\": \"N002 (van) and P004 (person) are predicted to collide at t=7.7s, indicating an orthogonal entry conflict at an intersection of their paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C024\", \"V003\", \"V013\", \"T012\", \"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"Multiple collisions are predicted: C024 (bicycle) and V003 (car) collide at t=8.2s due to converging paths; V013 (car) and T012 (truck) collide at t=8.4s, likely a rear-end or side-swipe during an overtake; and EGO_ego_vehicle (car) and EGO_other_vehicle (car) collide at t=9.0s in an orthogonal or head-on conflict at a junction.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial intervals (k=1 and k=2) appear safe, with no predicted contacts. However, intervals k=3, k=4, and k=5 show multiple collision predictions involving pedestrians, a cyclist, and several vehicles. These incidents include orthogonal conflicts at intersections and potential rear-end or side-swipe collisions between vehicles in the same general direction of travel.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9565,
+  "candidatesTokenCount": 750,
+  "totalTokenCount": 17027,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9565
+   }
+  ],
+  "thoughtsTokenCount": 6712,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "RsKYapjDIe-i9tMPu9vFgAY"
+}

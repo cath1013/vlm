@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other based on their predicted paths, with the smallest predicted clearance being 2.59m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue to maintain safe distances, and no path intersections leading to collision are indicated, with the smallest predicted clearance being 2.44m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C004\", \"M005\"],\n      \"reason\": \"Motorcycle M005 is predicted to rear-end bicycle C004 at approximately t=6.0s (3.0 seconds after observation). Path geometry analysis confirms significant longitudinal and lateral overlap as M005 closes the gap while both vehicles travel southbound in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While a collision between M005 and C004 occurred at the beginning of this interval, no new collisions are predicted using the supplied independent paths for other actors.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and no path intersections leading to collision are indicated. The previously collided vehicles (M005 and C004) are no longer predicted to overlap based on their independent future paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A clear rear-end collision between a motorcycle (M005) and a bicycle (C004) is predicted to occur at t=6.0s (within the third interval). The motorcycle is observed to be behind the bicycle, and its predicted path indicates it will close the gap and impact the bicycle. Other vehicles maintain safe distances throughout the prediction window.\",\n  \"data_limitations\": \"The trajectory predictor generates independent future paths for each actor. Consequently, the paths for M005 and C004 after the predicted collision at t=6.0s do not account for the physical interaction and impact dynamics, potentially misrepresenting their post-collision states and future clearances.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4682,
+  "candidatesTokenCount": 692,
+  "totalTokenCount": 15177,
+  "cachedContentTokenCount": 821,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4682
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 821
+   }
+  ],
+  "thoughtsTokenCount": 9803,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ccGYavaMCvrdvr0P3YSPkQk"
+}

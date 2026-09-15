@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped vehicle V001 at 0.9s into the interval while attempting a right turn.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V023\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V023 at 1.8s into the interval while continuing its right turn, as V023 travels southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are identified in this interval; all closest pairs maintain a safe positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are identified in this interval, and no close interactions are flagged by the predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V015\"],\n      \"reason\": \"EGO_other_vehicle_behind and V015 are predicted to collide at 4.6s into the interval due to converging paths at an intersection.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted in this scenario. EGO_ego_vehicle is expected to be involved in two collisions during its right turn, first with V001 (stopped) in k=1 and then with V023 (moving southbound) in k=2. Later, EGO_other_vehicle_behind and V015 are predicted to collide due to converging paths in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11102,
+  "candidatesTokenCount": 623,
+  "totalTokenCount": 14904,
+  "cachedContentTokenCount": 927,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11102
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 927
+   }
+  ],
+  "thoughtsTokenCount": 3179,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_umYaraxNpzO2roPhNqUqA4"
+}

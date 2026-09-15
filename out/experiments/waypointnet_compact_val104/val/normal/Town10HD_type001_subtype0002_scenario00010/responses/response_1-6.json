@@ -1,0 +1,78 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 31.32,
+ "usage": {
+  "input": 10129,
+  "output": 837
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No physical contact is predicted between any actors; the closest pair (V012 and V017) maintains a safe clearance of 1.29m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "V002",
+     "EGO_other_vehicle",
+     "C011"
+    ],
+    "reason": "V003 and V002 are predicted to collide at 1.4s as their paths converge through a merging road section. EGO_other_vehicle is predicted to collide with the stopped bicycle C011 at 1.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N034",
+     "V015",
+     "V033"
+    ],
+    "reason": "N034 is predicted to collide with V015 at 2.6s as N034 makes a left turn across V015's path. Subsequently, V033 is predicted to collide with N034 at 3.0s in the same intersection area.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M032",
+     "V024",
+     "V012",
+     "P004",
+     "EGO_ego_vehicle",
+     "N034"
+    ],
+    "reason": "M032 is predicted to collide with the stopped V024 at 3.4s. V012 is predicted to collide with the pedestrian P004 at 3.8s. EGO_ego_vehicle is predicted to collide with N034 at 4.0s as they both maneuver through an intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M032",
+     "V017",
+     "EGO_ego_vehicle",
+     "V033"
+    ],
+    "reason": "M032 is predicted to collide with the stopped V017 at 4.1s. EGO_ego_vehicle is predicted to collide with V033 at 4.3s as both vehicles maneuver through an intersection.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple accidents involving several actors. Collisions are expected at various intersections and with stopped vehicles or a pedestrian, affecting EGO_other_vehicle in the second interval and EGO_ego_vehicle in the fourth and fifth intervals.",
+  "data_limitations": ""
+ }
+}

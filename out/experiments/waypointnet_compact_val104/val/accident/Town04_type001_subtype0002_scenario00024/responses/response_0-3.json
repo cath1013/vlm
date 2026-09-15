@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.05,
+ "usage": {
+  "input": 7771,
+  "output": 598
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain a safe clearance or remain stopped, preventing any predicted physical contact within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "N002"
+    ],
+    "reason": "N002, moving eastbound, is predicted to collide with V001, which is stopped at an intersection, resulting in simultaneous body contact at approximately 4.4 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain a safe clearance or remain stopped, preventing any predicted physical contact within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to have an orthogonal entry conflict at a junction, leading to simultaneous body contact at approximately 6.8 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain a safe clearance or remain stopped, preventing any predicted physical contact within this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct accidents are predicted within the 5-second prediction horizon. The first involves N002 colliding with the stopped V001 in the second interval. The second accident involves the observer vehicles EGO_ego_vehicle_behind and EGO_other_vehicle having an orthogonal intersection conflict in the fourth interval.",
+  "data_limitations": ""
+ }
+}

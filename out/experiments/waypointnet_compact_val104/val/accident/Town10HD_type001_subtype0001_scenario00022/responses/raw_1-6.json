@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"M020\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_ego_vehicle\",\n        \"V025\"\n      ],\n      \"reason\": \"Multiple simultaneous conflicts are predicted in this interval: EGO_other_vehicle_behind is predicted to have an orthogonal conflict with M020 at a junction. EGO_ego_vehicle_behind is predicted to collide with EGO_other_vehicle_behind. EGO_ego_vehicle is predicted to rear-end V025 due to V025's lower speed. All contacts are predicted with 0.0m clearance and high probability.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m clearance are found in this interval, and all vehicles maintain sufficient separation based on their projected paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m clearance are found in this interval, and all vehicles maintain sufficient separation based on their projected paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m clearance are found in this interval, and all vehicles maintain sufficient separation based on their projected paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"M020\",\n        \"V025\"\n      ],\n      \"reason\": \"Two distinct rear-end collisions are predicted in this interval: EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle, and M020 is predicted to rear-end V025, with both contacts showing 0.0m clearance and high probability.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first 1-second interval after the observation window shows multiple high-confidence predicted accidents, including an orthogonal junction conflict and a rear-end collision involving ego vehicles. The subsequent three intervals appear clear, but the final 1-second interval (k=5) indicates two further high-confidence rear-end collisions. The overall risk profile is very high due to multiple predicted contacts across the prediction horizon.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10983,
+  "candidatesTokenCount": 772,
+  "totalTokenCount": 18644,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10983
+   }
+  ],
+  "thoughtsTokenCount": 6889,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2MCYarbdH8yc0-kP2e7x6A4"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero minimum clearance are reported in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero minimum clearance are reported in this interval; the closest pair V006 and P011 maintain a positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P012\", \"P011\"],\n      \"reason\": \"The EGO_ego_vehicle is predicted to make a left turn, resulting in an intersection conflict with P012 (moving eastbound) at t=4.4s and with P011 (moving westbound) at t=4.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"T016\", \"V026\", \"V027\", \"P012\", \"V006\"],\n      \"reason\": \"T016 is predicted to rear-end V015 at t=5.3s. V026 is predicted to rear-end V027 at t=5.3s. P012 (eastbound) and V006 (northbound) are predicted to have an intersection conflict at t=5.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M002\", \"V003\", \"T004\", \"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"V003 is predicted to collide with M002 at t=6.1s as V003 passes M002. T004 is predicted to collide with V003 at t=6.7s due to converging paths. EGO_other_vehicle_behind is predicted to rear-end EGO_other_vehicle at t=6.9s. Additionally, M002 and T004 are predicted to collide at t=7.0s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows a high-risk scenario, especially in the later intervals (k=3 to k=5). The ego vehicle is involved in two intersection conflicts during its left turn. Additionally, several other vehicles are predicted to experience rear-end, side-swipe, and intersection collisions as they navigate the environment.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10557,
+  "candidatesTokenCount": 782,
+  "totalTokenCount": 25037,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10557
+   }
+  ],
+  "thoughtsTokenCount": 13698,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "QsKYaresMcS40-kP2L22yQE"
+}

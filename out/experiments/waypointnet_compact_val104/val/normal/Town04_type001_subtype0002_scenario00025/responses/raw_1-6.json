@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show all actors maintaining safe distances, with no expected contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show all actors maintaining safe distances, with no expected contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P008\"],\n      \"reason\": \"EGO_ego_vehicle (car) and P008 (person) are predicted to have simultaneous body contact or overlap with a minimum clearance of 0.0m at 2.3 seconds after observation (within this interval), indicating an orthogonal entry conflict as the car moves northbound and the person moves westbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While there are some close interactions, all predicted minimum clearances are positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While there are some close interactions, all predicted minimum clearances are positive, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the (8.0, 9.0] second interval between the EGO_ego_vehicle and person P008 due to a direct overlap in their predicted paths. For all other intervals, no accidents are expected as all other predicted closest pairs maintain positive minimum clearances, despite some close interactions.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11871,
+  "candidatesTokenCount": 574,
+  "totalTokenCount": 14125,
+  "cachedContentTokenCount": 933,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11871
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 933
+   }
+  ],
+  "thoughtsTokenCount": 1680,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "esyYau_3OrGw2roP0qzmoQI"
+}

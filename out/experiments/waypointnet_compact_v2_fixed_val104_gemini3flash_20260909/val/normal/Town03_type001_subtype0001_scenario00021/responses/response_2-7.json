@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 14.8,
+ "usage": {
+  "input": 10988,
+  "output": 485
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors V021 and V024 are traveling in the same lane but maintain a safe longitudinal distance of over 20 metres during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V021 is closing the gap with the stopped vehicle V024, but they remain separated by more than 10 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V021 continues to approach V024 at high speed, but clearance is still positive throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "V024"
+    ],
+    "reason": "V021 rear-ends the stopped vehicle V024 as its predicted path results in a center-to-center distance of 1.39m, which is less than the vehicle length footprint.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V021",
+     "V024"
+    ],
+    "reason": "The collision between V021 and V024 persists as the predicted path of V021 continues to overlap with the static position of V024.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary hazard is a high-speed rear-end collision between V021 and V024 on Road 83. V021 is accelerating rapidly (3.17 m/s2) towards V024, which is stopped or crawling, leading to inevitable contact approximately 3.4 seconds after the last observation. Other actors, including the ego vehicles, maintain sufficient lateral or longitudinal clearance.",
+  "data_limitations": ""
+ }
+}

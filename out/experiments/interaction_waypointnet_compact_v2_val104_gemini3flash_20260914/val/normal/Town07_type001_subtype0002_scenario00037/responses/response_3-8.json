@@ -1,0 +1,65 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 54.14,
+ "usage": {
+  "input": 7864,
+  "output": 516
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe separation as they enter the junction, with the closest pair having over 1.3m of clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles continue to converge toward the intersection but maintain sufficient lateral and longitudinal clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest approach is between the van N003 and EGO_ego_vehicle_behind at 1.16m, which remains a safe passing distance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "N003"
+    ],
+    "reason": "EGO_other_vehicle accelerates into a left turn across the path of the nearly stationary oncoming van N003, resulting in contact at the end of the interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle",
+     "N003"
+    ],
+    "reason": "A rear-end collision occurs as EGO_ego_vehicle_behind maintains speed while the leading EGO_ego_vehicle brakes sharply to a near-stop; the contact between EGO_other_vehicle and N003 also persists.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The five-second window is marked by two distinct collision events at the intersection. First, a left-turn-across-path accident occurs between EGO_other_vehicle and the van N003 at t=12s. This is followed at t=13s by a high-speed rear-end collision where EGO_ego_vehicle_behind fails to react to the leading EGO_ego_vehicle's sudden deceleration to a near-stop.",
+  "data_limitations": ""
+ }
+}

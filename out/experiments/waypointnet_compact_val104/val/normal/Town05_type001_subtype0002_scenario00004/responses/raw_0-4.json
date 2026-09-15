@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V024\", \"C028\"],\n      \"reason\": \"V024 (car) and C028 (bicycle) are predicted to make contact with 0.0m clearance at 1.0s after observation, as their paths converge while moving northbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V017\", \"V025\", \"V024\"],\n      \"reason\": \"V014 (car) and V017 (car) are predicted to make contact at 1.2s after observation due to crossing paths during right turns. Additionally, V025 (car) and V024 (car) are predicted to make contact at 1.7s as V025 follows V024 and their paths converge.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T026\", \"T029\"],\n      \"reason\": \"T026 (truck) and T029 (truck) are predicted to make contact with 0.0m clearance at 3.0s after observation. T029 is predicted to slow significantly while T026 continues its path, suggesting a rear-end collision or merging conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted pairs show physical contact or body overlap with 0.0m clearance in this interval; all closest pairs maintain a safe distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P031\"],\n      \"reason\": \"EGO_ego_vehicle (car) and P031 (person) are predicted to make contact with 0.0m clearance at 5.0s after observation, due to an intersection conflict where their paths cross.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Several potential accidents are predicted across the 5-second prediction window, involving both vehicles and pedestrians. The earliest predicted contacts are between V024 and C028 in k=1, followed by multiple conflicts in k=2 and k=3. A critical intersection conflict between the EGO_ego_vehicle and a pedestrian (P031) is also predicted at the end of the window in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10872,
+  "candidatesTokenCount": 758,
+  "totalTokenCount": 15034,
+  "cachedContentTokenCount": 925,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10872
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 925
+   }
+  ],
+  "thoughtsTokenCount": 3404,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Dc2Yaq6dHaGz1e8P5f-xiAY"
+}

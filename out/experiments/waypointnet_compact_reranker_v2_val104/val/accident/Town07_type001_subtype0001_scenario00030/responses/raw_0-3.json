@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths indicate that vehicles and pedestrians maintain safe distances and clearances, with no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show all actors maintaining safe separation, with no anticipated overlaps or collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P024\"],\n      \"reason\": \"EGO_ego_vehicle_behind's predicted right turn path directly intersects with P024's straight path at approximately 5.8 seconds after observation, resulting in a pedestrian collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance, and no physical contact is expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T036\", \"EGO_other_vehicle\", \"N013\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle is expected to collide with the stopped truck T036 at 7.8s. EGO_other_vehicle is predicted to collide with N013, which is making a left turn, at 7.9s. Additionally, EGO_other_vehicle is expected to be rear-ended by EGO_other_vehicle_behind at 7.8s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial intervals (k=1, k=2, k=4) appear free of accidents, with all actors maintaining safe distances. However, a pedestrian collision is predicted in interval k=3 between EGO_ego_vehicle_behind and P024. Interval k=5 shows a high-risk scenario with three distinct collisions predicted, involving EGO_ego_vehicle with a stopped truck, EGO_other_vehicle with N013 during a turn, and a rear-end collision between EGO_other_vehicle and EGO_other_vehicle_behind.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9782,
+  "candidatesTokenCount": 709,
+  "totalTokenCount": 13860,
+  "cachedContentTokenCount": 915,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9782
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 915
+   }
+  ],
+  "thoughtsTokenCount": 3369,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VeaYapTyLfrV9tMPwMfX8AQ"
+}

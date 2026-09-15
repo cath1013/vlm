@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances as they begin their maneuvers; the minimum clearance of 10.13m is well above typical vehicle dimensions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have a minimum clearance of 1.7m at t=1.7s, which is less than a car's width (1.93m), indicating body overlap as they both turn into the same intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to have a minimum clearance of 0.75m with the stopped vehicle V001 at t=2.9s, which is significantly less than a car's width (1.93m), indicating a direct collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts are predicted in this interval; any conflicts would have already occurred in previous intervals.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are maintaining sufficient clearance as they proceed on their paths; the closest predicted clearance of 2.14m between EGO_other_vehicle_behind and EGO_ego_vehicle_behind is acceptable for parallel travel.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple potential collisions are identified within the prediction window. EGO_ego_vehicle and EGO_other_vehicle are expected to collide in interval k=2 as they both turn into the same intersection with insufficient clearance. Subsequently, EGO_ego_vehicle is also predicted to collide with the stopped vehicle V001 in interval k=3.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7100,
+  "candidatesTokenCount": 666,
+  "totalTokenCount": 12088,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7100
+   }
+  ],
+  "thoughtsTokenCount": 4322,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "geeYavjENuWM1e8P2MDAgAY"
+}

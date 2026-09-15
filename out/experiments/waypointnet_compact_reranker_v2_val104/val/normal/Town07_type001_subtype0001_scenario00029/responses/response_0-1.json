@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.16,
+ "usage": {
+  "input": 6639,
+  "output": 612
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and stable trajectories, with no predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted trajectories show vehicles maintaining safe distances without any contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V012"
+    ],
+    "reason": "EGO_ego_vehicle and V012 are predicted to have a head-on collision on Road 21 at approximately 2.9s after the last observation, with 0.0m minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V011",
+     "V005"
+    ],
+    "reason": "V011 and V005 are predicted to collide on Road 21 at approximately 3.1s after the last observation, with 0.0m minimum clearance, due to converging paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V012"
+    ],
+    "reason": "EGO_ego_vehicle_behind and V012 are predicted to have a head-on collision on Road 21 at approximately 4.5s after the last observation, with 0.0m minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple head-on or converging collisions are predicted on Road 21 from k=3 to k=5. The ego vehicle and its follower are involved in separate incidents with V012, while V011 and V005 also collide due to conflicting trajectories on the same road.",
+  "data_limitations": ""
+ }
+}

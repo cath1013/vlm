@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 22.62,
+ "usage": {
+  "input": 9834,
+  "output": 602
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths show sufficient clearance between all vehicles, with the smallest minimum clearance being 1.11m between EGO_other_vehicle_behind and V027.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain a safe distance, with no indications of conflict or overlap; the minimum predicted clearance is 6.05m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicle trajectories indicate clear separation throughout this interval, and the smallest predicted clearance is 1.81m between EGO_other_vehicle_behind and V020.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted close interactions or conflicts among any actors in this interval, and all paths remain clear.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although there is a very small predicted minimum clearance of 0.12m between EGO_other_vehicle_behind and EGO_other_vehicle, the predicted contact is explicitly false and this value represents a gap, not an overlap, based on the supplied geometry and footprint calculations.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "No accidents are expected within the 5-second prediction window. While a very close interaction (0.12m minimum clearance) is predicted between EGO_other_vehicle_behind and a stopped EGO_other_vehicle in the final interval, the model explicitly indicates no contact. All other interactions maintain larger clearances.",
+  "data_limitations": ""
+ }
+}

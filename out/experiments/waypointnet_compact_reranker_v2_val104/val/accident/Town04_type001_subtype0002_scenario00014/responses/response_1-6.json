@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.8,
+ "usage": {
+  "input": 10751,
+  "output": 629
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind (eastbound) and EGO_ego_vehicle_behind (northbound) are predicted to have simultaneous body contact at 0.7s after observation, indicating a right-angle collision at an intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval; all actors maintain sufficient separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval; all actors maintain sufficient separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval; all actors maintain sufficient separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_other_vehicle_behind, traveling faster than EGO_other_vehicle in the same eastbound direction, is predicted to rear-end EGO_other_vehicle at 4.5s after observation, resulting in body contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collision events are predicted within the 5-second prediction window. The first occurs early in the first interval between EGO_other_vehicle_behind and EGO_ego_vehicle_behind at an intersection. The second occurs later in the fifth interval, a rear-end collision between EGO_other_vehicle_behind and EGO_other_vehicle, where the former overtakes and contacts the latter.",
+  "data_limitations": ""
+ }
+}

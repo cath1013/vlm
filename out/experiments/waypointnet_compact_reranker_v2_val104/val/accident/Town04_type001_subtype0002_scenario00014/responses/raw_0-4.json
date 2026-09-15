@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, with the closest pair (EGO_ego_vehicle and EGO_other_vehicle) having a predicted minimum clearance of 1.53m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle and T001 have a predicted minimum clearance of 0.28m, this is still a positive gap and not classified as contact or overlap according to the provided definitions, and predicted_contact is false.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to proceed without predicted physical contact; the closest interactions show positive clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to collide with a minimum clearance of 0.0m as EGO_ego_vehicle_behind makes a right turn into the path of EGO_other_vehicle_behind.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T001\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the stopped truck T001 with a minimum clearance of 0.0m during its right turn, indicating simultaneous body contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window, both involving EGO_ego_vehicle_behind. First, it collides with EGO_other_vehicle_behind at a junction in interval k=4. Second, it collides with the stopped truck T001 in interval k=5 as its right-turning path intersects T001's position.\",\n  \"data_limitations\": \"The predicted minimum clearance of 0.28m between EGO_ego_vehicle and T001 at k=2 is very small for vehicles, yet it is considered a 'gap' and 'predicted_contact' is false, preventing it from being classified as an accident according to the strict definition.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10986,
+  "candidatesTokenCount": 735,
+  "totalTokenCount": 15859,
+  "cachedContentTokenCount": 926,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10986
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 926
+   }
+  ],
+  "thoughtsTokenCount": 4138,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ce2YarehDY-N1e8PgY_jiAY"
+}

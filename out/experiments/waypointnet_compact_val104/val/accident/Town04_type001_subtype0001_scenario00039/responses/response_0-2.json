@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 32.82,
+ "usage": {
+  "input": 9694,
+  "output": 770
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest interactions in this interval, such as between EGO_other_vehicle_behind and V025 (0.46m clearance) and V003 and T021 (0.91m clearance), do not indicate physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T020",
+     "T021"
+    ],
+    "reason": "T021 is predicted to collide with the stopped T020 at approximately t=3.7s, resulting in a rear-end collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to have a head-on or side-swipe collision at approximately t=4.7s as they move in opposing directions on converging paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V022",
+     "V023"
+    ],
+    "reason": "V022 and V023 are predicted to collide at approximately t=6.0s, likely a rear-end collision as V022 is catching up to V023 while both are moving southbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to collide at approximately t=6.3s, similar to the EGO_ego_vehicle conflict, due to opposing travel on converging paths.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple collisions. These include a rear-end collision between two trucks, and two separate head-on or side-swipe collisions involving observer vehicles (EGO_ego_vehicle and EGO_ego_vehicle_behind) with another observer vehicle (EGO_other_vehicle). Additionally, two other vehicles (V022 and V023) are predicted to have a rear-end collision.",
+  "data_limitations": "All predicted paths have a probability of 1.0, which may not reflect realistic uncertainties or alternative maneuvers. The `predicted_contact` flag was strictly followed, even for very small positive clearances that might indicate high risk in a real-world scenario."
+ }
+}

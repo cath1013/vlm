@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P007\",\n        \"V026\"\n      ],\n      \"reason\": \"P007 is at the junction entrance, moving at 4km/h, while V026 approaches the junction with a linear-extrapolated contact time of 1.2 seconds, indicating an imminent orthogonal conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"P006\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is accelerating into the junction while P006 is turning right from an opposing lane across EGO_ego_vehicle's projected path, with a linear-extrapolated contact time of 2.3 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle_behind is approaching the junction where EGO_other_vehicle_behind is stopped, its slow speed and distance to the junction should allow it to stop safely.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No other vehicle pairs show critical closing rates or direct conflicting paths that would lead to an accident in this interval, assuming prior conflicts have unfolded.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Beyond the immediate conflicts, there is insufficient evidence to predict new accidents in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic scene at this three-way junction has two distinct high-risk conflicts in the first two prediction intervals. P007 and V026 have an imminent orthogonal collision as P007 is already in the junction and V026 is approaching. Following this, EGO_ego_vehicle's acceleration into the junction conflicts with P006's right turn from an opposing lane. Other potential conflicts, such as EGO_ego_vehicle_behind approaching a stopped EGO_other_vehicle_behind at the junction, are deemed less critical due to relative speeds and distances.\",\n  \"data_limitations\": \"The absence of traffic signal states and explicit stop line information makes yielding assumptions necessary. The 'linear-extrapolated contact' values are simplistic and do not account for predicted turns or braking, especially for junction conflicts on non-linear paths. Predicted paths marked 'off-candidate path' or 'no road match' introduce uncertainty regarding actor intent.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13675,
+  "candidatesTokenCount": 774,
+  "totalTokenCount": 22536,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13675
+   }
+  ],
+  "thoughtsTokenCount": 8087,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "rByVapa3DJ3W1e8PuoeBwQM"
+}

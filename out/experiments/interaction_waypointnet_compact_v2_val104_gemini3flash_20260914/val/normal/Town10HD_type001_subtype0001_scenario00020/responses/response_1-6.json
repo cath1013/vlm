@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 52.22,
+ "usage": {
+  "input": 8755,
+  "output": 604
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are maintaining safe longitudinal and lateral separations within their respective lanes during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are continuing along their predicted paths with no immediate risk of collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and EGO_ego_vehicle are predicted to pass each other with a safe clearance of approximately 0.58 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and EGO_ego_vehicle_behind are approaching each other in adjacent lanes with mutual observation and deceleration history.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted contact at 4.4s is discounted because it relies on a lateral drift not supported by recent history while both actors are alert and decelerating.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves vehicles navigating a junction with EGO_other_vehicle and EGO_ego_vehicle_behind approaching from opposite directions at low speeds. While the trajectory predictor suggests a contact at 4.4 seconds due to lateral convergence, the mutual observation and consistent deceleration of both vehicles, combined with the stabilization of EGO_other_vehicle's lateral position in the final seconds of observation, indicate a safe pass is the likely outcome.",
+  "data_limitations": "The future waypoints for EGO_other_vehicle extrapolate a lateral drift that contradicts its stable lateral position observed between t=4.0s and t=6.0s."
+ }
+}

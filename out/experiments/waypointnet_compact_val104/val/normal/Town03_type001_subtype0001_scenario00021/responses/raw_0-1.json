@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe clearance above 0m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"T023\",\n        \"T029\"\n      ],\n      \"reason\": \"Truck T023's predicted path shows it will collide with the stopped truck T029 at approximately 1.4 seconds into the interval, indicating a rear-end or turning collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"P015\",\n        \"V002\",\n        \"V003\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"Multiple collisions are predicted: EGO_other_vehicle_behind collides with pedestrian P015 at an intersection, V002 and V003 collide due to lane contention, and EGO_other_vehicle collides with EGO_ego_vehicle_behind due to an orthogonal intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V003\",\n        \"T023\"\n      ],\n      \"reason\": \"Car V003's and truck T023's predicted paths converge, leading to a collision as T023 overtakes or merges with V003 at approximately 3.2 seconds into the interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"T023\"\n      ],\n      \"reason\": \"Car V002's and truck T023's predicted paths converge, leading to a collision as T023 overtakes or merges with V002 at approximately 4.1 seconds into the interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario presents a high risk of accidents, with no collisions predicted in the first interval but multiple severe conflicts from interval k=2 to k=5. These include a truck colliding with a stopped truck, a car colliding with a pedestrian, and several car-truck/car-car merging or orthogonal intersection conflicts, involving both observer vehicles and other road users.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8172,
+  "candidatesTokenCount": 762,
+  "totalTokenCount": 13408,
+  "cachedContentTokenCount": 897,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8172
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 897
+   }
+  ],
+  "thoughtsTokenCount": 4474,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "KsKYapPoCcP92roPwtXW-Aw"
+}

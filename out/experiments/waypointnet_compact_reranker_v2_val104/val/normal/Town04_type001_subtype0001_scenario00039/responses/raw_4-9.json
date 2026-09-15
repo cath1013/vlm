@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V023\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to rear-end V023, which remains stopped, at approximately t=9.6s, resulting in a direct body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"P011\", \"V015\", \"V016\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with P011 at t=10.9s as it performs a left turn across P011's path. Separately, V015 and V016 are predicted to collide at t=10.7s as their westbound paths converge.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance from each other within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V023\"],\n      \"reason\": \"EGO_other_vehicle is predicted to rear-end V023, which remains stopped, at approximately t=12.5s, resulting in a direct body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance from each other within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Several accidents are predicted across the 5-second window. EGO_ego_vehicle and EGO_other_vehicle are both predicted to rear-end the stopped V023 in separate incidents. Additionally, EGO_other_vehicle_behind is expected to collide with P011 during a left turn, and V015 will collide with V016 due to converging westbound paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10532,
+  "candidatesTokenCount": 668,
+  "totalTokenCount": 14452,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10532
+   }
+  ],
+  "thoughtsTokenCount": 3252,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "QOqYar3aKoSw0-kPtcmTiA8"
+}

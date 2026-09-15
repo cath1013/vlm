@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain their respective paths with significant clearances; no collision is predicted in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue on their predicted paths without close proximity or contact; no accident is expected.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show ample separation between all actors, and no contact is indicated.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"An accident is expected due to an orthogonal entry conflict; EGO_ego_vehicle's southbound path intersects with EGO_other_vehicle's southeastbound path, resulting in predicted body contact with 0.0m clearance at 7.3s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the prior interval, no new specific contact events are predicted in this interval by the closest pairs, and other vehicles maintain safe distances.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence accident is predicted between EGO_ego_vehicle and EGO_other_vehicle during the (7.0, 8.0] second interval (k=4) due to their intersecting trajectories, leading to a direct body overlap. No other vehicles are predicted to be involved, and their paths maintain safe clearances throughout the 5-second prediction window. Subsequent intervals do not predict new contact events.\",\n  \"data_limitations\": \"The independent nature of path predictions means that the state of vehicles in intervals following a predicted collision (e.g., k=5 after k=4) does not account for the consequences of that collision, potentially misrepresenting the actual future state.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7259,
+  "candidatesTokenCount": 637,
+  "totalTokenCount": 11954,
+  "cachedContentTokenCount": 883,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7259
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 883
+   }
+  ],
+  "thoughtsTokenCount": 4058,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5-2YasueE-bC0-kPzvzlwA4"
+}

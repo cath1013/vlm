@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance, with no geometrically predicted contacts in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V029\"],\n      \"reason\": \"V029 is predicted to collide with the stopped EGO_other_vehicle_behind at t=8.7s (1.7s after observation), indicating a rear-end collision or direct impact into a stopped vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"N020\"],\n      \"reason\": \"EGO_other_vehicle, making a left turn, is predicted to collide with N020, which is proceeding straight, at t=9.5s (2.5s after observation) due to an orthogonal entry conflict at a junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance, with no geometrically predicted contacts in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V019\"],\n      \"reason\": \"EGO_other_vehicle, making a left turn, is predicted to collide with V019, which is proceeding straight, at t=11.7s (4.7s after observation) due to an orthogonal entry conflict at a junction.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates three distinct collision events involving observer vehicles. EGO_other_vehicle_behind is predicted to be impacted by V029 in the second interval. EGO_other_vehicle is involved in two separate orthogonal entry conflicts at a junction: first with N020 in the third interval, and then with V019 in the fifth interval. The remaining intervals show no immediate danger.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10913,
+  "candidatesTokenCount": 670,
+  "totalTokenCount": 16780,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10913
+   }
+  ],
+  "thoughtsTokenCount": 5197,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0-qYasP7N4rcvr0P49Dv2AU"
+}

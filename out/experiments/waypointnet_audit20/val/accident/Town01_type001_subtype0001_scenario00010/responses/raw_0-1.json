@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"M005\",\n        \"EGO_other_vehicle_behind\",\n        \"V008\",\n        \"EGO_ego_vehicle_behind\",\n        \"C004\"\n      ],\n      \"reason\": \"Multiple simultaneous head-on/sideswipe conflicts are linearly extrapolated between vehicles in adjacent opposing lanes (EGO_ego_vehicle & M005; EGO_other_vehicle_behind & V008; EGO_ego_vehicle_behind & C004) with contact times within or just after this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V006\",\n        \"V007\",\n        \"EGO_ego_vehicle_behind\",\n        \"M005\"\n      ],\n      \"reason\": \"A rear-end collision is linearly extrapolated between V006 and V007 (TTC 2.1s), and a head-on/sideswipe conflict is linearly extrapolated between EGO_ego_vehicle_behind and M005 (contact in 2.5s), both with contact/TTC times within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M005\",\n        \"C004\"\n      ],\n      \"reason\": \"A rear-end collision is linearly extrapolated between M005 and C004 (TTC 3.0s), with the contact time within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate collision risks are indicated by linear extrapolation of observed closing rates or provided TTC values within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate collision risks are indicated by linear extrapolation of observed closing rates or provided TTC values within this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The initial few seconds of the prediction window show a high likelihood of multiple collisions due to several pairs of vehicles in adjacent opposing lanes, as well as two distinct rear-end conflict scenarios. The linear extrapolation of observed closing rates indicates several critical contact points within the first three seconds. Beyond that, no immediate risks are apparent under the simplistic linear extrapolation model.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values ignore turning, braking, or signals, which is a significant limitation as these actions could avert the predicted sideswipe/head-on collisions. The prediction assumes vehicles continue on their predicted 'straight' paths, despite imminent conflicts. There is no information on traffic signal state or stop lines, which might affect junction behavior of some vehicles later in the prediction window.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5292,
+  "candidatesTokenCount": 839,
+  "totalTokenCount": 13868,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5292
+   }
+  ],
+  "thoughtsTokenCount": 7737,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "EBGVavT-GYvKrfcPstS7uAg"
+}

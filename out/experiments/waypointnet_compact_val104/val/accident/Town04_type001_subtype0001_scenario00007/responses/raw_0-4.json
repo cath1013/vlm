@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances during this interval, with no clear geometric contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N021\", \"T005\"],\n      \"reason\": \"Van N021 and truck T005 are predicted to collide at t=5.2s, as N021 executes a right turn and T005 a left turn, leading to simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances during this interval, with no clear geometric contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances during this interval, with no clear geometric contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with EGO_other_vehicle at t=8.8s, likely a rear-end collision as the trailing vehicle approaches the leading one on similar paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted within the 5-second prediction window. A collision between N021 and T005 is expected in the second interval due to conflicting turning maneuvers. Another collision between EGO_other_vehicle_behind and EGO_other_vehicle is predicted in the fifth interval, likely a rear-end incident.\",\n  \"data_limitations\": \"The predicted paths are generated independently for each actor, which means interactive driving behaviors like yielding or evasive actions are not modeled. However, the predicted contacts are based on clear geometric overlap from the supplied paths and high position quality of involved actors.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7756,
+  "candidatesTokenCount": 648,
+  "totalTokenCount": 10673,
+  "cachedContentTokenCount": 891,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7756
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 891
+   }
+  ],
+  "thoughtsTokenCount": 2269,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0b6YaqH9NJKt0-kP_tGGeQ"
+}

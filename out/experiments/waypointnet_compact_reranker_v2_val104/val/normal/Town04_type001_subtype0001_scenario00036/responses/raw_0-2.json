@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances between vehicles in this interval, with the closest pair having a clearance greater than 14 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances between vehicles; no interactions indicate physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances between vehicles; no interactions indicate physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances between vehicles; no interactions indicate physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_other_vehicle_behind closes significantly on EGO_other_vehicle, the predicted minimum clearance is 0.9m, which does not constitute physical contact or body overlap based on the provided geometry and rules.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Over the entire 5-second prediction window, no accidents are strictly predicted based on the provided future paths and the definition of physical contact. While a very close following scenario between EGO_other_vehicle and EGO_other_vehicle_behind results in a minimum clearance of 0.9m in the final interval, this does not meet the criteria for contact.\",\n  \"data_limitations\": \"The prediction system indicates a very small clearance (0.9m) between two following vehicles, EGO_other_vehicle and EGO_other_vehicle_behind, in the final interval. While this is a high-risk scenario in real-world driving, the strict definition of 'physical contact or body overlap' requires 0m clearance; thus, no accident is predicted based on the provided data.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6840,
+  "candidatesTokenCount": 631,
+  "totalTokenCount": 15361,
+  "cachedContentTokenCount": 875,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6840
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 875
+   }
+  ],
+  "thoughtsTokenCount": 7890,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VOmYapmtAZiMvr0P8I2woQY"
+}

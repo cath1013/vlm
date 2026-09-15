@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 11.41,
+ "usage": {
+  "input": 7508,
+  "output": 604
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are predicted to maintain safe clearances from each other during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V010",
+     "T011"
+    ],
+    "reason": "Truck T011, moving westbound, is predicted to collide with car V010, which remains stopped in its path, with a predicted clearance of 0.0m at 3.6 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although some vehicles pass closely, all actors are predicted to maintain safe clearances with no contact expected during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are predicted to maintain safe clearances from each other during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T018"
+    ],
+    "reason": "The observer vehicle EGO_ego_vehicle_behind is predicted to collide with truck T018, which is stopped in its path, with a predicted clearance of 0.0m at 6.3 seconds after observation.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collisions are predicted within the 5-second prediction window. First, a truck (T011) is expected to collide with a stopped car (V010) in interval k=2. Second, the observer vehicle EGO_ego_vehicle_behind is predicted to collide with a stopped truck (T018) in interval k=5. Other interactions show safe clearances.",
+  "data_limitations": ""
+ }
+}

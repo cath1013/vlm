@@ -1,0 +1,75 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 39.27,
+ "usage": {
+  "input": 9390,
+  "output": 903
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No vehicles are predicted to have overlapping paths or come into contact during this interval; the closest pairs maintain sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T012",
+     "V013"
+    ],
+    "reason": "V013 (car) is predicted to rear-end the stopped truck T012 on Road 29 southbound as V013's path clearly overlaps with T012's stationary position around t=2.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V002",
+     "N003",
+     "T012",
+     "V014"
+    ],
+    "reason": "N003 (van) is predicted to rear-end the stopped car V002 on Road 26 westbound around t=3.3s. Additionally, V014 (car) is predicted to rear-end the stopped T012 (or the existing pile-up with V013) on Road 29 southbound around t=4.0s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V013",
+     "V014",
+     "V018",
+     "V019",
+     "V015",
+     "V016"
+    ],
+    "reason": "V014 (car) is predicted to rear-end V013 (car) on Road 29 southbound around t=4.6s, continuing a previous collision. V019 (car) is predicted to rear-end V018 (car) on Road 27 westbound around t=4.6s. V016 (car) is predicted to rear-end V015 (car) on Road 30 northbound around t=5.0s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "V004"
+    ],
+    "reason": "V004 (car) is predicted to rear-end V005 (car) on Road 30 southbound around t=5.8s as V004's path overlaps with V005's trajectory.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple rear-end collisions are predicted across various roads. The first collision occurs between a stopped truck (T012) and a following car (V013) on Road 29 at approximately t=2.5s. This initiates a chain of follow-on collisions on Road 29 involving V014 hitting V013. Additional rear-end collisions are predicted on Road 26, Road 27, and Road 30 between following vehicles and either stopped or slower-moving leading vehicles.",
+  "data_limitations": "The path predictions for each actor are independent, meaning subsequent collisions do not account for physical changes to vehicle state (e.g., stopping or change in path) after an initial impact. However, the path geometries strongly support the predicted contacts."
+ }
+}

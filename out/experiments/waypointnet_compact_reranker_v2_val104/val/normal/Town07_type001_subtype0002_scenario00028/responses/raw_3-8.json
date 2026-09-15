@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, with the closest pair (EGO_other_vehicle and T001) maintaining a 1.09m lateral clearance while EGO_other_vehicle passes the stopped T001.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T001\"],\n      \"reason\": \"EGO_ego_vehicle is making a left turn into the intersection and is predicted to have a clearance of only 0.15m with the stopped truck T001, indicating a high likelihood of contact or body overlap during an orthogonal crossing maneuver.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances, and the close interaction from the previous interval resolves with increasing separation as EGO_ego_vehicle clears T001.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All road users maintain sufficient clearance, with the closest interaction showing a 2.32m gap between EGO_other_vehicle and P003.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and EGO_other_vehicle_behind passes the stopped T001 with a 2.68m clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the k=2 interval (9-10s) between EGO_ego_vehicle and T001. EGO_ego_vehicle is executing a left turn and is predicted to achieve a minimum clearance of only 0.15m with the stopped truck T001, indicating a collision risk due to an orthogonal crossing. All other vehicle and pedestrian interactions show sufficient clearance throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5662,
+  "candidatesTokenCount": 660,
+  "totalTokenCount": 17001,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5662
+   }
+  ],
+  "thoughtsTokenCount": 10679,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FPSYauKTKMrG0-kPvqz5wAw"
+}

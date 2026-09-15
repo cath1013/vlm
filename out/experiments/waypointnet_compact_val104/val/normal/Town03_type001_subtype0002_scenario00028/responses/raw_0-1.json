@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close interactions between actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While V002 and V001 show a very small minimum clearance of 0.07m, the `predicted_contact` flag is false, indicating no physical contact is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at 3.0 seconds with 0.0m minimum clearance due to their converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close interactions are identified in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"T016\"],\n      \"reason\": \"V015 and T016 are predicted to collide at 4.7 seconds with 0.0m minimum clearance, as their paths intersect.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second window. The first involves EGO_ego_vehicle and EGO_other_vehicle in interval k=3. The second involves a car (V015) and a truck (T016) in interval k=5. Both predictions are based on explicit `predicted_contact: true` flags with zero minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7090,
+  "candidatesTokenCount": 594,
+  "totalTokenCount": 10194,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7090
+   }
+  ],
+  "thoughtsTokenCount": 2510,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "csqYaqSWKfrdvr0P3YSPkQk"
+}

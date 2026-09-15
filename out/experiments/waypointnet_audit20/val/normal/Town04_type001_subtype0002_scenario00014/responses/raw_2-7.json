@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M016\", \"V021\", \"P010\", \"P013\", \"EGO_other_vehicle\", \"V002\", \"P012\", \"P015\", \"V003\"],\n      \"reason\": \"Multiple imminent collisions are predicted with linear-extrapolated contact times well below 1.5 seconds. M016 and V021 have a head-on conflict with TTC 0.5s. P010 and P013 have an imminent pedestrian-pedestrian collision with TTC 0.7s. EGO_other_vehicle, at the junction, is on a collision course with V002 (TTC 0.6s), P012 (TTC 0.6s), P015 (TTC 0.7s), and V003 (TTC 1.3s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V002\", \"P012\", \"P015\", \"V003\"],\n      \"reason\": \"EGO_ego_vehicle is approaching the junction where a multi-vehicle collision involving EGO_other_vehicle and several others is expected in k=1. With a linear-extrapolated contact in 1.5s with EGO_other_vehicle, EGO_ego_vehicle is highly likely to collide with the already disrupted scene as it attempts its left turn.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V002\", \"P012\", \"P015\", \"V003\"],\n      \"reason\": \"EGO_ego_vehicle_behind is following EGO_ego_vehicle and will enter the junction where multiple severe collisions are expected to have occurred. It is highly likely to collide with the resulting accident scene.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary chain of collisions is expected to have occurred in previous intervals, leading to a static scene of wreckage. No new distinct primary conflicts are identified beyond this disruption.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary chain of collisions is expected to have occurred in previous intervals, leading to a static scene of wreckage. No new distinct primary conflicts are identified beyond this disruption.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A series of severe, rapidly unfolding collisions is highly probable at the central four-way junction. Multiple low-TTC conflicts involving EGO_other_vehicle, pedestrians, and other vehicles are predicted in the first second, followed by a chain reaction involving EGO_ego_vehicle and EGO_ego_vehicle_behind in subsequent seconds as they enter the disrupted intersection.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, and lane marking types significantly impacts the ability to definitively assess right-of-way and driver intent at the four-way junction, potentially leading to an underestimation or overestimation of some conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 14438,
+  "candidatesTokenCount": 950,
+  "totalTokenCount": 23451,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 14438
+   }
+  ],
+  "thoughtsTokenCount": 8063,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "NBuVaou-OZ2Tvr0P0ejFyQU"
+}

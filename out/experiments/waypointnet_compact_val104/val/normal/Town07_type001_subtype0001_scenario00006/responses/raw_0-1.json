@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All involved actors maintain positive clearance, and no contact is predicted within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002 is predicted to rear-end the stopped V001 at approximately 1.5 seconds after observation, as V002 continues along the same lane towards V001's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C012\", \"V013\"],\n      \"reason\": \"V013, traveling at a higher speed, is predicted to rear-end the slower C012 at approximately 2.5 seconds after observation, as both vehicles proceed in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No contact is predicted for any actors within this interval; all maintain safe clearances based on their projected trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"T003\"],\n      \"reason\": \"T003 is predicted to rear-end V001 at approximately 5.0 seconds after observation, as T003's path leads directly into the position of the stopped V001.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple rear-end collisions are predicted across the 5-second prediction horizon. V002 is expected to collide with the stopped V001 in interval k=2. Subsequently, V013 is predicted to collide with C012 in interval k=3 due to speed differences. Finally, T003 is projected to collide with V001 in interval k=5, even though V001 is already expected to be involved in a prior collision.\",\n  \"data_limitations\": \"The trajectory predictions are independent and do not account for potential evasive actions, cascading effects from earlier collisions, or changes in actor behavior in response to predicted events.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6090,
+  "candidatesTokenCount": 684,
+  "totalTokenCount": 15842,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6090
+   }
+  ],
+  "thoughtsTokenCount": 9068,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "P8SYatWLCe-i9tMPu9vFgAY"
+}

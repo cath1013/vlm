@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M003\", \"V012\"],\n      \"reason\": \"An imminent head-on or near-miss collision is predicted between M003 and V012, with a linear-extrapolated contact in 0.9s (at t=7.9s). They are on the same road (Road 9) but in different direction segments, 8.1m apart and closing at 8.9m/s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P006\"],\n      \"reason\": \"A high-risk conflict is predicted between EGO_ego_vehicle and P006, with a linear-extrapolated contact in 2.0s (at t=9.0s). P006, a pedestrian, is turning right at a junction with an 'off-candidate path', potentially crossing EGO_ego_vehicle's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P004\"],\n      \"reason\": \"A high-risk conflict is predicted between EGO_ego_vehicle and P004, with a linear-extrapolated contact in 2.5s (at t=9.5s). P004, a pedestrian, is 1m from a junction with an unusual heading (125 deg for an eastbound lane), indicating an unpredictable movement into the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the earlier predicted collisions are resolved, no other immediate high-risk conflicts are apparent from the linear extrapolations or current states of other road users within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the earlier predicted collisions are resolved, no other immediate high-risk conflicts are apparent from the linear extrapolations or current states of other road users within this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents a highly dangerous scenario with multiple imminent conflicts. A critical high-speed vehicle-to-vehicle collision between M003 and V012 is predicted within the first second. This is followed by two distinct vehicle-to-pedestrian collisions involving EGO_ego_vehicle and two pedestrians (P006, P004) at a junction in subsequent seconds.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for potential braking, steering, or other evasive maneuvers by the actors. The absence of traffic signal states and lane marking types also limits the ability to assess compliance and potential for conflict resolution within the junction area.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 15264,
+  "candidatesTokenCount": 831,
+  "totalTokenCount": 28654,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 15264
+   }
+  ],
+  "thoughtsTokenCount": 12559,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bhyVapaFD-m4vr0Pp9DJmAM"
+}

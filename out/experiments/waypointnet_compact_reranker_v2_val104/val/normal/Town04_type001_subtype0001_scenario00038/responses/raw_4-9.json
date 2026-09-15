@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another and follow their predicted paths without any geometric conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\"],\n      \"reason\": \"V003 is predicted to collide with the stopped V002 at approximately 10.2 seconds after the last observation, with a predicted minimum clearance of 0.0m, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_other_vehicle and V018 have a tight interaction with a predicted minimum clearance of 1.61m, the trajectories do not explicitly indicate physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another and follow their predicted paths without any geometric conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from one another and follow their predicted paths without any geometric conflict in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision between V003 and the stopped V002 is predicted to occur early in the second prediction interval (k=2). While other tight interactions with clearances less than the sum of vehicle half-widths were noted, the `predicted_contact` flag did not indicate explicit body overlap for those instances, leading to a judgment of no accident for those intervals. Otherwise, vehicles maintain safe distances.\",\n  \"data_limitations\": \"The explicit `predicted_contact: false` flag for interactions with clearances less than the sum of vehicles' half-widths, such as EGO_other_vehicle and V018 (1.61m clearance for two cars), may lead to under-reporting of high-risk near-misses if the `predicted_contact` calculation is overly conservative or sensitive to exact interpolation points despite seemingly insufficient clearance for a safe pass.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7305,
+  "candidatesTokenCount": 694,
+  "totalTokenCount": 13803,
+  "cachedContentTokenCount": 883,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7305
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 883
+   }
+  ],
+  "thoughtsTokenCount": 5804,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IuqYavHTB-6_vr0PppS3oAY"
+}

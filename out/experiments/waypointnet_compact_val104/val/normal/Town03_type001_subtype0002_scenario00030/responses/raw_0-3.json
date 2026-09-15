@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe clearance above 0.5m, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V007\", \"V006\"],\n      \"reason\": \"V007 is predicted to rear-end V006 at approximately t=4.4s, as V006 remains stopped and V007 continues its northbound trajectory in the same lane, resulting in 0.0m predicted clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted closest pairs indicate that all actors maintain a safe distance from each other in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors are predicted to maintain sufficient clearance, and no physical contact is indicated by the trajectory predictions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at an intersection around t=8.0s as their paths converge orthogonally, resulting in 0.0m predicted clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. The first involves a rear-end collision between V007 and V006 in the (4.0, 5.0] second interval, where V007 approaches a stopped V006 from behind. The second involves EGO_ego_vehicle and EGO_other_vehicle, who are predicted to collide at an intersection in the (7.0, 8.0] second interval due to their orthogonally crossing paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4765,
+  "candidatesTokenCount": 644,
+  "totalTokenCount": 9816,
+  "cachedContentTokenCount": 823,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4765
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 823
+   }
+  ],
+  "thoughtsTokenCount": 4407,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6sqYat2fDYSw0-kPtcmTiA8"
+}

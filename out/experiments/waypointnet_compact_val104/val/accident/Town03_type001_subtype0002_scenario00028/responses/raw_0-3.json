@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and their predicted paths do not show any clear points of contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle, executing a right turn, and EGO_other_vehicle, proceeding southwest, have predicted intersecting paths resulting in simultaneous body contact around 4.2 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are identified for this interval; all vehicles maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to continue on their paths without any clear indication of physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V007\"\n      ],\n      \"reason\": \"V004, moving northwest, and V007, moving north, have intersecting paths that lead to predicted body contact around 7.7 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted within the 5-second window. The first involves the EGO_ego_vehicle and EGO_other_vehicle during an intersection maneuver, and the second involves V004 and V007 whose paths converge significantly. All predictions of contact have a joint path probability of 1.0 and zero minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5646,
+  "candidatesTokenCount": 595,
+  "totalTokenCount": 8897,
+  "cachedContentTokenCount": 849,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5646
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 849
+   }
+  ],
+  "thoughtsTokenCount": 2656,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "C8eYavbdG6Ks1e8P7-ndwAo"
+}

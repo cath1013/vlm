@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P014\",\n        \"V021\"\n      ],\n      \"reason\": \"A linear-extrapolated contact in 1.3s is predicted between pedestrian P014 (7km/h) and stopped car V021, which are only 5.9m apart near a junction, indicating an imminent pedestrian-vehicle collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P013\",\n        \"P014\"\n      ],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J5 between pedestrians P013 and P014, with a Time To Contact (TTC) of 3.8s, indicating a collision within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"P014\",\n        \"M027\",\n        \"C028\"\n      ],\n      \"reason\": \"An orthogonal entry conflict is expected at junction J5 between car V002 and pedestrian P014 (TTC 4.3s). Additionally, a car-following collision is expected between motorcycle M027 and bicycle C028 (TTC 4.6s) due to their closing speeds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts with low Time To Contact (TTC) or explicit interaction warnings are identified for this interval beyond those already addressed.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts with low Time To Contact (TTC) or explicit interaction warnings are identified for this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at this four-way junction presents several imminent collision risks, primarily involving pedestrians. P014 (person) is sequentially involved in multiple conflicts: first with a stopped car (V021), then with another pedestrian (P013), and finally with a car (V002) at junction J5. A distinct car-following collision is also predicted between a motorcycle (M027) and a bicycle (C028) due to a significant speed differential.\",\n  \"data_limitations\": \"The lack of information regarding traffic signal states and specific lane markings (e.g., stop lines, solid/dashed lines) at the junction prevents a definitive judgment on right-of-way and assumed vehicle behavior at intersections. The 'linear-extrapolated contact' metric for opposing traffic on different lanes was disregarded as a direct collision risk, as it does not account for lateral separation.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13137,
+  "candidatesTokenCount": 822,
+  "totalTokenCount": 22135,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13137
+   }
+  ],
+  "thoughtsTokenCount": 8176,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4xuVapHoJobu2roP5cicqQ8"
+}

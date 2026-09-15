@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T021\", \"V022\"],\n      \"reason\": \"A stationary truck (T021) is predicted to collide with a southbound car (V022) at t=1.0s after the observation, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance during this interval, and no contact is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T021\", \"V023\"],\n      \"reason\": \"The stationary truck (T021) is predicted to be struck again by another southbound car (V023) at t=2.4s after the observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"The EGO vehicle, traveling eastbound, is predicted to collide with a northbound vehicle (V001) at t=3.5s after the observation due to intersecting paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance during this interval, with the closest pair (V022 and V023) having a minimum clearance of 0.24m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Three distinct collision events are predicted within the 5-second prediction horizon. A stationary truck (T021) is first hit by V022 and then by V023 in sequential rear-end collisions. Separately, the EGO vehicle is predicted to have an intersection collision with V001. Other intervals show no predicted contacts.\",\n  \"data_limitations\": \"The independent path prediction for each actor means that if a collision occurs (e.g., T021 and V022 in k=1), the subsequent predictions for those actors (e.g., V023 colliding with T021 in k=3) do not account for the prior impact, potentially overstating future collision events for the same stationary vehicle.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8400,
+  "candidatesTokenCount": 707,
+  "totalTokenCount": 19582,
+  "cachedContentTokenCount": 900,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8400
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 900
+   }
+  ],
+  "thoughtsTokenCount": 10475,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PL-YarqZEMTRosUPrYTQiQY"
+}

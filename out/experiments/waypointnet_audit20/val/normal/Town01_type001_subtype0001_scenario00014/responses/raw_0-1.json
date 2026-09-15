@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"N010\"],\n      \"reason\": \"EGO_other_vehicle_behind (0m to junction, westbound, accelerating) and N010 (8m to junction, eastbound, accelerating) are on intersecting paths at a junction with a linear-extrapolated contact in 1.5s, indicating an imminent orthogonal conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T007\"],\n      \"reason\": \"EGO_ego_vehicle_behind is following T007 on the same road; given their initial speeds (20km/h vs 7km/h) and accelerations (+2.0m/s² vs +0.9m/s²), a rear-end collision is calculated to occur at approximately 2.8 seconds from the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new immediate accident risks are apparent for this interval, assuming the previous conflicts are either resolved or ongoing with their primary impact completed.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new immediate accident risks are apparent for this interval, with other vehicles maintaining safe distances or traveling in non-conflicting paths.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P005\"],\n      \"reason\": \"EGO_ego_vehicle (accelerating straight through a junction) and P005 (14m to junction, keeping lane, straight path) have a linear-extrapolated contact in 5.1s, indicating a potential junction conflict in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The initial seconds of the prediction window show a high likelihood of two separate collisions. First, EGO_other_vehicle_behind and N010 are on an immediate collision course at a junction. Second, EGO_ego_vehicle_behind is rapidly closing on T007, leading to an expected rear-end collision. A third potential conflict between EGO_ego_vehicle and P005 emerges towards the end of the 5-second window at a different junction.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, and lane marking types limits the certainty in determining right-of-way at junctions. The 'off-candidate path' prediction for EGO_other_vehicle_behind is ambiguous, though assumed to be a straight trajectory into the junction for risk assessment.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6880,
+  "candidatesTokenCount": 802,
+  "totalTokenCount": 17398,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6880
+   }
+  ],
+  "thoughtsTokenCount": 9716,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PRiVapu7EYqe2roPjNbWuAc"
+}

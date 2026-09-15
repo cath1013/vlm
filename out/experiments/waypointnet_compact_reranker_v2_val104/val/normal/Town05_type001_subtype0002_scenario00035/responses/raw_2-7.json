@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle is executing a left turn, crossing the path of V001 which remains stopped, with a predicted minimum clearance of 0.12 meters. This minimal gap between two cars clearly indicates physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"EGO_other_vehicle's left turn path directly intersects with V002, which remains stopped, resulting in a predicted collision with 0.0 meters clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"P012\", \"EGO_other_vehicle\", \"V021\"],\n      \"reason\": \"Two distinct collisions are expected: EGO_other_vehicle_behind, moving eastbound, is predicted to collide with P012, turning northbound, with a 0.07-meter clearance. Additionally, EGO_other_vehicle's left turn path intersects with V021, moving southbound, resulting in a predicted collision with 0.0 meters clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted minimum clearance between EGO_ego_vehicle_behind and EGO_ego_vehicle is 1.95 meters, which is sufficient to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle is moving northbound and EGO_other_vehicle_behind is moving eastbound. Their paths converge, and a minimum clearance of 0.82 meters between two cars implies physical contact or body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The next 5 seconds show a high likelihood of multiple collisions involving observer vehicles and other road users. EGO_other_vehicle is involved in two distinct accidents while performing a left turn, colliding with stopped vehicles V001 and V002, and also with V021. EGO_other_vehicle_behind is expected to collide with P012 during a turn, and EGO_ego_vehicle faces a collision with EGO_other_vehicle_behind at a converging intersection.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9489,
+  "candidatesTokenCount": 776,
+  "totalTokenCount": 15115,
+  "cachedContentTokenCount": 912,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9489
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 912
+   }
+  ],
+  "thoughtsTokenCount": 4850,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FfOYapCgNMmd2roPrsbtqAI"
+}

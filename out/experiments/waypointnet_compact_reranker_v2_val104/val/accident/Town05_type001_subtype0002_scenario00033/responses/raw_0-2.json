@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or close convergences are observed for any actors in this interval. All vehicles maintain safe distances along their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite several close pair predictions (EGO_ego_vehicle with P006/P004, EGO_other_vehicle with P007), all indicate a minimum clearance greater than zero, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V012\"\n      ],\n      \"reason\": \"A collision is expected between EGO_ego_vehicle_behind and V012 at approximately 2.9 seconds after observation (within this interval), as indicated by a predicted contact and zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or concerning convergences are observed for any actors in this interval. All vehicles maintain safe distances along their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"P007\"\n      ],\n      \"reason\": \"A collision is expected between EGO_other_vehicle_behind and P007 at approximately 4.9 seconds after observation (within this interval), as indicated by a predicted contact and zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted within the 5-second prediction window. The first occurs between EGO_ego_vehicle_behind and V012 in the (4, 5] s interval, likely due to V012's path crossing. The second collision occurs between EGO_other_vehicle_behind and P007 in the (6, 7] s interval, indicating a pedestrian crossing conflict with the vehicle.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9709,
+  "candidatesTokenCount": 674,
+  "totalTokenCount": 14980,
+  "cachedContentTokenCount": 1829,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9709
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1829
+   }
+  ],
+  "thoughtsTokenCount": 4597,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "A-6YaqujMZWH0-kPmKrWgQ0"
+}

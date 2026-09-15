@@ -1,0 +1,73 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 22.99,
+ "usage": {
+  "input": 10990,
+  "output": 771
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No direct physical contact or overlap is predicted between any actors in this interval; paths remain safely separated.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "M039"
+    ],
+    "reason": "M039 (motorcycle) is predicted to collide with the stopped V005 (car) at t=3.6s, indicated by a 0.0m minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T029",
+     "V032",
+     "V001",
+     "N002"
+    ],
+    "reason": "Two accidents are predicted: T029 (truck) and V032 (car) paths cross causing a collision at t=4.7s, and N002 (van) is predicted to rear-end the stopped V001 (car) at t=4.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V024",
+     "T025",
+     "EGO_other_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "Two rear-end collisions are predicted: T025 (truck) will collide with V024 (car) at t=5.1s, and EGO_other_vehicle_behind (car) will collide with EGO_other_vehicle (car) at t=6.0s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "C019",
+     "V020"
+    ],
+    "reason": "V020 (car) is predicted to rear-end C019 (bicycle) at t=6.4s, indicated by a 0.0m minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted throughout the 5-second prediction window. These include several rear-end collisions (V005/M039, V001/N002, V024/T025, EGO_other_vehicle/EGO_other_vehicle_behind, C019/V020) and one orthogonal entry conflict involving T029 and V032, as V032 turns into T029's path. All predicted contacts show 0.0m clearance.",
+  "data_limitations": ""
+ }
+}

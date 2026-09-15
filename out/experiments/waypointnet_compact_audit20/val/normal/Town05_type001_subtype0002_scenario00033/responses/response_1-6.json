@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 27.99,
+ "usage": {
+  "input": 9452,
+  "output": 705
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicle paths show sufficient clearance in this interval, with EGO_other_vehicle still to the east of the stopped EGO_ego_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_other_vehicle, moving west, is predicted to collide with the stopped EGO_ego_vehicle as its path waypoint at t=8s (-264.2, 4.3) overlaps with EGO_ego_vehicle's position (-265.3, 4.3).",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles involved in the previous interval's collision are now past their point of impact, and no other immediate conflicts are apparent.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind, moving west, is predicted to collide with EGO_ego_vehicle_behind, moving north, as their paths overlap at approximately [-264.5, -0.9] and [-265.2, -1.5] at t=10s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles involved in the previous interval's collision are now past their point of impact, and no other immediate conflicts are apparent.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collisions are predicted in the forecast window. The first occurs between EGO_ego_vehicle and EGO_other_vehicle in the (7.0, 8.0]s interval, where EGO_other_vehicle strikes the stopped EGO_ego_vehicle. The second occurs in the (9.0, 10.0]s interval, involving an orthogonal collision between EGO_ego_vehicle_behind and EGO_other_vehicle_behind.",
+  "data_limitations": ""
+ }
+}

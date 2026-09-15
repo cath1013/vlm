@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"P007\",\n        \"P004\",\n        \"P006\"\n      ],\n      \"reason\": \"EGO_other_vehicle has an imminent orthogonal conflict with P007 at the junction (0.7s linear-extrapolated contact) as P007 is stopped and EGO_other_vehicle is turning. Simultaneously, P006 is following P004 with a 1.2m gap and a 1.7s TTC, indicating a high risk of a rear-end collision as P004 turns right.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"If the immediate conflicts from k=1 are avoided, no new high-TTC conflicts are immediately apparent within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The orthogonal conflict between EGO_ego_vehicle_behind and EGO_other_vehicle at junction J20 is developing, but the predicted impact time is not within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to have an orthogonal entry conflict at junction J20, with a TTC of 4.2s from t=5s, making this interval critical for the development of the collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"The orthogonal entry conflict between EGO_ego_vehicle_behind and EGO_other_vehicle at junction J20, with a TTC of 4.2s from t=5s, is expected to result in an impact around t=9.2s, falling squarely within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scene at t=5s presents multiple immediate and developing collision risks. An imminent rear-end collision between P004 and P006, as well as an orthogonal collision between EGO_other_vehicle and P007 at a junction, are expected within the first second. Additionally, a significant orthogonal conflict between EGO_ego_vehicle_behind and EGO_other_vehicle at junction J20 is predicted to occur around the k=4 to k=5 intervals.\",\n  \"data_limitations\": \"The absence of traffic signal states and lane marking types (solid/dashed) limits the ability to precisely judge right-of-way and potential driver reactions at junctions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 16487,
+  "candidatesTokenCount": 848,
+  "totalTokenCount": 23319,
+  "cachedContentTokenCount": 956,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 16487
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 956
+   }
+  ],
+  "thoughtsTokenCount": 5984,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GhyVaua7DZ7KrfcP_oOh2QQ"
+}

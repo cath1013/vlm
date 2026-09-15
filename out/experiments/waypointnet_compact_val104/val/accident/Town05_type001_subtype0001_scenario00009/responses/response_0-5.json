@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 28.53,
+ "usage": {
+  "input": 11771,
+  "output": 646
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths for all vehicles in this interval show sufficient clearance, with the closest interaction having a minimum clearance of 0.66 meters and no predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to execute a left turn at 1.2 seconds into the interval, directly intersecting the path of EGO_other_vehicle_behind, which is proceeding straight, resulting in an orthogonal collision with 0.0m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N006",
+     "V043"
+    ],
+    "reason": "N006 (van) is predicted to rear-end V043 (car) at 3.0 seconds into the interval, as both vehicles proceed westbound in very close proximity on Road 0, resulting in body overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted interactions in this interval maintain a safe distance, with the closest pair having a minimum clearance of 0.41 meters and no predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are predicted to maintain safe separation throughout this interval, with the closest interaction showing a minimum clearance of 0.56 meters and no predicted contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct accidents are predicted within the 5-second forecast window. The first is an orthogonal collision at k=2 between two observer vehicles during a left turn. The second is a rear-end collision at k=3 involving N006 and V043, both travelling westbound on the same road.",
+  "data_limitations": ""
+ }
+}

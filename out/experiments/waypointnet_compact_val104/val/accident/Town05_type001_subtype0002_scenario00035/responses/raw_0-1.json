@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain their paths with sufficient clearance, showing no signs of convergence or conflict within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V015\"],\n      \"reason\": \"V015, moving northbound, is predicted to rear-end V014, which remains stopped in the same lane at approximately 2.2 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T019\", \"V020\"],\n      \"reason\": \"V020, which is speeding up westbound, is predicted to rear-end T019, which is slowing down westbound in the same lane, at approximately 3.6 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain their paths with sufficient clearance, showing no signs of convergence or conflict within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"V003\", \"N004\"],\n      \"reason\": \"Two separate rear-end collisions are predicted: EGO_other_vehicle_behind (speeding up eastbound) is predicted to rear-end EGO_other_vehicle (slowing significantly) at approximately 5.2 seconds, and N004 (moving southbound) is predicted to rear-end V003 (stopped) at approximately 5.5 seconds.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate multiple rear-end collisions across the 5-second window. This is primarily due to significant speed differentials between following and leading vehicles in the same lane, where leading vehicles either slow down or remain stopped, while following vehicles maintain or increase their speed.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6784,
+  "candidatesTokenCount": 653,
+  "totalTokenCount": 16225,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6784
+   }
+  ],
+  "thoughtsTokenCount": 8788,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "hsiYaqqVL86Y0-kPndaJ2QI"
+}

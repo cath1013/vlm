@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"EGO_other_vehicle (eastbound) and EGO_ego_vehicle (southbound) paths converge at an intersection, with a predicted minimum clearance of 0.2m at 7.5s, indicating physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Based on the predicted paths, there are no new critical close encounters or predicted contacts in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation based on their predicted paths, and there are no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind (southbound) and EGO_other_vehicle (eastbound) are predicted to have a crossing conflict with 0.0m minimum clearance at 10.2s, indicating simultaneous body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation based on their predicted paths, and there are no new predicted contacts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted within the 5-second prediction window. The first occurs in the (7.0, 8.0]s interval between EGO_other_vehicle and EGO_ego_vehicle due to converging paths at an intersection. The second, more definitive collision, is predicted in the (10.0, 11.0]s interval between EGO_ego_vehicle_behind and EGO_other_vehicle, also at an intersection.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9353,
+  "candidatesTokenCount": 660,
+  "totalTokenCount": 13478,
+  "cachedContentTokenCount": 1822,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9353
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1822
+   }
+  ],
+  "thoughtsTokenCount": 3465,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "EfCYau3dAs_-1e8PipDBwQo"
+}

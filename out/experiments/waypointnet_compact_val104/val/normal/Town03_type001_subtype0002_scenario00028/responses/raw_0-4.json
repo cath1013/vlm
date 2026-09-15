@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"The predicted paths of EGO_other_vehicle and EGO_ego_vehicle show a clear physical contact at 0.6 seconds into the interval due to converging trajectories, indicating a merge or lane-changing conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between actors in this interval are sufficiently large, and no contact is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P008\",\n        \"V015\"\n      ],\n      \"reason\": \"The predicted paths indicate a physical contact at 2.9 seconds into the interval between pedestrian P008 (westbound) and car V015 (northbound), suggesting an orthogonal crossing conflict at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between actors in this interval are sufficiently large, and no contact is expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some vehicles pass with close clearances, the predicted minimum clearances are greater than 0.0 meters and no physical contact or body overlap is indicated.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. The first involves the observer's own vehicle (EGO_ego_vehicle) and another observer vehicle (EGO_other_vehicle) in the first interval, where their paths converge and result in a predicted collision. The second involves a pedestrian (P008) and a car (V015) in the third interval, where their paths clearly intersect leading to contact.\",\n  \"data_limitations\": \"The future path for EGO_ego_vehicle in the first predicted accident is categorized as an 'off-candidate path', which might imply lower confidence in that specific trajectory prediction, though the contact is explicitly predicted by the system.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7984,
+  "candidatesTokenCount": 686,
+  "totalTokenCount": 14244,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7984
+   }
+  ],
+  "thoughtsTokenCount": 5574,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ocqYauiNBZyf0-kP_qnaiQ8"
+}

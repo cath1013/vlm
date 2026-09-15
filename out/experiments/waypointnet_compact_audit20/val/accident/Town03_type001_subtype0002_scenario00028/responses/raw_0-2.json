@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation and follow predictable paths during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation and follow predictable paths during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation and follow predictable paths during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are still adequately spaced, though V007 continues to close on V006, which exhibits an unusual trajectory.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V006\", \"V007\"],\n      \"reason\": \"V007's path shows it longitudinally overlapping V006, and laterally separated by only 1.5m. Given V006's unexpected path (moving north then slightly south), this indicates a likely body overlap or collision as V007 attempts to pass or rear-end V006.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene generally appears safe for the first four seconds. However, in the final interval, a collision is expected between V006 and V007. V006 exhibits an unusual trajectory, moving forward and then slightly backward in its N-coordinate, while V007 closes the distance and attempts to pass, leading to a physical overlap.\",\n  \"data_limitations\": \"The trajectory of V006 from t=4s to t=7s is unusual, showing a slight reversal in the N-coordinate, which introduces some ambiguity about its intended maneuver or state (e.g., stopping abruptly, performing an unconventional turn).\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4765,
+  "candidatesTokenCount": 620,
+  "totalTokenCount": 15549,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4765
+   }
+  ],
+  "thoughtsTokenCount": 10164,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xUaVap7nHu6w1e8P0LG_0Qc"
+}

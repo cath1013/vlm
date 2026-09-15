@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 29.02,
+ "usage": {
+  "input": 9028,
+  "output": 608
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain a safe distance from other road users, with minimum clearances above 1 meter.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_other_vehicle and T036 are predicted to have a very small clearance of 0.08m, the path geometry does not indicate simultaneous physical contact or overlap.",
+    "confidence": "low"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain a safe distance from other road users.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P019"
+    ],
+    "reason": "The ego vehicle (EGO_ego_vehicle) is predicted to collide with pedestrian P019 at 4.0 seconds, as indicated by a 0.0m minimum clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P024"
+    ],
+    "reason": "The ego vehicle (EGO_ego_vehicle) is predicted to collide with pedestrian P024 at 4.1 seconds, as indicated by a 0.0m minimum clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The ego vehicle (EGO_ego_vehicle) is predicted to be involved in two separate pedestrian collisions. The first is with P019 in the 4th second interval, and the second is with P024 in the 5th second interval, both occurring during the ego vehicle's right turn maneuver. Other interactions between vehicles show close clearances but no predicted contact.",
+  "data_limitations": "None."
+ }
+}

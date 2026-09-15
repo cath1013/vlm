@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 13.82,
+ "usage": {
+  "input": 5722,
+  "output": 604
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and follow their respective paths without any predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N003",
+     "V004"
+    ],
+    "reason": "V004 is predicted to collide with the stopped N003 at approximately 2.5 seconds after observation, as V004's path leads directly into N003's position.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or close calls indicate a safe progression for all vehicles in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain safe distances and follow their predicted paths without risk of collision in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V011",
+     "V017"
+    ],
+    "reason": "V017 is predicted to collide with V011 at approximately 5.2 seconds after observation, as V011's path curves slightly while V017 continues straight, leading to body overlap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two potential accidents are predicted within the 5-second window. The first collision involves V004 and N003 in the (2,3]s interval, where V004 is predicted to drive into the stopped N003. The second collision occurs in the (5,6]s interval between V011 and V017, due to V017 converging with V011's path.",
+  "data_limitations": ""
+ }
+}

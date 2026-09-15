@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 17.9,
+ "usage": {
+  "input": 12184,
+  "output": 625
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain a safe clearance for this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P009",
+     "P014"
+    ],
+    "reason": "P009 is predicted to collide with the stopped P014, as indicated by 0.0m minimum clearance and predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P009",
+     "P011",
+     "V027",
+     "V028"
+    ],
+    "reason": "P009 is predicted to collide with the stopped P011, and V028 is predicted to collide with the stopped V027, both with 0.0m minimum clearance and predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No new physical contact is predicted for this interval, although some vehicles would have already been involved in accidents in previous intervals.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P008",
+     "P005"
+    ],
+    "reason": "P008 and P005 are predicted to make contact with 0.0m minimum clearance while moving in the same direction, indicating a side-swipe or overlap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted throughout the 5-second window. In interval 2, P009 collides with P014. In interval 3, P009 continues to collide with P011, and V028 collides with V027. Finally, in interval 5, P008 and P005 are predicted to have body contact.",
+  "data_limitations": ""
+ }
+}

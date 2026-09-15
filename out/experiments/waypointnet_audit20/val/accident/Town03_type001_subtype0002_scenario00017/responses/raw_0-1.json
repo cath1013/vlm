@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances or have linear-extrapolated times to contact well beyond this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle is rapidly closing the gap to EGO_ego_vehicle_behind in the same lane, with a linear-extrapolated time to contact (TTC) of 1.8 seconds, placing the collision at approximately t=2.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate conflicts are predicted by time to contact within this interval after the previous collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate conflicts are predicted by time to contact within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V002\"],\n      \"reason\": \"V003 is closing on V002 in the same lane with a linear-extrapolated time to contact (TTC) of 4.8 seconds, placing the collision at approximately t=5.8s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The primary immediate hazard is a car-following conflict between EGO_ego_vehicle and EGO_ego_vehicle_behind, predicted to result in a collision around 2.8 seconds due to EGO_ego_vehicle's acceleration into a slower vehicle. A secondary car-following collision between V003 and V002 is expected around 5.8 seconds under linear extrapolation. While an orthogonal junction conflict with a small arrival time gap is noted for EGO_ego_vehicle_behind and P015, its high Time To Contact (11.9s) indicates it is not imminent within this 5-second prediction window.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for potential turning or braking maneuvers by any of the involved vehicles, which could alter the predicted collision times or avoid accidents. Additionally, the 'off-candidate path' prediction for some vehicles like EGO_ego_vehicle_behind and V022 indicates uncertainty in their future movements.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11422,
+  "candidatesTokenCount": 741,
+  "totalTokenCount": 17378,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11422
+   }
+  ],
+  "thoughtsTokenCount": 5215,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PRiVau_ZK8vD0-kP7e3moQI"
+}

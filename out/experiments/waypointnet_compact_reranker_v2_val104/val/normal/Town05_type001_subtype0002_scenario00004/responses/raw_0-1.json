@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Multiple vehicles are moving in different directions, but their predicted paths do not show any significant convergence or overlap, maintaining positive clearances in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are moving along their respective lanes with sufficient separation, and no paths are predicted to intersect or cause conflict, maintaining positive clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances, and there are no anticipated conflicts or close approaches between vehicles in this interval, maintaining positive clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V012\"],\n      \"reason\": \"A direct collision is predicted between the stopped EGO_ego_vehicle_behind and V012 at approximately 3.4 seconds after the last observation, as V012's projected path intersects the stopped vehicle's footprint with a reported minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue on their predicted paths with sufficient separation, and no new conflicts are indicated by the predicted closest pairs, maintaining positive clearances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is clearly predicted in the fourth 1-second interval (3-4 seconds after observation) involving the stopped EGO_ego_vehicle_behind and V012 due to a direct path overlap. For all other intervals, no accidents are expected as vehicles maintain safe distances according to their predicted trajectories.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9216,
+  "candidatesTokenCount": 597,
+  "totalTokenCount": 13275,
+  "cachedContentTokenCount": 909,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9216
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 3462,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9_GYaqLxHuKM1e8PvfyMgQY"
+}

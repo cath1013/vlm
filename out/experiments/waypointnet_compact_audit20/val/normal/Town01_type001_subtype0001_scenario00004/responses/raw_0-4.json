@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are following their predicted paths safely, and no vehicle trajectories show any imminent conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are following their predicted paths safely, and no vehicle trajectories show any imminent conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are following their predicted paths safely, and no vehicle trajectories show any imminent conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle is approaching the intersection area, EGO_ego_vehicle_behind is still far enough away that no physical contact is expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An orthogonal entry conflict at a junction is expected as EGO_ego_vehicle_behind (eastbound) and EGO_other_vehicle (southbound) arrive at the intersection simultaneously, leading to a direct physical overlap of their predicted body spans at t=9s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Throughout the prediction window, most vehicles maintain safe distances or remain stopped. However, a significant orthogonal collision is predicted in the final interval (8, 9] seconds, involving EGO_ego_vehicle_behind and EGO_other_vehicle, as their paths converge and overlap at a junction.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5847,
+  "candidatesTokenCount": 590,
+  "totalTokenCount": 16336,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5847
+   }
+  ],
+  "thoughtsTokenCount": 9899,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "P0aVaoTVD8nQ0-kPkMSOgQQ"
+}

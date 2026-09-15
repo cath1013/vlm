@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with physical overlap are indicated between any actors in this interval. All vehicles maintain clear separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with physical overlap are indicated between any actors in this interval. Vehicles continue on their respective paths without conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with physical overlap are indicated between any actors in this interval. While some vehicles converge towards a junction, no collision is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have simultaneous body contact or overlap at a junction intersection at approximately 3.5 seconds into the prediction window (within this interval), with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional predicted contacts with physical overlap are indicated between any actors in this interval, following the predicted collision in the prior interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence accident is predicted between EGO_ego_vehicle and EGO_other_vehicle in the (8.0, 9.0] second interval due to their future paths intersecting with zero clearance. All other vehicles appear to maintain safe distances throughout the 5-second prediction window, with no other contacts expected.\",\n  \"data_limitations\": \"Traffic-signal state, stop lines, and lane-marking types are not available, which could otherwise provide critical information about right-of-way rules at the intersection where the collision is predicted.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7435,
+  "candidatesTokenCount": 631,
+  "totalTokenCount": 10844,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7435
+   }
+  ],
+  "thoughtsTokenCount": 2778,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_e2Yat2CINP62roP-KTVkQI"
+}

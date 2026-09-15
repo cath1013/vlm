@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle, moving northbound, is predicted to collide with EGO_ego_vehicle_behind, moving westbound, at an intersection around 3.5 seconds into the future, as indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V013\", \"M014\"],\n      \"reason\": \"M014, a motorcycle moving southbound, is predicted to collide with V013, a stopped car directly in its path, around 4.3 seconds into the future, resulting in a rear-end collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial intervals (k=1, 2, 3) show no predicted conflicts, with all vehicles maintaining safe distances. However, an intersection collision is predicted in interval k=4 between two observer vehicles (EGO_other_vehicle and EGO_ego_vehicle_behind). Subsequently, a rear-end collision is predicted in interval k=5 between a motorcycle (M014) and a stopped car (V013).\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7736,
+  "candidatesTokenCount": 611,
+  "totalTokenCount": 11362,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7736
+   }
+  ],
+  "thoughtsTokenCount": 3015,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ssOYapb6M9_A1e8P1fi7gQY"
+}

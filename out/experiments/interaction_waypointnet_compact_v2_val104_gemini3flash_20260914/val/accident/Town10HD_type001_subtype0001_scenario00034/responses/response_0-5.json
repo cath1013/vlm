@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 68.99,
+ "usage": {
+  "input": 9557,
+  "output": 518
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicle V004 is approaching EGO_other_vehicle_behind from the north but remains over 6 metres away.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are maintaining safe longitudinal and lateral clearances in their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V004 is decelerating but still has roughly 2.1 metres of clearance before reaching the footprint of the stopped vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V004"
+    ],
+    "reason": "V004 fails to stop in time and initiates a rear-end collision with the stationary EGO_other_vehicle_behind at approximately t=8.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V004"
+    ],
+    "reason": "The collision between V004 and the stationary EGO_other_vehicle_behind continues as V004's projected path moves deeper into the stationary vehicle's footprint.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a following-vehicle conflict where V004 is traveling in the same lane (Lane 2) as the stationary EGO_other_vehicle_behind. Although V004 is braking, its projected path indicates it does not come to a complete stop before making contact with the rear of the stationary observer vehicle. The collision is predicted to begin in the fourth second after observation (t=8.9s) and persists through the end of the 5-second prediction window.",
+  "data_limitations": "V004 shows heavy deceleration at the end of the history, which may indicate a driver attempt to stop, but the provided future path geometry confirms that physical contact will still occur."
+ }
+}

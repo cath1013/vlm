@@ -1,0 +1,549 @@
+{
+ "provider": "gemini",
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-1",
+    "t_start_s": 0.0,
+    "t_end_s": 1.0,
+    "n_snapshots": 3
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 1,
+    "FP": 2,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 0.333,
+   "precision": 0.333,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     3,
+     4,
+     5
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "excluded_buckets": [],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 5,
+    "credit_buckets": [
+     3,
+     4,
+     5
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "early",
+    "lead_s": 1.4
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "FP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "Multiple simultaneous head-on/sideswipe conflicts are linearly extrapolated between vehicles in adjacent opposing lanes (EGO_ego_vehicle & M005; EGO_other_vehicle_behind & V008; EGO_ego_vehicle_behind & C004) with contact times within or just after this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "FP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "A rear-end collision is linearly extrapolated between V006 and V007 (TTC 2.1s), and a head-on/sideswipe conflict is linearly extrapolated between EGO_ego_vehicle_behind and M005 (contact in 2.5s), both with contact/TTC times within this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "A rear-end collision is linearly extrapolated between M005 and C004 (TTC 3.0s), with the contact time within this interval.",
+     "confidence": "high",
+     "vehicle_recall": 0.0,
+     "actor_precision": 0.0,
+     "matched_carla_ids": [],
+     "missed_carla_ids": [
+      7928,
+      7926
+     ],
+     "extra_actor_ids": [
+      "C004",
+      "M005"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "No immediate collision risks are indicated by linear extrapolation of observed closing rates or provided TTC values within this interval.",
+     "confidence": "medium"
+    },
+    {
+     "k": 5,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "No immediate collision risks are indicated by linear extrapolation of observed closing rates or provided TTC values within this interval.",
+     "confidence": "medium"
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "0-2",
+    "t_start_s": 0.0,
+    "t_end_s": 2.0,
+    "n_snapshots": 5
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 1,
+    "FP": 1,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 0.5,
+   "precision": 0.5,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     2,
+     3,
+     4
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "excluded_buckets": [
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 4,
+    "credit_buckets": [
+     2,
+     3,
+     4
+    ],
+    "credited_k": 4,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.6
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "FP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": false,
+     "reason": "EGO_ego_vehicle_behind and M005 are on a direct collision course in opposing lanes on Road 19, with a linear-extrapolated time to contact of 0.9 seconds from the last observed timestep.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "While EGO_ego_vehicle and EGO_other_vehicle will both enter the junction during this interval, their linear-extrapolated time to contact is later, suggesting no collision within this specific second.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "Multiple oncoming collisions are predicted: EGO_ego_vehicle_behind and C004 (TTC 2.3s), V002 and C004 (TTC 2.5s), and EGO_other_vehicle_behind and V008 (TTC 2.7s) are all expected to make contact within this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 4,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle are on an orthogonal collision course at the three-way junction, with a linear-extrapolated time to contact of 3.5 seconds, placing the collision around the middle of this interval.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 1.0,
+     "matched_carla_ids": [
+      7928,
+      7926
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [],
+     "all_involved_observed": true
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Most acute collision risks are predicted to occur in prior intervals, and no new immediate conflicts are identified based on current linear extrapolations."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "0-3",
+    "t_start_s": 0.0,
+    "t_end_s": 3.0,
+    "n_snapshots": 7
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2,
+     3
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2,
+    3
+   ],
+   "excluded_buckets": [
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 3,
+    "credit_buckets": [
+     1,
+     2,
+     3
+    ],
+    "credited_k": 3,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.6
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "TP_EARLY_DUP",
+     "truth": false,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "V002 (car) and C004 (bicycle) are on the same road (Road 19) in opposing lanes (northbound vs. southbound lane 1/1). At t=3s, they are 4.8m apart and closing at a high relative speed, with a linear-extrapolated contact in 0.7s, indicating an imminent head-on or severe side-swipe collision.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "The primary conflict between V002 and C004 would have already occurred in the previous interval. Other vehicles maintain safe following distances or are not on an immediate collision course in this interval.",
+     "confidence": "high"
+    },
+    {
+     "k": 3,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle are on converging paths at a three-way junction, with both predicted to go straight. Their linear-extrapolated contact is in 2.3s (at t=5.3s). EGO_ego_vehicle will be in the junction, and EGO_other_vehicle will enter shortly after, leading to an orthogonal conflict. EGO_ego_vehicle_behind is following EGO_ego_vehicle with a 2.2s headway and will enter the junction around t=5.2s, likely causing a secondary collision.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 0.667,
+     "matched_carla_ids": [
+      7928,
+      7926
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [
+      "EGO_ego_vehicle_behind"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle_behind is following EGO_other_vehicle with a 2.1s headway and is expected to enter the junction around t=6.24s. If the prior collision in k=3 involving EGO_other_vehicle occurs, EGO_other_vehicle_behind will likely be involved in a secondary collision with the wreckage or other vehicles."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "While further cascading effects are possible, V002 is expected to arrive at the junction around t=7.37s, offering a slightly larger buffer to react to any prior collisions or blockages, thus a direct accident is not explicitly expected from current data."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "0-4",
+    "t_start_s": 0.0,
+    "t_end_s": 4.0,
+    "n_snapshots": 9
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1,
+     2
+    ]
+   },
+   "scored_buckets": [
+    1,
+    2
+   ],
+   "excluded_buckets": [
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 2,
+    "credit_buckets": [
+     1,
+     2
+    ],
+    "credited_k": 2,
+    "detected": true,
+    "timing": "exact",
+    "lead_s": -0.6
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": false,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "No direct high-TTC conflicts indicate an accident in this interval, though EGO_other_vehicle and V008 are entering their respective junctions, and hard rain conditions are present.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "in_credit_window": true,
+     "reason": "A crossing collision is expected around t=5.4s (TTC 1.4s from t=4s) between EGO_ego_vehicle (predicted left turn) and EGO_other_vehicle (predicted straight) at the junction. EGO_ego_vehicle_behind, following closely, is likely involved as it enters the same junction complex at approximately t=5.2s.",
+     "confidence": "high",
+     "vehicle_recall": 1.0,
+     "actor_precision": 0.667,
+     "matched_carla_ids": [
+      7928,
+      7926
+     ],
+     "missed_carla_ids": [],
+     "extra_actor_ids": [
+      "EGO_ego_vehicle_behind"
+     ],
+     "all_involved_observed": true
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "EGO_other_vehicle_behind, following EGO_other_vehicle, will enter the junction around t=6.3s and likely be involved in a secondary collision with the existing wreckage or other vehicles from the accident initiated in the prior interval."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "This interval covers the immediate aftermath of the multi-vehicle collision initiated in previous intervals, with no new distinct collision events identified."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "This interval covers the aftermath of the multi-vehicle collision, with no new distinct collision events identified."
+    }
+   ],
+   "response_issues": []
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_bb8676ace8a3",
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1
+   },
+   "accuracy": 0.0,
+   "precision": null,
+   "recall": 0.0,
+   "credit": {
+    "early_credit_s": 2.0,
+    "buckets": [
+     1
+    ]
+   },
+   "scored_buckets": [
+    1
+   ],
+   "excluded_buckets": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "data_end_s": 5.0,
+   "event": {
+    "k_true": 1,
+    "credit_buckets": [
+     1
+    ],
+    "credited_k": null,
+    "detected": false,
+    "timing": "none",
+    "lead_s": null
+   },
+   "per_interval": [
+    {
+     "k": 1,
+     "status": "IN_WINDOW_NO_CALL",
+     "truth": true,
+     "pred": false,
+     "in_credit_window": true,
+     "reason": "EGO_ego_vehicle and EGO_other_vehicle are on a critical orthogonal entry conflict course at junction J23, with an arrival time gap of 0.4s and a TTC of 1.1s from t=5s, meaning the collision is expected just after this interval. This interval involves the immediate approach to the conflict point.",
+     "confidence": "high"
+    },
+    {
+     "k": 2,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": true,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "An accident is highly expected due to an orthogonal entry conflict at junction J23 between EGO_ego_vehicle and EGO_other_vehicle, as indicated by the TTC of 1.1s at t=5s, placing the collision at approximately t=6.1s, which falls within this interval."
+    },
+    {
+     "k": 3,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Assuming the primary conflict in the previous interval is resolved, no other vehicles show critical interactions or insufficient time to collision values in this interval."
+    },
+    {
+     "k": 4,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "No vehicles exhibit critical closing rates or predicted path conflicts that would lead to an accident in this interval."
+    },
+    {
+     "k": 5,
+     "status": "UNSCORABLE",
+     "truth": false,
+     "pred": false,
+     "scorable": false,
+     "unscorable_reason": "beyond_data_end",
+     "reason": "Based on current trajectories and interactions, no accidents are predicted for this interval."
+    }
+   ],
+   "response_issues": []
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "counts": {
+   "TP": 4,
+   "FP": 3,
+   "TN": 0,
+   "FN": 1
+  },
+  "accuracy": 0.5,
+  "precision": 0.571,
+  "recall": 0.8,
+  "vehicle_recall_mean": 0.75,
+  "actor_precision_mean": 0.584,
+  "events": {
+   "n": 5,
+   "exact": 3,
+   "early": 1,
+   "none": 1,
+   "detection_rate": 0.8,
+   "mean_lead_s": -0.1
+  },
+  "response_issue_counts": {}
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance above 1 meter, indicating no expected physical contact between actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance above 0.9 meters, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P009\", \"P010\", \"V002\", \"V003\"],\n      \"reason\": \"A pedestrian (P010) is predicted to collide with a stopped pedestrian (P009) at approximately t+2.4s. Additionally, a vehicle (V003) is predicted to rear-end another vehicle (V002) at approximately t+2.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a minimum clearance above 0.2 meters, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although pedestrians P012 and P015 have a very small predicted clearance of 0.03m, it remains positive, indicating no physical contact or overlap. Other pairs also show safe clearances.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The 5-second prediction window indicates a critical period in interval k=3 (6-7s), where two distinct accidents are predicted: a pedestrian (P010) colliding with a stopped pedestrian (P009), and a vehicle (V003) rear-ending another vehicle (V002). For the remaining intervals, all predicted close interactions maintain a positive clearance, suggesting no other accidents are expected.\",\n  \"data_limitations\": \"The predicted path for V002 in interval k=3 shows an unusual oscillation in its east coordinate, which could introduce uncertainty in the precise timing and nature of the predicted rear-end collision with V003. However, the `predicted_contact` flag is explicitly true.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9386,
+  "candidatesTokenCount": 700,
+  "totalTokenCount": 17141,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9386
+   }
+  ],
+  "thoughtsTokenCount": 7055,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "YMuYaoPFBKq20-kPu_rxiAw"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at 0.7s after observation with zero minimum clearance as EGO_other_vehicle shifts left into EGO_ego_vehicle's path while both proceed northbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance in this interval, with no physical contact expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T003\", \"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"Multiple predicted contacts: EGO_ego_vehicle and T003 are predicted to collide at 2.5s; EGO_other_vehicle and T003 are predicted to collide at 2.5s; EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to collide at 2.8s, indicating various converging and lane-changing conflicts among northbound vehicles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient clearance in this interval, with no physical contact expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M004\", \"V005\"],\n      \"reason\": \"M004 (motorcycle) and V005 (car) are predicted to collide at 4.7s due to their paths intersecting, with M004 moving northbound and V005 moving northwestbound.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a series of potential accidents. An immediate collision between EGO_ego_vehicle and EGO_other_vehicle is predicted in the first interval. The third interval shows a complex scenario with multiple predicted contacts involving EGO_ego_vehicle, EGO_other_vehicle, T003, EGO_ego_vehicle_behind, and EGO_other_vehicle_behind, suggesting significant traffic conflict among the observer vehicles and a truck. Finally, a distinct intersection conflict between M004 and V005 is predicted in the fifth interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7685,
+  "candidatesTokenCount": 767,
+  "totalTokenCount": 11993,
+  "cachedContentTokenCount": 890,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7685
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 890
+   }
+  ],
+  "thoughtsTokenCount": 3541,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "t8iYauH8Jvrcvr0P9_e_sAY"
+}

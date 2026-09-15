@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show EGO_ego_vehicle and V004 have a minimum clearance of 2.36m, indicating a close but safe pass without physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close clearances between any actors are indicated for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, performing a right turn, is predicted to collide with EGO_other_vehicle, which is proceeding straight, resulting in a predicted contact with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pairs in this interval maintain significant clearances, with no indication of physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind, moving straight, is predicted to collide with EGO_other_vehicle_behind, on an off-candidate path, with a predicted contact of 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts two distinct accidents: one in the k=3 interval between EGO_ego_vehicle and EGO_other_vehicle due to intersecting paths at a junction, and another in the k=5 interval involving EGO_ego_vehicle_behind and EGO_other_vehicle_behind, also due to conflicting paths. Other close encounters maintain positive clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5386,
+  "candidatesTokenCount": 619,
+  "totalTokenCount": 8870,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5386
+   }
+  ],
+  "thoughtsTokenCount": 2865,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2-yYatnsJ4DU1e8P2PiQgQY"
+}

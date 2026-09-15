@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, and no paths clearly intersect to cause an accident within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, and no paths clearly intersect to cause an accident within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"P015\"],\n      \"reason\": \"EGO_other_vehicle_behind's predicted path shows it will collide with pedestrian P015 at approximately 5.0 seconds after the last observation as the person crosses its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V006\", \"V004\"],\n      \"reason\": \"V006 is predicted to rear-end V005 at approximately 5.1 seconds, and V005 is predicted to then rear-end V004 at approximately 5.5 seconds, likely due to speed differences in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V006\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"V006 is predicted to rear-end V004 at approximately 6.1 seconds. Additionally, EGO_ego_vehicle_behind is predicted to collide with V006 at approximately 6.9 seconds as it turns into V006's path at an intersection.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. The first expected accident involves a turning observer vehicle and a pedestrian, followed by a potential chain reaction of rear-end collisions among eastbound vehicles. Finally, another observer vehicle is predicted to collide with an eastbound vehicle during a right turn at an intersection.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9393,
+  "candidatesTokenCount": 659,
+  "totalTokenCount": 17102,
+  "cachedContentTokenCount": 911,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9393
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 911
+   }
+  ],
+  "thoughtsTokenCount": 7050,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "P8KYao3_AoSw0-kPtcmTiA8"
+}

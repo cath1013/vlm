@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V011\",\n        \"V012\"\n      ],\n      \"reason\": \"V012 is rapidly closing on V011 with only 4m separation and significantly higher speed (51km/h vs 18km/h), while both are entering the same junction (Road 912 northbound lane 1) with predicted opposing turns, leading to an immediate intersection of their paths (linear-extrapolated contact in 1.2s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V002\",\n        \"V014\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"Multiple severe conflicts are expected at the central junction: V002 and V014 are on converging paths (1.6s linear TTC), EGO_ego_vehicle and EGO_other_vehicle are on converging paths (1.7s linear TTC), and EGO_ego_vehicle is also on a converging path with EGO_other_vehicle_behind (1.9s linear TTC) which is immediately entering the junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V003\",\n        \"V014\",\n        \"EGO_ego_vehicle_behind\",\n        \"C013\"\n      ],\n      \"reason\": \"Continuing high risk at the junction: V003 and V014 are on direct crossing paths with a linear-extrapolated contact in 2.2s. Additionally, C013 (15km/h) is changing lanes into EGO_ego_vehicle_behind's lane (38km/h) with a high speed differential and only 16m separation (2.5s linear TTC), creating a high risk of rear-end collision or cut-in.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the junction area remains complex, no immediate new severe conflicts with short linear-extrapolated times to contact are clearly identifiable from the current data to warrant a high confidence accident prediction in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts are clearly identifiable with high confidence in this interval, assuming prior collisions are either resolved or have cleared paths for other vehicles.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at the three-way junction is highly critical in the immediate future intervals. Numerous vehicles are converging on or entering the junction at varying speeds, with several exhibiting very short linear-extrapolated times to contact and conflicting predicted paths, particularly involving turning maneuvers and lane changes. The first three intervals show a high likelihood of multiple severe collisions.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop lines, and lane-marking types (solid/dashed) limits the ability to precisely judge right-of-way at the complex junction. The 'linear-extrapolated contact in' values do not account for turning, braking, or dynamic evasive maneuvers, which could alter actual collision timings or outcomes.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10758,
+  "candidatesTokenCount": 949,
+  "totalTokenCount": 30440,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10758
+   }
+  ],
+  "thoughtsTokenCount": 18733,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LRuVaq_zCeiD1e8PhPWqgQM"
+}

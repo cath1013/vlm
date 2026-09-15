@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"P024\",\n        \"P019\",\n        \"V017\",\n        \"V031\",\n        \"V016\",\n        \"V033\",\n        \"V038\",\n        \"M032\"\n      ],\n      \"reason\": \"Multiple severe conflicts are predicted to occur within this interval, including an orthogonal junction conflict (TTC 0.9s) between EGO_ego_vehicle and EGO_other_vehicle, pedestrian collisions with EGO_ego_vehicle_behind (linear-extrapolated contact in 0.6s and 0.7s), and several head-on collisions on Road 62 (linear-extrapolated contact times of 0.7s and 0.8s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V017\",\n        \"M032\",\n        \"V038\",\n        \"V033\",\n        \"EGO_other_vehicle_behind\",\n        \"T036\",\n        \"EGO_ego_vehicle\",\n        \"V012\"\n      ],\n      \"reason\": \"Additional imminent conflicts are expected, including a head-on collision between V017 and M032 (linear-extrapolated contact in 1.0s), other head-on collisions (1.3s, 1.4s), and a junction conflict between EGO_ego_vehicle and a stopped V012 (linear-extrapolated contact in 1.4s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"V012\",\n        \"V038\",\n        \"V016\"\n      ],\n      \"reason\": \"Further accidents are anticipated as EGO_ego_vehicle and EGO_other_vehicle_behind face a junction conflict (linear-extrapolated contact in 1.5s), and EGO_other_vehicle approaches a stopped V012 (linear-extrapolated contact in 1.8s). Additionally, the car-following TTC of 2.9s between V038 and V016 indicates a collision around this time.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"N013\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"V014\",\n        \"V015\"\n      ],\n      \"reason\": \"New collisions are expected, including EGO_ego_vehicle conflicting with N013 (linear-extrapolated contact in 2.1s), a junction conflict between EGO_ego_vehicle_behind and EGO_other_vehicle (2.2s), and EGO_ego_vehicle encountering V014 (2.3s). A car-following collision between V015 and V014 (TTC 3.2s) is also projected.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the traffic situation remains chaotic due to earlier predicted accidents, no new, distinct linear-extrapolated contacts or car-following TTCs are identified to specifically occur within this interval based on the provided data.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents an extremely high risk of multiple concurrent accidents across the first four future intervals. Immediate threats include orthogonal junction conflicts between observer vehicles, multiple pedestrian collisions with observer vehicles, and several head-on collisions on single-lane road segments. The situation is characterized by a cascading series of severe conflicts involving a significant number of road users.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values ignore turning and braking maneuvers, which are critical at a junction. The absence of traffic signal states prevents a complete assessment of intersection behavior. Several vehicles have 'position/speed uncertain' notes or are at the edge of sensor range, which lowers confidence in their precise state. The map's 'lane 1 of 1' for roads with opposite-direction traffic implies high collision risk but lacks clarity on lane division.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 16067,
+  "candidatesTokenCount": 1235,
+  "totalTokenCount": 22655,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 16067
+   }
+  ],
+  "thoughtsTokenCount": 5353,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "lxyVasz0Bdi01e8P082a6QI"
+}

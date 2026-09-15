@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving actors maintain sufficient separation and do not show geometric overlap in their predicted paths within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with the rear of EGO_ego_vehicle, as its path significantly overlaps EGO_ego_vehicle's position at this timestep while traveling at a much higher speed in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new geometric conflicts are predicted in this interval; the earlier predicted collision between EGO_ego_vehicle_behind and EGO_ego_vehicle would have already occurred in the previous interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving actors maintain sufficient separation and do not show geometric overlap in their predicted paths within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C013\", \"V012\"],\n      \"reason\": \"The bicycle C013 is predicted to collide with the stopped car V012, as C013's path leads directly into V012's static position with significant physical overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accident events are predicted based on the provided future paths. The first is a rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle in the (4.0, 5.0] second interval, due to the faster trailing vehicle catching up to the slower leading vehicle in the same lane. The second is a collision in the (7.0, 8.0] second interval, where a bicycle (C013) is predicted to collide with a stopped car (V012).\",\n  \"data_limitations\": \"The predictions assume all actors will strictly follow their provided future paths, which are simple 'straight' or 'remains stopped' maneuvers. Evasive actions, braking, or more complex behaviors that could prevent these collisions are not factored into the geometry provided.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7480,
+  "candidatesTokenCount": 715,
+  "totalTokenCount": 14012,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7480
+   }
+  ],
+  "thoughtsTokenCount": 5817,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "e0mVatuFEp2j9tMPzqWSsAY"
+}

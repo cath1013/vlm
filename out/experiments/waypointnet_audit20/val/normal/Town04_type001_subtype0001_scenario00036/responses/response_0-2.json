@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 42.71,
+ "usage": {
+  "input": 9211,
+  "output": 915
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V013",
+     "V002",
+     "V011"
+    ],
+    "reason": "EGO_other_vehicle_behind and V013 are on Road 30, moving in opposing directions, with a linear-extrapolated contact in 0.9s, indicating an imminent head-on collision. Additionally, V002 and V011 are on Road 0, also moving in opposing directions, with a linear-extrapolated contact in 1.5s, posing a high risk of another head-on collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "C009",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle_behind and C009 are on Road 1 with a linear-extrapolated contact in 2.3s. EGO_ego_vehicle and C009 are also on Road 1 with a linear-extrapolated contact in 2.6s. Both indicate likely head-on conflicts on Road 1 as paths continue linearly.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V002",
+     "V012"
+    ],
+    "reason": "V002 and V012 are on Road 0, moving in opposing directions, with a linear-extrapolated contact in 2.9s, suggesting a head-on collision in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The most immediate high-TTC conflicts based on linear extrapolation would have already occurred or been resolved. While several vehicles are approaching the junction, their linear extrapolated paths do not indicate immediate orthogonal conflicts in this interval, and no traffic signal information is available.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All critical head-on conflicts identified by linear-extrapolated contact would have passed. The relative speeds and distances for other vehicles approaching the junction do not suggest an imminent collision based on straight-line paths in this interval.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The immediate future presents multiple high-risk head-on collision scenarios involving several vehicles on Roads 0, 1, and 30, as indicated by very low Time-To-Contact (TTC) values and explicit 'linear-extrapolated contact' warnings. The first three 1-second intervals are highly likely to see accidents. Beyond that, no further imminent collisions are predicted by the linear extrapolation, though a busy junction with multiple approaching vehicles suggests continued vigilance.",
+  "data_limitations": "The 'linear-extrapolated contact' values do not account for driver braking, steering, or turning actions, nor do they consider traffic signals or right-of-way at junctions, which could alter the predicted outcomes. The 'lane 1/1' designation for opposing traffic on the 'same road' is interpreted as a direct collision risk given the 'linear-extrapolated contact' prediction, rather than safe passing in parallel lanes."
+ }
+}

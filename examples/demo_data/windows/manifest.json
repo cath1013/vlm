@@ -1,0 +1,233 @@
+{
+ "scenario": {
+  "ref": "scn_ceb13907c950",
+  "id": "synthetic/columbus_demo_collision",
+  "split": "synthetic",
+  "town": "Columbus_demo"
+ },
+ "config": {
+  "window_s": 5.0,
+  "stride_s": 1.0,
+  "horizon_s": 5.0,
+  "snapshot_rate_hz": 2.0,
+  "history_stride_s": 1.0,
+  "max_actors": 10,
+  "history_mode": "compact",
+  "language": "ko",
+  "bucket_rule": "k번째 구간 = 마지막 관측 시점 이후 (k-1, k] 초"
+ },
+ "collision": {
+  "occurred": true,
+  "carla_ids": [
+   101,
+   114
+  ],
+  "classes": [
+   "car",
+   "car"
+  ],
+  "agent_roles": [
+   "V1",
+   "X4"
+  ],
+  "frame": 149,
+  "time_s": 14.78,
+  "min_distance_m": 0.085,
+  "intensity": null,
+  "estimation_method": "scripted"
+ },
+ "windows": [
+  {
+   "label": "0-5",
+   "index": 0,
+   "t_start_s": 0.0,
+   "t_end_s": 5.0,
+   "payload": "llm_payload_0-5.json",
+   "ground_truth": "ground_truth_0-5.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 17353
+  },
+  {
+   "label": "1-6",
+   "index": 1,
+   "t_start_s": 1.0,
+   "t_end_s": 6.0,
+   "payload": "llm_payload_1-6.json",
+   "ground_truth": "ground_truth_1-6.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 18678
+  },
+  {
+   "label": "2-7",
+   "index": 2,
+   "t_start_s": 2.0,
+   "t_end_s": 7.0,
+   "payload": "llm_payload_2-7.json",
+   "ground_truth": "ground_truth_2-7.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 18894
+  },
+  {
+   "label": "3-8",
+   "index": 3,
+   "t_start_s": 3.0,
+   "t_end_s": 8.0,
+   "payload": "llm_payload_3-8.json",
+   "ground_truth": "ground_truth_3-8.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 22698
+  },
+  {
+   "label": "4-9",
+   "index": 4,
+   "t_start_s": 4.0,
+   "t_end_s": 9.0,
+   "payload": "llm_payload_4-9.json",
+   "ground_truth": "ground_truth_4-9.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 23310
+  },
+  {
+   "label": "5-10",
+   "index": 5,
+   "t_start_s": 5.0,
+   "t_end_s": 10.0,
+   "payload": "llm_payload_5-10.json",
+   "ground_truth": "ground_truth_5-10.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 25085
+  },
+  {
+   "label": "6-11",
+   "index": 6,
+   "t_start_s": 6.0,
+   "t_end_s": 11.0,
+   "payload": "llm_payload_6-11.json",
+   "ground_truth": "ground_truth_6-11.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 27346
+  },
+  {
+   "label": "7-12",
+   "index": 7,
+   "t_start_s": 7.0,
+   "t_end_s": 12.0,
+   "payload": "llm_payload_7-12.json",
+   "ground_truth": "ground_truth_7-12.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 25232
+  },
+  {
+   "label": "8-13",
+   "index": 8,
+   "t_start_s": 8.0,
+   "t_end_s": 13.0,
+   "payload": "llm_payload_8-13.json",
+   "ground_truth": "ground_truth_8-13.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 24695
+  },
+  {
+   "label": "9-14",
+   "index": 9,
+   "t_start_s": 9.0,
+   "t_end_s": 14.0,
+   "payload": "llm_payload_9-14.json",
+   "ground_truth": "ground_truth_9-14.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 23185
+  }
+ ],
+ "summary": {
+  "n_windows": 10,
+  "n_windows_with_accident": 5,
+  "n_windows_without_accident": 5,
+  "input_chars_max": 27346,
+  "input_chars_mean": 22648,
+  "n_snapshots": 30,
+  "dropped_incomplete": 1,
+  "dropped_after_collision": 0,
+  "data_range_s": [
+   0.0,
+   14.5
+  ]
+ },
+ "output_schema": {
+  "type": "object",
+  "properties": {
+   "predictions": {
+    "type": "array",
+    "description": "미래 1초 구간별 예측. k=1..N 을 모두 포함해야 한다.",
+    "items": {
+     "type": "object",
+     "properties": {
+      "k": {
+       "type": "integer",
+       "description": "마지막 관측 시점 이후 몇 번째 1초 구간인가 (1부터)"
+      },
+      "interval_s": {
+       "type": "string",
+       "description": "절대 시각 구간, 예: '(8.0, 9.0]'"
+      },
+      "accident_expected": {
+       "type": "boolean",
+       "description": "이 구간에 사고가 발생할 것으로 보는가"
+      },
+      "involved_actor_ids": {
+       "type": "array",
+       "description": "사고 관련 차량 id. accident_expected 가 false 면 빈 배열.",
+       "items": {
+        "type": "string"
+       }
+      },
+      "reason": {
+       "type": "string",
+       "description": "판단 근거. 사고 없음이면 안전하다고 본 이유를 한 문장으로."
+      },
+      "confidence": {
+       "type": "string",
+       "enum": [
+        "low",
+        "medium",
+        "high"
+       ]
+      }
+     },
+     "required": [
+      "k",
+      "interval_s",
+      "accident_expected",
+      "involved_actor_ids",
+      "reason",
+      "confidence"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "overall_assessment": {
+    "type": "string",
+    "description": "윈도우 전체에 대한 2~3문장 요약"
+   },
+   "data_limitations": {
+    "type": "string",
+    "description": "이 판단에 영향을 준 데이터 한계(있으면). 없으면 빈 문자열."
+   }
+  },
+  "required": [
+   "predictions",
+   "overall_assessment",
+   "data_limitations"
+  ],
+  "additionalProperties": false
+ }
+}

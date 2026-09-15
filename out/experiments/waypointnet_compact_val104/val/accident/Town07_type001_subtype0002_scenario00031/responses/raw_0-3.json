@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"M001\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to have orthogonal entry conflicts with EGO_other_vehicle at t=5.6s and M001 at t=5.8s, both with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P004\", \"V013\"],\n      \"reason\": \"P004 (person) is predicted to collide with the stopped vehicle V013 at t=7.5s, with a 0.0m clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first, second, and fourth 1-second intervals after the observation window appear clear of accidents. However, the third interval predicts multiple orthogonal entry collisions involving the observer's vehicle (EGO_ego_vehicle) with two other vehicles. Additionally, the fifth interval predicts a pedestrian colliding with a stopped vehicle.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5950,
+  "candidatesTokenCount": 590,
+  "totalTokenCount": 11718,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5950
+   }
+  ],
+  "thoughtsTokenCount": 5178,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ZcmYarrdGafE0-kPmtLk8AE"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance throughout this interval, and predicted paths do not show any contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An orthogonal entry conflict is predicted between EGO_ego_vehicle_behind making a left turn and EGO_other_vehicle making a right turn, leading to simultaneous body contact at 8.7 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new predicted contacts occur in this interval, as the primary interaction would have already happened in the previous interval or the vehicles proceed to diverge.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance throughout this interval, and predicted paths do not show any contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped vehicle V001 at 11.6 seconds due to its right-turning path directly intersecting V001's stationary position.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. First, EGO_ego_vehicle_behind and EGO_other_vehicle are expected to collide in interval k=2 due to an orthogonal entry conflict while turning. Second, EGO_other_vehicle is predicted to collide with the stationary V001 in interval k=5 as its path directly intersects the stopped vehicle.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5698,
+  "candidatesTokenCount": 632,
+  "totalTokenCount": 9571,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5698
+   }
+  ],
+  "thoughtsTokenCount": 3241,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "1eeYaqj0Ktf01e8P3vnBkQY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M008\",\n        \"V009\"\n      ],\n      \"reason\": \"V009 is predicted to collide with the stopped motorcycle M008 from behind, resulting in 0.0m minimum clearance at 1.8 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V007\"\n      ],\n      \"reason\": \"V007 is predicted to rear-end EGO_other_vehicle_behind, with 0.0m minimum clearance at 2.5 seconds after observation, as V007 is approaching from behind at a higher speed.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances and are on divergent or parallel paths without any predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V007\"\n      ],\n      \"reason\": \"V007 is predicted to collide with the stopped vehicle EGO_other_vehicle from behind, resulting in 0.0m minimum clearance at 4.4 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The forecast indicates multiple rear-end collision risks involving V007 accelerating into stopped or slower-moving vehicles (EGO_other_vehicle_behind, EGO_other_vehicle) and V009 colliding with a stopped M008. These incidents are predicted to occur in intervals k=2, k=3, and k=5, based on 0.0m minimum clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6930,
+  "candidatesTokenCount": 659,
+  "totalTokenCount": 11855,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6930
+   }
+  ],
+  "thoughtsTokenCount": 4266,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jcSYarmYHKLB1e8Pra2K0Ak"
+}

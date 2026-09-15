@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, with no predicted path convergence indicating physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles EGO_ego_vehicle, V001, and V002 pass each other with sufficient lateral and longitudinal clearance; no contact is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue on their predicted paths with ample separation, and no intersections are expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain their paths without any risk of collision; the closest pair identified has a large clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind (northbound) and EGO_other_vehicle (westbound) are predicted to collide at an intersection at approximately 8.7 seconds, resulting in simultaneous body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Most predicted vehicle movements maintain safe distances throughout the 5-second prediction window. However, a high-confidence collision is expected in the final interval (8.0-9.0s) between EGO_ego_vehicle_behind and EGO_other_vehicle as their paths intersect.\",\n  \"data_limitations\": \"The absence of traffic signal states or explicit right-of-way rules at the intersection means the judgment is based purely on the predicted path geometry. All future path probabilities are 1.0, implying no uncertainty in the predicted trajectories.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6149,
+  "candidatesTokenCount": 606,
+  "totalTokenCount": 12617,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6149
+   }
+  ],
+  "thoughtsTokenCount": 5862,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "rOeYasf_F7ax0-kPtfTn-Ak"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show clear separation, with the closest pair (V017, V014) maintaining a minimum clearance of 1.27m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V025\", \"T026\"],\n      \"reason\": \"T026 is predicted to rear-end V025 at approximately 3.6 seconds (1.6s after observation) as V025 is moving very slowly while T026 maintains speed, leading to zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient separation, with the closest pair (V018, V014) maintaining a minimum clearance of 1.37m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V030\", \"V003\", \"M020\", \"V019\", \"V023\", \"V024\"],\n      \"reason\": \"Multiple rear-end collisions are predicted: V030 with V003 (at 5.2s), V019 with M020 (at 5.4s) due to M020's path changing direction, and V024 with V023 (at 5.8s), all resulting in zero minimum clearance as faster vehicles approach slower ones from behind.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"V012\"],\n      \"reason\": \"V018 is predicted to collide with the stopped V012 at approximately 6.3 seconds (4.3s after observation) as V018's path clearly intersects V012's stationary position, resulting in zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window reveals a series of rear-end collisions and one impact with a stopped vehicle, beginning from the second interval. The primary causes are faster vehicles approaching slower or stopped ones in the same path. By the end of the window, several distinct accidents are predicted.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' entry for V014 and C015 indicated a collision with 0.0m minimum clearance at 4.1s (k=5). However, analysis of their future paths showed C015 (bicycle) moving significantly faster and ahead of V014 (car) in the same direction, increasing their separation. This entry was considered a false positive based on the explicit path geometry.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10133,
+  "candidatesTokenCount": 820,
+  "totalTokenCount": 20474,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10133
+   }
+  ],
+  "thoughtsTokenCount": 9521,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "psyYaovxDNWjvr0PttyR0AY"
+}

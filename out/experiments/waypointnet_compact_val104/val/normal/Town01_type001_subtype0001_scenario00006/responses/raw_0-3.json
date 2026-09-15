@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V006\", \"V012\"],\n      \"reason\": \"V006 (heading North) and V012 (heading South-East) are predicted to have an orthogonal collision at approximately 4.3 seconds after the last observation, where their paths geometrically overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite a predicted contact, geometric analysis of V014 (stopped) and T011 (moving South) shows no physical overlap due to sufficient lateral separation in their paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One high-confidence accident is predicted between V006 and V012 in the second interval due to their crossing paths leading to geometric overlap. Other close encounters show sufficient clearance, and a predicted contact between V014 and T011 was disregarded as a manual geometric check revealed no actual overlap.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' output indicated a contact between V014 and T011 at 7.0s (interval 4), but a manual geometric check of their positions and footprints revealed no overlap due to significant lateral separation. This suggests potential imprecision in the automated contact prediction for certain pairs or assumptions not matching detailed geometric calculations.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6118,
+  "candidatesTokenCount": 617,
+  "totalTokenCount": 13702,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6118
+   }
+  ],
+  "thoughtsTokenCount": 6967,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "J8GYat-eCfj91e8PnrXZoQY"
+}

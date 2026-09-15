@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and there is no geometric overlap or predicted contact between any actors during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance, and there is no geometric overlap or predicted contact between any actors during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V005\"],\n      \"reason\": \"EGO_other_vehicle's left turn trajectory intersects with the stopped V005, resulting in a predicted contact with 0.0m clearance at 2.5 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V010\"],\n      \"reason\": \"EGO_other_vehicle continues its left turn and is predicted to collide with the stopped V010, showing 0.0m clearance at 4.0 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"EGO_other_vehicle's left turn path is predicted to collide with the stopped V002, indicating 0.0m clearance at 4.7 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The EGO_other_vehicle is predicted to execute a left turn that will result in multiple collisions with three different stopped vehicles (V005, V010, and V002) in consecutive 1-second intervals from k=3 to k=5. The other observer vehicles and their predicted interactions show no expected accidents. This scenario highlights a significant conflict due to the EGO_other_vehicle's trajectory through an intersection with stationary traffic.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' list contains one entry where actor_a and actor_b are identical ('EGO_other_vehicle_behind', 'EGO_other_vehicle_behind'), which appears to be a data anomaly. This did not affect the accident prediction as the predicted contact for this entry was false.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8288,
+  "candidatesTokenCount": 717,
+  "totalTokenCount": 12837,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8288
+   }
+  ],
+  "thoughtsTokenCount": 3832,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9OqYarLfG-KM1e8PvfyMgQY"
+}

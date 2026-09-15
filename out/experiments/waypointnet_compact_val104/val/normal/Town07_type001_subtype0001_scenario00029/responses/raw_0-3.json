@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and predictable paths, indicating a safe progression through this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V011\"],\n      \"reason\": \"V005 and V011 are predicted to collide at a junction around t=4.3s (1.3s after observation), as their paths clearly cross at the same point with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T015\", \"V003\", \"C016\"],\n      \"reason\": \"A head-on collision is expected between truck T015 and car V003 around t=6.0s (3.0s after observation) as they approach each other on the same road with predicted contact. Additionally, bicycle C016 is predicted to collide with the rear of T015 at approximately t=6.0s, as C016's path overtakes T015 in the same lane.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and predictable paths, indicating a safe progression through this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C016\", \"V014\"],\n      \"reason\": \"Bicycle C016 is predicted to collide with the stopped car V014 around t=7.1s (4.1s after observation), as C016's path traverses the location of the stationary V014.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collision events are predicted across the 5-second prediction window. A junction conflict between V005 and V011 is expected in the second interval. The third interval anticipates two distinct accidents: a head-on collision between T015 and V003, and a rear-end collision involving C016 and T015. Finally, C016 is predicted to collide with the stopped V014 in the fifth interval.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' data for T015 and C016 indicated contact in k=2, but a manual inspection of the 1-second future path waypoints suggested actual physical contact would occur later, in k=3. For the T015 and V003 head-on collision, while 'predicted_closest_pairs' indicated contact, the 1-second waypoints showed a small lateral clearance, necessitating reliance on the more granular simulation for the contact prediction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6768,
+  "candidatesTokenCount": 815,
+  "totalTokenCount": 18614,
+  "cachedContentTokenCount": 874,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6768
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 874
+   }
+  ],
+  "thoughtsTokenCount": 11031,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "JsWYarC-OZf91e8PppTJgQY"
+}

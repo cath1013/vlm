@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, and no contact is indicated in the closest pairs for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P011\", \"P014\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with pedestrian P011 at t=8.1s and with pedestrian P014 at t=8.2s, based on zero minimum clearance in the predicted closest pairs. These appear to be orthogonal entry conflicts at a junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P007\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with pedestrian P007 at t=9.2s, based on zero minimum clearance in the predicted closest pairs, indicating a conflict during the vehicle's right turn.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, and no contact is indicated in the closest pairs for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although P002 and P014 have a very small predicted minimum clearance of 0.03m, the system explicitly states no predicted contact, and their paths do not geometrically overlap based on their footprints.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high risk of multiple accidents involving observer vehicles and pedestrians. EGO_ego_vehicle is predicted to collide with two different pedestrians (P011 and P014) in the 8-9 second interval, likely due to conflicts at an intersection. Subsequently, EGO_other_vehicle is predicted to collide with pedestrian P007 in the 9-10 second interval during a right turn maneuver.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11882,
+  "candidatesTokenCount": 668,
+  "totalTokenCount": 17609,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11882
+   }
+  ],
+  "thoughtsTokenCount": 5059,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "dcaYatLbDcP92roPlrzZ6As"
+}

@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 13.08,
+ "usage": {
+  "input": 5369,
+  "output": 622
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to turn right into the path of EGO_other_vehicle, resulting in a direct collision at approximately 0.3 seconds into the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V008"
+    ],
+    "reason": "EGO_ego_vehicle's right turn path is predicted to intersect with V008's straight path, leading to a collision approximately 2.0 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N002",
+     "V003"
+    ],
+    "reason": "V003 is predicted to collide with the stopped vehicle N002, with contact occurring around 2.6 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or dangerously close clearances are indicated between any actors in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to have a direct collision around 4.1 seconds after observation as their paths converge.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple distinct collisions are predicted throughout the 5-second prediction window. EGO_ego_vehicle is involved in two separate predicted collisions in the first two intervals, while other observer vehicles and static actors are involved in later intervals. Only the fourth interval shows no immediate collision risk.",
+  "data_limitations": ""
+ }
+}

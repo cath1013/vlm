@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V014\",\n        \"T018\",\n        \"N004\"\n      ],\n      \"reason\": \"V014 is predicted to rear-end EGO_ego_vehicle_behind at t=9.7s, as V014 is moving faster behind EGO_ego_vehicle_behind. Simultaneously, N004 is predicted to rear-end T018 at t=9.8s, as N004 is moving faster behind T018.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V021\",\n        \"V002\"\n      ],\n      \"reason\": \"V021 is predicted to rear-end V002 at t=10.7s, as V002 is stopped and V021 is moving towards it.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct rear-end collisions are predicted in the future window. In the interval k=4, V014 is expected to collide with EGO_ego_vehicle_behind, and N004 is expected to collide with T018. In the subsequent interval k=5, V021 is expected to collide with the stopped vehicle V002.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9299,
+  "candidatesTokenCount": 655,
+  "totalTokenCount": 14853,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9299
+   }
+  ],
+  "thoughtsTokenCount": 4899,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Is2YavTfFI-N1e8PgY_jiAY"
+}

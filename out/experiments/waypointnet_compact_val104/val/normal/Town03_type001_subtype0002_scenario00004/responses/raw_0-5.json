@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicle V020 passes stopped vehicle V030 with a minimum clearance of 0.21m, indicating a safe passage without physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, making a left turn, and EGO_other_vehicle, proceeding straight, are predicted to have a simultaneous body contact/overlap at 1.6s after observation in the intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"N012\", \"V003\", \"V005\"],\n      \"reason\": \"N012 is predicted to contact EGO_other_vehicle_behind from behind at 2.5s while both travel westbound. Additionally, V005 is predicted to collide with the stopped V003 at 2.8s, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or overlaps for any vehicles within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V006\"],\n      \"reason\": \"Vehicle V006, moving southbound, is predicted to collide with the stopped vehicle V002 at 4.2s, resulting in a rear-end collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates multiple potential accident scenarios. EGO_ego_vehicle is involved in a turning conflict at 1.6s. Two rear-end/side-swipe collisions are predicted: N012 with EGO_other_vehicle_behind at 2.5s, and V005 with V003 at 2.8s. A fourth collision, V006 with V002, is predicted at 4.2s.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9559,
+  "candidatesTokenCount": 690,
+  "totalTokenCount": 13446,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9559
+   }
+  ],
+  "thoughtsTokenCount": 3197,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "BcqYaoC5KOP82roP7r7joQo"
+}

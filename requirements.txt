@@ -1,0 +1,17 @@
+# 필수
+numpy>=1.24
+
+# 선택 — 없으면 근사/대체 경로로 동작 (기능 제한 사항은 README 참조)
+scipy>=1.10          # 융합 시 최적 할당(Hungarian). 없으면 탐욕 매칭
+pyproj>=3.5          # 정밀 좌표변환. 없으면 등거리 근사 (수 km 범위 오차 < 1m)
+
+# 실제 영상 처리용 (사전 계산된 검출 결과 JSON 을 쓰면 불필요)
+ultralytics>=8.3     # YOLO + ByteTrack
+opencv-python>=4.8
+
+# LLM 호출용 (직렬화만 쓸 경우 불필요)
+anthropic>=0.116
+
+# 학습된 경로 예측기용 (규칙 기반 기본 동작에는 불필요 — 지연 임포트한다)
+# CPU 만 필요하면: pip install --index-url https://download.pytorch.org/whl/cpu torch
+torch>=2.0           # traffic_llm.predict_model.TorchPredictor

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show ample clearance between vehicles and pedestrians, with the smallest being 1.58m between EGO_ego_vehicle and V002.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths maintain significant separation for all actors in this interval, with the smallest clearance being 25.61m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"P004\"],\n      \"reason\": \"A car (EGO_other_vehicle_behind) and a person (P004) are predicted to have a minimum clearance of only 0.27m at 2.4 seconds after the observation, indicating a high likelihood of physical contact or overlap as their paths converge.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs show sufficient clearance, with the smallest being 1.75m between EGO_ego_vehicle_behind and V002.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths maintain significant separation for all actors in this interval, with the smallest clearance being 5.65m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly likely in the third interval (9.0, 10.0] seconds after the last observation, involving a car and a pedestrian due to an extremely small predicted minimum clearance of 0.27m. All other intervals show no imminent accidents, with vehicles and pedestrians maintaining safe distances based on their predicted trajectories.\",\n  \"data_limitations\": \"The 'predicted_contact' flag for the critical pair (EGO_other_vehicle_behind and P004) is 'false' despite a very small minimum clearance (0.27m). This might be due to the contact margin or interpolation method, but the geometric proximity still indicates a high risk. \"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5996,
+  "candidatesTokenCount": 683,
+  "totalTokenCount": 10660,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5996
+   }
+  ],
+  "thoughtsTokenCount": 3981,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "zfOYasuTG8mj9tMP-bjGwQY"
+}

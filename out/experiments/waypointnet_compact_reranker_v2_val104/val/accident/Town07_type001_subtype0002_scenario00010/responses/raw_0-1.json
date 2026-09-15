@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind and N007 are predicted to pass each other with a minimum clearance of 1.1 meters, which is sufficient to avoid contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or body overlap is explicitly predicted between any actors during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_ego_vehicle and EGO_ego_vehicle_behind at 2.9 seconds after observation, with a minimum clearance of 0.0 meters indicating contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contact or body overlap is explicitly predicted between any actors during this interval based on the provided independent paths.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a clearance well above 0 meters, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision is predicted between EGO_ego_vehicle and EGO_ego_vehicle_behind at approximately 2.9 seconds after the last observation. This is explicitly indicated by a predicted contact with zero minimum clearance. For all other intervals and actor pairs, sufficient clearances are maintained or no contact is predicted.\",\n  \"data_limitations\": \"The independent prediction of actor paths means that the potential consequences of the predicted collision at k=3 are not factored into the predictions for subsequent intervals (k=4 and k=5).\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5165,
+  "candidatesTokenCount": 611,
+  "totalTokenCount": 8892,
+  "cachedContentTokenCount": 836,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5165
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 836
+   }
+  ],
+  "thoughtsTokenCount": 3116,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Oe6YatGEE7q30-kP8ovsgAw"
+}

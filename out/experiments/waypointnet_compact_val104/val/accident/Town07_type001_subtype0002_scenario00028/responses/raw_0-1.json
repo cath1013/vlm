@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other according to their predicted paths, with the minimum predicted clearance being 1.06m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with EGO_other_vehicle at 2.0 seconds after observation due to convergence in parallel paths, resulting in 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V015\", \"C010\"],\n      \"reason\": \"C010 (bicycle) is predicted to collide with the stopped V015 at 2.3 seconds after observation as it follows a path that intersects V015's stationary position, resulting in 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other according to their predicted paths, with the minimum predicted clearance being 0.72m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No close encounters or potential conflicts are predicted for this interval based on the supplied closest pair data.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial intervals (k=2 and k=3) show clear predictions of physical contact between vehicles. EGO_other_vehicle_behind is predicted to collide with EGO_other_vehicle, and a bicycle (C010) is predicted to collide with a stopped car (V015). The remaining intervals (k=1, k=4, k=5) show no predicted contacts and sufficient clearance between all road users.\",\n  \"data_limitations\": \"The existence_confidence for V009 is 0.8, which is slightly lower than other actors. However, V009 is not directly involved in any predicted contact events with 0.0m clearance, so this limitation does not significantly affect the accident predictions. The track_age_s for V015 being 0.5s is noted, but its future path is explicitly 'remains stopped', which provides clarity.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5347,
+  "candidatesTokenCount": 728,
+  "totalTokenCount": 9119,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5347
+   }
+  ],
+  "thoughtsTokenCount": 3044,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LsmYavfjM7Gw2roP0qzmoQI"
+}

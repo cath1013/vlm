@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance of over 1.0 meter, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance, with the closest at 4.19 meters, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance of over 1.8 meters, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The only predicted closest pair in this interval maintains a safe minimum clearance of 4.19 meters, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V008\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to overtake V008, leading to simultaneous body contact or overlap with a minimum clearance of 0.0 meters at 4.9 seconds after observation (within this interval).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the final interval (k=5) between EGO_ego_vehicle_behind and V008. EGO_ego_vehicle_behind, traveling faster, is predicted to collide with V008 during an overtaking maneuver or lane change, resulting in direct physical contact. All other actor pairs maintain sufficient clearance throughout the prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9935,
+  "candidatesTokenCount": 597,
+  "totalTokenCount": 16113,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9935
+   }
+  ],
+  "thoughtsTokenCount": 5581,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Y-WYap_fKNmM1e8P54aCgAY"
+}

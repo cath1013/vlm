@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving vehicles maintain safe distances from each other and from stopped actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All moving vehicles maintain safe distances from each other and from stopped actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Moving vehicles are converging, but clear overlap is not yet present in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T011\", \"V010\"],\n      \"reason\": \"Truck T011 is predicted to collide with stopped car V010, as T011's path crosses V010's position with minimal lateral separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The collision between T011 and V010 is predicted to occur in the previous interval (k=4); no new accident is initiated here.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the fourth 1-second interval between a moving truck (T011) and a stopped car (V010). T011's trajectory clearly shows it will directly impact V010. All other actors, including the observer vehicles and pedestrians, are predicted to maintain safe distances from each other and from stopped vehicles throughout the entire 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7060,
+  "candidatesTokenCount": 558,
+  "totalTokenCount": 13966,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7060
+   }
+  ],
+  "thoughtsTokenCount": 6348,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XkmVau-wBMOx2roP4sbS0A8"
+}

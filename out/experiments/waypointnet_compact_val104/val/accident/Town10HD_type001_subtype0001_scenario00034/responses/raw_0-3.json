@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance in this interval, and all vehicles maintain a safe distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\", \"V010\", \"V011\"],\n      \"reason\": \"Two separate rear-end collisions are predicted: EGO_ego_vehicle_behind will collide with the stopped EGO_ego_vehicle (minimum clearance 0.0m at 1.3s), and V010 will collide with the stopped V011 (minimum clearance 0.0m at 1.7s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance in this interval; the closest pair maintains a clearance of 0.71m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance in this interval, and all vehicles maintain a safe distance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\"],\n      \"reason\": \"EGO_other_vehicle, which is making a left turn, is predicted to collide with the stopped V001 (minimum clearance 0.0m at 4.9s).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. EGO_ego_vehicle and V011, both stopped, are predicted to be rear-ended by EGO_ego_vehicle_behind and V010, respectively, in the second interval. Additionally, EGO_other_vehicle is predicted to collide with the stopped V001 while turning left in the fifth interval.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8604,
+  "candidatesTokenCount": 653,
+  "totalTokenCount": 12990,
+  "cachedContentTokenCount": 902,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8604
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 902
+   }
+  ],
+  "thoughtsTokenCount": 3733,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3sCYauqxG9GA0-kP8-SK8Qs"
+}

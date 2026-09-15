@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show sufficient clearance between all actors in this interval; the closest predicted interaction has a minimum clearance of 0.63 meters, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"C004\", \"V008\", \"V007\"],\n      \"reason\": \"V005 (car) is predicted to collide with C004 (stopped bicycle) at t=1.4s, and V008 (car) is predicted to collide with V007 (stopped car) at t=1.7s, both indicating rear-end collisions with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"M003\"],\n      \"reason\": \"V005 (car) is predicted to collide with M003 (stopped motorcycle) at t=3.0s, indicating a rear-end collision with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or insufficient clearances are indicated for any actor pairs in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\", \"V010\", \"V011\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with EGO_other_vehicle_behind at t=4.2s in an orthogonal intersection, and V010 is predicted to collide with V011 at t=4.8s due to converging paths, both with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the future 5-second window. In interval k=2, two rear-end collisions are expected: V005 with C004 and V008 with V007. Another rear-end collision between V005 and M003 is predicted in interval k=3. In interval k=5, two intersection-related collisions are predicted: EGO_ego_vehicle with EGO_other_vehicle_behind, and V010 with V011.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7209,
+  "candidatesTokenCount": 742,
+  "totalTokenCount": 11647,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7209
+   }
+  ],
+  "thoughtsTokenCount": 3696,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "_82Yapd3xLjT6Q_YvbbJAQ"
+}

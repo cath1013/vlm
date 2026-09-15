@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 34.43,
+ "usage": {
+  "input": 9437,
+  "output": 584
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances from each other, with the smallest predicted clearance being 2.65m between EGO_other_vehicle_behind and V001.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances, with the smallest predicted clearance being 8.01m between EGO_ego_vehicle and P006.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances, with the smallest predicted clearance being 4.23m between EGO_ego_vehicle_behind and EGO_other_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No close interactions are predicted for this interval, and all actors are expected to maintain clear separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_ego_vehicle passes V010 with a tight predicted clearance of 0.42m, the supplied path geometry shows lateral avoidance preventing physical contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The predictions indicate a generally safe scenario over the next 5 seconds. Although some close interactions are predicted, particularly between EGO_ego_vehicle and V010, the supplied path geometry and `predicted_closest_pairs` data consistently show a minimum clearance greater than zero, indicating no physical contact. All other actor interactions maintain larger separation distances.",
+  "data_limitations": ""
+ }
+}

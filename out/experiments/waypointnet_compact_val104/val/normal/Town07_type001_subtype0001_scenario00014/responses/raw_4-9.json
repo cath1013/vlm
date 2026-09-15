@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle is initiating its left turn and remains clear of other stationary vehicles in this interval; no other interactions are predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V004\"],\n      \"reason\": \"EGO_other_vehicle, while executing a left turn, is predicted to collide with the stationary V004 at approximately 10.7s (1.7s after observation), resulting in body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V005\"],\n      \"reason\": \"EGO_other_vehicle continues its left turn and is predicted to collide with the stationary V005 at approximately 11.4s (2.4s after observation), resulting in body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact or body overlap is predicted for EGO_other_vehicle with any other actor in this interval, and all other actors remain stationary or at safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V010\"],\n      \"reason\": \"EGO_other_vehicle completes its left turn and is predicted to collide with the stationary V010 at approximately 13.2s (4.2s after observation), resulting in body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The observer vehicle EGO_other_vehicle is predicted to execute a left turn that will result in sequential collisions with three stationary vehicles (V004, V005, and V010) in intervals k=2, k=3, and k=5. This indicates a significant conflict in the predicted trajectory of EGO_other_vehicle with the positions of the other vehicles.\",\n  \"data_limitations\": \"The predicted trajectory for EGO_other_vehicle results in multiple sequential collisions with stationary vehicles, which may indicate an issue with the trajectory prediction itself or a highly constrained environment.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8176,
+  "candidatesTokenCount": 707,
+  "totalTokenCount": 14179,
+  "cachedContentTokenCount": 897,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8176
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 897
+   }
+  ],
+  "thoughtsTokenCount": 5296,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "V8WYaubhD6e21e8PpaT4iAY"
+}

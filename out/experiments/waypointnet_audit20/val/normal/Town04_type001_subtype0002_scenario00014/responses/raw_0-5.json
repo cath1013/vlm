@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P010\",\n        \"P013\",\n        \"P008\",\n        \"P007\",\n        \"V021\",\n        \"EGO_ego_vehicle_behind\",\n        \"M016\",\n        \"V020\",\n        \"N023\",\n        \"EGO_other_vehicle_behind\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"Multiple imminent collisions are expected due to extremely low Time-To-Collision (TTC) values (ranging from 0.0s to 1.7s), including a pre-existing contact between P010 and P013, several rear-end conflicts, and a junction crossing conflict between EGO_ego_vehicle and EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"P012\",\n        \"P015\",\n        \"V003\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"Several car-following conflicts and a junction crossing conflict are predicted with linear-extrapolated contacts between 2.1s and 2.8s, indicating a high likelihood of collision as vehicles continue into the central junction area.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further linear-extrapolated contacts or other clear conflicts are indicated beyond 2.8 seconds from the last observed timestep, suggesting no imminent accidents in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further linear-extrapolated contacts or other clear conflicts are indicated beyond 2.8 seconds from the last observed timestep, suggesting no imminent accidents in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further linear-extrapolated contacts or other clear conflicts are indicated beyond 2.8 seconds from the last observed timestep, suggesting no imminent accidents in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The initial seconds of the prediction window (k=1 and k=2) present an extremely high risk of multiple, simultaneous accidents involving numerous vehicles and pedestrians. Several actors have Time-To-Collision values well under 2 seconds, indicating unavoidable impacts if current trajectories persist. Beyond the first two seconds, no further imminent conflicts are explicitly indicated by the provided linear extrapolations.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' metric does not account for potential evasive actions, braking, or detailed path planning beyond straight predictions, which could alter the outcome of the predicted collisions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 15848,
+  "candidatesTokenCount": 869,
+  "totalTokenCount": 25518,
+  "cachedContentTokenCount": 954,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 15848
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 954
+   }
+  ],
+  "thoughtsTokenCount": 8801,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6RqVaqGrI53W1e8PuoeBwQM"
+}

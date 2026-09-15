@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 29.18,
+ "usage": {
+  "input": 7888,
+  "output": 662
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles maintain sufficient clearance from each other, and no physical contact or body overlap is predicted in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T015",
+     "V003"
+    ],
+    "reason": "A head-on collision is predicted between truck T015 (southbound) and car V003 (northbound) as they appear to be on a direct collision course within the same or adjacent opposing lanes on Road 11.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles maintain sufficient clearance from each other, and no physical contact or body overlap is predicted in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T015",
+     "C016"
+    ],
+    "reason": "A rear-end collision is predicted between truck T015 and bicycle C016 as T015 approaches C016 from behind while both are traveling southbound on Road 11.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "V002"
+    ],
+    "reason": "A rear-end collision is predicted between car V002 and stopped car V001 as V002 approaches V001 from behind while both are on Road 11 northbound.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario predicts multiple collisions on Road 11, starting with a head-on collision between a truck and a car in k=2. This is followed by two rear-end collisions: a truck impacting a bicycle in k=4, and a car colliding with a stopped car in k=5. These incidents highlight conflicts arising from opposing travel in shared paths and inadequate following distances.",
+  "data_limitations": ""
+ }
+}

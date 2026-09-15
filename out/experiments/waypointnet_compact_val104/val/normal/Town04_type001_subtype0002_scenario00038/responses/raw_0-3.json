@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances as they proceed on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to maintain safe distances based on their predicted trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show vehicles moving with sufficient separation, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V002\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and V002 are predicted to have simultaneous body contact or overlap at approximately 3.4 seconds after the observation (within this interval), due to lateral path convergence while both are proceeding northbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances as they proceed on their predicted paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur in the k=4 interval (approximately 3.4 seconds after the observation, or within the absolute time window of 6.0-7.0 seconds) between EGO_ego_vehicle_behind and V002 due to their converging paths leading to a body overlap. Other vehicles are predicted to maintain safe distances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6326,
+  "candidatesTokenCount": 556,
+  "totalTokenCount": 11941,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6326
+   }
+  ],
+  "thoughtsTokenCount": 5059,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "h8yYav6TNryx0-kP0OzB-Aw"
+}

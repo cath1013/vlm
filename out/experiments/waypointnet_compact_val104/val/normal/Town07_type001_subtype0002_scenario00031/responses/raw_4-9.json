@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P003\", \"P007\"],\n      \"reason\": \"P003 is predicted to overtake P007 while both are moving southbound. The predicted paths indicate a simultaneous body contact or overlap with a minimum clearance of 0.0m between P003 and P007 around 2.7 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the third 1-second interval (t=11.0-12.0s) involving two pedestrians, P003 and P007. P003, moving faster, is expected to collide with or overlap P007 while attempting to overtake. All other actors maintain safe clearances throughout the 5-second prediction horizon.\",\n  \"data_limitations\": \"The precise lateral positioning of pedestrians on a 'road' without detailed sidewalk or lane boundaries makes it difficult to assess if P003 and P007 are on a designated pedestrian path or within the vehicle road space, however the geometric overlap calculation is unambiguous.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7912,
+  "candidatesTokenCount": 614,
+  "totalTokenCount": 11923,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7912
+   }
+  ],
+  "thoughtsTokenCount": 3397,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "086YasOJBcTRosUPv4TQiQY"
+}

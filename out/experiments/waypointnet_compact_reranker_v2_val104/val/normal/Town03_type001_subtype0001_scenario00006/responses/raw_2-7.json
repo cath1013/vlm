@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearances, with the closest pair (EGO_other_vehicle and T006) having a minimum clearance of 2.5m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearances, with the closest pair (EGO_other_vehicle and V015) having a minimum clearance of 0.43m, which is still a non-contact clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain sufficient clearances, with the closest pair (EGO_ego_vehicle and T006) having a minimum clearance of 1.18m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P009\"],\n      \"reason\": \"EGO_ego_vehicle, moving southbound, is predicted to collide with P009, a pedestrian moving slowly eastbound, at approximately 3.5 seconds after observation (t=10.5s) as indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the predicted contact in the previous interval, no further accidents are indicated; other pairs maintain sufficient clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur in the fourth interval (t=10.0-11.0s) where the EGO_ego_vehicle is expected to collide with pedestrian P009 due to intersecting paths. All other predicted interactions throughout the 5-second window show sufficient clearances, indicating no other accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8841,
+  "candidatesTokenCount": 630,
+  "totalTokenCount": 12600,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8841
+   }
+  ],
+  "thoughtsTokenCount": 3129,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "SeiYavnWON7PrfcPlI2f0Qo"
+}

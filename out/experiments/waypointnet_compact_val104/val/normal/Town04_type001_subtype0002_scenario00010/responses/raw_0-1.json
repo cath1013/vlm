@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap in this interval; all predicted closest pairs show positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P011\", \"P014\"],\n      \"reason\": \"Actor P014 is predicted to collide with the rear of P011 at approximately 1.5 seconds, as P014 is moving faster behind P011 in the same direction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P008\", \"P012\", \"V025\", \"V026\"],\n      \"reason\": \"Two separate rear-end collisions are expected: P012 with P008 at 2.1 seconds, and V026 with V025 at 3.0 seconds, both due to a faster trailing actor closing on a slower leading actor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap in this interval; all predicted closest pairs show positive clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap in this interval; all predicted closest pairs show positive clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The analysis indicates a high likelihood of three rear-end collisions occurring within the prediction window, specifically in intervals 2 and 3. These involve two pairs of pedestrians (P011/P014, P008/P012) and one pair of vehicles (V025/V026), where a faster trailing actor overtakes and collides with a slower leading actor on a similar trajectory. A predicted contact between V001 and T024 was manually assessed and discarded due to clear lateral separation in their future paths.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' indicated a contact between V001 and T024 with 0.0m clearance. However, a manual inspection of their future paths showed a consistent lateral separation of over 1 meter between their body outlines, suggesting this specific predicted contact might be a false positive given the provided path geometry.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9816,
+  "candidatesTokenCount": 735,
+  "totalTokenCount": 17016,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9816
+   }
+  ],
+  "thoughtsTokenCount": 6465,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2MqYapqVOaDC0-kPoaWNYQ"
+}

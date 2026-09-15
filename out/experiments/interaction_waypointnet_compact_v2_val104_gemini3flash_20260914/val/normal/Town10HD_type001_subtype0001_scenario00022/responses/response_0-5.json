@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 11.77,
+ "usage": {
+  "input": 11593,
+  "output": 462
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are maintaining safe separation, with EGO_other_vehicle successfully navigating its left turn away from stopped traffic.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The paths of moving actors EGO_ego_vehicle and EGO_other_vehicle do not intersect with any other road users during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle continues its turn onto Road 16 while maintaining a clearance of over 3.7m from stopped truck T001.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted minimum clearances for all pairs remain above 3 metres as vehicles proceed along their respective trajectories.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are completing their maneuvers or remaining stopped without any projected contact or trajectory conflicts.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple EGO vehicles and numerous other road users (cars, trucks, motorcycles, and pedestrians) in an urban junction environment. Several vehicles are stationary (T001, V002, T003, V017, V021), and the moving actors—specifically EGO_other_vehicle turning north and EGO_other_vehicle_behind turning south—are following paths that safely avoid these obstacles. EGO_ego_vehicle is decelerating as it moves west, maintaining safe distance from the motorcycle M020. No physical contact is predicted in any interval.",
+  "data_limitations": ""
+ }
+}

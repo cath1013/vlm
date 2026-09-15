@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show a minimum clearance of 1.53m between EGO_other_vehicle_behind and V015, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"M004\", \"V021\", \"P010\", \"EGO_other_vehicle_behind\", \"V029\", \"V026\", \"V025\"],\n      \"reason\": \"Multiple accidents are predicted: V005 collides with stopped M004, V021's left turn path crosses P010's straight path, V029 collides with stopped EGO_other_vehicle_behind, and V026 collides with stopped V025. All show 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"N020\"],\n      \"reason\": \"EGO_other_vehicle's left turn path is predicted to cross N020's straight path, resulting in a 0.0m minimum clearance at 2.5s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show a minimum clearance of 1.44m between EGO_ego_vehicle_behind and V019, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V005\", \"V003\", \"EGO_other_vehicle\", \"V019\", \"M027\", \"C028\"],\n      \"reason\": \"Multiple accidents are predicted: V005 collides with stopped V003, EGO_other_vehicle's path overlaps with V019's path, and C028 collides with stopped M027. All show 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Several accidents are predicted across the 5-second horizon. The second interval (8.0, 9.0]s shows the highest concentration of predicted collisions, involving four distinct pairs of vehicles. Subsequent intervals also show multiple predicted rear-end collisions with stopped vehicles and orthogonal conflicts at intersections.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10840,
+  "candidatesTokenCount": 765,
+  "totalTokenCount": 15921,
+  "cachedContentTokenCount": 925,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10840
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 925
+   }
+  ],
+  "thoughtsTokenCount": 4316,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "lsSYapHXL6621e8P3PO30AY"
+}

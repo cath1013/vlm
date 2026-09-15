@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 50.44,
+ "usage": {
+  "input": 8587,
+  "output": 797
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_other_vehicle, turning right onto Road 9, will collide with EGO_ego_vehicle which is proceeding straight through the intersection at t=3.8s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V005",
+     "V006"
+    ],
+    "reason": "Vehicle V006 is predicted to collide with the stopped vehicle V005 from behind at t=4.9s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and clear paths from each other, with no predicted contact in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N008",
+     "V007",
+     "EGO_ego_vehicle",
+     "N017"
+    ],
+    "reason": "Vehicle N008 is predicted to collide with the stopped vehicle V007 from behind at t=6.5s. Additionally, EGO_ego_vehicle is predicted to rear-end vehicle N017 at t=7.0s. Although contact is predicted for T016 and N008, a geometric check of their paths in opposing lanes shows approximately 1.06m lateral clearance, indicating no collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and clear paths from each other, with no predicted contact in this interval. EGO_ego_vehicle approaches T016 closely, but contact is not predicted.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted throughout the 5-second prediction window. EGO_other_vehicle is expected to collide with EGO_ego_vehicle during an intersection maneuver in the first interval. A rear-end collision between V006 and the stopped V005 is expected in the second interval. The fourth interval predicts two separate rear-end collisions: N008 with the stopped V007, and EGO_ego_vehicle with N017. No accidents are expected in the third and fifth intervals.",
+  "data_limitations": "The 'predicted_closest_pairs' sometimes indicates 'predicted_contact=true' for T016 and N008, even when a detailed geometric check of their footprints and paths in adjacent opposing lanes reveals a significant lateral clearance. This suggests a potential discrepancy between the high-level contact flag and the underlying geometry, requiring manual override."
+ }
+}

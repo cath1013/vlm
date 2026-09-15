@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their respective paths without any predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N003\", \"V004\"],\n      \"reason\": \"V004 is predicted to collide with the stopped N003 at approximately 2.5 seconds after observation, as V004's path leads directly into N003's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or close calls indicate a safe progression for all vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances and follow their predicted paths without risk of collision in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V011\", \"V017\"],\n      \"reason\": \"V017 is predicted to collide with V011 at approximately 5.2 seconds after observation, as V011's path curves slightly while V017 continues straight, leading to body overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two potential accidents are predicted within the 5-second window. The first collision involves V004 and N003 in the (2,3]s interval, where V004 is predicted to drive into the stopped N003. The second collision occurs in the (5,6]s interval between V011 and V017, due to V017 converging with V011's path.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5722,
+  "candidatesTokenCount": 604,
+  "totalTokenCount": 8591,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5722
+   }
+  ],
+  "thoughtsTokenCount": 2265,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "cc6YarX8IrOM1e8P-JqlgQY"
+}

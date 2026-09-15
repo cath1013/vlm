@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V011\",\n        \"V007\",\n        \"V010\",\n        \"EGO_other_vehicle\",\n        \"V016\",\n        \"EGO_other_vehicle_behind\",\n        \"T015\",\n        \"P004\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"Multiple head-on collisions are imminent with calculated Time To Contact (TTC) values significantly less than 1 second. EGO_ego_vehicle and V011 (Road 55, TTC ~0.4s), V007 and V010 (Road 55, TTC ~0.2s), EGO_other_vehicle and V016 (Road 15, TTC ~0.43s), EGO_other_vehicle_behind and T015 (Road 15, TTC ~0.59s), and EGO_other_vehicle_behind and P004 (Road 15, TTC ~0.65s) are all on collision courses. EGO_ego_vehicle_behind is also on a collision path with V011 (TTC ~0.75s), leading to a multi-vehicle pileup on Road 55 and Road 15.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary collisions are expected to occur in the k=1 interval, blocking the involved road segments. No other vehicles are projected to collide with each other or the immediate wreckage within this interval based on their current speeds and distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"P005\",\n        \"EGO_other_vehicle\",\n        \"V016\",\n        \"T015\",\n        \"EGO_other_vehicle_behind\",\n        \"P004\"\n      ],\n      \"reason\": \"Pedestrian P005, moving northbound on Road 15, is expected to collide with the wreckage from the multi-vehicle pileup that occurred in k=1. P005's current speed and position suggest it will reach the crash site in this interval (TTC ~2.85s to P004's last observed position).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new significant collision risks are identified beyond the accidents in k=1 and k=3. Vehicles not involved in the initial pileups remain distant or on clear paths at junctions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new significant collision risks are identified. The bicycle C009 remains too far from the Road 55 wreckage to be involved within this timeframe.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1) presents a critically dangerous situation with multiple head-on collisions highly probable on Road 55 and Road 15 due to vehicles traveling in opposing 'lane 1 of 1' segments with extremely low TTCs. This will lead to large pileups. Subsequently, pedestrian P005 is expected to collide with the Road 15 wreckage in k=3. Other road users appear to avoid the immediate crash sites or are too distant to be involved within the 5-second prediction window.\",\n  \"data_limitations\": \"The 'lane 1 of 1' designation for opposing traffic on apparently single-lane roads is a key contributor to the predicted head-on collisions; without detailed road geometry or lane-marking types, it's assumed these are direct conflicts. The lack of traffic signal information prevents assessing compliance at junctions, but the primary conflicts are not junction-related. The 'linear-extrapolated contact' values provided were used as initial indicators, but specific TTCs were re-calculated using current speeds and distances for higher precision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8564,
+  "candidatesTokenCount": 1109,
+  "totalTokenCount": 22613,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8564
+   }
+  ],
+  "thoughtsTokenCount": 12940,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jR2Vaq2gC8X-1e8Pt8eduA8"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance, with the closest pair (EGO_other_vehicle and V001) having a minimum clearance of 0.79m and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"An orthogonal entry conflict is predicted between EGO_ego_vehicle (southbound) and EGO_other_vehicle_behind (westbound) at an intersection, with a minimum clearance of 0.0m and predicted contact at 2.0s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, and the closest pair not involved in a contact prediction (EGO_ego_vehicle and V001) has a clearance of 1.72m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are expected to continue on their paths with ample clearance, the closest pair being EGO_other_vehicle_behind and V002 with 11.94m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted trajectories show clear separation, with no close interactions or potential conflicts identified.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second 1-second interval (6.0, 7.0] involving EGO_ego_vehicle and EGO_other_vehicle_behind due to an orthogonal intersection conflict with predicted body contact. The remaining intervals show no anticipated accidents, with vehicles maintaining sufficient clearances according to their predicted paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7288,
+  "candidatesTokenCount": 633,
+  "totalTokenCount": 11623,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7288
+   }
+  ],
+  "thoughtsTokenCount": 3702,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "B--YaoPXKa7W2roPxabR4Q4"
+}

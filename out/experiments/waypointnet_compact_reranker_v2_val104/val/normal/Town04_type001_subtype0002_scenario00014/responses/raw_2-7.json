@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, and stopped vehicles like T001 and P012 are passed with adequate clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted movements show sufficient clearance; EGO_other_vehicle safely passes stopped V002 and maintains distance from P015.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain clear paths; EGO_ego_vehicle's left turn path has sufficient clearance from the stopped truck T001.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles continue to maintain safe distances; EGO_other_vehicle passes the stopped car V003 with adequate clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle, making a left turn onto Road 9, is predicted to collide with EGO_other_vehicle_behind, which is traveling straight eastbound on Road 9, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval (k=5) involving EGO_ego_vehicle and EGO_other_vehicle_behind, where EGO_ego_vehicle's left turn trajectory conflicts with EGO_other_vehicle_behind's straight path. For all earlier intervals (k=1 to k=4), all road users maintain sufficient separation or safely navigate around stopped vehicles, indicating no expected accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9412,
+  "candidatesTokenCount": 621,
+  "totalTokenCount": 15691,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9412
+   }
+  ],
+  "thoughtsTokenCount": 5658,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "1vCYaqfjLMP92roPwtXW-Aw"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any overlaps or close convergences.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to proceed along their paths with sufficient clearance, and no immediate conflicts are detected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"C003\", \"EGO_other_vehicle\", \"N007\"],\n      \"reason\": \"Two separate collision events are predicted: C003 (bicycle) is predicted to collide with the stopped V002 (car) at approximately t+2.2s. Additionally, EGO_other_vehicle (car) is predicted to collide with the stopped N007 (van) at approximately t+2.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted collisions occurred in the previous interval (k=3), and no new contacts are identified for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles that are still in motion maintain safe distances from each other and from stopped vehicles, with no new collision predictions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1 and k=2) appears safe with no predicted conflicts. However, k=3 (10.0-11.0s) shows two distinct accident predictions: a bicycle colliding with a stopped car, and an observer vehicle (car) colliding with a stopped van. After these events, no further accidents are predicted in the subsequent intervals.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6466,
+  "candidatesTokenCount": 613,
+  "totalTokenCount": 9295,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6466
+   }
+  ],
+  "thoughtsTokenCount": 2216,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Bc6YarbgCL_62roPu-3gwAI"
+}

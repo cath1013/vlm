@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V033\", \"V030\", \"N004\", \"V003\"],\n      \"reason\": \"V033 turning right conflicts with V030 proceeding straight, and N004 moving straight collides with the stopped V003, both with 0.0m predicted clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N002\", \"M037\"],\n      \"reason\": \"M037 proceeding straight collides with the stopped N002 with 0.0m predicted clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C019\", \"T025\", \"EGO_ego_vehicle\", \"P016\", \"V027\", \"M042\", \"V020\"],\n      \"reason\": \"Multiple collisions are expected: C019 and T025 have intersecting paths; EGO_ego_vehicle turning right conflicts with P016 moving straight; V027 and M042 have lateral overlap on the same road; and T025 moving southwest conflicts with V020 turning right.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive clearance, including the P007 and P017 pair with a small 0.2m gap, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Several accidents are predicted across intervals k=2, k=3, and k=4, involving multiple vehicle-to-vehicle, vehicle-to-person, and moving-to-stopped vehicle conflicts. The predicted contacts are all characterized by 0.0m minimum clearance and high joint path probabilities. Interval k=1 and k=5 appear to be safe with no predicted physical contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12363,
+  "candidatesTokenCount": 696,
+  "totalTokenCount": 18416,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12363
+   }
+  ],
+  "thoughtsTokenCount": 5357,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6caYatHtLKjX2roPn4yleQ"
+}

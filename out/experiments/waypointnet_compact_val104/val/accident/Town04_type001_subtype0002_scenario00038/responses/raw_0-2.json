@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance or predicted_contact=true in this interval; all actors maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"M004\"],\n      \"reason\": \"A collision is expected between T003 (truck) and M004 (motorcycle) at 1.3 seconds after observation due to M004's higher speed and their converging paths on Road 46, resulting in 0.0m predicted clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M004\", \"V002\"],\n      \"reason\": \"A rear-end collision is expected between M004 (motorcycle) and V002 (stopped car) at 2.5 seconds after observation, as M004's path leads directly into the stationary V002, resulting in 0.0m predicted clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new distinct collision events are predicted in this interval based on the supplied future paths and predicted clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new distinct collision events are predicted in this interval, with all actors maintaining sufficient separation based on their future paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the first three seconds following the observation window. A motorcycle (M004) is first expected to collide with a truck (T003) as it overtakes in interval (3.0, 4.0]s. Subsequently, M004 is predicted to collide with a stopped car (V002) in the interval (4.0, 5.0]s, based on its predicted trajectory.\",\n  \"data_limitations\": \"The future paths for each actor are predicted independently, meaning M004's trajectory after its initial collision with T003 in k=2 is unlikely to remain unchanged when it is predicted to collide with V002 in k=3. The model does not account for such cascaded collision effects.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5734,
+  "candidatesTokenCount": 718,
+  "totalTokenCount": 11143,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5734
+   }
+  ],
+  "thoughtsTokenCount": 4691,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "I8iYasi6EvON1e8PmNTPgAY"
+}

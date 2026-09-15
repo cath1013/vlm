@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe positive minimum clearance, and no contact is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe positive minimum clearance, and no contact is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T029\", \"V032\"],\n      \"reason\": \"T029 (truck) and V032 (car) are predicted to have simultaneous body contact (0.0m clearance) at time_after_observation_s=2.7, indicating an orthogonal entry conflict as V032 turns into T029's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind (car) and EGO_other_vehicle (car) are predicted to have simultaneous body contact (0.0m clearance) at time_after_observation_s=4.0, suggesting a rear-end or side-swipe collision as EGO_other_vehicle_behind catches up.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe positive minimum clearance, and no contact is predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction horizon. The first, in interval k=3, involves a truck (T029) and a car (V032) in a turning conflict. The second, in interval k=4, involves two observer cars (EGO_other_vehicle and EGO_other_vehicle_behind) in a likely rear-end or side-swipe collision.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11056,
+  "candidatesTokenCount": 667,
+  "totalTokenCount": 16127,
+  "cachedContentTokenCount": 926,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11056
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 926
+   }
+  ],
+  "thoughtsTokenCount": 4404,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "WuyYaq6kK8md2roPrsbtqAI"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors maintain sufficient separation, with the closest predicted pair having a large clearance, indicating no expected contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle's predicted right turn path intersects with EGO_ego_vehicle's straight path, leading to an orthogonal entry conflict with a predicted minimum clearance of 0.0m at approximately 1.7 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T001\"],\n      \"reason\": \"EGO_other_vehicle's predicted right turn path intersects with T001's straight path, resulting in an orthogonal entry conflict with a predicted minimum clearance of 0.0m at approximately 2.1 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle's predicted right turn path intersects with EGO_ego_vehicle_behind's straight path, causing an orthogonal entry conflict with a predicted minimum clearance of 0.0m at approximately 3.8 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Beyond the predicted collisions in earlier intervals, no further contact is predicted for this interval, with all remaining predicted closest pairs maintaining safe clearances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"EGO_other_vehicle is predicted to make a right turn maneuver that leads to a series of orthogonal entry conflicts. Specifically, it is expected to collide with EGO_ego_vehicle in interval k=2, with T001 in interval k=3, and with EGO_ego_vehicle_behind in interval k=4, due to their respective straight paths intersecting the turning path.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5695,
+  "candidatesTokenCount": 683,
+  "totalTokenCount": 10893,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5695
+   }
+  ],
+  "thoughtsTokenCount": 4515,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "q_CYavKwOffJrfcP16-Z4QE"
+}

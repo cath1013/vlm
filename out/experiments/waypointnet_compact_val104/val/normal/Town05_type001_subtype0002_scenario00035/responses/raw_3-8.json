@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, with the closest pair having a 1.0m minimum clearance and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"P012\"],\n      \"reason\": \"EGO_other_vehicle_behind, traveling eastbound, is predicted to collide orthogonally with P012, traveling northbound, at 1.6 seconds after observation, indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V021\", \"C024\"],\n      \"reason\": \"C024 (bicycle) is predicted to rear-end the stopped vehicle V021 at 2.2 seconds after observation, as C024's southbound path intersects V021's static position with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have a 0.0m minimum clearance or contact during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"T018\", \"C024\", \"V002\"],\n      \"reason\": \"V003 is predicted to rear-end T018 at 4.9 seconds after observation as the gap between them closes to 0.0m. Additionally, C024 (bicycle) is predicted to rear-end the stopped vehicle V002 at 5.0 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collision events are predicted across the 5-second prediction window. An orthogonal collision between EGO_other_vehicle_behind and P012 is expected in interval k=2. A rear-end collision between C024 and a stopped V021 is expected in interval k=3. In the final interval, k=5, a rear-end collision between V003 and T018 is predicted, followed by another rear-end collision between C024 and a stopped V002.\",\n  \"data_limitations\": \"The rationale for the V003 and T018 collision, particularly concerning their speeds and decelerations from current state vs. path convergence, is not immediately intuitive from the summary, but the explicit 0.0m clearance and predicted contact dictate the judgment.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9352,
+  "candidatesTokenCount": 782,
+  "totalTokenCount": 15202,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9352
+   }
+  ],
+  "thoughtsTokenCount": 5068,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Ts2YaraoOqbp2roP_ZSJyQI"
+}

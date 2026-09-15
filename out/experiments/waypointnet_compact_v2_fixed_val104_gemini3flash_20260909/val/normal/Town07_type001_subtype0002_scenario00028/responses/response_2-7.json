@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 51.37,
+ "usage": {
+  "input": 5365,
+  "output": 458
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle is stationary and T001 is still over 5 metres away, approaching from the north.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "T001 continues its southbound approach, but its front has not yet reached the footprint of the stationary EGO_ego_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T001"
+    ],
+    "reason": "The southbound truck T001 makes contact with the stationary EGO_ego_vehicle, which is stopped within the truck's path at an intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T001"
+    ],
+    "reason": "The collision between the southbound truck T001 and the stationary EGO_ego_vehicle continues as the truck moves further into the car's footprint.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T001"
+    ],
+    "reason": "The collision persists as truck T001 continues its southbound trajectory through the position of the stationary EGO_ego_vehicle.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The EGO_ego_vehicle is stopped at an intersection, partially obstructing the southbound lane. The truck T001 is traveling southbound with a 1.0 probability on its current path and is predicted to collide with the stationary EGO_ego_vehicle approximately 2.7 seconds after the observation period ends.",
+  "data_limitations": ""
+ }
+}

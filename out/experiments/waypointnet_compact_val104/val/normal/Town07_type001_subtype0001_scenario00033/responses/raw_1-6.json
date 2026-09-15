@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without any geometric conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without any geometric conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The pair V009 and C004 approach closely with 0.71m clearance but do not make contact. All other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_ego_vehicle (leading) and EGO_ego_vehicle_behind (following) with a minimum clearance of 0.0m at 3.5 seconds after observation, indicating body contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While an accident is predicted in the previous interval involving EGO_ego_vehicle and EGO_ego_vehicle_behind, no new primary contact is geometrically indicated within this specific interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision is predicted between the EGO_ego_vehicle and EGO_ego_vehicle_behind during the fourth 1-second interval (9.0, 10.0] seconds after the last observation. All other observed road users maintain safe clearances throughout the 5-second prediction window.\",\n  \"data_limitations\": \"The future paths are independently predicted; if an accident occurs, the predicted paths for subsequent intervals might not accurately reflect the post-collision vehicle states for the involved actors.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6876,
+  "candidatesTokenCount": 627,
+  "totalTokenCount": 10095,
+  "cachedContentTokenCount": 876,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6876
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 876
+   }
+  ],
+  "thoughtsTokenCount": 2592,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jsWYasGUPJew1e8PxZ2poAY"
+}

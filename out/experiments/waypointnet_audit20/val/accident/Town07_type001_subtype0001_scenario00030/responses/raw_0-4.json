@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V027\",\n        \"EGO_ego_vehicle\",\n        \"P024\",\n        \"V016\",\n        \"M032\",\n        \"P019\",\n        \"V015\",\n        \"V033\",\n        \"EGO_other_vehicle_behind\",\n        \"T035\",\n        \"EGO_other_vehicle\",\n        \"T036\"\n      ],\n      \"reason\": \"Multiple severe conflicts are expected: EGO_ego_vehicle_behind has a TTC of 0.4s with V027, EGO_ego_vehicle has TTCs of 0.5s with P024 and 0.6s with P019, V016 has a TTC of 0.6s with M032, V015 has a TTC of 0.7s with V033, EGO_other_vehicle_behind has a TTC of 0.7s with T035, and EGO_other_vehicle has a TTC of 0.9s with T036. All these extremely low TTCs indicate imminent collisions as vehicles and pedestrians approach each other on conflicting paths or from opposite directions on the same road.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"T036\",\n        \"EGO_ego_vehicle_behind\",\n        \"P019\",\n        \"P024\"\n      ],\n      \"reason\": \"Several head-on or crossing-path collisions are expected. EGO_other_vehicle_behind has a linear-extrapolated contact in 1.1s with T036, and EGO_ego_vehicle_behind has contacts with P019 (1.9s) and P024 (2.0s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V012\",\n        \"N013\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is expected to have junction conflicts with V012 (TTC 2.2s) and N013 (TTC 2.9s) as it approaches the junction while these vehicles are either stopped or moving slowly on orthogonal paths.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"V016\",\n        \"V031\",\n        \"V033\",\n        \"EGO_other_vehicle_behind\",\n        \"P018\",\n        \"V012\"\n      ],\n      \"reason\": \"Multiple conflicts persist, including a potential junction conflict between EGO_ego_vehicle and EGO_other_vehicle (TTC 3.1s), head-on collisions between V016 and V031 (TTC 3.3s) and V033 (TTC 3.5s), a head-on collision between EGO_other_vehicle_behind and P018 (TTC 3.6s), and an orthogonal junction conflict between EGO_other_vehicle and V012 (TTC 3.7s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the overall junction remains busy, no immediate critical TTCs are explicitly indicated for this interval, and previous collisions would have altered the scenario.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation is highly hazardous, with multiple severe conflicts predicted to occur within the next second. Several observer vehicles (EGO_ego_vehicle, EGO_ego_vehicle_behind, EGO_other_vehicle, EGO_other_vehicle_behind) are on direct collision courses with other vehicles or pedestrians, or face imminent junction conflicts due to extremely low times to contact (TTCs) ranging from 0.4s to 0.9s. The complexity of the junction and the number of actors involved create a very high probability of multiple collisions.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values do not account for potential evasive maneuvers, braking, or turning adjustments, which might alter the precise timing or outcome of predicted collisions. Some pedestrian paths are described as 'constant-speed straight (no road match)', which might not accurately reflect their movement within a complex junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 16345,
+  "candidatesTokenCount": 1262,
+  "totalTokenCount": 26218,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 16345
+   }
+  ],
+  "thoughtsTokenCount": 8611,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ShyVaru2Hu6w1e8PmfK-sQQ"
+}

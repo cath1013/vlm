@@ -1,0 +1,1809 @@
+{
+ "provider": "gemini",
+ "modes": [
+  "binary_scenario",
+  "binary_window",
+  "strict",
+  "early",
+  "weighted",
+  "binary_bucket"
+ ],
+ "late_decay": 0.2,
+ "early_decay": 0.0,
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_63f0e5308e9d",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 4,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "mixed",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_scorable": 4,
+    "n_buckets": 4,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles are approaching the junction while maintaining safe separations and following their predicted paths."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Converging vehicles from Road 1931, Road 1986, and Road 3 maintain minimum clearance as they enter the junction area."
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle attempts a right turn that results in a corner-clipping collision with the stopped EGO_ego_vehicle at approximately t=7.4s."
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_ego_vehicle_behind rear-ends the stopped EGO_ego_vehicle at t=8.1s and subsequently side-swipes the crossing EGO_other_vehicle_behind at t=8.8s."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "mixed",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_scorable": 4,
+    "n_buckets": 4,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles are approaching the junction while maintaining safe separations and following their predicted paths."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Converging vehicles from Road 1931, Road 1986, and Road 3 maintain minimum clearance as they enter the junction area."
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle attempts a right turn that results in a corner-clipping collision with the stopped EGO_ego_vehicle at approximately t=7.4s."
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_ego_vehicle_behind rear-ends the stopped EGO_ego_vehicle at t=8.1s and subsequently side-swipes the crossing EGO_other_vehicle_behind at t=8.8s."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 2,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.5,
+    "precision": 0.0,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "n_buckets": 4,
+    "excluded_buckets": [
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles are approaching the junction while maintaining safe separations and following their predicted paths.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Converging vehicles from Road 1931, Road 1986, and Road 3 maintain minimum clearance as they enter the junction area.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_other_vehicle attempts a right turn that results in a corner-clipping collision with the stopped EGO_ego_vehicle at approximately t=7.4s.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_ego_vehicle_behind rear-ends the stopped EGO_ego_vehicle at t=8.1s and subsequently side-swipes the crossing EGO_other_vehicle_behind at t=8.8s.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle continues its turning trajectory and makes secondary contact with EGO_ego_vehicle_behind as the junction remains congested."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 2,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.5,
+    "precision": 0.0,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "n_buckets": 4,
+    "excluded_buckets": [
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "All vehicles are approaching the junction while maintaining safe separations and following their predicted paths.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Converging vehicles from Road 1931, Road 1986, and Road 3 maintain minimum clearance as they enter the junction area.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_other_vehicle attempts a right turn that results in a corner-clipping collision with the stopped EGO_ego_vehicle at approximately t=7.4s.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "EGO_ego_vehicle_behind rear-ends the stopped EGO_ego_vehicle at t=8.1s and subsequently side-swipes the crossing EGO_other_vehicle_behind at t=8.8s.",
+      "confidence": "high"
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle continues its turning trajectory and makes secondary contact with EGO_ego_vehicle_behind as the junction remains congested."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": 3,
+    "delta": null,
+    "detected": null,
+    "false_alarm": true,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_buckets": 4,
+    "bucket_accuracy": 0.5,
+    "bucket_false_alarm_rate": 0.5,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "All vehicles are approaching the junction while maintaining safe separations and following their predicted paths."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Converging vehicles from Road 1931, Road 1986, and Road 3 maintain minimum clearance as they enter the junction area."
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_other_vehicle attempts a right turn that results in a corner-clipping collision with the stopped EGO_ego_vehicle at approximately t=7.4s."
+     },
+     {
+      "k": 4,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "EGO_ego_vehicle_behind rear-ends the stopped EGO_ego_vehicle at t=8.1s and subsequently side-swipes the crossing EGO_other_vehicle_behind at t=8.8s."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_63f0e5308e9d",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 3,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "mixed",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 3,
+    "n_buckets": 3,
+    "n_positive_buckets": 4,
+    "positive_ks": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Vehicles are approaching the intersection but maintain sufficient clearance during this interval."
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "Westbound EGO_other_vehicle is predicted to collide with the stationary northbound EGO_ego_vehicle at approximately 1.4s after the last observation."
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "A second collision is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind at 2.8s, while the first two vehicles remain in contact."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "mixed",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 3,
+    "n_buckets": 3,
+    "n_positive_buckets": 4,
+    "positive_ks": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Vehicles are approaching the intersection but maintain sufficient clearance during this interval."
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "Westbound EGO_other_vehicle is predicted to collide with the stationary northbound EGO_ego_vehicle at approximately 1.4s after the last observation."
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "A second collision is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind at 2.8s, while the first two vehicles remain in contact."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.333,
+    "precision": 0.0,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "n_buckets": 3,
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Vehicles are approaching the intersection but maintain sufficient clearance during this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "Westbound EGO_other_vehicle is predicted to collide with the stationary northbound EGO_ego_vehicle at approximately 1.4s after the last observation.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "A second collision is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind at 2.8s, while the first two vehicles remain in contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind continue to exhibit body overlap as their predicted paths converge at the junction."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Predicted body overlap persists for the second vehicle pair as they move through the collision point at the intersection."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "mixed",
+    "accuracy": 0.333,
+    "precision": 0.0,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2,
+     3
+    ],
+    "n_buckets": 3,
+    "excluded_buckets": [
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Vehicles are approaching the intersection but maintain sufficient clearance during this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "Westbound EGO_other_vehicle is predicted to collide with the stationary northbound EGO_ego_vehicle at approximately 1.4s after the last observation.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": true,
+      "in_credit_window": false,
+      "reason": "A second collision is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind at 2.8s, while the first two vehicles remain in contact.",
+      "confidence": "high"
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_ego_vehicle_behind and EGO_other_vehicle_behind continue to exhibit body overlap as their predicted paths converge at the junction."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Predicted body overlap persists for the second vehicle pair as they move through the collision point at the intersection."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": 2,
+    "delta": null,
+    "detected": null,
+    "false_alarm": true,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 2,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_buckets": 3,
+    "bucket_accuracy": 0.333,
+    "bucket_false_alarm_rate": 0.667,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Vehicles are approaching the intersection but maintain sufficient clearance during this interval."
+     },
+     {
+      "k": 2,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "Westbound EGO_other_vehicle is predicted to collide with the stationary northbound EGO_ego_vehicle at approximately 1.4s after the last observation."
+     },
+     {
+      "k": 3,
+      "status": "FP",
+      "truth": false,
+      "pred": true,
+      "scorable": true,
+      "reason": "A second collision is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind at 2.8s, while the first two vehicles remain in contact."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 2,
+    "label": "2-7",
+    "t_start_s": 2.0,
+    "t_end_s": 7.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_63f0e5308e9d",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 2,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles maintain safe longitudinal distances, with V026 more than 8 meters behind EGO_other_vehicle."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V026 closes the gap to EGO_other_vehicle but its front bumper remains approximately 0.4 meters behind the rear of the stopped vehicle at the end of the interval."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 3,
+    "positive_ks": [
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles maintain safe longitudinal distances, with V026 more than 8 meters behind EGO_other_vehicle."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V026 closes the gap to EGO_other_vehicle but its front bumper remains approximately 0.4 meters behind the rear of the stopped vehicle at the end of the interval."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "The vehicles maintain safe longitudinal distances, with V026 more than 8 meters behind EGO_other_vehicle.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "V026 closes the gap to EGO_other_vehicle but its front bumper remains approximately 0.4 meters behind the rear of the stopped vehicle at the end of the interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V026 is traveling Westbound and fails to decelerate for the stationary EGO_other_vehicle, resulting in a rear-end collision at approximately 9.2s."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The predicted path for V026 continues directly through the space occupied by the stationary EGO_other_vehicle, indicating persistent body overlap."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V026 and EGO_other_vehicle remain in contact as the rear of V026 has not yet cleared the front position of the stationary vehicle."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 2,
+     "label": "2-7",
+     "t_start_s": 2.0,
+     "t_end_s": 7.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "The vehicles maintain safe longitudinal distances, with V026 more than 8 meters behind EGO_other_vehicle.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "V026 closes the gap to EGO_other_vehicle but its front bumper remains approximately 0.4 meters behind the rear of the stopped vehicle at the end of the interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V026 is traveling Westbound and fails to decelerate for the stationary EGO_other_vehicle, resulting in a rear-end collision at approximately 9.2s."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The predicted path for V026 continues directly through the space occupied by the stationary EGO_other_vehicle, indicating persistent body overlap."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V026 and EGO_other_vehicle remain in contact as the rear of V026 has not yet cleared the front position of the stationary vehicle."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 2,
+     "FN": 0
+    },
+    "n_buckets": 2,
+    "bucket_accuracy": 1.0,
+    "bucket_false_alarm_rate": 0.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "The vehicles maintain safe longitudinal distances, with V026 more than 8 meters behind EGO_other_vehicle."
+     },
+     {
+      "k": 2,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V026 closes the gap to EGO_other_vehicle but its front bumper remains approximately 0.4 meters behind the rear of the stopped vehicle at the end of the interval."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 3,
+    "label": "3-8",
+    "t_start_s": 3.0,
+    "t_end_s": 8.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_63f0e5308e9d",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 1,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 4,
+    "positive_ks": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V026 is approaching the stationary EGO_other_vehicle from behind but maintains a safe distance during this interval."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "FP",
+    "bucket_status": "TN",
+    "truth": false,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 4,
+    "positive_ks": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V026 is approaching the stationary EGO_other_vehicle from behind but maintains a safe distance during this interval."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 3,
+     "label": "3-8",
+     "t_start_s": 3.0,
+     "t_end_s": 8.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "V026 is approaching the stationary EGO_other_vehicle from behind but maintains a safe distance during this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V026 fails to stop and rear-ends the stationary EGO_other_vehicle towards the end of the interval."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The rear-end collision between V026 and EGO_other_vehicle continues as the vehicles' footprints overlap."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The rear-end collision between V026 and EGO_other_vehicle continues as the vehicles' footprints overlap."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "A secondary orthogonal collision occurs when EGO_ego_vehicle_behind, moving north, impacts the side of the Westbound V026."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 3,
+     "label": "3-8",
+     "t_start_s": 3.0,
+     "t_end_s": 8.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "status": "TN",
+    "accuracy": 1.0,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "V026 is approaching the stationary EGO_other_vehicle from behind but maintains a safe distance during this interval.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "V026 fails to stop and rear-ends the stationary EGO_other_vehicle towards the end of the interval."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The rear-end collision between V026 and EGO_other_vehicle continues as the vehicles' footprints overlap."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The rear-end collision between V026 and EGO_other_vehicle continues as the vehicles' footprints overlap."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "A secondary orthogonal collision occurs when EGO_ego_vehicle_behind, moving north, impacts the side of the Westbound V026."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 0
+    },
+    "n_buckets": 1,
+    "bucket_accuracy": 1.0,
+    "bucket_false_alarm_rate": 0.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "V026 is approaching the stationary EGO_other_vehicle from behind but maintains a safe distance during this interval."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 4,
+    "label": "4-9",
+    "t_start_s": 4.0,
+    "t_end_s": 9.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_63f0e5308e9d",
+   "scenario_outcome": "normal",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": false,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 0,
+    "n_scorable": 0,
+    "n_buckets": 0,
+    "per_window": []
+   },
+   "binary_bucket": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": null,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 0,
+    "n_buckets": 0,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": []
+   },
+   "binary": {
+    "scorable": false,
+    "status": "UNSCORABLE",
+    "truth": null,
+    "pred": null,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 0,
+    "n_buckets": 0,
+    "n_positive_buckets": 0,
+    "positive_ks": [],
+    "per_interval": []
+   },
+   "strict": {
+    "window": {
+     "index": 4,
+     "label": "4-9",
+     "t_start_s": 4.0,
+     "t_end_s": 9.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "UNSCORABLE",
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": []
+    },
+    "scored_buckets": [],
+    "n_buckets": 0,
+    "excluded_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Nearby actors such as EGO_other_vehicle and EGO_other_vehicle_behind maintain a clearance of over 1.4m while following their predicted paths."
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle and V001 are predicted to pass each other with a minimum clearance of 1.63m, avoiding contact."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All moving actors are on diverging or parallel paths with sufficient lateral or longitudinal separation."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The paths of the primary moving vehicles (EGO_ego_vehicle and V001) remain spatially separated as they continue through the intersection area."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Projected trajectories show no convergence that would result in physical contact between any actors."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 4,
+     "label": "4-9",
+     "t_start_s": 4.0,
+     "t_end_s": 9.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_63f0e5308e9d",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "UNSCORABLE",
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": []
+    },
+    "scored_buckets": [],
+    "n_buckets": 0,
+    "excluded_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 9.5,
+    "event": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Nearby actors such as EGO_other_vehicle and EGO_other_vehicle_behind maintain a clearance of over 1.4m while following their predicted paths."
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "EGO_other_vehicle and V001 are predicted to pass each other with a minimum clearance of 1.63m, avoiding contact."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "All moving actors are on diverging or parallel paths with sufficient lateral or longitudinal separation."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The paths of the primary moving vehicles (EGO_ego_vehicle and V001) remain spatially separated as they continue through the intersection area."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Projected trajectories show no convergence that would result in physical contact between any actors."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": false,
+    "score": null,
+    "k_true": null,
+    "alarm_k": null,
+    "delta": null,
+    "detected": null,
+    "false_alarm": false,
+    "scorable": false,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_buckets": 0,
+    "bucket_accuracy": null,
+    "bucket_false_alarm_rate": null,
+    "per_interval": []
+   }
+  }
+ ],
+ "aggregate": {
+  "n_windows": 5,
+  "binary_window": {
+   "n_windows": 0,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": null,
+   "precision": null,
+   "recall": null,
+   "f1": null,
+   "n_scorable_windows": 0,
+   "n_censored_windows": 5
+  },
+  "binary_bucket": {
+   "n_windows": 4,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 4,
+    "TN": 6,
+    "FN": 0
+   },
+   "accuracy": 0.6,
+   "precision": 0.0,
+   "recall": null,
+   "f1": null,
+   "mean_positive_buckets": 3.5
+  },
+  "binary_scenario": {
+   "n_scenarios": 1,
+   "n_scorable_scenarios": 0,
+   "n_censored_scenarios": 1,
+   "counts": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": null,
+   "precision": null,
+   "recall": null,
+   "f1": null,
+   "per_scenario": [
+    {
+     "scenario_ref": "scn_63f0e5308e9d",
+     "outcome": "normal",
+     "status": "UNSCORABLE",
+     "scorable": false,
+     "n_windows": 5,
+     "n_eligible_windows": 0
+    }
+   ]
+  },
+  "binary": {
+   "n_windows": 4,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 4,
+    "TN": 6,
+    "FN": 0
+   },
+   "accuracy": 0.6,
+   "precision": 0.0,
+   "recall": null,
+   "f1": null,
+   "mean_positive_buckets": 3.5
+  },
+  "strict": {
+   "n_windows": 5,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 4,
+    "TN": 6,
+    "FN": 0
+   },
+   "accuracy": 0.6,
+   "precision": 0.0,
+   "recall": null,
+   "vehicle_recall_mean": null,
+   "actor_precision_mean": null,
+   "events": {
+    "n": 0,
+    "exact": 0,
+    "early": 0,
+    "none": 0,
+    "detection_rate": null,
+    "mean_lead_s": null
+   },
+   "response_issue_counts": {}
+  },
+  "early": {
+   "n_windows": 5,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 4,
+    "TN": 6,
+    "FN": 0
+   },
+   "accuracy": 0.6,
+   "precision": 0.0,
+   "recall": null,
+   "vehicle_recall_mean": null,
+   "actor_precision_mean": null,
+   "events": {
+    "n": 0,
+    "exact": 0,
+    "early": 0,
+    "none": 0,
+    "detection_rate": null,
+    "mean_lead_s": null
+   },
+   "response_issue_counts": {}
+  },
+  "weighted": {
+   "n_event_windows": 0,
+   "n_buckets": 10,
+   "counts": {
+    "TP": 0,
+    "FP": 4,
+    "TN": 6,
+    "FN": 0
+   },
+   "bucket_accuracy": 0.6,
+   "mean_score": null,
+   "n_detected": 0,
+   "n_missed": 0,
+   "detection_rate": null,
+   "n_no_event_windows": 4,
+   "false_alarms": 2,
+   "window_false_alarm_rate": 0.5,
+   "false_alarm_rate": 0.4
+  }
+ }
+}

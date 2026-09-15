@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances according to their predicted paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances according to their predicted paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite some convergences, all vehicles maintain sufficient clearance based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to rear-end EGO_other_vehicle at approximately 3.8 seconds after observation (t=5.8s absolute), as indicated by a 0.0m minimum clearance and explicit predicted contact in the input data.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although an accident is expected in the previous interval involving EGO_other_vehicle and EGO_other_vehicle_behind, no new physical contacts are explicitly predicted for other actor pairs in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the fourth 1-second interval (k=4) where EGO_other_vehicle_behind is expected to rear-end EGO_other_vehicle. This is supported by the predicted paths showing the trailing vehicle closing the distance to zero. No other explicit physical contacts are predicted for other actors within the 5-second prediction window.\",\n  \"data_limitations\": \"The model for predicting future paths does not account for the state of vehicles after a collision. Therefore, subsequent impacts or post-collision dynamics are not reflected in later intervals.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7379,
+  "candidatesTokenCount": 618,
+  "totalTokenCount": 12598,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7379
+   }
+  ],
+  "thoughtsTokenCount": 4601,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "h_KYatXBB9GA0-kP8-SK8Qs"
+}

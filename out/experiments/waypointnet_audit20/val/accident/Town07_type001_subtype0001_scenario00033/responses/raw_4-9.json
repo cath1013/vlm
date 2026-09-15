@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle has orthogonal entry conflicts with EGO_ego_vehicle_behind (TTC 0.6s) and EGO_other_vehicle_behind (TTC 0.6s) at junction J15, indicating an imminent multi-vehicle collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary multi-vehicle collision is expected in the previous interval (k=1); subsequent predictions based on pre-collision trajectories are invalid, and no new independent conflicts are identified.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary multi-vehicle collision is expected in interval k=1; subsequent predictions based on pre-collision trajectories are invalid, and no new independent conflicts are identified.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary multi-vehicle collision is expected in interval k=1; subsequent predictions based on pre-collision trajectories are invalid, and no new independent conflicts are identified.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary multi-vehicle collision is expected in interval k=1; subsequent predictions based on pre-collision trajectories are invalid, and no new independent conflicts are identified.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence multi-vehicle collision is predicted at junction J15 within the first prediction interval (k=1), involving EGO_ego_vehicle, EGO_ego_vehicle_behind, and EGO_other_vehicle_behind due to simultaneous orthogonal entries and very low TTCs. For subsequent intervals, no further accidents are predicted as the system state would be fundamentally altered by the initial collision, and no other independent critical conflicts are identified among other road users.\",\n  \"data_limitations\": \"The primary data limitation is the absence of a model for post-collision dynamics, which makes predictions beyond the initial impact uncertain. Additionally, the lack of traffic signal information means assumptions about right-of-way at the junction cannot be made, though the explicit TTC values indicate an expected conflict regardless.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9319,
+  "candidatesTokenCount": 746,
+  "totalTokenCount": 13647,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9319
+   }
+  ],
+  "thoughtsTokenCount": 3582,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0x2Vas-LDNqi9tMPoKqY8Qw"
+}

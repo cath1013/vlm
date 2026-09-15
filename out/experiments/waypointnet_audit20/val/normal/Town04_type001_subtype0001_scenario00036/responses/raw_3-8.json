@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind (1m to junction, 5km/h) and EGO_other_vehicle_behind (5m to junction, 24km/h accelerating) are approaching the junction from orthogonal directions and are projected to enter simultaneously, leading to an immediate collision within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_other_vehicle is accelerating towards V001, which is stopped within the junction, and given their positions and speeds (current gap 9.9m, EGO_other_vehicle speed 25km/h), a collision is expected around t=9.43s (1.43 seconds after the last observation).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_other_vehicle is moving at a high speed (25km/h and accelerating) and its projected path in the junction area will conflict with EGO_ego_vehicle_behind, with a linear-extrapolated contact time of 2.9s (t=10.9s), indicating a high probability of collision if previous conflicts did not fully resolve this interaction.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind continues its accelerated path towards V001, which is stopped within the junction, leading to an orthogonal conflict as indicated by a linear-extrapolated contact time of 3.6s (t=11.6s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further imminent collision conflicts are identified based on the provided trajectories and closing rates for this interval, assuming prior collisions are contained or resolved without new immediate threats.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic situation at this three-way junction is highly dynamic with multiple imminent conflicts. EGO_ego_vehicle_behind and EGO_other_vehicle_behind are on a collision course due to simultaneous orthogonal junction entry in k=1. Subsequently, EGO_other_vehicle is likely to collide with the stopped V001 in k=2, and other conflicts persist between EGO_ego_vehicle_behind and EGO_other_vehicle in k=3, and EGO_other_vehicle_behind and V001 in k=4, making the junction a high-risk area for the entire prediction window.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in X.Xs' values, while provided, are noted as not being path predictions and therefore may not accurately reflect actual collision times or preventions based on complex vehicle maneuvers or right-of-way rules. The absence of traffic signal state and lane marking types prevents a full understanding of right-of-way at the junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11199,
+  "candidatesTokenCount": 967,
+  "totalTokenCount": 23518,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11199
+   }
+  ],
+  "thoughtsTokenCount": 11352,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LBuVavraLe7I0-kPnLzi0Qk"
+}

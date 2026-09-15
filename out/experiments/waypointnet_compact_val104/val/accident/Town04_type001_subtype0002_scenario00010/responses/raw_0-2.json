@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close approaches are indicated for this interval, and all actors appear to be following their paths safely.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V025\", \"V026\"],\n      \"reason\": \"Vehicle V026, traveling southbound on Road 29, is predicted to collide with the stopped vehicle V025 in a rear-end collision at approximately 3.6 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P011\", \"P014\", \"V027\", \"V026\", \"V025\"],\n      \"reason\": \"Pedestrian P014 is predicted to collide with P011 as they move westbound. Additionally, vehicle V027 is predicted to collide with V026 and the already impacted V025 in a chain rear-end collision on Road 29.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close approaches are indicated for this interval, with all actors maintaining sufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain positive minimum clearance, indicating no physical contact between any actors.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates multiple rear-end collisions. Vehicle V026 is expected to collide with the stopped vehicle V025 in the (3.0, 4.0]s interval. Subsequently, in the (4.0, 5.0]s interval, vehicle V027 is predicted to collide with both V026 and V025, potentially creating a chain collision. A separate pedestrian collision between P011 and P014 is also predicted in the (4.0, 5.0]s interval.\",\n  \"data_limitations\": \"The path predictions are independently generated for each actor, which means subsequent collisions (e.g., V027 hitting V026 after V026 has already hit V025) are based on paths that would realistically change after an initial impact. The judgment strictly follows the provided path geometry.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10738,
+  "candidatesTokenCount": 734,
+  "totalTokenCount": 18829,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10738
+   }
+  ],
+  "thoughtsTokenCount": 7357,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "YMeYaq6dGoqd0-kPt5m_CQ"
+}

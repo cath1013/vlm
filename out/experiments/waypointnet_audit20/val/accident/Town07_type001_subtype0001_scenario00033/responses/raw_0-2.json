@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V015\",\n        \"EGO_other_vehicle\",\n        \"V016\",\n        \"V002\",\n        \"V014\",\n        \"EGO_ego_vehicle\",\n        \"V007\",\n        \"EGO_ego_vehicle_behind\",\n        \"V006\"\n      ],\n      \"reason\": \"Multiple vehicles are on the same road segments (Road 11, Road 20, Road 21) travelling in opposing directions, with extremely close distances (3.1m to 4.9m) and high closing rates, resulting in multiple imminent head-on collisions with estimated TTCs well below 0.5 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the major collisions in k=1, the scene is drastically altered, and new dynamic conflicts with uncollided vehicles cannot be confidently predicted based on the initial state.\",\n      \"confidence\": \"low\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the major collisions in k=1, the scene is drastically altered, and new dynamic conflicts with uncollided vehicles cannot be confidently predicted based on the initial state.\",\n      \"confidence\": \"low\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the major collisions in k=1, the scene is drastically altered, and new dynamic conflicts with uncollided vehicles cannot be confidently predicted based on the initial state.\",\n      \"confidence\": \"low\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the major collisions in k=1, the scene is drastically altered, and new dynamic conflicts with uncollided vehicles cannot be confidently predicted based on the initial state.\",\n      \"confidence\": \"low\"\n    }\n  ],\n  \"overall_assessment\": \"The scene at t=2s presents numerous critical head-on collision scenarios across different road segments, involving ten vehicles with extremely short time-to-contact values. These accidents are highly probable to occur within the first second of the prediction window (k=1). Due to the catastrophic nature and multiplicity of these initial predicted collisions, further dynamic accident predictions for subsequent intervals are unfeasible.\",\n  \"data_limitations\": \"The description of multiple vehicles as 'lane 1 of 1' on the same road (e.g., Road 21 northeastbound and Road 21 southwestbound) while having very close distances (3-5m) and opposing headings implies severe head-on collision risks. While the 'linear-extrapolated contact' values support this, the lane configuration details could be interpreted differently if the map were more granular.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8356,
+  "candidatesTokenCount": 815,
+  "totalTokenCount": 16313,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8356
+   }
+  ],
+  "thoughtsTokenCount": 7142,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "6ByVasGPIMOWosUP--_CsQI"
+}

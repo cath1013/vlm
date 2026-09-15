@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P009\"],\n      \"reason\": \"EGO_ego_vehicle (car) and P009 (person) are predicted to have an orthogonal crossing conflict, resulting in physical contact at approximately 0.3 seconds into the interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V004\", \"V017\", \"V018\", \"V015\", \"P009\"],\n      \"reason\": \"Multiple accidents are expected: V004 is predicted to rear-end V003 at 1.5s, V018 is predicted to rear-end the stopped V017 at 1.6s, and V015 (car) is predicted to collide with P009 (person) in an orthogonal crossing conflict at 1.7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind and EGO_ego_vehicle_behind are predicted to have a head-on collision at approximately 2.3 seconds into the interval as their paths converge.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N001\", \"V004\", \"V018\", \"V019\", \"V017\", \"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"Multiple rear-end collisions are expected: V004 is predicted to hit the stopped N001 at 3.1s, V019 is predicted to rear-end V018 at 3.5s, V019 is predicted to hit the stopped V017 at 3.8s, and EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle at 4.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap during this interval, with the closest pair maintaining a clearance of 0.25 meters.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple distinct accidents. These include several rear-end collisions where faster vehicles impact slower or stopped vehicles, two orthogonal crossing conflicts involving a pedestrian, and a head-on collision between two observer vehicles. All predicted contacts show zero minimum clearance and a joint path probability of 1.0, suggesting robust geometric evidence for these events.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8440,
+  "candidatesTokenCount": 827,
+  "totalTokenCount": 13846,
+  "cachedContentTokenCount": 900,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8440
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 900
+   }
+  ],
+  "thoughtsTokenCount": 4579,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "l8CYarCxFo220-kP1-WxiAI"
+}

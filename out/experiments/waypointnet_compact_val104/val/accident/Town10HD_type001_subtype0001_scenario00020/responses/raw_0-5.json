@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation along their predicted paths in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"V019\", \"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"V019 is predicted to rear-end the stopped V018. Additionally, EGO_other_vehicle_behind is predicted to have a head-on collision with the stopped EGO_ego_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\", \"N001\", \"V003\"],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to have a head-on collision due to converging paths. Furthermore, V003 is predicted to rear-end the stopped N001.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite the predicted contact for V003-V004 and N001-V004, the path geometry shows V004 consistently remains ahead of V003 and N001, indicating no physical contact within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted within the first three intervals (k=2 and k=3). These include rear-end impacts with stopped vehicles (V019 into V018, V003 into N001) and head-on collisions involving opposing traffic (EGO_other_vehicle_behind with EGO_ego_vehicle, and EGO_other_vehicle_behind with EGO_ego_vehicle_behind). The latter intervals (k=1, k=4, k=5) show no expected accidents, as predicted contacts in k=5 are contradicted by the explicit path geometry.\",\n  \"data_limitations\": \"The `predicted_closest_pairs` data contained entries with `predicted_contact=true` and `minimum_clearance_m=0.0` that were inconsistent with the provided future path waypoints (specifically for V003-V004 and N001-V004 in interval k=5), requiring manual override based on clear path geometry. Also, multiple collision predictions for the same actor (e.g., EGO_other_vehicle_behind, V003) indicate that paths are independently predicted, not adjusted after an earlier collision event.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8997,
+  "candidatesTokenCount": 834,
+  "totalTokenCount": 20961,
+  "cachedContentTokenCount": 907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8997
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 907
+   }
+  ],
+  "thoughtsTokenCount": 11130,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "rcCYao6XLreArfcPhcDukAg"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, and there are no direct conflicts or overlaps between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, with EGO_other_vehicle safely passing stopped vehicle V014 with 1.97m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The paths of EGO_other_vehicle_behind and EGO_ego_vehicle_behind cross, but the predicted minimum clearance of 1.0m indicates no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, and there are no direct conflicts or overlaps between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to rear-end or sideswipe EGO_other_vehicle while both are traveling southbound in the same lane, with a predicted minimum clearance of 0.0m at 4.1 seconds after observation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval (k=5) involving EGO_ego_vehicle and EGO_other_vehicle. EGO_ego_vehicle is projected to overtake EGO_other_vehicle, leading to a direct physical contact according to the trajectory predictor. All other vehicle interactions across the 5-second window maintain sufficient clearance, indicating no other accidents are expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6162,
+  "candidatesTokenCount": 613,
+  "totalTokenCount": 9474,
+  "cachedContentTokenCount": 862,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6162
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 862
+   }
+  ],
+  "thoughtsTokenCount": 2699,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2eeYasDDNPH_1e8P4Z_tiQY"
+}

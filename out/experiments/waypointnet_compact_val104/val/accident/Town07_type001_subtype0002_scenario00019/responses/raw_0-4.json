@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain safe clearances throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain safe clearances throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V008\", \"V010\"],\n      \"reason\": \"V008, traveling eastbound, is predicted to collide with the stopped V010 as its path intersects the stationary vehicle's footprint.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain safe clearances throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"N002\", \"EGO_other_vehicle\", \"V008\", \"V010\"],\n      \"reason\": \"Multiple collisions are predicted: V003 is predicted to rear-end the stopped N002; EGO_other_vehicle making a left turn is predicted to collide with V008, and also with the stopped V010.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted within the 5-second prediction window. In interval k=3, V008 is predicted to collide with the stopped V010. In interval k=5, additional collisions are expected, including V003 rear-ending N002, and EGO_other_vehicle colliding with both V008 and V010.\",\n  \"data_limitations\": \"The trajectory predictor generates independent paths for each actor. This can lead to scenarios where an actor's path continues even after a predicted collision, which is physically unrealistic but must be judged as given.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5179,
+  "candidatesTokenCount": 624,
+  "totalTokenCount": 10078,
+  "cachedContentTokenCount": 837,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5179
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 837
+   }
+  ],
+  "thoughtsTokenCount": 4275,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ScmYao6bK-T11e8PqLWp8Qg"
+}

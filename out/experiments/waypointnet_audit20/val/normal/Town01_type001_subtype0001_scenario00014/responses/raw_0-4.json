@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle is decelerating as it approaches a junction, and EGO_other_vehicle_behind is accelerating behind it, the predicted time to collision is approximately 1.86 seconds from t=4s, placing the accident just outside this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle, ahead on Road 9 westbound, is decelerating (-1.1m/s²) as it approaches a junction (10m away), while EGO_other_vehicle_behind, following it on the same road, is accelerating (+3.9m/s²). With an initial gap of 16.9m and a relative acceleration of 5.0m/s², a rear-end collision is predicted to occur in approximately 1.86 seconds from t=4s, which falls within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"A rear-end collision between EGO_other_vehicle and EGO_other_vehicle_behind is predicted to occur in the prior interval (k=2) due to the closing speed and acceleration profiles.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"A rear-end collision between EGO_other_vehicle and EGO_other_vehicle_behind is predicted to occur in the prior interval (k=2).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"A rear-end collision between EGO_other_vehicle and EGO_other_vehicle_behind is predicted to occur in the prior interval (k=2).\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high likelihood of a rear-end collision exists between EGO_other_vehicle and EGO_other_vehicle_behind in the second future interval (5-6s). EGO_other_vehicle is decelerating towards a junction while EGO_other_vehicle_behind is accelerating behind it, leading to an imminent collision based on calculated TTC. Other vehicles are either stopped, on different roads with sufficient separation, or have safe junction crossing times.\",\n  \"data_limitations\": \"The absence of traffic signal states and stop line information means right-of-way at junctions could not be fully assessed for all vehicles, although the primary predicted accident is a car-following collision less dependent on these factors. Linear-extrapolated contact times were noted as not accounting for lateral separation, which helped in dismissing some potential false positives.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8638,
+  "candidatesTokenCount": 898,
+  "totalTokenCount": 22013,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8638
+   }
+  ],
+  "thoughtsTokenCount": 12477,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "5BiVaquYGt3U1e8Pveb08Q4"
+}

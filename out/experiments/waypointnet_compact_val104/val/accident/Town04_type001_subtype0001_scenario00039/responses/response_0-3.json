@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.53,
+ "usage": {
+  "input": 10378,
+  "output": 590
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V016",
+     "V025"
+    ],
+    "reason": "Car V016 (straight) and car V025 (right turn) have intersecting paths, resulting in a predicted simultaneous body contact at 0.9s into the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or insufficient clearances are identified in this interval; all actors are expected to maintain safe distances.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or insufficient clearances are identified in this interval; all actors are expected to maintain safe distances.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "C002",
+     "V001"
+    ],
+    "reason": "Bicycle C002 is predicted to collide with the stopped car V001, resulting in a rear-end contact at 3.5s into the interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although P010 and T021 have a small predicted clearance of 0.15m, this does not constitute physical contact, and other actors maintain safe distances.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct accidents are expected within the 5-second prediction window. The first occurs between V016 and V025 in the first interval due to conflicting paths. The second involves C002 rear-ending the stopped V001 in the fourth interval. All other interactions show no predicted contact.",
+  "data_limitations": ""
+ }
+}

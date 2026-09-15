@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P005\"],\n      \"reason\": \"P005 is 5m directly ahead of EGO_other_vehicle, both moving at 13km/h towards an intersecting junction space. EGO_other_vehicle is 3m from the junction, and P005's current position places it in EGO_other_vehicle's immediate path, making an imminent collision highly probable.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle is expected to be involved in an accident with P005 in the preceding interval, which would alter its trajectory and prevent a subsequent conflict with EGO_ego_vehicle_behind.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate conflicts are apparent as other vehicles and pedestrians maintain their predicted straight paths or remain stopped, assuming prior accidents have resolved the involved actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P004\"],\n      \"reason\": \"EGO_ego_vehicle is closing rapidly on P004, both on Road 21 northbound. P004 is 20m ahead and moving at 7km/h, while EGO_ego_vehicle is at 29km/h. A rear-end collision is highly likely around t=9.28s as EGO_ego_vehicle overtakes P004.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle is expected to be involved in an accident with P004 in the previous interval, which would alter its trajectory and prevent further conflicts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents two significant collision risks involving pedestrians. First, EGO_other_vehicle is on an immediate collision course with pedestrian P005 at a junction. Second, EGO_ego_vehicle is projected to rear-end pedestrian P004 as it attempts to overtake on the same road. Assuming these primary conflicts occur, subsequent interactions for the involved vehicles are mitigated.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop line information, and lane marking types prevents a complete understanding of right-of-way at junctions, which could impact the precise timing or avoidance of the predicted accidents.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10239,
+  "candidatesTokenCount": 769,
+  "totalTokenCount": 19724,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10239
+   }
+  ],
+  "thoughtsTokenCount": 8716,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "cxmVap6iC8fLrfcPjri7uAg"
+}

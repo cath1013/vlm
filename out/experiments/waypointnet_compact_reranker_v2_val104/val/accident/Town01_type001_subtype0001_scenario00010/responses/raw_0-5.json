@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle proceeds straight through the intersection while EGO_other_vehicle executes a right turn, resulting in a direct orthogonal collision at 0.6 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further predicted contacts or dangerously close clearances among other vehicles in this interval, assuming the k=1 collision has occurred.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and independent paths without any predicted geometric overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously small clearances between any vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances with no predicted geometric overlaps; the minimum clearance between EGO_ego_vehicle_behind and EGO_other_vehicle_behind is 1.23m, indicating no contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence orthogonal collision is predicted between EGO_ego_vehicle and EGO_other_vehicle in the first second of the prediction window (k=1) as EGO_other_vehicle turns right into the path of EGO_ego_vehicle. For subsequent intervals (k=2 to k=5), no further accidents are predicted, with all other vehicles maintaining safe clearances or being involved in a potential prior collision.\",\n  \"data_limitations\": \"The absence of explicit traffic signal states or right-of-way rules at the intersection means the judgment for the k=1 collision relies purely on the geometric intersection of predicted trajectories.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5665,
+  "candidatesTokenCount": 626,
+  "totalTokenCount": 8926,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5665
+   }
+  ],
+  "thoughtsTokenCount": 2635,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "XOSYatu3DKf91e8P7rbKwAY"
+}

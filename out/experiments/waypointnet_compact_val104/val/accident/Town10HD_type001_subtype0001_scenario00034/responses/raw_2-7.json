@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles; no contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"V005\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"V005 is predicted to collide with the stopped V004 as V005 proceeds straight. Simultaneously, EGO_ego_vehicle and EGO_other_vehicle are predicted to collide in a turn, with zero minimum clearance at 2.0 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between vehicles; no contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"V005\",\n        \"V004\",\n        \"T006\"\n      ],\n      \"reason\": \"V005 is predicted to collide with the stopped EGO_other_vehicle_behind, while T006 is predicted to collide with the stopped V004. Both contacts have a minimum clearance of 0.0 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle are predicted to collide at an intersection, with their turning paths overlapping resulting in zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the future 5-second window. In the second 1-second interval, V005 collides with V004, and EGO_ego_vehicle collides with EGO_other_vehicle. The fourth 1-second interval sees V005 colliding with EGO_other_vehicle_behind, and T006 colliding with V004. Finally, the fifth 1-second interval predicts a collision between EGO_ego_vehicle_behind and EGO_other_vehicle.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9732,
+  "candidatesTokenCount": 747,
+  "totalTokenCount": 12768,
+  "cachedContentTokenCount": 915,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9732
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 915
+   }
+  ],
+  "thoughtsTokenCount": 2289,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "H8GYarjUBd7PrfcPlI2f0Qo"
+}

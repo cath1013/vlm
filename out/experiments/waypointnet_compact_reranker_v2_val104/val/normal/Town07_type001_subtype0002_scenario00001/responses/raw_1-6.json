@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain clear separation as they proceed on their respective paths, with no predicted conflicts or close interactions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The paths of all active vehicles diverge or maintain sufficient distance, indicating no impending collisions.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"A collision is expected between EGO_ego_vehicle and EGO_other_vehicle due to orthogonal entry conflict at an intersection, as indicated by a predicted minimum clearance of 0.0m and predicted_contact=true at 3.0 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Apart from the predicted accident in the prior interval, other vehicles maintain sufficient distances from each other and from the affected vehicles.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite some close approaches like EGO_other_vehicle and T001 (0.25m clearance), no physical contact is predicted for any pair in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence collision is predicted between EGO_ego_vehicle and EGO_other_vehicle at an intersection during the 3rd second interval (8.0-9.0s). Other close interactions, such as EGO_other_vehicle passing T001 with 0.25m clearance in the 5th interval, do not indicate physical contact according to the provided prediction data.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6808,
+  "candidatesTokenCount": 605,
+  "totalTokenCount": 10004,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6808
+   }
+  ],
+  "thoughtsTokenCount": 2591,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "EfOYarPHFvrdvr0P3YSPkQk"
+}

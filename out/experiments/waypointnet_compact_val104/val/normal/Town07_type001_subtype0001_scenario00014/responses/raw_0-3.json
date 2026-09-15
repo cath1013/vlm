@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient clearance and follow their predicted paths without any geometric overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind, accelerating rapidly (27 kph), is predicted to rear-end the slower EGO_ego_vehicle (4 kph) which is keeping lane in front of it at approximately 1.5 seconds after observation (4.5s total time).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V012\", \"C013\"],\n      \"reason\": \"Bicycle C013, moving westbound at 8 kph, is predicted to collide with the stopped car V012 at approximately 2.7 seconds after observation (5.7s total time), as C013's path directly intersects V012's stationary position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient clearance and follow their predicted paths without any geometric overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain sufficient clearance and follow their predicted paths without any geometric overlap in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window. A rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle is predicted in interval k=2 as the faster trailing observer vehicle catches up to the slower leading observer vehicle in the same lane. Subsequently, a bicycle (C013) is predicted to collide with a stopped car (V012) in interval k=3.\",\n  \"data_limitations\": \"The predictions assume all actors follow their single most probable path with 1.0 probability, which might not account for evasive maneuvers or changes in intent. The absence of traffic signal or intersection status information might limit context for stopped vehicles, but the current predicted paths clearly indicate direct geometric contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7956,
+  "candidatesTokenCount": 704,
+  "totalTokenCount": 11752,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7956
+   }
+  ],
+  "thoughtsTokenCount": 3092,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9sSYasTyMoSw0-kPtcmTiA8"
+}

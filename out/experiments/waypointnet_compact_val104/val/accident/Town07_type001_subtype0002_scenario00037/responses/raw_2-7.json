@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind makes a left turn at a junction, crossing into the path of EGO_ego_vehicle_behind, resulting in a predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M003\", \"M004\"],\n      \"reason\": \"Motorcycle M004, moving westbound, drives directly into the stopped motorcycle M003.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V002\"],\n      \"reason\": \"EGO_ego_vehicle_behind's path clearly intersects with the stopped vehicle V002, leading to a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"M004\", \"M003\", \"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind's path intersects with M004 and M003, while EGO_other_vehicle and EGO_ego_vehicle have a separate side-swipe collision due to converging paths in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates a highly dynamic scenario with multiple potential collisions in the first four intervals. EGO_ego_vehicle_behind is involved in several predicted impacts with other vehicles. A side-swipe collision between EGO_other_vehicle and EGO_ego_vehicle is also predicted. The final interval appears clear.\",\n  \"data_limitations\": \"The prediction assumes independent actor paths. In a real-world scenario, earlier collisions could alter the subsequent trajectories of involved vehicles, potentially affecting later predicted collisions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7442,
+  "candidatesTokenCount": 687,
+  "totalTokenCount": 13224,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7442
+   }
+  ],
+  "thoughtsTokenCount": 5095,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DcqYatOLDJ7N0-kPwemOqQI"
+}

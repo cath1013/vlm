@@ -1,0 +1,79 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 37.45,
+ "usage": {
+  "input": 5403,
+  "output": 799
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T001"
+    ],
+    "reason": "EGO_other_vehicle attempts a left turn across the path of the oncoming truck T001, resulting in a side-impact collision at 0.6 seconds after the observation period.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T001"
+    ],
+    "reason": "The initial collision between the left-turning car and the northbound truck persists as the vehicles remain in contact within the intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T001",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "A secondary collision occurs at 2.5 seconds when EGO_other_vehicle_behind enters the intersection and impacts the truck T001.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T001",
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "In a separate conflict, EGO_ego_vehicle_behind rear-ends the slow-moving EGO_ego_vehicle at 3.1 seconds while both are traveling southbound.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T001",
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "Multiple vehicles remain in contact following the intersection pile-up and the separate southbound rear-end collision.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scene evolves into a complex multi-vehicle accident scenario. It begins with a left-turn side-impact collision at a junction (0.6s), followed by a secondary collision as following traffic enters the intersection (2.5s), and a distinct rear-end collision between two other vehicles on an approaching road (3.1s).",
+  "data_limitations": "Since each actor's future path is predicted independently, the secondary and tertiary collisions are artifacts of the predictor not accounting for the physical obstruction caused by the initial 0.6s impact."
+ }
+}

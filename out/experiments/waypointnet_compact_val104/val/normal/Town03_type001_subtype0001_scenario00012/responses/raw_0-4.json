@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and proceed on their predicted paths without conflict in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V015\"],\n      \"reason\": \"V015 is predicted to collide with EGO_ego_vehicle_behind, which is stopped, at approximately 5.6 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance occur within this interval; vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance occur within this interval; vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"M002\", \"T004\", \"V003\"],\n      \"reason\": \"Two separate orthogonal entry conflicts are predicted: EGO_other_vehicle and M002 collide at ~8.6s, and T004 and V003 collide at ~8.7s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts two distinct accident events. The first involves a moving vehicle (V015) colliding with a stopped observer vehicle (EGO_ego_vehicle_behind) in the second interval. The fifth interval shows two independent orthogonal intersection conflicts, one between EGO_other_vehicle and M002, and another between T004 and V003.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11836,
+  "candidatesTokenCount": 593,
+  "totalTokenCount": 15696,
+  "cachedContentTokenCount": 932,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11836
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 932
+   }
+  ],
+  "thoughtsTokenCount": 3267,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kMKYapueCsOXosUP4_vEsA8"
+}

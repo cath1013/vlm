@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"C004\",\n        \"V008\"\n      ],\n      \"reason\": \"Multiple critical hazards with very low TTC/linear-extrapolated contact times (0.6s and 0.5s) indicate imminent orthogonal junction conflicts between EGO_ego_vehicle and EGO_other_vehicle, and a head-on collision between C004 and V008.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"V001\"\n      ],\n      \"reason\": \"Rear-end collision risk between EGO_ego_vehicle and EGO_ego_vehicle_behind (contact in 1.5s), rear-end collision risk between EGO_other_vehicle and stopped V001 (contact in 1.5s), and a converging junction conflict between EGO_ego_vehicle_behind and EGO_other_vehicle (contact in 1.9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"C004\",\n        \"V009\",\n        \"EGO_other_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"Head-on collision risk between C004 and V009 (contact in 2.0s), and rear-end collision risk between EGO_other_vehicle and stopped V002 (contact in 2.4s).\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate collision risks or low TTCs are explicitly indicated by the provided data for this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate collision risks or low TTCs are explicitly indicated by the provided data for this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario presents an extremely high risk of multiple concurrent accidents within the first two seconds due to vehicles converging at a junction with very low time gaps and high closing rates. EGO_ego_vehicle and EGO_other_vehicle, along with C004 and V008, face imminent collisions in the first second. Further conflicts involving other observer vehicles and V001 are expected in the second second. Beyond that, explicit collision risks are not indicated by the provided metrics, but the dynamic environment suggests continued caution.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for potential braking or evasive maneuvers. The conflict between 'stopped' status and a non-zero 'closing rate' for T003/V014 creates ambiguity, which was resolved by prioritizing the 'remains stopped' prediction. No traffic signal state or lane marking types (solid/dashed) were available.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9575,
+  "candidatesTokenCount": 902,
+  "totalTokenCount": 19851,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9575
+   }
+  ],
+  "thoughtsTokenCount": 9374,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "jR2VasqHNfXKrfcPo-u68Qs"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are still separated by a safe distance; EGO_other_vehicle is not yet crossing EGO_ego_vehicle's path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle is predicted to perform a left turn, crossing the path of EGO_ego_vehicle with insufficient clearance, resulting in a body overlap around (3.6, -63.2) and (9.0, -62.9) at t=7s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"Following the initial collision in the previous interval, the predicted paths of EGO_ego_vehicle and EGO_other_vehicle continue to overlap at (15.8, -63.2) and (10.0, -63.7) at t=8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"The predicted paths of EGO_ego_vehicle and EGO_other_vehicle continue to overlap after the initial collision, with both vehicles at very close proximity at t=9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"The predicted paths of EGO_ego_vehicle and EGO_other_vehicle still indicate significant overlap at t=10s, suggesting ongoing collision or its immediate aftermath.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"EGO_other_vehicle is predicted to make a left turn across the path of EGO_ego_vehicle. This maneuver leads to a clear and sustained body overlap, indicating a high probability of a collision starting in the (6.0, 7.0] s interval and continuing through the prediction window. All other road users and pedestrians maintain safe distances and do not contribute to any other expected accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6368,
+  "candidatesTokenCount": 732,
+  "totalTokenCount": 14144,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6368
+   }
+  ],
+  "thoughtsTokenCount": 7044,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PEuVap2gJ-nF0-kPk6uz6A8"
+}

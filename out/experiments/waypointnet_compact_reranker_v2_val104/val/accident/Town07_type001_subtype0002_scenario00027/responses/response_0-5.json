@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 18.84,
+ "usage": {
+  "input": 7003,
+  "output": 565
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "An orthogonal entry conflict is predicted between EGO_ego_vehicle (proceeding eastbound) and EGO_other_vehicle (executing a left turn from southbound) at time t=5.7s, resulting in physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs for this interval maintain sufficient minimum clearance, indicating no expected physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs for this interval maintain sufficient minimum clearance, indicating no expected physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs for this interval maintain sufficient minimum clearance, indicating no expected physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs for this interval maintain sufficient minimum clearance, indicating no expected physical contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is highly expected in the first 1-second interval (5.0, 6.0]s due to an orthogonal intersection conflict between EGO_ego_vehicle and EGO_other_vehicle, as indicated by a predicted 0.0m clearance. For all subsequent intervals, the trajectory predictions show sufficient clearance between all other road users, with no further accidents expected.",
+  "data_limitations": ""
+ }
+}

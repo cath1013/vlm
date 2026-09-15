@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted vehicle paths show a conflict or close clearance in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V010\"],\n      \"reason\": \"V010 is predicted to make a right turn directly into the path of EGO_other_vehicle, resulting in an orthogonal entry conflict at approximately t=3.4s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V010\"],\n      \"reason\": \"V010 is predicted to complete its right turn into the southbound lane where EGO_other_vehicle_behind is traveling, leading to a collision at approximately t=4.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted vehicle paths show a conflict or close clearance in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle as it closes the distance while both vehicles travel northbound in the same lane, with predicted contact at approximately t=6.4s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted throughout the 5-second window. In interval k=2, V010 is expected to collide with EGO_other_vehicle during a right turn. This is followed by another collision in k=3 involving V010 and EGO_other_vehicle_behind. Later, in interval k=5, a rear-end collision between EGO_ego_vehicle and EGO_ego_vehicle_behind is anticipated.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5137,
+  "candidatesTokenCount": 642,
+  "totalTokenCount": 11578,
+  "cachedContentTokenCount": 835,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5137
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 835
+   }
+  ],
+  "thoughtsTokenCount": 5799,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2uyYapb3CqHFvr0P39D5wAo"
+}

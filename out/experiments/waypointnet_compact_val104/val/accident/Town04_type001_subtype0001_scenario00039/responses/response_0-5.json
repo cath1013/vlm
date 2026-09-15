@@ -1,0 +1,78 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 28.63,
+ "usage": {
+  "input": 11831,
+  "output": 795
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted conflicts show simultaneous body contact or overlap for any actors in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V023",
+     "V003",
+     "C002",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and V023 are predicted to collide due to converging paths on Road 30. V003 is predicted to collide with C002, likely a rear-end collision. EGO_other_vehicle is predicted to collide with EGO_ego_vehicle during a left turn maneuver.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "P011",
+     "EGO_other_vehicle",
+     "V023",
+     "V003",
+     "V001",
+     "T021",
+     "P010"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to collide with P011 due to crossing paths. EGO_other_vehicle is predicted to collide with V023 during a left turn. V003 is predicted to rear-end the stopped V001. T021 is predicted to collide with P010 at an intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V022"
+    ],
+    "reason": "EGO_other_vehicle is predicted to collide with V022 during a left turn maneuver, crossing V022's path.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "P011"
+    ],
+    "reason": "V003 is predicted to collide with P011 at an intersection as their paths cross, resulting in simultaneous body contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple accidents throughout the 5-second horizon. Several rear-end or sideswipe collisions are predicted between vehicles, along with multiple orthogonal or crossing conflicts at intersections involving both observer vehicles and other road users. A stopped vehicle (V001) is also predicted to be rear-ended.",
+  "data_limitations": ""
+ }
+}

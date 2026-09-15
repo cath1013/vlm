@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show clear separation, with no overlapping trajectories or insufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show clear separation, with no overlapping trajectories or insufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show clear separation, with no overlapping trajectories or insufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T024\", \"C025\", \"V022\", \"M023\", \"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V002\", \"M003\"],\n      \"reason\": \"Multiple predicted contacts are identified: C025 (bicycle) rear-ends stopped T024 (truck); M023 (motorcycle) rear-ends stopped V022 (car); EGO_other_vehicle (car making a right turn) path overlaps with EGO_ego_vehicle (car going straight) during a lane contention; M003 (motorcycle) rear-ends stopped V002 (car).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P004\", \"V026\", \"M018\", \"V015\"],\n      \"reason\": \"Two predicted contacts are identified: P004 (person) crosses the path of V026 (car) resulting in a collision; M018 (motorcycle) and V015 (car) have overlapping paths, indicating a lane contention or side-swipe.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first three intervals appear safe with no predicted conflicts. However, intervals 4 and 5 show a high likelihood of multiple accidents involving both stopped vehicles being rear-ended, lane contention between observer vehicles, a pedestrian-vehicle collision, and a side-swipe between a motorcycle and a car. The predicted closest pairs calculation shows 0.0 clearance for all identified incidents.\",\n  \"data_limitations\": \"The precise geometry of some predicted contacts, such as the M018/V015 interaction, is not immediately obvious from simple waypoint comparison but is confirmed by the minimum clearance calculation, which uses detailed footprint and interpolated paths. The 'right turn' maneuver described for EGO_other_vehicle had waypoints that initially moved the vehicle slightly west, which could lead to confusion if not interpreted as part of a complex turn or lane change, though the prediction method accounts for this trajectory.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11392,
+  "candidatesTokenCount": 804,
+  "totalTokenCount": 22072,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11392
+   }
+  ],
+  "thoughtsTokenCount": 9876,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "98iYaoPYMeKM1e8PvfyMgQY"
+}

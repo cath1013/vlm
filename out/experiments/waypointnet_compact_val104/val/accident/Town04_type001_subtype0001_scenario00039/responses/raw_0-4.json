@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances, with the closest predicted pair having a clearance of 0.72m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V023\",\n        \"V022\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with V023 (rear-end) and V022 (rear-end). Additionally, EGO_other_vehicle turning left is predicted to collide with EGO_ego_vehicle_behind moving straight due to an intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"T021\",\n        \"P010\",\n        \"T020\",\n        \"V022\",\n        \"V023\",\n        \"C002\",\n        \"V001\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with T021. P010 is predicted to collide with T020 due to intersecting paths. V023 is predicted to collide with the stopped V022 (rear-end). C002 is predicted to collide with the stopped V001 (rear-end).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V022\",\n        \"T021\"\n      ],\n      \"reason\": \"T021's path shows it moving towards the stopped V022, resulting in a predicted head-on or orthogonal collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind have converging paths leading to a predicted collision.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts multiple accidents across all five future 1-second intervals. These involve both observer vehicles and other road users, primarily due to rear-end collisions with stopped vehicles, intersection conflicts, and converging paths leading to physical contact. The predicted minimum clearances of 0.0m consistently indicate unavoidable collisions.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11408,
+  "candidatesTokenCount": 790,
+  "totalTokenCount": 17658,
+  "cachedContentTokenCount": 929,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11408
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 929
+   }
+  ],
+  "thoughtsTokenCount": 5460,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "nL-YaonLNYfS1e8Phrb52Ag"
+}

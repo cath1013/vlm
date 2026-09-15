@@ -1,0 +1,94 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 43.6,
+ "usage": {
+  "input": 14133,
+  "output": 1054
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "V027",
+     "V015",
+     "M032",
+     "EGO_other_vehicle",
+     "T035",
+     "V014",
+     "V033",
+     "EGO_ego_vehicle_behind",
+     "N026"
+    ],
+    "reason": "Multiple vehicles, including EGO_ego_vehicle, V015, EGO_other_vehicle, V014, and EGO_ego_vehicle_behind, are on a linear-extrapolated collision course with other vehicles/pedestrians with TTC values of 1.0 seconds or less, indicating imminent collisions.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "P022",
+     "P023",
+     "V017",
+     "V029",
+     "EGO_ego_vehicle_behind",
+     "P021",
+     "P020"
+    ],
+    "reason": "Several vehicles and pedestrians, including EGO_other_vehicle_behind and EGO_ego_vehicle_behind, are predicted to collide with linear-extrapolated contact times between 1.1 and 1.4 seconds, indicating further imminent accidents within the complex junction area.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "T036",
+     "EGO_other_vehicle_behind",
+     "P018",
+     "EGO_ego_vehicle_behind",
+     "V025"
+    ],
+    "reason": "Additional vehicles and pedestrians are on linear-extrapolated collision courses with contact times ranging from 1.8 to 2.2 seconds, including EGO_other_vehicle, EGO_other_vehicle_behind, and EGO_ego_vehicle_behind.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P019",
+     "P024",
+     "EGO_other_vehicle_behind",
+     "T035",
+     "EGO_ego_vehicle_behind",
+     "V027",
+     "P020",
+     "P021"
+    ],
+    "reason": "The remaining close-proximity interactions with linear-extrapolated contact times up to 2.5 seconds are expected to result in collisions, involving multiple observer vehicles and pedestrians.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All high-probability linear-extrapolated contacts from the observation window are predicted to occur within the earlier intervals, making new imminent accidents unlikely without additional information beyond 2.5 seconds.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The traffic situation at this complex junction is highly volatile with numerous vehicles and pedestrians in close proximity. Multiple severe accidents are highly probable within the next 2.5 seconds due to accelerating vehicles approaching stopped obstacles, crossing paths at the junction, and head-on closing rates, involving all observer vehicles.",
+  "data_limitations": "The absence of traffic signal states, stop lines, and lane marking types significantly hinders a precise assessment of junction conflicts. The linear-extrapolated contact times do not account for potential turning, braking, or driver intent, which could alter the outcomes of these close interactions. Several objects have 'position/speed uncertain' flags, which could affect the accuracy of distance and speed calculations."
+ }
+}

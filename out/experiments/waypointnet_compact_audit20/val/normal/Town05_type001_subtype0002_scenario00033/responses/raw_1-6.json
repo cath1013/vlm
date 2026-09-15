@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths show sufficient clearance in this interval, with EGO_other_vehicle still to the east of the stopped EGO_ego_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle, moving west, is predicted to collide with the stopped EGO_ego_vehicle as its path waypoint at t=8s (-264.2, 4.3) overlaps with EGO_ego_vehicle's position (-265.3, 4.3).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles involved in the previous interval's collision are now past their point of impact, and no other immediate conflicts are apparent.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind, moving west, is predicted to collide with EGO_ego_vehicle_behind, moving north, as their paths overlap at approximately [-264.5, -0.9] and [-265.2, -1.5] at t=10s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles involved in the previous interval's collision are now past their point of impact, and no other immediate conflicts are apparent.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted in the forecast window. The first occurs between EGO_ego_vehicle and EGO_other_vehicle in the (7.0, 8.0]s interval, where EGO_other_vehicle strikes the stopped EGO_ego_vehicle. The second occurs in the (9.0, 10.0]s interval, involving an orthogonal collision between EGO_ego_vehicle_behind and EGO_other_vehicle_behind.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9452,
+  "candidatesTokenCount": 705,
+  "totalTokenCount": 16105,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9452
+   }
+  ],
+  "thoughtsTokenCount": 5948,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "O0mVau_KMIqe2roPjNbWuAc"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain a minimum safe distance from each other throughout this interval; the closest predicted clearance is 0.35m but no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show vehicles maintaining clear separation with ample clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances; EGO_ego_vehicle_behind and EGO_other_vehicle have a minimal clearance of 1.0m but no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T002\"],\n      \"reason\": \"EGO_ego_vehicle's predicted path directly intersects with the footprint of the stopped truck T002, leading to a collision at approximately t=7.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind, traveling east, and EGO_other_vehicle_behind, traveling north, are predicted to enter the same spatial region at the same time, resulting in a collision at approximately t=8.3s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are expected within the 5-second prediction window. In interval k=4, EGO_ego_vehicle is predicted to collide with the stopped truck T002. Subsequently, in interval k=5, EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to collide as their paths converge at an intersection point.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6689,
+  "candidatesTokenCount": 623,
+  "totalTokenCount": 11837,
+  "cachedContentTokenCount": 872,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6689
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 872
+   }
+  ],
+  "thoughtsTokenCount": 4525,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xuiYauerIcrG0-kPvqz5wAw"
+}

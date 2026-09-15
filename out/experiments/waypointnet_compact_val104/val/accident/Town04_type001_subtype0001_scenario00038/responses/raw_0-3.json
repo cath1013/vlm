@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close convergences between any actors in this interval. All vehicles maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close convergences between any actors in this interval. All vehicles maintain safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"C001\", \"V003\", \"V004\"],\n      \"reason\": \"A multi-vehicle collision is expected. V004 (car) is predicted to collide with C001 (bicycle) at 2.5s after observation, and subsequently with V003 (car) at 3.0s after observation. Both instances show 0.0m minimum clearance and predicted contact, indicating V004's path crosses C001 and V003's paths as they all travel eastbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close convergences between any actors in this interval based on the provided data.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V004\", \"V006\", \"V018\"],\n      \"reason\": \"Two separate collisions are expected. V004 (car) is predicted to collide with V002 (car) at 4.2s after observation, and V018 (car) is predicted to collide with V006 (car) at 4.4s after observation. Both instances show 0.0m minimum clearance and predicted contact, indicating distinct intersection/lane contention conflicts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted within the 5-second prediction horizon. V004 is involved in a series of conflicts in intervals k=3 and k=5, first with a bicycle (C001) and another car (V003), then with a third car (V002). Additionally, a collision between V018 and V006 is predicted in interval k=5, likely a rear-end or side-swipe.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7145,
+  "candidatesTokenCount": 734,
+  "totalTokenCount": 13218,
+  "cachedContentTokenCount": 881,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7145
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 881
+   }
+  ],
+  "thoughtsTokenCount": 5339,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "M7-YasLxGcm21e8P7d_YiAY"
+}

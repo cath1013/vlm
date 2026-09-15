@@ -1,0 +1,65 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 23.11,
+ "usage": {
+  "input": 5904,
+  "output": 664
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain a safe distance from other actors, with the closest predicted clearance being 1.65m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle_behind, while attempting a right turn, is predicted to collide with the stopped EGO_other_vehicle at 6.5 seconds, with a minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted physical contact events are identified in this interval; all vehicles maintain sufficient separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_other_vehicle",
+     "V007",
+     "V004"
+    ],
+    "reason": "Two separate collisions are predicted: EGO_other_vehicle_behind collides with the stopped EGO_other_vehicle at 8.3 seconds, and V007 collides with V004 at 8.8 seconds due to converging paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted physical contact events in this interval; all actor paths are clear of each other.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple collisions. EGO_ego_vehicle_behind is expected to collide with EGO_other_vehicle (stopped) in the (6.0, 7.0]s interval. Additionally, in the (8.0, 9.0]s interval, EGO_other_vehicle_behind is also expected to collide with the same stopped EGO_other_vehicle, and a separate collision is predicted between V007 and V004.",
+  "data_limitations": ""
+ }
+}

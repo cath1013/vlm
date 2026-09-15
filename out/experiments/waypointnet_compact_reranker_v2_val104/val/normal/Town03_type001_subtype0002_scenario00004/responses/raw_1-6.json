@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have body contact or overlap, and trajectories suggest safe separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\", \"V004\", \"V006\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to have a zero-clearance orthogonal intersection collision. Additionally, V006 is predicted to collide with the stopped V004.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and P009 have a close predicted clearance, no physical contact or overlap is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance from each other, and no predicted contacts indicate an accident.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are expected to occur in the (8.0, 9.0] second interval. EGO_ego_vehicle and EGO_other_vehicle_behind are predicted to collide at an intersection, and V006 is predicted to collide with the stopped V004. No accidents are expected in the other future 1-second intervals.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8729,
+  "candidatesTokenCount": 580,
+  "totalTokenCount": 11709,
+  "cachedContentTokenCount": 904,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8729
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 904
+   }
+  ],
+  "thoughtsTokenCount": 2400,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "su-Yap-5CI220-kP1-WxiAI"
+}

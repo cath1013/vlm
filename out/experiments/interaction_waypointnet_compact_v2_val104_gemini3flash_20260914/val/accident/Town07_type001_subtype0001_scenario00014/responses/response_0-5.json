@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 74.52,
+ "usage": {
+  "input": 8670,
+  "output": 509
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and EGO_ego_vehicle pass each other in opposite directions with very low clearance but without body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle fails to yield to northbound traffic while performing a left turn, resulting in a side-swipe or offset frontal collision with EGO_ego_vehicle_behind.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V005"
+    ],
+    "reason": "EGO_other_vehicle's projected path continues through the intersection and results in a collision with V005, which is stationary in the destination lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No further collisions are predicted along the remaining future trajectories in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No further collisions are predicted along the remaining future trajectories in this interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The sequence involves a south-to-east left-turning vehicle (EGO_other_vehicle) that narrowly misses a northbound car (EGO_ego_vehicle) before colliding with the following northbound vehicle (EGO_ego_vehicle_behind) inside the junction at approximately t=1.9s post-observation. Following this initial impact, EGO_other_vehicle's projected path results in a secondary collision with a stationary car (V005) queued on the destination road at t=2.8s post-observation.",
+  "data_limitations": "The predicted future paths for the involved vehicles are generic turning or lane-keeping arcs that do not show reactive yielding or braking, which contributes to the predicted overlaps."
+ }
+}

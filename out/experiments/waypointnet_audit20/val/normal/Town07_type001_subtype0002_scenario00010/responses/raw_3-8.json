@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An orthogonal junction conflict is highly probable between EGO_ego_vehicle_behind (eastbound, 4km/h) and EGO_other_vehicle (westbound, 43km/h), as their linear-extrapolated time to contact is 0.8s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming the collision between EGO_ego_vehicle_behind and EGO_other_vehicle occurs in the previous interval, no other immediate conflicts are linearly extrapolated within this second.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicle pairs have a linear-extrapolated time to contact that falls within this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicle pairs have a linear-extrapolated time to contact that falls within this interval, with the next closest contacts expected beyond 4.0 seconds.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"C003\",\n        \"V002\",\n        \"EGO_other_vehicle_behind\",\n        \"M005\"\n      ],\n      \"reason\": \"Two separate rear-end collisions are expected: C003 (bicycle) is linearly extrapolated to collide with stopped V002 within 4.2 seconds, and EGO_other_vehicle_behind is linearly extrapolated to collide with slower M005 (motorcycle) within 4.5 seconds.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An immediate orthogonal junction collision is highly probable between EGO_ego_vehicle_behind and EGO_other_vehicle within the first second due to a very short time to contact. Subsequently, two distinct rear-end collisions are predicted to occur in the final interval, involving C003 and V002, and EGO_other_vehicle_behind and M005, based on their respective linear-extrapolated contact times.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' calculations ignore potential evasive maneuvers, braking, and turning, which could prevent collisions. Additionally, the lack of traffic signal information, stop line locations, and specific right-of-way rules at junctions introduces uncertainty in assessing intersection conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9740,
+  "candidatesTokenCount": 781,
+  "totalTokenCount": 19703,
+  "cachedContentTokenCount": 915,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9740
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 915
+   }
+  ],
+  "thoughtsTokenCount": 9182,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2R2VaqzjDKDs2roPiNP0kAI"
+}

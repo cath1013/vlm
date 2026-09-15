@@ -1,0 +1,65 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 30.68,
+ "usage": {
+  "input": 6825,
+  "output": 465
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe lateral and longitudinal separation within their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles continue to approach the intersection on non-conflicting paths with sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Separation is still maintained as the vehicles reach the junction area.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind",
+     "V007"
+    ],
+    "reason": "Multi-vehicle collision at the intersection of Road 14 and Road 26; the accelerating V007 (westbound) rear-ends EGO_other_vehicle while simultaneously broadsiding the southbound EGO_ego_vehicle_behind.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind",
+     "V007"
+    ],
+    "reason": "The collision sequence continues as the trajectories of the involved vehicles remain in contact following the initial impact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a major multi-vehicle accident at a junction approximately 3.2 to 3.3 seconds after the observation period. The primary conflict is caused by the high-speed, accelerating vehicle V007 traveling westbound on Road 26/841, which fails to yield to a crossing southbound vehicle (EGO_ego_vehicle_behind) and strikes the rear of a slower lead vehicle (EGO_other_vehicle) in its own lane.",
+  "data_limitations": ""
+ }
+}

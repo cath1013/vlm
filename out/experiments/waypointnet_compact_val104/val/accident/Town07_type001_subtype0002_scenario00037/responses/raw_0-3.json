@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is executing a left turn and its predicted path clearly intersects with the stopped EGO_other_vehicle, leading to a direct collision within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V001\"],\n      \"reason\": \"V002 is predicted to travel straight west and its path will directly collide with V001, which is stopped in its intended trajectory.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance or critical close approaches are indicated for any pair of actors within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance or critical close approaches are indicated for any pair of actors within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"V002 is predicted to continue traveling west, and its path will lead to a collision with the stopped EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates multiple high-confidence collision events. In the initial interval, EGO_other_vehicle_behind is expected to collide with EGO_other_vehicle during a left turn. Subsequently, V002 is predicted to collide with the stopped V001, and later, with the stopped EGO_other_vehicle, as it progresses along its path.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6569,
+  "candidatesTokenCount": 607,
+  "totalTokenCount": 11846,
+  "cachedContentTokenCount": 870,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6569
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 870
+   }
+  ],
+  "thoughtsTokenCount": 4670,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "pcmYar36K8yc0-kP2e7x6A4"
+}

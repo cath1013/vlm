@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain a safe distance from each other within this interval, with the smallest clearance being 0.88m between EGO_ego_vehicle_behind and T008, and no contacts predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show a minimum clearance of 0.22m between N002 and V003, which, while very small, is considered a gap and not contact according to the problem definition, and no contact is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P013\", \"V003\"],\n      \"reason\": \"Vehicle V003's predicted path shows it will collide with pedestrian P013, indicated by a minimum clearance of 0.0m and predicted_contact=true at 2.6s, which falls within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain a safe distance from each other, with the smallest clearance being 4.49m between T004 and P007, and no contacts predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain a safe distance from each other, with the smallest clearance being 4.04m between V001 and V003, and no contacts predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One accident is expected in the third interval, where vehicle V003 collides with pedestrian P013 due to V003's turning maneuver directly intersecting P013's static position. All other vehicle interactions show sufficient clearance or no predicted contact based on the provided data.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4788,
+  "candidatesTokenCount": 645,
+  "totalTokenCount": 10841,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4788
+   }
+  ],
+  "thoughtsTokenCount": 5408,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "JMuYarusIcuy1e8PneeVwQo"
+}

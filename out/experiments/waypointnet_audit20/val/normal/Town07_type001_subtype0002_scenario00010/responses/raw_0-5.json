@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle is nearing the junction entrance and EGO_ego_vehicle is accelerating towards it, a direct collision is not expected in this initial second as EGO_other_vehicle only just begins to cross. C003 is rapidly closing on V002 but the collision is projected for the next interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"C003\", \"V002\"],\n      \"reason\": \"A rear-end collision between C003 and V002 is highly probable around t=6.9s due to C003 following V002 (stopped) with a very low TTC (1.9s at t=5s). Additionally, EGO_other_vehicle, having entered the junction at ~t=5.65s, will conflict orthogonally with EGO_ego_vehicle entering the junction at ~t=6.28s, with both predicted to go straight.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"If the collision between EGO_ego_vehicle and EGO_other_vehicle did not occur in the previous interval, it remains highly likely in this interval as EGO_other_vehicle would still be in the junction and EGO_ego_vehicle would be fully within the junction crossing area.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most acute conflicts from earlier intervals are expected to have either resulted in a collision or near-miss by this time, or vehicles would have taken evasive action.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are expected to have navigated through the immediate high-risk situations by this interval, reducing the likelihood of a new accident.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The situation presents a high risk of multiple accidents within the next two seconds. C003 is on a direct collision course with a stopped V002, with insufficient time to stop, making a rear-end collision highly probable. EGO_ego_vehicle and EGO_other_vehicle are on orthogonal paths to the same junction, both predicted to go straight, leading to a high probability of an intersection collision.\",\n  \"data_limitations\": \"The absence of traffic signal information at the four-way junction reduces confidence in predicting yielding behavior, especially for EGO_other_vehicle which is observed decelerating but is predicted to proceed straight. Predicted paths are outputs of a trajectory predictor, not direct observations of turn signals or braking intent, which introduces uncertainty.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9066,
+  "candidatesTokenCount": 838,
+  "totalTokenCount": 20437,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9066
+   }
+  ],
+  "thoughtsTokenCount": 10533,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Vx2VauHHM8Ky2roP0Ni4wQg"
+}

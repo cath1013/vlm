@@ -1,0 +1,68 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.38,
+ "usage": {
+  "input": 10413,
+  "output": 644
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain clear separation, and no collisions are predicted in this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V011",
+     "V019"
+    ],
+    "reason": "V011 is predicted to collide with V019, which is stopped in its path on Road 24, with a 0.0m minimum clearance at 1.9 seconds.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T029",
+     "P006",
+     "P007"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to rear-end T029, which is stopped directly in its northbound path on Road 43; additionally, pedestrians P006 and P007 are predicted to collide as their paths intersect while walking in opposite directions.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors maintain clear separation, and no collisions are predicted in this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V030"
+    ],
+    "reason": "EGO_other_vehicle_behind and V030 are predicted to have a head-on collision as they converge from opposite directions on intersecting roads, showing 0.0m minimum clearance at 4.2 seconds.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction window indicates a high likelihood of multiple collisions. There are two predicted vehicle-to-vehicle collisions where moving vehicles collide with stopped vehicles or with other moving vehicles at an intersection, and one pedestrian-to-pedestrian collision, all showing 0.0m clearance based on the predicted trajectories.",
+  "data_limitations": ""
+ }
+}

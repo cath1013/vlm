@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 29.95,
+ "usage": {
+  "input": 8426,
+  "output": 636
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "N012"
+    ],
+    "reason": "A head-on or severe side-swipe collision is expected between EGO_ego_vehicle_behind and N012 due to a minimum predicted clearance of only 1.12m while travelling in opposite directions, which is insufficient for two vehicles of their size to pass without contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles, including the ego vehicle, maintain sufficient clearance throughout this interval, with the closest pair (EGO_ego_vehicle and V002) having a minimum clearance of 2.53m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances from each other, and no physical contact or body overlap is supported by the path geometry.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances from each other, and no physical contact or body overlap is supported by the path geometry.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance, with the closest predicted interaction (EGO_ego_vehicle_behind and V002 with 1.36m clearance) not indicating physical contact or body overlap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is expected in the first 1-second interval between EGO_ego_vehicle_behind and N012 due to insufficient predicted clearance of 1.12m during opposing travel. For the remaining intervals, no accidents are predicted as all vehicles maintain adequate separation or their paths do not intersect in a manner that would lead to contact.",
+  "data_limitations": ""
+ }
+}

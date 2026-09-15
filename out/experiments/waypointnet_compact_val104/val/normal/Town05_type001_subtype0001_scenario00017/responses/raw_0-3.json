@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or critical clearances are indicated for this interval, and all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or critical clearances are indicated for this interval, and all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"An orthogonal intersection conflict is predicted at approximately 5.9 seconds between EGO_other_vehicle and EGO_ego_vehicle, resulting in body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the previous interval contains a collision, no new contacts are predicted for this interval according to the provided data.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V024\",\n        \"V023\"\n      ],\n      \"reason\": \"A rear-end collision is predicted at approximately 7.7 seconds, where V024's path intersects with V023 which remains stopped.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second future window. The first is an intersection collision between EGO_other_vehicle and EGO_ego_vehicle in the (5, 6] second interval. The second is a rear-end collision between V024 and V023 in the (7, 8] second interval, as V024 is predicted to collide with the stopped V023.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10826,
+  "candidatesTokenCount": 608,
+  "totalTokenCount": 14194,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10826
+   }
+  ],
+  "thoughtsTokenCount": 2760,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "EMSYapbFH9P62roP-KTVkQI"
+}

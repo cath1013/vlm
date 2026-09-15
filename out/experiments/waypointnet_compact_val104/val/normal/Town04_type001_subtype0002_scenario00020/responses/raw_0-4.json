@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other, with no predicted path overlaps or close encounters indicating contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T004\", \"V005\"],\n      \"reason\": \"V005 is predicted to collide with the rear of the stopped T004 approximately 1.1 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"N002\"],\n      \"reason\": \"N002 is predicted to collide with the rear of the stopped V001 approximately 2.6 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N002\", \"V003\"],\n      \"reason\": \"V003 and N002 are predicted to collide at approximately 3.9 seconds after the last observation as their paths converge while driving northbound/northwestbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although V001 and V003 show a very small minimum clearance (0.09m), the prediction explicitly indicates no contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Several collisions are predicted within the future 5-second window. A rear-end collision between V005 and the stopped T004 is expected in k=2. Another rear-end collision between N002 and the stopped V001 is expected in k=3. A merging or side-swipe collision between N002 and V003 is expected in k=4 as their paths converge. Intervals k=1 and k=5 show no expected accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5540,
+  "candidatesTokenCount": 628,
+  "totalTokenCount": 8374,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5540
+   }
+  ],
+  "thoughtsTokenCount": 2206,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "asuYavXuJOT11e8P9e79oAY"
+}

@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 18.53,
+ "usage": {
+  "input": 9100,
+  "output": 641
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient clearance and clear separation in their predicted paths, indicating no expected contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although some clearances are small (e.g., EGO_ego_vehicle and P009 at 0.63m), there is no predicted physical contact or overlap between any actors.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "A head-on collision is expected between EGO_other_vehicle and EGO_ego_vehicle at approximately 5.3 seconds after the last observation, with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There is no predicted physical contact or overlap between any actors during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "A head-on collision is expected between EGO_other_vehicle_behind and EGO_ego_vehicle at approximately 7.1 seconds after the last observation, with a predicted minimum clearance of 0.0m.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The predictions indicate two distinct head-on collisions involving EGO_ego_vehicle. The first is with EGO_other_vehicle in the (5.0, 6.0] second interval, and the second is with EGO_other_vehicle_behind in the (7.0, 8.0] second interval. Both involve zero minimum clearance and a joint path probability of 1.0, suggesting high certainty in these predicted contacts.",
+  "data_limitations": ""
+ }
+}

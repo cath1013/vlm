@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V021\",\n        \"EGO_ego_vehicle_behind\",\n        \"V020\",\n        \"M016\",\n        \"V019\",\n        \"M017\",\n        \"N023\",\n        \"V002\",\n        \"P013\",\n        \"M022\",\n        \"V027\",\n        \"P010\"\n      ],\n      \"reason\": \"Multiple imminent head-on collisions are expected on Road 18 (EGO_ego_vehicle-V021, EGO_ego_vehicle_behind-V020, M016-V019) and Road 9 (M017-N023) with TTC values below 1 second. Additionally, a severe orthogonal junction conflict is highly probable due to V002, P013, M022, V027, and P010 entering the four-way junction simultaneously from different approaches.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"N018\"\n      ],\n      \"reason\": \"A further severe orthogonal junction conflict is expected as EGO_ego_vehicle (northbound), EGO_other_vehicle_behind (eastbound), and N018 (eastbound) approach and enter the already congested and likely obstructed junction at approximately the same time.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle_behind\",\n        \"N018\"\n      ],\n      \"reason\": \"EGO_other_vehicle (eastbound) is predicted to enter the junction shortly after the k=2 conflict, likely colliding with the ongoing accident or wreckage from the previous interval, resulting in a secondary collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Most major immediate conflicts would have resolved or resulted in static accident scenes; no new initiating accident is clearly predictable from the remaining trajectory data without further modeling of crash aftermath.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new initiating accident is clearly predictable; the situation would be dominated by the aftermath of earlier events and is beyond the scope of this prediction framework.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The observation window ends with an extremely high-risk traffic scenario, including multiple vehicles on opposing courses with imminent head-on collision TTC values below 1 second. Simultaneously, numerous vehicles are converging on a four-way junction without traffic controls, leading to high-probability orthogonal conflicts. These primary accidents are expected to occur within the first two prediction intervals, creating a complex and highly dangerous traffic situation with potential for cascading secondary impacts.\",\n  \"data_limitations\": \"The lack of traffic signal state and lane marking types (solid/dashed) at the four-way junction significantly impacts the ability to predict right-of-way and safe passage. The data also does not model the physical aftermath of collisions, such as vehicle wreckage or subsequent chain reactions, which limits prediction beyond initial impact points.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 13572,
+  "candidatesTokenCount": 970,
+  "totalTokenCount": 23523,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 13572
+   }
+  ],
+  "thoughtsTokenCount": 8981,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "uBqVaqveM5WD0-kP_qvNuAs"
+}

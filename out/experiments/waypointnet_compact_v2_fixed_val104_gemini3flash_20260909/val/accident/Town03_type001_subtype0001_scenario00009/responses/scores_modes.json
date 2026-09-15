@@ -1,0 +1,924 @@
+{
+ "provider": "gemini",
+ "modes": [
+  "binary_scenario",
+  "binary_window",
+  "strict",
+  "early",
+  "weighted",
+  "binary_bucket"
+ ],
+ "late_decay": 0.2,
+ "early_decay": 0.0,
+ "per_window": [
+  {
+   "window": {
+    "index": 0,
+    "label": "0-5",
+    "t_start_s": 0.0,
+    "t_end_s": 5.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_6ab183677cf7",
+   "scenario_outcome": "accident",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6ab183677cf7",
+    "scenario_outcome": "accident",
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 1,
+    "n_scorable": 1,
+    "n_buckets": 2,
+    "eligible_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n_positive_buckets": 1,
+    "per_window": [
+     {
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "eligible_buckets": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "n_buckets": 2
+     }
+    ]
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "mixed",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 1
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 1,
+    "positive_ks": [
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Actors are maintaining their lanes and have sufficient longitudinal and lateral separation as they approach the intersection."
+     },
+     {
+      "k": 2,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "The ego vehicle is initiating a left turn while pedestrians and other vehicles remain clear of its immediate path."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "mixed",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 1
+    },
+    "n_scorable": 2,
+    "n_buckets": 2,
+    "n_positive_buckets": 1,
+    "positive_ks": [
+     3
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Actors are maintaining their lanes and have sufficient longitudinal and lateral separation as they approach the intersection."
+     },
+     {
+      "k": 2,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "The ego vehicle is initiating a left turn while pedestrians and other vehicles remain clear of its immediate path."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6ab183677cf7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 1
+    },
+    "status": "mixed",
+    "accuracy": 0.5,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      2
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 6.5,
+    "event": {
+     "k_true": 2,
+     "credit_buckets": [
+      2
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": false,
+      "reason": "Actors are maintaining their lanes and have sufficient longitudinal and lateral separation as they approach the intersection.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FN",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "The ego vehicle is initiating a left turn while pedestrians and other vehicles remain clear of its immediate path.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The ego vehicle performs a left-hand turn across the intersection and collides with pedestrian P008, who is crossing the target road."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Aside from the preceding conflict, other actors like EGO_other_vehicle_behind and EGO_ego_vehicle_behind pass each other with narrow but positive clearance."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Projected paths for the remaining actors show all users maintaining safe distances from one another."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 0,
+     "label": "0-5",
+     "t_start_s": 0.0,
+     "t_end_s": 5.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6ab183677cf7",
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 1
+    },
+    "status": "mixed",
+    "accuracy": 0.5,
+    "precision": null,
+    "recall": 0.0,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": [
+      1,
+      2
+     ]
+    },
+    "scored_buckets": [
+     1,
+     2
+    ],
+    "n_buckets": 2,
+    "excluded_buckets": [
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 6.5,
+    "event": {
+     "k_true": 2,
+     "credit_buckets": [
+      1,
+      2
+     ],
+     "credited_k": null,
+     "detected": false,
+     "timing": "none",
+     "lead_s": null
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "actual_truth": false,
+      "scoring_truth": false,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "Actors are maintaining their lanes and have sufficient longitudinal and lateral separation as they approach the intersection.",
+      "confidence": "high"
+     },
+     {
+      "k": 2,
+      "status": "FN",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": false,
+      "in_credit_window": true,
+      "reason": "The ego vehicle is initiating a left turn while pedestrians and other vehicles remain clear of its immediate path.",
+      "confidence": "high"
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "The ego vehicle performs a left-hand turn across the intersection and collides with pedestrian P008, who is crossing the target road."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Aside from the preceding conflict, other actors like EGO_other_vehicle_behind and EGO_ego_vehicle_behind pass each other with narrow but positive clearance."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Projected paths for the remaining actors show all users maintaining safe distances from one another."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 0.0,
+    "k_true": 2,
+    "alarm_k": null,
+    "delta": null,
+    "detected": false,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 0,
+     "FP": 0,
+     "TN": 1,
+     "FN": 1
+    },
+    "n_buckets": 2,
+    "bucket_accuracy": 0.5,
+    "bucket_false_alarm_rate": 0.0,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TN",
+      "truth": false,
+      "pred": false,
+      "scorable": true,
+      "reason": "Actors are maintaining their lanes and have sufficient longitudinal and lateral separation as they approach the intersection."
+     },
+     {
+      "k": 2,
+      "status": "FN",
+      "truth": true,
+      "pred": false,
+      "scorable": true,
+      "reason": "The ego vehicle is initiating a left turn while pedestrians and other vehicles remain clear of its immediate path."
+     }
+    ]
+   }
+  },
+  {
+   "window": {
+    "index": 1,
+    "label": "1-6",
+    "t_start_s": 1.0,
+    "t_end_s": 6.0,
+    "n_snapshots": 11
+   },
+   "scenario_ref": "scn_6ab183677cf7",
+   "scenario_outcome": "accident",
+   "modes": [
+    "binary_scenario",
+    "binary_window",
+    "strict",
+    "early",
+    "weighted",
+    "binary_bucket"
+   ],
+   "response_issues": [],
+   "binary_window": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6ab183677cf7",
+    "scenario_outcome": "accident",
+    "scorable": true,
+    "status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_windows": 1,
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "eligible_buckets": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n_positive_buckets": 2,
+    "per_window": [
+     {
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "eligible_buckets": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "n_buckets": 1
+     }
+    ]
+   },
+   "binary_bucket": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     1,
+     2
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "The ego vehicle attempts a left turn across the junction, crossing directly into the path of the oncoming eastbound vehicle (EGO_other_vehicle_behind)."
+     }
+    ]
+   },
+   "binary": {
+    "scorable": true,
+    "status": "TP",
+    "bucket_status": "TP",
+    "truth": true,
+    "pred": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_scorable": 1,
+    "n_buckets": 1,
+    "n_positive_buckets": 2,
+    "positive_ks": [
+     1,
+     2
+    ],
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "The ego vehicle attempts a left turn across the junction, crossing directly into the path of the oncoming eastbound vehicle (EGO_other_vehicle_behind)."
+     }
+    ]
+   },
+   "strict": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6ab183677cf7",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "TP",
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 0.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 6.5,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": 1,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.2
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "The ego vehicle attempts a left turn across the junction, crossing directly into the path of the oncoming eastbound vehicle (EGO_other_vehicle_behind).",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 1.0,
+      "matched_carla_ids": [
+       976,
+       996
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [],
+      "all_involved_observed": true
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "As the ego vehicle continues its southward turn, its trajectory overlaps with pedestrian P005 who is crossing the same junction area."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Other road users maintain safe clearances and follow non-intersecting lane paths during this interval."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No new conflicts are detected as the remaining actors proceed at steady speeds or remain stopped at their respective positions."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Remaining vehicles and pedestrians are well-separated with no convergent trajectories leading to a collision."
+     }
+    ],
+    "response_issues": []
+   },
+   "early": {
+    "window": {
+     "index": 1,
+     "label": "1-6",
+     "t_start_s": 1.0,
+     "t_end_s": 6.0,
+     "n_snapshots": 11
+    },
+    "scenario_ref": "scn_6ab183677cf7",
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "status": "TP",
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "credit": {
+     "early_credit_s": 5.0,
+     "buckets": [
+      1
+     ]
+    },
+    "scored_buckets": [
+     1
+    ],
+    "n_buckets": 1,
+    "excluded_buckets": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "data_end_s": 6.5,
+    "event": {
+     "k_true": 1,
+     "credit_buckets": [
+      1
+     ],
+     "credited_k": 1,
+     "detected": true,
+     "timing": "exact",
+     "lead_s": -0.2
+    },
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "actual_truth": true,
+      "scoring_truth": true,
+      "pred": true,
+      "in_credit_window": true,
+      "reason": "The ego vehicle attempts a left turn across the junction, crossing directly into the path of the oncoming eastbound vehicle (EGO_other_vehicle_behind).",
+      "confidence": "high",
+      "vehicle_recall": 1.0,
+      "actor_precision": 1.0,
+      "matched_carla_ids": [
+       976,
+       996
+      ],
+      "missed_carla_ids": [],
+      "extra_actor_ids": [],
+      "all_involved_observed": true
+     },
+     {
+      "k": 2,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": true,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "As the ego vehicle continues its southward turn, its trajectory overlaps with pedestrian P005 who is crossing the same junction area."
+     },
+     {
+      "k": 3,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Other road users maintain safe clearances and follow non-intersecting lane paths during this interval."
+     },
+     {
+      "k": 4,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "No new conflicts are detected as the remaining actors proceed at steady speeds or remain stopped at their respective positions."
+     },
+     {
+      "k": 5,
+      "status": "UNSCORABLE",
+      "truth": false,
+      "scoring_truth": null,
+      "pred": false,
+      "scorable": false,
+      "unscorable_reason": "beyond_data_end",
+      "reason": "Remaining vehicles and pedestrians are well-separated with no convergent trajectories leading to a collision."
+     }
+    ],
+    "response_issues": []
+   },
+   "weighted": {
+    "applicable": true,
+    "score": 1.0,
+    "k_true": 1,
+    "alarm_k": 1,
+    "delta": 0,
+    "detected": true,
+    "false_alarm": false,
+    "scorable": true,
+    "counts": {
+     "TP": 1,
+     "FP": 0,
+     "TN": 0,
+     "FN": 0
+    },
+    "n_buckets": 1,
+    "bucket_accuracy": 1.0,
+    "bucket_false_alarm_rate": null,
+    "per_interval": [
+     {
+      "k": 1,
+      "status": "TP",
+      "truth": true,
+      "pred": true,
+      "scorable": true,
+      "reason": "The ego vehicle attempts a left turn across the junction, crossing directly into the path of the oncoming eastbound vehicle (EGO_other_vehicle_behind)."
+     }
+    ],
+    "decay": {
+     "late": 0.2,
+     "early": 0.0
+    }
+   }
+  }
+ ],
+ "aggregate": {
+  "n_windows": 2,
+  "binary_window": {
+   "n_windows": 2,
+   "counts": {
+    "TP": 2,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "n_scorable_windows": 2,
+   "n_censored_windows": 0
+  },
+  "binary_bucket": {
+   "n_windows": 2,
+   "n_buckets": 3,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.667,
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "mean_positive_buckets": 1.5
+  },
+  "binary_scenario": {
+   "n_scenarios": 1,
+   "n_scorable_scenarios": 1,
+   "n_censored_scenarios": 0,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+   },
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "per_scenario": [
+    {
+     "scenario_ref": "scn_6ab183677cf7",
+     "outcome": "accident",
+     "status": "TP",
+     "truth": true,
+     "pred": true,
+     "scorable": true,
+     "n_windows": 2,
+     "n_eligible_windows": 2,
+     "n_positive_windows": 2
+    }
+   ]
+  },
+  "binary": {
+   "n_windows": 2,
+   "n_buckets": 3,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.667,
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "mean_positive_buckets": 1.5
+  },
+  "strict": {
+   "n_windows": 2,
+   "n_buckets": 3,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.667,
+   "precision": 1.0,
+   "recall": 0.5,
+   "vehicle_recall_mean": 1.0,
+   "actor_precision_mean": 1.0,
+   "events": {
+    "n": 2,
+    "exact": 1,
+    "early": 0,
+    "none": 1,
+    "detection_rate": 0.5,
+    "mean_lead_s": -0.2
+   },
+   "response_issue_counts": {}
+  },
+  "early": {
+   "n_windows": 2,
+   "n_buckets": 3,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "accuracy": 0.667,
+   "precision": 1.0,
+   "recall": 0.5,
+   "vehicle_recall_mean": 1.0,
+   "actor_precision_mean": 1.0,
+   "events": {
+    "n": 2,
+    "exact": 1,
+    "early": 0,
+    "none": 1,
+    "detection_rate": 0.5,
+    "mean_lead_s": -0.2
+   },
+   "response_issue_counts": {}
+  },
+  "weighted": {
+   "n_event_windows": 2,
+   "n_buckets": 3,
+   "counts": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 1,
+    "FN": 1
+   },
+   "bucket_accuracy": 0.667,
+   "mean_score": 0.5,
+   "n_detected": 1,
+   "n_missed": 1,
+   "detection_rate": 0.5,
+   "n_no_event_windows": 0,
+   "false_alarms": 0,
+   "window_false_alarm_rate": null,
+   "false_alarm_rate": 0.0
+  }
+ }
+}

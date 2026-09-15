@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 28.45,
+ "usage": {
+  "input": 12212,
+  "output": 663
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between actors, indicating no physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient separation; no direct contact is indicated.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "N022",
+     "V021"
+    ],
+    "reason": "N022 is predicted to rear-end V021, which is stopped directly in its projected path at approximately 7.1 seconds.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P010",
+     "V014",
+     "V015"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to collide with P010 due to an orthogonal path conflict at approximately 8.4 seconds. Additionally, V015 is predicted to collide with V014 during a lane merge at approximately 9.0 seconds.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V017",
+     "V015",
+     "V014"
+    ],
+    "reason": "V015 is predicted to collide with V017 during a lane merge at approximately 9.5 seconds. Additionally, V017 is predicted to rear-end V014 at approximately 9.6 seconds.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The prediction indicates multiple potential accidents across the last three intervals of the 5-second window. A stopped vehicle (V021) is rear-ended by N022. The ego vehicle (EGO_ego_vehicle) is involved in an orthogonal collision with pedestrian P010. There are also complex interactions between V014, V015, and V017, suggesting multiple lane merge and rear-end conflicts among these vehicles.",
+  "data_limitations": ""
+ }
+}

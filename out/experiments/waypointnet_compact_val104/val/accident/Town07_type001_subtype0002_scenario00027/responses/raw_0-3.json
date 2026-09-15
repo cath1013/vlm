@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap within this interval; all predicted clearances remain positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have physical contact or overlap within this interval; all predicted clearances remain positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002, moving westbound, is predicted to collide with the stopped V001 at approximately t=6.0s (3.0s after observation end) as V002's path leads directly into V001's position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V007\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end V007 while both are moving eastbound on the same road, with contact expected around t=6.9s (3.9s after observation end).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T015\", \"V016\"],\n      \"reason\": \"V016, moving northbound, is predicted to collide with the stopped T015 at approximately t=7.9s (4.9s after observation end) as V016's predicted path leads it directly into T015's position.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first two intervals are predicted to be clear of accidents. However, three distinct rear-end collisions are predicted in the subsequent intervals: V002 with V001 in k=3, EGO_ego_vehicle_behind with V007 in k=4, and V016 with T015 in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6533,
+  "candidatesTokenCount": 660,
+  "totalTokenCount": 10525,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6533
+   }
+  ],
+  "thoughtsTokenCount": 3332,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "TcmYapi3IvfJrfcPhY704A8"
+}

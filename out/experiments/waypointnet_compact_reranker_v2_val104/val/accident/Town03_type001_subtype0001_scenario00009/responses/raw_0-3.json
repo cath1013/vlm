@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V011\"],\n      \"reason\": \"EGO_other_vehicle and V011 are predicted to have a head-on collision at approximately 6.7 seconds absolute time, as their opposing paths on Road 139 converge with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation during this interval, following the predicted collision in the previous interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A head-on collision is predicted between EGO_other_vehicle and V011 in the (6.0, 7.0]s interval due to their opposing trajectories on the same road segment. All other vehicles are predicted to maintain safe distances throughout the prediction horizon.\",\n  \"data_limitations\": \"The predicted contact between EGO_other_vehicle and EGO_ego_vehicle_behind in the predicted_closest_pairs was dismissed as a false positive after manual inspection revealed significant and increasing separation based on their predicted speeds and waypoint progression, which contradicts a zero minimum clearance.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8927,
+  "candidatesTokenCount": 571,
+  "totalTokenCount": 17798,
+  "cachedContentTokenCount": 906,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8927
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 906
+   }
+  ],
+  "thoughtsTokenCount": 8300,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "leSYary3KpLJrfcPktTqqAE"
+}

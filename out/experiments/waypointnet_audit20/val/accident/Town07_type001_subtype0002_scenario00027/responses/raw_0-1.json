@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no immediate conflicts or dangerously short time-to-contact values among interacting vehicles within this interval; the listed short linear-extrapolated contact times are for vehicles on opposing lanes and not indicative of a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No imminent conflicts are expected in this interval, as all car-following situations have sufficient gaps or improving relative speeds, and the junction conflict is still outside this time frame.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The traffic situation remains stable with no critical interactions leading to an accident expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"P003\"],\n      \"reason\": \"An orthogonal entry conflict is expected between EGO_other_vehicle and P003 at junction J24 with a Time-To-Contact of 4.2 seconds, falling within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M013\", \"V012\"],\n      \"reason\": \"M013 is following V012 with a dangerously low headway of 1.7 seconds, and a Time-To-Contact of 5.5 seconds, suggesting a high risk of a rear-end collision towards the end of this interval or shortly after.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future (k=1-3s) appears safe, but a significant orthogonal junction conflict is predicted between EGO_other_vehicle and P003 around k=4s. Additionally, a high-risk car-following situation between M013 and V012, characterized by a low headway, is expected to lead to contact around k=5s or shortly after.\",\n  \"data_limitations\": \"The position and speed of V012 and M013, involved in a potential car-following accident, are noted as uncertain, which could affect the accuracy of their predicted time-to-contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7970,
+  "candidatesTokenCount": 692,
+  "totalTokenCount": 14054,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7970
+   }
+  ],
+  "thoughtsTokenCount": 5392,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bx2VavnjCZ-e0-kPnOPogAs"
+}

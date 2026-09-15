@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No direct high-TTC conflicts indicate an accident in this interval, though EGO_other_vehicle and V008 are entering their respective junctions, and hard rain conditions are present.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"A crossing collision is expected around t=5.4s (TTC 1.4s from t=4s) between EGO_ego_vehicle (predicted left turn) and EGO_other_vehicle (predicted straight) at the junction. EGO_ego_vehicle_behind, following closely, is likely involved as it enters the same junction complex at approximately t=5.2s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind, following EGO_other_vehicle, will enter the junction around t=6.3s and likely be involved in a secondary collision with the existing wreckage or other vehicles from the accident initiated in the prior interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"This interval covers the immediate aftermath of the multi-vehicle collision initiated in previous intervals, with no new distinct collision events identified.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"This interval covers the aftermath of the multi-vehicle collision, with no new distinct collision events identified.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A critical junction crossing conflict is imminent between EGO_ego_vehicle and EGO_other_vehicle, expected to result in a collision within the (5, 6]s interval due to short TTC and conflicting predicted paths. This initial crash will likely lead to secondary involvement of EGO_ego_vehicle_behind and EGO_other_vehicle_behind in the subsequent interval as they approach the collision scene. The hard rain conditions exacerbate the risk for all interactions at the complex three-way junction.\",\n  \"data_limitations\": \"The absence of traffic signal states at the junction is a significant limitation for assessing right-of-way and driver behavior. The map being synthesized from trajectories means certain road features or junction complexities might be underspecified.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6965,
+  "candidatesTokenCount": 797,
+  "totalTokenCount": 17136,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6965
+   }
+  ],
+  "thoughtsTokenCount": 9374,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PRiVarTJEJSz1e8PndTD2A4"
+}

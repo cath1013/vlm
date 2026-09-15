@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No immediate accident is expected as vehicles maintain safe distances or are in opposing lanes, and predicted paths do not indicate conflicts within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind continues to approach the stopped T006, reducing the gap to a critical 1.4 meters by the end of this interval, but no collision is expected to occur yet.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T006\"],\n      \"reason\": \"EGO_ego_vehicle_behind, accelerating at +1.2m/s², is predicted to rear-end the stopped T006 at approximately t=4.22s as the gap closes completely.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the expected collision in the previous interval, no other critical interactions are clearly identified given current vehicle states and predicted paths.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new critical interactions are identified; vehicles are expected to continue their paths without conflict based on current observations and predictions.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The traffic scenario presents a high risk of a rear-end collision between EGO_ego_vehicle_behind and T006, as EGO_ego_vehicle_behind is accelerating rapidly towards the stopped truck. This collision is expected to occur in the interval (4.0, 5.0]s. Other vehicles at the junction are either stopped, proceeding in opposing lanes, or have sufficient headway, so no other accidents are expected based on available data.\",\n  \"data_limitations\": \"Lack of traffic signal states, stop line information, and turn signal indications limits the ability to predict orthogonal conflicts at the four-way junction. 'Predicted path' values are from a predictor and do not necessarily reflect driver intent. The 'car following' interaction description in the 'Interactions and hazards' section for EGO_ego_vehicle and EGO_ego_vehicle_behind was geometrically incorrect, as EGO_ego_vehicle is ahead of EGO_ego_vehicle_behind.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8080,
+  "candidatesTokenCount": 725,
+  "totalTokenCount": 21116,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8080
+   }
+  ],
+  "thoughtsTokenCount": 12311,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "QB2Vappxx87aug-2oaOxBA"
+}

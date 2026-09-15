@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, indicating no imminent physical contact between vehicles or pedestrians.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to collide with the stopped EGO_other_vehicle in a rear-end fashion, with a predicted minimum clearance of 0.0m at 2.0s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and P008 have a very small predicted minimum clearance of 0.17m, predicted_contact is false, indicating no definitive physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient clearance, indicating no imminent physical contact between vehicles or pedestrians.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind and EGO_ego_vehicle_behind are predicted to have a head-on collision at approximately 4.6s after observation, with a predicted minimum clearance of 0.0m as they move in opposing directions.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window, both involving observer vehicles with a joint path probability of 1.0 and 0.0m predicted minimum clearance. The first is a rear-end collision between EGO_other_vehicle_behind and a stopped EGO_other_vehicle in k=2. The second is a head-on collision between EGO_other_vehicle_behind and EGO_ego_vehicle_behind in k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9333,
+  "candidatesTokenCount": 668,
+  "totalTokenCount": 12872,
+  "cachedContentTokenCount": 911,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9333
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 911
+   }
+  ],
+  "thoughtsTokenCount": 2871,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xsKYavOrI5zNrfcPh47R8Qw"
+}

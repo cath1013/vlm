@@ -1,0 +1,69 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 79.45,
+ "usage": {
+  "input": 13480,
+  "output": 777
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V033 and EGO_other_vehicle_behind maintain a positive lateral clearance of approximately 0.67m as they converge towards a merge or narrowing.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V033"
+    ],
+    "reason": "A side-swipe collision occurs at approximately t=6.9s as EGO_other_vehicle_behind and V033 converge onto the same lateral position while traveling at 30-32 kph.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V033"
+    ],
+    "reason": "The vehicles remain in contact as the lateral center-to-center distance (1.2m) is significantly less than the width of the vehicle footprints.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V033"
+    ],
+    "reason": "The accident continues as the predicted trajectories for EGO_other_vehicle_behind and V033 show a 0.4m lateral gap, indicating a major body overlap.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V033"
+    ],
+    "reason": "EGO_other_vehicle_behind and V033 occupy the same physical space as their lateral paths cross while traveling side-by-side.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario is dominated by a predicted side-swipe accident between EGO_other_vehicle_behind and V033 on Road 2. The vehicles begin the future interval with a closing lateral gap that reaches zero at t=6.9s; because neither vehicle is predicted to brake or steer away, and the observer vehicle EGO_other_vehicle_behind does not appear to detect V033, the collision is sustained through the end of the 10-second window as their paths overlap and eventually cross laterally.",
+  "data_limitations": "Sensor observations for V033 are unavailable from its own perspective and were not detected by the observer vehicle EGO_other_vehicle_behind, which likely explains the lack of evasive maneuvers in the predicted future paths."
+ }
+}

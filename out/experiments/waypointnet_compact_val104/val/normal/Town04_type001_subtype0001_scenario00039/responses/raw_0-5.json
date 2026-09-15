@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to make a right turn into the path of the stopped vehicle V001, resulting in a collision at 0.9 seconds into the interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V023\", \"V003\", \"C002\"],\n      \"reason\": \"Multiple predicted contacts: EGO_ego_vehicle's right turn path intersects with V023's southbound path at 1.8 seconds, and car V003 is predicted to collide with bicycle C002 from behind at 1.8 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V001\"],\n      \"reason\": \"Vehicle V003 is predicted to collide with the stopped vehicle V001 at 2.3 seconds as V003 continues its northbound path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero minimum clearance are indicated for this interval, and all actors maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V015\", \"V003\", \"P011\"],\n      \"reason\": \"Two separate conflicts: EGO_other_vehicle_behind and V015 are predicted to collide at 4.6 seconds due to converging paths, and vehicle V003 is predicted to collide with pedestrian P011 at 4.9 seconds.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows a high likelihood of multiple accidents. The ego vehicle and other observed vehicles are involved in several predicted collisions, primarily due to turning maneuvers conflicting with stopped or crossing vehicles, as well as rear-end and pedestrian collisions. Accidents are expected in intervals k=1, k=2, k=3, and k=5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11041,
+  "candidatesTokenCount": 699,
+  "totalTokenCount": 14588,
+  "cachedContentTokenCount": 926,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11041
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 926
+   }
+  ],
+  "thoughtsTokenCount": 2848,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0cOYapmcC7DM0-kPwPDAoAw"
+}

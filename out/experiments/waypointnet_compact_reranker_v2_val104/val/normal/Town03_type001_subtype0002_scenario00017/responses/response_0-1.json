@@ -1,0 +1,66 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 14.41,
+ "usage": {
+  "input": 8871,
+  "output": 658
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V020"
+    ],
+    "reason": "V020 is predicted to collide with the stopped EGO_other_vehicle_behind, with a minimum clearance of 0.0m at 1.0s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "V018"
+    ],
+    "reason": "V018 is predicted to collide with the stopped EGO_ego_vehicle_behind, with a minimum clearance of 0.0m at 1.2s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or sufficiently close clearances between any actors suggest an accident in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted contacts or sufficiently close clearances between any actors suggest an accident in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle_behind",
+     "V021"
+    ],
+    "reason": "V021 is predicted to collide with the stopped EGO_other_vehicle_behind, with a minimum clearance of 0.0m at 4.5s.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Three distinct collision events are predicted across the 5-second window. In interval 1, V020 is predicted to collide with EGO_other_vehicle_behind. In interval 2, V018 is predicted to collide with EGO_ego_vehicle_behind. Finally, in interval 5, V021 is predicted to collide with EGO_other_vehicle_behind again, as the vehicle continues its path through the stopped observer. All predicted contacts involve moving vehicles intersecting the paths of observer vehicles designated as 'remains stopped'.",
+  "data_limitations": "None."
+ }
+}

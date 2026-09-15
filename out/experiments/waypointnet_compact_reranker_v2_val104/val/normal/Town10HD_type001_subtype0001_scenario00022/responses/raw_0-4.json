@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation as they proceed on their respective paths, with minimum clearances of 7.05m and 3.24m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show vehicles maintaining safe distances or passing without physical contact, with the smallest predicted clearance being 0.47m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to follow their predicted paths with ample clearance, the smallest predicted clearance being 2.75m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"M020\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind and M020 are predicted to have simultaneous body contact (0.0m minimum clearance) at 3.9 seconds after the observation window, indicating an orthogonal entry conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further contacts are predicted, and vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One accident involving EGO_other_vehicle_behind and M020 is predicted in the k=4 interval due to conflicting paths leading to simultaneous body contact. All other actor pairs are predicted to maintain sufficient separation throughout the 5-second prediction window, with no other contacts expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11278,
+  "candidatesTokenCount": 570,
+  "totalTokenCount": 16163,
+  "cachedContentTokenCount": 928,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11278
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 928
+   }
+  ],
+  "thoughtsTokenCount": 4315,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xeuYav-gLZGE0-kP58S-iAw"
+}

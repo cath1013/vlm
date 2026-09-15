@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances with no overlap or contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances with no overlap or contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T003\", \"V002\"],\n      \"reason\": \"T003 and V002 are predicted to have simultaneous body contact (0.0m clearance) at approximately 7.2s due to lane contention or a side-swipe as T003 moves eastward while V002 maintains its position.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T003\"],\n      \"reason\": \"T003 and EGO_ego_vehicle_behind are predicted to have simultaneous body contact (0.0m clearance) at approximately 8.6s. T003, a truck, is predicted to overtake EGO_ego_vehicle_behind and shift eastward into its path, leading to a collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances with no overlap or contact, with the smallest predicted gap being 0.39m for EGO_ego_vehicle and EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collision events are predicted, both involving truck T003. First, T003 is expected to contact V002 in the (7.0, 8.0]s interval due to lane contention. Second, T003 is expected to contact EGO_ego_vehicle_behind in the (8.0, 9.0]s interval as T003 overtakes and crosses EGO_ego_vehicle_behind's path. All other pairs maintain safe clearances throughout the prediction horizon.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7742,
+  "candidatesTokenCount": 679,
+  "totalTokenCount": 13901,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7742
+   }
+  ],
+  "thoughtsTokenCount": 5480,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ZMiYatHBELaM1e8PkrHKiAY"
+}

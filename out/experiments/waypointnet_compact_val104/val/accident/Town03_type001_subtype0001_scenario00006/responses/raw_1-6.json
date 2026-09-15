@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any geometric overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"T006\", \"T003\", \"V005\"],\n      \"reason\": \"EGO_ego_vehicle and T006 have predicted contact at time 1.9s due to crossing paths at a junction. Simultaneously, T003 and V005 have predicted contact at time 2.0s due to opposing travel on what appears to be the same road segment, leading to a head-on collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any geometric overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any geometric overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"T003\"],\n      \"reason\": \"EGO_other_vehicle and T003 have predicted contact at time 5.0s due to EGO_other_vehicle traveling west and T003's path showing it stopping or turning in a way that causes overlap with EGO_other_vehicle's trajectory.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct multi-vehicle accident events are predicted in this scenario. The first, in interval (7.0, 8.0]s, involves EGO_ego_vehicle and T006 in a junction crossing conflict, and T003 and V005 in a head-on conflict. The second, in interval (10.0, 11.0]s, involves EGO_other_vehicle and T003 in a conflicting path scenario.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9346,
+  "candidatesTokenCount": 670,
+  "totalTokenCount": 13368,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9346
+   }
+  ],
+  "thoughtsTokenCount": 3352,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "y76YaoX7M-3I0-kPxOGLIA"
+}

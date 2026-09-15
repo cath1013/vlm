@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted vehicle paths show sufficient clearance and no conflicting trajectories in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are maintaining safe distances from each other based on their predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths indicate safe separation between all vehicles, including EGO_ego_vehicle and the stopped V001 on an adjacent lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No vehicles are predicted to have conflicting paths or insufficient clearance during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"N004\"],\n      \"reason\": \"N004 is predicted to rear-end EGO_ego_vehicle_behind, with a minimum clearance of 0.78m, due to N004 closing the gap while both vehicles travel eastbound in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario appears largely safe with most vehicles maintaining clear separation. However, a high-risk rear-end collision is predicted in the final interval (k=5) between EGO_ego_vehicle_behind and N004. N004 is shown to close a significant gap, resulting in an extremely low predicted clearance with EGO_ego_vehicle_behind.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5391,
+  "candidatesTokenCount": 566,
+  "totalTokenCount": 10338,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5391
+   }
+  ],
+  "thoughtsTokenCount": 4381,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "G-SYaqXJK-jJ0-kPwJet4Aw"
+}

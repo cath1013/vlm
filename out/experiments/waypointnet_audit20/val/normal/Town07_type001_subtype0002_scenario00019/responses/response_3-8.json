@@ -1,0 +1,77 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 33.73,
+ "usage": {
+  "input": 10694,
+  "output": 861
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "M003",
+     "V013"
+    ],
+    "reason": "EGO_ego_vehicle is 6m from a junction, accelerating, and predicted to go straight. M003 is 4m from a junction, accelerating, and predicted to go straight, directly crossing EGO_ego_vehicle's path. V013 is 7m from a junction and predicted to make a left turn, which will also cross EGO_ego_vehicle's straight path; EGO_ego_vehicle will reach the intersection first, but V013 will enter the intersection shortly thereafter and cross its path.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "M003",
+     "V013"
+    ],
+    "reason": "Given the high probability of a collision in the previous interval due to multiple vehicles simultaneously entering and crossing paths at the junction, the accident and its immediate aftermath are expected to continue or unfold in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "M003",
+     "V013"
+    ],
+    "reason": "Following the anticipated collision in the preceding intervals, this interval is expected to be part of the direct consequences and aftermath of the accident.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "M003",
+     "V013"
+    ],
+    "reason": "This interval is expected to involve the continued aftermath of the accident predicted in earlier intervals, with potential secondary impacts or vehicle instability.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "M003",
+     "V013"
+    ],
+    "reason": "The collision's aftermath is likely to persist into this interval, with vehicles potentially coming to a stop or debris impacting other road users.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The ego vehicle is rapidly approaching a four-way junction where its path is predicted to directly conflict with at least two other road users, M003 and V013, within the next second. Both M003 and V013 are also moving towards or entering the junction, creating multiple simultaneous crossing path conflicts. An accident involving the ego vehicle is highly probable in the immediate future.",
+  "data_limitations": "The absence of traffic signal states, stop line information, and explicit right-of-way rules for this complex junction significantly impacts the ability to definitively predict vehicle behavior and yielding, necessitating reliance on predicted paths and geometric proximity."
+ }
+}

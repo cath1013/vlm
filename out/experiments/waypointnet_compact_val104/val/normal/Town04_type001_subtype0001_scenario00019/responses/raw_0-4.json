@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close interactions between any actors within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle and V001 are predicted to have a head-on or crossing collision at 1.9 seconds after observation, indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"V005\", \"V004\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have an orthogonal intersection collision at 2.4 seconds, and V005 is predicted to rear-end V004 at 2.6 seconds, both with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V001 are predicted to have a head-on or crossing collision at 3.9 seconds after observation, with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V025\"],\n      \"reason\": \"V004 is predicted to rear-end the stopped vehicle V025 at 4.5 seconds after observation, indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across intervals k=2 through k=5, involving observer vehicles and other road users. These include head-on/crossing conflicts at intersections and rear-end collisions with both moving and stopped vehicles. The geometric overlap and explicit predicted contact indicate a high likelihood of collision based on the given trajectories.\",\n  \"data_limitations\": \"The future paths for all actors have a probability of 1.0, meaning no alternative maneuvers or uncertainties in driver behavior are considered beyond these single, most likely trajectories. This simplifies the prediction to a deterministic outcome given the input paths.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9601,
+  "candidatesTokenCount": 722,
+  "totalTokenCount": 14964,
+  "cachedContentTokenCount": 913,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9601
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 913
+   }
+  ],
+  "thoughtsTokenCount": 4641,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "VMOYaoqjN-e02roP7oDOiQE"
+}

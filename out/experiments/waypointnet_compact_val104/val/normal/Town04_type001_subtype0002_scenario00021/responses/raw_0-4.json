@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted actor paths maintain sufficient clearance; no physical contact is expected within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T001\", \"V002\"],\n      \"reason\": \"V002 (car) is predicted to collide with the stopped T001 (truck), likely a rear-end or side-swipe collision as V002 travels north into T001's static footprint.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted physical contact between any actors; all vehicles maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T016\", \"N008\"],\n      \"reason\": \"T016 (truck) and N008 (van) are predicted to have a head-on or side-swipe collision due to their opposing travel directions on Road 9 and intersecting predicted paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances from each other and are on non-intersecting paths in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction window. The first involves a moving car (V002) colliding with a stopped truck (T001) in the second interval. The second accident, occurring in the fourth interval, is a head-on or side-swipe collision between a westbound truck (T016) and an eastbound van (N008) on Road 9, as they traverse opposing lanes.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8769,
+  "candidatesTokenCount": 606,
+  "totalTokenCount": 15570,
+  "cachedContentTokenCount": 904,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8769
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 904
+   }
+  ],
+  "thoughtsTokenCount": 6195,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "x8uYarmqJZew1e8PxZ2poAY"
+}

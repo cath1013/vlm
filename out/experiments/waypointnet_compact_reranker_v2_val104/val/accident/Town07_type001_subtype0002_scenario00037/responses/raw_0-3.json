@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to make a left turn and collide with the stopped EGO_other_vehicle at approximately 3.4 seconds after the observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles maintain sufficient clearance based on their supplied predicted paths in this interval, with no new physical contact indicated after the collision in k=1.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted paths, and no physical contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted paths, and no physical contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V002\"],\n      \"reason\": \"V002 is predicted to collide with the stopped EGO_other_vehicle at approximately 7.3 seconds after the observation, with a predicted minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct collisions are predicted within the 5-second window. First, EGO_other_vehicle_behind collides with the stationary EGO_other_vehicle in the first second. Later, V002 collides with the same stationary EGO_other_vehicle in the fifth second, assuming the latter's path remains unchanged.\",\n  \"data_limitations\": \"The future path for EGO_other_vehicle assumes it remains stopped throughout the prediction window, even after being involved in a collision in k=1. This might lead to an unrealistic prediction of the second collision in k=5 if the first collision alters its actual future state.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6642,
+  "candidatesTokenCount": 670,
+  "totalTokenCount": 12552,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6642
+   }
+  ],
+  "thoughtsTokenCount": 5240,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "F--Yap2lOvrdvr0Pk4WPkQk"
+}

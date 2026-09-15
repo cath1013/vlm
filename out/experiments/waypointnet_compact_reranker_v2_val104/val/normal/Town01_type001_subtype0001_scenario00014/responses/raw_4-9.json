@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and no contact is predicted within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end the stopped EGO_ego_vehicle at approximately 10.9 seconds (1.9s after observation) with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although an accident is predicted in the previous interval, no further contact is explicitly predicted within this interval by the provided pair data, and other vehicles maintain clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and no contact is predicted within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, and no contact is predicted within this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision between EGO_ego_vehicle_behind and the stopped EGO_ego_vehicle is predicted to occur in the second 1-second interval. All other road users maintain safe distances and are not predicted to be involved in any conflicts. The predictions for intervals after the initial predicted collision do not model the consequences of that event.\",\n  \"data_limitations\": \"The future paths for EGO_ego_vehicle and EGO_ego_vehicle_behind are predicted independently, leading to a collision. The subsequent intervals do not account for post-collision dynamics or evasive actions, nor do they model sustained contact or secondary collisions following the initial impact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5998,
+  "candidatesTokenCount": 630,
+  "totalTokenCount": 9161,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5998
+   }
+  ],
+  "thoughtsTokenCount": 2533,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "IeiYarv7LPqb0-kPtv6CeA"
+}

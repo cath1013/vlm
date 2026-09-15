@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all actors show safe clearances, with no geometric evidence of physical contact or body overlap.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite the predicted_contact flag for V019-M020 and C028-T029, geometric analysis of their future paths indicates a clear separation, preventing physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although predicted_contact for V014-V017 was indicated, geometric analysis of their future paths shows them maintaining a significant gap as they proceed in parallel-like directions.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Multiple pairs (V018-V012, EGO_ego_vehicle_behind-V011, V023-T029, V024-V025) had predicted_contact=true, but geometric checks of their paths demonstrate clear separation or diverging trajectories, precluding physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no close interaction predictions in this interval, and all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Throughout the 5-second prediction window, no accidents are expected. While the `predicted_closest_pairs` output indicated several instances of `predicted_contact=true` with 0.0m clearance, a detailed geometric analysis of the future waypoints for each involved pair consistently showed significant physical separation. Therefore, all these predicted contacts are considered false positives.\",\n  \"data_limitations\": \"The `predicted_closest_pairs` output showing `0.0m` minimum clearance and `predicted_contact=true` for multiple actor pairs appeared inconsistent with manual geometric checks of the provided future waypoints. In each such case, the waypoints indicated several meters of separation, which necessitated overriding the direct `predicted_contact` flag in the judgment.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10612,
+  "candidatesTokenCount": 683,
+  "totalTokenCount": 23815,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10612
+   }
+  ],
+  "thoughtsTokenCount": 12520,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0MyYaqTHIofS1e8Phrb52Ag"
+}

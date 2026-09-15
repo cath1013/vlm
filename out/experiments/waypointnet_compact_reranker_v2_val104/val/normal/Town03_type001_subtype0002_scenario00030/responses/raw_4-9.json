@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted vehicles maintain sufficient clearance and stable trajectories within their respective lanes.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V008\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped vehicle V008 at t=10.2s, as V008 remains stationary directly in its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All observed and predicted vehicles maintain sufficient clearance and stable trajectories.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V008\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped vehicle V008 at t=12.3s, as V008 remains stationary directly in its path.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation. The predicted contact between EGO_ego_vehicle_behind and T001 is not supported by their future paths which show adequate lateral separation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct rear-end collisions are expected with vehicle V008, which remains stopped throughout the prediction window. EGO_other_vehicle is predicted to collide with V008 in interval k=2, and EGO_ego_vehicle is predicted to collide with V008 in interval k=4. All other predicted interactions show sufficient clearance, or their 'predicted_contact' status does not align with the geometric evidence from the provided future paths.\",\n  \"data_limitations\": \"The 'predicted_contact' flag for EGO_ego_vehicle_behind and T001 at k=5 did not align with the actual geometric separation of their paths and footprints, requiring manual override of the prediction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5513,
+  "candidatesTokenCount": 667,
+  "totalTokenCount": 12802,
+  "cachedContentTokenCount": 846,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5513
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 846
+   }
+  ],
+  "thoughtsTokenCount": 6622,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "APGYauyyOOKJvr0PqcGZ2AY"
+}

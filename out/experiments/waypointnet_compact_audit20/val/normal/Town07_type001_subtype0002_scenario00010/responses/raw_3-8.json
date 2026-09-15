@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\"predictions\":[{\"k\":1,\"interval_s\":\"(8.0, 9.0]s\",\"accident_expected\":false,\"involved_actor_ids\":[],\"reason\":\"All actors maintain safe separation distances in this interval.\",\"confidence\":\"high\"},{\"k\":2,\"interval_s\":\"(9.0, 10.0]s\",\"accident_expected\":false,\"involved_actor_ids\":[],\"reason\":\"All actors maintain safe separation distances in this interval.\",\"confidence\":\"high\"},{\"k\":3,\"interval_s\":\"(10.0, 11.0]s\",\"accident_expected\":false,\"involved_actor_ids\":[],\"reason\":\"While EGO_other_vehicle is approaching N007 and C003 is approaching V002, their predicted paths do not yet indicate physical contact or body overlap in this interval based on vehicle dimensions.\",\"confidence\":\"high\"},{\"k\":4,\"interval_s\":\"(11.0, 12.0]s\",\"accident_expected\":true,\"involved_actor_ids\":[\"EGO_other_vehicle\",\"N007\",\"C003\",\"V002\"],\"reason\":\"EGO_other_vehicle is predicted to rear-end the stopped van N007 as their path centers are approximately 2.0m apart. Concurrently, the bicycle C003 is predicted to collide with the stopped car V002 as their path centers are approximately 0.5m apart, indicating clear body overlap.\",\"confidence\":\"high\"},{\"k\":5,\"interval_s\":\"(12.0, 13.0]s\",\"accident_expected\":true,\"involved_actor_ids\":[\"EGO_other_vehicle\",\"N007\",\"C003\",\"V002\"],\"reason\":\"The collisions predicted in the previous interval continue, with EGO_other_vehicle overlapping N007 (approx. 1.0m separation) and C003 overlapping V002 (approx. 1.2m separation).\",\"confidence\":\"high\"}],\"overall_assessment\":\"Two distinct accidents are predicted within this 5-second forecast window, both commencing in the (11.0, 12.0] second interval and continuing through the final interval. EGO_other_vehicle is expected to rear-end the stopped van N007, and the bicycle C003 is expected to collide with the stopped car V002. All other actors maintain safe distances from one another.\",\"data_limitations\":\"The prediction assumes that all actors will strictly follow their projected deterministic paths without any evasive action or driver reaction to impending collisions, which may lead to an overestimation of accident occurrences. Vehicle dimensions were estimated for collision assessment as they were not explicitly provided.\"}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5919,
+  "candidatesTokenCount": 590,
+  "totalTokenCount": 19037,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5919
+   }
+  ],
+  "thoughtsTokenCount": 12528,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2kqVaryvJpm7vr0Po6jr-Ag"
+}

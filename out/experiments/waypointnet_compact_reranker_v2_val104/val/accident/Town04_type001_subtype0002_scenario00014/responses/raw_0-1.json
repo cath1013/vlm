@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"M016\"],\n      \"reason\": \"The predicted path of motorcycle M016 causes it to directly overlap with the stationary EGO_ego_vehicle_behind at 1.4 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe minimum clearance of at least 1.3 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V019\"],\n      \"reason\": \"The predicted path of V019 results in an extremely low minimum clearance of 0.07 meters with the stationary EGO_ego_vehicle_behind at 3.4 seconds after observation, indicating an unavoidable physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain sufficient clearance, with no contacts or extremely close approaches indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain sufficient clearance, with the smallest predicted gap being 2.43 meters.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two potential accidents are predicted within the 5-second window, both involving the stationary EGO_ego_vehicle_behind. The first is with motorcycle M016 in the k=1 interval due to a direct path overlap. The second occurs in the k=3 interval, where car V019 passes EGO_ego_vehicle_behind with an extremely narrow 0.07-meter clearance, effectively a collision.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8135,
+  "candidatesTokenCount": 616,
+  "totalTokenCount": 17136,
+  "cachedContentTokenCount": 896,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8135
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 896
+   }
+  ],
+  "thoughtsTokenCount": 8385,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Ae2YarezNqDC0-kPoaWNYQ"
+}

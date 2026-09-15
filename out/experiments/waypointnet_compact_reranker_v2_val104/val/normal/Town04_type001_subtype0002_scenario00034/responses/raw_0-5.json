@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show sufficient clearance between all road users, with the closest predicted clearance being over 10 meters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain significant clearances from each other, indicating no immediate risk of collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted conflicts or close interactions that would lead to an accident in this interval; all vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest interaction predicted for this interval is a clearance of 5.68m, which is sufficient to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to cross the path of EGO_ego_vehicle_behind at approximately 4.8 seconds after observation, resulting in a predicted body overlap (minimum_clearance_m=0.0) and contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the final interval (9.0, 10.0] seconds after observation, involving EGO_ego_vehicle_behind and EGO_other_vehicle_behind. EGO_other_vehicle_behind's path intersects with EGO_ego_vehicle_behind's path, leading to predicted contact. The preceding intervals show no imminent accident risks.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7443,
+  "candidatesTokenCount": 600,
+  "totalTokenCount": 11492,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7443
+   }
+  ],
+  "thoughtsTokenCount": 3449,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "BPKYapRNp8TT6Q-a0uTwAQ"
+}

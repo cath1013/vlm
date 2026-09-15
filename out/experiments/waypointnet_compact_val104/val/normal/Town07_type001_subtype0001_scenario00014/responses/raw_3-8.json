@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other, and no predicted paths indicate a collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other, and no predicted paths indicate a collision.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V004\",\n        \"V019\",\n        \"V025\",\n        \"EGO_ego_vehicle\",\n        \"T018\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with V004 at 2.4s as it turns left. V019 is predicted to collide with V025 at 2.9s as it turns left. EGO_ego_vehicle is predicted to collide with the stopped truck T018 at 3.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end EGO_ego_vehicle at 4.0s as both proceed straight in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V010\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with the stopped vehicle V010 at 4.5s while completing a left turn.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple collisions are predicted throughout the 5-second prediction window. EGO_other_vehicle is involved in two separate predicted collisions with stopped vehicles (V004 and V010) while making left turns. EGO_ego_vehicle is predicted to collide with a stopped truck (T018) and then be rear-ended by EGO_ego_vehicle_behind. An additional collision between V019 and V025 is also predicted.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8178,
+  "candidatesTokenCount": 729,
+  "totalTokenCount": 13615,
+  "cachedContentTokenCount": 897,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8178
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 897
+   }
+  ],
+  "thoughtsTokenCount": 4708,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "P8WYauXTK5zO2roPhNqUqA4"
+}

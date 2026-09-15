@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances in this interval, with the closest pair (EGO_ego_vehicle and P004) predicted to have 0.11m clearance, avoiding contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances in this interval, with the closest predicted interactions having non-zero clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T014\", \"V015\", \"N021\", \"V022\"],\n      \"reason\": \"T014 and V015 are predicted to collide at t=4.0s, likely a rear-end or side-swipe, while N021 and V022 are predicted to have a rear-end collision at t=4.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V001\"],\n      \"reason\": \"EGO_ego_vehicle_behind and V001 are predicted to collide at t=4.6s due to an orthogonal path intersection at a junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe clearances, and no collisions are predicted in this interval from the available data.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts multiple collisions occurring in intervals k=3 and k=4. Specifically, a rear-end collision between a truck (T014) and a car (V015), and another between a van (N021) and a car (V022) are expected at t=4.0s. Additionally, an orthogonal intersection conflict between two cars, EGO_ego_vehicle_behind and V001, is predicted at t=4.6s.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' list is limited to 12 entries by 'pairs_serialized_cap', which might omit other potential contacts. Some actors have null acceleration values, which could indicate simplified motion models impacting prediction accuracy. P029 has a track age of 0.0s, potentially leading to less reliable future path predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9195,
+  "candidatesTokenCount": 735,
+  "totalTokenCount": 18543,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9195
+   }
+  ],
+  "thoughtsTokenCount": 8613,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "TMiYat6pIbq20-kPyMLMgQI"
+}

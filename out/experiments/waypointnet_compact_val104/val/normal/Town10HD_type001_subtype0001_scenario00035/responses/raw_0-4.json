@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe clearances, with the closest pair (EGO_ego_vehicle, V019) having a clearance of 1.54m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P004\", \"V019\", \"P012\", \"V017\", \"V018\"],\n      \"reason\": \"V019 is predicted to collide with pedestrians P004 (at 1.4s) and P012 (at 1.5s) as they cross its path. Additionally, V017 and V018 are predicted to collide (at 1.8s) while both cars are moving northwest, suggesting a merging or overtaking incident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts with zero clearance or intersecting paths for any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"P004\", \"V021\", \"V040\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to collide with pedestrian P004 (at 3.8s) as P004 crosses the vehicle's southbound path. Additionally, V021 is predicted to collide with the stopped vehicle V040 (at 4.0s), indicating a rear-end or side impact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P014\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with pedestrian P014 (at 4.3s) as the pedestrian crosses the vehicle's southbound path while the vehicle is accelerating.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the forecast window. In k=2, a car (V019) is predicted to collide with two pedestrians (P004, P012), and two cars (V017, V018) are predicted to collide. In k=4, EGO_ego_vehicle_behind is predicted to hit a pedestrian (P004), and another vehicle (V021) is predicted to hit a stopped vehicle (V040). Finally, in k=5, EGO_ego_vehicle is predicted to collide with a pedestrian (P014).\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 11691,
+  "candidatesTokenCount": 801,
+  "totalTokenCount": 17022,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 11691
+   }
+  ],
+  "thoughtsTokenCount": 4530,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "OsaYasqKC-P82roP777joQo"
+}

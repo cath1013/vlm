@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs maintain a safe clearance above 1 meter in this interval, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs maintain a safe clearance above 3 meters in this interval, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No critical close encounters are predicted for any actor pairs in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"An orthogonal entry conflict is predicted between EGO_ego_vehicle and EGO_other_vehicle_behind at approximately 3.2 seconds after observation, with a minimum clearance of 0.01 meters, indicating physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair (EGO_other_vehicle and T003) maintains a clearance of 0.4 meters, which is very close but does not indicate physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"One significant orthogonal entry conflict is predicted within the k=4 interval between EGO_ego_vehicle and EGO_other_vehicle_behind, with a minimal clearance suggesting physical contact. For all other prediction intervals and actor pairs, a safe clearance is maintained, and no accidents are expected.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8691,
+  "candidatesTokenCount": 576,
+  "totalTokenCount": 14250,
+  "cachedContentTokenCount": 903,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8691
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 903
+   }
+  ],
+  "thoughtsTokenCount": 4983,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "WeiYatSSOsaMvr0P4sH7gAY"
+}

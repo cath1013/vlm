@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are maintaining safe distances from each other, with no predicted path convergence leading to contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe separation, with no path overlaps or critical clearances in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_ego_vehicle and V002 have a close approach (0.8m clearance) at t=2.4s (5.4s absolute), this does not constitute simultaneous body contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths show sufficient clearance for this interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V006\"],\n      \"reason\": \"An orthogonal entry conflict is predicted at t=4.9s (7.9s absolute) between EGO_other_vehicle and V006, resulting in simultaneous body contact with 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the final interval (7.0, 8.0]s, specifically between EGO_other_vehicle and V006, due to their predicted paths intersecting at the same time and location. Although some other pairs exhibit small clearances, they do not meet the criteria for simultaneous body contact or overlap.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8360,
+  "candidatesTokenCount": 584,
+  "totalTokenCount": 12701,
+  "cachedContentTokenCount": 899,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8360
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   }
+  ],
+  "thoughtsTokenCount": 3757,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "NumYapOMKcmj9tMP-bjGwQY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is executing a left turn and crosses the path of EGO_other_vehicle, which is proceeding straight, resulting in a minimum predicted clearance of 0.39m at t=3.8s, indicating likely physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The paths of all actors show sufficient clearance throughout this interval, and no conflicts are identified.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle_behind\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle continues its left turn and crosses the path of EGO_other_vehicle_behind, which is traveling south, leading to a minimum predicted clearance of 0.64m at t=5.7s, indicating probable body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are diverging or maintaining safe distances, with no path conflicts or critically low clearances identified.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe clearances and continue on their respective paths without conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct intersection collision events are predicted in this scenario. The first involves EGO_ego_vehicle and EGO_other_vehicle in interval k=1, where EGO_ego_vehicle performs a left turn across the path of the southbound EGO_other_vehicle with a minimum predicted clearance of 0.39m. The second potential collision occurs in interval k=3, where EGO_ego_vehicle, continuing its turn, encounters EGO_other_vehicle_behind, which is also traveling southbound, resulting in a predicted minimum clearance of 0.64m. Both clearances are critically low, suggesting probable physical contact.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10557,
+  "candidatesTokenCount": 693,
+  "totalTokenCount": 16596,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10557
+   }
+  ],
+  "thoughtsTokenCount": 5346,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "feWYatH3LcTRosUPv4TQiQY"
+}

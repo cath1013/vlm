@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance and no physical contact is indicated by the trajectory predictor.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"T006\",\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"Predicted contact between V005 (car) and T006 (truck) at 2.1s due to converging paths, and between EGO_other_vehicle (car) and EGO_other_vehicle_behind (car) at 2.6s likely from a rear-end or overtaking conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\"\n      ],\n      \"reason\": \"Predicted contact between EGO_ego_vehicle (car) and EGO_ego_vehicle_behind (car) at 3.6s, indicating a potential rear-end collision or close-quarters overtaking maneuver.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V004\",\n        \"T006\"\n      ],\n      \"reason\": \"Predicted contact between V004 (stopped car) and T006 (truck) at 4.3s, indicating T006 is predicted to collide with the stopped vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M014\",\n        \"V016\"\n      ],\n      \"reason\": \"Predicted contact between M014 (motorcycle) and V016 (car) at 5.1s, suggesting a merging or lane contention conflict as their paths overlap.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted across the 5-second prediction window, starting from the second interval. These include rear-end collisions involving observer vehicles and other road users, a collision between a moving truck and a stopped car, and merging/lane contention conflicts. The predicted contacts are explicit with zero minimum clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7079,
+  "candidatesTokenCount": 723,
+  "totalTokenCount": 12711,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7079
+   }
+  ],
+  "thoughtsTokenCount": 4909,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "q8CYav2YK9uq0-kPyq2r8Qw"
+}

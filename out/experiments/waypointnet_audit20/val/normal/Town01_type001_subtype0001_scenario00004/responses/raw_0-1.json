@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V009\"],\n      \"reason\": \"EGO_other_vehicle_behind and V009 are simultaneously approaching a three-way junction from different roads (Road 85 southbound and Road 25 northbound) with intersecting straight paths, and a linear-extrapolated contact is predicted in 0.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V009\"],\n      \"reason\": \"Following the immediate conflict in the previous interval, EGO_other_vehicle_behind and V009 will still be in the primary conflict zone of the junction if a collision has not already occurred, maintaining a high risk of accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming a collision has occurred in an earlier interval, or that evasive action has been taken, no new accident is expected in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming a collision has occurred in an earlier interval, or that evasive action has been taken, no new accident is expected in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Assuming a collision has occurred in an earlier interval, or that evasive action has been taken, no new accident is expected in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"There is a significant risk of an orthogonal collision between EGO_other_vehicle_behind and V009 at the junction within the first two prediction intervals due to their simultaneous approach on conflicting straight paths and a short time to contact. Other potential 'linear-extrapolated contacts' are between vehicles in opposing lanes, which are presumed safe assuming no lane departure. All other vehicle interactions appear safe.\",\n  \"data_limitations\": \"The absence of traffic signal states or stop line information for the junction where EGO_other_vehicle_behind and V009 are converging prevents a definitive judgment on right-of-way, which could influence accident avoidance.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6589,
+  "candidatesTokenCount": 697,
+  "totalTokenCount": 13131,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6589
+   }
+  ],
+  "thoughtsTokenCount": 5845,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "PRiVav7mIIbu2roP5cicqQ8"
+}

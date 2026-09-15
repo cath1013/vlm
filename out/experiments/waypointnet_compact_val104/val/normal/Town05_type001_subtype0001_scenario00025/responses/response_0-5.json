@@ -1,0 +1,71 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 34.41,
+ "usage": {
+  "input": 10937,
+  "output": 682
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no predicted contacts with zero clearance in this interval; all vehicles maintain sufficient separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M017",
+     "V018"
+    ],
+    "reason": "Motorcycle M017 is predicted to collide with the rear or side of car V018 at approximately 6.8 seconds after the last observation, as M017's path converges into V018's lane while both travel westbound.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V026",
+     "V025",
+     "EGO_other_vehicle",
+     "V021"
+    ],
+    "reason": "Two separate collisions are predicted: Car V026 is predicted to rear-end the stopped car V025 at approximately 7.1 seconds. Additionally, EGO_other_vehicle is predicted to collide with V021 at approximately 7.3 seconds due to an intersection conflict as their paths cross.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V019",
+     "N020"
+    ],
+    "reason": "Car V019 is predicted to rear-end the stopped van N020 at approximately 8.5 seconds as both are traveling eastbound in the same lane and V019 closes the distance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P009",
+     "P013"
+    ],
+    "reason": "Person P009 and person P013 are predicted to collide at approximately 9.7 seconds as they attempt to cross paths in the same area, moving in opposing directions.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across the entire 5-second prediction window, including rear-end collisions, an intersection conflict between two vehicles, and a pedestrian collision. The incidents primarily involve moving vehicles interacting with stopped vehicles or other moving entities at points of convergence or crossing paths.",
+  "data_limitations": ""
+ }
+}

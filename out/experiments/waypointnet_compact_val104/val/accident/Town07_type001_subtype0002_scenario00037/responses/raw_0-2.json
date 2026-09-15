@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between vehicles are positive and indicate safe passage without contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between vehicles are positive and indicate safe passage.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle is predicted to rear-end EGO_ego_vehicle at approximately t=4.2s, as EGO_other_vehicle accelerates while EGO_ego_vehicle decelerates, leading to overlap as confirmed by the predicted_closest_pairs entry.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While a collision between V001 and V002 is predicted in the raw data, a manual check of their future path waypoints shows V002 remains significantly ahead of V001, making an actual physical contact impossible.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between vehicles are positive and indicate safe passage.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision is predicted in the k=3 interval between EGO_other_vehicle and EGO_ego_vehicle due to converging paths and relative speed differences. All other intervals appear to be clear of accidents, with some predicted contacts being ruled out after closer inspection of trajectory data.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' data sometimes reports 0m clearance and predicted contact even when trajectory waypoints indicate sufficient separation for some pairs (e.g., V001/V002 and EGO_ego_vehicle_behind/V008). This required manual verification of predicted paths to avoid false positives.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5993,
+  "candidatesTokenCount": 644,
+  "totalTokenCount": 15781,
+  "cachedContentTokenCount": 858,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5993
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 858
+   }
+  ],
+  "thoughtsTokenCount": 9144,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fMmYarbuD8m21e8P7d_YiAY"
+}

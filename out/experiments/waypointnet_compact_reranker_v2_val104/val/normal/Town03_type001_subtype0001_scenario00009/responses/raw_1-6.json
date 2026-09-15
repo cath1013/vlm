@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and clear trajectories during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to turn left, crossing the path of EGO_other_vehicle, leading to an orthogonal conflict with 0.0m predicted clearance at 1.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite a predicted contact, V011 is consistently ahead of EGO_ego_vehicle_behind and traveling at a significantly higher speed, making a collision unlikely under normal conditions.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and clear trajectories during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and clear trajectories during this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the k=2 interval (7-8s) between EGO_ego_vehicle and EGO_other_vehicle due to a clear intersection conflict as EGO_ego_vehicle turns across EGO_other_vehicle's path. While the predictor flagged a contact between EGO_ego_vehicle_behind and V011 in k=3, this was overridden due to conflicting kinematic evidence where the trailing vehicle is significantly slower than the leading one.\",\n  \"data_limitations\": \"The `predicted_closest_pairs` output for EGO_ego_vehicle_behind and V011 contradicts the observed and predicted relative speeds and positions, leading to an override of the `predicted_contact` flag. The exact lane boundaries and turn intention signals are not explicitly provided, relying solely on trajectory predictions.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9937,
+  "candidatesTokenCount": 649,
+  "totalTokenCount": 18420,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9937
+   }
+  ],
+  "thoughtsTokenCount": 7834,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "f-iYatCmKYrcvr0PmobYiAY"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths maintain safe separation, with no clear geometric overlaps in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V001\"],\n      \"reason\": \"Vehicle V002 is predicted to collide with the stopped vehicle V001. At t=4s, V002's path (178.5,-55.4) and V001's path (177.7,-55.5) are approximately 0.81m apart, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"After the collision in the previous interval, V002 has moved past V001, and no other clear path overlaps are detected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V007\", \"V006\"],\n      \"reason\": \"Vehicle V007 is predicted to overtake V006 in the same lane. At t=6s, V007's path (253.2,-58.4) and V006's path (252.9,-59.0) are approximately 0.67m apart, indicating a side-swipe or body overlap during the overtake.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles involved in previous accidents have separated, and all other vehicles maintain safe distances in their predicted paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second forecast horizon. A rear-end collision is expected around t=4s (interval 2) between V002 and the stopped V001. Additionally, a side-swipe or body overlap is predicted around t=6s (interval 4) as V007 overtakes the slower V006 in what appears to be the same lane.\",\n  \"data_limitations\": \"The absence of explicit vehicle dimensions (length and width) requires interpretation of 'physical contact or body overlap' based on the proximity of point trajectories. A separation of less than 1 meter between point paths in the same lane is considered indicative of a collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4922,
+  "candidatesTokenCount": 744,
+  "totalTokenCount": 18022,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4922
+   }
+  ],
+  "thoughtsTokenCount": 12356,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "8EWVaoHkJc-M0-kPpKG0kQI"
+}

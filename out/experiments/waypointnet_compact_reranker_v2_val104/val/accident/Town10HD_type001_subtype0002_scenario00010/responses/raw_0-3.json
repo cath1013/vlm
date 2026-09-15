@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles EGO_other_vehicle_behind and V016 maintain sufficient clearance as they proceed on their respective paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind, executing a right turn, conflicts with EGO_ego_vehicle proceeding straight, resulting in a predicted contact at 1.3s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V016\"],\n      \"reason\": \"EGO_ego_vehicle's eastbound path intersects with V016's southbound path, leading to a predicted orthogonal contact at 2.6s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V023\", \"V026\"],\n      \"reason\": \"EGO_other_vehicle is predicted to collide with V023 and V026, which are both stationary, resulting in predicted body overlap at 4.0s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle and V002 maintain a minimum clearance of 0.7m, indicating a close pass but no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates three distinct accidents. EGO_other_vehicle_behind and EGO_ego_vehicle are predicted to collide at an intersection during k=2. EGO_ego_vehicle and V016 are predicted to collide at another intersection during k=3. Finally, EGO_other_vehicle is predicted to collide with two stopped vehicles, V023 and V026, during k=4.\",\n  \"data_limitations\": \"Actor V026 has a position_quality of 0.75 and a range_m of 57.0m, which introduces a minor uncertainty for the precise timing and exact point of contact in k=4, though contact with the stopped vehicle is still highly probable.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8944,
+  "candidatesTokenCount": 719,
+  "totalTokenCount": 15363,
+  "cachedContentTokenCount": 906,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8944
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 906
+   }
+  ],
+  "thoughtsTokenCount": 5700,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "KO-YaozrDvq11e8PmuKGkQY"
+}

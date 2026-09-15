@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, with the closest predicted pair having a clearance of 1.55m between EGO_other_vehicle and V008.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances throughout this interval, with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances, with the closest predicted pairs having clearances of 1.3m and 1.49m, and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances throughout this interval, with no predicted contacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"N003\"],\n      \"reason\": \"N003 is predicted to rear-end EGO_ego_vehicle_behind. N003, accelerating in the same lane, closes the distance with the decelerating EGO_ego_vehicle_behind, leading to a minimum clearance of 0.0m at t=4.9s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision is predicted to occur in the final second of the prediction window (k=5) between N003 and EGO_ego_vehicle_behind. N003, observed to be accelerating significantly, catches up to the decelerating EGO_ego_vehicle_behind in the same lane. All other observed road users maintain safe distances throughout the 5-second prediction horizon.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5660,
+  "candidatesTokenCount": 607,
+  "totalTokenCount": 11857,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5660
+   }
+  ],
+  "thoughtsTokenCount": 5590,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "fOiYateyB7ax0-kPtfTn-Ak"
+}

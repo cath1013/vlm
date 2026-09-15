@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N008\", \"T016\"],\n      \"reason\": \"N008 (van) and T016 (truck) are predicted to be in a head-on collision, as they travel in opposing directions within the same or overlapping lane space with only 1.06m clearance, which is insufficient for safe passage.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N017\", \"N008\"],\n      \"reason\": \"N017 (van) and N008 (van) are predicted to be in a head-on collision, as they travel in opposing directions within the same or overlapping lane space with only 1.31m clearance, which is insufficient for safe passage.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The moving vehicle V003 has sufficient clearance (2.53m) to safely pass the stopped vehicle V002 without physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle and EGO_ego_vehicle_behind are predicted to have an orthogonal collision at an intersection, with only 1.14m clearance, indicating significant body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P009\", \"P010\", \"EGO_ego_vehicle\", \"N008\", \"EGO_other_vehicle\", \"T001\"],\n      \"reason\": \"Multiple collisions are predicted: P009 and P010 (pedestrians) will have physical contact due to extremely close proximity (0.03m clearance). EGO_ego_vehicle (car) and N008 (van) will have a head-on collision due to opposing traffic in the same lane with 1.59m clearance, which is insufficient. EGO_other_vehicle (car) will side-swipe the stopped T001 (truck) with only 0.38m clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window reveals several high-risk scenarios. Multiple head-on collisions are expected between vehicles traveling in opposing directions with insufficient lateral clearance, including EGO_ego_vehicle. An orthogonal collision is also predicted at a junction. Additionally, pedestrians P009 and P010 are expected to make physical contact due to their very close predicted paths.\",\n  \"data_limitations\": \"The 'predicted_contact' flag is consistently false even when 'minimum_clearance_m' indicates extremely close proximity (e.g., 0.03m or 0.38m) that would practically result in physical contact for the given actor sizes. This necessitated a practical interpretation of 'physical contact' beyond strictly zero clearance. Detailed junction geometry and precise lane definitions beyond lateral offset and lane count would enhance collision assessment at intersections and for opposing traffic.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9241,
+  "candidatesTokenCount": 894,
+  "totalTokenCount": 20412,
+  "cachedContentTokenCount": 910,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9241
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 910
+   }
+  ],
+  "thoughtsTokenCount": 10277,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9MuYavrSEY392roP8e2NiQw"
+}

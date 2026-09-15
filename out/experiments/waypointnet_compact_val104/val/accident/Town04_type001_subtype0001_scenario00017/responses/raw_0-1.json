@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a positive minimum clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\", \"EGO_ego_vehicle\", \"V006\"],\n      \"reason\": \"V002 and V003 are predicted to have simultaneous body contact at approximately 2.3 seconds. Additionally, EGO_ego_vehicle and V006 are predicted to collide head-on at approximately 2.8 seconds due to their converging paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No pair is predicted to have physical contact or overlap in this interval, with all minimum clearances remaining positive.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V004\"],\n      \"reason\": \"V002, which is stopped, and V004 are predicted to have simultaneous body contact at approximately 4.5 seconds as V004's path converges directly with the stopped V002.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted pair, P007 and P008, maintains a 0.3m minimum clearance, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts multiple distinct collision events within the 5-second prediction window. A stopped vehicle (V002) is predicted to be involved in two separate collisions with other moving vehicles (V003 and V004) in different intervals. Furthermore, the ego vehicle (EGO_ego_vehicle) is predicted to collide with V006 in an opposing traffic scenario.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8117,
+  "candidatesTokenCount": 638,
+  "totalTokenCount": 12267,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8117
+   }
+  ],
+  "thoughtsTokenCount": 3512,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4r6YapTVHsq02roP4LyOiQI"
+}

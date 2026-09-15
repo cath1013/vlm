@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths maintain clear separation, with no predicted points of physical contact or body overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicle paths continue to maintain clear separation, with no predicted points of physical contact or body overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While V014 approaches V013, there is still sufficient distance (approx. 1.6m) to prevent immediate contact in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V013\"],\n      \"reason\": \"V014 is predicted to rear-end V013, which is stopped directly in its path. V014's waypoint at the end of this interval shows it occupying the same longitudinal position as V013, indicating body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"V014's path shows it moving past the point of impact with V013 from the previous interval, so no new collision occurs in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A rear-end collision between V014 and V013 is highly expected in the fourth 1-second interval (7.0, 8.0]s, as V014's predicted path directly overlaps with V013 which is stationary. All other vehicles maintain clear separation throughout the entire prediction window, exhibiting no signs of converging to a point of physical contact or body overlap.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5674,
+  "candidatesTokenCount": 609,
+  "totalTokenCount": 16547,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5674
+   }
+  ],
+  "thoughtsTokenCount": 10264,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "bUqVaryFEYbu2roPjsmcsQ8"
+}

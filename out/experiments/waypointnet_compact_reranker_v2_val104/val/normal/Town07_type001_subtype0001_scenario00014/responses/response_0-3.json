@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 11.91,
+ "usage": {
+  "input": 8014,
+  "output": 601
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The observed vehicles maintain safe distances from each other, and no predicted paths indicate an impending collision within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "A rear-end collision is predicted between EGO_ego_vehicle_behind and EGO_ego_vehicle at approximately 4.5 seconds after observation, with 0.0m minimum clearance, as EGO_ego_vehicle_behind is accelerating towards the nearly stopped EGO_ego_vehicle.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While a collision occurred in the previous interval, no further contact or new accident scenarios are predicted for any actors within this specific interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe clearances, with the closest interactions having minimum clearances greater than 1.0 meter and no predicted contacts.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All observed and predicted paths show vehicles maintaining clear separation, and no contacts are predicted.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A high-confidence rear-end collision is predicted to occur between EGO_ego_vehicle_behind and EGO_ego_vehicle within the second 1-second interval (4.0-5.0s after observation), due to EGO_ego_vehicle_behind accelerating into the nearly stationary EGO_ego_vehicle. No other accidents are expected in the remaining prediction window.",
+  "data_limitations": ""
+ }
+}

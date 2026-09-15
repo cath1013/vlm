@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind proceeds straight northbound while EGO_other_vehicle makes a left turn, resulting in an orthogonal collision at the intersection at approximately 0.3 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn and collide with the stopped vehicle V004, which is in its path at the intersection, approximately 1.2 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V020\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped vehicle V020, which is directly in its northbound path, approximately 2.6 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show vehicles maintaining safe distances or being stopped out of conflict, with no direct contact predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle\",\n        \"T011\",\n        \"V020\"\n      ],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle_behind collides with EGO_ego_vehicle from behind, EGO_other_vehicle collides with the stopped truck T011 at the intersection, and EGO_ego_vehicle_behind also collides with the stopped vehicle V020.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario predicts a high number of accidents involving observer vehicles. EGO_ego_vehicle_behind and EGO_other_vehicle are involved in an intersection collision early in the prediction window, followed by EGO_other_vehicle colliding with a stopped vehicle. Later, EGO_ego_vehicle and EGO_ego_vehicle_behind are both predicted to collide with the stopped vehicle V020, and EGO_ego_vehicle_behind is also predicted to rear-end EGO_ego_vehicle, alongside EGO_other_vehicle colliding with another stopped truck.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8631,
+  "candidatesTokenCount": 799,
+  "totalTokenCount": 14069,
+  "cachedContentTokenCount": 902,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8631
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 902
+   }
+  ],
+  "thoughtsTokenCount": 4639,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "deaYaobhL7eArfcPhMDukAg"
+}

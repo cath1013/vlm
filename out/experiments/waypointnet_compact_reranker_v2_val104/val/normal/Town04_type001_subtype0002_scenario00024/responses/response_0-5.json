@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 24.35,
+ "usage": {
+  "input": 9193,
+  "output": 592
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show no physical contact or overlap between any actors in this interval, with all minimum clearances remaining positive.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show no physical contact or overlap between any actors in this interval, with all minimum clearances remaining positive.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle (westbound) and EGO_other_vehicle (southbound) are predicted to collide at an intersection around t=7.7s, indicating a clear orthogonal entry conflict.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show no physical contact or overlap between any actors in this interval, with all minimum clearances remaining positive.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V003"
+    ],
+    "reason": "EGO_other_vehicle (southbound) is predicted to collide with V003, which remains stopped, around t=9.8s, indicating a rear-end collision.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collisions are predicted in the next 5 seconds. EGO_ego_vehicle and EGO_other_vehicle are expected to collide at an intersection in interval k=3. Subsequently, EGO_other_vehicle is predicted to collide with a stopped vehicle (V003) in interval k=5.",
+  "data_limitations": ""
+ }
+}

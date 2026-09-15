@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted paths, with the closest pair having a minimum clearance of 0.79m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N021\", \"V006\"],\n      \"reason\": \"A potential contact is predicted between N021 (van) and V006 (car) at approximately 1.4 seconds after observation, where their predicted paths intersect with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted paths, with the closest pair having a minimum clearance of 1.74m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted paths, with the closest pair having a minimum clearance of 1.55m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle_behind\", \"V003\", \"V004\"],\n      \"reason\": \"A potential head-on contact is predicted between EGO_ego_vehicle_behind and EGO_other_vehicle_behind at approximately 4.4 seconds after observation. Additionally, V003 and V004 are predicted to have simultaneous body contact at 5.0 seconds due to converging paths.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of accidents in two distinct 1-second intervals. In interval k=2, a collision is predicted between N021 and V006. In interval k=5, two separate collision events are predicted: one between EGO_ego_vehicle_behind and EGO_other_vehicle_behind, and another between V003 and V004.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8270,
+  "candidatesTokenCount": 663,
+  "totalTokenCount": 12409,
+  "cachedContentTokenCount": 898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8270
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 898
+   }
+  ],
+  "thoughtsTokenCount": 3476,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4L6YataKEcP92roPwtXW-Aw"
+}

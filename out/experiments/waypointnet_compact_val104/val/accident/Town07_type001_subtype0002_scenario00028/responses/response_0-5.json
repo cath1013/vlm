@@ -1,0 +1,65 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.9,
+ "usage": {
+  "input": 7209,
+  "output": 618
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted interactions show a minimum clearance greater than zero, indicating no physical contact between vehicles.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle_behind is predicted to collide with EGO_ego_vehicle at 2.0 seconds after observation, indicated by 0.0m minimum clearance and predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The remaining predicted close interaction for this interval shows a clearance greater than zero, indicating no physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V009",
+     "V014",
+     "EGO_other_vehicle",
+     "C010"
+    ],
+    "reason": "V014 is predicted to collide with V009 at 3.5 seconds, and EGO_other_vehicle is predicted to collide with C010 at 3.9 seconds, both indicated by 0.0m minimum clearance and predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted interaction for this interval shows a clearance greater than zero, indicating no physical contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The predictions indicate multiple potential accidents. A rear-end collision between EGO_other_vehicle_behind and EGO_ego_vehicle is expected in the second interval. In the fourth interval, two separate rear-end collisions are expected: V014 with V009, and EGO_other_vehicle with C010.",
+  "data_limitations": ""
+ }
+}

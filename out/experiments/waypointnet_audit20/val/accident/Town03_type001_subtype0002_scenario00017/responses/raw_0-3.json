@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\", \"M019\", \"V022\"],\n      \"reason\": \"EGO_ego_vehicle_behind (TTJ 0.33s) and EGO_other_vehicle (TTJ 0.90s) are on orthogonal paths approaching the same junction, both predicted to go straight, leading to an imminent orthogonal entry conflict. M019 and V022 are on opposing lanes of Road 20 with a linear-extrapolated contact in 0.8s, indicating a highly imminent head-on collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M005\", \"V006\", \"EGO_ego_vehicle\", \"P016\"],\n      \"reason\": \"V006 is closing on M005 with a re-calculated TTC of 1.61s, indicating a rear-end collision. EGO_ego_vehicle and P016 are on orthogonal paths towards a junction with a linear-extrapolated contact in 1.7s; P016's 'off-candidate path' increases the risk of conflict.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V020\", \"V021\", \"P014\", \"V027\"],\n      \"reason\": \"V020 is closing on the stopped V021 with a TTC of 2.7s, indicating an imminent rear-end collision. P014, turning right, and V027, moving northbound, have a linear-extrapolated contact in 2.6s, suggesting a junction conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V002\"],\n      \"reason\": \"V003 is closing on V002 with a TTC of 3.9s, indicating a rear-end collision as V003 is moving faster than V002.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No additional critical conflicts with low time-to-contact values or imminent junction conflicts are identified to occur in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The upcoming 5-second prediction window is characterized by multiple high-risk accident scenarios, particularly within the first few seconds. This includes an immediate orthogonal entry conflict between two ego-vehicles at a junction, a head-on collision, and several rear-end collisions due to significant speed differentials and short time-to-contact values. Later intervals also show high likelihood of rear-end and junction conflicts.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact in' values do not account for turning or braking maneuvers, potentially overstating the certainty of contact for vehicles in parallel lanes or those that might actively avoid collision. The 'off-candidate path' for P016 introduces uncertainty in its future trajectory.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 14126,
+  "candidatesTokenCount": 894,
+  "totalTokenCount": 27724,
+  "cachedContentTokenCount": 946,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 14126
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 946
+   }
+  ],
+  "thoughtsTokenCount": 12704,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "hhiVaozDMr3LrfcPg8-riA8"
+}

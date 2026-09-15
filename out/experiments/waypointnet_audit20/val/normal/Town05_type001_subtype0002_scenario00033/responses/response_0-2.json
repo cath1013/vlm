@@ -1,0 +1,95 @@
+{
+ "payload": "llm_payload_0-2.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 42.47,
+ "usage": {
+  "input": 12981,
+  "output": 1052
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P005",
+     "V026",
+     "V009",
+     "V011",
+     "EGO_other_vehicle",
+     "C025"
+    ],
+    "reason": "Multiple highly imminent head-on collisions are predicted with linear-extrapolated contact times less than 1 second, specifically between P005 and V026, V009 and V011, and EGO_other_vehicle and C025.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "T024",
+     "V026",
+     "EGO_other_vehicle",
+     "M023",
+     "M003",
+     "M020",
+     "P007",
+     "V012",
+     "EGO_other_vehicle_behind",
+     "P008",
+     "V009",
+     "V010",
+     "C025",
+     "V022"
+    ],
+    "reason": "Numerous head-on collisions (T024-V026, EGO_other_vehicle-M023, M003-M020, EGO_other_vehicle_behind-P008, V009-V010, EGO_other_vehicle_behind-M023, EGO_other_vehicle_behind-C025, V022-V026) and orthogonal junction conflicts (P007-V012, EGO_other_vehicle-V012) are expected to mature in this interval, with times to contact/collision between 1 and 2 seconds.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "P007",
+     "EGO_ego_vehicle",
+     "V001",
+     "P008",
+     "V026",
+     "N021",
+     "EGO_other_vehicle_behind",
+     "V012"
+    ],
+    "reason": "Several head-on collisions (P008-V026, N021-V026) and junction conflicts (EGO_other_vehicle-P007, EGO_ego_vehicle-V001, EGO_other_vehicle_behind-V012) are expected with times to contact/collision between 2 and 3 seconds.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V012",
+     "V026"
+    ],
+    "reason": "An orthogonal entry conflict at junction J7 between V012 and V026, with a TTC of 3.4 seconds, is expected to occur in this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M003",
+     "V002"
+    ],
+    "reason": "A car-following conflict with an insufficient TTC of 4.3 seconds is expected between M003 and V002.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The traffic situation is exceptionally hazardous with a very high density of road users converging on multiple junction points. Numerous critical conflicts, including multiple head-on collisions and orthogonal junction conflicts, are predicted to occur in rapid succession throughout the entire 5-second forecast window, indicating a near certainty of multiple accidents.",
+  "data_limitations": "The 'linear-extrapolated contact' values do not account for dynamic braking or steering maneuvers, which could alter actual collision times. The 'same road' description for vehicles traveling in opposite lanes, as seen in several closing pairs, was misleading and had to be re-interpreted as head-on conflicts based on coordinates and headings. The absence of traffic signal information limits judgment at junctions."
+ }
+}

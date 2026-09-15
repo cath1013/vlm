@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance from each other during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle is predicted to perform a left turn and intersect the path of EGO_ego_vehicle_behind, leading to a collision with 0.0m minimum clearance at 1.4 seconds after the observation window ends.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contact is explicitly predicted in this interval based on the independently generated future paths, beyond the collision predicted in k=2.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact is explicitly predicted in this interval; all vehicles maintain sufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No physical contact is explicitly predicted in this interval; the closest predicted interaction has a minimum clearance of 0.23m.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second interval (k=2) between EGO_ego_vehicle_behind and EGO_other_vehicle due to a predicted orthogonal intersection. EGO_other_vehicle attempts a left turn across the path of the eastbound EGO_ego_vehicle_behind. No other collisions are predicted in the remaining intervals.\",\n  \"data_limitations\": \"The future paths of actors are predicted independently. If an accident occurs, the subsequent paths of involved vehicles would likely change, which is not accounted for in this prediction beyond the initial collision event.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6440,
+  "candidatesTokenCount": 608,
+  "totalTokenCount": 10770,
+  "cachedContentTokenCount": 868,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6440
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 868
+   }
+  ],
+  "thoughtsTokenCount": 3722,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "FvKXaqrXBYSe1e8PysqVoAQ"
+}

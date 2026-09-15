@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 19.93,
+ "usage": {
+  "input": 4790,
+  "output": 573
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T003"
+    ],
+    "reason": "A truck (T003) is predicted to collide with a stopped car (EGO_ego_vehicle_behind) at 1.0 seconds after the last observation, with a minimum clearance of 0.0m indicating body contact or overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation, with the closest pair having a minimum clearance of 2.16m, and no predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation, with the closest pair having a minimum clearance of 1.02m, and no predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation throughout this interval, and no contact is predicted.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain sufficient separation throughout this interval, and no contact is predicted.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is predicted in the first 1-second interval (k=1) involving a stopped observer vehicle (EGO_ego_vehicle_behind) and a moving truck (T003). For all subsequent intervals (k=2-5), no physical contact or overlap is predicted between any actors, with all predicted minimum clearances remaining positive.",
+  "data_limitations": ""
+ }
+}

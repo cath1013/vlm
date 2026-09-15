@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 21.09,
+ "usage": {
+  "input": 6471,
+  "output": 706
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle (northbound) and EGO_ego_vehicle_behind (eastbound) are predicted to collide orthogonally at an intersection, with 0.0m minimum clearance indicated by their future paths at t=1.0s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs in this interval maintain a safe clearance, with no indication of physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs in this interval maintain a safe clearance, with no indication of physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted closest pairs in this interval maintain a safe clearance, with no indication of physical contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "T002"
+    ],
+    "reason": "EGO_ego_vehicle_behind is predicted to collide with the stopped truck T002 at t=4.8s, as indicated by a 0.0m minimum clearance and predicted contact, with EGO_ego_vehicle_behind's path directly overlapping T002's static position.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Two distinct collision events are expected within the 5-second prediction window. The first occurs early in the k=1 interval, involving an orthogonal intersection collision between EGO_other_vehicle and EGO_ego_vehicle_behind. The second occurs late in the k=5 interval, where EGO_ego_vehicle_behind is predicted to impact the stopped T002.",
+  "data_limitations": "The future paths for EGO_other_vehicle and EGO_ego_vehicle are labeled as 'off-candidate path' but are provided with 1.0 probability, implying no alternative paths were considered. This forces an assumption that these are the definitive paths, even if 'off-candidate' suggests potential uncertainty in the prediction model."
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"Multiple critical conflicts exist at the junction: EGO_ego_vehicle and V001 have a linear-extrapolated time-to-contact (TTC) of 1.0s, EGO_other_vehicle and V004 have a TTC of 1.4s, and V001 and V004 have a TTC of 1.5s. These vehicles are converging at high speeds on intersecting paths at or near junction entry points, indicating an imminent multi-vehicle collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"Following the imminent collisions projected for the k=1 interval, the involved vehicles are likely to experience further impact or entanglement in this interval as the initial accident unfolds and potentially involves secondary movements.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"Given the high-speed multi-vehicle accident expected in the preceding intervals, the scene is likely to remain hazardous with potential for further impacts or the full development of a severe collision event.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"The severe multi-vehicle accident and its immediate aftermath are expected to continue, with potential for vehicles to come to rest or for additional impacts in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V001\",\n        \"EGO_other_vehicle\",\n        \"V004\"\n      ],\n      \"reason\": \"The prolonged and severe nature of the predicted multi-vehicle collision and its consequences are likely to extend into this interval, requiring a continued expectation of accident conditions.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-risk multi-vehicle collision involving EGO_ego_vehicle, V001, EGO_other_vehicle, and V004 is highly probable within the first second following the observation window due to multiple simultaneous and extremely low time-to-contact values at a complex junction. The predicted paths of these vehicles indicate intersecting trajectories without sufficient time or indication of yielding. The accident and its immediate aftermath are expected to extend across the entire prediction window.\",\n  \"data_limitations\": \"Predicted paths are outputs of a predictor, not direct observations of intent (e.g., turn signals or braking). The map was synthesized from trajectories, meaning lanes and roads nobody drove are absent, and lane counts are lower bounds, potentially leading to an incomplete understanding of the junction layout. No traffic-signal state, stop lines, or lane-marking types are available, which limits assumptions about yielding behavior at the junction.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7679,
+  "candidatesTokenCount": 967,
+  "totalTokenCount": 14635,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7679
+   }
+  ],
+  "thoughtsTokenCount": 5989,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "0xiVavemO8qw1e8P36eamAU"
+}

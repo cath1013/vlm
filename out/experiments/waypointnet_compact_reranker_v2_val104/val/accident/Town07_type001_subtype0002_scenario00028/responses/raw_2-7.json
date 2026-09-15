@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all vehicles show sufficient clearance, with no predicted contact between any pair of actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V014\"],\n      \"reason\": \"The EGO_ego_vehicle, which is turning, is predicted to collide with V014, which is proceeding straight, resulting in a frontal or side impact at their intersection point (predicted_contact=true, minimum_clearance_m=0.0).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Despite some close approaches, the predicted paths indicate that all vehicles maintain sufficient clearance and no contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V001\"],\n      \"reason\": \"The EGO_ego_vehicle_behind, traveling southbound, is predicted to collide with V001, which is stopped at an intersection (predicted_contact=true, minimum_clearance_m=0.0).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, and no contact is expected between any pair of actors in this final interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the 5-second prediction horizon. The EGO_ego_vehicle is expected to collide with V014 in the second interval due to intersecting paths. Separately, EGO_ego_vehicle_behind is predicted to collide with a stopped vehicle (V001) in the fourth interval. Other interactions show sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7007,
+  "candidatesTokenCount": 633,
+  "totalTokenCount": 11929,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7007
+   }
+  ],
+  "thoughtsTokenCount": 4289,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Le-YatXTO5Oe0-kPs6XjoA8"
+}

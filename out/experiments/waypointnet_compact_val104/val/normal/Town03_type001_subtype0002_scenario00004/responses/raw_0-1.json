@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or clear path overlaps in this interval, and all vehicles maintain sufficient separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V010\", \"EGO_other_vehicle_behind\", \"N012\"],\n      \"reason\": \"V010 is predicted to rear-end the stopped EGO_ego_vehicle_behind at approximately 2.2s. Additionally, the faster N012 is predicted to rear-end the slower EGO_other_vehicle_behind at approximately 2.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V003\"],\n      \"reason\": \"V003 is predicted to collide with the rear of V002 at approximately 3.9s as V003 is closing the distance to V002 while moving southbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V016\", \"V020\"],\n      \"reason\": \"V020, moving northeastbound in lane 1, is predicted to collide with V016, moving eastbound in adjacent lane 2, at approximately 4.2s, indicating a potential side-swipe or lane change conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T011\"],\n      \"reason\": \"T011 is predicted to rear-end the stopped EGO_ego_vehicle_behind at approximately 5.5s as it continues to travel northbound on the same road.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The analysis of predicted paths indicates multiple potential rear-end collisions and a side-swipe incident across the 5-second prediction horizon. Specifically, the stopped EGO_ego_vehicle_behind faces two distinct rear-end risks from V010 and T011, while EGO_other_vehicle_behind is at risk from N012. Additionally, V003 is predicted to rear-end V002, and V020 is predicted to have contact with V016.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7705,
+  "candidatesTokenCount": 734,
+  "totalTokenCount": 13766,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7705
+   }
+  ],
+  "thoughtsTokenCount": 5327,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qMmYau7rK5ew1e8PxZ2poAY"
+}

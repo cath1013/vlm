@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances between vehicles are positive and no contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle, moving southbound, is predicted to collide orthogonally with EGO_other_vehicle, moving eastbound, at 1.5 seconds after observation with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction between EGO_other_vehicle_behind and EGO_other_vehicle still maintains a small positive clearance (0.42m), indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle, moving eastbound, is predicted to collide with EGO_ego_vehicle_behind, moving southbound, at 3.6 seconds after observation with 0.0m clearance in an intersection conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind, moving eastbound, is predicted to collide with EGO_ego_vehicle_behind, moving southbound, at 4.8 seconds after observation with 0.0m clearance in an intersection conflict.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window shows a high likelihood of multiple sequential intersection conflicts. EGO_ego_vehicle is expected to collide with EGO_other_vehicle in the (7.0, 8.0]s interval. Subsequently, EGO_ego_vehicle_behind is involved in two separate predicted collisions with EGO_other_vehicle in the (9.0, 10.0]s interval and EGO_other_vehicle_behind in the (10.0, 11.0]s interval, both indicating crossing path conflicts.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9508,
+  "candidatesTokenCount": 712,
+  "totalTokenCount": 15277,
+  "cachedContentTokenCount": 912,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9508
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 912
+   }
+  ],
+  "thoughtsTokenCount": 5057,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "9u-YauHfJPfJrfcPhY704A8"
+}

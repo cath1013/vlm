@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient separation, with no geometry supporting physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn into the path of EGO_ego_vehicle_behind, leading to a direct body overlap at 5.4s after the last observation, indicated by a 0.0m minimum clearance and predicted_contact=true.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient separation, with no geometry supporting physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient separation, with no geometry supporting physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient separation, with no geometry supporting physical contact, although EGO_other_vehicle and V002 have a small predicted clearance of 0.23m, it does not indicate contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the second 1-second interval (5.0s to 6.0s) involving EGO_ego_vehicle_behind and EGO_other_vehicle due to a left-turn maneuver conflicting with a straight path. For all other intervals, no accidents are expected as vehicles maintain safe distances or predicted clearances are non-zero.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6500,
+  "candidatesTokenCount": 597,
+  "totalTokenCount": 11001,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6500
+   }
+  ],
+  "thoughtsTokenCount": 3904,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "YeSYap_tKu-i9tMPu9vFgAY"
+}

@@ -1,0 +1,71 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 18.99,
+ "usage": {
+  "input": 11047,
+  "output": 731
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle traveling west and EGO_other_vehicle traveling south are predicted to have an orthogonal intersection conflict with zero clearance at approximately t=3.6s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M001",
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "M001 (motorcycle) making a left turn is predicted to collide orthogonally with EGO_ego_vehicle at t=4.3s and EGO_ego_vehicle_behind at t=4.9s as they proceed straight, both showing zero clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "P014",
+     "V016"
+    ],
+    "reason": "P014 (person) moving northwest is predicted to collide orthogonally with V016 (car) moving west at t=5.1s, with zero clearance indicated.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No direct physical contact or overlap is predicted between any actors during this interval; all predicted closest pairs maintain a positive clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "T004",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle is predicted to collide orthogonally with T004 (truck) at t=7.3s, and EGO_ego_vehicle_behind is predicted to collide with T004 at t=8.0s, both indicating zero clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple orthogonal intersection conflicts are predicted throughout the 5-second prediction horizon, involving observer vehicles (EGO_ego_vehicle, EGO_ego_vehicle_behind, EGO_other_vehicle), a motorcycle (M001), a person (P014), a car (V016), and a truck (T004). These interactions consistently show zero minimum clearance in the trajectory predictions, indicating a high likelihood of accidents.",
+  "data_limitations": ""
+ }
+}

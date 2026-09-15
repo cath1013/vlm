@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no direct contact or dangerously close approaches in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no direct contact or dangerously close approaches in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no direct contact or dangerously close approaches in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0] s\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted at approximately t=5.8s (3.8s after observation) between EGO_other_vehicle_behind and EGO_other_vehicle. EGO_other_vehicle_behind is following EGO_other_vehicle on the same southbound path and is predicted to close the gap and make contact due to a slower deceleration profile.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0] s\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new direct contacts are predicted in this interval. The primary collision between EGO_other_vehicle_behind and EGO_other_vehicle is expected in the previous interval, which would alter subsequent dynamics not captured by independent path predictions.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision is predicted between 'EGO_other_vehicle_behind' and 'EGO_other_vehicle' in the interval (5.0, 6.0]s after the observation window, as the following vehicle is projected to close the distance rapidly. All other vehicle pairs are predicted to maintain safe clearances throughout the 5-second prediction horizon.\",\n  \"data_limitations\": \"The current state acceleration values for 'EGO_other_vehicle' and 'EGO_other_vehicle_behind' (2.09 mps2 and 1.52 mps2 respectively) appear to contradict the more significant differential deceleration implied by their future waypoint paths, which leads to the predicted collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5562,
+  "candidatesTokenCount": 711,
+  "totalTokenCount": 13288,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5562
+   }
+  ],
+  "thoughtsTokenCount": 7015,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "LueYatWGKZew1e8PxZ2poAY"
+}

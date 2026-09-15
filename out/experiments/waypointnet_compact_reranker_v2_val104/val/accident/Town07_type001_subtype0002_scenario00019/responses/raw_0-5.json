@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle turns right into the path of EGO_other_vehicle, resulting in a predicted collision at t=5.3s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V008\"\n      ],\n      \"reason\": \"EGO_ego_vehicle, while completing its right turn, intersects with V008's path, which is proceeding straight, leading to a predicted collision at t=7.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle and V008 maintain a small but clear separation of 0.43m at t=8.0s, indicating a near-miss but no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths for this interval maintain sufficient separation, indicating no expected accidents.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind and EGO_other_vehicle_behind are on opposing paths that converge, leading to a predicted head-on collision at t=9.1s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high likelihood of multiple collisions. EGO_ego_vehicle is predicted to collide with EGO_other_vehicle in the first interval and then with V008 in the second interval due to turning conflicts. Later, EGO_ego_vehicle_behind and EGO_other_vehicle_behind are predicted to have a head-on collision in the final interval. There is also a predicted near-miss between EGO_other_vehicle and V008 in interval 3.\",\n  \"data_limitations\": \"The absence of traffic signal states and detailed lane geometry limits the ability to fully contextualize turning movements and right-of-way rules, although the predicted contacts are clear from the path geometry.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5440,
+  "candidatesTokenCount": 735,
+  "totalTokenCount": 9502,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5440
+   }
+  ],
+  "thoughtsTokenCount": 3327,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "vO6YareuEa621e8PpPu-yAc"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval maintain a safe clearance, indicating no physical contact or overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"T017\", \"N018\"],\n      \"reason\": \"Truck T017 is predicted to rear-end the stopped van N018 at t=4.2s, with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to have an intersection conflict at t=5.2s, resulting in physical contact with 0.0m clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T017\"],\n      \"reason\": \"EGO_ego_vehicle_behind is predicted to rear-end T017 at t=6.6s with 0.0m clearance. T017 would likely be stationary or severely decelerated following its earlier collision with N018.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction (V009 and N018) shows a sufficient minimum clearance of 0.95m and no predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the 5-second forecast window. The initial collision involves T017 rear-ending the stopped N018 at 4.2 seconds. This is followed by an intersection collision between EGO_ego_vehicle and EGO_other_vehicle at 5.2 seconds, and a secondary rear-end collision where EGO_ego_vehicle_behind impacts T017, which would likely be stopped or affected by its earlier collision.\",\n  \"data_limitations\": \"The trajectory predictor assumes independent paths for actors, which means T017's future path is not altered by its predicted collision with N018 when calculating subsequent interactions like with EGO_ego_vehicle_behind. This may underestimate the immediate post-collision state and dynamics.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8921,
+  "candidatesTokenCount": 730,
+  "totalTokenCount": 12779,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8921
+   }
+  ],
+  "thoughtsTokenCount": 3128,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3MaYarqpIJex0-kP1eHegA8"
+}

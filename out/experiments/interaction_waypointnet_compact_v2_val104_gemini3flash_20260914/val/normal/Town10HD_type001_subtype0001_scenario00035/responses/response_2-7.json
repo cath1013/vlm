@@ -1,0 +1,61 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 26.75,
+ "usage": {
+  "input": 12181,
+  "output": 407
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle and other actors maintain safe separations as they approach the junction.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "P011",
+     "P014"
+    ],
+    "reason": "EGO_ego_vehicle collides with pedestrians P011 and P014 at the intersection of Road 565 and Road 630 as their predicted paths converge and overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths for the remaining actors do not show any additional physical contacts.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are projected to move away from the conflict point or maintain safe clearances.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No further accidents are expected based on the diverging trajectories and wide clearances.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The ego vehicle is traveling at approximately 27 kph toward an intersection where two pedestrians, P011 and P014, are crossing from opposing sides. Analysis of the future waypoints confirms that the ego vehicle footprint will overlap with both pedestrians nearly simultaneously between 8.4 and 8.6 seconds, resulting in a multi-actor collision.",
+  "data_limitations": ""
+ }
+}

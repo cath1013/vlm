@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"V002\"],\n      \"reason\": \"V003 (28kph) is predicted to rear-end the slower V002 (8kph) at t=3.8s, as both vehicles are travelling westbound in the same lane on Road 20, resulting in zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"N001\"],\n      \"reason\": \"V003 (still moving at high speed) is predicted to rear-end the stopped N001 (0kph) at t=5.0s; both are in the same westbound lane on Road 20 with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\", \"P009\", \"V016\"],\n      \"reason\": \"Two separate conflicts are predicted: 1) EGO_ego_vehicle (northbound) and EGO_other_vehicle (southbound) are predicted to have a head-on collision at an intersection at t=5.3s. 2) Pedestrian P009 (eastbound) and vehicle V016 (northbound) are predicted to collide at an intersection at t=5.5s, both with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V018\", \"V019\"],\n      \"reason\": \"V019, moving northbound on Road 22, is predicted to collide with the stopped V018 on Road 33 at t=6.1s, indicating a rear-end or side-swipe collision with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_ego_vehicle\", \"V016\", \"V020\"],\n      \"reason\": \"Two separate conflicts are predicted: 1) EGO_ego_vehicle (northbound) and EGO_other_vehicle_behind (off-candidate path, moving towards EGO_ego_vehicle's path) are predicted to collide at t=7.1s. 2) V016 and V020, both moving northbound, are predicted to collide at an intersection at t=7.9s, both with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates a high potential for multiple accidents involving several vehicles, including the observer's ego vehicle. Various conflict types are present, such as rear-end collisions with moving and stopped vehicles, and intersection conflicts involving both vehicles and a pedestrian. All identified scenarios show clear physical contact with zero minimum clearance based on the supplied future paths.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9023,
+  "candidatesTokenCount": 858,
+  "totalTokenCount": 14125,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9023
+   }
+  ],
+  "thoughtsTokenCount": 4244,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "rsWYavztK6Ki9tMP0Z3tkQY"
+}

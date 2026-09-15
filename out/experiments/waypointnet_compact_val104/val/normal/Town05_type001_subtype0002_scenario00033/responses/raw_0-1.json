@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show sufficient clearance between all road users in this interval, with no geometric overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances, and their predicted paths do not indicate any contact or close encounters.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although V001 and V012 have a small predicted clearance, the `predicted_contact` flag is false, indicating no body overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"P004\",\n        \"N021\",\n        \"V022\",\n        \"P006\",\n        \"T014\",\n        \"V015\"\n      ],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle collides with P004 and P006 (pedestrians crossing its path), N021 (van) collides with V022 (car) potentially from a rear-end or side-swipe, and T014 (truck) collides with V015 (car) likely due to a merge or overtake.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles and pedestrians maintain predicted clearances above zero, and no contact is expected in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The initial three 1-second intervals and the final interval appear clear of any expected accidents. However, the fourth 1-second interval indicates a highly complex and dangerous situation with multiple predicted collisions involving the ego vehicle, other vehicles, and pedestrians.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8969,
+  "candidatesTokenCount": 632,
+  "totalTokenCount": 16526,
+  "cachedContentTokenCount": 906,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8969
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 906
+   }
+  ],
+  "thoughtsTokenCount": 6925,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kMyYaoCOKZbF0-kPhefOoQ8"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted closest pairs in this interval indicate a positive minimum clearance and no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although M016 and V019 show a small minimum clearance of 0.2m, the prediction explicitly states no contact is expected, and other pairs indicate sufficient clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V021\",\n        \"M016\",\n        \"V020\",\n        \"EGO_other_vehicle\",\n        \"EGO_ego_vehicle\"\n      ],\n      \"reason\": \"Multiple vehicles are predicted to have simultaneous body contact or overlap (0.0m clearance) at this interval. Specifically, EGO_ego_vehicle_behind and V021, M016 and V020, and EGO_other_vehicle and EGO_ego_vehicle are predicted to collide at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No pairs are predicted to have contact or critically low clearance in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"T001\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with the stopped truck T001, indicated by a 0.0m minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly probable in interval k=3 (5-6s) due to multiple predicted orthogonal entry conflicts at an intersection involving EGO_ego_vehicle, EGO_other_vehicle, EGO_ego_vehicle_behind, M016, V020, and V021. Another accident is expected in interval k=5 (7-8s) where EGO_ego_vehicle is predicted to collide with a stopped truck T001. Intervals k=1, k=2, and k=4 appear safe with sufficient clearances or no predicted contacts.\",\n  \"data_limitations\": \"Future paths are predicted independently, which might lead to multiple simultaneous collision predictions and potentially complex interaction dynamics not fully captured by pairwise analysis.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7755,
+  "candidatesTokenCount": 748,
+  "totalTokenCount": 14113,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7755
+   }
+  ],
+  "thoughtsTokenCount": 5610,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "RcuYatqrDd_A1e8P1fi7gQY"
+}

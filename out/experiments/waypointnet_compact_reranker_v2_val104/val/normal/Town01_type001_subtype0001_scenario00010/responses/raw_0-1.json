@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe clearances and continue on their predicted paths without any geometric conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V002\"],\n      \"reason\": \"A rear-end collision is expected between EGO_ego_vehicle_behind and V002 at t=2.0s. V002, which is accelerating, comes into contact with the rear of EGO_ego_vehicle_behind, which is decelerating, as they travel in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V002\"],\n      \"reason\": \"The collision between EGO_ego_vehicle_behind and V002 continues into this interval, with body overlap persisting between the vehicles at t=3.0s as V002 attempts to overtake EGO_ego_vehicle_behind in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Based on the predicted paths, the body overlap between EGO_ego_vehicle_behind and V002 resolves by t=4.0s, and no other conflicts are present.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to maintain safe clearances and proceed on their paths without any predicted conflicts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence rear-end collision is predicted between EGO_ego_vehicle_behind and V002, starting precisely at t=2.0s (end of interval k=1, start of k=2) and continuing through t=3.0s (end of interval k=2, start of k=3) as V002 attempts to overtake EGO_ego_vehicle_behind in the same lane. By t=4.0s, the predicted paths show the overlap resolved. All other vehicles maintain safe distances throughout the prediction window.\",\n  \"data_limitations\": \"The future paths of EGO_ego_vehicle_behind and V002 do not account for post-collision physics or evasive maneuvers, which might alter their trajectories after the initial impact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4495,
+  "candidatesTokenCount": 733,
+  "totalTokenCount": 11400,
+  "cachedContentTokenCount": 814,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4495
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 814
+   }
+  ],
+  "thoughtsTokenCount": 6172,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "O-eYatLvJpf91e8PppTJgQY"
+}

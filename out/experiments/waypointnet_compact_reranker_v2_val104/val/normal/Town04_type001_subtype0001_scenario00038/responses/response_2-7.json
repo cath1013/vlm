@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 20.4,
+ "usage": {
+  "input": 7799,
+  "output": 606
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show all vehicles maintaining safe distances and clearances from each other within this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are predicted to maintain sufficient clearance, with no paths intersecting in a manner that suggests contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "V006"
+    ],
+    "reason": "EGO_other_vehicle and V006 are predicted to collide at 9.4s (2.4s after observation) due to orthogonal entry conflict at an intersection, with a minimum clearance of 0.0m and predicted contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Although V004 and V005 pass close to the stopped V002, the predicted minimum clearances (0.66m and 1.08m respectively) are positive, and direct contact is not predicted.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are predicted to maintain safe distances; the closest pair (EGO_other_vehicle_behind and V009) maintains a 0.94m clearance without predicted contact.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A high-confidence accident is predicted between EGO_other_vehicle and V006 in the third 1-second interval due to an intersection conflict. All other interactions show sufficient clearance or no predicted contact within the 5-second prediction window, indicating safe trajectories for the remaining actor pairs.",
+  "data_limitations": ""
+ }
+}

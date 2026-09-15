@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are maintaining safe distances and their predicted paths do not show any overlaps or potential conflicts in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V004\", \"V005\"],\n      \"reason\": \"V005 is predicted to collide with V004 at 1.5 seconds into the interval (t=6.5s) while attempting to overtake with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with zero clearance are indicated for any vehicle pairs in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"M008\", \"C001\", \"V005\"],\n      \"reason\": \"Two separate collisions are predicted: M008 collides with EGO_other_vehicle_behind at 3.1s (t=8.1s) and V005 collides with C001 at 3.6s (t=8.6s), both with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and EGO_ego_vehicle_behind have a close approach, the minimum clearance is 0.56m, indicating no physical contact. No other contacts are predicted.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction window indicates two distinct accident events involving multiple vehicles. The first collision involves V004 and V005 in the (6.0, 7.0]s interval, where V005 attempts to overtake V004. The second interval, (8.0, 9.0]s, shows two separate collisions: one between EGO_other_vehicle_behind and M008, and another where V005 collides with C001.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8075,
+  "candidatesTokenCount": 680,
+  "totalTokenCount": 14436,
+  "cachedContentTokenCount": 895,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8075
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 895
+   }
+  ],
+  "thoughtsTokenCount": 5681,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "hsOYava9O-2x1e8Pudns8A8"
+}

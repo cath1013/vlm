@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, with the closest predicted minimum clearance being 0.85m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation, with the closest predicted minimum clearance being 0.78m, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M003\", \"V004\"],\n      \"reason\": \"V004 (car) is predicted to collide with the stationary M003 (motorcycle) at approximately 4.2 seconds (2.2s after observation), resulting in direct body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_ego_vehicle_behind\", \"C012\", \"V021\", \"N018\", \"T017\"],\n      \"reason\": \"Multiple collisions are predicted: EGO_ego_vehicle_behind is expected to rear-end EGO_ego_vehicle at approximately 5.1s; C012 (bicycle) and V021 (car) are expected to collide in a crossing conflict at approximately 5.5s; and N018 (van) and T017 (truck) are expected to have a side-swipe collision at approximately 5.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some vehicles approach each other, such as EGO_ego_vehicle and T017 with 0.6m clearance, no direct physical contact or overlap is predicted in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates a safe period for the initial two seconds, followed by a severe escalation in accident likelihood. A single collision between a moving car and a stationary motorcycle is expected in the third interval. This is succeeded by a multi-vehicle accident scenario in the fourth interval, involving multiple predicted collisions including a rear-end, a crossing conflict, and a side-swipe.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8342,
+  "candidatesTokenCount": 705,
+  "totalTokenCount": 14969,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8342
+   }
+  ],
+  "thoughtsTokenCount": 5922,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Q8qYaquSAaq20-kPu_rxiAw"
+}

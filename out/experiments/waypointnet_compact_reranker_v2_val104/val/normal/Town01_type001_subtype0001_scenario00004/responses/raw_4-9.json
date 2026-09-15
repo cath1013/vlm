@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other, with no overlaps or extremely close clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances from each other, with no overlaps or extremely close clearances.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain clear separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"N004\"],\n      \"reason\": \"EGO_other_vehicle_behind and N004 are predicted to collide due to their intersecting paths, with a minimum clearance of 0.0m indicating body overlap at 3.8 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new accidents are predicted in this interval, and prior conflicts are accounted for in the previous interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted in the fourth 1-second interval (12.0, 13.0] s, involving EGO_other_vehicle_behind and N004, due to their predicted intersecting paths and zero minimum clearance. All other observed and predicted trajectories indicate safe separations between vehicles throughout the 5-second prediction window.\",\n  \"data_limitations\": \"The absence of explicit traffic control information (e.g., traffic signals, stop signs) for the intersection where the collision is predicted limits understanding of the right-of-way, but the geometric path prediction clearly indicates a collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6209,
+  "candidatesTokenCount": 605,
+  "totalTokenCount": 10183,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6209
+   }
+  ],
+  "thoughtsTokenCount": 3369,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "s-eYatrREfj91e8PnrXZoQY"
+}

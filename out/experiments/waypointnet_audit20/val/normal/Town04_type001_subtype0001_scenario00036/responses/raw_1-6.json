@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle_behind enters and exits the junction, while EGO_ego_vehicle and EGO_other_vehicle continue approaching their respective junction entry points without immediate conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle continues its rapid approach and begins to enter the junction, while EGO_other_vehicle is still several meters away from its junction entry.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is proceeding straight through the junction as EGO_other_vehicle reaches its junction entry point to execute a left turn, creating an orthogonal path conflict without clear right-of-way.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"A collision is highly probable in this interval, as EGO_ego_vehicle's straight path through the junction directly conflicts with EGO_other_vehicle's left turn, with linear extrapolation indicating contact at t=9.3s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"The aftermath of the predicted collision between EGO_ego_vehicle and EGO_other_vehicle will continue to make the junction area hazardous and highly likely to result in an ongoing accident situation.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A significant junction collision is highly probable between EGO_ego_vehicle and EGO_other_vehicle. EGO_ego_vehicle will be crossing the junction straight, while EGO_other_vehicle will arrive shortly after to make a left turn across its path. Without traffic signals or clear right-of-way, this creates a high-risk conflict, with an accident most likely occurring in intervals k=3 or k=4.\",\n  \"data_limitations\": \"The absence of traffic signal states, stop lines, and lane marking types prevents a precise understanding of right-of-way, which significantly affects the judgment of junction conflicts between turning and straight-through vehicles.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12129,
+  "candidatesTokenCount": 757,
+  "totalTokenCount": 23567,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12129
+   }
+  ],
+  "thoughtsTokenCount": 10681,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xRqVatHCLqDs2roPiNP0kAI"
+}

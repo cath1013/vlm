@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"N008\", \"V012\"],\n      \"reason\": \"EGO_ego_vehicle turning left is on a converging path with EGO_other_vehicle (TTC 1.2s) and EGO_other_vehicle_behind (TTC 1.6s) who are proceeding straight on the same road at a junction. Simultaneously, V012 is closing on N008 at a high relative speed with insufficient following distance (TTC ~1.3s) as N008 is at a junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"N008\", \"V012\"],\n      \"reason\": \"The highly imminent conflicts identified in k=1, with Time-to-Contact values well within this interval, would escalate into accidents if not averted by extreme and immediate evasive maneuvers.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"By this interval, the immediate critical conflicts from the initial observation are expected to have either resulted in an accident or been successfully resolved through evasive action.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new imminent conflicts are apparent beyond the initial critical interactions, which are expected to have resolved by this time.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The traffic situation is expected to have stabilized or the initial accident scenarios concluded by this final prediction interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple highly imminent collision risks are present at the beginning of the prediction window. EGO_ego_vehicle's left turn at a junction creates a crossing path conflict with two other observer vehicles (EGO_other_vehicle and EGO_other_vehicle_behind), with predicted linear-extrapolated contacts within 1.2-1.6 seconds. Concurrently, a severe rear-end collision is highly probable between V012 and N008, as V012 is rapidly closing on N008 which is positioned at a junction with a linear-extrapolated contact time of approximately 1.3 seconds.\",\n  \"data_limitations\": \"The absence of traffic signal states and detailed lane marking types prevents a definitive assessment of right-of-way at the junction. Positional and speed uncertainties are noted for N008 and V012, despite their high confidence and position quality ratings, which introduces some ambiguity to the exact timing and severity of their potential collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10226,
+  "candidatesTokenCount": 837,
+  "totalTokenCount": 17392,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10226
+   }
+  ],
+  "thoughtsTokenCount": 6329,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "hxuVaoKJEbKRvr0PvdSTsAk"
+}

@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths show all vehicles maintaining sufficient clearance from each other within this interval, with no overlaps or conflicts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"EGO_other_vehicle\", \"M005\", \"V006\"],\n      \"reason\": \"Two separate accidents are predicted: EGO_other_vehicle is predicted to make a left turn into the path of EGO_ego_vehicle_behind, resulting in an orthogonal collision at 1.4s after observation. Additionally, V006 is predicted to rear-end M005, as V006 is approaching M005 from behind at a higher speed in the same lane, resulting in a collision at 2.0s after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts or overlaps are predicted within this interval after the previous accidents, and other vehicles maintain clear paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths indicate that all vehicles will maintain safe distances from each other throughout this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle_behind and EGO_other_vehicle_behind show a very small minimum clearance of 0.02m, the prediction explicitly states no contact, and all other vehicles have sufficient clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct accidents are predicted within the second 1-second interval. EGO_other_vehicle turning left is expected to collide with EGO_ego_vehicle_behind which is traveling straight. Simultaneously, V006 is predicted to rear-end M005 due to a speed differential in the same lane. The remaining intervals show no clear evidence of contact or overlap.\",\n  \"data_limitations\": \"The existence confidence for V006 is 0.86, which is slightly lower than 1.0. While not critically low, it introduces a minor uncertainty to the specific rear-end collision prediction involving this actor.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6013,
+  "candidatesTokenCount": 714,
+  "totalTokenCount": 9380,
+  "cachedContentTokenCount": 858,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6013
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 858
+   }
+  ],
+  "thoughtsTokenCount": 2653,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "3s2Yarr3POWM1e8P2MDAgAY"
+}

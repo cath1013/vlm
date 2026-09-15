@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient clearance throughout this interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V010\",\n        \"N011\",\n        \"V013\",\n        \"V014\",\n        \"V005\",\n        \"V015\"\n      ],\n      \"reason\": \"Multiple collisions are predicted: N011 rear-ends stopped V010 on Road 11, V014 rear-ends V013 on Road 11, and V005 and V015 have a head-on or orthogonal collision on Road 21.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V013\",\n        \"V012\",\n        \"V014\",\n        \"V005\",\n        \"V016\"\n      ],\n      \"reason\": \"Multiple collisions are predicted: V013 and V014 both rear-end the stopped V012 on Road 11, and V005 and V016 have an orthogonal collision on Road 21.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V001\",\n        \"V002\"\n      ],\n      \"reason\": \"V002 is predicted to rear-end V001 on Road 11, as both vehicles proceed northbound in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance and follow their predicted paths without overlap, including the EGO vehicles.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"This scenario predicts several significant accidents involving 'other road user' vehicles across intervals 2, 3, and 4. These include multiple rear-end collisions on Road 11 where moving vehicles collide with stopped or slower-moving vehicles, as well as head-on or orthogonal collisions on Road 21 due to converging paths. The first and fifth intervals are predicted to be clear of accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5919,
+  "candidatesTokenCount": 722,
+  "totalTokenCount": 9484,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5919
+   }
+  ],
+  "thoughtsTokenCount": 2843,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "RcCYaua8H9uq0-kPyq2r8Qw"
+}

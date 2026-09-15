@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V002\",\n        \"M003\"\n      ],\n      \"reason\": \"EGO_ego_vehicle_behind is on a head-on collision course with V002, which is stopped in the opposing lane, with a linear-extrapolated contact time of 0.5s. M003, also stopped in the opposing lane, is expected to be impacted shortly after (TTC 0.9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V001\",\n        \"V002\",\n        \"M003\"\n      ],\n      \"reason\": \"Following the initial head-on collision involving EGO_ego_vehicle_behind, V002, and M003, V001, which is also stopped in the same opposing lane sequence, is highly likely to be involved in a multi-vehicle pileup as a result of the preceding impacts.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle_behind\",\n        \"V001\",\n        \"V002\",\n        \"M003\"\n      ],\n      \"reason\": \"The severe multi-vehicle collision initiated in previous intervals is expected to continue or escalate, particularly as the linear-extrapolated contact time for EGO_ego_vehicle_behind and V001 falls within this interval (2.6s from t=9s).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary head-on collision cascade should be concluded or ongoing in its aftermath, and no new critical interactions with short time-to-collision are identified, as EGO_other_vehicle_behind enters its junction well before N004.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(13.0, 14.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new critical interactions with short time-to-collision are identified in this interval; the situation is expected to be a post-crash scene or a resolved interaction for other vehicles.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An immediate and severe head-on collision is predicted between EGO_ego_vehicle_behind and multiple stopped vehicles (V002, M003) in the opposing lane within the first second. This initial impact is highly likely to trigger a chain reaction involving V001 in the subsequent second. Beyond these primary impacts, other vehicle interactions appear less critical or are not predicted to result in accidents given their current paths and speeds.\",\n  \"data_limitations\": \"The lack of explicit lane marking types (solid/dashed) or precise junction layouts prevents definitive conclusions about right-of-way and potential turning conflicts at intersections. The 'linear-extrapolated contact' metric, while indicative of closing rates, does not fully account for sophisticated path planning or evasive maneuvers, which could alter outcomes, but the head-on scenario is geometrically certain.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9301,
+  "candidatesTokenCount": 917,
+  "totalTokenCount": 20712,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9301
+   }
+  ],
+  "thoughtsTokenCount": 10494,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "uhmVaq48x9CixQ-xmpfRCQ"
+}

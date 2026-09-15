@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All actors maintain safe distances and trajectories; no physical contact is predicted in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Actors continue on their paths with sufficient clearance between them; no contact is predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The vehicles maintain safe separations; no collision is expected in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although some vehicles are converging, the predicted minimum clearances remain positive, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"A rear-end collision is predicted between EGO_other_vehicle and EGO_other_vehicle_behind at approximately 9.1 seconds (4.1s after observation) due to EGO_other_vehicle decelerating significantly while EGO_other_vehicle_behind approaches at a higher speed in the same lane, resulting in zero minimum clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A clear rear-end collision scenario is predicted for the k=5 interval between EGO_other_vehicle and EGO_other_vehicle_behind. EGO_other_vehicle is shown to decelerate sharply, while EGO_other_vehicle_behind closes the distance at a high speed. For intervals k=1 through k=4, all actors maintain sufficient separation, and no other collisions are indicated by the predicted closest pairs.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6378,
+  "candidatesTokenCount": 596,
+  "totalTokenCount": 10760,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6378
+   }
+  ],
+  "thoughtsTokenCount": 3786,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "d8uYapauIpGE0-kP58S-iAw"
+}

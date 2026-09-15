@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are proceeding along their predicted paths with ample clearance, and no close interactions are indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_other_vehicle_behind and V008 are predicted to have a minimum clearance of 1.94m while passing in opposing lanes on Road 73, which is sufficient to avoid physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts or dangerously close clearances are indicated for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"An orthogonal entry conflict is predicted between EGO_other_vehicle (northbound) and EGO_ego_vehicle (eastbound) at approximately 5.4 seconds after the last observation, resulting in simultaneous body contact or overlap with a minimum clearance of 0.0m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While EGO_other_vehicle and V006 pass closely with a minimum clearance of 1.25m, no physical contact is predicted, and other vehicles maintain safe distances.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected in the k=4 interval (5.0, 6.0] seconds after observation, involving EGO_other_vehicle and EGO_ego_vehicle due to an intersection conflict. All other intervals show sufficient clearances or no predicted contacts based on the provided trajectories and computed closest pairs.\",\n  \"data_limitations\": \"Traffic signal states or explicit right-of-way rules were not available, which could offer additional context for the predicted intersection conflict.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5958,
+  "candidatesTokenCount": 630,
+  "totalTokenCount": 11903,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5958
+   }
+  ],
+  "thoughtsTokenCount": 5315,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "luiYatKwEI-N1e8PgY_jiAY"
+}

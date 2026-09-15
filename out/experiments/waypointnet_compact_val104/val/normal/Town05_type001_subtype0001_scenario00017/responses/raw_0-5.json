@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show sufficient clearance between actors, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation; no direct contact is indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"N022\", \"V021\"],\n      \"reason\": \"N022 is predicted to rear-end V021, which is stopped directly in its projected path at approximately 7.1 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"P010\", \"V014\", \"V015\"],\n      \"reason\": \"EGO_ego_vehicle is predicted to collide with P010 due to an orthogonal path conflict at approximately 8.4 seconds. Additionally, V015 is predicted to collide with V014 during a lane merge at approximately 9.0 seconds.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V017\", \"V015\", \"V014\"],\n      \"reason\": \"V015 is predicted to collide with V017 during a lane merge at approximately 9.5 seconds. Additionally, V017 is predicted to rear-end V014 at approximately 9.6 seconds.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates multiple potential accidents across the last three intervals of the 5-second window. A stopped vehicle (V021) is rear-ended by N022. The ego vehicle (EGO_ego_vehicle) is involved in an orthogonal collision with pedestrian P010. There are also complex interactions between V014, V015, and V017, suggesting multiple lane merge and rear-end conflicts among these vehicles.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12212,
+  "candidatesTokenCount": 663,
+  "totalTokenCount": 18999,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12212
+   }
+  ],
+  "thoughtsTokenCount": 6124,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "QsSYauetBITcvr0PqvbHwAg"
+}

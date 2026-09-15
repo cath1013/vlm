@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance from each other, with the closest pair (EGO_ego_vehicle and V001) having a minimum clearance of 1.86m, which is not an overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining sufficient clearance from each other, with the closest pair (EGO_ego_vehicle and V002) having a minimum clearance of 1.79m, which is not an overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn and intersect with EGO_ego_vehicle, which is proceeding straight, resulting in a predicted body overlap (0.0m clearance) at approximately 4.2 seconds after observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No further close proximity interactions leading to physical contact are predicted among the vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No close proximity interactions leading to physical contact are predicted among the vehicles in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected at k=3 (4.0s-5.0s after observation) involving EGO_other_vehicle and EGO_ego_vehicle due to an intersection of their predicted paths leading to body overlap. EGO_other_vehicle performs a left turn directly into the path of EGO_ego_vehicle, which continues straight. All other intervals show sufficient clearance between vehicles.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6057,
+  "candidatesTokenCount": 628,
+  "totalTokenCount": 10671,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6057
+   }
+  ],
+  "thoughtsTokenCount": 3986,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "A--YatfrGfq11e8PmuKGkQY"
+}

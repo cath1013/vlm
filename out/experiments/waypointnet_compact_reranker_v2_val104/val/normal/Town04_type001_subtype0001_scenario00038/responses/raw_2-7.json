@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show all vehicles maintaining safe distances and clearances from each other within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain sufficient clearance, with no paths intersecting in a manner that suggests contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V006\"],\n      \"reason\": \"EGO_other_vehicle and V006 are predicted to collide at 9.4s (2.4s after observation) due to orthogonal entry conflict at an intersection, with a minimum clearance of 0.0m and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although V004 and V005 pass close to the stopped V002, the predicted minimum clearances (0.66m and 1.08m respectively) are positive, and direct contact is not predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles are predicted to maintain safe distances; the closest pair (EGO_other_vehicle_behind and V009) maintains a 0.94m clearance without predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A high-confidence accident is predicted between EGO_other_vehicle and V006 in the third 1-second interval due to an intersection conflict. All other interactions show sufficient clearance or no predicted contact within the 5-second prediction window, indicating safe trajectories for the remaining actor pairs.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7799,
+  "candidatesTokenCount": 606,
+  "totalTokenCount": 12620,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7799
+   }
+  ],
+  "thoughtsTokenCount": 4215,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "--mYaqPpBJSz1e8P1_KUgAc"
+}

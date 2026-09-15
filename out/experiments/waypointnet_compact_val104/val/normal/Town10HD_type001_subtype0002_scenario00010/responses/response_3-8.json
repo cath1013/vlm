@@ -1,0 +1,73 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 15.7,
+ "usage": {
+  "input": 10248,
+  "output": 710
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths for all actors maintain sufficient clearance, with the closest pair (N034 and V015) having a minimum clearance of 1.22 meters.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "C011",
+     "M032",
+     "V015"
+    ],
+    "reason": "EGO_other_vehicle and C011 are predicted to have a rear-end or merging collision with 0.0m clearance. M032 and V015 are predicted to have an orthogonal intersection conflict with 0.0m clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V013",
+     "V014"
+    ],
+    "reason": "V013 and V014 are predicted to have a lateral overlap or lane change conflict with 0.0m clearance while traveling in adjacent lanes on the same road.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V003",
+     "N034"
+    ],
+    "reason": "V003 and N034 are predicted to have a rear-end collision with 0.0m clearance while following closely in the same lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "V001",
+     "V012",
+     "M032",
+     "V033"
+    ],
+    "reason": "V012 is predicted to collide with the stopped V001, resulting in a rear-end collision with 0.0m clearance. M032 and V033 are predicted to have an orthogonal intersection or merging conflict with 0.0m clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "Multiple accidents are predicted across all intervals from k=2 to k=5. These involve various types of collisions including rear-ends, lane change conflicts, and orthogonal intersection conflicts, all indicated by 0.0m predicted clearance and `predicted_contact=true`. The first interval (k=1) appears safe.",
+  "data_limitations": ""
+ }
+}

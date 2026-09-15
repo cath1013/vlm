@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain their respective lanes and trajectories with sufficient clearance, and no conflicting paths are observed.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to move safely along their paths, with no indications of convergence or conflict points.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted trajectories show all actors maintaining safe distances from each other and successfully navigating without overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle successfully executes its left turn, passing V001, which remains stopped, with a safe clearance of 2.32m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While some vehicles pass in close proximity (e.g., EGO_ego_vehicle_behind and EGO_other_vehicle at 0.74m clearance), no physical contact or overlap is predicted between any actors.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The analysis of predicted trajectories and closest pair interactions indicates that no accidents are expected across the 5-second prediction window. All observed and predicted vehicle movements maintain safe clearances, with even the closest interactions showing no physical contact or overlap. EGO_ego_vehicle executes a left turn while other vehicles proceed straight, and a stopped vehicle (V001) is safely bypassed.\",\n  \"data_limitations\": \"Without explicit map topology information, the assumption that vehicles with distinct 'e' coordinates but potentially overlapping 'n' coordinate ranges (e.g., EGO_ego_vehicle_behind and EGO_other_vehicle) are on separate, parallel lanes or roads is inferred from the 'predicted_contact=false' and the observed lateral separation. Actor V009 has a lower existence confidence (0.75), but its interactions are not critical.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5120,
+  "candidatesTokenCount": 654,
+  "totalTokenCount": 11553,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5120
+   }
+  ],
+  "thoughtsTokenCount": 5779,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ucGYap3nKZzNrfcPh47R8Qw"
+}

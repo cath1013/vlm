@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation throughout the interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation throughout the interval, with no predicted contacts or overlaps.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at an intersection around t=6.5s (2.5s after observation) due to converging orthogonal paths, resulting in simultaneous body contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation throughout the interval, and no contacts are predicted.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient separation throughout the interval, with the closest interaction between EGO_ego_vehicle and T001 showing a 0.65m clearance without predicted contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly probable in the third 1-second interval (k=3), specifically between EGO_ego_vehicle and EGO_other_vehicle at approximately t=6.5s, where their paths are predicted to intersect with simultaneous body contact. The remaining intervals show no predicted accidents, with all vehicles maintaining sufficient clearance.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5023,
+  "candidatesTokenCount": 573,
+  "totalTokenCount": 8742,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5023
+   }
+  ],
+  "thoughtsTokenCount": 3146,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "mvCYarP0G5zO2roPhNqUqA4"
+}

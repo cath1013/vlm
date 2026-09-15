@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance from other road users in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V005\",\n        \"T006\"\n      ],\n      \"reason\": \"V005 (car) and T006 (truck) are predicted to collide at absolute time 2.1s as their paths converge and overlap while moving southeast.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"V010\",\n        \"V011\",\n        \"EGO_ego_vehicle\",\n        \"EGO_ego_vehicle_behind\",\n        \"EGO_other_vehicle_behind\",\n        \"V004\"\n      ],\n      \"reason\": \"Multiple collisions are predicted: V010 (car) with the stopped V011 (car) at absolute time 3.1s, EGO_ego_vehicle_behind (car) with EGO_ego_vehicle (car) at 3.7s, and EGO_other_vehicle_behind (car) with V004 (car) at 4.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain a safe distance from other road users in this interval, with no clear contact evidence.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"M014\",\n        \"V016\"\n      ],\n      \"reason\": \"M014 (motorcycle) and V016 (car) are predicted to collide at absolute time 5.1s as their paths converge and overlap while moving northwest.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction indicates multiple potential accidents involving several vehicles, including observer vehicles, across intervals k=2, k=3, and k=5. These incidents range from vehicles colliding with stopped actors to complex merging and overtaking conflicts, all supported by predicted 0.0m clearance between actor footprints.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7620,
+  "candidatesTokenCount": 704,
+  "totalTokenCount": 13247,
+  "cachedContentTokenCount": 889,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7620
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 889
+   }
+  ],
+  "thoughtsTokenCount": 4923,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "2sWYaorPB4392roP8e2NiQw"
+}

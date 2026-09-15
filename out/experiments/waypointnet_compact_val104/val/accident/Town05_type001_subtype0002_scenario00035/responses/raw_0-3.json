@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or minimal clearances in this interval that indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V001\", \"V002\", \"N004\", \"T018\"],\n      \"reason\": \"EGO_other_vehicle's left turn path intersects with the stopped V001, resulting in an orthogonal collision. V002's southbound path also directly collides with the stopped V001. Additionally, N004 and T018 are predicted to have body overlap while traveling southbound, indicating a side-swipe or merging collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or minimal clearances in this interval that indicate an accident.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V021\", \"V001\"],\n      \"reason\": \"V021's southbound path is predicted to collide with the stopped V001, resulting in a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or minimal clearances in this interval that indicate an accident.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted in this scenario, primarily involving vehicle V001, which is stopped. EGO_other_vehicle, V002, and V021 are all predicted to collide with V001 at different times. A separate conflict is also predicted between N004 and T018, suggesting a lane-changing or merging issue.\",\n  \"data_limitations\": \"All future paths are provided with a probability of 1.0, which means no alternative behaviors or uncertainties in trajectory are modeled. The 'remains stopped' prediction for V001, despite multiple vehicles converging on its position, may not reflect potential evasive actions if the situation were to unfold in reality.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8339,
+  "candidatesTokenCount": 683,
+  "totalTokenCount": 12532,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8339
+   }
+  ],
+  "thoughtsTokenCount": 3510,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "xciYaonpKfrdvr0P3YSPkQk"
+}

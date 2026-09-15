@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain safe distances; the closest predicted interaction is a clearance of 0.62m between EGO_other_vehicle_behind and T026, which does not constitute contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"While the predictor indicated potential contact between EGO_ego_vehicle_behind and V018 at t=3.6s, the provided path waypoints for both vehicles show a significant clearance of several meters, not supporting physical contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no clear geometric evidence of contact or overlap in their projected paths.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No clear physical contact or body overlap is supported by the supplied path geometry for any pair of actors in this interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths show vehicles maintaining safe distances, with no geometric evidence of contact.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The prediction system flagged one instance of predicted contact between EGO_ego_vehicle_behind and V018. However, there is a discrepancy between the reported time (3.6s) and interval index (4) for this event, and a manual inspection of the vehicle waypoints at the indicated time and interval shows substantial clearance, contradicting the 'predicted_contact: true' flag. Therefore, no accidents are expected across the entire 5-second prediction window.\",\n  \"data_limitations\": \"The 'predicted_closest_pairs' entry for EGO_ego_vehicle_behind and V018 shows conflicting information regarding the time of contact ('time_after_observation_s': 3.6s) and the corresponding interval index ('interval_index': 4). This inconsistency, coupled with a manual waypoint path analysis that did not indicate physical contact, reduced confidence in the 'predicted_contact: true' flag for this specific entry.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10232,
+  "candidatesTokenCount": 690,
+  "totalTokenCount": 19943,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10232
+   }
+  ],
+  "thoughtsTokenCount": 9021,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "EuqYao7RLr2l0-kP6KrGoQw"
+}

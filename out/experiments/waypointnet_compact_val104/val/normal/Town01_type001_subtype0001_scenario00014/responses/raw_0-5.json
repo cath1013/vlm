@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation; no physical contact is indicated between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation; no physical contact is indicated between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"V002's predicted path indicates it will rear-end the stopped V001 at approximately 2.9 seconds after the last observation, resulting in clear physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new physical contacts are predicted in this interval; other vehicles maintain safe distances. The collision between V001 and V002 occurred in the previous interval.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain sufficient separation; no new physical contact is indicated. The close proximity of EGO_ego_vehicle_behind with V001 and V002 maintains positive clearance.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is predicted to occur in the (7.0, 8.0] second interval between V001 and V002, where V002 will rear-end the stationary V001. For all other intervals and actor pairs, the predicted trajectories indicate safe clearances will be maintained, with no other physical contacts expected.\",\n  \"data_limitations\": \"The provided trajectory predictor does not account for post-collision dynamics, which means the subsequent paths for V001 and V002 after the initial impact in k=3 may not reflect realistic behavior. This affects the confidence of non-collision predictions in intervals k=4 and k=5 related to these actors.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6544,
+  "candidatesTokenCount": 642,
+  "totalTokenCount": 13342,
+  "cachedContentTokenCount": 870,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6544
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 870
+   }
+  ],
+  "thoughtsTokenCount": 6156,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "vMGYavDCHqul0-kP19CwgAw"
+}

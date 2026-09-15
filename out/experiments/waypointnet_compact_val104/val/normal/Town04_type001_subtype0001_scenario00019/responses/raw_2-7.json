@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle trajectories maintain sufficient clearance and do not show any overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show vehicles maintaining sufficient clearance, with V002 navigating around the stopped V003 without contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show vehicles maintaining sufficient clearance, with V002 maneuvering around the stopped V025 without contact.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\", \"V002\", \"V004\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to rear-end the stopped EGO_other_vehicle. Separately, V002 is predicted to collide with the stopped V004 during its right turn maneuver.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V005\", \"V001\", \"C012\"],\n      \"reason\": \"V002 is predicted to collide with the stopped V005 as it continues its turn. Separately, V001 is predicted to rear-end C012 as V001 is traveling faster behind C012 on a similar path.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The first three 1-second intervals appear safe with all vehicles maintaining adequate clearance or successfully navigating around obstacles. However, the last two intervals predict multiple collision events. EGO_other_vehicle_behind is expected to rear-end EGO_other_vehicle, and V002 is predicted to collide sequentially with two stopped vehicles, V004 and V005. Additionally, V001 is predicted to rear-end C012.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9449,
+  "candidatesTokenCount": 667,
+  "totalTokenCount": 14755,
+  "cachedContentTokenCount": 912,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9449
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 912
+   }
+  ],
+  "thoughtsTokenCount": 4639,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "qMOYatmJB_fJrfcPhY704A8"
+}

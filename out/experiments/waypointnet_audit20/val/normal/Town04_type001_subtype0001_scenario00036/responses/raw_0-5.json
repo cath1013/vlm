@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V001\", \"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"M014\"],\n      \"reason\": \"Multiple critical conflicts are imminent: EGO_ego_vehicle is on a collision course with V001 and EGO_other_vehicle at the junction due to converging paths and short TTCs. A separate close-quarters conflict between EGO_other_vehicle_behind and M014 on Road 30 is also predicted to result in contact within this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_other_vehicle_behind is accelerating at 36km/h and closing on EGO_other_vehicle, which is decelerating at 18km/h and 2m from a junction; a rear-end collision is highly probable as the gap narrows significantly, especially if EGO_other_vehicle stops.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"P003\", \"V013\"],\n      \"reason\": \"P003 is moving towards the junction at 13km/h while V013 is stopped at 5m from the same junction, creating a pedestrian-vehicle conflict if P003 proceeds through V013's path.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most imminent and critical conflicts are expected to have occurred or been resolved in prior intervals, and no new high-likelihood conflicts are identified from the current data.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most imminent and critical conflicts are expected to have occurred or been resolved in prior intervals, and no new high-likelihood conflicts are identified from the current data.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The scene presents a high risk of multiple accidents in the immediate future intervals. EGO_ego_vehicle is on a collision course with two other vehicles (V001 and EGO_other_vehicle) at a junction within the first second. Separately, EGO_other_vehicle_behind and M014 are projected to make contact, and a car-following situation between EGO_other_vehicle_behind and EGO_other_vehicle poses a rear-end risk. A pedestrian-vehicle conflict is also predicted at another part of the junction.\",\n  \"data_limitations\": \"The linear-extrapolated contact times are simplistic and do not account for dynamic evasive maneuvers or complex turning behaviors at junctions beyond straight paths. Lack of traffic signal information prevents assessing right-of-way, and the 'off-candidate path' for P003 introduces trajectory uncertainty for the pedestrian. The interpretation of 'linear-extrapolated contact' for opposite-direction vehicles on the 'same road' assumes a lateral collision risk.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12029,
+  "candidatesTokenCount": 886,
+  "totalTokenCount": 22079,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12029
+   }
+  ],
+  "thoughtsTokenCount": 9164,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "kxqVavmtLY7E0-kPzuSSyAE"
+}

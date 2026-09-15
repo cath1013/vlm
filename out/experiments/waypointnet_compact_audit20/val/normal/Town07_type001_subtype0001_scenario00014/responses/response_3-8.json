@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 28.47,
+ "usage": {
+  "input": 7661,
+  "output": 427
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving actors maintain sufficient separation, and stopped actors remain stationary.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving actors maintain sufficient separation, and stopped actors remain stationary.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving actors maintain sufficient separation, and stopped actors remain stationary.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving actors maintain sufficient separation, and stopped actors remain stationary.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_ego_vehicle_behind is projected to collide with the rear of EGO_ego_vehicle due to insufficient braking while EGO_ego_vehicle slows significantly, resulting in a rear-end collision with a projected gap of approximately 2.5 meters.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The EGO_ego_vehicle is predicted to slow down considerably over the next five seconds. Meanwhile, the EGO_ego_vehicle_behind is accelerating, closing the distance rapidly. This will result in a rear-end collision between EGO_ego_vehicle_behind and EGO_ego_vehicle by the 5-second mark, as their paths indicate an overlap. All other vehicle movements are clear of conflict.",
+  "data_limitations": ""
+ }
+}

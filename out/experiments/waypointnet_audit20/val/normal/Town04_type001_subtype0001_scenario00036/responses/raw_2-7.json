@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"V002\"\n      ],\n      \"reason\": \"EGO_ego_vehicle is accelerating at 37km/h and is only 4.1m from the stopped V002 on the same road, with a linear-extrapolated contact expected in 0.4s, indicating an imminent head-on collision or very close passing scenario.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No new immediate conflicts are identified during this interval, as the critical conflict between EGO_ego_vehicle and V002 is expected to occur in the previous interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_other_vehicle\",\n        \"EGO_other_vehicle_behind\"\n      ],\n      \"reason\": \"EGO_other_vehicle is predicted to make a left turn at the junction (10m away, ~2s arrival) across the path of EGO_other_vehicle_behind, which is predicted to proceed straight (12m away, ~2.3s arrival), leading to a high likelihood of a simultaneous entry and orthogonal collision at the junction.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The major predicted conflicts are expected to have occurred in earlier intervals, and other road users are either stopped or at sufficient distances without developing new imminent hazards.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All immediate threats from earlier intervals are assumed to have resolved, and no new significant conflicts are developing based on current speeds and predicted paths of other road users.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The scenario presents two high-risk situations within the prediction window. The first is an imminent collision between EGO_ego_vehicle and a stopped V002, indicated by a 0.4s linear-extrapolated time to contact. The second involves EGO_other_vehicle and EGO_other_vehicle_behind at a three-way junction, where their predicted paths to turn left and go straight, respectively, will orthogonally intersect.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' value for EGO_ego_vehicle and V002 does not fully account for sophisticated path predictions, making the exact nature of their conflict (e.g., head-on versus very close pass) slightly ambiguous. Additionally, the absence of traffic signal states prevents asserting compliance, which could resolve potential junction conflicts.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 12447,
+  "candidatesTokenCount": 802,
+  "totalTokenCount": 22773,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 12447
+   }
+  ],
+  "thoughtsTokenCount": 9524,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "-xqVas2nMtzN2roPsMTmqAs"
+}

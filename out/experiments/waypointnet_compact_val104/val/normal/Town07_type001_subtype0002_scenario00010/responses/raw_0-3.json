@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a clearance greater than 1 meter, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction shows a clearance greater than 1 meter, indicating no expected physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"Predicted contact with 0.0m minimum clearance between EGO_ego_vehicle and EGO_other_vehicle indicates an orthogonal intersection conflict at approximately t=5.6s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V013\", \"V002\", \"C003\"],\n      \"reason\": \"Two distinct collisions are predicted: V013 is predicted to collide with the stopped V001 (rear-end) and C003 is predicted to collide with V002 (rear-end or side-swipe) both at approximately t=6.5s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"No predicted contacts with 0.0m minimum clearance are found in this interval; all predicted closest pairs maintain a positive clearance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The simulation predicts no accidents in the first two 1-second intervals. However, multiple collisions are predicted in the later intervals: an intersection conflict between EGO_ego_vehicle and EGO_other_vehicle in interval 3, and two separate collisions (V013 with V001, and C003 with V002) in interval 4. No further accidents are predicted in interval 5.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5654,
+  "candidatesTokenCount": 637,
+  "totalTokenCount": 8651,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5654
+   }
+  ],
+  "thoughtsTokenCount": 2360,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "oM2Yao2nEuff1e8PzIHF2AY"
+}

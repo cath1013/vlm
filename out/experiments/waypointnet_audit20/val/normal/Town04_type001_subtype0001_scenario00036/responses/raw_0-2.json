@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V013\", \"V002\", \"V011\"],\n      \"reason\": \"EGO_other_vehicle_behind and V013 are on Road 30, moving in opposing directions, with a linear-extrapolated contact in 0.9s, indicating an imminent head-on collision. Additionally, V002 and V011 are on Road 0, also moving in opposing directions, with a linear-extrapolated contact in 1.5s, posing a high risk of another head-on collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"C009\", \"EGO_ego_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle_behind and C009 are on Road 1 with a linear-extrapolated contact in 2.3s. EGO_ego_vehicle and C009 are also on Road 1 with a linear-extrapolated contact in 2.6s. Both indicate likely head-on conflicts on Road 1 as paths continue linearly.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V002\", \"V012\"],\n      \"reason\": \"V002 and V012 are on Road 0, moving in opposing directions, with a linear-extrapolated contact in 2.9s, suggesting a head-on collision in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The most immediate high-TTC conflicts based on linear extrapolation would have already occurred or been resolved. While several vehicles are approaching the junction, their linear extrapolated paths do not indicate immediate orthogonal conflicts in this interval, and no traffic signal information is available.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All critical head-on conflicts identified by linear-extrapolated contact would have passed. The relative speeds and distances for other vehicles approaching the junction do not suggest an imminent collision based on straight-line paths in this interval.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The immediate future presents multiple high-risk head-on collision scenarios involving several vehicles on Roads 0, 1, and 30, as indicated by very low Time-To-Contact (TTC) values and explicit 'linear-extrapolated contact' warnings. The first three 1-second intervals are highly likely to see accidents. Beyond that, no further imminent collisions are predicted by the linear extrapolation, though a busy junction with multiple approaching vehicles suggests continued vigilance.\",\n  \"data_limitations\": \"The 'linear-extrapolated contact' values do not account for driver braking, steering, or turning actions, nor do they consider traffic signals or right-of-way at junctions, which could alter the predicted outcomes. The 'lane 1/1' designation for opposing traffic on the 'same road' is interpreted as a direct collision risk given the 'linear-extrapolated contact' prediction, rather than safe passing in parallel lanes.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9211,
+  "candidatesTokenCount": 915,
+  "totalTokenCount": 18126,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9211
+   }
+  ],
+  "thoughtsTokenCount": 8000,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ERqVatLzA9Ddvr0PzZjksQg"
+}

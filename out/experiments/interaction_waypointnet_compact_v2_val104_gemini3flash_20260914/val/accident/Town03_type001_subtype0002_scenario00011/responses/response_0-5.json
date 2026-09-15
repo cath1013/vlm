@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 67.13,
+ "usage": {
+  "input": 9947,
+  "output": 633
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are approaching the junction but maintain safe separation distances exceeding 6 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle"
+    ],
+    "reason": "Southbound EGO_ego_vehicle_behind and eastbound EGO_other_vehicle have a crossing collision in the junction at approximately t=6.4s.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle_behind",
+     "EGO_other_vehicle_behind"
+    ],
+    "reason": "Southbound EGO_ego_vehicle_behind remains in the conflict zone and undergoes a second crossing collision with the eastbound EGO_other_vehicle_behind at approximately t=7.5s.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles involved in the prior conflicts have moved past the intersection point, and other actors maintain safe clearance.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No further crossing or following conflicts are predicted as the remaining actors continue along their respective paths with adequate clearance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A southbound vehicle (EGO_ego_vehicle_behind) enters a junction area without yielding to a stream of eastbound traffic, leading to two successive crossing collisions. The first collision occurs with EGO_other_vehicle at t=6.4s, followed closely by a second collision with EGO_other_vehicle_behind at t=7.5s. All vehicles involved were traveling at speeds above 30 kph and showed no significant deceleration before the predicted impacts.",
+  "data_limitations": ""
+ }
+}

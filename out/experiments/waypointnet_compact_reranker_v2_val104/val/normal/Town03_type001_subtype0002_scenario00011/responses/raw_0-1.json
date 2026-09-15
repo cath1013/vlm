@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"M010\"],\n      \"reason\": \"M010 (motorcycle) is predicted to collide with the stopped EGO_other_vehicle_behind (car) at approximately 1.9 seconds after the last observation, indicating a rear-end collision.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"V008\", \"EGO_other_vehicle_behind\", \"V011\"],\n      \"reason\": \"EGO_ego_vehicle_behind (car) is predicted to be rear-ended by V008 (car) at approximately 2.1 seconds after the last observation. Additionally, V011 (car) is predicted to collide with the stopped EGO_other_vehicle_behind (car) at approximately 2.7 seconds after the last observation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any overlap in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any overlap in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted within the 5-second prediction horizon. In the (2.0, 3.0]s interval, a motorcycle (M010) is predicted to collide with a stopped observer vehicle (EGO_other_vehicle_behind). In the subsequent (3.0, 4.0]s interval, two separate collisions are predicted: a faster car (V008) is expected to rear-end an observer vehicle (EGO_ego_vehicle_behind), and another car (V011) is predicted to collide with the same stopped observer vehicle (EGO_other_vehicle_behind).\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7248,
+  "candidatesTokenCount": 703,
+  "totalTokenCount": 15367,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7248
+   }
+  ],
+  "thoughtsTokenCount": 7416,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "de-YaranM_7x2roP8KyR2Qo"
+}

@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-1.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 12.42,
+ "usage": {
+  "input": 5374,
+  "output": 500
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(1.0, 2.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicle paths maintain safe clearances throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(2.0, 3.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicle paths maintain safe clearances throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicle paths maintain safe clearances throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicle paths maintain safe clearances throughout this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_ego_vehicle",
+     "EGO_other_vehicle"
+    ],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at 4.9 seconds after observation due to orthogonal trajectories intersecting at a junction.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is predicted in the final interval (k=5) between EGO_ego_vehicle and EGO_other_vehicle, as their projected paths intersect orthogonally with zero clearance. For intervals k=1 through k=4, all vehicles are predicted to maintain safe clearances with no expected collisions.",
+  "data_limitations": ""
+ }
+}

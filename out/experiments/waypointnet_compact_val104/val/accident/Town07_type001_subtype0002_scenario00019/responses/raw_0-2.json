@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths for all vehicles show clear separation, with no overlaps or critical clearances identified in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles maintain sufficient separation along their predicted paths; the closest predicted pair (EGO_ego_vehicle_behind and M004) has a clearance of 0.62m, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V003\", \"N002\", \"EGO_ego_vehicle\", \"V007\"],\n      \"reason\": \"Two distinct accidents are predicted: V003 and N002 have a predicted contact with 0.0m clearance on Road 59 at 2.9s after observation, suggesting a rear-end or side-swipe conflict. Additionally, EGO_ego_vehicle and V007 have a predicted contact with 0.0m clearance at 3.0s after observation, indicating an orthogonal entry collision at a junction where EGO is northbound and V007 is westbound.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted vehicle paths remain safely separated, with no close proximity or potential contact points identified.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue on their paths with adequate clearance from each other, indicating no expected contact in this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Multiple accidents are predicted in the third 1-second interval after observation (k=3). Specifically, V003 and N002 are expected to collide due to converging paths on the same road, and EGO_ego_vehicle is expected to collide with V007 at a junction. Other intervals show no predicted accidents with sufficient clearances.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 4588,
+  "candidatesTokenCount": 655,
+  "totalTokenCount": 7866,
+  "cachedContentTokenCount": 817,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4588
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 817
+   }
+  ],
+  "thoughtsTokenCount": 2623,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "GMmYasKtJYqd0-kPt5m_CQ"
+}

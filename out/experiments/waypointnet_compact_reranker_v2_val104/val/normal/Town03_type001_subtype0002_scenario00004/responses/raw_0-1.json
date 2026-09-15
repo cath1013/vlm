@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances, with the closest pair (EGO_other_vehicle_behind and V021) having a minimum clearance of 1.54m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"N012\", \"EGO_ego_vehicle_behind\", \"V010\"],\n      \"reason\": \"Two separate rear-end collisions are predicted: N012 contacts EGO_other_vehicle_behind at t=1.6s, and V010 contacts EGO_ego_vehicle_behind at t=1.2s. Both involve a faster vehicle colliding with a slower/stopped vehicle from behind in the same lane.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances, with the closest pair (EGO_ego_vehicle and V014) having a minimum clearance of 1.21m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted paths maintain safe distances, with no physical contact expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle_behind\", \"T011\"],\n      \"reason\": \"A rear-end collision is predicted where T011 contacts EGO_ego_vehicle_behind at t=4.5s. T011 is approaching the stopped EGO_ego_vehicle_behind from behind in the same lane.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"The predictions indicate a high likelihood of multiple rear-end collisions. EGO_ego_vehicle_behind, which is stopped, is involved in two separate predicted collisions (with V010 and T011). EGO_other_vehicle_behind is also predicted to be rear-ended by N012.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7759,
+  "candidatesTokenCount": 672,
+  "totalTokenCount": 11428,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7759
+   }
+  ],
+  "thoughtsTokenCount": 2997,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "N--YavSGLOP82roP7r7joQo"
+}

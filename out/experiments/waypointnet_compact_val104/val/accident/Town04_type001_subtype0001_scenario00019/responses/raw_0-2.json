@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted future paths, with no overlap or contact expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V026\", \"V003\"],\n      \"reason\": \"Vehicle V026 is predicted to collide with vehicle V003, which is stationary on the same road, resulting in a rear-end collision at approximately t=3.9s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V001\", \"V002\"],\n      \"reason\": \"Vehicle V002 is predicted to rear-end vehicle V001 while both are traveling westbound in the same lane, with contact expected at approximately t=5.0s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain sufficient clearance based on their predicted future paths, with no overlap or contact expected.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"EGO_other_vehicle\"],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are predicted to collide at an intersection, with their paths converging and resulting in body overlap at approximately t=7.0s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Three distinct collision events are predicted across the 5-second prediction window. The first involves V026 colliding with the stopped V003 in interval (3.0, 4.0]s. The second is a rear-end collision between V001 and V002 in interval (4.0, 5.0]s. Finally, a junction conflict between EGO_ego_vehicle and EGO_other_vehicle is predicted in interval (6.0, 7.0]s.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8333,
+  "candidatesTokenCount": 652,
+  "totalTokenCount": 13953,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8333
+   }
+  ],
+  "thoughtsTokenCount": 4968,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Dr-YatC6Ffi20-kPkNOI8Qs"
+}

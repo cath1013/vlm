@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances and follow their predicted paths without any geometric overlap.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted clearances between all actor pairs remain positive, indicating no physical contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted trajectories show no convergence leading to physical contact, with minimum clearances well above zero.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\", \"T016\"],\n      \"reason\": \"EGO_other_vehicle_behind is predicted to make a right turn, leading to an intersection conflict with EGO_other_vehicle, which is proceeding straight. Furthermore, EGO_other_vehicle_behind's turning path also intersects with T016, which is moving slowly in the opposite direction on Road 69. Predicted minimum clearance is 0.0m for both pairs.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(12.0, 13.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to move along their paths, and after the potential conflict in k=4, no further contacts are predicted.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"An accident is highly expected during the k=4 interval (11-12s after observation) involving EGO_other_vehicle, EGO_other_vehicle_behind, and T016 due to EGO_other_vehicle_behind executing a right turn that intersects the paths of the other two vehicles. No accidents are expected in any other 1-second interval, as all other vehicles maintain safe separations.\",\n  \"data_limitations\": \"The future path for T016 exhibits unusual movement (slight north then consistent south, indicating a complex or reversing maneuver), which might affect the precise timing or nature of the collision but does not negate the geometric overlap with EGO_other_vehicle_behind's turning path.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9711,
+  "candidatesTokenCount": 680,
+  "totalTokenCount": 18389,
+  "cachedContentTokenCount": 914,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9711
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 914
+   }
+  ],
+  "thoughtsTokenCount": 7998,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "ZPCYaqSbLsOXosUP4_vEsA8"
+}

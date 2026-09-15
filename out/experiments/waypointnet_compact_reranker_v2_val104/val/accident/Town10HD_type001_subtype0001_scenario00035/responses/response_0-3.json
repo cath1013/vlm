@@ -1,0 +1,63 @@
+{
+ "payload": "llm_payload_0-3.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 28.62,
+ "usage": {
+  "input": 11076,
+  "output": 560
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(3.0, 4.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "EGO_other_vehicle is predicted to turn right into the path of EGO_ego_vehicle, which is proceeding straight, resulting in an orthogonal collision with 0.0m predicted clearance at 3.9 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle"
+    ],
+    "reason": "Following the collision predicted in the previous interval, the trajectories of EGO_other_vehicle and EGO_ego_vehicle remain in close proximity, with approximately 3.2m between their centers, which is less than their combined widths, indicating that physical contact or overlap would continue within this interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The predicted paths of EGO_other_vehicle and EGO_ego_vehicle diverge sufficiently, showing a separation of approximately 5.6 meters between their centers, which is greater than their combined widths. No other pairs predict contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between actors, and no new contact events are indicated.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show sufficient clearance between actors, and no new contact events are indicated.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "An accident is highly expected in the first interval between EGO_other_vehicle and EGO_ego_vehicle due to EGO_other_vehicle turning into the path of EGO_ego_vehicle, with a direct 0.0m clearance prediction. This collision is likely to extend into the second interval given the continued close proximity of their predicted paths. Beyond that, vehicles diverge, and no further accidents are expected within the prediction window.",
+  "data_limitations": ""
+ }
+}

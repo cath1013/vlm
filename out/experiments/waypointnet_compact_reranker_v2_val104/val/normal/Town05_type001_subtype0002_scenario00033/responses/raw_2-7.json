@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances or are stationary, with no immediate path conflicts indicated.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Vehicles continue to maintain safe separation, with no predicted contact in this interval despite V026 approaching EGO_other_vehicle.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"V026\"],\n      \"reason\": \"V026's predicted path leads directly into the rear of the stopped EGO_other_vehicle, resulting in a rear-end collision at t+2.2s (within this interval).\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary collision between V026 and EGO_other_vehicle is expected to occur in the previous interval, and no new direct conflicts are predicted for this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles maintain safe distances based on their predicted paths, with no indications of new conflicts.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"A clear rear-end collision is predicted for interval k=3 between the moving vehicle V026 and the stopped EGO_other_vehicle, as V026's path directly overlaps with the stationary EGO_other_vehicle's footprint. No other accidents are predicted for the remaining intervals.\",\n  \"data_limitations\": \"The trajectory predictor does not account for post-collision dynamics, which may affect the realism of paths for involved actors in intervals following the predicted collision.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 9939,
+  "candidatesTokenCount": 600,
+  "totalTokenCount": 14323,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 9939
+   }
+  ],
+  "thoughtsTokenCount": 3784,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "k_KYaqXzOeP82roP777joQo"
+}

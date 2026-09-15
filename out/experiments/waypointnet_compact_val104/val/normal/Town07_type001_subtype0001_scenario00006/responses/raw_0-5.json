@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Predicted paths show a minimum clearance of 0.1m between EGO_other_vehicle_behind and V007, but no physical contact or overlap is indicated by the predictor.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All predicted clearances are well above zero, and no physical contact is expected between any actors.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"M008\", \"V009\"],\n      \"reason\": \"V009 is predicted to collide with the stopped motorcycle M008, resulting in 0.0m minimum clearance and predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_ego_vehicle_behind\", \"V007\"],\n      \"reason\": \"Multiple predicted contacts indicate a complex collision: EGO_other_vehicle and V007 (both westbound) have a predicted rear-end or side-by-side collision, while both also collide orthogonally with EGO_ego_vehicle_behind (southbound) at an intersection.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_ego_vehicle and T003 show a minimum clearance of 0.59m, the predicted contact is false, and their paths suggest a close but non-colliding pass.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"The first two intervals (k=1, k=2) appear safe, with all vehicles maintaining separation. However, significant collision risks emerge in k=3, where a car (V009) is predicted to hit a stopped motorcycle (M008). The situation escalates dramatically in k=4 with a multi-vehicle intersection collision involving two observer vehicles (EGO_other_vehicle, EGO_ego_vehicle_behind) and V007. The final interval (k=5) shows no further accidents.\",\n  \"data_limitations\": \"The precise nature (e.g., rear-end vs. side-swipe) of predicted contacts with 0.0m clearance requires manual path analysis and footprint visualization beyond the provided 'predicted_closest_pairs' data.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6755,
+  "candidatesTokenCount": 731,
+  "totalTokenCount": 12893,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6755
+   }
+  ],
+  "thoughtsTokenCount": 5407,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "o8SYarqOK_qb0-kPtv6CeA"
+}

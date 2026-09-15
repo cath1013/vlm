@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The predicted paths for all actors show sufficient clearance, with the closest interaction having a minimum clearance of 1.65 meters between EGO_ego_vehicle and V010, and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction between EGO_other_vehicle and EGO_ego_vehicle indicates a clearance of 21.13 meters, which is ample space, and no predicted contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle_behind\", \"V004\"],\n      \"reason\": \"V004, moving southbound, is predicted to collide with EGO_other_vehicle_behind, which is stopped at (99.4, 8.2), resulting in a rear-end collision at approximately 9.4 seconds after observation, with zero minimum clearance.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The closest predicted interaction between EGO_other_vehicle and V001 shows a minimum clearance of 4.97 meters, indicating no contact.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(11.0, 12.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The interaction between EGO_other_vehicle_behind and T006 indicates a minimum clearance of 15.99 meters, which is a safe distance.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Throughout the 5-second prediction window, only one specific accident scenario is identified. A car (V004) is predicted to collide with a stopped observer vehicle (EGO_other_vehicle_behind) at approximately 9.4 seconds (within the third interval). All other predicted interactions maintain sufficient clearance between actors, indicating no other expected accidents.\",\n  \"data_limitations\": \"\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 8913,
+  "candidatesTokenCount": 651,
+  "totalTokenCount": 13212,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8913
+   }
+  ],
+  "thoughtsTokenCount": 3648,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "Z-yYarbVOejI0-kP9YjQcA"
+}

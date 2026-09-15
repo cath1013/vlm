@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"EGO_ego_vehicle and EGO_other_vehicle are on a collision course at the junction, reaching critical proximity within this interval, but the linear-extrapolated impact time of 1.4s places the actual collision just beyond the end of this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\n        \"EGO_ego_vehicle\",\n        \"EGO_other_vehicle\"\n      ],\n      \"reason\": \"An orthogonal collision is highly expected around t=7.4s at the junction between EGO_ego_vehicle (northbound, 1m to junction, decelerating) and EGO_other_vehicle (westbound, 7m to junction, accelerating), as both vehicles are predicted to proceed straight and have a linear-extrapolated time to contact of 1.4s.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(8.0, 9.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary collision between EGO_ego_vehicle and EGO_other_vehicle is expected to have occurred in the previous interval. No new primary conflicts are identified.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(9.0, 10.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary collision between EGO_ego_vehicle and EGO_other_vehicle is expected to have occurred in interval k=2. No new primary conflicts are identified.\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(10.0, 11.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"The primary collision between EGO_ego_vehicle and EGO_other_vehicle is expected to have occurred in interval k=2. No new primary conflicts are identified.\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"overall_assessment\": \"A severe orthogonal junction collision is highly likely between EGO_ego_vehicle and EGO_other_vehicle in the second predicted interval (t=7.4s), as both vehicles are approaching the junction with straight path predictions and an extremely short time-to-contact (1.4s). While other vehicles are also approaching the junction, their direct involvement in this immediate primary collision is not clearly indicated by the available predictions.\",\n  \"data_limitations\": \"The absence of traffic signal states or explicit right-of-way rules for the junction is a significant limitation, requiring the judgment to rely on vehicle dynamics and predicted paths only. 'Predicted path: straight' is a default and may not represent true driver intent at a complex intersection.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 10803,
+  "candidatesTokenCount": 759,
+  "totalTokenCount": 20786,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 10803
+   }
+  ],
+  "thoughtsTokenCount": 9224,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "DR6Vavv6BZWD0-kP_qvNuAs"
+}

@@ -1,0 +1,60 @@
+{
+ "payload": "llm_payload_0-4.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+ "elapsed_s": 48.99,
+ "usage": {
+  "input": 6875,
+  "output": 583
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(4.0, 5.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance between vehicles; no contact or overlap is expected in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths maintain sufficient clearance between vehicles; no contact or overlap is expected in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "M004",
+     "M003"
+    ],
+    "reason": "Actor M004 is predicted to rear-end Actor M003. M004, initially behind M003 and traveling faster, closes the gap, leading to its front overlapping with M003's rear at approximately 6.7 seconds after observation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While a collision is expected in the previous interval, the predicted paths show the vehicles separating in this interval, with no further contact or overlap.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All predicted paths show vehicles maintaining clear separation, with M004 having passed M003.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The primary risk observed is a predicted rear-end collision between motorcycle M004 and motorcycle M003 in the third future 1-second interval. M004, traveling faster and behind M003, closes the gap despite its own deceleration, resulting in body overlap. In the intervals immediately preceding and following the collision, the predicted paths show sufficient clearance.",
+  "data_limitations": ""
+ }
+}

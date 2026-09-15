@@ -1,0 +1,38 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Although EGO_other_vehicle_behind and V008, and EGO_other_vehicle and V009 have small clearances (1.5m and 1.55m respectively), the predicted_contact field is false for both pairs, and their paths indicate they maintain separation.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close clearances for any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_ego_vehicle\", \"V006\"],\n      \"reason\": \"EGO_ego_vehicle and V006 are predicted to make contact with 0.0m clearance at 5.3s. Both vehicles are traveling eastbound in what appear to be adjacent or overlapping lanes, leading to a side-swipe or lane encroachment conflict.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(6.0, 7.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"There are no predicted contacts or dangerously close clearances for any actors in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(7.0, 8.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"EGO_other_vehicle\", \"EGO_other_vehicle_behind\"],\n      \"reason\": \"EGO_other_vehicle_behind is following EGO_other_vehicle in the same lane while traveling at a higher speed, leading to a predicted rear-end collision with 0.0m clearance at 7.5s.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two accidents are predicted within the 5-second prediction window. The first involves EGO_ego_vehicle and V006 in interval (5.0, 6.0]s, likely a side-swipe due to their parallel paths in close proximity. The second involves EGO_other_vehicle_behind rear-ending EGO_other_vehicle in interval (7.0, 8.0]s, as the trailing vehicle is faster and both follow similar paths.\",\n  \"data_limitations\": \"The 'lane' and 'lateral_offset' attributes for EGO_ego_vehicle and V006 both state 'lane 1' and '-1.6m' respectively, despite their N-coordinate difference of ~3.6m which suggests adjacent lanes. However, the explicit `predicted_contact=true` overrides this minor ambiguity regarding lane assignment and clearly indicates physical contact.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 6347,
+  "candidatesTokenCount": 760,
+  "totalTokenCount": 11759,
+  "cachedContentTokenCount": 866,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6347
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 866
+   }
+  ],
+  "thoughtsTokenCount": 4652,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "sOiYauX_DZbF0-kPhefOoQ8"
+}

@@ -1,0 +1,31 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "parts": [
+     {
+      "text": "{\n  \"predictions\": [\n    {\n      \"k\": 1,\n      \"interval_s\": \"(1.0, 2.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no clear path overlaps during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 2,\n      \"interval_s\": \"(2.0, 3.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no clear path overlaps during this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 3,\n      \"interval_s\": \"(3.0, 4.0]\",\n      \"accident_expected\": true,\n      \"involved_actor_ids\": [\"V014\", \"V013\", \"N011\", \"V010\"],\n      \"reason\": \"V014, moving south at 17kph, is predicted to collide with V013 (7kph) as their paths overlap by 0.3m. Additionally, N011 (12kph) is predicted to collide with the stopped V010 as their paths overlap by 0.22m.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 4,\n      \"interval_s\": \"(4.0, 5.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"Following the predicted collisions in the previous interval, no new clear path overlaps are predicted for any vehicles in this interval.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"k\": 5,\n      \"interval_s\": \"(5.0, 6.0]\",\n      \"accident_expected\": false,\n      \"involved_actor_ids\": [],\n      \"reason\": \"All vehicles are predicted to maintain safe distances, with no clear path overlaps during this interval.\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"overall_assessment\": \"Two distinct rear-end collisions are predicted in the third 1-second interval. V014 is expected to collide with V013 as it attempts to overtake in the same lane, and N011 is expected to collide with the stopped V010. All other actors appear to maintain safe separation throughout the 5-second prediction window.\",\n  \"data_limitations\": \"The trajectory predictor provides discrete waypoints which makes precise collision timing within an interval challenging. Also, paths of involved actors after a predicted collision may not reflect realistic post-impact dynamics.\"\n}"
+     }
+    ],
+    "role": "model"
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 5418,
+  "candidatesTokenCount": 633,
+  "totalTokenCount": 16320,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5418
+   }
+  ],
+  "thoughtsTokenCount": 10269,
+  "serviceTier": "standard"
+ },
+ "modelVersion": "gemini-2.5-flash",
+ "responseId": "4kmVaqClLP_IrfcP9pzGsQ4"
+}
