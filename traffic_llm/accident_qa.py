@@ -28,6 +28,7 @@ import glob
 import json
 import math
 import os
+from copy import deepcopy
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
@@ -56,6 +57,9 @@ class WindowConfig:
     window_s: float = 5.0  # T — 관측 구간 길이
     stride_s: float = 1.0  # 윈도우 이동 간격
     horizon_s: float = 5.0  # N — 미래 예측 구간
+    # ``ground_truth`` is an evaluation-only oracle. It changes only copied
+    # future path coordinates before window rendering, never observations.
+    future_source: str = "predictor"
     snapshot_rate_hz: float = 2.0  # 윈도우 안 스냅샷 밀도
     history_stride_s: float = 1.0  # 이력 표시 간격 (토큰 절약)
     # 수록 차량 수 상한. None(기본) 이면 **관측된 차량 수에 맞춰** 정한다 —
@@ -200,6 +204,43 @@ class TimeWindow:
 
     def actors_at_end(self) -> List[ActorState]:
         return self.last.actors
+
+
+def ground_truth_future_snapshots(
+    snapshots: Sequence[SceneSnapshot],
+    horizon_s: float,
+    raw_snapshots: Optional[Sequence[SceneSnapshot]] = None,
+) -> List[SceneSnapshot]:
+    """Copy snapshots and replace only predicted waypoint coordinates with raw GT.
+
+    This is deliberately applied after normal prediction construction. Unlike
+    training targets, the oracle retains *all* raw samples strictly after the
+    cutoff and their actual relative timestamps (e.g. +0.1 ... +0.6 s). The
+    copied snapshots retain observed history/current state and path metadata.
+    """
+    oracle = deepcopy(list(snapshots))
+    per_actor: Dict[str, list] = {}
+    for snap in raw_snapshots if raw_snapshots is not None else snapshots:
+        for actor in snap.actors:
+            per_actor.setdefault(actor.actor_id, []).append((snap.t, actor.world_xy))
+    for samples in per_actor.values():
+        samples.sort(key=lambda row: row[0])
+
+    for snap in oracle:
+        for actor in snap.actors:
+            future = [
+                (round(t - snap.t, 6), xy)
+                for t, xy in per_actor.get(actor.actor_id, [])
+                if t > snap.t + 1e-6 and t <= snap.t + horizon_s + 1e-6
+            ]
+            complete = bool(future and future[-1][0] >= horizon_s - 1e-6)
+            for path in actor.predictions:
+                # The current state is only a t=0 anchor for interpolation;
+                # every later point is an actual raw post-cutoff GT sample.
+                path.waypoints = [actor.world_xy] + [xy for _, xy in future]
+                path.waypoint_times_s = [0.0] + [dt for dt, _ in future]
+                path.truncated = path.truncated or not complete
+    return oracle
 
 
 # ---------------------------------------------------------------- 윈도우 분할
@@ -656,6 +697,10 @@ def compact_window_json(
             ]
             histories[actor.actor_id].append(row)
 
+    timestamped_futures = any(
+        path.waypoint_times_s is not None
+        for actor in win.last.actors for path in actor.predictions
+    )
     actors: List[dict] = []
     for aid, source in current_by_id.items():
         road = source.get("road")
@@ -679,10 +724,12 @@ def compact_window_json(
         ]
         futures = [
             [
-                path["maneuver"],
-                path["probability"],
-                path["to_roads"],
-                path["waypoints_1s_enu_m"],
+                path["maneuver"], path["probability"], path["to_roads"],
+                (
+                    path.get("waypoints_timed_enu_m", [])
+                    if timestamped_futures
+                    else path.get("waypoints_1s_enu_m", [])
+                ),
                 path["truncated"],
             ]
             for path in source["predicted_paths"]
@@ -753,19 +800,28 @@ def compact_window_json(
         ]
 
     return {
-        "representation": "compact_geometry_v3",
+        "representation": (
+            "compact_geometry_v3_timestamped_gt"
+            if timestamped_futures else "compact_geometry_v3"
+        ),
         "observation_window": {
             "label": win.label,
             "t_start_s": round(win.t_start, 3),
             "t_end_s": round(win.t_end, 3),
             "history_sample_times_s": sorted(times),
         },
-        "coordinate_convention": {
-            "frame": "local_ENU",
-            "unit": "metre",
-            "future_waypoint_start_s": 1,
-            "future_waypoint_step_s": 1,
-        },
+        "coordinate_convention": (
+            {
+                "frame": "local_ENU", "unit": "metre",
+                "future_waypoint_time_reference": "seconds_after_observation",
+                "future_waypoint_format": "[t_s,e_m,n_m]",
+            }
+            if timestamped_futures else {
+                "frame": "local_ENU", "unit": "metre",
+                "future_waypoint_start_s": 1,
+                "future_waypoint_step_s": 1,
+            }
+        ),
         "history_columns": ["t_s", "e_m", "n_m", "speed_kph"],
         "current_state_columns": [
             "e_m", "n_m", "heading_deg", "speed_kph", "accel_mps2",
@@ -774,7 +830,11 @@ def compact_window_json(
             "existence_confidence", "position_quality", "range_m", "track_age_s",
         ],
         "future_path_columns": [
-            "maneuver", "probability", "to_roads", "waypoints_1s_enu_m",
+            "maneuver", "probability", "to_roads",
+            (
+                "waypoints_timed_enu_m"
+                if timestamped_futures else "waypoints_1s_enu_m"
+            ),
             "truncated",
         ],
         "class_footprints_m": {
@@ -1116,14 +1176,32 @@ def build_window_payload(
         )
     blocks.append(build_question(win, cfg, scfg.language))
 
+    system = i18n.system_prompt(
+        "accident_compact" if cfg.payload_profile == "compact" else "accident",
+        scfg.language,
+        contact_margin_m=cfg.swept_contact_margin_m,
+    )
+    if cfg.future_source == "ground_truth":
+        if scfg.language == "en":
+            system = system.replace(
+                "- Successive waypoints in a future path represent +1s, +2s, ... after the last\n"
+                "  observation. Each *_columns array defines the meaning and order of values in\n"
+                "  the row arrays that follow it.",
+                "- Oracle future paths use raw timestamped samples. Each *_columns array defines\n"
+                "  the meaning and order of values in the row arrays that follow it.",
+            )
+        system += (
+            "\n\nGT oracle convention: future paths use raw trajectory samples. "
+            "For waypoints_timed_enu_m, each row is [seconds_after_observation, "
+            "east_m, north_m]; do not assume one-second spacing."
+            if scfg.language == "en" else
+            "\n\nGT 오라클 규약: 미래 경로는 원시 궤적 표본입니다. "
+            "waypoints_timed_enu_m의 각 행은 [관측 이후 초, 동쪽_m, 북쪽_m]이며 "
+            "1초 간격이라고 가정하지 마십시오."
+        )
     return providers.build_request(
         scfg.provider,
-        system=i18n.system_prompt(
-            "accident_compact"
-            if cfg.payload_profile == "compact"
-            else "accident",
-            scfg.language,
-        ),
+        system=system,
         blocks=blocks,
         schema=i18n.prediction_schema(scfg.language, cfg.n_horizon_buckets),
         model=cfg.model or scfg.model,
@@ -1486,6 +1564,7 @@ def write_window_set(
             "window_s": cfg.window_s,
             "stride_s": cfg.stride_s,
             "horizon_s": cfg.horizon_s,
+            "future_source": cfg.future_source,
             "snapshot_rate_hz": cfg.snapshot_rate_hz,
             "history_stride_s": cfg.history_stride_s,
             # 자동 산정이면 실제 적용값과 규칙을 함께 남긴다
@@ -1502,6 +1581,7 @@ def write_window_set(
             "swept_candidate_pool_cap": cfg.swept_candidate_pool_cap,
             "swept_pair_cap": cfg.swept_pair_cap,
             "swept_sample_dt_s": cfg.swept_sample_dt_s,
+            "contact_margin_m": cfg.swept_contact_margin_m,
             "swept_contact_margin_m": cfg.swept_contact_margin_m,
             "swept_exclude_touching_now": cfg.swept_exclude_touching_now,
             "swept_exclude_static_pairs": cfg.swept_exclude_static_pairs,

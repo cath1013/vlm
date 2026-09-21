@@ -357,6 +357,38 @@ def parse_label_file(path: str) -> LabelFrame:
     return LabelFrame(ego_v, objs)
 
 
+def scenario_actor_classes(
+    scenario: "DeepAccidentScenario",
+    frames: Optional[Sequence[int]] = None,
+) -> Dict[int, str]:
+    """Resolve CARLA actor classes from ordinary per-frame label metadata.
+
+    ``SELF_ID`` is local to each observer's label file, so it is translated
+    through the scenario's agent-id mapping. This deliberately reads neither
+    collision fields nor scenario outcome: the class is available during normal
+    driving for ego, observer, and non-ego actors alike.
+    """
+    votes: Dict[int, Dict[str, int]] = {}
+    wanted = set(frames) if frames is not None else None
+    for agent, series in scenario.agents.items():
+        self_id = scenario.meta.agent_id_of(agent)
+        for frame in series.frames:
+            if wanted is not None and frame not in wanted:
+                continue
+            for obj in parse_label_file(series.label_paths[frame]).objects:
+                if obj.is_untracked or obj.cls not in CLASS_SIZES:
+                    continue
+                actor_id = self_id if obj.is_self else obj.obj_id
+                if actor_id is None:
+                    continue
+                bucket = votes.setdefault(actor_id, {})
+                bucket[obj.cls] = bucket.get(obj.cls, 0) + 1
+    return {
+        actor_id: min(classes, key=lambda cls: (-classes[cls], cls))
+        for actor_id, classes in votes.items()
+    }
+
+
 def load_calib(path: str) -> dict:
     with open(path, "rb") as f:
         return pickle.load(f)

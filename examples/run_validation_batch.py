@@ -101,6 +101,8 @@ def _write_batch_manifest(path: Path, args, selected) -> dict:
             "window_s": args.window,
             "stride_s": args.stride,
             "horizon_s": args.horizon,
+            "contact_margin_m": args.contact_margin_m,
+            "future_source": args.future_source,
             # The comparison experiment uses fixed-length observation windows.
             # Keep this explicit in the cohort manifest so an expanding-prefix
             # run cannot be mistaken for the intended setup.
@@ -109,7 +111,7 @@ def _write_batch_manifest(path: Path, args, selected) -> dict:
             "history_stride_s": args.history_stride,
             "payload_profile": args.payload_profile,
             "predictor": os.path.abspath(args.predictor),
-            "predictor_mode": "waypoints",
+            "predictor_mode": args.predictor_mode,
             "pair_reranker_model": (
                 os.path.abspath(args.pair_reranker_model)
                 if args.pair_reranker_model else None
@@ -143,7 +145,7 @@ def _write_batch_manifest(path: Path, args, selected) -> dict:
 
 
 def generate(args, selected) -> None:
-    py = str(ROOT / ".venv" / "bin" / "python")
+    py = sys.executable
     script = str(ROOT / "examples" / "run_deepaccident.py")
     for i, sc in enumerate(selected, 1):
         target = _scenario_dir(Path(args.out), sc)
@@ -162,7 +164,6 @@ def generate(args, selected) -> None:
             "--windows-dir", args.out,
             "--out-label", sc.scenario,
             "--predictor", args.predictor,
-            "--predictor-mode", "waypoints",
             "--predictor-device", args.predictor_device,
             "--provider", args.provider,
             "--model", args.model,
@@ -170,12 +171,17 @@ def generate(args, selected) -> None:
             "--window", str(args.window),
             "--stride", str(args.stride),
             "--horizon", str(args.horizon),
+            "--contact-margin-m", str(args.contact_margin_m),
+            "--future-source", args.future_source,
             "--history-stride", str(args.history_stride),
             "--payload-profile", args.payload_profile,
             "--early-credit", str(args.early_credit),
             "--no-warmup",
             "--no-full-window",
         ]
+
+        if args.predictor_mode:
+            cmd.extend(["--predictor-mode", args.predictor_mode])
         if args.pair_reranker_model:
             cmd.extend(["--pair-reranker-model", args.pair_reranker_model])
         _run(cmd, Path(args.out) / "logs" / f"generate_{sc.scenario}.log")
@@ -225,8 +231,18 @@ def audit(base: Path, cohort: dict) -> dict:
                 f"{scenario}: payload profile mismatch: "
                 f"{cfg.get('payload_profile')} != {expected_profile}"
             )
-        if "waypointnet" not in str(cfg.get("predictor", "")).lower():
-            errors.append(f"{scenario}: WaypointNet predictor not recorded")
+        expected_future_source = cohort.get("config", {}).get(
+            "future_source", "predictor"
+        )
+        if cfg.get("future_source", "predictor") != expected_future_source:
+            errors.append(
+                f"{scenario}: future source mismatch: "
+                f"{cfg.get('future_source')} != {expected_future_source}"
+            )
+        predictor_name = str(cfg.get("predictor", "")).lower()
+        if not ("waypointnet" in predictor_name or "jointscene" in predictor_name
+                or "joint_scene" in predictor_name):
+            errors.append(f"{scenario}: expected waypoint or JointScene predictor not recorded")
         expected_reranker = cohort.get("config", {}).get("pair_reranker_model")
         if expected_reranker:
             recorded_reranker = str(cfg.get("pair_reranker", ""))
@@ -301,7 +317,7 @@ def audit(base: Path, cohort: dict) -> dict:
 
 
 def call_llm(args, cohort: dict) -> None:
-    py = str(ROOT / ".venv" / "bin" / "python")
+    py = sys.executable
     script = str(ROOT / "examples" / "ask_llm.py")
     manifest_rows = list(_iter_manifests(Path(args.out), cohort))
     # A fixed-window run can legitimately produce zero windows when the
@@ -395,6 +411,10 @@ def parse_args(argv=None):
     ap.add_argument("--window", type=float, default=5.0)
     ap.add_argument("--stride", type=float, default=1.0)
     ap.add_argument("--horizon", type=float, default=5.0)
+    ap.add_argument("--contact-margin-m", type=float, default=0.0,
+                    help="swept-path contact threshold in metres (default: 0.0)")
+    ap.add_argument("--future-source", choices=("predictor", "ground_truth"),
+                    default="predictor")
     ap.add_argument("--history-stride", type=float, default=1.0)
     ap.add_argument("--payload-profile", choices=("standard", "compact"),
                     default="compact",
@@ -404,6 +424,12 @@ def parse_args(argv=None):
     ap.add_argument("--late-decay", type=float, default=0.2)
     ap.add_argument("--early-decay", type=float, default=0.0)
     ap.add_argument("--predictor", default="out/predict_model/waypointnet_best.pt")
+    ap.add_argument(
+         "--predictor-mode",
+         choices=("rank", "waypoints", "joint_scene"),
+         default=None,
+         help="predictor mode; omitted = infer automatically from checkpoint",
+    )
     reranker = ap.add_mutually_exclusive_group()
     reranker.add_argument("--pair-reranker-model", default=None,
                          help="override the default V2 re-ranker JSON checkpoint")

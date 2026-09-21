@@ -39,12 +39,40 @@ class SweptPathTest(unittest.TestCase):
         self.assertGreater(pair.contact_duration_s, 0.0)
         self.assertGreaterEqual(pair.clearance_at_horizon_m, 0.0)
 
+    def test_timestamped_paths_use_actual_subsecond_offsets(self):
+        """Timestamped oracle samples must not be interpreted as one second apart."""
+        a = actor("A", (-4.0, 0.0), [(-4.0, 0.0), (-2.0, 0.0), (0.0, 0.0)])
+        b = actor("B", (4.0, 0.0), [(4.0, 0.0), (2.0, 0.0), (0.0, 0.0)],
+                  heading=270.0)
+        for vehicle in (a, b):
+            vehicle.predictions[0].waypoint_times_s = [0.0, 0.1, 0.2]
+
+        pair = swept_pair_clearances([a, b], horizon_s=5.0)[0]
+        self.assertTrue(pair.predicted_contact)
+        self.assertIsNotNone(pair.first_contact_s)
+        self.assertLessEqual(pair.first_contact_s, 0.2)
+        self.assertLessEqual(pair.time_after_observation_s, 0.2)
+        self.assertEqual(pair.interval_index, 1)
+
     def test_parallel_paths_report_physical_gap(self):
         a = actor("A", (0.0, 0.0), [(0.0, 0.0), (10.0, 0.0)])
         b = actor("B", (0.0, 4.0), [(0.0, 4.0), (10.0, 4.0)])
         pair = swept_pair_clearances([a, b], horizon_s=1.0)[0]
         self.assertFalse(pair.predicted_contact)
         self.assertAlmostEqual(pair.minimum_clearance_m, 4.0 - 1.93, places=2)
+
+    def test_contact_margin_changes_only_contact_classification(self):
+        # The paths close from a safe initial gap to a positive final clearance.
+        # The geometry itself must stay the same when the decision threshold moves.
+        a = actor("A", (0.0, 0.0), [(0.0, 0.0), (10.0, 0.0)])
+        b = actor("B", (0.0, 4.0), [(0.0, 4.0), (10.0, 2.5)])
+        zero = swept_pair_clearances([a, b], horizon_s=1.0, contact_margin_m=0.0)[0]
+        one = swept_pair_clearances([a, b], horizon_s=1.0, contact_margin_m=1.0)[0]
+        self.assertFalse(zero.predicted_contact)
+        self.assertTrue(one.predicted_contact)
+        self.assertGreater(one.minimum_clearance_m, 0.0)
+        self.assertLessEqual(one.minimum_clearance_m, 1.0)
+        self.assertEqual(one.minimum_clearance_m, zero.minimum_clearance_m)
 
     def test_known_stopped_actor_is_extended_but_unknown_is_not(self):
         moving = actor("M", (-8.0, 0.0), [(-8.0, 0.0), (0.0, 0.0)])

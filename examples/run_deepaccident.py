@@ -38,7 +38,11 @@ else:  # pragma: no cover
         sys.stdout.buffer, encoding="utf-8", errors="replace"
     )
 
-from traffic_llm.accident_qa import WindowConfig, write_window_set
+from traffic_llm.accident_qa import (
+    WindowConfig,
+    ground_truth_future_snapshots,
+    write_window_set,
+)
 from traffic_llm.bev_render import BevConfig, BevRenderer, write_index_html
 from traffic_llm.carla_map import find_xodr, town_description
 from traffic_llm.config import PipelineConfig
@@ -140,6 +144,8 @@ def infer_predictor_mode(path: str) -> str:
 
     obj = torch.load(path, map_location="cpu", weights_only=False)
     name = type(obj).__name__
+    if "JointScene" in name:
+        return "joint_scene"
     if "Waypoint" in name:
         return "waypoints"
     if "Rank" in name:
@@ -222,11 +228,11 @@ def cmd_build(args: argparse.Namespace) -> int:
     if path:
         # 학습한 예측기로 갈아끼운다. torch 는 여기서만 필요하므로 이 시점에
         # import 된다 (`TorchPredictor` 가 지연 임포트한다).
-        from traffic_llm.predict_model import TorchPredictor
+        from traffic_llm.predict_model import JointSceneTorchPredictor, TorchPredictor
 
-        cfg.predictor = TorchPredictor(
-            path, mode=mode, device=args.predictor_device
-        )
+        cfg.predictor = (JointSceneTorchPredictor(path, device=args.predictor_device)
+                         if mode == "joint_scene" else
+                         TorchPredictor(path, mode=mode, device=args.predictor_device))
         predictor_note = f"{os.path.basename(path)} (mode={mode})"
         print(f"경로 예측기: {path} (mode={mode})  — {why}")
     else:
@@ -277,6 +283,20 @@ def cmd_build(args: argparse.Namespace) -> int:
     # 스냅샷은 한 번만 만들어 재사용한다. res.snapshots() 는 부를 때마다
     # 파이프라인을 처음부터 다시 돌리므로, 출력마다 부르면 같은 일을 세 번 한다.
     snaps = list(res.snapshots(rate_hz=args.rate))
+    if args.future_source == "ground_truth":
+        # Do this only after normal online snapshots/predictions exist.  Oracle
+        # coordinates come from the dataset's raw 10 Hz timeline, not the
+        # lower-rate observation snapshots, so a collision ending at +0.6 s is
+        # retained instead of being dropped by +1 s target sampling.
+        raw_gt_snaps = list(
+            res.snapshots(rate_hz=cfg.deepaccident.frame_rate_hz)
+        )
+        # The helper copies normal snapshots, so GT cannot alter history or
+        # current-state data in the LLM observation window.
+        snaps = ground_truth_future_snapshots(
+            snaps, args.horizon, raw_snapshots=raw_gt_snaps
+        )
+        print("미래 웨이포인트: ground-truth oracle (평가 전용)")
 
     fj = open(args.out, "w", encoding="utf-8") if args.out else None
     ft = open(args.text_out, "w", encoding="utf-8") if args.text_out else None
@@ -329,6 +349,8 @@ def cmd_build(args: argparse.Namespace) -> int:
             history_mode=args.history_mode,
             pair_reranker_model=pair_reranker,
             pair_reranker_note=pair_reranker_note,
+            future_source=args.future_source,
+            swept_contact_margin_m=args.contact_margin_m,
         )
         # 산출물이 어느 분할·어느 트레이스에서 온 것인지 경로에 남긴다.
         # BEV 와 **같은 구조**를 쓴다 (`<분할>/<accident|normal>`) — 같은 시나리오의
@@ -491,7 +513,7 @@ def main(argv=None) -> int:
         help="학습 모델을 쓰지 않고 규칙 기반(지도 제약)으로 강제한다",
     )
     p.add_argument(
-        "--predictor-mode", choices=["rank", "waypoints"], default=None,
+        "--predictor-mode", choices=["rank", "waypoints", "joint_scene"], default=None,
         help="--predictor 의 출력 형태. 생략하면 **모델 파일에서 판정한다** "
              "(WaypointNet→waypoints, RankNet→rank). rank=후보 순위(확률 분포 "
              "유지), waypoints=좌표 직접 회귀(궤적 하나, 확률 1.0)",
@@ -527,6 +549,15 @@ def main(argv=None) -> int:
     g.add_argument("--window", type=float, default=5.0, help="관측 윈도우 길이 T [s]")
     g.add_argument("--stride", type=float, default=1.0, help="윈도우 이동 간격 [s]")
     g.add_argument("--horizon", type=float, default=5.0, help="미래 예측 구간 N [s]")
+    g.add_argument(
+        "--contact-margin-m", type=float, default=0.0,
+        help="swept-path contact threshold [m] (default: 0.0; physical overlap only)",
+    )
+    g.add_argument(
+        "--future-source", choices=["predictor", "ground_truth"],
+        default="predictor",
+        help="future waypoints: predictor (default) or evaluation-only GT oracle",
+    )
     g.add_argument("--history-stride", type=float, default=1.0,
                    help="윈도우 내 이력 표시 간격 [s]")
     g.add_argument("--json-block", action="store_true",

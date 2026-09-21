@@ -22,6 +22,7 @@ from traffic_llm.accident_qa import (
     build_windows,
     closing_pairs,
     compact_window_json,
+    ground_truth_future_snapshots,
     render_window_text,
     score_binary,
     score_modes,
@@ -359,6 +360,7 @@ class TestRendering(unittest.TestCase):
         self.assertEqual(
             doc["predicted_pair_method"]["pairs_serialized_cap"], 12
         )
+        self.assertEqual(doc["predicted_pair_method"]["contact_margin_m"], 0.0)
         pair_cols = doc["predicted_pair_columns"]
         self.assertEqual(pair_cols[-5:], [
             "a_observes_b", "b_observes_a", "mutually_observed",
@@ -372,6 +374,18 @@ class TestRendering(unittest.TestCase):
         self.assertNotIn("상호작용 및 위험", blob)
         self.assertNotIn("```\n", blob)  # no ASCII BEV code block
 
+    def test_compact_payload_records_positive_contact_margin(self):
+        cfg = replace(self.cfg, payload_profile="compact", swept_contact_margin_m=1.0)
+        doc = compact_window_json(pick(self.wins, "2-7"), self.scfg, cfg)
+        self.assertEqual(doc["predicted_pair_method"]["contact_margin_m"], 1.0)
+        payload = build_window_payload(
+            pick(self.wins, "2-7"), SerializeConfig(language="en"), cfg
+        )
+        self.assertIn(
+            "1.0 m or less counts as a contact/dangerous-collision candidate",
+            json.dumps(payload),
+        )
+
     def test_compact_payload_is_smaller_than_standard(self):
         win = pick(self.wins, "2-7")
         standard = build_window_payload(win, self.scfg, self.cfg)
@@ -381,6 +395,109 @@ class TestRendering(unittest.TestCase):
         self.assertLess(
             len(json.dumps(compact, ensure_ascii=False)),
             len(json.dumps(standard, ensure_ascii=False)),
+        )
+
+    def test_ground_truth_oracle_changes_only_futures_and_regenerates_pairs(self):
+        """Oracle paths never rewrite observations and regenerate geometry."""
+        snaps = []
+        for t in range(5):
+            a = ActorState(
+                actor_id="A", kind="observed", cls="car", world_xy=(-10.0 + 5 * t, 0.0),
+                heading_deg=90.0, speed_mps=5.0, accel_mps2=0.0,
+                placement=placement(), observed_by=["v1"], maneuver="straight",
+                predictions=[PredictedPath("straight", 1.0,
+                    [(-10.0 + 5 * t, 0.0), (-11.0 + 5 * t, 0.0), (-12.0 + 5 * t, 0.0)],
+                    2.0, to_roads=["r2"])],
+            )
+            b = ActorState(
+                actor_id="B", kind="observed", cls="car", world_xy=(10.0 - 5 * t, 0.0),
+                heading_deg=270.0, speed_mps=5.0, accel_mps2=0.0,
+                placement=placement(), observed_by=["v2"], maneuver="straight",
+                predictions=[PredictedPath("straight", 1.0,
+                    [(10.0 - 5 * t, 0.0), (11.0 - 5 * t, 0.0), (12.0 - 5 * t, 0.0)],
+                    2.0, to_roads=["r3"])],
+            )
+            snaps.append(SceneSnapshot(t=float(t), actors=[a, b], interactions=[]))
+
+        oracle = ground_truth_future_snapshots(snaps, horizon_s=2.0)
+        # Predictor mode is untouched because the helper returns a deep copy.
+        self.assertEqual(snaps[1].actors[0].predictions[0].waypoints, [(-5.0, 0.0), (-6.0, 0.0), (-7.0, 0.0)])
+        original, replaced = snaps[1].actors[0], oracle[1].actors[0]
+        self.assertEqual(original.world_xy, replaced.world_xy)
+        self.assertEqual(original.track_history, replaced.track_history)
+        self.assertEqual(original.observed_by, replaced.observed_by)
+        self.assertEqual(original.maneuver, replaced.maneuver)
+        self.assertEqual(original.predictions[0].maneuver, replaced.predictions[0].maneuver)
+        self.assertEqual(original.predictions[0].probability, replaced.predictions[0].probability)
+        self.assertEqual(original.predictions[0].to_roads, replaced.predictions[0].to_roads)
+        self.assertNotEqual(original.predictions[0].waypoints, replaced.predictions[0].waypoints)
+
+        self.assertEqual(
+            replaced.predictions[0].waypoints,
+            [(-5.0, 0.0), (0.0, 0.0), (5.0, 0.0)],
+        )
+
+        cfg = WindowConfig(window_s=1.0, stride_s=1.0, horizon_s=2.0,
+                           payload_profile="compact")
+        predictor_win = pick(build_windows(snaps, cfg)[0], "0-1")
+        oracle_win = pick(build_windows(oracle, cfg)[0], "0-1")
+        predictor_pairs = compact_window_json(predictor_win, self.scfg, cfg)["predicted_closest_pairs"]
+        oracle_pairs = compact_window_json(oracle_win, self.scfg, cfg)["predicted_closest_pairs"]
+        self.assertFalse(predictor_pairs[0][5])
+        self.assertTrue(oracle_pairs[0][5])
+        self.assertNotEqual(predictor_pairs, oracle_pairs)
+
+    def test_ground_truth_oracle_keeps_subsecond_samples_to_data_end(self):
+        """A +0.6 s collision endpoint must not be lost to +1 s sampling."""
+        def scene(t, a_x, b_x):
+            actors = []
+            for actor_id, x, heading in (("A", a_x, 90.0), ("B", b_x, 270.0)):
+                actors.append(ActorState(
+                    actor_id=actor_id, kind="observed", cls="car", world_xy=(x, 0.0),
+                    heading_deg=heading, speed_mps=10.0, accel_mps2=0.0,
+                    placement=placement(), observed_by=["v1"],
+                    predictions=[PredictedPath("straight", 1.0,
+                        [(x, 0.0), (x - 2.0 if actor_id == "A" else x + 2.0, 0.0)],
+                        1.0)],
+                ))
+            return SceneSnapshot(t=t, actors=actors, interactions=[])
+
+        observed = [scene(5.0, -14.0, 14.0), scene(6.0, -4.0, 4.0)]
+        raw = [scene(6.0 + i / 10, -4.0 + i, 4.0 - i) for i in range(7)]
+        oracle = ground_truth_future_snapshots(
+            observed, horizon_s=5.0, raw_snapshots=raw
+        )
+        path = oracle[-1].actors[0].predictions[0]
+        self.assertEqual(path.waypoint_times_s, [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6])
+        self.assertEqual(path.waypoints[-1], (2.0, 0.0))
+        self.assertTrue(path.truncated)
+
+        cfg = WindowConfig(window_s=1.0, horizon_s=5.0,
+                           payload_profile="compact", future_source="ground_truth")
+        win = pick(build_windows(oracle, cfg)[0], "5-6")
+        doc = compact_window_json(win, self.scfg, cfg)
+        self.assertEqual(doc["representation"], "compact_geometry_v3_timestamped_gt")
+        self.assertEqual(doc["future_path_columns"][3], "waypoints_timed_enu_m")
+        actor = next(a for a in doc["actors"] if a["id"] == "A")
+        self.assertEqual(actor["future_paths"][0][3][0], [0.1, -3.0, 0.0])
+        self.assertEqual(actor["future_paths"][0][3][-1], [0.6, 2.0, 0.0])
+        self.assertTrue(doc["predicted_closest_pairs"][0][5])
+        self.assertLessEqual(doc["predicted_closest_pairs"][0][3], 0.6)
+        payload = build_window_payload(win, self.scfg, cfg)
+        blob = json.dumps(payload, ensure_ascii=False)
+        self.assertIn("waypoints_timed_enu_m", blob)
+        self.assertIn("1초 간격이라고 가정하지 마십시오", blob)
+
+        english_payload = build_window_payload(
+            win, SerializeConfig(language="en"), cfg
+        )
+        english_blob = json.dumps(english_payload, ensure_ascii=False)
+        self.assertIn("waypoints_timed_enu_m", english_blob)
+        self.assertIn("[seconds_after_observation, east_m, north_m]", english_blob)
+        self.assertIn("do not assume one-second spacing", english_blob)
+        self.assertNotIn(
+            "Successive waypoints in a future path represent +1s, +2s",
+            english_blob,
         )
 
     def test_compact_keeps_legacy_external_predictor_starting_at_plus_one(self):

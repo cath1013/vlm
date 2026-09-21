@@ -26,7 +26,7 @@ from .fusion import GlobalTrackRegistry, class_group, fuse_observations
 from .geometry import CameraModel, ego_to_world, wrap180, wrap360
 from .kinematics import KinematicsTracker, analyze_interactions
 from .perception import PerceptionBackend, YoloPerception, build_backend
-from .prediction import predict
+from .prediction import build_context, predict
 from .roadmap import RoadNetwork
 from .schemas import (
     Detection,
@@ -123,6 +123,9 @@ class VehicleSource:
     # 트랙 id 가 전역 유일한 경우(V2X 객체 id 공유, 시뮬레이터 GT)에만 의미가
     # 있으며, 거리 게이트 없이 정확한 신원 판정을 가능하게 한다.
     self_track_id: Optional[int] = None
+    # Semantic class supplied by a source that knows its own vehicle metadata.
+    # Generic camera inputs leave this unset and retain the legacy car fallback.
+    self_class: Optional[str] = None
     _models: Dict[str, CameraModel] = field(default_factory=dict)
     _tele_ts: List[float] = field(default_factory=list)
     _det_by_time: Dict[float, List[Detection]] = field(default_factory=dict)
@@ -233,6 +236,7 @@ class TrafficSceneConverter:
         telemetry: Optional[List[EgoSample]] = None,
         mount_height_m: float = 0.0,
         self_track_id: Optional[int] = None,
+        self_class: Optional[str] = None,
     ) -> None:
         """관측자를 등록한다.
 
@@ -269,6 +273,7 @@ class TrafficSceneConverter:
             role=role,
             mount_height_m=mount_height_m,
             self_track_id=self_track_id,
+            self_class=self_class,
         )
         if detections is not None:
             src.detections = detections
@@ -531,6 +536,10 @@ class TrafficSceneConverter:
             for vid, src in self.sources.items()
             if src.self_track_id is not None
         }
+        self_classes = {
+            vid: src.self_class for vid, src in self.sources.items()
+            if src.self_class
+        }
         actors = fuse_observations(
             t,
             observations,
@@ -540,6 +549,7 @@ class TrafficSceneConverter:
             self.cfg.fusion,
             observer_roles=roles,
             observer_self_ids=self_ids or None,
+            observer_self_classes=self_classes or None,
         )
 
         # 순서가 중요하다:
@@ -548,6 +558,7 @@ class TrafficSceneConverter:
         #   3) 방위각을 반영해 재매칭 → 진행방향/차선 확정
         #   4) 확정된 매칭으로 횡오프셋 기록 및 기동 분류
         #   5) 경로 예측
+        scene_predictor = self.cfg.predictor if hasattr(self.cfg.predictor, "predict_scene") else None
         for a in actors:
             a.placement = self.network.locate(a.world_xy, a.heading_deg)
         for a in actors:
@@ -561,13 +572,34 @@ class TrafficSceneConverter:
             self._refine_placement(a)
             self._adopt_road_heading(a)
             self.kinematics.finalize(t, a)
-            a.predictions = predict(
-                a,
-                self.network,
-                self.cfg.prediction_horizon_s,
-                predictor=self.cfg.predictor,
-                neighbors=actors,
-            )
+            # Preserve legacy actor-wise timing/behavior exactly.  Scene
+            # predictors are dispatched only after every actor is finalized.
+            if scene_predictor is None:
+                a.predictions = predict(
+                    a,
+                    self.network,
+                    self.cfg.prediction_horizon_s,
+                    predictor=self.cfg.predictor,
+                    neighbors=actors,
+                )
+
+        if scene_predictor is not None:
+            scenario_id = self.scenario.scenario_id if self.scenario else ""
+            contexts = [
+                build_context(a, self.network, self.cfg.prediction_horizon_s,
+                              t_s=t, scenario_id=scenario_id, neighbors=actors)
+                for a in actors
+            ]
+            predicted = scene_predictor.predict_scene(contexts)
+            expected = {a.actor_id for a in actors}
+            if set(predicted) != expected:
+                raise ValueError(
+                    "scene predictor must return exactly one path for every actor: "
+                    f"missing={sorted(expected - set(predicted))}, "
+                    f"extra={sorted(set(predicted) - expected)}"
+                )
+            for a in actors:
+                a.predictions = [predicted[a.actor_id]]
 
         self.kinematics.prune(t)
         interactions = analyze_interactions(actors)

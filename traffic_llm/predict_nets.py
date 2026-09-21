@@ -516,6 +516,425 @@ class InteractionWaypointNet(WaypointNet):
         return (out.squeeze(0), logits.squeeze(0)) if single else (out, logits)
 
 
+class _RelationSceneBlock(nn.Module):
+    """Permutation-equivariant self-attention with relative-position bias."""
+
+    def __init__(self, hidden: int, heads: int, dropout: float):
+        super().__init__()
+        if hidden % heads:
+            raise ValueError("hidden_dim must be divisible by num_heads")
+        self.heads, self.d_head = heads, hidden // heads
+        self.qkv = nn.Linear(hidden, hidden * 3)
+        self.out = nn.Linear(hidden, hidden)
+        self.relation = nn.Sequential(nn.Linear(3, hidden // 2), nn.ReLU(),
+                                      nn.Linear(hidden // 2, heads))
+        self.norm1, self.norm2 = nn.LayerNorm(hidden), nn.LayerNorm(hidden)
+        self.ff = nn.Sequential(nn.Linear(hidden, hidden * 4), nn.ReLU(),
+                                nn.Dropout(dropout), nn.Linear(hidden * 4, hidden))
+        self.drop = nn.Dropout(dropout)
+
+    def forward(self, x, positions, actor_mask):
+        B, A, H = x.shape
+        q, k, v = self.qkv(x).chunk(3, dim=-1)
+        def heads(z):
+            return z.reshape(B, A, self.heads, self.d_head).transpose(1, 2)
+        q, k, v = heads(q), heads(k), heads(v)
+        # i -> j: current scene position of j relative to i.  Absolute ENU is
+        # never concatenated to an actor token.
+        delta = positions.unsqueeze(1) - positions.unsqueeze(2)  # [B,i,j,2]
+        dist = torch.linalg.vector_norm(delta, dim=-1, keepdim=True)
+        bias = self.relation(torch.cat([delta, dist], dim=-1)).permute(0, 3, 1, 2)
+        score = torch.matmul(q, k.transpose(-2, -1)) / (self.d_head ** 0.5) + bias
+        score = score.masked_fill(~actor_mask[:, None, None, :], MASK_NEG)
+        attn = torch.softmax(score, dim=-1)
+        attn = attn * actor_mask[:, None, :, None]
+        y = torch.matmul(attn, v).transpose(1, 2).reshape(B, A, H)
+        x = self.norm1(x + self.drop(self.out(y)))
+        x = self.norm2(x + self.drop(self.ff(x)))
+        return x * actor_mask.unsqueeze(-1)
+
+
+class JointSceneMotionNet(_Normalized):
+    """V1 joint scene encoder and iterative, relation-aware future rollout.
+
+    Inputs retain the feature families used by InteractionWaypointNet, but add
+    an explicit actor dimension.  ``origin`` is used only for pairwise current
+    geometry inside relation attention, never as an absolute learned feature.
+    """
+
+    accepts_scene = True
+
+    def __init__(self, hidden_dim: int = 128, dropout: float = 0.1,
+                 scene_layers: int = 2, num_heads: int = 4,
+                 future_steps: int = 5, interaction_hidden: int = 64,
+                 predict_maneuver: bool = True):
+        super().__init__()
+        self.hidden_dim, self.future_steps = hidden_dim, future_steps
+        self.predict_maneuver = predict_maneuver
+        self._init_norm(N_GLOBAL_FEATURES, N_CANDIDATE_FEATURES)
+        self.register_buffer("i_mu", torch.zeros(N_INTERACTION_FEATURES))
+        self.register_buffer("i_sd", torch.ones(N_INTERACTION_FEATURES))
+        self.hist = HistoryEncoder(hidden=64, kind="transformer", dropout=dropout)
+        self.cand_enc = nn.Sequential(nn.Linear(N_CANDIDATE_FEATURES, hidden_dim), nn.ReLU(),
+                                      nn.Linear(hidden_dim, hidden_dim), nn.ReLU())
+        self.cand_attn = nn.Linear(hidden_dim, 1)
+        self.no_route = nn.Parameter(torch.zeros(hidden_dim * 3))
+        self.interaction_hidden = interaction_hidden
+        self.interaction_enc = nn.Sequential(nn.Linear(N_INTERACTION_FEATURES, interaction_hidden), nn.ReLU(),
+                                             nn.Linear(interaction_hidden, interaction_hidden), nn.ReLU())
+        self.interaction_query = nn.Linear(N_GLOBAL_FEATURES, interaction_hidden)
+        self.actor_encoder = nn.Sequential(
+            nn.Linear(N_GLOBAL_FEATURES + hidden_dim * 3 + self.hist.out_dim + 1
+                      + interaction_hidden * 3 + 1, hidden_dim), nn.ReLU(),
+            nn.Dropout(dropout), nn.Linear(hidden_dim, hidden_dim), nn.ReLU(),
+        )
+        self.blocks = nn.ModuleList(
+            [_RelationSceneBlock(hidden_dim, num_heads, dropout) for _ in range(scene_layers)]
+        )
+        self.delta_head = nn.Linear(hidden_dim, 2)
+        # V1 starts at exactly the same constant-velocity prior as WaypointNet.
+        nn.init.zeros_(self.delta_head.weight)
+        nn.init.zeros_(self.delta_head.bias)
+        self.delta_embed = nn.Linear(2, hidden_dim)
+        self.rollout = nn.GRUCell(hidden_dim, hidden_dim)
+        self.man_head = nn.Linear(hidden_dim, len(MANEUVER_CLASSES)) if predict_maneuver else None
+        self.spec = {"architecture": "JointSceneMotionNet", "hidden_dim": hidden_dim,
+                     "dropout": dropout, "scene_layers": scene_layers,
+                     "num_heads": num_heads, "future_steps": future_steps,
+                     "interaction_hidden": interaction_hidden,
+                     "predict_maneuver": predict_maneuver,
+                     "n_global": N_GLOBAL_FEATURES, "n_candidate": N_CANDIDATE_FEATURES,
+                     "n_history_steps": N_HISTORY_STEPS,
+                     "n_interaction_features": N_INTERACTION_FEATURES}
+
+    @torch.no_grad()
+    def fit_normalizer(self, global_features, candidates, candidate_mask,
+                       interactions, interaction_mask, actor_mask):
+        g = global_features[actor_mask]
+        self.g_mu.copy_(g.mean(0))
+        self.g_sd.copy_(g.std(0, unbiased=False).clamp(min=1e-3))
+        c = candidates[candidate_mask]
+        if c.numel():
+            self.c_mu.copy_(c.mean(0))
+            self.c_sd.copy_(c.std(0, unbiased=False).clamp(min=1e-3))
+        i = interactions[interaction_mask]
+        if i.numel():
+            self.i_mu.copy_(i.mean(0))
+            self.i_sd.copy_(i.std(0, unbiased=False).clamp(min=1e-3))
+
+    def forward(self, global_features, candidates, candidate_mask, history,
+                interactions, interaction_mask, actor_mask, origin):
+        """Return offsets ``[B,A,K,2]`` and optional maneuver logits ``[B,A,M]``."""
+        B, A, _, _ = candidates.shape
+        gn = (global_features - self.g_mu) / self.g_sd
+        cn = (candidates - self.c_mu) / self.c_sd
+        ch = self.cand_enc(cn) * candidate_mask.unsqueeze(-1)
+        ca = torch.softmax(self.cand_attn(ch).squeeze(-1).masked_fill(~candidate_mask, MASK_NEG), -1)
+        cmean = ch.sum(2) / candidate_mask.sum(2, keepdim=True).clamp(min=1)
+        cmax = ch.masked_fill(~candidate_mask.unsqueeze(-1), MASK_NEG).max(2).values
+        cpool = torch.cat([(ch * ca.unsqueeze(-1)).sum(2), cmean, cmax], dim=-1)
+        has_route = candidate_mask.any(2)
+        cpool = torch.where(has_route.unsqueeze(-1), cpool,
+                            self.no_route.reshape(1, 1, -1))
+
+        hflat = history.reshape(B * A, N_HISTORY_STEPS, N_HISTORY_FEATURES)
+        htok = self.hist(hflat).reshape(B, A, -1)
+        hvalid = (history[..., -1] > 0.5).any(2, keepdim=True).float()
+        inn = ((interactions - self.i_mu) / self.i_sd) * interaction_mask.unsqueeze(-1)
+        ih = self.interaction_enc(inn)
+        # Linear biases make encoded zero-padding nonzero.  Mask after the
+        # encoder as well so padded rows cannot enter any pooling path.
+        ih_valid = ih * interaction_mask.unsqueeze(-1)
+        iq = self.interaction_query(gn).unsqueeze(2)
+        iscore = (ih_valid * iq).sum(-1) / (self.interaction_hidden ** 0.5)
+        ia = torch.softmax(iscore.masked_fill(~interaction_mask, MASK_NEG), -1)
+        imean = ih_valid.sum(2) / interaction_mask.sum(2, keepdim=True).clamp(min=1)
+        imax = ih_valid.masked_fill(~interaction_mask.unsqueeze(-1), MASK_NEG).max(2).values
+        ihave = interaction_mask.any(2, keepdim=True)
+        imax = torch.where(ihave, imax, torch.zeros_like(imax))
+        ipool = torch.cat([(ih_valid * ia.unsqueeze(-1)).sum(2), imean, imax, ihave.float()], dim=-1)
+        state = self.actor_encoder(torch.cat([gn, cpool, htok, hvalid, ipool], dim=-1))
+        state = state * actor_mask.unsqueeze(-1)
+        positions = origin
+        for block in self.blocks:
+            state = block(state, positions, actor_mask)
+        maneuver = self.man_head(state) if self.man_head is not None else None
+        outputs = []
+        cv_step = torch.stack([
+            global_features[..., IDX_SPEED] * global_features[..., IDX_HEADING_SIN],
+            global_features[..., IDX_SPEED] * global_features[..., IDX_HEADING_COS],
+        ], dim=-1) * actor_mask.unsqueeze(-1)
+        for _ in range(self.future_steps):
+            for block in self.blocks:
+                state = block(state, positions, actor_mask)
+            delta = (cv_step + self.delta_head(state)) * actor_mask.unsqueeze(-1)
+            positions = positions + delta
+            outputs.append(positions - origin)
+            flat = self.rollout(self.delta_embed(delta).reshape(B * A, -1),
+                                state.reshape(B * A, -1)).reshape(B, A, -1)
+            state = flat * actor_mask.unsqueeze(-1)
+        offsets = torch.stack(outputs, dim=2)
+        return (offsets, maneuver) if maneuver is not None else offsets
+
+
+class _EdgeAwareSceneBlock(nn.Module):
+    """One V2 directed, edge-aware actor interaction block.
+
+    Edges are directed ``i <- j``: actor ``i`` receives a distinct message
+    from every other valid actor ``j``.  Self edges are deliberately excluded;
+    the residual path carries each actor's own state.  This makes empty or
+    one-actor scenes well-defined (their aggregate message is exactly zero).
+    """
+
+    def __init__(self, hidden: int, edge_dim: int, dropout: float):
+        super().__init__()
+        self.edge_enc = nn.Sequential(nn.Linear(edge_dim, hidden), nn.ReLU(),
+                                      nn.Linear(hidden, hidden), nn.ReLU())
+        pair_dim = hidden * 3
+        self.message = nn.Sequential(nn.Linear(pair_dim, hidden), nn.ReLU(),
+                                     nn.Linear(hidden, hidden))
+        self.score = nn.Sequential(nn.Linear(pair_dim, hidden), nn.ReLU(),
+                                   nn.Linear(hidden, 1))
+        self.update = nn.Sequential(nn.Linear(hidden, hidden), nn.ReLU(),
+                                    nn.Linear(hidden, hidden))
+        self.norm1, self.norm2 = nn.LayerNorm(hidden), nn.LayerNorm(hidden)
+        self.ff = nn.Sequential(nn.Linear(hidden, hidden * 4), nn.ReLU(),
+                                nn.Dropout(dropout), nn.Linear(hidden * 4, hidden))
+        self.drop = nn.Dropout(dropout)
+
+    def forward(self, state: torch.Tensor, edge: torch.Tensor,
+                actor_mask: torch.Tensor) -> torch.Tensor:
+        B, A, H = state.shape
+        hi = state.unsqueeze(2).expand(B, A, A, H)
+        hj = state.unsqueeze(1).expand(B, A, A, H)
+        eh = self.edge_enc(edge)
+        pair = torch.cat([hi, hj, eh], dim=-1)
+        message = self.message(pair)
+        score = self.score(pair).squeeze(-1)
+        # i receives from j. Padded actors never send or receive, and the
+        # explicit diagonal exclusion avoids a learned self-edge shortcut.
+        valid = (actor_mask.unsqueeze(2) & actor_mask.unsqueeze(1)
+                 & ~torch.eye(A, dtype=torch.bool, device=state.device).unsqueeze(0))
+        alpha = torch.softmax(score.masked_fill(~valid, MASK_NEG), dim=-1)
+        # All-invalid rows have finite softmax values due to MASK_NEG; multiply
+        # by validity after softmax so their aggregate remains exactly zero.
+        alpha = alpha * valid
+        aggregate = (alpha.unsqueeze(-1) * message).sum(2)
+        state = self.norm1(state + self.drop(self.update(aggregate)))
+        state = self.norm2(state + self.drop(self.ff(state)))
+        return state * actor_mask.unsqueeze(-1)
+
+
+class JointSceneMotionNetV2(_Normalized):
+    """JointScene V2: velocity-state rollout with identity-preserving edges.
+
+    Initial ENU velocity uses the established global-feature convention:
+    ``speed=global[...,0]``, ``heading_sin=global[...,4]``, and
+    ``heading_cos=global[...,5]``, therefore ``v=(speed*sin, speed*cos)``.
+    The velocity head is zero-initialized, yielding the persistent-CV prior
+    ``v_t=v_{t-1}`` before training without re-injecting a fixed CV delta.
+    """
+
+    accepts_scene = True
+    # Edge layout.  Class slots are the existing one-hot global features 11:18.
+    EDGE_DX, EDGE_DY, EDGE_DISTANCE = 0, 1, 2
+    EDGE_DVX, EDGE_DVY, EDGE_REL_SPEED = 3, 4, 5
+    EDGE_SIN_DHEADING, EDGE_COS_DHEADING, EDGE_CLOSING_SPEED = 6, 7, 8
+    EDGE_SPEED_I, EDGE_SPEED_J, EDGE_HAS_ROUTE_I, EDGE_HAS_ROUTE_J = 9, 10, 11, 12
+    EDGE_CLASS_I_START, EDGE_CLASS_J_START, EDGE_DIM = 13, 20, 27
+    GLOBAL_CLASS_START, N_ACTOR_CLASSES = 11, 7
+
+    def __init__(self, hidden_dim: int = 128, dropout: float = 0.1,
+                 scene_layers: int = 2, num_heads: int = 4,
+                 future_steps: int = 5, interaction_hidden: int = 64,
+                 predict_maneuver: bool = True):
+        super().__init__()
+        # num_heads is retained in the public configuration for V1-compatible
+        # CLI/checkpoint metadata; V2 uses scalar edge-message attention.
+        self.hidden_dim, self.future_steps = hidden_dim, future_steps
+        self.predict_maneuver = predict_maneuver
+        self._init_norm(N_GLOBAL_FEATURES, N_CANDIDATE_FEATURES)
+        self.register_buffer("i_mu", torch.zeros(N_INTERACTION_FEATURES))
+        self.register_buffer("i_sd", torch.ones(N_INTERACTION_FEATURES))
+        # Observation-time directed-edge statistics are fit by the training
+        # script only and travel with a serialized V2 checkpoint.
+        self.register_buffer("e_mu", torch.zeros(self.EDGE_DIM))
+        self.register_buffer("e_sd", torch.ones(self.EDGE_DIM))
+        self.hist = HistoryEncoder(hidden=64, kind="transformer", dropout=dropout)
+        self.cand_enc = nn.Sequential(nn.Linear(N_CANDIDATE_FEATURES, hidden_dim), nn.ReLU(),
+                                      nn.Linear(hidden_dim, hidden_dim), nn.ReLU())
+        self.cand_attn = nn.Linear(hidden_dim, 1)
+        self.no_route = nn.Parameter(torch.zeros(hidden_dim * 3))
+        self.interaction_hidden = interaction_hidden
+        self.interaction_enc = nn.Sequential(nn.Linear(N_INTERACTION_FEATURES, interaction_hidden), nn.ReLU(),
+                                             nn.Linear(interaction_hidden, interaction_hidden), nn.ReLU())
+        self.interaction_query = nn.Linear(N_GLOBAL_FEATURES, interaction_hidden)
+        self.actor_encoder = nn.Sequential(
+            nn.Linear(N_GLOBAL_FEATURES + hidden_dim * 3 + self.hist.out_dim + 1
+                      + interaction_hidden * 3 + 1, hidden_dim), nn.ReLU(),
+            nn.Dropout(dropout), nn.Linear(hidden_dim, hidden_dim), nn.ReLU(),
+        )
+        self.blocks = nn.ModuleList(
+            [_EdgeAwareSceneBlock(hidden_dim, self.EDGE_DIM, dropout)
+             for _ in range(scene_layers)]
+        )
+        self.velocity_head = nn.Linear(hidden_dim, 2)
+        nn.init.zeros_(self.velocity_head.weight)
+        nn.init.zeros_(self.velocity_head.bias)
+        self.velocity_embed = nn.Linear(2, hidden_dim)
+        self.rollout = nn.GRUCell(hidden_dim, hidden_dim)
+        self.man_head = nn.Linear(hidden_dim, len(MANEUVER_CLASSES)) if predict_maneuver else None
+        self.spec = {"architecture": "JointSceneMotionNetV2", "hidden_dim": hidden_dim,
+                     "dropout": dropout, "scene_layers": scene_layers,
+                     "num_heads": num_heads, "future_steps": future_steps,
+                     "interaction_hidden": interaction_hidden,
+                     "predict_maneuver": predict_maneuver,
+                     "n_global": N_GLOBAL_FEATURES, "n_candidate": N_CANDIDATE_FEATURES,
+                     "n_history_steps": N_HISTORY_STEPS,
+                     "n_interaction_features": N_INTERACTION_FEATURES,
+                     "edge_dim": self.EDGE_DIM,
+                     "edge_normalization": "training_mean_std",
+                     "edge_attention": "scalar_message_attention",
+                     "num_heads_note": "retained for CLI/V1 compatibility; unused by V2"}
+
+    @torch.no_grad()
+    def fit_normalizer(self, global_features, candidates, candidate_mask,
+                       interactions, interaction_mask, actor_mask):
+        g = global_features[actor_mask]
+        self.g_mu.copy_(g.mean(0))
+        self.g_sd.copy_(g.std(0, unbiased=False).clamp(min=1e-3))
+        c = candidates[candidate_mask]
+        if c.numel():
+            self.c_mu.copy_(c.mean(0))
+            self.c_sd.copy_(c.std(0, unbiased=False).clamp(min=1e-3))
+        i = interactions[interaction_mask]
+        if i.numel():
+            self.i_mu.copy_(i.mean(0))
+            self.i_sd.copy_(i.std(0, unbiased=False).clamp(min=1e-3))
+
+    @classmethod
+    def edge_features(cls, positions: torch.Tensor, velocities: torch.Tensor,
+                      has_route: torch.Tensor, global_features: torch.Tensor) -> torch.Tensor:
+        """Return directed ``i <- j`` edge features [B,A,A,27].
+
+        ``closing_speed=-dot(v_j-v_i, unit(p_j-p_i))``: positive is
+        approaching, negative is separating.  Geometry and relative velocity
+        are intentionally recomputed at every rollout step.
+        """
+        rel_pos = positions.unsqueeze(1) - positions.unsqueeze(2)  # p_j - p_i
+        distance = torch.linalg.vector_norm(rel_pos, dim=-1, keepdim=True)
+        unit = rel_pos / distance.clamp(min=1e-6)
+        rel_vel = velocities.unsqueeze(1) - velocities.unsqueeze(2)  # v_j - v_i
+        rel_speed = torch.linalg.vector_norm(rel_vel, dim=-1, keepdim=True)
+        closing = -(rel_vel * unit).sum(-1, keepdim=True)
+        speed = torch.linalg.vector_norm(velocities, dim=-1, keepdim=True)
+        speed_i = speed.unsqueeze(2).expand(-1, -1, speed.shape[1], -1)
+        speed_j = speed.unsqueeze(1).expand(-1, speed.shape[1], -1, -1)
+        sin_h, cos_h = global_features[..., IDX_HEADING_SIN], global_features[..., IDX_HEADING_COS]
+        sin_i, sin_j = sin_h.unsqueeze(2), sin_h.unsqueeze(1)
+        cos_i, cos_j = cos_h.unsqueeze(2), cos_h.unsqueeze(1)
+        sin_delta = (sin_j * cos_i - cos_j * sin_i).unsqueeze(-1)
+        cos_delta = (cos_j * cos_i + sin_j * sin_i).unsqueeze(-1)
+        route_i = has_route.float().unsqueeze(2).unsqueeze(-1).expand_as(speed_i)
+        route_j = has_route.float().unsqueeze(1).unsqueeze(-1).expand_as(speed_i)
+        classes = global_features[..., cls.GLOBAL_CLASS_START:
+                                  cls.GLOBAL_CLASS_START + cls.N_ACTOR_CLASSES]
+        class_i = classes.unsqueeze(2).expand(-1, -1, classes.shape[1], -1)
+        class_j = classes.unsqueeze(1).expand(-1, classes.shape[1], -1, -1)
+        return torch.cat([rel_pos, distance, rel_vel, rel_speed, sin_delta, cos_delta,
+                          closing, speed_i, speed_j, route_i, route_j, class_i, class_j], dim=-1)
+
+    @staticmethod
+    def edge_valid_mask(actor_mask: torch.Tensor) -> torch.Tensor:
+        """Valid directed non-self pairs: i valid, j valid, and i != j."""
+        A = actor_mask.shape[1]
+        return (actor_mask.unsqueeze(2) & actor_mask.unsqueeze(1)
+                & ~torch.eye(A, dtype=torch.bool, device=actor_mask.device).unsqueeze(0))
+
+    @staticmethod
+    def initial_velocity(global_features: torch.Tensor, actor_mask: torch.Tensor) -> torch.Tensor:
+        """Observation ENU velocity using the shared speed/sin/cos convention."""
+        return torch.stack([
+            global_features[..., IDX_SPEED] * global_features[..., IDX_HEADING_SIN],
+            global_features[..., IDX_SPEED] * global_features[..., IDX_HEADING_COS],
+        ], dim=-1) * actor_mask.unsqueeze(-1)
+
+    def normalize_edges(self, edge: torch.Tensor) -> torch.Tensor:
+        """Normalize raw edges with training-only checkpoint buffers."""
+        return (edge - self.e_mu) / self.e_sd
+
+    @staticmethod
+    def integrate_velocity_updates(positions: torch.Tensor, velocity: torch.Tensor,
+                                   velocity_updates: torch.Tensor,
+                                   actor_mask: torch.Tensor) -> torch.Tensor:
+        """Integrate supplied [B,A,K,2] updates; useful for deterministic tests."""
+        outputs = []
+        mask = actor_mask.unsqueeze(-1)
+        origin = positions
+        for step in velocity_updates.unbind(dim=2):
+            velocity = (velocity + step) * mask
+            positions = positions + velocity
+            outputs.append(positions - origin)
+        return torch.stack(outputs, dim=2)
+
+    def _encode_actors(self, global_features, candidates, candidate_mask, history,
+                       interactions, interaction_mask, actor_mask):
+        B, A, _, _ = candidates.shape
+        gn = (global_features - self.g_mu) / self.g_sd
+        cn = (candidates - self.c_mu) / self.c_sd
+        ch = self.cand_enc(cn) * candidate_mask.unsqueeze(-1)
+        ca = torch.softmax(self.cand_attn(ch).squeeze(-1).masked_fill(~candidate_mask, MASK_NEG), -1)
+        cmean = ch.sum(2) / candidate_mask.sum(2, keepdim=True).clamp(min=1)
+        cmax = ch.masked_fill(~candidate_mask.unsqueeze(-1), MASK_NEG).max(2).values
+        cpool = torch.cat([(ch * ca.unsqueeze(-1)).sum(2), cmean, cmax], dim=-1)
+        has_route = candidate_mask.any(2)
+        cpool = torch.where(has_route.unsqueeze(-1), cpool, self.no_route.reshape(1, 1, -1))
+        hflat = history.reshape(B * A, N_HISTORY_STEPS, N_HISTORY_FEATURES)
+        htok = self.hist(hflat).reshape(B, A, -1)
+        hvalid = (history[..., -1] > 0.5).any(2, keepdim=True).float()
+        inn = ((interactions - self.i_mu) / self.i_sd) * interaction_mask.unsqueeze(-1)
+        ih_valid = self.interaction_enc(inn) * interaction_mask.unsqueeze(-1)
+        iq = self.interaction_query(gn).unsqueeze(2)
+        iscore = (ih_valid * iq).sum(-1) / (self.interaction_hidden ** 0.5)
+        ia = torch.softmax(iscore.masked_fill(~interaction_mask, MASK_NEG), -1)
+        imean = ih_valid.sum(2) / interaction_mask.sum(2, keepdim=True).clamp(min=1)
+        imax = ih_valid.masked_fill(~interaction_mask.unsqueeze(-1), MASK_NEG).max(2).values
+        ihave = interaction_mask.any(2, keepdim=True)
+        imax = torch.where(ihave, imax, torch.zeros_like(imax))
+        ipool = torch.cat([(ih_valid * ia.unsqueeze(-1)).sum(2), imean, imax, ihave.float()], dim=-1)
+        state = self.actor_encoder(torch.cat([gn, cpool, htok, hvalid, ipool], dim=-1))
+        return state * actor_mask.unsqueeze(-1), has_route
+
+    def forward(self, global_features, candidates, candidate_mask, history,
+                interactions, interaction_mask, actor_mask, origin):
+        """Return deterministic offsets [B,A,K,2] and optional maneuver logits."""
+        B, A, _, _ = candidates.shape
+        state, has_route = self._encode_actors(global_features, candidates, candidate_mask,
+                                               history, interactions, interaction_mask, actor_mask)
+        positions = origin
+        velocity = self.initial_velocity(global_features, actor_mask)
+        # Initial scene pass uses observed geometry; every later pass uses the
+        # jointly predicted position/velocity state from the previous step.
+        for block in self.blocks:
+            edge = self.edge_features(positions, velocity, has_route, global_features)
+            state = block(state, self.normalize_edges(edge), actor_mask)
+        maneuver = self.man_head(state) if self.man_head is not None else None
+        outputs = []
+        for _ in range(self.future_steps):
+            for block in self.blocks:
+                edge = self.edge_features(positions, velocity, has_route, global_features)
+                state = block(state, self.normalize_edges(edge), actor_mask)
+            delta_v = self.velocity_head(state) * actor_mask.unsqueeze(-1)
+            velocity = (velocity + delta_v) * actor_mask.unsqueeze(-1)
+            positions = positions + velocity
+            outputs.append(positions - origin)
+            state = self.rollout(self.velocity_embed(delta_v).reshape(B * A, -1),
+                                 state.reshape(B * A, -1)).reshape(B, A, -1)
+            state = state * actor_mask.unsqueeze(-1)
+        offsets = torch.stack(outputs, dim=2)
+        return (offsets, maneuver) if maneuver is not None else offsets
+
+
 def masked_scores(
     model: RankNet, g: torch.Tensor, c: torch.Tensor, mask: torch.Tensor
 ) -> torch.Tensor:

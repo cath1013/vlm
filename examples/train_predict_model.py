@@ -156,6 +156,13 @@ def read_samples(path: str, include_ambiguous: bool, task: str = "rank"):
                 "cw": r.get("candidate_waypoints") or [],
                 "split": r.get("dataset_split") or "?",
                 "scenario": r.get("scenario_id") or "",
+                # Pair separation 학습은 같은 장면·시각의 서로 다른 actor를
+                # 묶는다. target_offsets 는 이 origin 에 대한 ENU 상대좌표다.
+                "scenario_id": r.get("scenario_id") or "",
+                "t_s": r.get("t_s"),
+                "actor_id": r.get("actor_id") or "",
+                "actor_class": r.get("actor_class") or "",
+                "origin_enu": r.get("origin_enu") or [0.0, 0.0],
                 "town": r.get("town") or "?",
             })
     stats = {
@@ -240,8 +247,83 @@ def to_waypoint_tensors(rows, device, n_max, n_steps):
     return {
         "tgt": tgt.to(device), "tmask": tmask.to(device),
         "cw": cw.to(device), "cwmask": cwmask.to(device), "n_steps": K,
+        "origin": torch.tensor([r["origin_enu"] for r in rows],
+                               dtype=torch.float32, device=device),
         "man": torch.tensor(man_l, dtype=torch.long, device=device),
     }
+
+
+def is_normal_scenario(scenario_id: str) -> bool:
+    """Dataset scenario_id의 첫 경로 요소가 ``*_normal`` 인지 판별한다."""
+    return scenario_id.split("/", 1)[0].endswith("_normal")
+
+
+def build_normal_pair_index(rows, n_steps: int, near_m: float):
+    """같은 정상 scene-time의 GT 근접 actor pair의 row index를 만든다.
+
+    `target_offsets`의 0번은 현재 위치라 제외한다. 각 actor마다 미래 관측 길이가
+    다를 수 있으므로 둘 다 존재하는 시각만 본다. 이 index는 training split에만
+    만들어 검증/시험 데이터를 auxiliary loss에 누출하지 않는다.
+    """
+    groups = {}
+    for i, row in enumerate(rows):
+        sid = row["scenario_id"]
+        if (not is_normal_scenario(sid)) or not row["actor_id"]:
+            continue
+        groups.setdefault((sid, row["t_s"]), []).append(i)
+
+    pairs = []
+    for indices in groups.values():
+        for pos, ia in enumerate(indices):
+            a = rows[ia]
+            for ib in indices[pos + 1:]:
+                b = rows[ib]
+                # 방어적으로 같은 actor가 중복된 경우에는 pair가 되지 않게 한다.
+                if a["actor_id"] == b["actor_id"]:
+                    continue
+                K = min(n_steps, len(a["tgt"]) - 1, len(b["tgt"]) - 1)
+                if K <= 0:
+                    continue
+                a_off = torch.tensor(a["tgt"][1:K + 1], dtype=torch.float32)
+                b_off = torch.tensor(b["tgt"][1:K + 1], dtype=torch.float32)
+                a_world = a_off + torch.tensor(a["origin_enu"], dtype=torch.float32)
+                b_world = b_off + torch.tensor(b["origin_enu"], dtype=torch.float32)
+                if torch.linalg.vector_norm(a_world - b_world, dim=-1).min().item() <= near_m:
+                    pairs.append((ia, ib))
+    return pairs
+
+
+def build_relative_pair_index(rows, n_steps: int, near_m: float):
+    """같은 scene-time의 GT 근접 actor pair를 scenario 종류와 무관하게 만든다.
+
+    정상/사고 여부는 relative trajectory supervision에 사용하지 않는다. raw
+    `target_offsets`의 길이가 곧 각 row의 유효 미래 구간이므로, 두 actor에게
+    공통으로 유효한 future timestep에서만 GT world 거리를 판정한다.
+    """
+    groups = {}
+    for i, row in enumerate(rows):
+        if not row["actor_id"]:
+            continue
+        groups.setdefault((row["scenario_id"], row["t_s"]), []).append(i)
+
+    pairs = []
+    for indices in groups.values():
+        for pos, ia in enumerate(indices):
+            a = rows[ia]
+            for ib in indices[pos + 1:]:
+                b = rows[ib]
+                if a["actor_id"] == b["actor_id"]:
+                    continue
+                K = min(n_steps, len(a["tgt"]) - 1, len(b["tgt"]) - 1)
+                if K <= 0:
+                    continue
+                a_off = torch.tensor(a["tgt"][1:K + 1], dtype=torch.float32)
+                b_off = torch.tensor(b["tgt"][1:K + 1], dtype=torch.float32)
+                a_world = a_off + torch.tensor(a["origin_enu"], dtype=torch.float32)
+                b_world = b_off + torch.tensor(b["origin_enu"], dtype=torch.float32)
+                if torch.linalg.vector_norm(a_world - b_world, dim=-1).min().item() <= near_m:
+                    pairs.append((ia, ib))
+    return pairs
 
 
 def displacement(pred, tgt, mask):
@@ -604,6 +686,80 @@ def wp_loss(model, d, w, sl, man_weight: float = 1.0, kind: str = "huber"):
     return loss
 
 
+def pair_separation_loss(
+    model,
+    d,
+    w,
+    pair_rows,
+    tolerance_m: float,
+    near_m: float,
+):
+    """정상 장면의 근접 pair가 GT보다 과도하게 가까워지는 것만 벌점 준다.
+
+    각 model output과 target은 actor 자신의 현재 원점 기준 ENU 상대좌표다. 같은
+    world ENU에서 거리를 재기 위해 각 actor의 `origin`을 더한다. GT보다 멀거나
+    `tolerance_m` 안에서만 더 가까운 예측에는 0 손실이므로, GT 거리를 그대로
+    맞추도록 강제하지 않는다.
+    """
+    ia, ib = pair_rows[:, 0], pair_rows[:, 1]
+
+    def coords(indices):
+        out = call_model(model, d, indices)
+        return out[0] if isinstance(out, tuple) else out
+
+    pred_a, pred_b = coords(ia), coords(ib)
+    gt_a, gt_b = w["tgt"][ia], w["tgt"][ib]
+    valid = w["tmask"][ia] & w["tmask"][ib]
+    pred_a = pred_a + w["origin"][ia].unsqueeze(1)
+    pred_b = pred_b + w["origin"][ib].unsqueeze(1)
+    gt_a = gt_a + w["origin"][ia].unsqueeze(1)
+    gt_b = gt_b + w["origin"][ib].unsqueeze(1)
+    gt_dist = torch.linalg.vector_norm(gt_a - gt_b, dim=-1)
+    pred_dist = torch.linalg.vector_norm(pred_a - pred_b, dim=-1)
+    near_valid = valid & (gt_dist <= near_m)
+    per_step = torch.relu(gt_dist - tolerance_m - pred_dist).square()
+    return (per_step * near_valid).sum() / near_valid.sum().clamp(min=1)
+
+
+def pair_relative_loss(model, d, w, pair_rows, near_m: float):
+    """GT-near pair의 2D 상대 궤적을 맞춘다 (정상·사고 모두 포함)."""
+    ia, ib = pair_rows[:, 0], pair_rows[:, 1]
+
+    def coords(indices):
+        out = call_model(model, d, indices)
+        return out[0] if isinstance(out, tuple) else out
+
+    pred_a, pred_b = coords(ia), coords(ib)
+    gt_a, gt_b = w["tgt"][ia], w["tgt"][ib]
+    valid = w["tmask"][ia] & w["tmask"][ib]
+    pred_a = pred_a + w["origin"][ia].unsqueeze(1)
+    pred_b = pred_b + w["origin"][ib].unsqueeze(1)
+    gt_a = gt_a + w["origin"][ia].unsqueeze(1)
+    gt_b = gt_b + w["origin"][ib].unsqueeze(1)
+    pred_rel, gt_rel = pred_a - pred_b, gt_a - gt_b
+    gt_dist = torch.linalg.vector_norm(gt_rel, dim=-1)
+    near_valid = valid & (gt_dist <= near_m)
+    per_xy = nn.functional.smooth_l1_loss(
+        pred_rel, gt_rel, beta=1.0, reduction="none"
+    )
+    per_step = per_xy.mean(dim=-1)
+    return (per_step * near_valid).sum() / near_valid.sum().clamp(min=1)
+
+
+def combine_waypoint_losses(base_loss, pair_loss, pair_loss_weight: float,
+                            relative_loss=None, relative_loss_weight: float = 0.0):
+    """Auxiliary weight가 모두 0이면 base loss 객체를 그대로 돌려준다."""
+    if ((pair_loss is None or pair_loss_weight == 0)
+            and (relative_loss is None or relative_loss_weight == 0)):
+        return base_loss
+    loss = base_loss
+    if pair_loss is not None and pair_loss_weight != 0:
+        loss = loss + pair_loss_weight * pair_loss
+    if relative_loss is not None and relative_loss_weight != 0:
+        loss = loss + relative_loss_weight * relative_loss
+    return loss
+
+
 def report_waypoints(args, model, chosen, dev, name, TR, VA, TE,
                      tr, va, te, st, hist, best, final_path, best_path, scen):
     """좌표 회귀 보고. 후보 방식과 **다른 척도**로 재므로 표를 따로 낸다."""
@@ -675,6 +831,13 @@ def report_waypoints(args, model, chosen, dev, name, TR, VA, TE,
                   "batch_size": args.batch_size, "seed": args.seed,
                   "steps": args.steps, "wp_loss": args.wp_loss,
                   "man_weight": args.man_weight,
+                  "pair_loss_weight": args.pair_loss_weight,
+                  "pair_tolerance_m": args.pair_tolerance_m,
+                  "pair_near_m": args.pair_near_m,
+                  "pair_batch_size": args.pair_batch_size,
+                  "relative_loss_weight": args.relative_loss_weight,
+                  "relative_near_m": args.relative_near_m,
+                  "relative_batch_size": args.relative_batch_size,
                   "history_encoder": args.history_encoder,
                   "history_hidden": args.history_hidden},
         "split": {"by": args.split_by, "val_frac": args.val_frac,
@@ -729,6 +892,22 @@ def main(argv=None) -> int:
                          "오차와 무관해 0 근처 수렴이 나쁘다")
     ap.add_argument("--man-weight", type=float, default=1.0,
                     help="waypoints: 기동 분류 손실 가중치 (0 이면 좌표만)")
+    ap.add_argument("--pair-loss-weight", type=float, default=0.0,
+                    help="waypoints: 정상 장면 pair separation 보조 손실 가중치 (기본 0)")
+    ap.add_argument("--pair-tolerance-m", type=float, default=0.5,
+                    help="GT보다 이 값(m) 이상 가까워질 때만 pair 손실을 준다")
+    ap.add_argument("--pair-near-m", type=float, default=10.0,
+                    help="GT 미래가 이 거리(m) 안으로 오는 정상 pair만 표본으로 쓴다")
+    ap.add_argument("--pair-batch-size", type=int, default=128,
+                    help="각 actor minibatch와 별도로 뽑을 pair 수")
+    ap.add_argument("--relative-loss-weight", type=float, default=0.0,
+                    help="waypoints: GT 상대 궤적 보조 손실 가중치 (기본 0)")
+    ap.add_argument("--relative-near-m", type=float, default=10.0,
+                    help="GT 상대 궤적 손실을 적용할 GT pair 거리(m)")
+    ap.add_argument("--relative-batch-size", type=int, default=128,
+                    help="각 actor minibatch와 별도로 뽑을 relative pair 수")
+    ap.add_argument("--save-every", type=int, default=10,
+                    help="N epoch마다 중간 checkpoint 저장 (0 이면 저장 안 함)")
     ap.add_argument("--out", default="out/predict_model", help="모델 저장 위치")
     ap.add_argument("--epochs", type=int, default=100)
     ap.add_argument("--batch-size", type=int, default=512)
@@ -752,6 +931,28 @@ def main(argv=None) -> int:
     ap.add_argument("--log-every", type=int, default=5,
                     help="몇 epoch 마다 한 줄 찍을지")
     args = ap.parse_args(argv)
+    if args.pair_loss_weight < 0:
+        ap.error("--pair-loss-weight 는 0 이상이어야 합니다")
+    if args.relative_loss_weight < 0:
+        ap.error("--relative-loss-weight 는 0 이상이어야 합니다")
+    if args.pair_tolerance_m < 0 or args.pair_near_m <= 0:
+        ap.error("--pair-tolerance-m 은 0 이상, --pair-near-m 은 0 초과여야 합니다")
+    if args.relative_near_m <= 0:
+        ap.error("--relative-near-m 은 0 초과여야 합니다")
+    if args.pair_batch_size <= 0:
+        ap.error("--pair-batch-size 는 1 이상이어야 합니다")
+    if args.relative_batch_size <= 0:
+        ap.error("--relative-batch-size 는 1 이상이어야 합니다")
+    if args.save_every < 0:
+        ap.error("--save-every 는 0 이상이어야 합니다")
+    if args.task != "waypoints" and args.pair_loss_weight != 0:
+        ap.error("--pair-loss-weight 는 --task waypoints 에서만 사용할 수 있습니다")
+    if args.task != "waypoints" and args.relative_loss_weight != 0:
+        ap.error("--relative-loss-weight 는 --task waypoints 에서만 사용할 수 있습니다")
+    if args.pair_loss_weight > 0 and args.relative_loss_weight > 0:
+        raise ValueError(
+            "--pair-loss-weight 와 --relative-loss-weight 는 동시에 사용할 수 없습니다"
+        )
 
     dev = args.device
     if dev == "auto":
@@ -810,6 +1011,27 @@ def main(argv=None) -> int:
         w_tr = to_waypoint_tensors(tr, dev, n_max, args.steps)
         w_va = to_waypoint_tensors(va, dev, n_max, args.steps) if va else None
         w_te = to_waypoint_tensors(te, dev, n_max, args.steps)
+        # Index 자체는 training split에만 만들며, sampling/추가 forward는 weight가
+        # 0보다 클 때만 한다. 따라서 기본값은 기존의 난수 소비와 학습 경로도 같다.
+        pair_index = build_normal_pair_index(tr, args.steps, args.pair_near_m)
+        pair_index_tensor = (torch.tensor(pair_index, dtype=torch.long, device=dev)
+                             if args.pair_loss_weight > 0 and pair_index else None)
+        relative_pair_index = (build_relative_pair_index(
+            tr, args.steps, args.relative_near_m
+        ) if args.relative_loss_weight > 0 else [])
+        # Auxiliary sampling은 global RNG를 소비하지 않도록 CPU generator를 쓴다.
+        relative_pair_index_tensor = torch.tensor(
+            relative_pair_index, dtype=torch.long
+        ) if args.relative_loss_weight > 0 and relative_pair_index else None
+        relative_generator = None
+        if args.relative_loss_weight > 0:
+            relative_generator = torch.Generator(device="cpu")
+            relative_generator.manual_seed(args.seed + 100003)
+        print(f"  정상 근접 pair {len(pair_index):,} "
+              f"(GT 미래 {args.pair_near_m:g}m 이내)")
+        if args.relative_loss_weight > 0:
+            print(f"  상대 궤적 근접 pair {len(relative_pair_index):,} "
+                  f"(정상·사고, GT 미래 {args.relative_near_m:g}m 이내)")
 
     def scen(rs):
         return len({r["scenario"] for r in rs})
@@ -868,19 +1090,67 @@ def main(argv=None) -> int:
     for ep in range(1, args.epochs + 1):
         model.train()
         perm = torch.randperm(d_tr["n"], device=dev)
-        tot = 0.0
+        tot = tot_base = tot_pair = tot_rel = 0.0
+        n_pair_steps = n_rel_steps = 0
         for i in range(0, d_tr["n"], args.batch_size):
             sl = perm[i:i + args.batch_size]
             if args.task == "rank":
                 loss = loss_of(model, d_tr, sl, args.include_ambiguous)
+                base_loss = loss
+                pair_loss = None
+                relative_loss = None
             else:
-                loss = wp_loss(model, d_tr, w_tr, sl,
-                               man_weight=args.man_weight,
-                               kind=args.wp_loss)
+                base_loss = wp_loss(model, d_tr, w_tr, sl,
+                                    man_weight=args.man_weight,
+                                    kind=args.wp_loss)
+                pair_loss = None
+                relative_loss = None
+                if pair_index_tensor is not None:
+                    pair_pick = torch.randint(
+                        len(pair_index_tensor), (args.pair_batch_size,), device=dev
+                    )
+                    pair_rows = pair_index_tensor[pair_pick]
+                    pair_loss = pair_separation_loss(
+                        model, d_tr, w_tr, pair_rows, args.pair_tolerance_m,
+                        args.pair_near_m,
+                    )
+                if relative_pair_index_tensor is not None:
+                    # Base minibatch 뒤의 dropout 난수열은 auxiliary forward가
+                    # 없었던 대조군과 같아야 한다. graph는 유지한 채 RNG만 복원한다.
+                    pair_pick = torch.randint(
+                        len(relative_pair_index_tensor),
+                        (args.relative_batch_size,),
+                        generator=relative_generator, device="cpu",
+                    )
+                    pair_rows = relative_pair_index_tensor[pair_pick].to(dev)
+                    cpu_rng_state = torch.get_rng_state()
+                    cuda_rng_states = (
+                        torch.cuda.get_rng_state_all()
+                        if str(dev).startswith("cuda") else None
+                    )
+                    try:
+                        relative_loss = pair_relative_loss(
+                            model, d_tr, w_tr, pair_rows, args.relative_near_m
+                        )
+                    finally:
+                        torch.set_rng_state(cpu_rng_state)
+                        if cuda_rng_states is not None:
+                            torch.cuda.set_rng_state_all(cuda_rng_states)
+                loss = combine_waypoint_losses(
+                    base_loss, pair_loss, args.pair_loss_weight,
+                    relative_loss, args.relative_loss_weight,
+                )
             opt.zero_grad()
             loss.backward()
             opt.step()
             tot += loss.item() * len(sl)
+            tot_base += base_loss.item() * len(sl)
+            if pair_loss is not None:
+                tot_pair += pair_loss.item()
+                n_pair_steps += 1
+            if relative_loss is not None:
+                tot_rel += relative_loss.item()
+                n_rel_steps += 1
         sched.step()
         if args.task == "rank":
             m_tr = evaluate(model, d_tr)
@@ -898,16 +1168,27 @@ def main(argv=None) -> int:
             shown = [("학습", f"{m_tr['all']['model_ade']:.2f}m")]
             if m_va:
                 shown.append(("검증", f"{m_va['all']['model_ade']:.2f}m"))
-        hist.append({"epoch": ep, "loss": tot / d_tr["n"], "select": sel})
+        hist.append({"epoch": ep, "loss": tot / d_tr["n"],
+                     "base_loss": tot_base / d_tr["n"],
+                     "pair_loss": (tot_pair / n_pair_steps if n_pair_steps else 0.0),
+                     "relative_loss": (tot_rel / n_rel_steps if n_rel_steps else 0.0),
+                     "select": sel})
         if sel > best["val"]:
             best = {"val": sel, "epoch": ep}
             torch.save(model, os.path.join(args.out, f"{name}_best.pt"))
+        if args.save_every > 0 and ep % args.save_every == 0:
+            torch.save(model, os.path.join(args.out, f"{name}_epoch{ep:03d}.pt"))
         if ep % args.log_every == 0 or ep == 1 or ep == args.epochs:
             if args.task == "rank":
                 te_s = f"{evaluate(model, d_te)['model_top1']:.2%}"
             else:
                 te_s = f"{eval_waypoints(model, d_te, w_te)['all']['model_ade']:.2f}m"
-            print(f"  epoch {ep:3d}  loss {tot/d_tr['n']:.4f}  "
+            losses = (f"loss {tot/d_tr['n']:.4f}  base {tot_base/d_tr['n']:.4f}"
+                      + (f"  pair {tot_pair/n_pair_steps:.4f}"
+                         if n_pair_steps else "  pair 0.0000")
+                      + (f"  rel {tot_rel/n_rel_steps:.4f}"
+                         if n_rel_steps else "  rel 0.0000"))
+            print(f"  epoch {ep:3d}  {losses}  "
                   + "  ".join(f"{k} {v}" for k, v in shown)
                   + f"  시험 {te_s}")
     print(f"\n{args.epochs} epoch, {time.time()-t0:.0f}초")

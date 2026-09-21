@@ -43,6 +43,15 @@ from traffic_llm.serialize import build_messages, to_json, to_text
 HANGUL = re.compile("[가-힣]")
 
 
+def test_positive_contact_margin_updates_accident_prompt_only_when_configured():
+    default = i18n.system_prompt("accident_compact", "en")
+    explicit_zero = i18n.system_prompt("accident_compact", "en", contact_margin_m=0.0)
+    one_metre = i18n.system_prompt("accident_compact", "en", contact_margin_m=1.0)
+    assert explicit_zero == default
+    assert "1.0 m or less counts as a contact/dangerous-collision candidate" in one_metre
+    assert "literal-body-overlap-only threshold" in one_metre
+
+
 def hangul_in(obj) -> list:
     """자료구조 전체에서 한글이 든 문자열을 찾는다."""
     found = []

@@ -67,6 +67,36 @@ def _serialized_future_waypoints(a: ActorState, waypoints) -> list:
     return pts
 
 
+def _serialized_timed_future_waypoints(a: ActorState, path) -> list:
+    """Return ``[seconds_after_observation, e, n]`` oracle samples only."""
+    points = list(path.waypoints or [])
+    times = list(path.waypoint_times_s or [])
+    if len(points) != len(times):
+        return []
+    if points and math.dist(a.world_xy, points[0]) <= 0.5:
+        points, times = points[1:], times[1:]
+    return [[_r(t, 3), _r(p[0], 1), _r(p[1], 1)]
+            for t, p in zip(times, points) if t > 0]
+
+
+def _serialized_path(a: ActorState, p, prob: float, lang: str) -> dict:
+    """Serialize one path without assigning one-second spacing to timed GT."""
+    out = {
+        "maneuver": i18n.label(p.maneuver, lang),
+        "to_roads": p.to_roads,
+        "probability": prob,
+    }
+    if p.waypoint_times_s is None:
+        out["waypoints_1s_enu_m"] = [
+            [_r(w[0], 1), _r(w[1], 1)]
+            for w in _serialized_future_waypoints(a, p.waypoints)
+        ]
+    else:
+        out["waypoints_timed_enu_m"] = _serialized_timed_future_waypoints(a, p)
+    out["truncated"] = p.truncated
+    return out
+
+
 def rank_actors(snap: SceneSnapshot, limit: int) -> Tuple[List[ActorState], int]:
     """중요도 순 정렬 후 상위 limit 대 반환. (선택된 목록, 잘라낸 대수)"""
     scored = sorted(
@@ -133,22 +163,7 @@ def to_json(
                     "next_junction": a.placement.next_junction_id,
                 },
                 "predicted_paths": [
-                    {
-                        "maneuver": i18n.label(p.maneuver, lang),
-                        # 같은 기동으로 갈 수 있는 도로가 둘 이상인 교차로가
-                        # 있다. 진입 도로를 함께 주지 않으면 라벨·확률이 같은
-                        # 항목이 여러 개 보여 중복으로 읽힌다.
-                        "to_roads": p.to_roads,
-                        "probability": prob,
-                        # 0.1m 단위. 1m 로 반올림하면 차로 폭(3.5m)의 30% 라
-                        # 좌표가 같은 값으로 뭉쳐 회전 궤적이 계단처럼 보인다.
-                        "waypoints_1s_enu_m": [
-                            [_r(w[0], 1), _r(w[1], 1)]
-                            for w in _serialized_future_waypoints(a, p.waypoints)
-                        ],
-                        # 도로망 끝에서 잘렸다 = 그 앞은 예측 불가 (정지 아님)
-                        "truncated": p.truncated,
-                    }
+                    _serialized_path(a, p, prob, lang)
                     for p, prob in zip(
                         a.predictions,
                         _round_probs([p.probability for p in a.predictions]),

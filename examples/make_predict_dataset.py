@@ -71,33 +71,11 @@ from traffic_llm.predict_model import (
     encode,
 )
 from traffic_llm.prediction import build_context, candidate_to_path
+from traffic_llm.actor_tracks import future_track
 
 # 실제 궤적과 후보의 평균 거리가 이 값을 넘으면 "후보 집합 밖의 행동"으로 본다.
 # 차로 폭(3.5m)의 절반을 넘으면 다른 차로/다른 경로를 간 것이다.
 MATCH_TOLERANCE_M = 3.0
-
-
-def future_track(
-    per_actor: dict, actor_id: str, t0: float, horizon_s: float, dt: float = 1.0
-):
-    """t0 이후 1초 간격 실제 위치. 관측이 끊기면 거기서 멈춘다.
-
-    Returns: (점 목록, 지평까지 관측됐는가)
-    """
-    samples = per_actor.get(actor_id, [])
-    if not samples:
-        return [], False
-    out = []
-    k = 0.0
-    while k <= horizon_s + 1e-6:
-        want = t0 + k
-        # want 에 가장 가까운 표본. 0.3초 넘게 벌어지면 관측이 끊긴 것이다.
-        best = min(samples, key=lambda s: abs(s[0] - want))
-        if abs(best[0] - want) > 0.3:
-            return out, False
-        out.append(best[1])
-        k += dt
-    return out, True
 
 
 def polyline_distance(pt, poly) -> float:

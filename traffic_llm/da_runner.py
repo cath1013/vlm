@@ -35,6 +35,7 @@ from .deepaccident import (
     parse_label_file,
     read_poses,
     resolve_cameras,
+    scenario_actor_classes,
     scan_scenarios,
     synthesize_telemetry,
 )
@@ -188,6 +189,7 @@ class DeepAccidentRunner:
         )
 
         common = list(frames) if frames is not None else sc.frames()
+        actor_classes = scenario_actor_classes(sc, frames=common)
         for ag, series in sc.agents.items():
             f0 = common[0] if common else series.frames[0]
             cal = load_calib(series.calib_paths[f0])
@@ -230,6 +232,7 @@ class DeepAccidentRunner:
                     # CARLA actor id 를 알려주면 다른 관측자가 이 차량을 검출한
                     # 것을 거리 게이트 없이 정확히 흡수할 수 있다
                     self_track_id=sc.meta.agent_id_of(ag),
+                    self_class=actor_classes.get(sc.meta.agent_id_of(ag)),
                 )
         result.perception_stats["all"] = dict(backend.stats)
         return result

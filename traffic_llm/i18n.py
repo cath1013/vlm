@@ -826,15 +826,44 @@ Judgement principles:
 }
 
 
-def system_prompt(kind: str, lang: str = DEFAULT_LANG) -> str:
-    """kind: 'snapshot' | 'accident' | 'accident_compact'."""
+def system_prompt(
+    kind: str,
+    lang: str = DEFAULT_LANG,
+    contact_margin_m: float = 0.0,
+) -> str:
+    """kind: 'snapshot' | 'accident' | 'accident_compact'.
+
+    A positive swept-path margin changes the evaluation contact criterion. Keep
+    the legacy prompts byte-for-byte unchanged at the default of zero.
+    """
     if kind == "accident_compact":
         table = SYSTEM_PROMPT_ACCIDENT_COMPACT
     elif kind == "accident":
         table = SYSTEM_PROMPT_ACCIDENT
     else:
         table = SYSTEM_PROMPT_SNAPSHOT
-    return table[normalize_lang(lang)]
+    prompt = table[normalize_lang(lang)]
+    if contact_margin_m > 0:
+        # str(float(...)) retains the required explicit ``1.0 m`` wording for
+        # a configured margin of 1.0 while avoiding needless trailing zeros for
+        # non-integral values.
+        margin = str(float(contact_margin_m))
+        if normalize_lang(lang) == "en":
+            prompt += (
+                "\n\nConfigured evaluation criterion: a minimum clearance of "
+                f"{margin} m or less counts as a contact/dangerous-collision "
+                "candidate under the evaluation criterion. This replaces a "
+                "literal-body-overlap-only threshold; assess such candidates "
+                "with the supplied history and geometry."
+            )
+        else:
+            prompt += (
+                "\n\n설정된 평가 기준: 최소 간격이 "
+                f"{margin} m 이하이면 평가 기준상 접촉/위험 충돌 후보입니다. "
+                "이는 차체의 문자 그대로 겹침만을 기준으로 하는 임계값을 "
+                "대체하며, 제공된 이력과 기하 정보로 후보를 판단하십시오."
+            )
+    return prompt
 
 
 def prediction_schema(

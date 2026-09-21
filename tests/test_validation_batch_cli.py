@@ -4,7 +4,9 @@ from unittest.mock import patch
 
 import pytest
 
-from examples.run_validation_batch import ROOT, aggregate_batch, call_llm, parse_args
+from examples.run_validation_batch import (
+    ROOT, _write_batch_manifest, aggregate_batch, call_llm, generate, parse_args,
+)
 
 
 BASE = ["--root", "/dataset", "--carla-maps", "carla_map", "--out", "out/test"]
@@ -17,6 +19,50 @@ def test_defaults_enable_compact_and_v2():
     assert args.pair_reranker_model == str(
         ROOT / "out/pair_reranker_v2_full_model/pair_reranker_v2.json"
     )
+    assert args.future_source == "predictor"
+    assert args.contact_margin_m == 0.0
+
+
+def test_contact_margin_is_recorded_and_forwarded(tmp_path):
+    with patch.object(Path, "is_file", return_value=True):
+        args = parse_args(BASE + ["--contact-margin-m", "1.0"])
+    selected = [SimpleNamespace(
+        scenario="scene", scenario_type="type", split="val", outcome="accident",
+        town="Town01",
+    )]
+    manifest = _write_batch_manifest(tmp_path / "batch_manifest.json", args, selected)
+    assert manifest["config"]["contact_margin_m"] == 1.0
+    with patch("examples.run_validation_batch._run") as run:
+        target = tmp_path / "val" / "accident" / "scene"
+        target.mkdir(parents=True)
+        (target / "manifest.json").write_text("{}", encoding="utf-8")
+        args.out = str(tmp_path)
+        args.skip_existing = False
+        generate(args, selected)
+    command = run.call_args.args[0]
+    assert command[command.index("--contact-margin-m") + 1] == "1.0"
+
+
+def test_ground_truth_future_source_is_recorded_and_propagated(tmp_path):
+    with patch.object(Path, "is_file", return_value=True):
+        args = parse_args(BASE + ["--future-source", "ground_truth"])
+    selected = [SimpleNamespace(
+        scenario="scene", scenario_type="type", split="val", outcome="accident",
+        town="Town01",
+    )]
+    manifest = _write_batch_manifest(tmp_path / "batch_manifest.json", args, selected)
+    assert manifest["config"]["future_source"] == "ground_truth"
+    with patch("examples.run_validation_batch._run") as run:
+        # Pretend the child completed so generation can perform its normal
+        # manifest existence check without launching a process.
+        target = tmp_path / "val" / "accident" / "scene"
+        target.mkdir(parents=True)
+        (target / "manifest.json").write_text("{}", encoding="utf-8")
+        args.out = str(tmp_path)
+        args.skip_existing = False
+        generate(args, selected)
+    command = run.call_args.args[0]
+    assert command[command.index("--future-source") + 1] == "ground_truth"
 
 
 def test_standard_disables_reranker():

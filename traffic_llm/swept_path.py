@@ -13,6 +13,7 @@ footprints touch or overlap; a positive value is the physical gap in metres.
 from __future__ import annotations
 
 import math
+from bisect import bisect_right
 from dataclasses import dataclass
 from typing import Callable, List, Optional, Sequence, Tuple
 
@@ -72,20 +73,27 @@ def _fallback_heading(actor: ActorState) -> Tuple[float, float]:
     return 1.0, 0.0
 
 
-def _canonical_points(actor: ActorState, path: PredictedPath) -> List[Point]:
-    """Normalize legacy +1-first paths to the internal t=0-first convention."""
+def _canonical_points(
+    actor: ActorState, path: PredictedPath
+) -> Tuple[List[Point], Optional[List[float]]]:
+    """Normalize paths to a t=0 anchor, retaining optional actual timestamps."""
     points = list(path.waypoints or [])
+    times = list(path.waypoint_times_s) if path.waypoint_times_s is not None else None
+    if times is not None and len(times) != len(points):
+        return [], None
     if not points:
-        return []
+        return [], times
     if math.dist(points[0], actor.world_xy) > 0.5:
         points.insert(0, actor.world_xy)
-    return points
+        if times is not None:
+            times.insert(0, 0.0)
+    return points, times
 
 
 def _motion_fn(
     actor: ActorState, path: PredictedPath, horizon_s: float
 ) -> Optional[Tuple[Callable[[float], Pose], float]]:
-    points = _canonical_points(actor, path)
+    points, times = _canonical_points(actor, path)
     fallback = _fallback_heading(actor)
     if len(points) == 1:
         # A known stopped actor remains a valid collision target.  An unknown-speed
@@ -93,21 +101,27 @@ def _motion_fn(
         if actor.speed_mps is None or abs(actor.speed_mps) > STATIONARY_MPS:
             return None
         points.extend([points[0]] * max(1, int(math.ceil(horizon_s))))
+        if times is not None:
+            times.extend(float(i) for i in range(1, len(points)))
     if len(points) < 2:
         return None
 
-    available_s = min(float(len(points) - 1), float(horizon_s))
+    if times is None:
+        times = [float(i) for i in range(len(points))]
+    if times[0] != 0.0 or any(b <= a for a, b in zip(times, times[1:])):
+        return None
+    available_s = min(times[-1], float(horizon_s))
     if available_s <= 0:
         return None
 
     def pose(t: float) -> Pose:
         clamped = max(0.0, min(t, available_s))
-        if clamped >= len(points) - 1:
+        if clamped >= times[-1]:
             i = len(points) - 2
             frac = 1.0
         else:
-            i = int(math.floor(clamped))
-            frac = clamped - i
+            i = max(0, min(len(points) - 2, bisect_right(times, clamped) - 1))
+            frac = (clamped - times[i]) / (times[i + 1] - times[i])
         p, q = points[i], points[i + 1]
         heading = _unit(q[0] - p[0], q[1] - p[1], fallback)
         return (

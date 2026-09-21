@@ -28,10 +28,12 @@ from traffic_llm.carla_map import (
     town_description,
 )
 from traffic_llm.config import (
+    CameraConfig,
     DeepAccidentConfig,
     LaneConfig,
     PipelineConfig,
     RoadGenConfig,
+    SerializeConfig,
 )
 from traffic_llm.deepaccident import (
     CLASS_SIZES,
@@ -44,6 +46,8 @@ from traffic_llm.deepaccident import (
     estimate_ground_z,
     parse_label_file,
     parse_meta,
+    ScenarioMeta,
+    scenario_actor_classes,
 )
 from traffic_llm.geometry import LocalENU
 from traffic_llm.roadgen import (
@@ -102,6 +106,147 @@ class TestFormatParsing(unittest.TestCase):
         self.assertEqual(lf.objects[2].obj_id, UNTRACKED_ID)
         # pedestrian → person 으로 매핑
         self.assertEqual(lf.objects[2].cls, "person")
+
+    def test_observer_classes_come_from_labels_not_collision_metadata(self):
+        """Self rows retain each observer's semantic CARLA class."""
+        from types import SimpleNamespace
+        from traffic_llm.config import FusionConfig
+        from traffic_llm.fusion import GlobalTrackRegistry, fuse_observations
+        from traffic_llm.schemas import EgoSample
+
+        def label(path, cls):
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(
+                    "0 0\n"
+                    f"{cls} 0 0 0 8 2.5 3 0 0 0 -100 1 True\n"
+                )
+
+        with tempfile.TemporaryDirectory() as d:
+            truck = os.path.join(d, "truck.txt")
+            car = os.path.join(d, "car.txt")
+            label(truck, "truck")
+            label(car, "car")
+            # No collision fields are set: this is ordinary actor metadata.
+            meta = ScenarioMeta(agent_ids=(1, 2286, 3, 2289))
+            scenario = SimpleNamespace(
+                meta=meta,
+                agents={
+                    "ego_vehicle_behind": SimpleNamespace(
+                        frames=[1], label_paths={1: truck}
+                    ),
+                    "other_vehicle_behind": SimpleNamespace(
+                        frames=[1], label_paths={1: car}
+                    ),
+                },
+            )
+            classes = scenario_actor_classes(scenario)
+
+        self.assertEqual(classes[2286], "truck")
+        self.assertEqual(classes[2289], "car")
+        self.assertFalse(meta.collision_occurred)
+        self.assertIsNone(meta.collision_id_a)
+
+        states = {
+            "ego_vehicle_behind": EgoSample(0, 0, 0, 0, 0),
+            "other_vehicle_behind": EgoSample(0, 0, 0, 0, 0),
+            "unresolved_observer": EgoSample(0, 0, 0, 0, 0),
+        }
+        registry = GlobalTrackRegistry(FusionConfig())
+        actors = fuse_observations(
+            0.0, [], states,
+            {"ego_vehicle_behind": (0.0, 0.0),
+             "other_vehicle_behind": (10.0, 0.0),
+             "unresolved_observer": (20.0, 0.0)},
+            registry, FusionConfig(),
+            observer_self_ids={"ego_vehicle_behind": 2286,
+                               "other_vehicle_behind": 2289,
+                               "unresolved_observer": 9999},
+            observer_self_classes={"ego_vehicle_behind": classes[2286],
+                                   "other_vehicle_behind": classes[2289],
+                                   "unresolved_observer": None},
+        )
+        by_id = {actor.actor_id: actor.cls for actor in actors}
+        self.assertEqual(by_id["EGO_ego_vehicle_behind"], "truck")
+        self.assertEqual(by_id["EGO_other_vehicle_behind"], "car")
+        self.assertEqual(by_id["EGO_unresolved_observer"], "car")
+        self.assertEqual(registry._cls["EGO_ego_vehicle_behind"], "truck")
+        self.assertEqual(registry._cls["EGO_unresolved_observer"], "car")
+        from traffic_llm.schemas import SceneSnapshot
+        from traffic_llm.serialize import to_json
+        serialized = to_json(SceneSnapshot(0.0, actors, []), SerializeConfig())
+        serialized_classes = {row["id"]: row["class"] for row in serialized["actors"]}
+        self.assertEqual(serialized_classes["EGO_ego_vehicle_behind"], "truck")
+        self.assertEqual(serialized_classes["EGO_other_vehicle_behind"], "car")
+
+    def test_runner_wires_label_classes_into_observer_actor_states(self):
+        """Runner forwards normal label metadata without fusion-test injection."""
+        from unittest.mock import patch
+        from traffic_llm.da_runner import DeepAccidentRunner
+        from traffic_llm.deepaccident import AgentSeries, DeepAccidentScenario
+        from traffic_llm.schemas import EgoSample, PredictedPath
+
+        def label(path, cls):
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(
+                    "0 0\n"
+                    f"{cls} 0 0 0 8 2.5 3 0 0 0 -100 1 True\n"
+                )
+
+        class Net:
+            enu = LocalENU(0.0, 0.0)
+            roads = {}
+            junctions = {}
+
+            @staticmethod
+            def locate(*_args, **_kwargs):
+                return None
+
+        class Backend:
+            def __init__(self, *_args):
+                self.stats = {}
+
+            @staticmethod
+            def detections_for(*_args, **_kwargs):
+                return []
+
+        with tempfile.TemporaryDirectory() as d:
+            truck, car = os.path.join(d, "truck.txt"), os.path.join(d, "car.txt")
+            label(truck, "truck")
+            label(car, "car")
+            meta = ScenarioMeta(agent_ids=(1, 2286, 3, 2289))
+            scenario = DeepAccidentScenario(
+                root=d, scenario_type="normal", scenario="fake", meta=meta,
+                agents={
+                    "ego_vehicle_behind": AgentSeries(
+                        "ego_vehicle_behind", [1], {1: "unused"}, {1: truck}
+                    ),
+                    "other_vehicle_behind": AgentSeries(
+                        "other_vehicle_behind", [1], {1: "unused"}, {1: car}
+                    ),
+                },
+            )
+            cfg = PipelineConfig()
+            cfg.predictor = lambda ctx: [PredictedPath(
+                "unknown", 1.0, [ctx.actor.world_xy], ctx.horizon_s
+            )]
+            runner = DeepAccidentRunner(d, cfg)
+            camera = CameraConfig(10, 10, 10, 10, 5, 5, name="Camera_Front")
+            telemetry = [EgoSample(0.0, 0.0, 0.0, 0.0, 0.0)]
+            with patch("traffic_llm.da_runner.find_scenario", return_value=scenario), \
+                 patch.object(runner, "build_network", return_value=(Net(), None, "test")), \
+                 patch("traffic_llm.da_runner.DeepAccidentPerception", Backend), \
+                 patch("traffic_llm.da_runner.load_calib", return_value={}), \
+                 patch("traffic_llm.da_runner.resolve_cameras", return_value=["Camera_Front"]), \
+                 patch("traffic_llm.da_runner.camera_config_from_calib", return_value=camera), \
+                 patch("traffic_llm.da_runner.estimate_ground_z_multiframe", return_value=0.0), \
+                 patch("traffic_llm.da_runner.synthesize_telemetry", return_value=telemetry):
+                result = runner.build("fake", "normal")
+                snap = next(result.snapshots(rate_hz=2.0))
+
+        classes = {actor.actor_id: actor.cls for actor in snap.actors}
+        self.assertEqual(classes["EGO_ego_vehicle_behind"], "truck")
+        self.assertEqual(classes["EGO_other_vehicle_behind"], "car")
+        self.assertFalse(meta.collision_occurred)
 
     def test_parse_meta_accident(self):
         txt = (
@@ -869,6 +1014,24 @@ class TestWithRealData(unittest.TestCase):
         p = DeepAccidentPerception(s, DeepAccidentConfig(cameras=("Camera_Fron",)))
         with self.assertRaises(ValueError):
             p.detections_for("ego_vehicle")
+
+    def test_town10hd_truck_observer_end_to_end(self):
+        """Regression only: semantic classes must survive observer conversion."""
+        from traffic_llm.da_runner import DeepAccidentRunner
+
+        name = "Town10HD_type001_subtype0001_scenario00022"
+        scenario = next((s for s in self.scenarios if s.scenario == name), None)
+        if scenario is None:
+            self.skipTest(f"regression scenario unavailable: {name}")
+        cfg = PipelineConfig()
+        cfg.deepaccident.observation_mode = "sensor3d"
+        result = DeepAccidentRunner(DA_ROOT, cfg).build(
+            scenario.scenario, scenario.scenario_type
+        )
+        snap = next(result.snapshots(rate_hz=2.0))
+        classes = {actor.actor_id: actor.cls for actor in snap.actors}
+        self.assertEqual(classes["EGO_ego_vehicle_behind"], "truck")
+        self.assertEqual(classes["EGO_other_vehicle_behind"], "car")
 
 
 if __name__ == "__main__":

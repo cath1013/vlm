@@ -262,10 +262,17 @@ class GlobalTrackRegistry:
                 return obs_id
         return None
 
-    def register_ego(self, observer_id: str, xy: Tuple[float, float], t: float) -> str:
+    def register_ego(
+        self,
+        observer_id: str,
+        xy: Tuple[float, float],
+        t: float,
+        cls: str = "car",
+    ) -> str:
+        """Reserve an observer actor id with its supplied semantic class."""
         aid = f"EGO_{observer_id}"
         self._reserved.add(aid)
-        self._cls[aid] = "car"
+        self._cls[aid] = cls
         self._last_xy[aid] = xy
         self._last_t[aid] = t
         return aid
@@ -353,6 +360,7 @@ def fuse_observations(
     cfg: FusionConfig,
     observer_roles: Optional[Dict[str, str]] = None,
     observer_self_ids: Optional[Dict[str, int]] = None,
+    observer_self_classes: Optional[Dict[str, str]] = None,
 ) -> List[ActorState]:
     """한 시각의 모든 관측 → 중복 제거된 ActorState 리스트.
 
@@ -362,6 +370,7 @@ def fuse_observations(
     3) 남은 관측을 관측자 쌍 간에 매칭하여 클러스터로 병합
     """
     roles = observer_roles or {}
+    self_classes = observer_self_classes or {}
     actors: Dict[str, ActorState] = {}
     vehicle_world = {
         oid: xy
@@ -374,11 +383,12 @@ def fuse_observations(
         if roles.get(oid, "vehicle") != "vehicle":
             continue
         xy = ego_world[oid]
-        aid = registry.register_ego(oid, xy, t)
+        ego_cls = self_classes.get(oid) or "car"
+        aid = registry.register_ego(oid, xy, t, ego_cls)
         actors[aid] = ActorState(
             actor_id=aid,
             kind="ego",
-            cls="car",
+            cls=ego_cls,
             world_xy=xy,
             heading_deg=samp.heading_deg,
             speed_mps=samp.speed_mps,

@@ -130,6 +130,10 @@ class PredictedPath:
     # 웨이포인트가 예측 구간 끝까지 가지 못하고 도로망 끝에서 멈췄는가.
     # (도로망 밖으로 나가는 경우. 마지막 점을 반복해 채우지 않는다)
     truncated: bool = False
+    # None means the normal predictor contract above (one-second spacing).
+    # Evaluation-only GT-oracle paths carry their actual offsets, including the
+    # t=0 anchor, so sub-second raw samples are never resampled or discarded.
+    waypoint_times_s: Optional[List[float]] = None
 
 
 @dataclass

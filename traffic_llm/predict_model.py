@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
-from typing import Callable, Dict, List, Optional, Sequence, Tuple
+from typing import Callable, Dict, List, Optional, Protocol, Sequence, Tuple
 
 from .schemas import ActorState, PredictedPath, RoadPlacement
 
@@ -356,6 +356,13 @@ def encode(ctx: PredictContext) -> Dict[str, object]:
 Predictor = Callable[[PredictContext], List[PredictedPath]]
 
 
+class ScenePredictor(Protocol):
+    """Scene-level predictor contract: one forward for all snapshot actors."""
+
+    def predict_scene(self, contexts: Sequence[PredictContext]) -> Dict[str, PredictedPath]:
+        ...
+
+
 class TorchPredictor:
     """PyTorch 로 저장한 모델을 예측기로 쓴다.
 
@@ -618,6 +625,114 @@ class TorchPredictor:
             # 넘고, 읽는 쪽이 같은 상황을 다른 상황으로 본다.
             return f"후보 밖 경로(가장 가까운 기동 {best.maneuver})", []
         return best.maneuver, ([best.to_road] if best.to_road else [])
+
+
+class JointSceneTorchPredictor(TorchPredictor):
+    """Runtime adapter for one V1 or V2 JointSceneMotionNet scene forward.
+
+    ``predict_scene`` is intentionally the only prediction API.  Calling this
+    object actor-by-actor would invalidate the jointly decoded rollout, so
+    ``__call__`` raises instead of silently producing an independent result.
+    """
+
+    def __init__(self, model_path: str, device: str = "cpu"):
+        super().__init__(model_path, mode="waypoints", device=device)
+        self.forward_calls = 0
+        self.last_scene_stats: Dict[str, object] = {}
+
+    def _load(self):
+        model = super()._load()
+        if not getattr(model, "accepts_scene", False):
+            raise ValueError(
+                f"{self.model_path} is not a JointSceneMotionNet V1/V2 checkpoint "
+                "(missing accepts_scene=True)"
+            )
+        return model
+
+    def __call__(self, ctx: PredictContext) -> List[PredictedPath]:
+        raise RuntimeError(
+            "JointSceneTorchPredictor must be called through predict_scene() "
+            "once for the complete snapshot, not actor-by-actor"
+        )
+
+    def _scene_tensors(self, contexts: Sequence[PredictContext]):
+        """Encode the exact training feature families, without any GT fields."""
+        torch = self._torch
+        if not contexts:
+            raise ValueError("JointScene predictor received an empty scene")
+        actor_ids = [ctx.actor.actor_id for ctx in contexts]
+        if len(actor_ids) != len(set(actor_ids)):
+            raise ValueError("JointScene predictor requires unique actor_id values per snapshot")
+        encoded = [encode(ctx) for ctx in contexts]
+        A = len(encoded)
+        N = max(1, max(len(x["candidates"]) for x in encoded))
+        I = max(1, max(len(x["interactions"]) for x in encoded))
+        dev = self.device
+        values = {
+            "global": torch.zeros(1, A, N_GLOBAL_FEATURES, dtype=torch.float32, device=dev),
+            "candidates": torch.zeros(1, A, N, N_CANDIDATE_FEATURES, dtype=torch.float32, device=dev),
+            "candidate_mask": torch.zeros(1, A, N, dtype=torch.bool, device=dev),
+            "history": torch.zeros(1, A, N_HISTORY_STEPS, N_HISTORY_FEATURES, dtype=torch.float32, device=dev),
+            "interactions": torch.zeros(1, A, I, N_INTERACTION_FEATURES, dtype=torch.float32, device=dev),
+            "interaction_mask": torch.zeros(1, A, I, dtype=torch.bool, device=dev),
+            "actor_mask": torch.ones(1, A, dtype=torch.bool, device=dev),
+            "origin": torch.zeros(1, A, 2, dtype=torch.float32, device=dev),
+        }
+        for index, (ctx, enc) in enumerate(zip(contexts, encoded)):
+            values["global"][0, index] = torch.tensor(enc["global"], device=dev)
+            values["history"][0, index] = torch.tensor(enc["history"], device=dev)
+            values["origin"][0, index] = torch.tensor(ctx.actor.world_xy, device=dev)
+            nc, ni = len(enc["candidates"]), len(enc["interactions"])
+            if nc:
+                values["candidates"][0, index, :nc] = torch.tensor(enc["candidates"], device=dev)
+                values["candidate_mask"][0, index, :nc] = True
+            if ni:
+                values["interactions"][0, index, :ni] = torch.tensor(enc["interactions"], device=dev)
+                values["interaction_mask"][0, index, :ni] = True
+        return actor_ids, values
+
+    def predict_scene(self, contexts: Sequence[PredictContext]) -> Dict[str, PredictedPath]:
+        model = self._load()
+        torch = self._torch
+        actor_ids, batch = self._scene_tensors(contexts)
+        with_route = batch["candidate_mask"].any(-1)[0]
+        self.last_scene_stats = {
+            "actors": len(actor_ids),
+            "with_route": int(with_route.sum().item()),
+            "without_route": int((~with_route).sum().item()),
+            "feature_shapes": {key: tuple(value.shape) for key, value in batch.items()},
+        }
+        amp_dtype = None
+        if torch.device(self.device).type == "cuda":
+            amp_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+        with torch.no_grad(), torch.amp.autocast(
+            torch.device(self.device).type, dtype=amp_dtype, enabled=amp_dtype is not None
+        ):
+            self.forward_calls += 1
+            out = model(batch["global"], batch["candidates"], batch["candidate_mask"],
+                        batch["history"], batch["interactions"], batch["interaction_mask"],
+                        batch["actor_mask"], batch["origin"])
+        offsets, logits = out if isinstance(out, tuple) else (out, None)
+        if tuple(offsets.shape[:2]) != (1, len(contexts)) or offsets.shape[-1] != 2:
+            raise ValueError(f"unexpected JointScene offsets shape: {tuple(offsets.shape)}")
+        paths = {}
+        for index, (actor_id, ctx) in enumerate(zip(actor_ids, contexts)):
+            actor_logits = logits[0, index] if logits is not None else None
+            # Unlike legacy waypoint conversion, retain all K future samples
+            # even when the first predicted offset is exactly zero (a stopped
+            # actor at +1 s).  PredictedPath's first entry is always t=0.
+            arr = offsets[0, index].reshape(-1, 2).float().tolist()
+            e0, n0 = ctx.actor.world_xy
+            pts = [ctx.actor.world_xy] + [(e0 + de, n0 + dn) for de, dn in arr]
+            if actor_logits is not None:
+                label, to_roads = self._label_from_logits(ctx, pts, actor_logits)
+            else:
+                label, to_roads = self._describe(ctx, pts)
+            paths[actor_id] = PredictedPath(
+                maneuver=label, probability=1.0, waypoints=pts,
+                horizon_s=ctx.horizon_s, to_roads=to_roads, truncated=False,
+            )
+        return paths
 
 
 class ScriptedRankPredictor(TorchPredictor):
