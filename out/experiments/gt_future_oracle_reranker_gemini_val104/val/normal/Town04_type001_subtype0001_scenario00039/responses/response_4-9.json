@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 14.63,
+ "usage": {
+  "input": 9324,
+  "output": 428
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle is decelerating at a low speed as it approaches the stationary vehicle V023, maintaining a safe following distance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving vehicles on Road 30 are slowing down or remaining in their lanes without intersecting paths or dangerous proximity.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The stationary queue on Road 30 remains stable as approaching vehicles come to a controlled stop behind the lead vehicles.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No actors are on trajectories that would result in contact, as speeds are low and vehicles are maintaining clear lane positions.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Following distances between vehicles in the queue are preserved through the end of the prediction window.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene captures a typical traffic queuing event on Road 30 where multiple vehicles are decelerating or already stopped in a column. EGO_ego_vehicle and EGO_other_vehicle show consistent slowing trends as they approach the back of the queue at V023, and no other actors demonstrate conflicting trajectories.",
+  "data_limitations": "The future_paths waypoint arrays were truncated in the input data, necessitating a judgment based on current kinematics and the absence of predicted contact pairs."
+ }
+}

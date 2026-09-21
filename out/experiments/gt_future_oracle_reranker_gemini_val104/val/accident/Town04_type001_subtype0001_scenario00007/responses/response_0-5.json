@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 38.25,
+ "usage": {
+  "input": 7401,
+  "output": 375
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles continue to follow their current paths with safe longitudinal gaps and no predicted conflicts.",
+    "confidence": "medium"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle is expected to cross the northbound lane between two other vehicles with sufficient clearance based on trajectory extrapolation.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are projected to maintain safe distances as they continue their respective maneuvers through the intersection.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Trajectories indicate that vehicles will have cleared potential conflict points by this time interval.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No future conflicts are predicted as actors continue on their intended routes away from the junction.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The traffic scene at the junction shows vehicles maintaining consistent speeds and safe following distances. Although the ego vehicle is performing a left turn across a northbound lane, extrapolation of current headings and speeds suggests it will cross safely between the opposing vehicles without body contact.",
+  "data_limitations": "Future waypoints were missing from the actor data, necessitating the use of linear extrapolation from current speed and heading for the safety assessment."
+ }
+}

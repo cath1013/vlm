@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 20.21,
+ "usage": {
+  "input": 7243,
+  "output": 462
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors maintain safe lateral or longitudinal separation as they enter and traverse the junction area.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle and northbound vehicles like V001 pass each other in separate lanes with over 1.5m of clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle continues south, passing stopped or slow northbound vehicles like V002 with safe clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle and truck T003 pass each other with a predicted clearance of 1.1m, which is tight but sufficient for opposing lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles follow their predicted trajectories without any overlapping waypoints or clearance violations.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario depicts a busy junction with vehicles moving in all cardinal directions. The primary interactions involve the Southbound ego vehicle and its follower passing Northbound traffic (V001, V002, T003) on the same road; the lateral clearance between these opposing flows remains above 1.1m at all times. Crossing traffic and pedestrians are either sufficiently far away or their timing through the junction does not coincide with the ego vehicle's path.",
+  "data_limitations": "Vehicle V007 has a truncated or static future path that holds at a single coordinate, and P005 is classified as a person but moving at 11 kph, though neither affects the safety assessment."
+ }
+}

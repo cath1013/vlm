@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 59.1,
+ "usage": {
+  "input": 9170,
+  "output": 433
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors including EGO_other_vehicle_behind and EGO_ego_vehicle_behind are timed to pass through the junction without contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and other moving actors maintain safe lateral clearance from pedestrians on the side of Road 17.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles continue on their predicted paths with increasing or stable longitudinal separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No crossing paths or dangerous proximity is predicted between the active road users in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The actors have successfully navigated the main conflict points and are moving away from each other.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene describes a busy intersection where vehicles and pedestrians are moving according to their lane and path intentions. EGO_other_vehicle_behind and EGO_ego_vehicle_behind cross the same junction area around t=6.5-7.0s, but they are timed such that they maintain a clearance of approximately 0.5-0.7m. Other actors, including several pedestrians on the roadside, are well-separated from the vehicle trajectories.",
+  "data_limitations": "Future waypoints were truncated for all actors, so future positions were estimated using current velocity, acceleration, and heading."
+ }
+}

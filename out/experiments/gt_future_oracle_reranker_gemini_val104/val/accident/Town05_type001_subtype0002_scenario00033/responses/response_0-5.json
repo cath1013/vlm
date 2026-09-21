@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 21.07,
+ "usage": {
+  "input": 10366,
+  "output": 422
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The closest predicted interaction is between EGO_other_vehicle and V012 in adjacent lanes with a 0.47m clearance and no body contact.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are maintaining their respective lane-keeping or stopped states with no converging trajectories suggesting a conflict.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected movements for the north-bound and west-bound actor groups show sufficient temporal separation at the junction.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The active actors continue to follow stable paths with safe longitudinal and lateral margins.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No hazardous path intersections or clearance violations are indicated as actors continue their current maneuvers or remain stationary.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scene consists of several vehicles and pedestrians navigating what appears to be a complex junction. While some vehicles, such as EGO_other_vehicle and V012, are operating in close lateral proximity, they are in separate lanes and maintain positive clearance. No physical contact is predicted across the 5-second horizon as all actors follow consistent paths or remain safely stopped.",
+  "data_limitations": "Future waypoints for all actors are only provided for the first 1-second interval, necessitating linear projection for the later intervals."
+ }
+}

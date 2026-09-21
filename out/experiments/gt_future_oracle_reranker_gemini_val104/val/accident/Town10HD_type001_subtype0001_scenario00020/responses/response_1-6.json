@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 27.01,
+ "usage": {
+  "input": 7457,
+  "output": 463
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and V015 are moving in opposite directions in separate lanes, and the cluster of vehicles on Road 20 remains stopped.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle is initiating a turn into Road 20 into a clear lane, while other dynamic actors maintain safe lateral separation.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The paths of active actors do not intersect in a manner that suggests low time-to-collision or body contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Stationary vehicles like EGO_ego_vehicle and N001 do not present a hazard to the diverging trajectories of the moving vehicles.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles continue to follow their respective lanes or remain stopped, with no predicted overlap of footprints.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves a busy junction with several stationary vehicles and several dynamic actors moving in parallel or opposing lanes. Based on the 5-second history, EGO_other_vehicle and V015 are using adjacent lanes of a north-south thoroughfare without conflict, and EGO_other_vehicle's intended left turn into Road 20 appears to be into a clear lane ahead of the stopped westbound queue.",
+  "data_limitations": "The future waypoints for all moving actors are empty (truncated), which limits the ability to perform precise geometric intersection checks beyond linear extrapolation of the current state."
+ }
+}

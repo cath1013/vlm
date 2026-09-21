@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 13.71,
+ "usage": {
+  "input": 7168,
+  "output": 438
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle_behind and V009 pass each other in opposite directions with a narrow but safe clearance of 0.44m at t=5.3s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors in the junction maintain sufficient separation as they follow their predicted paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle converge slightly but maintain over 5m of clearance.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle safely passes several stopped vehicles on Road 11 with nearly 1m of clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected trajectories for the remaining actors indicate they are continuing away from potential conflict points.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple vehicles navigating a junction area. While there are tight passes, notably between EGO_ego_vehicle_behind and V009 (0.44m) and EGO_other_vehicle passing stopped traffic, the provided trajectory data and clearance calculations do not show any physical contact or overlap. EGO_ego_vehicle is decelerating significantly, which contributes to a safer resolution of the intersection traffic.",
+  "data_limitations": "Traffic signal states and lane markings are not provided, which limits the assessment of right-of-way."
+ }
+}

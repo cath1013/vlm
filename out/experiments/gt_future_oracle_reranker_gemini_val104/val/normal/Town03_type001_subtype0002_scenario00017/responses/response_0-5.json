@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 28.08,
+ "usage": {
+  "input": 11413,
+  "output": 576
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle passes stopped opposing traffic (V001) with adequate lateral separation in a different lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted clearance remains positive as EGO_ego_vehicle continues Eastbound and Northbound traffic (V027) follows its lane.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle_behind and other users like P016 maintain safe distance through deceleration and distinct lane paths.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and EGO_ego_vehicle_behind approach the same intersection area but remain over 1.4m apart based on projected waypoints.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are projected to remain stopped or continue slow, controlled movement without path intersection.",
+    "confidence": "low"
+   }
+  ],
+  "overall_assessment": "The traffic scenario involves multiple vehicles and pedestrians navigating an intersection. EGO_ego_vehicle and its following vehicle maintain safe lateral separation from stopped opposing traffic and crossing pedestrians, while Northbound vehicles show strong deceleration or stop before conflicting with Eastbound paths.",
+  "data_limitations": "Future waypoints for most actors are only provided up to 4 seconds (k=4), requiring extrapolation for the final interval. Some actors like V022 and V008 have truncated paths with no waypoints."
+ }
+}

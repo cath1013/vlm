@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 16.65,
+ "usage": {
+  "input": 11830,
+  "output": 453
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle and its followers are maintaining stable longitudinal spacing and lane positions.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The ego vehicle passes the stopped vehicle V020 in an adjacent lane with a small but positive physical clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No projected paths or extrapolated headings indicate crossing or contact conflicts between any active road users.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles continue on established routes with safe separation distances.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There is no evidence of sudden changes in actor behavior that would lead to a collision in this interval.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scene shows a stable flow of southbound traffic on Road 565 and Road 703, with the ego vehicle and its followers (EGO_ego_vehicle_behind and V015) maintaining safe spacing. While the ego vehicle passes very close to a stopped vehicle (V020) at approximately k=2, the lateral separation is sufficient to avoid contact, and no other significant trajectory overlaps are detected.",
+  "data_limitations": "Future path waypoints are truncated after two seconds (k=2) for most actors, requiring extrapolation for the remaining intervals."
+ }
+}

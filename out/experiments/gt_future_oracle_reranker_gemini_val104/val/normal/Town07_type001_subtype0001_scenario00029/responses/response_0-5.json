@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 10.98,
+ "usage": {
+  "input": 8074,
+  "output": 461
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles are following their lane trajectories with sufficient longitudinal and lateral separation as they approach the junction.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles continue to move along their predicted paths with no significant reduction in clearance or overlapping trajectories.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The actors are maintaining their lanes, and the predicted clearances between the observer vehicles and other road users remain stable.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle passes the stopped vehicle V001 with a narrow but positive clearance of 0.36m, indicating a close pass rather than a collision.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No predicted paths or interpolated trajectories show body contact or overlap during this interval.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves several vehicles and bicycles navigating a complex junction where Road 20, Road 21, and Road 11 meet. While EGO_ego_vehicle executes a maneuver that brings it very close to stopped vehicles in the queue (specifically V001 and V002), the predicted clearances remain positive throughout the window, and all other actors maintain safe distances.",
+  "data_limitations": "Several actor paths are truncated, which limits long-term visibility beyond the 4-second prediction horizon."
+ }
+}

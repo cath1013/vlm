@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_3-8.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 12.65,
+ "usage": {
+  "input": 8994,
+  "output": 398
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles maintain safe lateral and longitudinal clearance as they navigate the junction, with several vehicles decelerating or stopped.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No immediate conflicts are observed as the primary moving actors are following clear paths or slowing down.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Safe separation distances are maintained based on current headings and speeds.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected paths do not indicate any convergence or overlap between active and stationary road users.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles continue on their intended trajectories with no evidence of impending collision.",
+    "confidence": "low"
+   }
+  ],
+  "overall_assessment": "The scenario involves a high density of actors at a junction, but most are either stopped or moving at low speeds with clear separation. EGO_ego_vehicle and EGO_other_vehicle pass within 1.24m of each other safely, and EGO_other_vehicle_behind is decelerating appropriately behind the stopped EGO_other_vehicle.",
+  "data_limitations": "Future waypoints are truncated to 1 second for most actors, limiting the precision of long-range spatial predictions."
+ }
+}

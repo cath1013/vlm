@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 14.25,
+ "usage": {
+  "input": 6806,
+  "output": 455
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles and pedestrians are moving in their respective lanes or remaining stopped with sufficient lateral and longitudinal separation.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The primary moving actors (EGO_ego_vehicle and EGO_ego_vehicle_behind) are travelling in the same lane with the leading vehicle at a higher speed, maintaining safety.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors continue on their trajectories without any predicted convergence or crossing conflicts.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Pedestrians (P009, P006) are located well away from the vehicle travel paths on Road 16.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No intersection conflicts are identified as the vehicles remain in parallel lanes or separated by significant distance.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves several stationary vehicles and a few actors moving north/south on a multi-lane road (Road 16). EGO_ego_vehicle and EGO_ego_vehicle_behind are following each other northbound at healthy speeds (30-40 kph) with no evidence of closing the gap. Other actors are either stopped or moving in opposite/parallel lanes with no predicted path overlaps.",
+  "data_limitations": "Future waypoints for the EGO vehicles and several other actors are missing, but their current speeds and maneuvers ('straight', 'accelerating') suggest stable trajectories."
+ }
+}

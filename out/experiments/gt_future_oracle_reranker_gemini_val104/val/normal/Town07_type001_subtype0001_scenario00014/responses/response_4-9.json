@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 42.69,
+ "usage": {
+  "input": 7546,
+  "output": 467
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are currently separated by sufficient distance and are following non-conflicting headings as they navigate the intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "While EGO_other_vehicle and pedestrian P015 approach each other, their significant difference in lateral offsets indicates they are in separate lanes or on a sidewalk.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected trajectories based on current speeds and maneuvers show no body overlap or path conflicts among moving actors.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Traffic remains clear as EGO_other_vehicle completes its turn and EGO_ego_vehicle continues its slow northbound progress.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All road users maintain safe separation based on their observed headings and intended maneuvers.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves a complex intersection with multiple stopped vehicles and several slow-moving actors. Analysis of the trajectories of EGO_other_vehicle (making a left turn) and P015 (a pedestrian) shows they pass each other with over 4 metres of lateral separation, likely representing a lane-to-sidewalk or lane-to-lane distinction. No other moving actors, including the faster-moving V019, have trajectories that intersect with others during the prediction window.",
+  "data_limitations": "The future_paths waypoints were empty, requiring the use of manual trajectory projection from the current state (position, heading, and speed) and maneuver intent."
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 13.53,
+ "usage": {
+  "input": 11750,
+  "output": 479
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Moving vehicles EGO_ego_vehicle and EGO_ego_vehicle_behind are maintaining safe separation and moving away from stationary vehicles like V017.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle is accelerating into its left turn with no immediate obstructions in its path.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle passes the stationary truck T001 with a predicted minimum clearance of 0.53m, which remains a non-contact event.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind completes its right turn onto Road 14 while maintaining clearance from stationary vehicle T003 and pedestrian P010.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving actors are on trajectories that do not intersect with stationary or slow-moving road users in the vicinity.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene contains several turning maneuvers by observer vehicles near stationary trucks and cars. While EGO_other_vehicle passes very close to the stationary truck T001 at approximately 2.6 seconds after the observation window, the predicted geometry suggests they maintain a small but positive clearance, avoiding an accident. Other vehicles like EGO_ego_vehicle and EGO_other_vehicle_behind are following clear paths without significant conflicts.",
+  "data_limitations": ""
+ }
+}

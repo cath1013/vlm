@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 56.24,
+ "usage": {
+  "input": 9312,
+  "output": 552
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All moving vehicles, including EGO_other_vehicle passing the stopped V002, are predicted to maintain positive clearance while others remain stopped at the junction.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles continue on their predicted paths or remain stopped without any projected physical intersections or body overlaps.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Safe separation is maintained as moving actors follow established trajectories and stationary actors show no signs of movement.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No trajectory conflicts are observed in the extrapolated paths, with actors maintaining their lanes or remaining stopped.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Orderly traffic flow is expected to continue through the junction with no evidence of impending collisions.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves a complex multi-road junction with several vehicles and pedestrians. Most actors are either stopped at the intersection or moving along non-conflicting paths in adjacent lanes, and while some clearances are narrow (notably EGO_other_vehicle passing V002), no physical contact is predicted.",
+  "data_limitations": "The future path waypoints for actors are only provided for the first two seconds, requiring extrapolation for the final three seconds of the prediction window."
+ }
+}

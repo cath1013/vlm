@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 15.63,
+ "usage": {
+  "input": 12831,
+  "output": 388
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors maintain safe lateral and longitudinal separation as they navigate the intersection or remain stopped.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles and pedestrians follow their predicted paths with sufficient clearance between them.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Observed trajectories and future waypoints indicate no projected overlap or contact between any active participants.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Participants continue along divergent paths or remain stationary, precluding physical contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Stable speeds and positions at the end of the predicted window suggest a continuation of the safe traffic state.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The intersection environment is dominated by several stationary vehicles and a few actors moving at low-to-moderate speeds (EGO vehicles and pedestrians). All predicted minimum clearances between actor pairs remain positive throughout the available future waypoints, and primary moving vehicles are either maintaining safe following distances or traveling on non-conflicting paths.",
+  "data_limitations": "Future path predictions for most vehicles are truncated at 3 seconds, requiring extrapolation for the final two intervals (k=4 and k=5)."
+ }
+}

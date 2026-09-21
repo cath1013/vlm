@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 17.27,
+ "usage": {
+  "input": 7212,
+  "output": 453
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Moving vehicles are maintaining lane discipline with sufficient lateral clearance while others remain stopped.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected trajectories for moving vehicles continue in separate lanes, and stationary vehicles remain stopped.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Traffic flow remains stable with no intersecting paths or dangerously low time-to-collision values.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No evidence of sudden maneuvers or path deviations that would lead to body contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles remain clear of each other as they either follow their lanes or remain stationary.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple vehicles and motorcycles on Road 17 and Road 903. A majority of the other road users (V001, V002, M003, M005, M009, etc.) are stopped in their respective lanes. The moving observer vehicles (EGO_ego_vehicle, EGO_other_vehicle) are traveling eastbound at approximately 33-35 kph, while opposing traffic (M004) is moving slowly westbound. All predicted clearances remain above 1.4 metres, and lateral offsets confirm vehicles are properly separated in 3.5m-wide lanes.",
+  "data_limitations": "Future waypoints for all actors are truncated after the first 1-second interval (k=1)."
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 28.63,
+ "usage": {
+  "input": 10378,
+  "output": 623
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe lateral and longitudinal clearance as they navigate the junction, with the closest pair being EGO_other_vehicle and V003 passing at 5.44m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and V015 pass through the same proximity without conflict, maintaining a minimum clearance of 4.32m.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Trajectories for vehicles like V012 and EGO_other_vehicle_behind are divergent or in parallel lanes, keeping a clearance over 8m.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V015 and EGO_other_vehicle_behind reach a minimum proximity of 1.34m while traveling in parallel lanes, which does not constitute a collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles continue on their predicted trajectories with increasing separation as they clear the immediate area of the junction.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scene involves several vehicles crossing a junction and moving in parallel along Road 1 and Road 712. While multiple vehicles (EGO_ego_vehicle, V015, EGO_other_vehicle_behind) pass near each other, the predicted minimum clearances remain positive and the vehicles are established in separate lanes or different time windows at the same spatial points. No physical contact or hazardous encroachment is predicted.",
+  "data_limitations": "Future waypoints for several actors are truncated after 4.0 seconds, requiring trajectory extrapolation to assess the final 1-second interval."
+ }
+}

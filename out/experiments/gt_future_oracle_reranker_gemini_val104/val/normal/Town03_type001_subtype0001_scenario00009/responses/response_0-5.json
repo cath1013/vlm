@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 19.12,
+ "usage": {
+  "input": 10099,
+  "output": 391
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are maintaining safe longitudinal and lateral separation while following their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles and pedestrians are moving on non-conflicting paths with sufficient clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted paths show no convergence or physical overlap between the primary vehicles or pedestrians.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle pass each other with a predicted clearance of approximately 1.24m.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles continue on divergent or parallel paths, and speeds suggest stable traffic flow without collision risk.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The observed traffic environment consists of several vehicles moving in opposite directions on an East-West corridor, with pedestrians and stationary vehicles positioned well away from the primary travel lanes. No collisions are expected as the predicted trajectories for all actors maintain a positive physical clearance throughout the 5-second prediction window.",
+  "data_limitations": "Future waypoints for several actors are truncated after 4 seconds (k=4), requiring extrapolation to assess the final 1-second interval."
+ }
+}

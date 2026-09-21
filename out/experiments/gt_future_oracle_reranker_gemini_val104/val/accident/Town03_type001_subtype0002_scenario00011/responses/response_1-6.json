@@ -1,0 +1,72 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 47.95,
+ "usage": {
+  "input": 8168,
+  "output": 747
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "EGO_other_vehicle (eastbound) and EGO_ego_vehicle_behind (southbound) are on a collision course at the intersection of Road 800 and Road 743, with a predicted center-to-center distance of 0.9 metres at t=6.4s.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in a state of collision at the junction after the initial impact in the first interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in a state of collision at the junction after the initial impact in the first interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in a state of collision at the junction after the initial impact in the first interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": true,
+    "involved_actor_ids": [
+     "EGO_other_vehicle",
+     "EGO_ego_vehicle_behind"
+    ],
+    "reason": "The vehicles remain in a state of collision at the junction after the initial impact in the first interval.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "A severe orthogonal collision is predicted at the junction of Road 800 and Road 743 at approximately t=6.4s. EGO_other_vehicle (moving northeast at 31 kph) and EGO_ego_vehicle_behind (moving south at 37 kph) arrive at the same spatial point almost simultaneously with no evidence of emergency braking in the current observation, resulting in a significant body overlap.",
+  "data_limitations": "The future_paths for the observer vehicles were truncated with no waypoints, requiring manual extrapolation of their trajectories based on current velocity, acceleration, and heading."
+ }
+}

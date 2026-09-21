@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 9.85,
+ "usage": {
+  "input": 7624,
+  "output": 414
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The active vehicles are maintaining their lanes and current trajectories without any predicted intersection of their future paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_ego_vehicle_behind are traveling northward while other moving vehicles have already cleared or are traveling away from their path.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Moving actors are separating in distance, and pedestrian P009 is moving at a low speed away from the primary vehicle lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no converging trajectories or sudden maneuvers indicated in the history that would lead to a collision.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles continue to follow established road paths with sufficient clearance between them.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario depicts a standard traffic flow at an intersection with several stationary vehicles and a few active actors (EGO_ego_vehicle, EGO_other_vehicle, etc.) moving along orthogonal paths. History shows consistent lane-keeping and acceleration/deceleration patterns that avoid conflict, and no predicted contact points were identified.",
+  "data_limitations": "Future waypoints for several actors were truncated in the provided data, requiring extrapolation from history."
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 53.41,
+ "usage": {
+  "input": 6537,
+  "output": 590
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle pass through the intersection safely with several metres of clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle passes the stopped vehicle V001 with over 1.1 metres of clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The potential contact between EGO_other_vehicle and EGO_ego_vehicle_behind is rejected because the turning vehicle is decelerating and has mutual awareness of the oncoming car.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles are proceeding away from the intersection on their respective paths without further crossing conflicts.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles have cleared the junction area and maintain safe distances.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene involves multiple vehicles navigating a junction. The primary potential conflict is a left-turning car (EGO_other_vehicle) crossing the path of oncoming traffic (EGO_ego_vehicle_behind); however, the turning vehicle is decelerating significantly and both actors maintain mutual observation, indicating a safe yielding maneuver. Other interactions involve moving vehicles passing stopped cars with sufficient lateral clearance.",
+  "data_limitations": "The future path for EGO_other_vehicle contains an unrealistic acceleration jump (from 11 kph to 35 kph during a left turn) that contradicts its observed deceleration, resulting in a false-positive contact prediction."
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 17.22,
+ "usage": {
+  "input": 9448,
+  "output": 587
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle is decelerating significantly as it enters the junction, maintaining safe clearance from crossing pedestrians and vehicles.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles and pedestrians are moving on diverging or parallel paths within the intersection with lateral separations exceeding 5 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Northbound actors V014 and EGO_ego_vehicle_behind are maintaining a stable following distance while traversing Road 20.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted clearance between EGO_other_vehicle_behind and pedestrian P012 remains positive as they pass through the junction area.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Projected trajectories suggest all actors remain within their lanes or on safe paths without any imminent collisions.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scene depicts a busy multi-way intersection with several observer vehicles, other cars, and pedestrians. While EGO_ego_vehicle is decelerating sharply and other vehicles are resuming motion or turning, all predicted paths show maintained clearance above 2 metres, and no physical contact is projected between any pair of actors. The systematic deceleration and clear directional trends indicate a controlled traffic environment.",
+  "data_limitations": "The future path for EGO_other_vehicle is labeled 'remains stopped' but its waypoints show a significant Northbound trajectory, which required prioritizing the coordinate data over the maneuver label."
+ }
+}

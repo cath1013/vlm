@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 18.77,
+ "usage": {
+  "input": 10256,
+  "output": 479
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe following distances and lateral separation as they approach or wait at the intersection.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle begins its left turn from Road 88 onto Road 26 with sufficient clearance from stationary or slowing vehicles.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle passes the front of EGO_ego_vehicle with a minimum clearance of 0.46m, but no physical contact is predicted.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle continues its turn, passing EGO_ego_vehicle_behind with a tight 0.33m clearance that does not result in a collision.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicle trajectories diverge as EGO_other_vehicle completes its turn and other vehicles remain stopped or move slowly.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves a complex intersection interaction where several vehicles (EGO_ego_vehicle, EGO_ego_vehicle_behind, and EGO_other_vehicle) converge. While EGO_other_vehicle executes a turn that brings it within 0.33m-0.46m of the westbound vehicles, the deceleration patterns in the history and the mutual observation status suggest the drivers are navigating the junction carefully. No physical contact is predicted by the geometric analysis of the supplied future paths.",
+  "data_limitations": "Future paths for many vehicles are truncated to 4 seconds, requiring slight extrapolation for the final 1-second interval."
+ }
+}

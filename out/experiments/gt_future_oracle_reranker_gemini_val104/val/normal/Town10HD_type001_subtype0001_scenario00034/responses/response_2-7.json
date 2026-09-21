@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 21.86,
+ "usage": {
+  "input": 9010,
+  "output": 568
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and V010 are moving in adjacent lanes with a predicted minimum clearance of 1.57m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "V004 is decelerating significantly as it approaches the stationary EGO_other_vehicle_behind, maintaining a 4.43m gap.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Active actors like V011 and EGO_other_vehicle are on diverging or parallel paths with no predicted intersection.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Extrapolated trajectories indicate that decelerating vehicles will come to a halt before reaching stationary road users.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Maintaining current headings and speeds results in no physical contact across all observed and predicted paths.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The traffic environment shows a high level of order, with several vehicles stopped and others moving at moderate speeds or decelerating appropriately. Small predicted clearances, such as between EGO_ego_vehicle and V010, are consistent with standard lane-adjacent driving, and no actor paths show evidence of collision or unsafe TTC.",
+  "data_limitations": "Future paths for several actors are truncated or only provide two seconds of waypoints, requiring extrapolation for the final three prediction intervals."
+ }
+}

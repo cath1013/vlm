@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_4-9.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 17.7,
+ "usage": {
+  "input": 11151,
+  "output": 591
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors are maintaining safe separation distances as they navigate the junction, with several vehicles decelerating or already stopped.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle is decelerating significantly and is expected to come to a stop or near-stop before any conflict points.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Potential crossing actors like N003 and P008 remain far enough from the ego vehicles' projected positions to avoid any contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(12.0, 13.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The intersection remains clear of collisions as the most likely moving actors are traveling away from each other or staying in their lanes.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(13.0, 14.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors are either stationary or have safely passed through the immediate conflict zones without evidence of path overlap.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene depicts a complex multi-road junction with high vehicle and pedestrian density, but the majority of road users are either stationary or exhibiting controlled deceleration. EGO_ego_vehicle and EGO_other_vehicle are both slowing down as they approach the center of the junction, and the extrapolated paths of moving users like N003 and pedestrian P008 do not intersect with the ego vehicles within a dangerous time-to-collision window.",
+  "data_limitations": "Future path waypoints were truncated/empty, requiring kinematic extrapolation based on current speed, acceleration, and heading."
+ }
+}

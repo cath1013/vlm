@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 10.56,
+ "usage": {
+  "input": 5529,
+  "output": 453
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and T001 pass each other closely at the junction with a minimum clearance of 0.37m, but no physical contact is predicted.",
+    "confidence": "medium"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles maintain safe separations as they navigate the intersection area and follow their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind and EGO_ego_vehicle_behind approach the same region but maintain a clearance of 0.53m without contact.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted trajectories show actors diverging or maintaining sufficient distance as they exit the main conflict points.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No projected path intersections suggest any late-stage collisions as the actors complete their maneuvers.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple vehicles and pedestrians at a complex junction. While several actors (notably EGO_other_vehicle/T001 and EGO_other_vehicle_behind/EGO_ego_vehicle_behind) come within less than a metre of each other, the interpolated footprint analysis indicates no physical contact or body overlap will occur. Deceleration in the history for most actors further suggests they are navigating the junction with caution.",
+  "data_limitations": "Some future paths are truncated or use off-candidate models, requiring reliance on clearance trends rather than full trajectory geometry for the later intervals."
+ }
+}

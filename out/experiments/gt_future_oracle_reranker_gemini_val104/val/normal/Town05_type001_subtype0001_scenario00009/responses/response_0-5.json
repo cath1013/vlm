@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 14.71,
+ "usage": {
+  "input": 11693,
+  "output": 479
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle performs a left turn past the stopped EGO_other_vehicle with a tight but safe predicted clearance of 0.69m.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle_behind and EGO_other_vehicle maintain longitudinal separation while traveling southbound in their respective lanes.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actor trajectories remain on non-conflicting paths as they move through the intersection or remain stopped.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Predicted clearance between EGO_ego_vehicle_behind and EGO_other_vehicle remains positive at 1.41m as they navigate the junction.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles are either stopped at the intersection or have exited the immediate conflict zones with no path intersections predicted.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario depicts a busy intersection where several vehicles (EGO_other_vehicle, V001-V003, V036-V037) are stopped or moving slowly, likely due to traffic control. EGO_ego_vehicle and EGO_other_vehicle_behind are the primary moving actors, and while they pass very close to the stopped vehicles, the predicted clearances remain positive across all intervals, indicating a safe navigation of the junction.",
+  "data_limitations": ""
+ }
+}

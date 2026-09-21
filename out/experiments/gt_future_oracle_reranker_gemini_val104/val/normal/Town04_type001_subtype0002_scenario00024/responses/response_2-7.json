@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_2-7.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 10.12,
+ "usage": {
+  "input": 9753,
+  "output": 568
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle is performing a left turn and passes EGO_ego_vehicle with a predicted clearance of 0.46m, maintaining a safe gap.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle continues its turn and passes EGO_ego_vehicle_behind with a tight but non-colliding clearance of 0.33m.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle has moved past the stopped vehicles, and no other actor paths intersect or indicate conflict.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All potentially conflicting vehicles are either stopped or have moved into clear paths away from other traffic.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(11.0, 12.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Traffic flow remains orderly with the ego vehicles stopped and others maintaining their predicted non-overlapping paths.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene describes a typical intersection or traffic queue where multiple vehicles (including EGO_ego_vehicle and EGO_ego_vehicle_behind) are stopped. EGO_other_vehicle performs a left turn that brings it close to the stopped queue, with minimum predicted clearances of approximately 0.33-0.46 metres, but the geometry and predictor confirm no actual contact is expected.",
+  "data_limitations": ""
+ }
+}

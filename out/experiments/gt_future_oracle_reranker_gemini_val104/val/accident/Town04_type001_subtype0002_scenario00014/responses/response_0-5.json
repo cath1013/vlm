@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 15.33,
+ "usage": {
+  "input": 10358,
+  "output": 394
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle maintain their lanes while passing stopped vehicles and pedestrians with sufficient lateral clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Actors continue along their straight trajectories, further increasing separation from stationary objects.",
+    "confidence": "medium"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No crossing paths are predicted as the primary actors move away from the junction area.",
+    "confidence": "medium"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles and pedestrians are established in separate lanes or road segments, avoiding conflict.",
+    "confidence": "medium"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "There are no indications of lane changes or sudden maneuvers that would lead to body contact.",
+    "confidence": "medium"
+   }
+  ],
+  "overall_assessment": "The scenario involves multiple vehicles (EGO_ego_vehicle, EGO_other_vehicle, etc.) and pedestrians navigating a junction or multi-road intersection. All actors are observed either maintaining their lanes at steady speeds or remaining stationary, and the predicted closest pairs confirm that minimum clearances remain positive throughout the immediate future.",
+  "data_limitations": "Future paths are truncated after 1 second, requiring extrapolation for intervals k=2 through k=5 based on the observed constant velocity and heading."
+ }
+}

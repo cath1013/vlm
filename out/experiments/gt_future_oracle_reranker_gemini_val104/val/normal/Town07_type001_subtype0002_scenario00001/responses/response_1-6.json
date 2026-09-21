@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_1-6.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 22.47,
+ "usage": {
+  "input": 7297,
+  "output": 416
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain safe distances and several are stopped or slowing as they approach the junction.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and EGO_other_vehicle cross paths with a minimum clearance of 0.5m but no physical contact is predicted as EGO_other_vehicle decelerates.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "Vehicles that were in potential conflict have moved past each other or remain stopped.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "No crossing paths or insufficient clearances are observed for any active actors in this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(10.0, 11.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "The vehicles continue on their predicted paths or remain stopped without any expected collisions.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scene involves several vehicles interacting at a multi-way junction. Although EGO_ego_vehicle and EGO_other_vehicle have intersecting paths in the second future interval (k=2), EGO_other_vehicle's significant deceleration and the predicted 0.5m clearance prevent a collision. All other road users are either stopped or maintain ample clearance.",
+  "data_limitations": "Future waypoints for some vehicles are truncated or follow off-candidate paths, reducing prediction certainty for later intervals."
+ }
+}

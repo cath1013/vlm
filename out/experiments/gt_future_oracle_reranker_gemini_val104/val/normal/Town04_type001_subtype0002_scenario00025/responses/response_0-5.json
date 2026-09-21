@@ -1,0 +1,57 @@
+{
+ "payload": "llm_payload_0-5.json",
+ "provider": "gemini",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+ "elapsed_s": 52.32,
+ "usage": {
+  "input": 13205,
+  "output": 443
+ },
+ "response_issues": [],
+ "answer": {
+  "predictions": [
+   {
+    "k": 1,
+    "interval_s": "(5.0, 6.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle and T001 pass each other in opposing lanes with a lateral clearance of approximately 1.1 metres.",
+    "confidence": "high"
+   },
+   {
+    "k": 2,
+    "interval_s": "(6.0, 7.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_other_vehicle continues Eastbound, passing stopped vehicle V002 in the adjacent lane with safe clearance.",
+    "confidence": "high"
+   },
+   {
+    "k": 3,
+    "interval_s": "(7.0, 8.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All vehicles maintain their lanes and safe longitudinal following distances during this interval.",
+    "confidence": "high"
+   },
+   {
+    "k": 4,
+    "interval_s": "(8.0, 9.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "EGO_ego_vehicle and person P008 have substantial longitudinal separation of nearly 10 metres as they cross paths.",
+    "confidence": "high"
+   },
+   {
+    "k": 5,
+    "interval_s": "(9.0, 10.0]",
+    "accident_expected": false,
+    "involved_actor_ids": [],
+    "reason": "All actors move further from potential conflict points or remain in stopped positions.",
+    "confidence": "high"
+   }
+  ],
+  "overall_assessment": "The scenario depicts safe traffic flow at a junction where vehicles in opposing or crossing lanes maintain standard lateral and longitudinal separation. The predicted contact between EGO_other_vehicle and T001 is a false positive, as their paths are parallel and separated by a full lane width, providing over 1 metre of clearance. EGO_ego_vehicle crosses the paths of crossing actors only after they have safely cleared the intersection area.",
+  "data_limitations": "Future paths for the observer vehicles are truncated at t=9.0s (4 seconds after observation), requiring slight extrapolation to confirm the safety of the final interval (k=5)."
+ }
+}
