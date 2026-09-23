@@ -1,0 +1,128 @@
+{
+ "window": {
+  "index": 4,
+  "label": "4-9",
+  "t_start_s": 4.0,
+  "t_end_s": 9.0,
+  "n_snapshots": 11
+ },
+ "scenario": {
+  "ref": "scn_2be0341bfc46",
+  "id": "type1_subtype2_accident/Town05_type001_subtype0002_scenario00036",
+  "split": "type1_subtype2_accident",
+  "town": "Town05"
+ },
+ "config": {
+  "window_s": 5.0,
+  "stride_s": 1.0,
+  "horizon_s": 5.0,
+  "bucket_rule": "k번째 구간 = 마지막 관측 시점 이후 (k-1, k] 초"
+ },
+ "collision": {
+  "occurred": true,
+  "carla_ids": [
+   4246,
+   4249
+  ],
+  "classes": [
+   "truck",
+   "truck"
+  ],
+  "agent_roles": [
+   "ego_behind",
+   "other_behind"
+  ],
+  "frame": 93,
+  "time_s": 9.2,
+  "min_distance_m": 5.532,
+  "intensity": 9090.520098017545,
+  "estimation_method": "trajectory"
+ },
+ "time_to_collision_from_window_end_s": 0.2,
+ "expected": [
+  {
+   "k": 1,
+   "interval_s": "(9, 10]",
+   "interval_start_s": 9.0,
+   "interval_end_s": 10.0,
+   "accident_expected": true,
+   "involved_vehicles": [
+    {
+     "carla_id": 4246,
+     "actor_ids": [
+      "EGO_ego_vehicle_behind"
+     ],
+     "observed_in_window": true
+    },
+    {
+     "carla_id": 4249,
+     "actor_ids": [
+      "EGO_other_vehicle_behind"
+     ],
+     "observed_in_window": true
+    }
+   ],
+   "involved_actor_ids": [
+    "EGO_ego_vehicle_behind",
+    "EGO_other_vehicle_behind"
+   ],
+   "involved_carla_ids": [
+    4246,
+    4249
+   ],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 2,
+   "interval_s": "(10, 11]",
+   "interval_start_s": 10.0,
+   "interval_end_s": 11.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 3,
+   "interval_s": "(11, 12]",
+   "interval_start_s": 11.0,
+   "interval_end_s": 12.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 4,
+   "interval_s": "(12, 13]",
+   "interval_start_s": 12.0,
+   "interval_end_s": 13.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 5,
+   "interval_s": "(13, 14]",
+   "interval_start_s": 13.0,
+   "interval_end_s": 14.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  }
+ ],
+ "notes": [
+  "충돌은 마지막 관측 시점 0.2초 뒤에 일어난다."
+ ]
+}

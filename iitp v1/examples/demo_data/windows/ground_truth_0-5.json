@@ -1,0 +1,108 @@
+{
+ "window": {
+  "index": 0,
+  "label": "0-5",
+  "t_start_s": 0.0,
+  "t_end_s": 5.0,
+  "n_snapshots": 11
+ },
+ "scenario": {
+  "ref": "scn_ceb13907c950",
+  "id": "synthetic/columbus_demo_collision",
+  "split": "synthetic",
+  "town": "Columbus_demo"
+ },
+ "config": {
+  "window_s": 5.0,
+  "stride_s": 1.0,
+  "horizon_s": 5.0,
+  "bucket_rule": "k번째 구간 = 마지막 관측 시점 이후 (k-1, k] 초"
+ },
+ "collision": {
+  "occurred": true,
+  "carla_ids": [
+   101,
+   114
+  ],
+  "classes": [
+   "car",
+   "car"
+  ],
+  "agent_roles": [
+   "V1",
+   "X4"
+  ],
+  "frame": 149,
+  "time_s": 14.78,
+  "min_distance_m": 0.085,
+  "intensity": null,
+  "estimation_method": "scripted"
+ },
+ "time_to_collision_from_window_end_s": 9.78,
+ "expected": [
+  {
+   "k": 1,
+   "interval_s": "(5, 6]",
+   "interval_start_s": 5.0,
+   "interval_end_s": 6.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 2,
+   "interval_s": "(6, 7]",
+   "interval_start_s": 6.0,
+   "interval_end_s": 7.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 3,
+   "interval_s": "(7, 8]",
+   "interval_start_s": 7.0,
+   "interval_end_s": 8.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 4,
+   "interval_s": "(8, 9]",
+   "interval_start_s": 8.0,
+   "interval_end_s": 9.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  },
+  {
+   "k": 5,
+   "interval_s": "(9, 10]",
+   "interval_start_s": 9.0,
+   "interval_end_s": 10.0,
+   "accident_expected": false,
+   "involved_vehicles": [],
+   "involved_actor_ids": [],
+   "involved_carla_ids": [],
+   "unobserved_carla_ids": [],
+   "all_involved_observed": true
+  }
+ ],
+ "notes": [
+  "충돌은 예측 구간(5초) 밖 9.8초 뒤에 일어난다 — 전 구간 정답은 '사고 없음'.",
+  "충돌 주체 중 [114] 는 이 윈도우에서 관측되지 않았다 — LLM 이 이름을 댈 수 없으므로 차량 지목 정확도 채점에서 감안해야 한다."
+ ]
+}

@@ -1,0 +1,196 @@
+{
+ "scenario": {
+  "ref": "scn_2be0341bfc46",
+  "id": "type1_subtype2_accident/Town05_type001_subtype0002_scenario00036",
+  "split": "type1_subtype2_accident",
+  "town": "Town05"
+ },
+ "config": {
+  "window_s": 5.0,
+  "stride_s": 1.0,
+  "horizon_s": 5.0,
+  "snapshot_rate_hz": 2.0,
+  "history_stride_s": 1.0,
+  "max_actors": null,
+  "max_actors_effective": [
+   26,
+   27,
+   26,
+   26,
+   24
+  ],
+  "max_closing_pairs": null,
+  "max_closing_pairs_effective": [
+   13,
+   14,
+   13,
+   13,
+   12
+  ],
+  "history_mode": "compact",
+  "language": "en",
+  "provider": "claude",
+  "model": "claude-opus-5",
+  "endpoint": "https://api.anthropic.com/v1/messages",
+  "bucket_rule": "the k-th interval is (k-1, k] seconds after the last observed timestep"
+ },
+ "collision": {
+  "occurred": true,
+  "carla_ids": [
+   4246,
+   4249
+  ],
+  "classes": [
+   "truck",
+   "truck"
+  ],
+  "agent_roles": [
+   "ego_behind",
+   "other_behind"
+  ],
+  "frame": 93,
+  "time_s": 9.2,
+  "min_distance_m": 5.532,
+  "intensity": 9090.520098017545,
+  "estimation_method": "trajectory"
+ },
+ "windows": [
+  {
+   "label": "0-5",
+   "index": 0,
+   "t_start_s": 0.0,
+   "t_end_s": 5.0,
+   "payload": "llm_payload_0-5.json",
+   "ground_truth": "ground_truth_0-5.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 35966
+  },
+  {
+   "label": "1-6",
+   "index": 1,
+   "t_start_s": 1.0,
+   "t_end_s": 6.0,
+   "payload": "llm_payload_1-6.json",
+   "ground_truth": "ground_truth_1-6.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 36985
+  },
+  {
+   "label": "2-7",
+   "index": 2,
+   "t_start_s": 2.0,
+   "t_end_s": 7.0,
+   "payload": "llm_payload_2-7.json",
+   "ground_truth": "ground_truth_2-7.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 36120
+  },
+  {
+   "label": "3-8",
+   "index": 3,
+   "t_start_s": 3.0,
+   "t_end_s": 8.0,
+   "payload": "llm_payload_3-8.json",
+   "ground_truth": "ground_truth_3-8.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 35807
+  },
+  {
+   "label": "4-9",
+   "index": 4,
+   "t_start_s": 4.0,
+   "t_end_s": 9.0,
+   "payload": "llm_payload_4-9.json",
+   "ground_truth": "ground_truth_4-9.json",
+   "has_accident_in_horizon": true,
+   "n_snapshots": 11,
+   "input_chars": 32864
+  }
+ ],
+ "summary": {
+  "n_windows": 5,
+  "n_windows_with_accident": 5,
+  "n_windows_without_accident": 0,
+  "input_chars_max": 36985,
+  "input_chars_mean": 35548,
+  "n_snapshots": 19,
+  "dropped_incomplete": 0,
+  "dropped_after_collision": 0,
+  "data_range_s": [
+   0.0,
+   9.0
+  ]
+ },
+ "output_schema": {
+  "type": "object",
+  "properties": {
+   "predictions": {
+    "type": "array",
+    "description": "Per-1-second-interval predictions. Include every k=1..N **exactly once** — do not repeat or omit a k. This question has N=5 intervals, so return exactly 5 items.",
+    "items": {
+     "type": "object",
+     "properties": {
+      "k": {
+       "type": "integer",
+       "description": "Which 1-second interval after the last observed timestep (starting at 1)"
+      },
+      "interval_s": {
+       "type": "string",
+       "description": "Absolute time interval, e.g. '(8.0, 9.0]'"
+      },
+      "accident_expected": {
+       "type": "boolean",
+       "description": "Do you expect an accident in this interval"
+      },
+      "involved_actor_ids": {
+       "type": "array",
+       "description": "**Actor ids** of the vehicles involved (observer vehicles start with EGO_; others start with V/T/P/N). Not observer names. Empty array if accident_expected is false.",
+       "items": {
+        "type": "string"
+       }
+      },
+      "reason": {
+       "type": "string",
+       "description": "Grounds for the judgement. If no accident, one sentence on why it looks safe."
+      },
+      "confidence": {
+       "type": "string",
+       "enum": [
+        "low",
+        "medium",
+        "high"
+       ]
+      }
+     },
+     "required": [
+      "k",
+      "interval_s",
+      "accident_expected",
+      "involved_actor_ids",
+      "reason",
+      "confidence"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "overall_assessment": {
+    "type": "string",
+    "description": "2-3 sentence summary of the whole window"
+   },
+   "data_limitations": {
+    "type": "string",
+    "description": "Data limitations that affected this judgement, if any. Empty string if none."
+   }
+  },
+  "required": [
+   "predictions",
+   "overall_assessment",
+   "data_limitations"
+  ],
+  "additionalProperties": false
+ }
+}

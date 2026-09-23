@@ -1,0 +1,187 @@
+{
+ "scenario": {
+  "ref": "scn_7c1076301e88",
+  "id": "type1_subtype2_normal/Town05_type001_subtype0002_scenario00036",
+  "split": "type1_subtype2_normal",
+  "town": "Town05"
+ },
+ "config": {
+  "window_s": 5.0,
+  "stride_s": 1.0,
+  "horizon_s": 5.0,
+  "snapshot_rate_hz": 2.0,
+  "history_stride_s": 1.0,
+  "max_actors": null,
+  "max_actors_effective": [
+   26,
+   26,
+   26,
+   27,
+   26
+  ],
+  "max_closing_pairs": null,
+  "max_closing_pairs_effective": [
+   13,
+   13,
+   13,
+   14,
+   13
+  ],
+  "history_mode": "compact",
+  "language": "ko",
+  "provider": "claude",
+  "model": "claude-opus-5",
+  "endpoint": "https://api.anthropic.com/v1/messages",
+  "bucket_rule": "k번째 구간 = 마지막 관측 시점 이후 (k-1, k] 초"
+ },
+ "collision": {
+  "occurred": false,
+  "carla_ids": [],
+  "classes": [],
+  "agent_roles": [],
+  "frame": null,
+  "time_s": null,
+  "min_distance_m": null,
+  "intensity": null,
+  "estimation_method": "none"
+ },
+ "windows": [
+  {
+   "label": "0-5",
+   "index": 0,
+   "t_start_s": 0.0,
+   "t_end_s": 5.0,
+   "payload": "llm_payload_0-5.json",
+   "ground_truth": "ground_truth_0-5.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 25527
+  },
+  {
+   "label": "1-6",
+   "index": 1,
+   "t_start_s": 1.0,
+   "t_end_s": 6.0,
+   "payload": "llm_payload_1-6.json",
+   "ground_truth": "ground_truth_1-6.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 25632
+  },
+  {
+   "label": "2-7",
+   "index": 2,
+   "t_start_s": 2.0,
+   "t_end_s": 7.0,
+   "payload": "llm_payload_2-7.json",
+   "ground_truth": "ground_truth_2-7.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 25867
+  },
+  {
+   "label": "3-8",
+   "index": 3,
+   "t_start_s": 3.0,
+   "t_end_s": 8.0,
+   "payload": "llm_payload_3-8.json",
+   "ground_truth": "ground_truth_3-8.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 26153
+  },
+  {
+   "label": "4-9",
+   "index": 4,
+   "t_start_s": 4.0,
+   "t_end_s": 9.0,
+   "payload": "llm_payload_4-9.json",
+   "ground_truth": "ground_truth_4-9.json",
+   "has_accident_in_horizon": false,
+   "n_snapshots": 11,
+   "input_chars": 25102
+  }
+ ],
+ "summary": {
+  "n_windows": 5,
+  "n_windows_with_accident": 0,
+  "n_windows_without_accident": 5,
+  "input_chars_max": 26153,
+  "input_chars_mean": 25656,
+  "n_snapshots": 20,
+  "dropped_incomplete": 1,
+  "dropped_after_collision": 0,
+  "data_range_s": [
+   0.0,
+   9.5
+  ]
+ },
+ "output_schema": {
+  "type": "object",
+  "properties": {
+   "predictions": {
+    "type": "array",
+    "description": "미래 1초 구간별 예측. k=1..N 을 **각각 정확히 한 번씩** 포함해야 한다 (같은 k 를 두 번 넣거나 빠뜨리지 말 것). 이 질문의 구간 수는 N=5 이므로 항목이 정확히 5개여야 한다.",
+    "items": {
+     "type": "object",
+     "properties": {
+      "k": {
+       "type": "integer",
+       "description": "마지막 관측 시점 이후 몇 번째 1초 구간인가 (1부터)"
+      },
+      "interval_s": {
+       "type": "string",
+       "description": "절대 시각 구간, 예: '(8.0, 9.0]'"
+      },
+      "accident_expected": {
+       "type": "boolean",
+       "description": "이 구간에 사고가 발생할 것으로 보는가"
+      },
+      "involved_actor_ids": {
+       "type": "array",
+       "description": "사고 관련 차량의 **액터 id** (EGO_ 로 시작하는 관측차량 또는 V/T/P/N 등으로 시작하는 주변차량). 관측자 이름이 아니다. accident_expected 가 false 면 빈 배열.",
+       "items": {
+        "type": "string"
+       }
+      },
+      "reason": {
+       "type": "string",
+       "description": "판단 근거. 사고 없음이면 안전하다고 본 이유를 한 문장으로."
+      },
+      "confidence": {
+       "type": "string",
+       "enum": [
+        "low",
+        "medium",
+        "high"
+       ]
+      }
+     },
+     "required": [
+      "k",
+      "interval_s",
+      "accident_expected",
+      "involved_actor_ids",
+      "reason",
+      "confidence"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "overall_assessment": {
+    "type": "string",
+    "description": "윈도우 전체에 대한 2~3문장 요약"
+   },
+   "data_limitations": {
+    "type": "string",
+    "description": "이 판단에 영향을 준 데이터 한계(있으면). 없으면 빈 문자열."
+   }
+  },
+  "required": [
+   "predictions",
+   "overall_assessment",
+   "data_limitations"
+  ],
+  "additionalProperties": false
+ }
+}

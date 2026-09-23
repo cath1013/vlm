@@ -1,0 +1,291 @@
+# 관측 윈도우 3-8 (t=3~8초, 스냅샷 11개)
+배경: 출처 DeepAccident, 지도 Town05, weather=ClearNight, road_type=three-way junction
+마지막 시점 기준 관측차량 4대, 주변차량 22대, 노변 인프라 1기
+
+## 노변 인프라 센서 (V2X, 교통 참여자 아님)
+- infrastructure: 설치높이 3.6m, 이 시각 관측 15건
+
+## 관측 관계 (누가 누구를 인지했는가)
+- ego_vehicle(차량): 12대 인지 | 본체 액터 id EGO_ego_vehicle | 카메라 6대 360° 커버
+- ego_vehicle_behind(차량): 17대 인지 | 단독 인지 N011, T012, V013 | 본체 액터 id EGO_ego_vehicle_behind | 카메라 6대 360° 커버
+- other_vehicle(차량): 16대 인지 | 단독 인지 V017 | 본체 액터 id EGO_other_vehicle | 카메라 6대 360° 커버
+- other_vehicle_behind(차량): 18대 인지 | 본체 액터 id EGO_other_vehicle_behind | 카메라 6대 360° 커버
+- infrastructure(인프라): 15대 인지 | 카메라 6대 360° 커버
+
+## 차량별 시간 경과 (3~8초, 1초 간격)
+### EGO_ego_vehicle (관측차량) — 관측: ego_vehicle,ego_vehicle_behind,other_vehicle,other_vehicle_behind,infrastructure
+   t=    3  (   65.2, -142.1)    57km/h  Road 20 서행 1/1차선 교차로 22m  가속 중
+   t=    4  (   50.2, -141.7)    43km/h  Road 20 서행 1/1차선 교차로 7m  가속 중
+   t=    5  (   42.7, -141.2)     0km/h  Road 2071 서행 1/1차선 교차로 18m  정지
+   t=    6  (   42.4, -141.1)     6km/h  Road 2071 서행 1/1차선 교차로 18m  차선유지
+   t=    7  (   38.5, -139.4)    23km/h  Road 2071 북서행 1/1차선 교차로 12m  차선유지
+   t=    8  (   36.2, -135.2)     1km/h  Road 2071 북행 1/1차선 교차로 5m  정지
+### EGO_ego_vehicle_behind (관측차량) — 관측: ego_vehicle_behind,ego_vehicle,other_vehicle,infrastructure
+   t=    3  (   99.0, -138.6)    29km/h  Road 20 서행 1/1차선 교차로 57m  가속 중
+   t=    4  (   89.6, -140.4)    40km/h  Road 20 서행 1/1차선 교차로 47m  가속 중
+   t=    5  (   77.1, -141.9)    51km/h  Road 20 서행 1/1차선 교차로 35m  가속 중
+   t=    6  (   61.5, -142.1)    58km/h  Road 20 서행 1/1차선 교차로 19m  가속 중
+   t=    7  (   49.1, -141.7)    31km/h  Road 20 서행 1/1차선 교차로 6m  차선유지
+   t=    8  (   44.4, -141.5)     9km/h  Road 20 서행 1/1차선 교차로 2m  차선유지
+### EGO_other_vehicle (관측차량) — 관측: other_vehicle,ego_vehicle,ego_vehicle_behind,other_vehicle_behind,infrastructure
+   t=    3  (   35.1, -145.3)    33km/h  Road 2083 북행 1/1차선 교차로 15m  가속 중
+   t=    4  (   35.1, -136.3)    34km/h  Road 2071 북행 1/1차선 교차로 6m  차선유지
+   t=    5  (   35.1, -127.3)    31km/h  Road 2071 북행 1/1차선 교차로 0m  차선유지
+   t=    6  (   35.1, -125.3)     2km/h  Road 28 북행 2/2차선 교차로 23m  차선유지
+   t=    7  (   35.1, -124.0)     0km/h  Road 28 북행 2/2차선 교차로 21m  정지
+   t=    8  (   35.1, -122.9)     3km/h  Road 28 북행 2/2차선 교차로 20m  차선유지
+### EGO_other_vehicle_behind (관측차량) — 관측: other_vehicle_behind,ego_vehicle,ego_vehicle_behind,other_vehicle,infrastructure
+   t=    3  (   35.0, -169.8)    21km/h  Road 27 북행 2/2차선 교차로 14m  가속 중
+   t=    4  (   35.1, -163.5)    25km/h  Road 27 북행 2/2차선 교차로 8m  가속 중
+   t=    5  (   35.1, -156.2)    28km/h  Road 2065 북행 1/1차선 교차로 18m  가속 중
+   t=    6  (   35.1, -148.0)    28km/h  Road 2065 북행 1/1차선 교차로 11m  차선유지
+   t=    7  (   35.1, -144.2)    10km/h  Road 2083 북행 1/1차선 교차로 13m  감속 중
+   t=    8  (   35.1, -143.6)     0km/h  Road 2083 북행 1/1차선 교차로 13m  정지
+### V010 (car) — 관측: ego_vehicle,ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 19m
+   t=    3  (  111.9, -134.9)    14km/h  Road 20 서행 1/1차선 교차로 71m  차선유지
+   t=    4  (  106.4, -136.6)    27km/h  Road 20 서행 1/1차선 교차로 65m  가속 중
+   t=    5  (   97.3, -139.0)    40km/h  Road 20 서행 1/1차선 교차로 55m  가속 중
+   t=    6  (   84.8, -141.2)    51km/h  Road 20 서행 1/1차선 교차로 42m  가속 중
+   t=    7  (   71.2, -142.2)    40km/h  Road 20 서행 1/1차선 교차로 29m  차선유지
+   t=    8  (   63.0, -142.2)     9km/h  Road 20 서행 1/1차선 교차로 20m  차선유지
+### V021 (car) — 관측: ego_vehicle,ego_vehicle_behind,other_vehicle_behind, 존재확신 1.00, 관측거리 42m
+   t=    3  (  122.6, -130.7)     3km/h  Road 20 남서행 1/1차선 교차로 82m  차선유지
+   t=    4  (  120.3, -131.7)    14km/h  Road 20 서행 1/1차선 교차로 80m  차선유지
+   t=    5  (  115.2, -133.7)    25km/h  Road 20 서행 1/1차선 교차로 74m  가속 중
+   t=    6  (  107.1, -136.4)    37km/h  Road 20 서행 1/1차선 교차로 65m  차선유지
+   t=    7  (   95.7, -139.4)    43km/h  Road 20 서행 1/1차선 교차로 54m  가속 중
+   t=    8  (   85.7, -141.1)    31km/h  Road 20 서행 1/1차선 교차로 43m  차선유지
+### P023 (person) — 관측: ego_vehicle,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 23m
+   t=    6  (   44.3, -101.3)     4km/h  Road 2187 서행 1/1차선 교차로 16m  차선유지
+   t=    7  (   42.8, -101.5)     5km/h  Road 2187 서행 1/1차선 교차로 15m  차선유지
+   t=    8  (   41.7, -100.8)     7km/h  Road 2156 북행 1/1차선 교차로 19m  차선유지
+   (이 윈도우에서 3/6 시점만 관측됨)
+### P009 (person) — 관측: ego_vehicle,ego_vehicle_behind,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 21m
+   t=    3  (   41.2, -110.7)     7km/h  Road 28 북행 2/2차선 교차로 8m  차선유지
+   t=    4  (   41.2, -108.7)     8km/h  Road 28 북행 2/2차선 교차로 6m  차선유지
+   t=    5  (   41.3, -106.8)     8km/h  Road 2187 북행 1/1차선 교차로 18m  차선유지
+   t=    6  (   41.3, -104.6)     8km/h  Road 2156 북행 1/1차선 교차로 20m  차선유지
+   t=    7  (   40.2, -102.7)     8km/h  Road 2104 서행 1/1차선 교차로 23m  차선유지
+   t=    8  (   38.4, -102.2)     6km/h  Road 2104 서행 1/1차선 교차로 21m  차선유지
+### V001 (car) — 관측: ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 18m
+   t=    3  (   28.1, -134.6)    14km/h  Road 2083 남행 2/2차선 교차로 21m  차선유지
+   t=    4  (   28.1, -140.0)    22km/h  Road 2083 남행 2/2차선 교차로 16m  차선유지
+   t=    5  (   28.1, -143.6)    20km/h  Road 2083 남행 2/2차선 교차로 12m  차선유지
+   t=    6  (   28.1, -147.9)    19km/h  Road 2083 남행 2/2차선 교차로 8m  차선유지
+   t=    7  (   28.0, -155.7)    32km/h  Road 2083 남행 2/2차선 교차로 0m  가속 중
+   t=    8  (   28.0, -160.0)     6km/h  Road 27 남행 1/2차선 교차로 17m  차선유지
+### V002 (car) — 관측: infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 9m
+   t=    3  (   28.1, -120.8)    19km/h  Road 28 남행 1/2차선 교차로 10m  차선유지
+   t=    4  (   28.1, -125.5)    19km/h  Road 28 남행 1/2차선 교차로 5m  차선유지
+   t=    5  (   28.1, -131.2)    15km/h  Road 2083 남행 2/2차선 교차로 24m  차선유지
+   t=    6  (   28.1, -135.9)    17km/h  Road 2083 남행 2/2차선 교차로 20m  차선유지
+   t=    7  (   28.1, -141.6)    28km/h  Road 2083 남행 2/2차선 교차로 14m  차선유지
+   t=    8  (   28.1, -148.2)    13km/h  Road 2083 남행 2/2차선 교차로 8m  차선유지
+### P003 (person) — 관측: ego_vehicle_behind,other_vehicle_behind, 존재확신 1.00, 관측거리 18m
+   t=    3  (   66.5, -154.1)     7km/h  Road 20 서행 1/1차선 교차로 24m  차선유지
+   t=    4  (   64.7, -154.2)     7km/h  Road 20 서행 1/1차선 교차로 22m  차선유지
+   t=    5  (   62.8, -154.0)     7km/h  Road 20 서행 1/1차선 교차로 20m  차선유지
+   t=    6  (   61.0, -153.8)     7km/h  Road 20 서행 1/1차선 교차로 19m  차선유지
+   t=    7  (   59.1, -153.5)     7km/h  Road 20 서행 1/1차선 교차로 17m  차선유지
+   t=    8  (   57.2, -153.3)     7km/h  Road 20 서행 1/1차선 교차로 15m  차선유지
+### P004 (person) — 관측: ego_vehicle,ego_vehicle_behind, 존재확신 1.00, 관측거리 8m
+   t=    3  (   39.9, -154.1)     5km/h  Road 2065 북행 1/1차선 교차로 16m  차선유지
+   t=    4  (   39.9, -152.3)     7km/h  Road 2065 북행 1/1차선 교차로 14m  차선유지
+   t=    5  (   40.0, -150.8)     5km/h  Road 2065 북행 1/1차선 교차로 12m  차선유지
+   t=    6  (   40.2, -150.1)     1km/h  Road 2065 북행 1/1차선 교차로 11m  정지
+   t=    7  (   40.1, -149.6)     3km/h  Road 2083 북행 1/1차선 교차로 19m  차선유지
+   t=    8  (   40.0, -148.8)     2km/h  Road 2084 북행 2/2차선 교차로 18m  차선유지
+### P005 (person) — 관측: ego_vehicle,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 15m
+   t=    3  (   19.9, -136.5)     7km/h  Road 2083 남행 2/2차선 교차로 19m  차선유지
+   t=    4  (   19.9, -138.5)     7km/h  Road 2083 남행 2/2차선 교차로 17m  차선유지
+   t=    5  (   19.9, -140.4)     7km/h  Road 2083 남행 2/2차선 교차로 15m  차선유지
+   t=    6  (   19.9, -142.3)     7km/h  Road 2083 남행 2/2차선 교차로 13m  차선유지
+   t=    7  (   20.1, -144.2)     6km/h  Road 2083 남행 2/2차선 교차로 12m  차선유지
+   t=    8  (   20.3, -146.0)     7km/h  Road 2083 남행 2/2차선 교차로 10m  차선유지
+### P006 (person) — 관측: infrastructure,other_vehicle_behind, 존재확신 1.00, 관측거리 24m
+   t=    3  (   21.6, -143.6)    13km/h  Road 2083 남행 2/2차선 교차로 12m  차선유지
+   t=    4  (   21.5, -147.3)    13km/h  Road 2083 남행 2/2차선 교차로 8m  차선유지
+   t=    5  (   21.3, -150.9)    13km/h  Road 2083 남행 2/2차선 교차로 5m  차선유지
+   t=    6  (   21.1, -154.4)    13km/h  Road 2083 남행 2/2차선 교차로 1m  차선유지
+   t=    7  (   20.8, -158.0)    13km/h  Road 27 남행 2/2차선 교차로 19m  차선유지
+   t=    8  (   20.5, -161.9)    14km/h  Road 27 남행 2/2차선 교차로 16m  차선유지
+### P007 (person) — 관측: infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 12m
+   t=    3  (   51.9, -134.2)     8km/h  Road 20 서행 1/1차선 교차로 9m  차선유지
+   t=    4  (   49.7, -133.8)     8km/h  Road 20 서행 1/1차선 교차로 7m  차선유지
+   t=    5  (   47.6, -133.5)     8km/h  Road 20 서행 1/1차선 교차로 4m  차선유지
+   t=    6  (   45.5, -133.4)     4km/h  Road 20 서행 1/1차선 교차로 2m  차선유지
+   t=    7  (   43.7, -133.1)     8km/h  Road 2071 서행 1/1차선 교차로 18m  차선유지
+   t=    8  (   41.9, -132.6)     8km/h  Road 2071 북행 1/1차선 교차로 3m  차선유지
+### P008 (person) — 관측: ego_vehicle,ego_vehicle_behind,other_vehicle, 존재확신 1.00, 관측거리 6m
+   t=    3  (   40.4, -136.0)     7km/h  Road 2065 서행 1/1차선 교차로 16m  차선유지
+   t=    4  (   40.0, -138.7)    12km/h  Road 2083 남행 1/2차선 교차로 17m  차선유지
+   t=    5  (   39.3, -141.6)    10km/h  Road 2065 서행 1/1차선 교차로 15m  우회전 중
+   t=    6  (   39.2, -144.3)    10km/h  Road 2083 남행 1/2차선 교차로 11m  차선유지
+   t=    7  (   39.7, -145.1)     3km/h  Road 2083 남행 1/2차선 교차로 11m  차선유지
+   t=    8  (   39.8, -145.8)     2km/h  Road 2083 남행 1/2차선 교차로 10m  정지
+### N011 (van) — 관측: ego_vehicle_behind, 존재확신 1.00, 관측거리 103m
+   t=    3  (  110.0, -139.2)    25km/h  Road 20 동행 1/1차선 교차로 147m  차선유지
+   t=    4  (  117.5, -136.6)    30km/h  Road 20 동행 1/1차선 교차로 139m  차선유지
+   t=    5  (  125.0, -133.3)    30km/h  Road 20 북동행 1/1차선 교차로 131m  차선유지
+   t=    6  (  132.2, -129.3)    30km/h  Road 20 북동행 1/1차선 교차로 123m  차선유지
+   t=    7  (  138.7, -124.2)    30km/h  Road 20 북동행 1/1차선 교차로 115m  차선유지
+   t=    8  (  144.2, -118.1)    30km/h  Road 20 북동행 1/1차선 교차로 107m  차선유지
+### T012 (truck) — 관측: ego_vehicle_behind, 존재확신 1.00, 관측거리 85m
+   t=    3  (   92.0, -143.6)    24km/h  Road 20 동행 1/1차선 교차로 165m  차선유지
+   t=    4  (   99.2, -142.1)    28km/h  Road 20 동행 1/1차선 교차로 158m  차선유지
+   t=    5  (  106.9, -140.1)    29km/h  Road 20 동행 1/1차선 교차로 150m  차선유지
+   t=    6  (  114.5, -137.7)    29km/h  Road 20 동행 1/1차선 교차로 142m  차선유지
+   t=    7  (  121.8, -134.9)    28km/h  Road 20 동행 1/1차선 교차로 135m  차선유지
+   t=    8  (  128.8, -131.4)    28km/h  Road 20 북동행 1/1차선 교차로 127m  차선유지
+### V014 (car) — 관측: ego_vehicle,ego_vehicle_behind,other_vehicle_behind, 존재확신 1.00, 관측거리 53m
+   t=    3  (   61.6, -145.7)    13km/h  Road 20 동행 1/1차선 교차로 196m  차선유지
+   t=    4  (   67.1, -145.8)    27km/h  Road 20 동행 1/1차선 교차로 190m  차선유지
+   t=    5  (   74.5, -145.5)    25km/h  Road 20 동행 1/1차선 교차로 183m  차선유지
+   t=    6  (   82.1, -145.0)    27km/h  Road 20 동행 1/1차선 교차로 175m  차선유지
+   t=    7  (   89.6, -144.0)    29km/h  Road 20 동행 1/1차선 교차로 168m  차선유지
+   t=    8  (   96.9, -142.6)    29km/h  Road 20 동행 1/1차선 교차로 161m  차선유지
+### T015 (truck) — 관측: other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 82m
+   t=    3  (   35.1,  -99.1)    24km/h  Road 2187 북행 1/1차선 교차로 14m  가속 중
+   t=    4  (   35.1,  -90.7)    34km/h  Road 2232 북행 1/1차선 교차로 15m  차선유지
+   t=    5  (   35.1,  -80.3)    41km/h  Road 2231 북행 2/2차선 교차로 5m  가속 중
+   t=    6  (   35.1,  -67.8)    48km/h  Road 29 북행 2/2차선 교차로 38m  차선유지
+   t=    7  (   35.1,  -54.4)    48km/h  Road 29 북행 2/2차선 교차로 24m  차선유지
+   t=    8  (   35.1,  -41.1)    45km/h  Road 29 북행 2/2차선 교차로 11m  차선유지
+### V016 (car) — 관측: ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 14m
+   t=    3  (   35.1, -112.0)    16km/h  Road 28 북행 2/2차선 교차로 9m  차선유지
+   t=    4  (   35.0, -110.0)     0km/h  Road 28 북행 2/2차선 교차로 7m  정지
+   t=    5  (   35.0, -110.0)     0km/h  Road 28 북행 2/2차선 교차로 7m  정지
+   t=    6  (   35.0, -109.9)     3km/h  Road 28 북행 2/2차선 교차로 7m  차선유지
+   t=    7  (   34.9, -109.2)     0km/h  Road 28 북행 2/2차선 교차로 6m  정지
+   t=    8  (   34.8, -109.2)     1km/h  Road 28 북행 2/2차선 교차로 6m  정지
+### V017 (car) — 관측: other_vehicle, 존재확신 1.00, 관측거리 103m
+   t=    3  (   31.6,  -81.6)    53km/h  Road 2232 북행 1/1차선 교차로 6m  차선유지
+   t=    4  (   31.6,  -65.3)    63km/h  Road 29 북행 1/2차선 교차로 35m  차선유지
+   t=    5  (   31.6,  -48.3)    57km/h  Road 29 북행 1/2차선 교차로 18m  차선유지
+   t=    6  (   31.6,  -35.0)    41km/h  Road 29 북행 1/2차선 교차로 5m  차선유지
+   t=    7  (   31.6,  -25.5)    29km/h  Road 26 북행 1/2차선 교차로 12m  차선유지
+   t=    8  (   31.6,  -20.4)     0km/h  Road 26 북행 1/2차선 교차로 7m  정지
+### T018 (truck) — 관측: ego_vehicle,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 39m
+   t=    3  (   31.6, -112.5)    24km/h  Road 28 북행 1/2차선 교차로 10m  차선유지
+   t=    4  (   31.6, -106.5)    17km/h  Road 28 북행 1/2차선 교차로 4m  차선유지
+   t=    5  (   31.6, -101.8)    16km/h  Road 2231 북행 2/2차선 교차로 27m  차선유지
+   t=    6  (   31.6,  -96.7)    20km/h  Road 2232 북행 1/1차선 교차로 22m  차선유지
+   t=    7  (   31.6,  -90.7)    24km/h  Road 2232 북행 1/1차선 교차로 16m  차선유지
+   t=    8  (   31.6,  -83.7)    27km/h  Road 2231 북행 2/2차선 교차로 9m  차선유지
+### V019 (car) — 관측: ego_vehicle_behind,infrastructure,other_vehicle_behind, 존재확신 1.00, 관측거리 29m
+   t=    3  (   24.5, -170.0)     0km/h  Road 27 남행 2/2차선 교차로 7m  정지
+   t=    4  (   24.5, -170.0)     0km/h  Road 27 남행 2/2차선 교차로 7m  정지
+   t=    5  (   24.5, -170.0)     0km/h  Road 27 남행 2/2차선 교차로 7m  정지
+   t=    6  (   24.5, -170.0)     0km/h  Road 27 남행 2/2차선 교차로 7m  정지
+   t=    7  (   24.5, -170.0)     0km/h  Road 27 남행 2/2차선 교차로 7m  정지
+   t=    8  (   24.5, -170.0)     0km/h  Road 27 남행 2/2차선 교차로 7m  정지
+### V020 (car) — 관측: ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, 존재확신 1.00, 관측거리 29m
+   t=    3  (   28.0, -171.1)     0km/h  Road 27 남행 1/2차선 교차로 6m  정지
+   t=    4  (   28.0, -171.1)     0km/h  Road 27 남행 1/2차선 교차로 6m  정지
+   t=    5  (   28.0, -171.1)     0km/h  Road 27 남행 1/2차선 교차로 6m  정지
+   t=    6  (   28.0, -171.1)     0km/h  Road 27 남행 1/2차선 교차로 6m  정지
+   t=    7  (   28.0, -171.1)     0km/h  Road 27 남행 1/2차선 교차로 6m  정지
+   t=    8  (   28.0, -171.1)     0km/h  Road 27 남행 1/2차선 교차로 6m  정지
+### V013 (car) — 관측: ego_vehicle_behind, 존재확신 0.83, 관측거리 69m
+   t=    3  (   76.2, -145.4)    26km/h  Road 20 동행 1/1차선 교차로 181m  차선유지
+   t=    4  (   83.2, -144.8)    28km/h  Road 20 동행 1/1차선 교차로 174m  차선유지
+   t=    5  (   90.9, -143.8)    29km/h  Road 20 동행 1/1차선 교차로 167m  차선유지
+   t=    6  (   98.4, -142.3)    26km/h  Road 20 동행 1/1차선 교차로 159m  차선유지
+   t=    8  (  112.8, -138.3)    27km/h  Road 20 동행 1/1차선 교차로 144m  차선유지
+   (이 윈도우에서 5/6 시점만 관측됨)
+
+※ 윈도우 중간까지 관측되다 마지막 시점에는 없는 차량: P022 (시야 이탈 또는 관측 실패 — 사라졌다고 단정할 수 없음)
+
+## 윈도우 동안 서로 접근한 차량 쌍
+- EGO_ego_vehicle_behind ↔ P008: 거리 58.7m → 6.3m (접근율 10.5m/s, 선형연장 접촉까지 0.6s)
+- EGO_ego_vehicle_behind ↔ EGO_other_vehicle_behind: 거리 71.2m → 9.6m (접근율 12.3m/s, 선형연장 접촉까지 0.8s)
+- EGO_ego_vehicle_behind ↔ P004: 거리 61.1m → 8.5m (접근율 10.5m/s, 선형연장 접촉까지 0.8s)
+- EGO_other_vehicle_behind ↔ P008: 거리 34.3m → 5.2m (접근율 5.8m/s, 선형연장 접촉까지 0.9s, 동일 도로)
+- P004 ↔ P008: 거리 18.2m → 3.1m (접근율 3.0m/s, 선형연장 접촉까지 1.0s)
+- EGO_other_vehicle_behind ↔ V002: 거리 49.5m → 8.4m (접근율 8.2m/s, 선형연장 접촉까지 1.0s, 동일 도로)
+- V021 ↔ V014: 거리 62.7m → 11.3m (접근율 10.3m/s, 선형연장 접촉까지 1.1s, 동일 도로)
+- EGO_ego_vehicle_behind ↔ P007: 거리 47.4m → 9.3m (접근율 7.6m/s, 선형연장 접촉까지 1.2s)
+- EGO_ego_vehicle ↔ EGO_other_vehicle_behind: 거리 40.9m → 8.5m (접근율 6.5m/s, 선형연장 접촉까지 1.3s)
+- EGO_ego_vehicle_behind ↔ V002: 거리 73.2m → 17.7m (접근율 11.1m/s, 선형연장 접촉까지 1.6s)
+- P003 ↔ V010: 거리 49.3m → 12.5m (접근율 7.4m/s, 선형연장 접촉까지 1.7s, 동일 도로)
+- V001 ↔ V019: 거리 35.6m → 10.7m (접근율 5.0m/s, 선형연장 접촉까지 2.1s, 동일 도로)
+- EGO_ego_vehicle ↔ EGO_ego_vehicle_behind: 거리 34.0m → 10.3m (접근율 4.7m/s, 선형연장 접촉까지 2.2s)
+- V001 ↔ V020: 거리 36.5m → 11.2m (접근율 5.1m/s, 선형연장 접촉까지 2.2s, 동일 도로)
+- EGO_ego_vehicle_behind ↔ P005: 거리 79.2m → 24.5m (접근율 10.9m/s, 선형연장 접촉까지 2.2s)
+- P004 ↔ V010: 거리 74.5m → 23.9m (접근율 10.1m/s, 선형연장 접촉까지 2.4s)
+- EGO_ego_vehicle_behind ↔ EGO_other_vehicle: 거리 64.3m → 20.8m (접근율 8.7m/s, 선형연장 접촉까지 2.4s)
+- P008 ↔ V010: 거리 71.5m → 23.5m (접근율 9.6m/s, 선형연장 접촉까지 2.4s)
+- EGO_other_vehicle_behind ↔ P007: 거리 39.4m → 13.0m (접근율 5.3m/s, 선형연장 접촉까지 2.4s)
+- EGO_other_vehicle_behind ↔ V010: 거리 84.4m → 28.0m (접근율 11.3m/s, 선형연장 접촉까지 2.5s)
+  ※ 선형연장 값은 관측된 거리 변화율을 그대로 늘린 참고값이며, 회전·제동·신호를 반영한 경로 예측이 아닙니다.
+
+## 마지막 관측 시점 상세 (t=8초)
+배경: 출처 DeepAccident, 지도 Town05, weather=ClearNight, road_type=three-way junction
+관측차량 4대, 주변차량 22대, 노변 인프라 1기 (전체 차량 26대 중 상위 26대 수록)
+※ 지도 규약: 우측통행 | 1차선은 중앙선쪽 | 차선폭 3.50m | 도로 256개·교차로 76개
+
+## 관측차량 (탑재 카메라로 주변을 관측)
+- EGO_ego_vehicle: Road 2071 북행 1차선 중 1차선 | 다음 교차로까지 5m | 1km/h | 방위 346° | 정지 | 예상경로: 정지 유지
+- EGO_ego_vehicle_behind: Road 20 서행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 2m | 9km/h | 방위 273° | 차선유지 | 예상경로: 직진 50%, 직진 50%
+- EGO_other_vehicle: Road 28 북행 2차선 중 2차선 | 제한속도 89km/h | 다음 교차로까지 20m | 3km/h | 방위 0° | 차선유지 | 예상경로: 등속 직진(지도 미매칭)
+- EGO_other_vehicle_behind: Road 2083 북행 1차선 중 1차선 | 다음 교차로까지 13m | 0km/h | 방위 0° | -2.9m/s² | 정지 | 예상경로: 정지 유지
+
+## 주변차량
+- V010(car): Road 20 서행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 20m | 9km/h | 방위 271° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle, ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 19m) [EGO_ego_vehicle_behind 기준 후방 19m, 정면측 0.1m]
+- V021(car): Road 20 서행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 43m | 31km/h | 방위 262° | -1.8m/s² | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle, ego_vehicle_behind, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 42m) | ※위치·속도 불확실 [EGO_ego_vehicle_behind 기준 후방 41m, 우측 2.3m]
+- P023(person): Road 2156 북행 1차선 중 1차선 | 다음 교차로까지 19m | 7km/h | 방위 342° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 23m) [EGO_other_vehicle 기준 전방 22m, 우측 6.6m]
+- P009(person): Road 2104 서행 1차선 중 1차선 | 다음 교차로까지 21m | 6km/h | 방위 282° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle, ego_vehicle_behind, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 21m) [EGO_other_vehicle 기준 전방 21m, 우측 3.3m]
+- V001(car): Road 27 남행 2차선 중 1차선 | 제한속도 89km/h | 다음 교차로까지 17m | 6km/h | 방위 180° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 18m) [EGO_other_vehicle_behind 기준 후방 16m, 좌측 7.0m]
+- V002(car): Road 2083 남행 2차선 중 2차선 | 다음 교차로까지 8m | 13km/h | 방위 180° | 차선유지 | 예상경로: 직진 97%, 유턴 2%, 유턴 2% | 관측: infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 9m) [EGO_other_vehicle_behind 기준 후방 5m, 좌측 7.0m]
+- P003(person): Road 20 서행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 15m | 7km/h | 방위 278° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle_behind, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 18m) [EGO_ego_vehicle_behind 기준 후방 13m, 좌측 11.2m]
+- P004(person): Road 2084 북행 2차선 중 2차선 | 다음 교차로까지 18m | 2km/h | 방위 359° | 차선유지 | 예상경로: 등속 직진(지도 미매칭) | 관측: ego_vehicle, ego_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 8m) [EGO_other_vehicle_behind 기준 후방 5m, 우측 5.0m]
+- P005(person): Road 2083 남행 2차선 중 2차선 | 다음 교차로까지 10m | 7km/h | 방위 180° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 15m) [EGO_other_vehicle_behind 기준 후방 2m, 좌측 14.8m]
+- P006(person): Road 27 남행 2차선 중 2차선 | 제한속도 89km/h | 다음 교차로까지 16m | 14km/h | 방위 183° | 차선유지 | 예상경로: 직진 | 관측: infrastructure, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 24m) [EGO_other_vehicle_behind 기준 후방 18m, 좌측 14.5m]
+- P007(person): Road 2071 북행 1차선 중 1차선 | 다음 교차로까지 3m | 8km/h | 방위 345° | 차선유지 | 예상경로: 직진 97%, 유턴 3% | 관측: infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 12m) [EGO_ego_vehicle 기준 전방 1m, 우측 6.1m]
+- P008(person): Road 2083 남행 2차선 중 1차선 | 다음 교차로까지 10m | 2km/h | 방위 174° | -0.7m/s² | 정지 | 예상경로: 정지 유지 | 관측: ego_vehicle, ego_vehicle_behind, other_vehicle (존재확신 1.00, 위치정확도 1.00, 관측거리 6m) [EGO_other_vehicle_behind 기준 후방 2m, 우측 4.7m]
+- N011(van): Road 20 북동행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 107m | 30km/h | 방위 39° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 103m) | ※위치·속도 불확실 [EGO_ego_vehicle_behind 기준 후방 99m, 우측 27.9m]
+- T012(truck): Road 20 북동행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 127m | 28km/h | 방위 62° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 85m) | ※위치·속도 불확실 [EGO_ego_vehicle_behind 기준 후방 84m, 우측 13.9m]
+- V014(car): Road 20 동행 1차선 중 1차선 | 제한속도 56km/h | 29km/h | 방위 78° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle, ego_vehicle_behind, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 53m) | ※위치·속도 불확실 [EGO_ego_vehicle_behind 기준 후방 52m, 우측 1.3m]
+- T015(truck): Road 29 북행 2차선 중 2차선 | 제한속도 89km/h | 다음 교차로까지 11m | 45km/h | 방위 0° | 차선유지 | 예상경로: 직진 | 관측: other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 82m) | ※위치·속도 불확실 [EGO_other_vehicle 기준 전방 82m, 정면측 0.3m]
+- V016(car): Road 28 북행 2차선 중 2차선 | 제한속도 89km/h | 다음 교차로까지 6m | 1km/h | 방위 353° | 정지 | 예상경로: 정지 유지 | 관측: ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 14m) [EGO_other_vehicle 기준 전방 14m, 정면측 0.3m]
+- V017(car): Road 26 북행 2차선 중 1차선 | 제한속도 89km/h | 다음 교차로까지 7m | 0km/h | 방위 360° | 정지 | 예상경로: 정지 유지 | 관측: other_vehicle (존재확신 1.00, 위치정확도 1.00, 관측거리 103m) | ※위치·속도 불확실 [EGO_other_vehicle 기준 전방 103m, 좌측 3.9m]
+- T018(truck): Road 2231 북행 2차선 중 2차선 | 다음 교차로까지 9m | 27km/h | 방위 0° | +0.8m/s² | 차선유지 | 예상경로: 직진 97%, 유턴 1%, 유턴 1% | 관측: ego_vehicle, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 39m) [EGO_other_vehicle 기준 전방 39m, 좌측 3.6m]
+- V019(car): Road 27 남행 2차선 중 2차선 | 제한속도 89km/h | 다음 교차로까지 7m | 0km/h | 방위 180° | 정지 | 예상경로: 정지 유지 | 관측: ego_vehicle_behind, infrastructure, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 29m) [EGO_other_vehicle_behind 기준 후방 26m, 좌측 10.5m]
+- V020(car): Road 27 남행 2차선 중 1차선 | 제한속도 89km/h | 다음 교차로까지 6m | 0km/h | 방위 180° | 정지 | 예상경로: 정지 유지 | 관측: ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (존재확신 1.00, 위치정확도 1.00, 관측거리 29m) [EGO_other_vehicle_behind 기준 후방 28m, 좌측 7.0m]
+- V013(car): Road 20 동행 1차선 중 1차선 | 제한속도 56km/h | 다음 교차로까지 144m | 27km/h | 방위 72° | 차선유지 | 예상경로: 직진 | 관측: ego_vehicle_behind (존재확신 0.83, 위치정확도 1.00, 관측거리 69m) | ※위치·속도 불확실 [EGO_ego_vehicle_behind 기준 후방 68m, 우측 6.3m]
+
+## 노변 인프라 센서 (V2X, 교통 참여자 아님)
+- infrastructure: 설치높이 3.6m | Road 28 인접 | 지향 180° | 이 시각 관측 15건
+
+## 상호작용 및 주의 상황
+- V021 → V010 | 선행차 추종 | 간격 23.0m | 헤드웨이 2.7s | TTC 3.8s
+- P023 → P009 | 교차로 J38, 도달시간차 1.6s | 직교 진입 상충 예상 | TTC 10.3s
+- EGO_other_vehicle → V016 | 선행차 추종 | 간격 13.8m | 헤드웨이 19.8s | TTC 36.9s
+- N011 → T012 | 선행차 추종 | 간격 19.9m | 헤드웨이 2.4s | TTC 39.9s
+- V013 → V014 | 선행차 추종 | 간격 16.3m | 헤드웨이 2.2s
+
+## BEV 개략도 (기준: EGO_ego_vehicle)
+```
+...............................
+...............................
+...............................
+..................H............
+...............................
+....................C..........
+................G.D............
+...............................
+...............2...............
+.................A.............
+........8....3.@...............
+..........5....7.1......F......
+......9..4..........6..........
+.......J.......................
+........K......................
+...............................
+...............................
+...............................
+...............................
+...............................
+...............................
+```
+@=기준차량 | 축척: 세로 ±80m(전/후), 가로 ±40m(좌/우) | @=EGO_ego_vehicle/관측차량(+0,-0)  1=EGO_ego_vehicle_behind/관측차량(-8,-6)  2=EGO_other_vehicle/관측차량(+12,-2)  3=EGO_other_vehicle_behind/관측차량(-8,+3)  4=V001/car(-22,+14)  5=V002/car(-11,+11)  6=P003/person(-23,-16)  7=P004/person(-14,-0)  8=P005/person(-7,+18)  9=P006/person(-22,+22)  A=P007/person(+1,-6)  B=P008(-11,-1, 격자중복)  C=P023/person(+32,-14)  D=P009/person(+31,-10)  F=V010/car(-13,-24)  G=V016/car(+26,-5)  H=T018/truck(+51,-8)  J=V019/car(-31,+20)  K=V020/car(-33,+17)

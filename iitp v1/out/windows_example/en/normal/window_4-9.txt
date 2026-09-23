@@ -1,0 +1,282 @@
+# Observation window 4-9 (t=4-9s, 11 snapshots)
+Context: source DeepAccident, map Town05, weather=ClearNight, road_type=three-way junction
+At the last timestep: 4 observer vehicle(s), 22 other road user(s), 1 roadside sensor(s)
+
+## Roadside sensors (V2X, not road users)
+- infrastructure: mounted 3.6m, 11 detection(s) at this time
+
+## Perception relations (who perceived whom)
+- ego_vehicle (vehicle): perceives 16 | own actor id EGO_ego_vehicle | 6 cameras, 360 deg coverage
+- ego_vehicle_behind (vehicle): perceives 17 | sole observer of T012, V013 | own actor id EGO_ego_vehicle_behind | 6 cameras, 360 deg coverage
+- other_vehicle (vehicle): perceives 13 | sole observer of V017 | own actor id EGO_other_vehicle | 6 cameras, 360 deg coverage
+- other_vehicle_behind (vehicle): perceives 20 | sole observer of P022 | own actor id EGO_other_vehicle_behind | 6 cameras, 360 deg coverage
+- infrastructure (infrastructure): perceives 11 | 6 cameras, 360 deg coverage
+
+## Per-vehicle time course (4-9s, every 1s)
+### EGO_other_vehicle (observer vehicle) — seen by: other_vehicle,ego_vehicle
+   t=    4  (   35.1, -142.3)    24km/h  Road 2084 northbound lane 2/2 junction 12m  keeping lane
+   t=    5  (   35.0, -140.8)     0km/h  Road 2084 northbound lane 2/2 junction 10m  stopped
+   t=    6  (   35.0, -140.8)     0km/h  Road 2083 northbound lane 1/1 junction 10m  stopped
+   t=    7  (   35.1, -139.7)    13km/h  Road 2084 northbound lane 2/2 junction 9m  decelerating
+   t=    8  (   35.1, -133.4)    33km/h  Road 2071 northbound lane 1/1 junction 3m  accelerating
+   t=    9  (   35.1, -124.6)    13km/h  Road 28 northbound lane 2/2 junction 22m  accelerating
+### EGO_ego_vehicle (observer vehicle) — seen by: ego_vehicle,ego_vehicle_behind,other_vehicle,other_vehicle_behind
+   t=    4  (   59.3, -142.1)    37km/h  Road 20 westbound lane 1/1 junction 17m  keeping lane
+   t=    5  (   51.3, -141.8)    27km/h  Road 20 westbound lane 1/1 junction 9m  decelerating
+   t=    6  (   47.9, -141.7)     4km/h  Road 20 westbound lane 1/1 junction 5m  keeping lane
+   t=    7  (   46.9, -141.7)     1km/h  Road 20 westbound lane 1/1 junction 4m  stopped
+   t=    8  (   44.6, -141.5)    17km/h  Road 20 westbound lane 1/1 junction 2m  decelerating
+   t=    9  (   39.9, -141.0)    17km/h  Road 2071 westbound lane 1/1 junction 15m  keeping lane
+### EGO_ego_vehicle_behind (observer vehicle) — seen by: ego_vehicle_behind,ego_vehicle,other_vehicle,other_vehicle_behind
+   t=    4  (   90.0, -140.4)    34km/h  Road 20 westbound lane 1/1 junction 48m  accelerating
+   t=    5  (   79.7, -141.7)    41km/h  Road 20 westbound lane 1/1 junction 37m  accelerating
+   t=    6  (   67.6, -142.3)    41km/h  Road 20 westbound lane 1/1 junction 25m  accelerating
+   t=    7  (   59.0, -142.1)    19km/h  Road 20 westbound lane 1/1 junction 16m  decelerating
+   t=    8  (   56.2, -142.0)    10km/h  Road 20 westbound lane 1/1 junction 13m  keeping lane
+   t=    9  (   52.3, -141.9)    16km/h  Road 20 westbound lane 1/1 junction 10m  keeping lane
+### EGO_other_vehicle_behind (observer vehicle) — seen by: other_vehicle_behind,ego_vehicle,ego_vehicle_behind,infrastructure
+   t=    4  (   33.6, -165.4)    22km/h  Road 27 northbound lane 2/2 junction 10m  accelerating
+   t=    5  (   32.3, -159.0)    25km/h  Road 27 northbound lane 1/2 junction 3m  changing lane (left)
+   t=    6  (   31.7, -151.6)    28km/h  Road 2083 northbound lane 1/1 junction 21m  keeping lane
+   t=    7  (   31.6, -143.6)    30km/h  Road 2083 northbound lane 1/1 junction 13m  keeping lane
+   t=    8  (   31.6, -134.9)    32km/h  Road 2084 northbound lane 2/2 junction 4m  keeping lane
+   t=    9  (   31.6, -125.7)    34km/h  Road 28 northbound lane 1/2 junction 23m  keeping lane
+### V016 (car) — seen by: ego_vehicle,infrastructure,other_vehicle,other_vehicle_behind, confidence 1.00, range 17m
+   t=    4  (   34.9, -108.3)     0km/h  Road 28 northbound lane 2/2 junction 5m  stopped
+   t=    5  (   34.9, -108.3)     0km/h  Road 28 northbound lane 2/2 junction 5m  stopped
+   t=    6  (   34.9, -108.3)     0km/h  Road 28 northbound lane 2/2 junction 5m  stopped
+   t=    7  (   34.9, -108.0)     0km/h  Road 28 northbound lane 2/2 junction 5m  stopped
+   t=    8  (   34.9, -108.0)     0km/h  Road 28 northbound lane 2/2 junction 5m  stopped
+   t=    9  (   34.9, -108.0)     0km/h  Road 28 northbound lane 2/2 junction 5m  stopped
+### P004 (person) — seen by: ego_vehicle_behind,infrastructure,other_vehicle_behind, confidence 1.00, range 13m
+   t=    4  (   40.1, -152.4)     7km/h  Road 2065 northbound lane 1/1 junction 15m  keeping lane
+   t=    5  (   40.0, -150.6)     6km/h  Road 2065 northbound lane 1/1 junction 12m  keeping lane
+   t=    6  (   40.0, -149.1)     4km/h  Road 2083 northbound lane 1/1 junction 18m  keeping lane
+   t=    7  (   40.0, -148.3)     4km/h  Road 2084 northbound lane 2/2 junction 18m  keeping lane
+   t=    8  (   39.8, -146.7)     7km/h  Road 2083 northbound lane 1/1 junction 16m  keeping lane
+   t=    9  (   39.4, -145.2)     5km/h  Road 2071 westbound lane 1/1 junction 15m  turning left
+### V001 (car) — seen by: ego_vehicle,ego_vehicle_behind,other_vehicle,other_vehicle_behind, confidence 1.00, range 25m
+   t=    4  (   28.1, -140.0)    22km/h  Road 2083 southbound lane 2/2 junction 16m  keeping lane
+   t=    5  (   28.1, -143.6)    20km/h  Road 2083 southbound lane 2/2 junction 12m  keeping lane
+   t=    6  (   28.1, -147.9)    19km/h  Road 2083 southbound lane 2/2 junction 8m  keeping lane
+   t=    7  (   28.0, -155.7)    32km/h  Road 2083 southbound lane 2/2 junction 0m  accelerating
+   t=    8  (   28.0, -160.0)     6km/h  Road 27 southbound lane 1/2 junction 17m  keeping lane
+   t=    9  (   28.0, -162.5)     0km/h  Road 27 southbound lane 1/2 junction 15m  stopped
+### V002 (car) — seen by: ego_vehicle,ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, confidence 1.00, range 16m
+   t=    4  (   28.1, -125.5)    19km/h  Road 28 southbound lane 1/2 junction 5m  keeping lane
+   t=    5  (   28.1, -131.2)    14km/h  Road 2083 southbound lane 2/2 junction 25m  keeping lane
+   t=    6  (   28.1, -135.6)    20km/h  Road 2083 southbound lane 2/2 junction 20m  keeping lane
+   t=    7  (   28.1, -141.1)    26km/h  Road 2083 southbound lane 2/2 junction 15m  keeping lane
+   t=    8  (   28.1, -147.9)    15km/h  Road 2083 southbound lane 2/2 junction 8m  keeping lane
+   t=    9  (   28.1, -152.1)    14km/h  Road 2083 southbound lane 2/2 junction 4m  keeping lane
+### P003 (person) — seen by: ego_vehicle,ego_vehicle_behind,other_vehicle_behind, confidence 1.00, range 12m
+   t=    4  (   64.7, -154.2)     7km/h  Road 20 westbound lane 1/1 junction 22m  keeping lane
+   t=    5  (   62.8, -154.0)     7km/h  Road 20 westbound lane 1/1 junction 20m  keeping lane
+   t=    6  (   61.0, -153.8)     7km/h  Road 20 westbound lane 1/1 junction 19m  keeping lane
+   t=    7  (   59.1, -153.5)     7km/h  Road 20 westbound lane 1/1 junction 17m  keeping lane
+   t=    8  (   57.2, -153.3)     7km/h  Road 20 westbound lane 1/1 junction 15m  keeping lane
+   t=    9  (   55.4, -153.0)     7km/h  Road 20 westbound lane 1/1 junction 13m  keeping lane
+### P005 (person) — seen by: ego_vehicle,ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, confidence 1.00, range 21m
+   t=    4  (   19.9, -138.5)     7km/h  Road 2083 southbound lane 2/2 junction 17m  keeping lane
+   t=    5  (   19.9, -140.4)     7km/h  Road 2083 southbound lane 2/2 junction 15m  keeping lane
+   t=    6  (   19.9, -142.3)     7km/h  Road 2083 southbound lane 2/2 junction 13m  keeping lane
+   t=    7  (   20.1, -144.2)     6km/h  Road 2083 southbound lane 2/2 junction 12m  keeping lane
+   t=    8  (   20.3, -146.0)     7km/h  Road 2083 southbound lane 2/2 junction 10m  keeping lane
+   t=    9  (   20.3, -147.8)     7km/h  Road 2083 southbound lane 2/2 junction 8m  keeping lane
+### P006 (person) — seen by: ego_vehicle,ego_vehicle_behind,infrastructure, confidence 1.00, range 31m
+   t=    4  (   21.5, -147.3)    13km/h  Road 2083 southbound lane 2/2 junction 8m  keeping lane
+   t=    5  (   21.3, -150.9)    13km/h  Road 2083 southbound lane 2/2 junction 5m  keeping lane
+   t=    6  (   21.1, -154.4)    13km/h  Road 2083 southbound lane 2/2 junction 1m  keeping lane
+   t=    7  (   20.8, -158.0)    13km/h  Road 27 southbound lane 2/2 junction 19m  keeping lane
+   t=    8  (   20.5, -161.9)    14km/h  Road 27 southbound lane 2/2 junction 16m  keeping lane
+   t=    9  (   20.3, -165.6)    13km/h  Road 27 southbound lane 2/2 junction 12m  keeping lane
+### P007 (person) — seen by: ego_vehicle,ego_vehicle_behind,other_vehicle,other_vehicle_behind, confidence 1.00, range 9m
+   t=    4  (   49.5, -133.9)     8km/h  Road 20 westbound lane 1/1 junction 6m  keeping lane
+   t=    5  (   47.3, -133.6)     8km/h  Road 2071 westbound lane 1/1 junction 18m  keeping lane
+   t=    6  (   45.3, -133.4)     6km/h  Road 2071 westbound lane 1/1 junction 18m  keeping lane
+   t=    7  (   43.4, -133.1)     1km/h  Road 20 westbound lane 1/1 junction 0m  stopped
+   t=    8  (   41.8, -132.3)     8km/h  Road 2071 northbound lane 1/1 junction 2m  keeping lane
+   t=    9  (   41.8, -130.1)     7km/h  Road 2071 northbound lane 1/1 junction 0m  keeping lane
+### P008 (person) — seen by: ego_vehicle,ego_vehicle_behind,infrastructure,other_vehicle_behind, confidence 1.00, range 11m
+   t=    4  (   40.0, -138.8)     9km/h  Road 2083 southbound lane 1/2 junction 17m  keeping lane
+   t=    5  (   40.0, -141.8)    11km/h  Road 2083 southbound lane 1/2 junction 14m  keeping lane
+   t=    6  (   39.8, -144.9)    12km/h  Road 2083 southbound lane 1/2 junction 11m  keeping lane
+   t=    7  (   39.4, -147.9)    10km/h  Road 2083 southbound lane 1/2 junction 8m  keeping lane
+   t=    8  (   40.7, -150.3)    12km/h  Road 2071 eastbound lane 1/1 junction 1m  keeping lane
+   t=    9  (   43.0, -151.4)    12km/h  Road 2071 eastbound lane 1/1 junction 0m  keeping lane
+### P023 (person) — seen by: ego_vehicle,other_vehicle,other_vehicle_behind, confidence 1.00, range 27m
+   t=    6  (   44.2, -101.2)     4km/h  Road 2187 westbound lane 1/1 junction 16m  keeping lane
+   t=    7  (   42.8, -101.5)     5km/h  Road 2187 westbound lane 1/1 junction 15m  keeping lane
+   t=    8  (   41.7, -100.7)     7km/h  Road 2156 northbound lane 1/1 junction 19m  keeping lane
+   t=    9  (   41.5,  -98.8)     7km/h  Road 2231 northbound lane 2/2 junction 24m  keeping lane
+   (observed at only 4/6 timesteps in this window)
+### P009 (person) — seen by: ego_vehicle,infrastructure,other_vehicle_behind, confidence 1.00, range 24m
+   t=    4  (   41.2, -108.7)     7km/h  Road 28 northbound lane 2/2 junction 6m  keeping lane
+   t=    5  (   41.3, -106.7)     7km/h  Road 2187 northbound lane 1/1 junction 18m  keeping lane
+   t=    6  (   41.3, -104.7)     8km/h  Road 2156 northbound lane 1/1 junction 20m  keeping lane
+   t=    7  (   40.4, -102.8)     8km/h  Road 2104 westbound lane 1/1 junction 23m  turning left
+   t=    8  (   38.7, -102.2)     6km/h  Road 2104 westbound lane 1/1 junction 21m  keeping lane
+   t=    9  (   36.6, -101.8)     8km/h  Road 2104 westbound lane 1/1 junction 19m  keeping lane
+### P022 (person) — seen by: other_vehicle_behind, confidence 1.00, range 26m
+   t=    5  (   38.4, -100.6)     5km/h  Road 2104 westbound lane 1/1 junction 21m  keeping lane
+   t=    8  (   34.5, -100.1)     6km/h  Road 2104 westbound lane 1/1 junction 17m  keeping lane
+   t=    9  (   32.8, -100.0)     6km/h  Road 2104 westbound lane 1/1 junction 16m  keeping lane
+   (observed at only 3/6 timesteps in this window)
+### V010 (car) — seen by: ego_vehicle_behind,other_vehicle,other_vehicle_behind, confidence 1.00, range 11m
+   t=    4  (  100.1, -138.3)    32km/h  Road 20 westbound lane 1/1 junction 58m  accelerating
+   t=    5  (   90.5, -140.3)    39km/h  Road 20 westbound lane 1/1 junction 48m  accelerating
+   t=    6  (   78.9, -141.8)    44km/h  Road 20 westbound lane 1/1 junction 36m  keeping lane
+   t=    7  (   69.4, -142.2)    24km/h  Road 20 westbound lane 1/1 junction 27m  keeping lane
+   t=    8  (   66.9, -142.2)    12km/h  Road 20 westbound lane 1/1 junction 24m  keeping lane
+   t=    9  (   63.3, -142.2)    17km/h  Road 20 westbound lane 1/1 junction 21m  keeping lane
+### T012 (truck) — seen by: ego_vehicle_behind, confidence 1.00, range 85m
+   t=    4  (   99.2, -142.1)    28km/h  Road 20 eastbound lane 1/1 junction 158m  keeping lane
+   t=    5  (  106.9, -140.1)    29km/h  Road 20 eastbound lane 1/1 junction 150m  keeping lane
+   t=    6  (  114.5, -137.7)    29km/h  Road 20 eastbound lane 1/1 junction 142m  keeping lane
+   t=    7  (  121.8, -134.9)    28km/h  Road 20 eastbound lane 1/1 junction 135m  keeping lane
+   t=    8  (  128.8, -131.4)    28km/h  Road 20 northeastbound lane 1/1 junction 127m  keeping lane
+   t=    9  (  135.6, -127.0)    30km/h  Road 20 northeastbound lane 1/1 junction 119m  keeping lane
+### V013 (car) — seen by: ego_vehicle_behind, confidence 1.00, range 68m
+   t=    4  (   83.2, -144.8)    28km/h  Road 20 eastbound lane 1/1 junction 174m  keeping lane
+   t=    5  (   90.9, -143.8)    29km/h  Road 20 eastbound lane 1/1 junction 167m  keeping lane
+   t=    6  (   98.4, -142.3)    26km/h  Road 20 eastbound lane 1/1 junction 159m  keeping lane
+   t=    7  (  105.6, -140.5)    26km/h  Road 20 eastbound lane 1/1 junction 152m  keeping lane
+   t=    8  (  112.8, -138.3)    27km/h  Road 20 eastbound lane 1/1 junction 144m  keeping lane
+   t=    9  (  119.9, -135.6)    27km/h  Road 20 eastbound lane 1/1 junction 137m  keeping lane
+### V014 (car) — seen by: ego_vehicle_behind,other_vehicle_behind, confidence 1.00, range 52m
+   t=    4  (   67.1, -145.8)    27km/h  Road 20 eastbound lane 1/1 junction 190m  keeping lane
+   t=    5  (   74.5, -145.5)    25km/h  Road 20 eastbound lane 1/1 junction 183m  keeping lane
+   t=    6  (   82.1, -145.0)    27km/h  Road 20 eastbound lane 1/1 junction 175m  keeping lane
+   t=    7  (   89.6, -144.0)    29km/h  Road 20 eastbound lane 1/1 junction 168m  keeping lane
+   t=    8  (   96.9, -142.6)    29km/h  Road 20 eastbound lane 1/1 junction 161m  keeping lane
+   t=    9  (  103.8, -141.0)    28km/h  Road 20 eastbound lane 1/1 junction 154m  keeping lane
+### T015 (truck) — seen by: ego_vehicle,other_vehicle,other_vehicle_behind, confidence 1.00, range 94m
+   t=    4  (   35.1,  -91.1)    34km/h  Road 2232 northbound lane 1/1 junction 16m  keeping lane
+   t=    5  (   35.1,  -80.8)    41km/h  Road 2231 northbound lane 2/2 junction 6m  keeping lane
+   t=    6  (   35.1,  -68.4)    48km/h  Road 29 northbound lane 2/2 junction 38m  keeping lane
+   t=    7  (   35.1,  -55.0)    48km/h  Road 29 northbound lane 2/2 junction 25m  keeping lane
+   t=    8  (   35.1,  -41.7)    46km/h  Road 29 northbound lane 2/2 junction 12m  keeping lane
+   t=    9  (   35.1,  -30.9)    34km/h  Road 29 northbound lane 2/2 junction 1m  keeping lane
+### T018 (truck) — seen by: ego_vehicle,infrastructure,other_vehicle,other_vehicle_behind, confidence 1.00, range 48m
+   t=    4  (   31.6, -106.7)    18km/h  Road 28 northbound lane 1/2 junction 4m  keeping lane
+   t=    5  (   31.6, -102.1)    17km/h  Road 2231 northbound lane 2/2 junction 27m  keeping lane
+   t=    6  (   31.6,  -97.0)    19km/h  Road 2231 northbound lane 2/2 junction 22m  keeping lane
+   t=    7  (   31.6,  -91.1)    23km/h  Road 2231 northbound lane 2/2 junction 16m  keeping lane
+   t=    8  (   31.6,  -84.0)    27km/h  Road 2232 northbound lane 1/1 junction 9m  keeping lane
+   t=    9  (   31.6,  -76.2)    29km/h  Road 2231 northbound lane 2/2 junction 1m  keeping lane
+### V019 (car) — seen by: ego_vehicle_behind,infrastructure,other_vehicle_behind, confidence 1.00, range 39m
+   t=    4  (   24.5, -170.0)     0km/h  Road 27 southbound lane 2/2 junction 7m  stopped
+   t=    5  (   24.5, -170.0)     0km/h  Road 27 southbound lane 2/2 junction 7m  stopped
+   t=    6  (   24.5, -170.0)     0km/h  Road 27 southbound lane 2/2 junction 7m  stopped
+   t=    7  (   24.5, -170.0)     0km/h  Road 27 southbound lane 2/2 junction 7m  stopped
+   t=    8  (   24.5, -170.0)     0km/h  Road 27 southbound lane 2/2 junction 7m  stopped
+   t=    9  (   24.5, -170.0)     0km/h  Road 27 southbound lane 2/2 junction 7m  stopped
+### V020 (car) — seen by: ego_vehicle,ego_vehicle_behind,infrastructure,other_vehicle,other_vehicle_behind, confidence 1.00, range 32m
+   t=    4  (   28.0, -171.1)     0km/h  Road 27 southbound lane 1/2 junction 6m  stopped
+   t=    5  (   28.0, -171.1)     0km/h  Road 27 southbound lane 1/2 junction 6m  stopped
+   t=    6  (   28.0, -171.1)     0km/h  Road 27 southbound lane 1/2 junction 6m  stopped
+   t=    7  (   28.0, -171.1)     0km/h  Road 27 southbound lane 1/2 junction 6m  stopped
+   t=    8  (   28.0, -171.1)     0km/h  Road 27 southbound lane 1/2 junction 6m  stopped
+   t=    9  (   28.0, -171.1)     0km/h  Road 27 southbound lane 1/2 junction 6m  stopped
+### V021 (car) — seen by: ego_vehicle_behind,other_vehicle_behind, confidence 0.84, range 23m
+   t=    4  (  111.5, -135.0)    30km/h  Road 20 westbound lane 1/1 junction 70m  keeping lane
+   t=    5  (  102.6, -137.7)    37km/h  Road 20 westbound lane 1/1 junction 61m  accelerating
+   t=    6  (   91.9, -140.1)    43km/h  Road 20 westbound lane 1/1 junction 50m  accelerating
+   t=    7  (   82.0, -141.5)    26km/h  Road 20 westbound lane 1/1 junction 40m  keeping lane
+   t=    8  (   78.5, -141.8)    11km/h  Road 20 westbound lane 1/1 junction 36m  keeping lane
+   t=    9  (   75.0, -142.0)    15km/h  Road 20 westbound lane 1/1 junction 32m  keeping lane
+### V017 (car) — seen by: other_vehicle, confidence 0.83, range 105m
+   t=    4  (   31.6,  -72.8)    59km/h  Road 29 northbound lane 1/2 junction 43m  keeping lane
+   t=    5  (   31.6,  -55.7)    62km/h  Road 29 northbound lane 1/2 junction 25m  keeping lane
+   t=    6  (   31.6,  -40.3)    46km/h  Road 29 northbound lane 1/2 junction 10m  keeping lane
+   t=    7  (   31.6,  -29.4)    33km/h  Road 26 northbound lane 1/2 junction 16m  keeping lane
+   t=    8  (   31.6,  -21.4)    25km/h  Road 26 northbound lane 1/2 junction 8m  keeping lane
+   t=    9  (   31.6,  -19.8)     0km/h  Road 26 northbound lane 1/2 junction 7m  stopped
+
+NOTE: observed earlier in the window but absent at the last timestep: N011 (left the field of view or detection failed — do not conclude they are gone)
+
+## Vehicle pairs that closed on each other during the window
+- EGO_other_vehicle <-> EGO_other_vehicle_behind: distance 23.1m -> 3.7m (closing rate 3.9m/s, linear-extrapolated contact in 0.9s, same road)
+- EGO_ego_vehicle <-> P004: distance 21.8m -> 4.2m (closing rate 3.5m/s, linear-extrapolated contact in 1.2s, same road)
+- EGO_ego_vehicle_behind <-> P004: distance 51.3m -> 13.4m (closing rate 7.6m/s, linear-extrapolated contact in 1.8s)
+- P006 <-> V019: distance 23.0m -> 6.1m (closing rate 3.4m/s, linear-extrapolated contact in 1.8s, same road)
+- EGO_ego_vehicle_behind <-> P008: distance 50.0m -> 13.4m (closing rate 7.3m/s, linear-extrapolated contact in 1.8s)
+- V001 <-> V019: distance 30.2m -> 8.3m (closing rate 4.4m/s, linear-extrapolated contact in 1.9s, same road)
+- V001 <-> V020: distance 31.1m -> 8.6m (closing rate 4.5m/s, linear-extrapolated contact in 1.9s, same road)
+- EGO_other_vehicle_behind <-> V016: distance 57.1m -> 18.0m (closing rate 7.8m/s, linear-extrapolated contact in 2.3s, same road)
+- EGO_other_vehicle_behind <-> P007: distance 35.2m -> 11.1m (closing rate 4.8m/s, linear-extrapolated contact in 2.3s)
+- P003 <-> V010: distance 38.8m -> 13.5m (closing rate 5.1m/s, linear-extrapolated contact in 2.7s, same road)
+- P008 <-> V010: distance 60.1m -> 22.4m (closing rate 7.5m/s, linear-extrapolated contact in 3.0s)
+- P006 <-> V020: distance 24.8m -> 9.5m (closing rate 3.0m/s, linear-extrapolated contact in 3.1s, same road)
+- EGO_ego_vehicle_behind <-> P007: distance 41.0m -> 15.8m (closing rate 5.0m/s, linear-extrapolated contact in 3.1s)
+  NOTE: the linear-extrapolated value simply extends the observed range rate; it is not a path prediction accounting for turning, braking or signals.
+
+## Last observed timestep in detail (t=9s)
+Context: source DeepAccident, map Town05, weather=ClearNight, road_type=three-way junction
+4 observer vehicle(s), 22 other road user(s), 1 roadside sensor(s) (top 26 of 26 road users included)
+NOTE map conventions: right-hand traffic | lane 1 is the median-side lane | lane width 3.50m | 256 roads, 76 junctions
+
+## Observer vehicles (perceive via onboard cameras)
+- EGO_other_vehicle: Road 28 northbound lane 2 of 2 | speed limit 89km/h | 22m to next junction | 13km/h | heading 0 deg | +1.2m/s² | accelerating | predicted path: straight
+- EGO_ego_vehicle: Road 2071 westbound lane 1 of 1 | 15m to next junction | 17km/h | heading 283 deg | -1.5m/s² | keeping lane | predicted paths: right turn 50%, left turn 50%
+- EGO_ego_vehicle_behind: Road 20 westbound lane 1 of 1 | speed limit 56km/h | 10m to next junction | 16km/h | heading 272 deg | keeping lane | predicted paths: straight 50%, straight 50%
+- EGO_other_vehicle_behind: Road 28 northbound lane 1 of 2 | speed limit 89km/h | 23m to next junction | 34km/h | heading 0 deg | +0.6m/s² | keeping lane | predicted paths: straight 20%, straight 20%, straight 20%
+
+## Other road users
+- V016(car): Road 28 northbound lane 2 of 2 | speed limit 89km/h | 5m to next junction | 0km/h | heading 349 deg | stopped | predicted path: remains stopped | seen by ego_vehicle, infrastructure, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 17m) [rel. to EGO_other_vehicle: ahead 17m, dead ahead 0.2m]
+- P004(person): Road 2071 westbound lane 1 of 1 | 15m to next junction | 5km/h | heading 327 deg | turning left | predicted path: straight | seen by ego_vehicle_behind, infrastructure, other_vehicle_behind (existence 1.00, position quality 1.00, range 13m) [rel. to EGO_ego_vehicle: behind 0m, left 4.2m]
+- V001(car): Road 27 southbound lane 1 of 2 | speed limit 89km/h | 15m to next junction | 0km/h | heading 180 deg | -3.5m/s² | stopped | predicted path: remains stopped | seen by ego_vehicle, ego_vehicle_behind, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 25m) [rel. to EGO_ego_vehicle: ahead 7m, left 23.6m]
+- V002(car): Road 2083 southbound lane 2 of 2 | 4m to next junction | 14km/h | heading 180 deg | -1.0m/s² | keeping lane | predicted paths: straight 97%, U-turn 2%, U-turn 2% | seen by ego_vehicle, ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 16m) [rel. to EGO_ego_vehicle: ahead 9m, left 13.4m]
+- P003(person): Road 20 westbound lane 1 of 1 | speed limit 56km/h | 13m to next junction | 7km/h | heading 278 deg | keeping lane | predicted path: straight | seen by ego_vehicle, ego_vehicle_behind, other_vehicle_behind (existence 1.00, position quality 1.00, range 12m) [rel. to EGO_ego_vehicle_behind: behind 3m, left 11.0m]
+- P005(person): Road 2083 southbound lane 2 of 2 | 8m to next junction | 7km/h | heading 180 deg | keeping lane | predicted path: straight | seen by ego_vehicle, ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 21m) [rel. to EGO_ego_vehicle: ahead 18m, left 10.9m]
+- P006(person): Road 27 southbound lane 2 of 2 | speed limit 89km/h | 12m to next junction | 13km/h | heading 182 deg | keeping lane | predicted paths: straight 25%, straight 25%, straight 25% | seen by ego_vehicle, ego_vehicle_behind, infrastructure (existence 1.00, position quality 1.00, range 31m) [rel. to EGO_ego_vehicle: ahead 14m, left 28.3m]
+- P007(person): Road 2071 northbound lane 1 of 1 | 0m to next junction | 7km/h | heading 358 deg | keeping lane | predicted paths: straight 97%, U-turn 3% | seen by ego_vehicle, ego_vehicle_behind, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 9m) [rel. to EGO_other_vehicle: behind 5m, right 6.7m]
+- P008(person): Road 2071 eastbound lane 1 of 1 | 0m to next junction | 12km/h | heading 101 deg | keeping lane | predicted paths: straight 97%, U-turn 3% | seen by ego_vehicle, ego_vehicle_behind, infrastructure, other_vehicle_behind (existence 1.00, position quality 1.00, range 11m) [rel. to EGO_ego_vehicle: behind 5m, left 9.5m]
+- P023(person): Road 2231 northbound lane 2 of 2 | 24m to next junction | 7km/h | heading 358 deg | keeping lane | predicted path: straight | seen by ego_vehicle, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 27m) [rel. to EGO_other_vehicle: ahead 26m, right 6.5m]
+- P009(person): Road 2104 westbound lane 1 of 1 | 19m to next junction | 8km/h | heading 283 deg | keeping lane | predicted path: straight | seen by ego_vehicle, infrastructure, other_vehicle_behind (existence 1.00, position quality 1.00, range 24m) [rel. to EGO_other_vehicle: ahead 23m, right 1.6m]
+- P022(person): Road 2104 westbound lane 1 of 1 | 16m to next junction | 6km/h | heading 273 deg | keeping lane | predicted path: straight | seen by other_vehicle_behind (existence 1.00, position quality 1.00, range 26m) [rel. to EGO_other_vehicle: ahead 25m, left 2.3m]
+- V010(car): Road 20 westbound lane 1 of 1 | speed limit 56km/h | 21m to next junction | 17km/h | heading 271 deg | keeping lane | predicted path: straight | seen by ego_vehicle_behind, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 11m) [rel. to EGO_ego_vehicle_behind: behind 11m, dead ahead 0.1m]
+- T012(truck): Road 20 northeastbound lane 1 of 1 | speed limit 56km/h | 119m to next junction | 30km/h | heading 53 deg | keeping lane | predicted path: straight | seen by ego_vehicle_behind (existence 1.00, position quality 1.00, range 85m) | NOTE: position/speed uncertain [rel. to EGO_ego_vehicle_behind: behind 83m, right 17.9m]
+- V013(car): Road 20 eastbound lane 1 of 1 | speed limit 56km/h | 137m to next junction | 27km/h | heading 68 deg | keeping lane | predicted path: straight | seen by ego_vehicle_behind (existence 1.00, position quality 1.00, range 68m) | NOTE: position/speed uncertain [rel. to EGO_ego_vehicle_behind: behind 67m, right 8.7m]
+- V014(car): Road 20 eastbound lane 1 of 1 | speed limit 56km/h | 28km/h | heading 75 deg | keeping lane | predicted path: straight | seen by ego_vehicle_behind, other_vehicle_behind (existence 1.00, position quality 1.00, range 52m) | NOTE: position/speed uncertain [rel. to EGO_ego_vehicle_behind: behind 51m, right 2.7m]
+- T015(truck): Road 29 northbound lane 2 of 2 | speed limit 89km/h | 1m to next junction | 34km/h | heading 0 deg | -2.0m/s² | keeping lane | predicted path: constant-speed straight (no road match) | seen by ego_vehicle, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 94m) | NOTE: position/speed uncertain [rel. to EGO_other_vehicle: ahead 94m, dead ahead 0.0m]
+- T018(truck): Road 2231 northbound lane 2 of 2 | 1m to next junction | 29km/h | heading 0 deg | +0.8m/s² | keeping lane | predicted paths: straight 97%, U-turn 1%, U-turn 1% | seen by ego_vehicle, infrastructure, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 48m) | NOTE: position/speed uncertain [rel. to EGO_other_vehicle: ahead 48m, left 3.5m]
+- V019(car): Road 27 southbound lane 2 of 2 | speed limit 89km/h | 7m to next junction | 0km/h | heading 180 deg | stopped | predicted path: remains stopped | seen by ego_vehicle_behind, infrastructure, other_vehicle_behind (existence 1.00, position quality 1.00, range 39m) [rel. to EGO_ego_vehicle: ahead 9m, left 31.7m]
+- V020(car): Road 27 southbound lane 1 of 2 | speed limit 89km/h | 6m to next junction | 0km/h | heading 180 deg | stopped | predicted path: remains stopped | seen by ego_vehicle, ego_vehicle_behind, infrastructure, other_vehicle, other_vehicle_behind (existence 1.00, position quality 1.00, range 32m) [rel. to EGO_ego_vehicle: ahead 5m, left 32.0m]
+- V021(car): Road 20 westbound lane 1 of 1 | speed limit 56km/h | 32m to next junction | 15km/h | heading 267 deg | keeping lane | predicted path: straight | seen by ego_vehicle_behind, other_vehicle_behind (existence 0.84, position quality 1.00, range 23m) [rel. to EGO_ego_vehicle_behind: behind 23m, dead ahead 0.7m]
+- V017(car): Road 26 northbound lane 1 of 2 | speed limit 89km/h | 7m to next junction | 0km/h | heading 360 deg | stopped | predicted path: remains stopped | seen by other_vehicle (existence 0.83, position quality 1.00, range 105m) | NOTE: position/speed uncertain [rel. to EGO_other_vehicle: ahead 105m, left 3.5m]
+
+## Roadside sensors (V2X, not road users)
+- infrastructure: mounted 3.6m | beside Road 28 | aimed 180° | 11 detection(s) at this time
+
+## Interactions and hazards
+- EGO_other_vehicle → V016 | car following | gap 16.6m | headway 4.5s | TTC 4.5s
+- V021 → V010 | car following | gap 11.8m | headway 2.8s
+- P022 → P009 | car following | gap 3.6m | headway 2.1s
+- V013 → V014 | car following | gap 16.8m | headway 2.2s
+
+## BEV sketch (reference: EGO_other_vehicle)
+```
+...............................
+...............................
+...............................
+.............K.................
+...............................
+...............................
+..............F..C.............
+..............JD...............
+...............................
+...............................
+.............3.@.A.............
+...............................
+.........8......1....2...G...H.
+............5....B....6........
+............4..................
+.........9.LM..................
+...............................
+...............................
+...............................
+...............................
+...............................
+```
+@=reference | scale: vertical +/-80m (front/back), horizontal +/-40m (left/right) | 1=EGO_ego_vehicle/observer(-16,-5)  2=EGO_ego_vehicle_behind/observer(-17,-17)  @=EGO_other_vehicle/observer(+0,+0)  3=EGO_other_vehicle_behind/observer(-1,+3)  4=V001/car(-38,+7)  5=V002/car(-27,+7)  6=P003/person(-28,-20)  7=P004(-21,-4, cell shared)  8=P005/person(-23,+15)  9=P006/person(-41,+15)  A=P007/person(-5,-7)  B=P008/person(-27,-8)  C=P023/person(+26,-6)  D=P009/person(+23,-2)  F=P022/person(+25,+2)  G=V010/car(-18,-28)  H=V021/car(-17,-40)  J=V016/car(+17,+0)  K=T018/truck(+48,+4)  L=V019/car(-45,+10)  M=V020/car(-47,+7)
