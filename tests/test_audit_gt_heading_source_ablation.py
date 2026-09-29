@@ -18,6 +18,36 @@ def box(heading):
 
 
 class HeadingSourceAblationTest(unittest.TestCase):
+    def test_residual_raw_yaw_fp_categories(self):
+        pair = audit.SweptPair(
+            "A", "B", 0.0, 0.5, 1, True, 0.5, "straight", "left",
+            1.0, 0.5, 0.1, 2.0, 3.0, "NEW_CONTACT", False, False,
+        )
+
+        def record(scenario_type, identities, target=(1, 2)):
+            actors = {aid: actor() for aid in ("A", "B")}
+            for aid, value in actors.items():
+                value.actor_id = aid
+            return {
+                "scenario_type": scenario_type, "scenario": "scene", "window": "w",
+                "bucket": 0, "cutoff_s": 1.0, "gt_positive": False,
+                "target_carla_ids": list(target), "identities": identities,
+                "actors": actors, "pairs": {audit.RAW_BOX_YAW: {frozenset(("A", "B")): pair}},
+            }
+
+        cases = [
+            (record("normal", {"A": {9}, "B": {10}}), "NORMAL_SCENARIO_CONTACT"),
+            (record("accident", {"A": {1}, "B": {2}}), "TARGET_PAIR_WRONG_BUCKET"),
+            (record("accident", {"A": {1}, "B": {3}}), "ONE_TARGET_ACTOR_PLUS_OTHER"),
+            (record("accident", {"A": {3}, "B": {4}}), "UNRELATED_ACTOR_PAIR"),
+            (record("accident", {"A": {1, 3}, "B": {2}}), "IDENTITY_OR_TARGET_UNKNOWN"),
+        ]
+        for record_, expected in cases:
+            with self.subTest(expected=expected):
+                rows = audit.residual_raw_yaw_fp_rows([record_])
+                self.assertEqual(len(rows), 1)
+                self.assertEqual(rows[0]["category"], expected)
+
     def test_raw_heading_is_direct_enu_vector(self):
         heading = audit._raw_heading({1: {7: box((0.0, 1.0))}}, {"A": {7}}, 0.0, "A", 0.0)
         self.assertEqual(heading, (0.0, 1.0))

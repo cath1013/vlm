@@ -27,9 +27,16 @@ import traffic_llm.swept_path as swept_path  # noqa: E402
 PATH_TANGENT_HEADING = "PATH_TANGENT_HEADING"
 RAW_BOX_YAW = "RAW_BOX_YAW"
 LOOKBACK_S = 0.6
-EXPECTED = {"TP": 52, "FP": 193, "TN": 362, "FN": 17, "GT_actor_pair_hits": 41,
-            "FP_contact_pair_rows": 337, "windows_with_FP_contact": 150,
-            "scenarios_with_FP_contact": 47}
+EXPECTED = {
+    "TP": 49,
+    "FP": 173,
+    "TN": 382,
+    "FN": 20,
+    "GT_actor_pair_hits": 41,
+    "FP_contact_pair_rows": 258,
+    "windows_with_FP_contact": 138,
+    "scenarios_with_FP_contact": 46,
+}
 
 
 def identities(window, agent_ids):
@@ -238,6 +245,7 @@ def audit_one(root, row, conf, maps, raw_scenario):
                      for c, values in by_condition.items()}
             records.append({"scenario_type": row["scenario_type"], "scenario": row["scenario"], "window": label,
                 "bucket": bucket, "cutoff_s": cutoff, "gt_positive": bool(e["accident_expected"]),
+                "target_carla_ids": sorted(target),
                 "pairs": pairs, "hits": {c: _target_hit(v, target, ids) for c, v in pairs.items()},
                 "identities": ids, "actors": {a.actor_id: a for a in selected}, "frame_boxes": frame_boxes,
                 "heading_coverage": coverage, "selected_paths": {PATH_TANGENT_HEADING: tangent_paths,
@@ -322,6 +330,66 @@ def _removed_fp_coverage_counts(rows):
             "FP_removed_with_missing_raw_heading": counts["FP_removed_with_missing_raw_heading"]}
 
 
+def residual_raw_yaw_fp_rows(records):
+    """Return every RAW_BOX_YAW contact pair from a GT-negative bucket.
+
+    Accident targets are scenario-level labels.  A target is usable only when
+    the records for that scenario provide one unambiguous two-CARLA-ID pair.
+    """
+    scenario_targets = defaultdict(set)
+    for r in records:
+        target = tuple(r["target_carla_ids"])
+        if len(target) == 2:
+            scenario_targets[(r["scenario_type"], r["scenario"])].add(target)
+
+    rows = []
+    for r in records:
+        if r["gt_positive"]:
+            continue
+        key = (r["scenario_type"], r["scenario"])
+        targets = scenario_targets[key]
+        target = next(iter(targets)) if len(targets) == 1 else None
+        for pair, p in r["pairs"][RAW_BOX_YAW].items():
+            actor_pair = [p.actor_a, p.actor_b]
+            source_carla_ids = [sorted(r["identities"][actor_id]) for actor_id in actor_pair]
+            actors = [r["actors"][actor_id] for actor_id in actor_pair]
+            if r["scenario_type"] == "normal" or r["scenario_type"].endswith("_normal"):
+                category = "NORMAL_SCENARIO_CONTACT"
+            elif target is None or any(len(ids) != 1 for ids in source_carla_ids):
+                category = "IDENTITY_OR_TARGET_UNKNOWN"
+            else:
+                predicted = {ids[0] for ids in source_carla_ids}
+                target_ids = set(target)
+                if predicted == target_ids:
+                    category = "TARGET_PAIR_WRONG_BUCKET"
+                elif len(predicted & target_ids) == 1:
+                    category = "ONE_TARGET_ACTOR_PLUS_OTHER"
+                else:
+                    category = "UNRELATED_ACTOR_PAIR"
+            rows.append({
+                "scenario_type": r["scenario_type"], "scenario": r["scenario"],
+                "window": r["window"], "bucket": r["bucket"], "cutoff_s": r["cutoff_s"],
+                "actor_pair": actor_pair, "source_carla_ids": source_carla_ids,
+                "scenario_target_carla_ids": None if target is None else list(target),
+                "category": category,
+                "event": p.contact_event, "first_contact_time_s": p.first_contact_s,
+                "minimum_clearance_m": p.minimum_clearance_m,
+                "clearance_at_observation_m": p.clearance_at_observation_m,
+                "clearance_at_1s_m": p.clearance_at_1s_m,
+                "clearance_at_horizon_m": p.clearance_at_horizon_m,
+                "contact_duration_s": p.contact_duration_s,
+                "contact_at_observation": p.contact_at_observation,
+                "contact_before_observation": p.contact_before_observation,
+                "path_a_maneuver": p.path_a_maneuver,
+                "path_b_maneuver": p.path_b_maneuver,
+                "joint_path_probability": p.joint_path_probability,
+                "actor_classes": [actor.cls for actor in actors],
+                "actor_speeds_mps": [actor.speed_mps for actor in actors],
+                "actor_footprints_m": [list(actor_footprint_m(actor)) for actor in actors],
+            })
+    return rows
+
+
 def changed_pairs(records):
     rows = []
     for r in records:
@@ -367,6 +435,7 @@ def main(argv=None):
     if {k:summaries[PATH_TANGENT_HEADING][k] for k in EXPECTED} != EXPECTED:
         raise RuntimeError(f"PATH_TANGENT_HEADING is not faithful to production: {summaries[PATH_TANGENT_HEADING]}")
     changed=changed_pairs(records)
+    residual=residual_raw_yaw_fp_rows(records)
     event_counts = {"FP_removed": {e: 0 for e in ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")},
                     "FP_introduced": {e: 0 for e in ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")}}
     for x in changed:
@@ -375,8 +444,10 @@ def main(argv=None):
         if x["FP_introduced"] and x["RAW_BOX_YAW_event"] in event_counts["FP_introduced"]:
             event_counts["FP_introduced"][x["RAW_BOX_YAW_event"]] += 1
     removed_coverage = _removed_fp_coverage_counts(changed)
-    doc={"conditions":summaries,"pairwise":{f"{PATH_TANGENT_HEADING} -> {RAW_BOX_YAW}":pairwise(records)},"changed_FP_pairs_by_event_type":event_counts,**removed_coverage,"contact_lookback_s":LOOKBACK_S,"sample_dt_s":.1,"margin_m":0.}
-    out=Path(args.out); out.mkdir(parents=True,exist_ok=True); (out/"summary.json").write_text(json.dumps(doc,indent=2)+"\n"); (out/"heading_source_changed_pairs.jsonl").write_text("".join(json.dumps(x)+"\n" for x in changed)); print(json.dumps(doc,indent=2))
+    residual_categories = Counter(row["category"] for row in residual)
+    residual_events = Counter(row["event"] for row in residual)
+    doc={"conditions":summaries,"pairwise":{f"{PATH_TANGENT_HEADING} -> {RAW_BOX_YAW}":pairwise(records)},"changed_FP_pairs_by_event_type":event_counts,**removed_coverage,"RAW_BOX_YAW_residual_FP_pair_rows":len(residual),"RAW_BOX_YAW_residual_FP_categories":{category: residual_categories[category] for category in ("NORMAL_SCENARIO_CONTACT", "TARGET_PAIR_WRONG_BUCKET", "ONE_TARGET_ACTOR_PLUS_OTHER", "UNRELATED_ACTOR_PAIR", "IDENTITY_OR_TARGET_UNKNOWN")},"RAW_BOX_YAW_residual_FP_events":{event: residual_events[event] for event in ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")},"contact_lookback_s":LOOKBACK_S,"sample_dt_s":.1,"margin_m":0.}
+    out=Path(args.out); out.mkdir(parents=True,exist_ok=True); (out/"summary.json").write_text(json.dumps(doc,indent=2)+"\n"); (out/"heading_source_changed_pairs.jsonl").write_text("".join(json.dumps(x)+"\n" for x in changed)); (out/"raw_box_yaw_fp_pairs.jsonl").write_text("".join(json.dumps(x)+"\n" for x in residual)); print(json.dumps(doc,indent=2))
 
 
 if __name__ == "__main__": raise SystemExit(main())
