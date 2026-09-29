@@ -866,6 +866,9 @@ def compact_window_json(
             "joint_path_probability", "clearance_at_observation_m",
             "a_observes_b", "b_observes_a", "mutually_observed",
             "a_observation_available", "b_observation_available",
+            "contact_event", "contact_at_observation",
+            "contact_before_observation", "first_contact_s",
+            "contact_duration_s",
         ],
         "predicted_closest_pairs": [
             [
@@ -878,6 +881,17 @@ def compact_window_json(
                 round(pair.joint_path_probability, 3),
                 round(pair.clearance_at_observation_m, 2),
                 *pair_observation(pair),
+                pair.contact_event,
+                pair.contact_at_observation,
+                pair.contact_before_observation,
+                (
+                    None if pair.first_contact_s is None
+                    else round(pair.first_contact_s, 3)
+                ),
+                (
+                    None if pair.contact_duration_s is None
+                    else round(pair.contact_duration_s, 3)
+                ),
             ]
             for pair in swept
         ],

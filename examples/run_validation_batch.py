@@ -147,13 +147,10 @@ def _write_batch_manifest(path: Path, args, selected) -> dict:
 def generate(args, selected) -> None:
     py = sys.executable
     script = str(ROOT / "examples" / "run_deepaccident.py")
-    for i, sc in enumerate(selected, 1):
+
+    def one(sc) -> None:
         target = _scenario_dir(Path(args.out), sc)
         manifest = target / "manifest.json"
-        if args.skip_existing and manifest.is_file():
-            print(f"[{i:02d}/{len(selected)}] reuse {sc.outcome:8s} {sc.scenario}", flush=True)
-            continue
-        print(f"[{i:02d}/{len(selected)}] build {sc.outcome:8s} {sc.scenario}", flush=True)
         cmd = [
             py, script,
             "--root", args.root,
@@ -187,6 +184,23 @@ def generate(args, selected) -> None:
         _run(cmd, Path(args.out) / "logs" / f"generate_{sc.scenario}.log")
         if not manifest.is_file():
             raise RuntimeError(f"generator did not create {manifest}")
+
+    jobs = []
+    for i, sc in enumerate(selected, 1):
+        target = _scenario_dir(Path(args.out), sc)
+        manifest = target / "manifest.json"
+        if args.skip_existing and manifest.is_file():
+            print(f"[{i:02d}/{len(selected)}] reuse {sc.outcome:8s} {sc.scenario}", flush=True)
+            continue
+        print(f"[{i:02d}/{len(selected)}] build {sc.outcome:8s} {sc.scenario}", flush=True)
+        jobs.append(sc)
+
+    with ThreadPoolExecutor(max_workers=args.generate_workers) as pool:
+        futures = {pool.submit(one, sc): sc for sc in jobs}
+        for done, fut in enumerate(as_completed(futures), 1):
+            sc = futures[fut]
+            fut.result()
+            print(f"[{done:02d}/{len(jobs)}] complete {sc.outcome} {sc.scenario}", flush=True)
 
 
 def _iter_manifests(base: Path, cohort: dict) -> Iterable[tuple[dict, Path, dict]]:
@@ -443,6 +457,8 @@ def parse_args(argv=None):
     ap.add_argument("--skip-generate", action="store_true")
     ap.add_argument("--skip-existing", action="store_true")
     ap.add_argument("--call-llm", action="store_true")
+    ap.add_argument("--generate-workers", type=int, default=1,
+                    help="concurrent scenario-generation jobs (default: 1)")
     ap.add_argument("--workers", type=int, default=4,
                     help="concurrent scenario-level LLM jobs (default: 4)")
     args = ap.parse_args(argv)

@@ -21,6 +21,8 @@ def test_defaults_enable_compact_and_v2():
     )
     assert args.future_source == "predictor"
     assert args.contact_margin_m == 0.0
+    assert args.generate_workers == 1
+    assert args.workers == 4
 
 
 def test_contact_margin_is_recorded_and_forwarded(tmp_path):

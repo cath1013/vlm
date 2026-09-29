@@ -362,9 +362,14 @@ class TestRendering(unittest.TestCase):
         )
         self.assertEqual(doc["predicted_pair_method"]["contact_margin_m"], 0.0)
         pair_cols = doc["predicted_pair_columns"]
-        self.assertEqual(pair_cols[-5:], [
+        self.assertEqual(pair_cols[-10:-5], [
             "a_observes_b", "b_observes_a", "mutually_observed",
             "a_observation_available", "b_observation_available",
+        ])
+        self.assertEqual(pair_cols[-5:], [
+            "contact_event", "contact_at_observation",
+            "contact_before_observation", "first_contact_s",
+            "contact_duration_s",
         ])
         self.assertTrue(all(len(row) == len(pair_cols)
                             for row in doc["predicted_closest_pairs"]))

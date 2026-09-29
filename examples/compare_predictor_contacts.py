@@ -22,8 +22,11 @@ def compact_from_payload(path: Path) -> dict:
                 obj = json.loads(text)
             except json.JSONDecodeError:
                 continue
-            if obj.get("representation") == "compact_geometry_v3":
-                return obj
+            if obj.get("representation") in {
+                "compact_geometry_v3",
+            "compact_geometry_v3_timestamped_gt",
+            }:
+                return obj    
 
     raise ValueError(f"compact payload not found: {path}")
 
