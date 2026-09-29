@@ -505,6 +505,50 @@ class TestRendering(unittest.TestCase):
             english_blob,
         )
 
+    def test_ground_truth_oracle_matches_observed_actors_by_source_track_id(self):
+        """Cross-rate V### labels may be swapped, unlike CARLA track ids."""
+        def actor(actor_id, source_id, x):
+            return ActorState(
+                actor_id=actor_id, kind="observed", cls="car", world_xy=(x, 0.0),
+                heading_deg=90.0, speed_mps=1.0, accel_mps2=0.0,
+                placement=placement(), observed_by=["v1"],
+                source_track_ids=[source_id],
+                predictions=[PredictedPath("straight", 1.0, [(x, 0.0)], 1.0)],
+            )
+
+        observed = [
+            SceneSnapshot(
+                t=0.0, actors=[actor("V001", 100, 0.0), actor("V002", 200, 10.0)],
+                interactions=[],
+            ),
+            SceneSnapshot(
+                t=1.0, actors=[actor("V001", 100, 1.0), actor("V002", 200, 11.0)],
+                interactions=[],
+            ),
+        ]
+        raw = [
+            SceneSnapshot(
+                t=0.0, actors=[actor("V001", 200, 20.0), actor("V002", 100, 30.0)],
+                interactions=[],
+            ),
+            SceneSnapshot(
+                t=1.0, actors=[actor("V001", 200, 21.0), actor("V002", 100, 31.0)],
+                interactions=[],
+            ),
+        ]
+
+        oracle = ground_truth_future_snapshots(
+            observed, horizon_s=1.0, raw_snapshots=raw
+        )
+        self.assertEqual(
+            oracle[0].actors[0].predictions[0].waypoints,
+            [(0.0, 0.0), (31.0, 0.0)],
+        )
+        self.assertEqual(
+            oracle[0].actors[1].predictions[0].waypoints,
+            [(10.0, 0.0), (21.0, 0.0)],
+        )
+
     def test_compact_keeps_legacy_external_predictor_starting_at_plus_one(self):
         """An external predictor may already omit t=0; do not drop its +1 point."""
         win = pick(self.wins, "2-7")

@@ -219,18 +219,57 @@ def ground_truth_future_snapshots(
     copied snapshots retain observed history/current state and path metadata.
     """
     oracle = deepcopy(list(snapshots))
+    # Observed V### labels are registry-local.  A single source track id is
+    # the stable DeepAccident identity across separate converter runs.
     per_actor: Dict[str, list] = {}
+    per_source_track: Dict[int, list] = {}
+    per_actor_without_source_track: Dict[str, list] = {}
+    raw_actors_with_source_tracks: set[str] = set()
     for snap in raw_snapshots if raw_snapshots is not None else snapshots:
+        source_actors: Dict[int, list] = {}
         for actor in snap.actors:
             per_actor.setdefault(actor.actor_id, []).append((snap.t, actor.world_xy))
-    for samples in per_actor.values():
+            source_ids = set(actor.source_track_ids)
+            if len(source_ids) == 1:
+                raw_actors_with_source_tracks.add(actor.actor_id)
+                source_actors.setdefault(next(iter(source_ids)), []).append(actor)
+            elif source_ids:
+                raw_actors_with_source_tracks.add(actor.actor_id)
+            elif not source_ids:
+                per_actor_without_source_track.setdefault(actor.actor_id, []).append(
+                    (snap.t, actor.world_xy)
+                )
+        # A duplicated source id within one raw frame is ambiguous.
+        for source_id, actors in source_actors.items():
+            if len(actors) == 1:
+                actor = actors[0]
+                per_source_track.setdefault(source_id, []).append((snap.t, actor.world_xy))
+    for samples in (
+        list(per_actor.values())
+        + list(per_source_track.values())
+        + list(per_actor_without_source_track.values())
+    ):
         samples.sort(key=lambda row: row[0])
 
     for snap in oracle:
         for actor in snap.actors:
+            source_ids = set(actor.source_track_ids)
+            if actor.actor_id.startswith("EGO_"):
+                samples = per_actor.get(actor.actor_id, [])
+            elif len(source_ids) == 1:
+                # A stable identity without a raw counterpart must not fall
+                # back to a coincidentally named registry actor.
+                samples = per_source_track.get(next(iter(source_ids)), [])
+            elif not source_ids and actor.actor_id not in raw_actors_with_source_tracks:
+                # Retain legacy actor-id matching only when neither stream
+                # supplies a source identity for that raw actor sample.
+                samples = per_actor_without_source_track.get(actor.actor_id, [])
+            else:
+                # Multiple source ids are not a safe identity match.
+                samples = []
             future = [
                 (round(t - snap.t, 6), xy)
-                for t, xy in per_actor.get(actor.actor_id, [])
+                for t, xy in samples
                 if t > snap.t + 1e-6 and t <= snap.t + horizon_s + 1e-6
             ]
             complete = bool(future and future[-1][0] >= horizon_s - 1e-6)
