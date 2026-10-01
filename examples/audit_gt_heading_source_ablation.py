@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Evaluation-only heading-source ablation for the GT-oracle production replay.
 
-``PATH_TANGENT_HEADING`` calls the production swept-path implementation
-unchanged.  ``RAW_BOX_YAW`` retains those replay/GT positions exactly, but
-uses the identity-matched raw CARLA WorldBox ENU heading at every pose.
+This final evaluation-only diagnostic keeps replay/GT positions and raw CARLA
+yaw fixed, comparing generic actor footprints with exact per-instance raw
+CARLA WorldBox dimensions.
 """
 from __future__ import annotations
 
@@ -24,18 +24,16 @@ from traffic_llm.accident_qa import build_actor_lookup  # noqa: E402
 from traffic_llm.swept_path import SweptPair, _contact_event, actor_footprint_m, swept_pair_clearances  # noqa: E402
 import traffic_llm.swept_path as swept_path  # noqa: E402
 
-PATH_TANGENT_HEADING = "PATH_TANGENT_HEADING"
-RAW_BOX_YAW = "RAW_BOX_YAW"
+PATH_TANGENT_HEADING = "PATH_TANGENT_HEADING"  # retained for old diagnostic helpers
+RAW_BOX_YAW_GENERIC_SIZE = "RAW_BOX_YAW_GENERIC_SIZE"
+RAW_BOX_YAW_EXACT_SIZE = "RAW_BOX_YAW_EXACT_SIZE"
+# Compatibility for consumers of the previous heading-only audit output.
+RAW_BOX_YAW = RAW_BOX_YAW_GENERIC_SIZE
 LOOKBACK_S = 0.6
-EXPECTED = {
-    "TP": 49,
-    "FP": 173,
-    "TN": 382,
-    "FN": 20,
-    "GT_actor_pair_hits": 41,
-    "FP_contact_pair_rows": 258,
-    "windows_with_FP_contact": 138,
-    "scenarios_with_FP_contact": 46,
+EXPECTED_GENERIC = {
+    "TP": 45, "FP": 18, "TN": 537, "FN": 24,
+    "GT_actor_pair_hits": 45, "FP_contact_pair_rows": 19,
+    "windows_with_FP_contact": 18, "scenarios_with_FP_contact": 8,
 }
 
 
@@ -62,6 +60,17 @@ def _raw_heading(frame_boxes, identities_by_actor, cutoff_s, actor_id, t):
     return box.heading
 
 
+def _exact_footprint(frame_boxes, identities_by_actor, cutoff_s, actor_id, t):
+    """Return exact raw WorldBox dimensions at this exact timestamp, or None."""
+    ids = identities_by_actor.get(actor_id, set())
+    frame = int(round((cutoff_s + t) * raw_audit.FRAME_RATE_HZ)) + 1
+    if (len(ids) != 1 or not math.isclose(state_audit.raw_time(frame), cutoff_s + t,
+                                          abs_tol=1e-8)):
+        return None
+    box = frame_boxes.get(frame, {}).get(next(iter(ids)))
+    return None if box is None else (box.length, box.width)
+
+
 class _HeadingLookup:
     """Cache exact heading availability and count each actor/time query once."""
     def __init__(self, frame_boxes, identities_by_actor, cutoff_s):
@@ -83,6 +92,30 @@ class _HeadingLookup:
                 "raw_heading_coverage": None if not total else available / total,
                 "actor_pairs_skipped_missing_heading_at_t0": len(self.skipped_t0_pairs),
                 "path_pairs_with_any_missing_future_heading": len(self.future_missing_path_pairs)}
+
+
+class _ExactFootprintLookup:
+    """Cache raw dimensions and account for each exact actor/time query once."""
+    def __init__(self, frame_boxes, identities_by_actor, cutoff_s):
+        self.frame_boxes, self.identities, self.cutoff_s = frame_boxes, identities_by_actor, cutoff_s
+        self.cache = {}
+        self.skipped_t0_pairs, self.future_missing_path_pairs = set(), set()
+
+    def __call__(self, actor, t):
+        key = (actor.actor_id, round(t, 9))
+        if key not in self.cache:
+            self.cache[key] = _exact_footprint(self.frame_boxes, self.identities, self.cutoff_s,
+                                               actor.actor_id, t)
+        return self.cache[key]
+
+    def report(self):
+        available = sum(value is not None for value in self.cache.values())
+        total = len(self.cache)
+        return {"exact_size_queries": total, "exact_size_available": available,
+                "exact_size_missing": total - available,
+                "exact_size_coverage": None if not total else available / total,
+                "actor_pairs_skipped_missing_exact_size_at_t0": len(self.skipped_t0_pairs),
+                "path_pairs_with_any_missing_future_exact_size": len(self.future_missing_path_pairs)}
 
 
 def _future_pose(actor, path, horizon_s, heading_at):
@@ -112,40 +145,45 @@ def _history_pose(actor, heading_at):
     return pose, times, gaps
 
 
-def _raw_history_before(a, ea, b, eb, heading_at, margin):
+def _raw_history_before(a, b, heading_at, footprint_at, margin):
     pa, ta, ga = _history_pose(a, heading_at)
     pb, tb, gb = _history_pose(b, heading_at)
     if pa is None or pb is None:
         return None, True
     times = sorted({t for t in (*ta, *tb) if -LOOKBACK_S - 1e-9 <= t < -1e-9})
-    valid = []
+    valid, unavailable = [], False
     for t in times:
         aa, bb = pa(t), pb(t)
-        if aa is not None and bb is not None:
+        ea, eb = footprint_at(a, t), footprint_at(b, t)
+        if aa is not None and bb is not None and ea is not None and eb is not None:
             valid.append((t, swept_path._footprint_clearance(aa, ea, bb, eb) <= margin))
+        elif aa is not None and bb is not None:
+            unavailable = True
     if not valid:
         return None, True
     latest_t, latest = valid[-1]
     gapped = any(t > latest_t + 1e-9 and (pa(t) is None or pb(t) is None) for t in times)
     gapped |= any(start >= latest_t - 1e-9 and end > latest_t + 1e-9 for start, end in (*ga, *gb))
-    return latest, gapped
+    return latest, gapped or unavailable
 
 
 def raw_yaw_swept_pair_clearances(actors, *, frame_boxes, identities_by_actor, cutoff_s,
                                   horizon_s, sample_dt_s=.1, contact_margin_m=0., coverage=None,
-                                  selected_paths=None):
-    """A local heading-only variant of swept_path; XY/event rules mirror production."""
+                                  selected_paths=None, exact_size=False):
+    """Local raw-yaw evaluator; only ``exact_size`` changes the footprint source."""
     lookup = _HeadingLookup(frame_boxes, identities_by_actor, cutoff_s)
+    size_lookup = _ExactFootprintLookup(frame_boxes, identities_by_actor, cutoff_s) if exact_size else None
     heading_at = lookup
+    footprint_at = size_lookup if size_lookup is not None else lambda actor, _t: actor_footprint_m(actor)
     candidates = []
     for actor in actors:
         paths = [(p, *m) for p in actor.predictions
                  if (m := _future_pose(actor, p, horizon_s, heading_at)) is not None]
         if paths:
-            candidates.append((actor, paths, actor_footprint_m(actor)))
+            candidates.append((actor, paths))
     result = []
-    for i, (a, paths_a, ea) in enumerate(candidates):
-        for b, paths_b, eb in candidates[i + 1:]:
+    for i, (a, paths_a) in enumerate(candidates):
+        for b, paths_b in candidates[i + 1:]:
             best = None
             for path_a, pose_a, avail_a, gaps_a in paths_a:
                 for path_b, pose_b, avail_b, gaps_b in paths_b:
@@ -156,19 +194,25 @@ def raw_yaw_swept_pair_clearances(actors, *, frame_boxes, identities_by_actor, c
                     future_times = [step * sample_dt_s for step in range(1, int(math.floor(available / sample_dt_s + 1e-9)) + 1)]
                     if any(heading_at(x.actor_id, t) is None for x in (a, b) for t in future_times):
                         lookup.future_missing_path_pairs.add(path_key)
+                    if size_lookup and any(footprint_at(x, t) is None for x in (a, b) for t in future_times):
+                        size_lookup.future_missing_path_pairs.add(path_key)
                     now_a, now_b = pose_a(0.), pose_b(0.)
-                    if now_a is None or now_b is None:
+                    ea, eb = footprint_at(a, 0.), footprint_at(b, 0.)
+                    if now_a is None or now_b is None or ea is None or eb is None:
                         # No source yaw at the boundary makes the state unknown.
                         lookup.skipped_t0_pairs.add((a.actor_id, b.actor_id))
+                        if size_lookup and (ea is None or eb is None):
+                            size_lookup.skipped_t0_pairs.add((a.actor_id, b.actor_id))
                         continue
                     now_gap = swept_path._footprint_clearance(now_a, ea, now_b, eb)
                     samples, missing = [], []
                     for step in range(1, int(math.floor(available / sample_dt_s + 1e-9)) + 1):
                         t = step * sample_dt_s; aa, bb = pose_a(t), pose_b(t)
-                        if aa is None or bb is None:
+                        ea_t, eb_t = footprint_at(a, t), footprint_at(b, t)
+                        if aa is None or bb is None or ea_t is None or eb_t is None:
                             missing.append((max(0., t - sample_dt_s / 2), min(available, t + sample_dt_s / 2)))
                         else:
-                            samples.append((t, swept_path._footprint_clearance(aa, ea, bb, eb)))
+                            samples.append((t, swept_path._footprint_clearance(aa, ea_t, bb, eb_t)))
                     if not samples:
                         continue
                     row = (min(g for _t, g in samples), min(samples, key=lambda x: x[1])[0], now_gap,
@@ -176,7 +220,7 @@ def raw_yaw_swept_pair_clearances(actors, *, frame_boxes, identities_by_actor, c
                     if best is None or row[:2] < best[:2]: best = row
             if best is None: continue
             gap, at, now_gap, pa, pb, samples, available, gaps, missing = best
-            before, history_gapped = _raw_history_before(a, ea, b, eb, heading_at, contact_margin_m)
+            before, history_gapped = _raw_history_before(a, b, heading_at, footprint_at, contact_margin_m)
             event, first = _contact_event(now_gap <= contact_margin_m, before, history_gapped,
                 [(t, g <= contact_margin_m) for t, g in samples],
                 available >= horizon_s - 1e-9 and not missing, gaps)
@@ -194,6 +238,8 @@ def raw_yaw_swept_pair_clearances(actors, *, frame_boxes, identities_by_actor, c
                 selected_paths[frozenset((a.actor_id, b.actor_id))] = (pa, pb)
     if coverage is not None:
         coverage.update(lookup.report())
+        if size_lookup:
+            coverage.update(size_lookup.report())
     return sorted(result, key=lambda p: (p.minimum_clearance_m, p.time_after_observation_s, p.actor_a, p.actor_b))
 
 
@@ -231,14 +277,17 @@ def audit_one(root, row, conf, maps, raw_scenario):
         if not win: raise KeyError(f"missing replay window {row['scenario']}/{label}")
         selected, _ = state_audit.rank_actors(win.last, wc.actor_cap(len(win.last.actors)))
         ids = identities(win, agent_ids)
-        tangent = swept_pair_clearances(selected, horizon_s=float(conf["horizon_s"]), sample_dt_s=.1,
-            contact_margin_m=0., exclude_touching_now=True, exclude_static_pairs=True, contact_lookback_s=LOOKBACK_S)
-        coverage, raw_paths = {}, {}
-        raw_yaw = raw_yaw_swept_pair_clearances(selected, frame_boxes=frame_boxes, identities_by_actor=ids,
-            cutoff_s=cutoff, horizon_s=float(conf["horizon_s"]), coverage=coverage, selected_paths=raw_paths)
-        tangent_paths = _paths_recorded_by_swept(selected, tangent)
-        by_condition = {PATH_TANGENT_HEADING: {frozenset((p.actor_a, p.actor_b)): p for p in tangent if p.predicted_contact},
-                        RAW_BOX_YAW: {frozenset((p.actor_a, p.actor_b)): p for p in raw_yaw if p.predicted_contact}}
+        generic_coverage, exact_coverage, generic_paths, exact_paths = {}, {}, {}, {}
+        generic = raw_yaw_swept_pair_clearances(selected, frame_boxes=frame_boxes, identities_by_actor=ids,
+            cutoff_s=cutoff, horizon_s=float(conf["horizon_s"]), coverage=generic_coverage,
+            selected_paths=generic_paths)
+        exact = raw_yaw_swept_pair_clearances(selected, frame_boxes=frame_boxes, identities_by_actor=ids,
+            cutoff_s=cutoff, horizon_s=float(conf["horizon_s"]), coverage=exact_coverage,
+            selected_paths=exact_paths, exact_size=True)
+        by_condition = {
+            RAW_BOX_YAW_GENERIC_SIZE: {frozenset((p.actor_a, p.actor_b)): p for p in generic if p.predicted_contact},
+            RAW_BOX_YAW_EXACT_SIZE: {frozenset((p.actor_a, p.actor_b)): p for p in exact if p.predicted_contact},
+        }
         for e in expected_rows:
             bucket = int(e["k"]); target = tuple(map(int, e.get("involved_carla_ids") or []))
             pairs = {c: {pair: p for pair, p in values.items() if p.interval_index == bucket}
@@ -248,8 +297,10 @@ def audit_one(root, row, conf, maps, raw_scenario):
                 "target_carla_ids": sorted(target),
                 "pairs": pairs, "hits": {c: _target_hit(v, target, ids) for c, v in pairs.items()},
                 "identities": ids, "actors": {a.actor_id: a for a in selected}, "frame_boxes": frame_boxes,
-                "heading_coverage": coverage, "selected_paths": {PATH_TANGENT_HEADING: tangent_paths,
-                                                                      RAW_BOX_YAW: raw_paths}})
+                "coverage": {RAW_BOX_YAW_GENERIC_SIZE: generic_coverage,
+                             RAW_BOX_YAW_EXACT_SIZE: exact_coverage},
+                "selected_paths": {RAW_BOX_YAW_GENERIC_SIZE: generic_paths,
+                                   RAW_BOX_YAW_EXACT_SIZE: exact_paths}})
     return records
 
 
@@ -258,12 +309,17 @@ def summarize(records, condition):
     coverage = Counter(); seen_coverage = set()
     for r in records:
         coverage_key = (r["scenario_type"], r["scenario"], r["window"])
-        if condition == RAW_BOX_YAW and coverage_key not in seen_coverage:
+        if condition in (RAW_BOX_YAW_GENERIC_SIZE, RAW_BOX_YAW_EXACT_SIZE) and coverage_key not in seen_coverage:
             seen_coverage.add(coverage_key)
-            coverage.update({key: r["heading_coverage"][key] for key in
+            coverage.update({key: r["coverage"][condition][key] for key in
                              ("raw_heading_queries", "raw_heading_available", "raw_heading_missing",
                               "actor_pairs_skipped_missing_heading_at_t0",
                               "path_pairs_with_any_missing_future_heading")})
+            if condition == RAW_BOX_YAW_EXACT_SIZE:
+                coverage.update({key: r["coverage"][condition][key] for key in
+                                 ("exact_size_queries", "exact_size_available", "exact_size_missing",
+                                  "actor_pairs_skipped_missing_exact_size_at_t0",
+                                  "path_pairs_with_any_missing_future_exact_size")})
         pairs, pos = r["pairs"][condition], r["gt_positive"]
         if pos: c["positive"] += 1; c["hits"] += int(r["hits"][condition])
         if pairs and pos: c["TP"] += 1
@@ -271,10 +327,13 @@ def summarize(records, condition):
         elif pos: c["FN"] += 1
         else: c["TN"] += 1
     result = {"n_buckets":len(records), "positive_GT_buckets":c["positive"], "TP":c["TP"], "FP":c["FP"], "TN":c["TN"], "FN":c["FN"], "precision":None if not c["TP"]+c["FP"] else c["TP"]/(c["TP"]+c["FP"]), "recall":c["TP"]/c["positive"], "GT_actor_pair_hits":c["hits"], "GT_actor_pair_recall":c["hits"]/c["positive"], "FP_contact_pair_rows":c["FP_contact_pair_rows"], "windows_with_FP_contact":len(windows), "scenarios_with_FP_contact":len(scenarios)}
-    if condition == RAW_BOX_YAW:
+    if condition in (RAW_BOX_YAW_GENERIC_SIZE, RAW_BOX_YAW_EXACT_SIZE):
         total = coverage["raw_heading_queries"]
         result.update(coverage)
         result["raw_heading_coverage"] = None if not total else coverage["raw_heading_available"] / total
+    if condition == RAW_BOX_YAW_EXACT_SIZE:
+        total = coverage["exact_size_queries"]
+        result["exact_size_coverage"] = None if not total else coverage["exact_size_available"] / total
     return result
 
 
@@ -282,8 +341,7 @@ def _bucket_keys(records, condition, predicate):
     return {(r["scenario_type"],r["scenario"],r["window"],r["bucket"]) for r in records if predicate(r, bool(r["pairs"][condition]), r["hits"][condition])}
 
 
-def pairwise(records):
-    a, b = PATH_TANGENT_HEADING, RAW_BOX_YAW
+def pairwise(records, a=RAW_BOX_YAW_GENERIC_SIZE, b=RAW_BOX_YAW_EXACT_SIZE):
     af, bf = _bucket_keys(records,a,lambda r,p,h:not r["gt_positive"] and p), _bucket_keys(records,b,lambda r,p,h:not r["gt_positive"] and p)
     at, bt = _bucket_keys(records,a,lambda r,p,h:r["gt_positive"] and p), _bucket_keys(records,b,lambda r,p,h:r["gt_positive"] and p)
     ah, bh = _bucket_keys(records,a,lambda r,p,h:r["gt_positive"] and h), _bucket_keys(records,b,lambda r,p,h:r["gt_positive"] and h)
@@ -330,8 +388,8 @@ def _removed_fp_coverage_counts(rows):
             "FP_removed_with_missing_raw_heading": counts["FP_removed_with_missing_raw_heading"]}
 
 
-def residual_raw_yaw_fp_rows(records):
-    """Return every RAW_BOX_YAW contact pair from a GT-negative bucket.
+def residual_raw_yaw_fp_rows(records, condition=RAW_BOX_YAW_GENERIC_SIZE):
+    """Return every condition contact pair from a GT-negative bucket.
 
     Accident targets are scenario-level labels.  A target is usable only when
     the records for that scenario provide one unambiguous two-CARLA-ID pair.
@@ -349,7 +407,7 @@ def residual_raw_yaw_fp_rows(records):
         key = (r["scenario_type"], r["scenario"])
         targets = scenario_targets[key]
         target = next(iter(targets)) if len(targets) == 1 else None
-        for pair, p in r["pairs"][RAW_BOX_YAW].items():
+        for pair, p in r["pairs"][condition].items():
             actor_pair = [p.actor_a, p.actor_b]
             source_carla_ids = [sorted(r["identities"][actor_id]) for actor_id in actor_pair]
             actors = [r["actors"][actor_id] for actor_id in actor_pair]
@@ -388,6 +446,56 @@ def residual_raw_yaw_fp_rows(records):
                 "actor_footprints_m": [list(actor_footprint_m(actor)) for actor in actors],
             })
     return rows
+
+
+def exact_size_fp_comparison(records):
+    """Compare all generic residual FP rows with exact-size residual FP rows."""
+    generic = residual_raw_yaw_fp_rows(records, RAW_BOX_YAW_GENERIC_SIZE)
+    exact = residual_raw_yaw_fp_rows(records, RAW_BOX_YAW_EXACT_SIZE)
+    key = lambda row: (row["scenario_type"], row["scenario"], row["window"],
+                       row["bucket"], tuple(row["actor_pair"]))
+    generic_by_key, exact_by_key = {key(row): row for row in generic}, {key(row): row for row in exact}
+    record_by_bucket = {(r["scenario_type"], r["scenario"], r["window"], r["bucket"]): r for r in records}
+    rows = []
+    for pair_key in sorted(set(generic_by_key) | set(exact_by_key)):
+        g, e = generic_by_key.get(pair_key), exact_by_key.get(pair_key)
+        base = g or e
+        status = "SURVIVES_EXACT_SIZE" if g and e else (
+            "REMOVED_BY_EXACT_SIZE" if g else "INTRODUCED_BY_EXACT_SIZE")
+        r = record_by_bucket[pair_key[:4]]
+        relevant_t = next((x["first_contact_time_s"] for x in (g, e)
+                           if x is not None and x["first_contact_time_s"] is not None), 0.)
+        aids = base["actor_pair"]
+        exact_dimensions = [_exact_footprint(r["frame_boxes"], r["identities"], r["cutoff_s"], aid, relevant_t)
+                            for aid in aids]
+        rows.append({
+            "scenario_type": base["scenario_type"], "scenario": base["scenario"],
+            "window": base["window"], "bucket": base["bucket"], "cutoff_s": base["cutoff_s"],
+            "actor_pair": aids, "source_carla_ids": base["source_carla_ids"],
+            "scenario_target_carla_ids": base["scenario_target_carla_ids"],
+            "residual_category": base["category"], "generic_event": None if g is None else g["event"],
+            "exact_event": None if e is None else e["event"],
+            "generic_first_contact_time_s": None if g is None else g["first_contact_time_s"],
+            "exact_first_contact_time_s": None if e is None else e["first_contact_time_s"],
+            "generic_minimum_clearance_m": None if g is None else g["minimum_clearance_m"],
+            "exact_minimum_clearance_m": None if e is None else e["minimum_clearance_m"],
+            "generic_contact_duration_s": None if g is None else g["contact_duration_s"],
+            "exact_contact_duration_s": None if e is None else e["contact_duration_s"],
+            "generic_actor_footprints_m": None if g is None else g["actor_footprints_m"],
+            "exact_actor_footprints_at_relevant_time_m": [None if x is None else list(x) for x in exact_dimensions],
+            "status": status,
+        })
+    return rows
+
+
+def fp_pair_event_changes(rows):
+    events = ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")
+    return {
+        "FP removed": {event: sum(row["status"] == "REMOVED_BY_EXACT_SIZE" and
+                                    row["generic_event"] == event for row in rows) for event in events},
+        "FP introduced": {event: sum(row["status"] == "INTRODUCED_BY_EXACT_SIZE" and
+                                      row["exact_event"] == event for row in rows) for event in events},
+    }
 
 
 def changed_pairs(records):
@@ -431,23 +539,40 @@ def main(argv=None):
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         fs={pool.submit(audit_one,args.root,r,conf,args.carla_maps,scenarios[raw_audit.scenario_row_key(r)]):r for r in cohort["scenarios"]}
         for i,f in enumerate(as_completed(fs),1): records.extend(f.result()); print(f"[{i}/{len(fs)}] complete {fs[f]['scenario']}",flush=True)
-    summaries={c:summarize(records,c) for c in (PATH_TANGENT_HEADING,RAW_BOX_YAW)}
-    if {k:summaries[PATH_TANGENT_HEADING][k] for k in EXPECTED} != EXPECTED:
-        raise RuntimeError(f"PATH_TANGENT_HEADING is not faithful to production: {summaries[PATH_TANGENT_HEADING]}")
-    changed=changed_pairs(records)
-    residual=residual_raw_yaw_fp_rows(records)
-    event_counts = {"FP_removed": {e: 0 for e in ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")},
-                    "FP_introduced": {e: 0 for e in ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")}}
-    for x in changed:
-        if x["FP_removed"] and x["PATH_TANGENT_event"] in event_counts["FP_removed"]:
-            event_counts["FP_removed"][x["PATH_TANGENT_event"]] += 1
-        if x["FP_introduced"] and x["RAW_BOX_YAW_event"] in event_counts["FP_introduced"]:
-            event_counts["FP_introduced"][x["RAW_BOX_YAW_event"]] += 1
-    removed_coverage = _removed_fp_coverage_counts(changed)
-    residual_categories = Counter(row["category"] for row in residual)
-    residual_events = Counter(row["event"] for row in residual)
-    doc={"conditions":summaries,"pairwise":{f"{PATH_TANGENT_HEADING} -> {RAW_BOX_YAW}":pairwise(records)},"changed_FP_pairs_by_event_type":event_counts,**removed_coverage,"RAW_BOX_YAW_residual_FP_pair_rows":len(residual),"RAW_BOX_YAW_residual_FP_categories":{category: residual_categories[category] for category in ("NORMAL_SCENARIO_CONTACT", "TARGET_PAIR_WRONG_BUCKET", "ONE_TARGET_ACTOR_PLUS_OTHER", "UNRELATED_ACTOR_PAIR", "IDENTITY_OR_TARGET_UNKNOWN")},"RAW_BOX_YAW_residual_FP_events":{event: residual_events[event] for event in ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")},"contact_lookback_s":LOOKBACK_S,"sample_dt_s":.1,"margin_m":0.}
-    out=Path(args.out); out.mkdir(parents=True,exist_ok=True); (out/"summary.json").write_text(json.dumps(doc,indent=2)+"\n"); (out/"heading_source_changed_pairs.jsonl").write_text("".join(json.dumps(x)+"\n" for x in changed)); (out/"raw_box_yaw_fp_pairs.jsonl").write_text("".join(json.dumps(x)+"\n" for x in residual)); print(json.dumps(doc,indent=2))
+    summaries = {c: summarize(records, c) for c in (RAW_BOX_YAW_GENERIC_SIZE, RAW_BOX_YAW_EXACT_SIZE)}
+    generic_summary = summaries[RAW_BOX_YAW_GENERIC_SIZE]
+    if (generic_summary["n_buckets"] != 624 or generic_summary["positive_GT_buckets"] != 69 or
+            {k: generic_summary[k] for k in EXPECTED_GENERIC} != EXPECTED_GENERIC):
+        raise RuntimeError(f"RAW_BOX_YAW_GENERIC_SIZE is not faithful: {generic_summary}")
+    fp_rows = exact_size_fp_comparison(records)
+    categories = Counter(row["residual_category"] for row in fp_rows if row["status"] != "REMOVED_BY_EXACT_SIZE")
+    events = Counter(row["exact_event"] for row in fp_rows if row["exact_event"] is not None)
+    removed = sum(row["status"] == "REMOVED_BY_EXACT_SIZE" for row in fp_rows)
+    surviving = sum(row["status"] == "SURVIVES_EXACT_SIZE" for row in fp_rows)
+    introduced = sum(row["status"] == "INTRODUCED_BY_EXACT_SIZE" for row in fp_rows)
+    doc = {
+        "conditions": summaries,
+        "pairwise": {f"{RAW_BOX_YAW_GENERIC_SIZE} -> {RAW_BOX_YAW_EXACT_SIZE}": pairwise(records),
+                     "FP_pair_row_changes_by_event": fp_pair_event_changes(fp_rows)},
+        "generic_residual_FP_pair_rows": len(residual_raw_yaw_fp_rows(records, RAW_BOX_YAW_GENERIC_SIZE)),
+        "generic_residual_removed_by_exact_size": removed,
+        "generic_residual_surviving_exact_size": surviving,
+        "exact_size_FP_pair_rows_introduced": introduced,
+        "exact_size_residual_categories": {category: categories[category] for category in
+            ("NORMAL_SCENARIO_CONTACT", "TARGET_PAIR_WRONG_BUCKET", "ONE_TARGET_ACTOR_PLUS_OTHER",
+             "UNRELATED_ACTOR_PAIR", "IDENTITY_OR_TARGET_UNKNOWN")},
+        "exact_size_residual_events": {event: events[event] for event in
+            ("NEW_CONTACT", "BOUNDARY_ONSET", "RECONTACT")},
+        "exact_size_coverage": summaries[RAW_BOX_YAW_EXACT_SIZE]["exact_size_coverage"],
+        "contact_lookback_s": LOOKBACK_S, "sample_dt_s": .1, "margin_m": 0.,
+    }
+    out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
+    (out / "summary.json").write_text(json.dumps(doc, indent=2) + "\n")
+    (out / "exact_size_fp_comparison.jsonl").write_text("".join(json.dumps(x) + "\n" for x in fp_rows))
+    # Keep the previous residual listing available under its established name.
+    generic_residual = residual_raw_yaw_fp_rows(records, RAW_BOX_YAW_GENERIC_SIZE)
+    (out / "raw_box_yaw_fp_pairs.jsonl").write_text("".join(json.dumps(x) + "\n" for x in generic_residual))
+    print(json.dumps(doc, indent=2))
 
 
 if __name__ == "__main__": raise SystemExit(main())
