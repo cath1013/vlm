@@ -159,6 +159,26 @@ def summarize(records, condition):
     return result
 
 
+def horizon_breakdown(records, condition):
+    """Contact metrics by exact 1-s bucket and cumulative prediction horizon."""
+    max_bucket = max((int(r["bucket"]) for r in records), default=0)
+
+    by_bucket = {}
+    cumulative = {}
+
+    for h in range(1, max_bucket + 1):
+        exact = [r for r in records if int(r["bucket"]) == h]
+        upto = [r for r in records if int(r["bucket"]) <= h]
+
+        by_bucket[str(h)] = summarize(exact, condition)
+        cumulative[str(h)] = summarize(upto, condition)
+
+    return {
+        "by_bucket": by_bucket,
+        "cumulative": cumulative,
+    }
+
+
 def _pair_payload(pair, identities):
     if pair is None: return None
     return {"actor_pair": [pair.actor_a, pair.actor_b],
@@ -248,6 +268,13 @@ def main(argv=None):
                ("raw_heading_queries", "raw_heading_available", "raw_heading_missing", "raw_heading_coverage",
                 "exact_size_queries", "exact_size_available", "exact_size_missing", "exact_size_coverage")},
            "difference_categories": dict(Counter(row["difference_category"] for row in diffs)),
+           "horizon_breakdown": {
+               condition: horizon_breakdown(records, condition)
+               for condition in (
+                   PREDICTED_XY_ORACLE_GEOMETRY,
+                   GT_TRAJECTORY_ORACLE_GEOMETRY,
+               )
+           },
            "contact_lookback_s": LOOKBACK_S, "sample_dt_s": .1, "contact_margin_m": 0.}
     (out / "summary.json").write_text(json.dumps(doc, indent=2) + "\n")
     (out / "trajectory_contact_differences.jsonl").write_text("".join(json.dumps(row) + "\n" for row in diffs))
