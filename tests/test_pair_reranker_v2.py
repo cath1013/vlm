@@ -85,6 +85,14 @@ class PairRerankerV2FeatureTest(unittest.TestCase):
         self.assertEqual(got["eta_gap_s"], 2.0)
         self.assertEqual(got["has_crossing_interaction"], 1.0)
         self.assertEqual(got["crossing_conflict_orthogonal"], 1.0)
+        b.placement.next_junction_id = "different_junction"
+        different = dict(zip(FEATURE_NAMES_V4,
+                             pair_features_v4(a, b, pair, 1.0, [])))
+        self.assertEqual(different["same_next_junction"], 0.0)
+        self.assertEqual(different["route_eta_available"], 0.0)
+        for name in ("eta_a_s", "eta_b_s", "eta_gap_s", "min_eta_s"):
+            self.assertEqual(different[name], 0.0)
+        b.placement.next_junction_id = "junction"
         b.speed_mps = 0.0
         missing = dict(zip(FEATURE_NAMES_V4,
                            pair_features_v4(a, b, pair, 1.0, [])))

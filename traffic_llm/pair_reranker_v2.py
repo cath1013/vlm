@@ -215,11 +215,18 @@ def pair_features_v4(
 ) -> List[float]:
     """Observation-time route and canonical interaction features for a pair."""
     placements = (actor_a.placement, actor_b.placement)
+    junction_a = placements[0].next_junction_id if placements[0] else None
+    junction_b = placements[1].next_junction_id if placements[1] else None
+    same_next_junction = (
+        all(p is not None for p in placements)
+        and junction_a is not None and junction_b is not None
+        and junction_a == junction_b
+    )
     distances = [p.dist_to_next_junction_m if p else None for p in placements]
     speeds = (actor_a.speed_mps, actor_b.speed_mps)
     valid_distances = [d is not None and math.isfinite(d) and d >= 0
                        for d in distances]
-    eta_available = all(valid_distances) and all(
+    eta_available = same_next_junction and all(valid_distances) and all(
         v is not None and math.isfinite(v) and v > 0.5 for v in speeds
     )
     raw_etas = [min(distances[i] / speeds[i], 1e6) for i in range(2)] if eta_available else [0.0, 0.0]
@@ -229,13 +236,11 @@ def pair_features_v4(
     # ETA slots are ordered to be symmetric under actor reversal.
     eta_a, eta_b = sorted(etas)
     dist_min, dist_max = sorted(clipped_distances)
-    junction_a = placements[0].next_junction_id if placements[0] else None
-    junction_b = placements[1].next_junction_id if placements[1] else None
     actor_ids = {actor_a.actor_id, actor_b.actor_id}
     crossings = [it for it in interactions if it.kind == "crossing"
                  and {it.subject_id, it.object_id} == actor_ids]
     return pair_features_v3(actor_a, actor_b, pair, horizon_s) + [
-        float(junction_a is not None and junction_a == junction_b),
+        float(same_next_junction),
         float(eta_available), eta_a, eta_b,
         min(abs(raw_etas[0] - raw_etas[1]), 60.0), eta_a,
         dist_min, dist_max, dist_max - dist_min,
