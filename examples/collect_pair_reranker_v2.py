@@ -20,16 +20,18 @@ from traffic_llm.config import PipelineConfig  # noqa: E402
 from traffic_llm.da_runner import DeepAccidentRunner  # noqa: E402
 from traffic_llm.deepaccident import estimate_collision  # noqa: E402
 from traffic_llm.pair_reranker_v2 import (  # noqa: E402
-    FEATURE_NAMES_V2, FEATURE_NAMES_V3, pair_features_v2, pair_features_v3,
+    FEATURE_NAMES_V2, FEATURE_NAMES_V3, FEATURE_NAMES_V4,
+    pair_features_v2, pair_features_v3, pair_features_v4,
 )
-from traffic_llm.predict_model import TorchPredictor  # noqa: E402
+from traffic_llm.predict_model import JointSceneTorchPredictor, TorchPredictor  # noqa: E402
 from traffic_llm.serialize import rank_actors  # noqa: E402
 from traffic_llm.swept_path import swept_pair_clearances  # noqa: E402
 
 
-def _groups(gt):
+def _groups(gt, target_interval=None):
     positive = next(
-        (row for row in gt.get("expected", []) if row.get("accident_expected")),
+        (row for row in gt.get("expected", []) if row.get("accident_expected")
+         and (target_interval is None or row.get("k") == target_interval)),
         None,
     )
     if not positive:
@@ -67,6 +69,8 @@ def main(argv=None):
     parser.add_argument("--scenario-list", default=None,
                         help="optional validation batch_manifest.json")
     parser.add_argument("--predictor", default="out/predict_model/waypointnet_best.pt")
+    parser.add_argument("--predictor-mode", choices=("waypoints", "joint_scene"),
+                        default="waypoints")
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--out", required=True)
     parser.add_argument(
@@ -79,15 +83,21 @@ def main(argv=None):
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--seed", type=int, default=0,
                         help="seed for deterministic subset selection")
-    parser.add_argument("--feature-version", type=int, choices=(2, 3), default=2,
+    parser.add_argument("--feature-version", type=int, choices=(2, 3, 4), default=2,
                         help="V3 uses risk features and time-aligned pair labels")
+    parser.add_argument("--target-interval", type=int, choices=range(1, 6),
+                        default=None, help="restrict labels and candidates to one 1-second bucket")
     args = parser.parse_args(argv)
-    feature_names = FEATURE_NAMES_V3 if args.feature_version == 3 else FEATURE_NAMES_V2
-    feature_fn = pair_features_v3 if args.feature_version == 3 else pair_features_v2
+    feature_names = {2: FEATURE_NAMES_V2, 3: FEATURE_NAMES_V3,
+                     4: FEATURE_NAMES_V4}[args.feature_version]
+    feature_fn = {2: pair_features_v2, 3: pair_features_v3,
+                  4: pair_features_v4}[args.feature_version]
 
     cfg = PipelineConfig()
     cfg.deepaccident.observation_mode = "sensor3d"
-    cfg.predictor = TorchPredictor(args.predictor, mode="waypoints", device=args.device)
+    cfg.predictor = (JointSceneTorchPredictor(args.predictor, device=args.device)
+                     if args.predictor_mode == "joint_scene" else
+                     TorchPredictor(args.predictor, mode="waypoints", device=args.device))
     runner = DeepAccidentRunner(args.root, cfg)
     allowed = _scenario_filter(args.scenario_list)
     scenarios = [s for s in runner.list_scenarios()
@@ -145,7 +155,12 @@ def main(argv=None):
                     )
                     if not gt.get("expected"):
                         continue
-                    groups = _groups(gt)
+                    if args.target_interval is not None and not any(
+                        row.get("k") == args.target_interval and row.get("scorable")
+                        for row in gt["expected"]
+                    ):
+                        continue
+                    groups = _groups(gt, args.target_interval)
                     positive_intervals = _positive_intervals(gt)
                     actors, _ = rank_actors(
                         window.last, wcfg.actor_cap(len(window.last.actors))
@@ -157,7 +172,10 @@ def main(argv=None):
                         contact_margin_m=wcfg.swept_contact_margin_m,
                         exclude_touching_now=wcfg.swept_exclude_touching_now,
                         exclude_static_pairs=wcfg.swept_exclude_static_pairs,
-                    )[:args.candidate_pool_cap]
+                    )
+                    if args.target_interval is not None:
+                        pairs = [p for p in pairs if p.interval_index == args.target_interval]
+                    pairs = pairs[:args.candidate_pool_cap]
                     candidates = []
                     for pair in pairs:
                         label = _matches(pair.actor_a, pair.actor_b, groups)
@@ -165,16 +183,18 @@ def main(argv=None):
                         # ranking.  V3 must additionally learn *when* that
                         # pair is risky; otherwise every projected contact of
                         # an eventual collision pair becomes a positive.
-                        if args.feature_version == 3:
+                        if args.feature_version in (3, 4) or args.target_interval is not None:
                             label = label and pair.interval_index in positive_intervals
                         candidates.append({
                             "actor_a": pair.actor_a, "actor_b": pair.actor_b,
                             "label": label,
                             "minimum_clearance_m": round(pair.minimum_clearance_m, 6),
+                            "predicted_contact": bool(pair.predicted_contact),
                             "interval_index": pair.interval_index,
                             "features": feature_fn(
                                 actor_by_id[pair.actor_a], actor_by_id[pair.actor_b],
                                 pair, wcfg.horizon_s,
+                                *([window.last.interactions] if args.feature_version == 4 else []),
                             ),
                         })
                         counts["positive_pairs"] += int(label)
@@ -189,6 +209,8 @@ def main(argv=None):
                         "scenario": scenario.scenario_id,
                         "window": window.label,
                         "actual": actual,
+                        "positive_intervals": sorted(positive_intervals),
+                        "target_interval": args.target_interval,
                         "candidates": candidates,
                     }, separators=(",", ":")) + "\n")
                     handle.flush()
@@ -206,6 +228,8 @@ def main(argv=None):
     manifest = {
         "dataset_root": os.path.abspath(args.root), "split": args.split,
         "predictor": os.path.abspath(args.predictor),
+        "predictor_mode": args.predictor_mode,
+        "target_interval": args.target_interval,
         "candidate_pool_cap": args.candidate_pool_cap,
         "payload_pair_cap": wcfg.swept_pair_cap,
         "selection": {"limit": args.limit, "seed": args.seed},

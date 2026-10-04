@@ -16,25 +16,41 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from traffic_llm.pair_reranker_v2 import (  # noqa: E402
-    FEATURE_NAMES_V2, FEATURE_NAMES_V3, PairRerankerV2, PairRerankerV3,
+    FEATURE_NAMES_V2, FEATURE_NAMES_V3, FEATURE_NAMES_V4,
+    PairRerankerV2, PairRerankerV3, PairRerankerV4,
 )
 
 
-def load_records(path):
+def load_records(path, target_interval=None):
     samples, windows = [], []
     with Path(path).open(encoding="utf-8") as handle:
         for line in handle:
             doc = json.loads(line)
+            if target_interval is not None:
+                if "positive_intervals" not in doc:
+                    raise ValueError(f"{path} lacks interval-specific GT labels")
+                if doc.get("target_interval") not in (None, target_interval):
+                    raise ValueError(f"{path} was collected for another interval")
             start = len(samples)
             for candidate in doc["candidates"]:
+                if (target_interval is not None and
+                        candidate["interval_index"] != target_interval):
+                    continue
                 samples.append({
-                    "x": candidate["features"], "y": float(candidate["label"]),
+                    "x": candidate["features"],
+                    "y": float(candidate["label"] and (
+                        target_interval is None or
+                        target_interval in doc["positive_intervals"])),
                     "scenario": doc["scenario"], "window": len(windows),
                     "pair": (candidate["actor_a"], candidate["actor_b"]),
                     "gap": candidate["minimum_clearance_m"],
+                    "predicted_contact": candidate.get("predicted_contact",
+                                                       candidate["minimum_clearance_m"] <= 1e-9),
                 })
             windows.append({
-                "start": start, "stop": len(samples), "actual": doc["actual"],
+                "start": start, "stop": len(samples),
+                "actual": (doc["actual"] if target_interval is None else
+                           target_interval in doc["positive_intervals"]),
                 "scenario": doc["scenario"],
             })
     return samples, windows
@@ -131,8 +147,20 @@ def validation_report(samples, windows, scores, threshold):
     for window in windows:
         raw.append(any(samples[i]["gap"] <= 1e-9
                        for i in range(window["start"], window["stop"])))
+    positives = sum(bool(w["actual"]) for w in windows)
     report["positive_windows_selected"] = selected_positive
     report["positive_windows_with_correct_actor_pair"] = correct
+    report["correct_gt_actor_pair_recall"] = correct / positives if positives else 0.0
+    baseline = [any(samples[i]["predicted_contact"]
+                    for i in range(w["start"], w["stop"])) for w in windows]
+    baseline_correct = sum(bool(w["actual"]) and any(
+        samples[i]["predicted_contact"] and samples[i]["y"] > 0.5
+        for i in range(w["start"], w["stop"])) for w in windows)
+    report["baseline_before_verifier"] = {
+        **metrics([w["actual"] for w in windows], baseline),
+        "correct_gt_actor_pair_recall": baseline_correct / positives if positives else 0.0,
+        "positive_windows_with_correct_actor_pair": baseline_correct,
+    }
     report["raw_zero_clearance"] = metrics([w["actual"] for w in windows], raw)
     return report
 
@@ -148,18 +176,41 @@ def main(argv=None):
     parser.add_argument("--out", default="out/pair_reranker_v2_top50")
     parser.add_argument("--folds", type=int, default=5)
     parser.add_argument("--recall-target", type=float, default=0.70)
-    parser.add_argument("--feature-version", type=int, choices=(2, 3), default=2)
+    parser.add_argument("--feature-version", type=int, choices=(2, 3, 4), default=2)
+    parser.add_argument("--target-interval", type=int, choices=range(1, 6), default=None)
     args = parser.parse_args(argv)
 
-    samples, windows = load_records(args.train)
+    if args.feature_version == 4:
+        train_manifest = json.loads(Path(args.train).with_suffix(".manifest.json").read_text())
+        val_manifest = json.loads(Path(args.validation).with_suffix(".manifest.json").read_text())
+        if train_manifest.get("split") != "train" or val_manifest.get("split") != "val":
+            raise SystemExit("V4 requires official-train fitting and held-out val evaluation")
+        if (train_manifest.get("feature_version") != 4 or
+                val_manifest.get("feature_version") != 4 or
+                train_manifest.get("predictor_mode") != "joint_scene" or
+                val_manifest.get("predictor_mode") != "joint_scene"):
+            raise SystemExit("V4 requires JointScene feature-version 4 collections")
+        if (train_manifest.get("target_interval") != args.target_interval or
+                val_manifest.get("target_interval") != args.target_interval):
+            raise SystemExit("collection and training target intervals must match")
+    samples, windows = load_records(args.train, args.target_interval)
     x = np.asarray([s["x"] for s in samples], dtype=np.float64)
-    expected_features = FEATURE_NAMES_V3 if args.feature_version == 3 else FEATURE_NAMES_V2
+    expected_features = {2: FEATURE_NAMES_V2, 3: FEATURE_NAMES_V3,
+                         4: FEATURE_NAMES_V4}[args.feature_version]
     if x.ndim != 2 or x.shape[1] != len(expected_features):
         raise SystemExit(
             f"feature-version {args.feature_version} expects {len(expected_features)} "
             f"features, dataset has {x.shape[1] if x.ndim == 2 else 'invalid'}"
         )
     y = np.asarray([s["y"] for s in samples], dtype=np.float64)
+    if not len(samples) or not y.any():
+        raise SystemExit("training population has no positive pair examples")
+    v_samples, v_windows = load_records(args.validation, args.target_interval)
+    if {s["scenario"] for s in samples} & {s["scenario"] for s in v_samples}:
+        raise SystemExit("train and validation scenarios overlap")
+    vx = np.asarray([s["x"] for s in v_samples], dtype=np.float64)
+    if vx.ndim != 2 or vx.shape[1] != len(expected_features):
+        raise SystemExit("validation feature schema mismatch")
     configs = ((16, 1e-3), (32, 1e-3), (32, 1e-2))
     cv = []
     best = None
@@ -186,13 +237,12 @@ def main(argv=None):
 
     _, hidden, decay, threshold, selected_cv = best
     final, means, scales = fit(x, y, hidden, decay, 20260902)
-    v_samples, v_windows = load_records(args.validation)
-    vx = np.asarray([s["x"] for s in v_samples], dtype=np.float64)
     validation_scores = predict(final, means, scales, vx)
     held_out = validation_report(
         v_samples, v_windows, validation_scores, threshold
     )
-    model_cls = PairRerankerV3 if args.feature_version == 3 else PairRerankerV2
+    model_cls = {2: PairRerankerV2, 3: PairRerankerV3,
+                 4: PairRerankerV4}[args.feature_version]
     trained = model_cls(
         means=means.tolist(), scales=scales.tolist(),
         hidden_weights=final.hidden.weight.detach().numpy().tolist(),
@@ -211,6 +261,7 @@ def main(argv=None):
         "recall_target": args.recall_target, "hidden": hidden,
         "weight_decay": decay,
         "feature_version": args.feature_version,
+        "target_interval": args.target_interval,
     }
     model_path = out / f"pair_reranker_v{args.feature_version}.json"
     model_path.write_text(json.dumps(model_doc, indent=1), encoding="utf-8")

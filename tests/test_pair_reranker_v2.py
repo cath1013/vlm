@@ -1,10 +1,15 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
 from traffic_llm.pair_reranker_v2 import (
-    FEATURE_NAMES_V2, FEATURE_NAMES_V3, PairRerankerV2, PairRerankerV3,
-    load_pair_reranker, pair_features_v2, pair_features_v3,
+    FEATURE_NAMES_V2, FEATURE_NAMES_V3, FEATURE_NAMES_V4,
+    PairRerankerV2, PairRerankerV3, PairRerankerV4,
+    load_pair_reranker, pair_features_for_model, pair_features_v2,
+    pair_features_v3, pair_features_v4,
 )
-from traffic_llm.schemas import ActorState, PredictedPath
+from traffic_llm.schemas import ActorState, Interaction, PredictedPath, RoadPlacement
 from traffic_llm.swept_path import swept_pair_clearances
 
 
@@ -60,6 +65,40 @@ class PairRerankerV2FeatureTest(unittest.TestCase):
         self.assertEqual(model.to_dict()["model_type"], "risk_aware_actor_pair_mlp_v3")
         self.assertEqual(len(pair_features_v3(a, b, pair, 1.0)), n)
         self.assertTrue(model.uses_threshold_gate)
+
+    def test_v4_route_eta_crossing_and_checkpoint(self):
+        a, b = make_actor("EGO_a", -6.0, 6.0), make_actor("V001", 6.0, -6.0)
+        def placement(distance):
+            return RoadPlacement("road", "road", 0.0, 0.0, "east", 90.0,
+                                 1, 2, None, distance, "junction")
+        a.placement, b.placement = placement(24.0), placement(12.0)
+        pair = swept_pair_clearances([a, b], horizon_s=1.0)[0]
+        interaction = Interaction("crossing", b.actor_id, a.actor_id,
+                                  conflict="orthogonal")
+        values = pair_features_v4(a, b, pair, 1.0, [interaction])
+        reverse = pair_features_v4(b, a, pair, 1.0, [interaction])
+        self.assertEqual(values, reverse)
+        self.assertEqual(len(values), len(FEATURE_NAMES_V4))
+        got = dict(zip(FEATURE_NAMES_V4, values))
+        self.assertEqual(got["same_next_junction"], 1.0)
+        self.assertEqual(got["route_eta_available"], 1.0)
+        self.assertEqual(got["eta_gap_s"], 2.0)
+        self.assertEqual(got["has_crossing_interaction"], 1.0)
+        self.assertEqual(got["crossing_conflict_orthogonal"], 1.0)
+        b.speed_mps = 0.0
+        missing = dict(zip(FEATURE_NAMES_V4,
+                           pair_features_v4(a, b, pair, 1.0, [])))
+        self.assertEqual(missing["route_eta_available"], 0.0)
+        self.assertEqual(missing["eta_gap_s"], 0.0)
+        n = len(FEATURE_NAMES_V4)
+        model = PairRerankerV4([0.0] * n, [1.0] * n, [[0.0] * n],
+                               [0.0], [0.0], 0.0, 0.5)
+        self.assertEqual(pair_features_for_model(model, a, b, pair, 1.0, []),
+                         pair_features_v4(a, b, pair, 1.0, []))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "model.json"
+            path.write_text(json.dumps(model.to_dict()))
+            self.assertIsInstance(load_pair_reranker(str(path)), PairRerankerV4)
 
 
 if __name__ == "__main__":

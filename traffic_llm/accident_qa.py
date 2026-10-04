@@ -809,7 +809,7 @@ def compact_window_json(
                 pair_features_for_model(
                     cfg.pair_reranker_model,
                     actor_by_id[pair.actor_a], actor_by_id[pair.actor_b],
-                    pair, cfg.horizon_s,
+                    pair, cfg.horizon_s, win.last.interactions,
                 )
             ))
             scored.append((score, pair))

@@ -9,7 +9,7 @@ from typing import List, Sequence, Tuple
 
 from .pair_reranker import PAIR_TYPES, PREFIXES, actor_prefix
 from .predict_model import observes_actor
-from .schemas import ActorState
+from .schemas import ActorState, Interaction
 from .swept_path import SweptPair, actor_footprint_m
 
 
@@ -92,6 +92,14 @@ RISK_FEATURE_NAMES_V3 = (
     "known_nonmutual_observation",
 )
 FEATURE_NAMES_V3 = FEATURE_NAMES_V2 + RISK_FEATURE_NAMES_V3
+ROUTE_ETA_FEATURE_NAMES_V4 = (
+    "same_next_junction", "route_eta_available", "eta_a_s", "eta_b_s",
+    "eta_gap_s", "min_eta_s", "dist_to_junction_min_m",
+    "dist_to_junction_max_m", "dist_to_junction_absdiff_m",
+    "has_crossing_interaction", "crossing_conflict_orthogonal",
+    "crossing_conflict_oncoming_turn",
+)
+FEATURE_NAMES_V4 = FEATURE_NAMES_V3 + ROUTE_ETA_FEATURE_NAMES_V4
 
 
 def _actor_stats(actor: ActorState) -> List[float]:
@@ -201,6 +209,42 @@ def pair_features_v3(
     return base + extras
 
 
+def pair_features_v4(
+    actor_a: ActorState, actor_b: ActorState, pair: SweptPair,
+    horizon_s: float = 5.0, interactions: Sequence[Interaction] = (),
+) -> List[float]:
+    """Observation-time route and canonical interaction features for a pair."""
+    placements = (actor_a.placement, actor_b.placement)
+    distances = [p.dist_to_next_junction_m if p else None for p in placements]
+    speeds = (actor_a.speed_mps, actor_b.speed_mps)
+    valid_distances = [d is not None and math.isfinite(d) and d >= 0
+                       for d in distances]
+    eta_available = all(valid_distances) and all(
+        v is not None and math.isfinite(v) and v > 0.5 for v in speeds
+    )
+    raw_etas = [min(distances[i] / speeds[i], 1e6) for i in range(2)] if eta_available else [0.0, 0.0]
+    etas = [min(eta, 60.0) for eta in raw_etas]
+    clipped_distances = [min(float(d), 250.0) if valid else 0.0
+                         for d, valid in zip(distances, valid_distances)]
+    # ETA slots are ordered to be symmetric under actor reversal.
+    eta_a, eta_b = sorted(etas)
+    dist_min, dist_max = sorted(clipped_distances)
+    junction_a = placements[0].next_junction_id if placements[0] else None
+    junction_b = placements[1].next_junction_id if placements[1] else None
+    actor_ids = {actor_a.actor_id, actor_b.actor_id}
+    crossings = [it for it in interactions if it.kind == "crossing"
+                 and {it.subject_id, it.object_id} == actor_ids]
+    return pair_features_v3(actor_a, actor_b, pair, horizon_s) + [
+        float(junction_a is not None and junction_a == junction_b),
+        float(eta_available), eta_a, eta_b,
+        min(abs(raw_etas[0] - raw_etas[1]), 60.0), eta_a,
+        dist_min, dist_max, dist_max - dist_min,
+        float(bool(crossings)),
+        float(any(it.conflict == "orthogonal" for it in crossings)),
+        float(any(it.conflict == "oncoming_turn" for it in crossings)),
+    ]
+
+
 @dataclass
 class PairRerankerV2:
     means: List[float]
@@ -275,21 +319,52 @@ class PairRerankerV3(PairRerankerV2):
         )
 
 
+@dataclass
+class PairRerankerV4(PairRerankerV3):
+    """Threshold-gated route/ETA risk verifier."""
+
+    def to_dict(self) -> dict:
+        doc = super().to_dict()
+        doc["model_type"] = "route_eta_actor_pair_mlp_v4"
+        doc["feature_names"] = list(FEATURE_NAMES_V4)
+        return doc
+
+    @classmethod
+    def load(cls, path: str) -> "PairRerankerV4":
+        with open(path, encoding="utf-8") as handle:
+            doc = json.load(handle)
+        if doc.get("model_type") != "route_eta_actor_pair_mlp_v4":
+            raise ValueError("unsupported v4 pair re-ranker")
+        if doc.get("feature_names") != list(FEATURE_NAMES_V4):
+            raise ValueError("v4 pair re-ranker feature schema mismatch")
+        return cls(
+            means=doc["means"], scales=doc["scales"],
+            hidden_weights=doc["hidden_weights"], hidden_bias=doc["hidden_bias"],
+            output_weights=doc["output_weights"], output_bias=doc["output_bias"],
+            threshold=doc["decision_threshold"],
+        )
+
+
 def load_pair_reranker(path: str) -> PairRerankerV2:
-    """Load either V2 or V3 without making callers inspect checkpoint JSON."""
+    """Load a pair model without making callers inspect checkpoint JSON."""
     with open(path, encoding="utf-8") as handle:
         model_type = json.load(handle).get("model_type")
     if model_type == "dynamic_actor_pair_mlp_v2":
         return PairRerankerV2.load(path)
     if model_type == "risk_aware_actor_pair_mlp_v3":
         return PairRerankerV3.load(path)
+    if model_type == "route_eta_actor_pair_mlp_v4":
+        return PairRerankerV4.load(path)
     raise ValueError(f"unsupported pair re-ranker model_type: {model_type!r}")
 
 
 def pair_features_for_model(
     model: PairRerankerV2, actor_a: ActorState, actor_b: ActorState,
     pair: SweptPair, horizon_s: float = 5.0,
+    interactions: Sequence[Interaction] = (),
 ) -> List[float]:
+    if isinstance(model, PairRerankerV4):
+        return pair_features_v4(actor_a, actor_b, pair, horizon_s, interactions)
     return (pair_features_v3 if isinstance(model, PairRerankerV3) else pair_features_v2)(
         actor_a, actor_b, pair, horizon_s
     )
