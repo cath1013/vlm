@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from traffic_llm.accident_qa import WindowConfig, build_windows, window_ground_truth
 from traffic_llm.carla_map import find_xodr
-from traffic_llm.collision_risk_net import ground_truth_bucket, pair_labels
+from traffic_llm.collision_risk_net import ground_truth_bucket, hazard_supervision
 from traffic_llm.config import PipelineConfig
 from traffic_llm.da_runner import DeepAccidentRunner
 from traffic_llm.deepaccident import estimate_collision
@@ -25,13 +25,10 @@ from traffic_llm.prediction import build_context
 
 
 def window_supervision_status(gt):
-    """Return (GT bucket, keep, incomplete-negative-horizon drop)."""
-    expected = gt["expected"]
+    """Return (GT bucket, any identifiable horizon, no identifiable horizon)."""
     bucket = ground_truth_bucket(gt)
-    complete = len(expected) == 5 and all(x["scorable"] for x in expected)
-    keep = len(expected) == 5 and (bucket > 0 or complete)
-    dropped_incomplete = len(expected) == 5 and bucket == 0 and not complete
-    return bucket, keep, dropped_incomplete
+    keep = any(horizon_supervision_status(gt, h)[0] for h in range(1, 6))
+    return bucket, keep, not keep
 
 
 def horizon_supervision_status(gt, horizon):
@@ -39,9 +36,11 @@ def horizon_supervision_status(gt, horizon):
     if not 1 <= horizon <= 5:
         raise ValueError("horizon must be 1..5 seconds")
     expected = gt["expected"][:horizon]
-    positive = any(row["accident_expected"] for row in expected)
-    negative = (len(expected) == horizon and all(
-        row["scorable"] and not row["accident_expected"] for row in expected))
+    positive = 0 < ground_truth_bucket(gt) <= horizon
+    negative = (len(expected) == horizon and not positive and
+                gt.get("data_end_s") is not None and all(
+                    row["interval_end_s"] <= gt["data_end_s"] + 1e-9
+                    and not row["accident_expected"] for row in expected))
     keep = positive or negative
     return keep, positive, negative, not keep
 
@@ -93,7 +92,7 @@ def add_scenario_diagnostics(counts, diagnostics):
     counts["total_kept_windows"] += kept
     counts["dropped_incomplete_observation"] += diagnostics["dropped_incomplete_observation"]
     counts["dropped_after_collision"] += diagnostics["dropped_after_collision"]
-    counts["dropped_incomplete_future_5s"] += diagnostics["dropped_incomplete_future_5s"]
+    counts["dropped_no_identifiable_horizon"] += diagnostics["dropped_no_identifiable_horizon"]
     counts["scenarios_with_zero_build_windows"] += int(built == 0)
     counts["scenarios_with_build_windows_but_zero_fully_supervised_5s_windows"] += int(
         built > 0 and diagnostics["fully_supervised_5s_windows"] == 0)
@@ -119,7 +118,7 @@ def collect_scenario(runner, scenario, cfg, wcfg, maps, rate, census_only=False)
         "fully_supervised_5s_windows": 0,
         "dropped_incomplete_observation": build_info["dropped_incomplete"],
         "dropped_after_collision": build_info["dropped_after_collision"],
-        "dropped_incomplete_future_5s": 0,
+        "dropped_no_identifiable_horizon": 0,
         "collision_time_s": collision_time,
         "data_start_s": snapshots[0].t if snapshots else None,
         "data_end_s": snapshots[-1].t if snapshots else None,
@@ -135,17 +134,19 @@ def collect_scenario(runner, scenario, cfg, wcfg, maps, rate, census_only=False)
             data_end_s=snapshots[-1].t,
         )
         add_window_to_census(diagnostics["horizon_census"], gt)
-        # Negative windows need a fully observed horizon. A known collision
-        # bucket remains supervised even when recording ends before +5 s.
+        # The event remains known; negative intervals require their full end.
         gt_bucket, keep, dropped_incomplete = window_supervision_status(gt)
         positive = gt_bucket > 0
         diagnostics["fully_supervised_5s_windows"] += int(
-            len(gt["expected"]) == 5 and all(x["scorable"] for x in gt["expected"]))
-        diagnostics["dropped_incomplete_future_5s"] += int(dropped_incomplete)
+            len(gt["expected"]) == 5 and all(
+                x["interval_end_s"] <= gt["data_end_s"] + 1e-9 for x in gt["expected"]))
+        diagnostics["dropped_no_identifiable_horizon"] += int(dropped_incomplete)
         if not keep:
             continue
-        diagnostics["windows_kept"] += 1
         if census_only:
+            _, _, masks, _ = hazard_supervision(
+                [a.actor_id for a in sorted(window.last.actors, key=lambda a: a.actor_id)], gt)
+            diagnostics["windows_kept"] += int(any(any(mask) for mask in masks))
             continue
         actors = sorted(window.last.actors, key=lambda a: a.actor_id)
         encoded = []
@@ -157,13 +158,19 @@ def collect_scenario(runner, scenario, cfg, wcfg, maps, rate, census_only=False)
                             "history": item["history"], "candidates": item["candidates"],
                             "interactions": item["interactions"],
                             "origin_enu": list(actor.world_xy)})
-        labels = pair_labels([a["actor_id"] for a in encoded], gt)
+        labels, targets, masks, observed = hazard_supervision(
+            [a["actor_id"] for a in encoded], gt)
+        if not any(any(mask) for mask in masks):
+            continue
+        diagnostics["windows_kept"] += 1
         rows.append({"scenario_id": scenario.scenario_id,
                      "window_id": f"{scenario.scenario_id}:{window.index}:{window.t_end:.3f}",
                      "dataset_split": scenario.split, "t_end_s": window.t_end,
                      "gt_bucket": gt_bucket,
                      "gt_positive": positive, "gt_pair_present": any(x > 0 for x in labels),
-                     "actors": encoded, "pair_labels": labels})
+                     "observed_negative_buckets": observed,
+                     "actors": encoded, "pair_labels": labels,
+                     "hazard_target": targets, "hazard_mask": masks})
     finalize_horizon_census(diagnostics["horizon_census"])
     return rows, diagnostics
 
@@ -202,7 +209,11 @@ def main(argv=None):
               "scenarios_with_kept_windows": 0,
               "total_build_windows": 0, "total_kept_windows": 0,
               "dropped_incomplete_observation": 0, "dropped_after_collision": 0,
-              "dropped_incomplete_future_5s": 0, "failed": []}
+              "dropped_no_identifiable_horizon": 0, "failed": [],
+              "supervised_hazard_entries_per_bucket": [0] * 5,
+              "positive_hazard_entries_per_bucket": [0] * 5,
+              "negative_hazard_entries_per_bucket": [0] * 5,
+              "censored_hazard_entries_per_bucket": [0] * 5}
     scenario_diagnostics = []
     horizon_census = empty_horizon_census()
     output_context = nullcontext(None) if args.census_only else out.open("w", encoding="utf-8")
@@ -227,6 +238,12 @@ def main(argv=None):
                 counts["pairs"] += len(row["pair_labels"])
                 counts["gt_positive_windows"] += int(row["gt_positive"])
                 counts["gt_pair_present_windows"] += int(row["gt_pair_present"])
+                for targets, masks in zip(row["hazard_target"], row["hazard_mask"]):
+                    for k in range(5):
+                        counts["supervised_hazard_entries_per_bucket"][k] += int(masks[k])
+                        counts["positive_hazard_entries_per_bucket"][k] += int(masks[k] and targets[k])
+                        counts["negative_hazard_entries_per_bucket"][k] += int(masks[k] and not targets[k])
+                        counts["censored_hazard_entries_per_bucket"][k] += int(not masks[k])
             print(json.dumps(diagnostics), flush=True)
     counts["visible_pair_coverage_ceiling"] = (
         counts["gt_pair_present_windows"] / counts["gt_positive_windows"]

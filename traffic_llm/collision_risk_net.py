@@ -42,14 +42,55 @@ def pair_labels(actor_ids, gt):
     return labels
 
 
+def hazard_supervision(actor_ids, gt):
+    """Pair-specific discrete hazards; unobserved and post-event cells are masked."""
+    labels = pair_labels(actor_ids, gt)
+    event = ground_truth_bucket(gt)
+    end = gt["data_end_s"]
+    if end is None:
+        raise ValueError("data_end_s is required for censor-aware supervision")
+    expected = gt["expected"]
+    if len(expected) != 5 or [r["k"] for r in expected] != list(range(1, 6)):
+        raise ValueError("Five ordered future intervals are required")
+    observed = [r["interval_end_s"] <= end + 1e-9 for r in expected]
+    targets, masks = [], []
+    for label in labels:
+        target = [0] * 5
+        mask = [False] * 5
+        for k in range(1, 6):
+            if label and k <= event:
+                mask[k - 1] = True
+                target[k - 1] = int(k == event)
+            elif not label and (not event or k <= event) and observed[k - 1]:
+                mask[k - 1] = True
+        targets.append(target)
+        masks.append(mask)
+    return labels, targets, masks, observed
+
+
+def hazard_to_event_probabilities(hazards: torch.Tensor):
+    """Return event probabilities and survival through the supported buckets."""
+    survival_before = torch.cat((torch.ones_like(hazards[..., :1]),
+                                 torch.cumprod(1 - hazards[..., :-1], dim=-1)), dim=-1)
+    return survival_before * hazards, torch.prod(1 - hazards, dim=-1)
+
+
+def cumulative_risk(hazards: torch.Tensor):
+    return 1 - torch.cumprod(1 - hazards, dim=-1)
+
+
 class CollisionRiskNet(nn.Module):
-    """Six logits per pair; no predicted future state enters the representation."""
+    """Shared time-conditioned hazard head over observation-only pair features."""
 
     def __init__(self, backbone: JointSceneMotionNetV2, hidden_dim=128,
-                 dropout=0.1, freeze_backbone=True):
+                 dropout=0.1, freeze_backbone=True, max_horizon=4):
         super().__init__()
         if not isinstance(backbone, JointSceneMotionNetV2) or backbone.spec.get("architecture") != "JointSceneMotionNetV2":
             raise TypeError("A JointSceneMotionNetV2 checkpoint is required")
+        if max_horizon not in (2, 3, 4):
+            raise ValueError("max_horizon must be 2, 3, or 4")
+        self.max_horizon = max_horizon
+        self.spec = {"architecture": "CollisionRiskNet", "max_horizon": max_horizon}
         self.backbone = backbone
         self.freeze_backbone = freeze_backbone
         if freeze_backbone:
@@ -59,9 +100,13 @@ class CollisionRiskNet(nn.Module):
         h = backbone.hidden_dim
         # sum and absolute difference are invariant under actor exchange.
         # Directed physical edges are symmetrized in the same way.
-        self.head = nn.Sequential(nn.Linear(2 * h + 2 * backbone.EDGE_DIM, hidden_dim),
+        self.head = nn.Sequential(nn.Linear(2 * h + 2 * backbone.EDGE_DIM + 1, hidden_dim),
                                   nn.ReLU(), nn.Dropout(dropout),
-                                  nn.Linear(hidden_dim, 6))
+                                  nn.Linear(hidden_dim, 1))
+
+    def time_encoding(self, *, device=None, dtype=torch.float32):
+        """Absolute seconds on the shared four-second scale, independent of K."""
+        return torch.arange(1, self.max_horizon + 1, device=device, dtype=dtype) / 4.0
 
     def train(self, mode=True):
         super().train(mode)
@@ -81,12 +126,15 @@ class CollisionRiskNet(nn.Module):
             state = block(state, norm_edge, actor_mask)
         i, j, mask = valid_pairs(actor_mask)
         if i.numel() == 0:
-            return state.new_empty((state.shape[0], 0, 6)), mask
+            return state.new_empty((state.shape[0], 0, self.max_horizon)), mask
         ab, ba = norm_edge[:, i, j], norm_edge[:, j, i]
         features = torch.cat((state[:, i] + state[:, j],
                               (state[:, i] - state[:, j]).abs(),
                               ab + ba, (ab - ba).abs()), dim=-1)
-        logits = self.head(features)
+        times = self.time_encoding(device=features.device, dtype=features.dtype)
+        expanded = features.unsqueeze(-2).expand(*features.shape[:-1], self.max_horizon, features.shape[-1])
+        time_input = times.expand(*features.shape[:-1], self.max_horizon).unsqueeze(-1)
+        logits = self.head(torch.cat((expanded, time_input), dim=-1)).squeeze(-1)
         return logits.masked_fill(~mask.unsqueeze(-1), 0.0), mask
 
 
