@@ -166,6 +166,28 @@ def positive_weight(rows, max_horizon=4):
     return negatives / positives if positives else 1.0
 
 
+LOSS_NAME = "window_balanced_masked_bce"
+
+
+def window_balanced_masked_bce(logits, targets, mask):
+    """Average classes within windows, then average supervised windows equally."""
+    positive = mask & (targets == 1)
+    negative = mask & (targets == 0)
+    positive_count = positive.flatten(1).sum(1)
+    negative_count = negative.flatten(1).sum(1)
+    if ((positive_count + negative_count) == 0).any():
+        raise ValueError("Each training window must have supervised cells")
+    # Evaluate only supervised cells, so censored and padded logits cannot
+    # affect either the loss or its gradients.
+    supervised_loss = nn.functional.binary_cross_entropy_with_logits(
+        logits[mask], targets[mask], reduction="none")
+    cell_loss = torch.zeros_like(logits).masked_scatter(mask, supervised_loss)
+    positive_loss = (cell_loss * positive).flatten(1).sum(1) / positive_count.clamp_min(1)
+    negative_loss = (cell_loss * negative).flatten(1).sum(1) / negative_count.clamp_min(1)
+    class_count = (positive_count > 0).int() + (negative_count > 0).int()
+    return ((positive_loss + negative_loss) / class_count).mean()
+
+
 def fit(rows, checkpoint, device, *, epochs, batch_size, lr, hidden_dim,
         dropout, seed, max_horizon=4):
     rows = eligible_rows(rows, max_horizon)
@@ -173,7 +195,6 @@ def fit(rows, checkpoint, device, *, epochs, batch_size, lr, hidden_dim,
         raise ValueError("No supervised windows within max_horizon")
     torch.manual_seed(seed)
     model = CollisionRiskNet(load_v2(checkpoint, device), hidden_dim, dropout, max_horizon=max_horizon).to(device)
-    pos_weight = torch.tensor(positive_weight(rows, max_horizon), device=device)
     loader = DataLoader(rows, batch_size=batch_size, shuffle=True, collate_fn=partial(collate, max_horizon=max_horizon),
                         generator=torch.Generator().manual_seed(seed))
     optimizer = torch.optim.AdamW(model.head.parameters(), lr=lr, weight_decay=1e-4)
@@ -186,14 +207,13 @@ def fit(rows, checkpoint, device, *, epochs, batch_size, lr, hidden_dim,
             if not mask.any():
                 continue
             targets = batch["hazard_target"].to(device)
-            loss = nn.functional.binary_cross_entropy_with_logits(
-                logits[mask], targets[mask], pos_weight=pos_weight)
+            loss = window_balanced_masked_bce(logits, targets, mask)
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
-            loss_sum += loss.detach().item() * int(mask.sum())
-            n += int(mask.sum())
-        print(f"epoch {epoch + 1}/{epochs}: masked BCE={loss_sum / max(1, n):.5f}", flush=True)
+            loss_sum += loss.detach().item() * logits.shape[0]
+            n += logits.shape[0]
+        print(f"epoch {epoch + 1}/{epochs}: window-balanced masked BCE={loss_sum / max(1, n):.5f}", flush=True)
     return model
 
 
@@ -458,9 +478,10 @@ def main(argv=None):
     torch.save({"state_dict": model.state_dict(), "v2_checkpoint": str(Path(args.v2_checkpoint).resolve()),
                 "hidden_dim": args.hidden_dim, "dropout": args.dropout,
                 "max_horizon": model.max_horizon, "model_spec": model.spec,
+                "loss": LOSS_NAME,
                 "threshold_by_horizon": threshold_by_horizon, "lr": chosen["lr"],
                 "train_scenario_ids": sorted(assignments)}, out / "collision_risk_final.pt")
-    result = {"config": vars(args), "smoke_run": args.smoke,
+    result = {"config": vars(args), "smoke_run": args.smoke, "loss": LOSS_NAME,
               "fold_assignments": assignments, "cv_candidates": cv_candidates,
               "selected_lr": chosen["lr"],
               "threshold_by_horizon": threshold_by_horizon,

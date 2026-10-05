@@ -14,7 +14,8 @@ from examples.train_collision_risk_net import (aggregate_window, collate, fit,
                                                identifiable, report,
                                                positive_weight, supervision_counts, eligible_rows,
                                                folds_by_scenario, main, read_rows,
-                                               select_threshold, threshold_candidates, binary_metrics, predict)
+                                               select_threshold, threshold_candidates, binary_metrics, predict,
+                                               window_balanced_masked_bce)
 from traffic_llm.collision_risk_net import (CollisionRiskNet, cumulative_risk,
                                             hazard_supervision,
                                             hazard_to_event_probabilities)
@@ -222,6 +223,8 @@ class HazardTests(unittest.TestCase):
                 self.assertEqual(set(result["cv_train"]["per_horizon"]), {str(h) for h in range(1,k+1)})
                 saved = torch.load(out / "collision_risk_final.pt", weights_only=False)
                 self.assertEqual(saved["max_horizon"], k)
+                self.assertEqual(saved["loss"], "window_balanced_masked_bce")
+                self.assertEqual(result["loss"], saved["loss"])
                 self.assertEqual(saved["threshold_by_horizon"], result["threshold_by_horizon"])
                 self.assertEqual(saved["threshold_by_horizon"], result["cv_train"]["threshold_by_horizon"])
                 self.assertEqual(saved["train_scenario_ids"], sorted(expected))
@@ -332,6 +335,43 @@ class HazardTests(unittest.TestCase):
         reading.assert_not_called()
         manifests.assert_not_called()
 
+    def test_window_loss_balances_classes_and_duplicate_negative_pairs(self):
+        logits = torch.tensor([[[2., -1.], [-3., 1.]]], requires_grad=True)
+        targets = torch.tensor([[[1., 0.], [0., 0.]]])
+        mask = torch.ones_like(targets, dtype=torch.bool)
+        loss = window_balanced_masked_bce(logits, targets, mask)
+        expected = .5 * torch.nn.functional.softplus(-logits[0, 0, 0]) + \
+                   .5 * torch.nn.functional.softplus(logits[targets == 0]).mean()
+        torch.testing.assert_close(loss, expected)
+        # Duplicate every negative cell while retaining the single positive.
+        duplicated_logits = torch.cat((logits, logits), dim=1)
+        duplicated_targets = torch.cat((targets, targets), dim=1)
+        duplicated_mask = torch.ones_like(duplicated_targets, dtype=torch.bool)
+        duplicated_mask[0, 2, 0] = False
+        torch.testing.assert_close(
+            window_balanced_masked_bce(duplicated_logits, duplicated_targets, duplicated_mask), loss)
+        loss.backward()
+        self.assertIsNotNone(logits.grad)
+
+    def test_window_loss_single_classes_censoring_and_equal_window_weights(self):
+        logits = torch.tensor([[[2., -1., float("nan")]],
+                               [[-2., float("nan"), float("nan")]]], requires_grad=True)
+        targets = torch.tensor([[[0., 0., 1.]], [[1., 0., 0.]]])
+        mask = torch.tensor([[[True, True, False]], [[True, False, False]]])
+        loss = window_balanced_masked_bce(logits, targets, mask)
+        expected_negative = torch.nn.functional.softplus(logits[0, 0, :2]).mean()
+        expected_positive = torch.nn.functional.softplus(-logits[1, 0, 0])
+        torch.testing.assert_close(loss, (expected_negative + expected_positive) / 2)
+        torch.testing.assert_close(window_balanced_masked_bce(logits[:1], targets[:1], mask[:1]),
+                                   expected_negative)
+        torch.testing.assert_close(window_balanced_masked_bce(logits[1:], targets[1:], mask[1:]),
+                                   expected_positive)
+        loss.backward()
+        self.assertTrue(torch.isfinite(logits.grad).all())
+        self.assertTrue((logits.grad[~mask] == 0).all())
+        self.assertTrue((logits.grad[0][mask[0]] > 0).all())
+        self.assertLess(logits.grad[1, 0, 0].item(), 0)
+
     def test_small_smoke_fit_and_counts(self):
         rows = [row("p", 3, 2.4), row("n", 0, 2.0)]
         self.assertEqual(supervision_counts(rows), {
@@ -347,9 +387,17 @@ class HazardTests(unittest.TestCase):
             torch.save(JointSceneMotionNetV2(
                 hidden_dim=16, scene_layers=1, interaction_hidden=8), checkpoint)
             for k in (2, 3, 4):
-                model = fit(rows + [row("excluded", 0, 0)], checkpoint, "cpu",
-                            epochs=1, batch_size=2, lr=.001, hidden_dim=16,
-                            dropout=0, seed=0, max_horizon=k)
+                with patch("examples.train_collision_risk_net.positive_weight",
+                           side_effect=AssertionError("global weighting used")), \
+                     patch("examples.train_collision_risk_net.nn.functional.binary_cross_entropy_with_logits",
+                           wraps=torch.nn.functional.binary_cross_entropy_with_logits) as bce:
+                    model = fit(rows + [row("excluded", 0, 0)], checkpoint, "cpu",
+                                epochs=1, batch_size=2, lr=.001, hidden_dim=16,
+                                dropout=0, seed=0, max_horizon=k)
+                self.assertTrue(bce.called)
+                for call in bce.call_args_list:
+                    self.assertNotIn("pos_weight", call.kwargs)
+                    self.assertEqual(call.kwargs["reduction"], "none")
                 self.assertFalse(model.backbone.training)
                 self.assertTrue(all(not p.requires_grad for p in model.backbone.parameters()))
                 records = predict(model, rows + [row("excluded", 0, 0)], "cpu", 2)
