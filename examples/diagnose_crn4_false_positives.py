@@ -357,7 +357,7 @@ def summary(windows):
                           'missing':sum(r[field] is None for r in rows)} for s,rows in groups.items()}
         if field in KINEMATICS:
             a,b = ([r[field] for r in groups[s] if r[field] is not None] for s in ('FP','TN'))
-            stats[field]['cliffs_delta_fp_minus_tn'] = (sum((x>y)-(x<y) for x in a for y in b)/(len(a)*len(b)) if a and b else None)
+            stats[field]['cliffs_delta_fp_minus_tn'] = (sum(int(x>y)-int(x<y) for x in a for y in b)/(len(a)*len(b)) if a and b else None)
     concentration = Counter(r['scenario_id'] for r in fp)
     repeated = []
     previous = {}

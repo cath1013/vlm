@@ -12,6 +12,26 @@ from examples import diagnose_crn4_false_positives as d
 from test_plot_v4_crn4_error_cases import fixture
 
 
+@pytest.mark.parametrize('scalar_type', [np.float32, np.float64, np.int64])
+@pytest.mark.parametrize('fp_values,tn_values,expected', [
+    ([1, 2], [2, 3], -0.75),
+    ([2, 3], [1, 2], 0.75),
+    ([2], [2], 0.0),
+])
+def test_summary_cliffs_delta_with_numpy_scalars(scalar_type, fp_values, tn_values, expected):
+    windows = []
+    for status, values in [('FP', fp_values), ('TN', tn_values)]:
+        for value in values:
+            row = d.defaultdict(lambda: 0)
+            row.update(status=status, scenario_id=f'scenario_{len(windows)}',
+                       window_id=f'window_{len(windows)}:0')
+            row.update({field: scalar_type(value) for field in d.KINEMATICS})
+            windows.append(row)
+    stats = d.summary(windows)['descriptive_statistics']
+    for field in d.KINEMATICS:
+        assert stats[field]['cliffs_delta_fp_minus_tn'] == expected
+
+
 @pytest.fixture(scope='module')
 def frozen():
     torch.set_num_threads(2)
