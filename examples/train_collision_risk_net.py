@@ -167,6 +167,7 @@ def positive_weight(rows, max_horizon=4):
 
 
 LOSS_NAME = "window_balanced_masked_bce"
+CRN5_A_LOSS_NAME = LOSS_NAME + "+weighted_window_max_risk_2s_bce"
 
 
 def window_balanced_masked_bce(logits, targets, mask):
@@ -188,8 +189,48 @@ def window_balanced_masked_bce(logits, targets, mask):
     return ((positive_loss + negative_loss) / class_count).mean()
 
 
+def window_max_risk_2s_bce(logits, pair_mask, rows):
+    """BCE on max valid-pair cumulative 2s risk for identifiable windows.
+
+    GT onset in buckets 1 or 2 is positive. These positive windows without a
+    visible GT pair are excluded here, but retain their original hazard loss.
+    Negative outcomes require both intervals observed, regardless of GT pair presence.
+    Windows without candidate pairs cannot supply a differentiable risk and
+    are excluded. Padded pairs and unidentifiable windows contribute no gradient.
+    """
+    if logits.shape[-1] < 2:
+        raise ValueError("Window loss requires at least two hazard buckets")
+    known = torch.tensor([identifiable(row, 2) and
+                          (row["gt_bucket"] not in (1, 2) or row["gt_pair_present"]) for row in rows],
+                         dtype=torch.bool, device=logits.device)
+    usable = known & pair_mask.any(dim=1)
+    if not usable.any():
+        # Empty selection keeps the zero connected to the graph without
+        # evaluating censored/padded logits, which may contain nonfinite values.
+        return logits[usable].sum()
+    valid_pairs = pair_mask[usable]
+    # P(collision by 2s) = h1 + (1-h1)*h2. Add the disjoint event
+    # probabilities in log space so very negative logits still receive
+    # corrective gradients, without subtraction or a probability clamp.
+    selected_logits = logits[usable, :, :2]
+    valid_logits = selected_logits[valid_pairs]
+    log_hazard = nn.functional.logsigmoid(valid_logits)
+    log_no_event = nn.functional.logsigmoid(-valid_logits)
+    pair_log_risk = torch.logaddexp(log_hazard[:, 0], log_no_event[:, 0] + log_hazard[:, 1])
+    log_risk = torch.zeros_like(selected_logits[..., 0]).masked_scatter(valid_pairs, pair_log_risk)
+    window_log_risk, best_pair = log_risk.masked_fill(~valid_pairs, -float("inf")).max(dim=1)
+    log_survival = torch.zeros_like(selected_logits[..., 0]).masked_scatter(
+        valid_pairs, log_no_event.sum(-1))
+    window_log_survival = log_survival.gather(1, best_pair.unsqueeze(1)).squeeze(1)
+    targets = torch.tensor([0 < row["gt_bucket"] <= 2 for row in rows],
+                           dtype=logits.dtype, device=logits.device)[usable]
+    return torch.where(targets.bool(), -window_log_risk, -window_log_survival).mean()
+
+
 def fit(rows, checkpoint, device, *, epochs, batch_size, lr, hidden_dim,
-        dropout, seed, max_horizon=4):
+        dropout, seed, max_horizon=4, window_loss_weight=0.0):
+    if not math.isfinite(window_loss_weight) or window_loss_weight < 0:
+        raise ValueError("window_loss_weight must be finite and nonnegative")
     rows = eligible_rows(rows, max_horizon)
     if not rows:
         raise ValueError("No supervised windows within max_horizon")
@@ -208,12 +249,15 @@ def fit(rows, checkpoint, device, *, epochs, batch_size, lr, hidden_dim,
                 continue
             targets = batch["hazard_target"].to(device)
             loss = window_balanced_masked_bce(logits, targets, mask)
+            if window_loss_weight > 0:
+                loss = loss + window_loss_weight * window_max_risk_2s_bce(logits, pair_mask, batch["rows"])
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
             loss_sum += loss.detach().item() * logits.shape[0]
             n += logits.shape[0]
-        print(f"epoch {epoch + 1}/{epochs}: window-balanced masked BCE={loss_sum / max(1, n):.5f}", flush=True)
+        loss_label = "CRN5-A combined BCE" if window_loss_weight > 0 else "window-balanced masked BCE"
+        print(f"epoch {epoch + 1}/{epochs}: {loss_label}={loss_sum / max(1, n):.5f}", flush=True)
     return model
 
 
@@ -409,11 +453,17 @@ def main(argv=None):
                     help="learning-rate candidates selected by train CV")
     ap.add_argument("--hidden-dim", type=int, default=128)
     ap.add_argument("--dropout", type=float, default=0.1)
+    ap.add_argument("--window-loss-weight", type=float, default=0.0,
+                    help="CRN5-A: weight of max-pair 2s window BCE; positive values write under --out/crn5_a")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--smoke", action="store_true",
                     help="allow a limited val subset and label the report as a smoke run")
     args = ap.parse_args(argv)
+    if not math.isfinite(args.window_loss_weight) or args.window_loss_weight < 0:
+        ap.error("--window-loss-weight must be finite and nonnegative")
     if args.evaluate_checkpoint:
+        if args.window_loss_weight != 0:
+            ap.error("--window-loss-weight is a training-only option")
         if not args.val or args.train:
             ap.error("evaluation requires --val and no --train")
         saved = torch.load(args.evaluate_checkpoint, map_location=args.device, weights_only=False)
@@ -439,6 +489,10 @@ def main(argv=None):
         ap.error("fitting requires --train and --v2-checkpoint, without --val")
     if args.epochs < 1 or args.batch_size < 1:
         ap.error("epochs and batch size must be positive")
+    experimental = args.window_loss_weight > 0
+    out = Path(args.out) / "crn5_a" if experimental else Path(args.out)
+    if experimental and out.exists():
+        ap.error(f"CRN5-A output already exists; choose a new --out: {out}")
     learning_rates = [float(x) for x in args.lr_grid.split(",") if x.strip()]
     if not learning_rates or any(x <= 0 for x in learning_rates):
         ap.error("--lr-grid must contain positive learning rates")
@@ -456,12 +510,17 @@ def main(argv=None):
             print(f"lr={lr} fold {fold + 1}/5: {len(fitting)} fit, {len(held)} held", flush=True)
             model = fit(fitting, args.v2_checkpoint, args.device, epochs=args.epochs,
                         batch_size=args.batch_size, lr=lr, hidden_dim=args.hidden_dim,
-                        dropout=args.dropout, seed=args.seed + fold, max_horizon=args.max_horizon)
+                        dropout=args.dropout, seed=args.seed + fold, max_horizon=args.max_horizon,
+                        window_loss_weight=args.window_loss_weight)
             oof.extend(predict(model, held, args.device, args.batch_size))
             del model
         threshold_by_horizon = select_threshold(oof, train, args.max_horizon)
+        candidate_report = report(oof, train, threshold_by_horizon, args.max_horizon)
+        if experimental:
+            candidate_report.update(model="CRN5-A", training_variant="CRN5-A",
+                                    window_loss_weight=args.window_loss_weight)
         cv_candidates.append({"lr": lr, "threshold_by_horizon": threshold_by_horizon,
-                              "report": report(oof, train, threshold_by_horizon, args.max_horizon)})
+                              "report": candidate_report})
     chosen = max(cv_candidates,
                  key=lambda c: (sum(
                      m["balanced_accuracy"] for m in c["report"]["per_horizon"].values()
@@ -472,23 +531,41 @@ def main(argv=None):
     cv_report = chosen["report"]
     model = fit(train, args.v2_checkpoint, args.device, epochs=args.epochs,
                 batch_size=args.batch_size, lr=chosen["lr"], hidden_dim=args.hidden_dim,
-                dropout=args.dropout, seed=args.seed, max_horizon=args.max_horizon)
-    out = Path(args.out)
-    out.mkdir(parents=True, exist_ok=True)
-    torch.save({"state_dict": model.state_dict(), "v2_checkpoint": str(Path(args.v2_checkpoint).resolve()),
+                dropout=args.dropout, seed=args.seed, max_horizon=args.max_horizon,
+                window_loss_weight=args.window_loss_weight)
+    out.mkdir(parents=True, exist_ok=not experimental)
+    loss_name = CRN5_A_LOSS_NAME if experimental else LOSS_NAME
+    saved = {"state_dict": model.state_dict(), "v2_checkpoint": str(Path(args.v2_checkpoint).resolve()),
                 "hidden_dim": args.hidden_dim, "dropout": args.dropout,
                 "max_horizon": model.max_horizon, "model_spec": model.spec,
-                "loss": LOSS_NAME,
+                "loss": loss_name,
                 "threshold_by_horizon": threshold_by_horizon, "lr": chosen["lr"],
-                "train_scenario_ids": sorted(assignments)}, out / "collision_risk_final.pt")
-    result = {"config": vars(args), "smoke_run": args.smoke, "loss": LOSS_NAME,
+                "train_scenario_ids": sorted(assignments)}
+    if experimental:
+        saved.update(training_variant="CRN5-A", window_loss_weight=args.window_loss_weight,
+                     window_loss_horizon_s=2)
+    torch.save(saved, out / "collision_risk_final.pt")
+    result = {"config": vars(args), "smoke_run": args.smoke, "loss": loss_name,
               "fold_assignments": assignments, "cv_candidates": cv_candidates,
               "selected_lr": chosen["lr"],
               "threshold_by_horizon": threshold_by_horizon,
               "decision_rule": "maximum pair cumulative hazard risk at each horizon >= horizon-specific train-OOF threshold",
               "cv_train": cv_report}
+    if experimental:
+        at2 = cv_report["per_horizon"]["2"]
+        summary = {key:at2[key] for key in ("precision", "recall", "f1", "threshold",
+                   "identifiable_windows", "correct_gt_actor_pair_hits", "correct_gt_actor_pair_recall")}
+        summary.update({key.upper():at2[key] for key in ("tp", "fp", "tn", "fn")})
+        summary.update(training_variant="CRN5-A", evaluation_population="identifiable train-OOF windows",
+                       horizon_s=2, threshold_source="train-OOF only",
+                       correct_gt_pair_recall_denominator="all identifiable GT-positive train-OOF windows, including missing GT pairs")
+        result.update(training_variant="CRN5-A", window_loss_weight=args.window_loss_weight,
+                      output_directory=str(out), train_oof_2s=summary)
+        (out / "train_oof_2s_report.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     (out / "report.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(json.dumps({"cv_train": cv_report}, indent=2))
+    if experimental:
+        print(json.dumps({"training_variant":"CRN5-A", "train_oof_2s":summary}, indent=2))
 
 
 if __name__ == "__main__":
