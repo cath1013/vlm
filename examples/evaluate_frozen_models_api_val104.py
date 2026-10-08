@@ -3,10 +3,11 @@
 
 Example: python examples/evaluate_frozen_models_api_val104.py --model MODEL
 --out out/frozen_api --dry-run. English only. Replay is intentionally required
-on resume as well: saved classifier decisions are never a preflight substitute.
+on resume as well unless a source-validated replay cache is explicitly supplied.
 """
 from __future__ import annotations
 import argparse
+import ast
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict
@@ -14,6 +15,7 @@ import csv
 import hashlib
 import itertools
 import json
+import math
 import os
 from pathlib import Path
 import random
@@ -21,6 +23,7 @@ import subprocess
 import sys
 import threading
 import time
+import tempfile
 import urllib.error
 import urllib.request
 
@@ -30,12 +33,19 @@ from traffic_llm import providers, i18n
 
 RUN = ROOT / 'out/collision_risk_hazard/run_20261006_window_balanced'
 COHORT = RUN / 'final_analysis/v4_vs_crn4_2s_all_windows.csv'
+FROZEN_CRN4_SHA256 = '311bac77b615d7c71bc05567f053cdeb139e7018e21de26c3d97cc9f410f454f'
 EXPECTED = {'v4': dict(TP=46, FP=55, TN=111, FN=7),
             'crn4': dict(TP=41, FP=40, TN=126, FN=12)}
 PROMPT_KIND = 'accident_frozen_network'
 PROMPT = """You are an expert in cooperative-driving (V2X) accident prediction.
-Using the observed vehicle motion history and supplied network evidence, judge
-whether an actual physical collision will occur in each requested future 1-second interval.
+Using the observed vehicle motion history and supplied network evidence, identify
+the interval containing the first new physical vehicle collision onset after t_end.
+accident_expected refers to the ONSET of a new physical vehicle collision,
+not continued contact after a collision that began in an earlier interval.
+At most one of k=1 or k=2 should have accident_expected=true.
+If accident_expected=true, involved_actor_ids must contain exactly the two actors
+involved in that collision. If no new collision begins during (0,2], both buckets
+must be false.
 Positions use local ENU coordinates in metres; heading is clockwise from north.
 Only information up to the observation endpoint is observed evidence.
 The network_evidence block is produced by a learned model and is fallible evidence,
@@ -46,8 +56,7 @@ observed motion and other evidence support imminent collision. Risk/verifier
 scores are model-specific outputs, not calibrated probabilities of ground-truth
 collision. Do not mechanically threshold or copy them.
 Traffic-signal state, stop lines, and lane-marking types are unavailable.
-Set accident_expected=true only when the total supplied evidence supports physical
-vehicle contact/body overlap in that interval. Mere convergence, small separation,
+Set accident_expected=true only when the total supplied evidence supportsthe onset of physical vehicle contact/body overlap in that interval. Mere convergence, small separation,
 shared road/junction use, opposing travel, or possible crossing is not itself collision.
 Consider recent speed and signed acceleration trends and whether conflict will
 persist or be avoided. Use only supplied actor ids. When accident_expected=false,
@@ -56,7 +65,34 @@ Give one concise sentence describing the physical evidence supporting or arguing
 against collision in this interval. Do not use the network score or network decision
 itself as the reason. Return exactly k=1 for (0,1] and k=2 for (1,2], relative to t_end.
 """
-QUESTION = 'Will physical vehicle contact occur in each interval: k=1 (0,1], k=2 (1,2] after t_end? horizon_s=2. Return both buckets.'
+QUESTION = ('In which interval, if any, does the first new physical vehicle collision begin after t_end? '
+            'Use k=1 for onset in (0,1] and k=2 for onset in (1,2]. '
+            'If no new collision begins within 2 s, return false for both buckets. '
+            'Return both bucket entries.')
+CRN4_PROMPT_V2 = """You are a CRN4 selected-pair collision verifier, NOT a scene-wide collision detector.
+Evaluate ONLY network_evidence.selected_interaction.actor_a and actor_b.
+Other observed actors may be used only as context and must never become the predicted collision pair.
+If accident_expected=true, involved_actor_ids must contain exactly the two selected-interaction actor IDs.
+If accident_expected=false, involved_actor_ids must be empty.
+CRN hazards, risk, and event probabilities are fallible evidence, not ground-truth labels;
+do not mechanically threshold or copy them.
+Predict true only when evidence strongly supports simultaneous physical footprint overlap.
+High risk, small gap, rapid closing, convergence, crossing paths, opposing travel,
+a shared junction, or a projected conflict point are not sufficient by themselves.
+Treat observed speed, acceleration, and heading as local estimates, not guarantees of unchanged future motion.
+For k=2 specifically, constant-velocity/constant-acceleration extrapolation or projected
+path intersection alone is insufficient. Require persistent evidence in the observed
+history plus strong support for physical overlap within (1,2].
+If evidence cannot distinguish collision from a plausible near-miss/safe passage, return false.
+For one projected collision, mark only the bucket containing first physical contact as true;
+do not mark both k=1 and k=2 true. Continued contact is not a new collision onset.
+Return exactly k=1 for (0,1] and k=2 for (1,2], relative to t_end.
+Positions use local ENU coordinates in metres; heading is clockwise from north.
+Only information up to the observation endpoint is observed evidence.
+Traffic-signal state, stop lines, and lane-marking types are unavailable. Do not invent missing sensor information.
+Keep each reason to one concise sentence describing physical evidence and do not use
+the CRN score or decision itself as the reason.
+"""
 
 
 def canonical(value):
@@ -75,7 +111,9 @@ def require(ok, message):
 def schema():
     result = i18n.prediction_schema('en', n_buckets=2)
     item = result['properties']['predictions']['items']['properties']
-    item['k']['enum'] = [1, 2]
+    item['k']['description'] = 'Integer bucket index. Must be 1 or 2.'
+    item['interval_s']['enum'] = ['(0,1]', '(1,2]']
+    item['interval_s']['description'] = 'Exact interval label corresponding to k: "(0,1]" for k=1 and "(1,2]" for k=2.'
     item['reason']['description'] = ('Give one concise sentence describing the physical evidence supporting or '
         'arguing against collision in this interval. Do not use the network score or network decision itself as the reason.')
     return result
@@ -87,6 +125,16 @@ def load_cohort(path=COHORT):
     require(len(rows) == 219 and len({r['window_id'] for r in rows}) == 219,
             'Frozen cohort must contain exactly 219 unique window_ids')
     return {r['window_id']: r for r in rows}
+
+
+def load_window_ids(path, cohort):
+    """Read one window ID per nonblank line after frozen-cohort validation."""
+    ids = [line.strip() for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
+    require(bool(ids), 'Window IDs file is empty')
+    require(len(ids) == len(set(ids)), 'Duplicate window IDs in subset file')
+    unknown = sorted(set(ids) - set(cohort))
+    require(not unknown, f'Unknown window IDs in subset file: {unknown}')
+    return ids
 
 
 def confusion(rows):
@@ -193,7 +241,7 @@ def reproduce(args, ledger):
     from traffic_llm.collision_risk_net import CollisionRiskNet, load_v2
     checkpoint = RUN / 'crn4/collision_risk_final.pt'
     require(hashlib.sha256(checkpoint.read_bytes()).hexdigest() ==
-        '311bac77b615d7c71bc05567f053cdeb139e7018e21de26c3d97cc9f410f454f', 'CRN checkpoint changed')
+        FROZEN_CRN4_SHA256, 'CRN checkpoint changed')
     saved = torch.load(checkpoint, map_location=args.device, weights_only=False)
     require(saved['max_horizon'] == 4, 'Expected frozen CRN-4 horizon')
     model = CollisionRiskNet(load_v2(saved['v2_checkpoint'], args.device), saved['hidden_dim'],
@@ -303,6 +351,272 @@ def audit_payload(payload, condition, network):
         require(all(-5 <= point[0] <= 0 for point in a['observed_history']), 'Future history leakage')
 
 
+REPLAY_CACHE_VERSION = 1
+REPLAY_CASE_KEYS = {'observation', 'gt_bucket', 'gt_groups', 'v4', 'crn4'}
+
+
+def file_sha256(path):
+    result = hashlib.sha256()
+    with Path(path).open('rb') as f:
+        for block in iter(lambda: f.read(1024 * 1024), b''):
+            result.update(block)
+    return result.hexdigest()
+
+
+def replay_code_sha256():
+    """Fingerprint replay/cache semantics without prompt or API configuration."""
+    names = {'canonical', 'digest', 'require', 'load_cohort', 'assert_networks',
+             'observation', 'paths', 'v4_evidence', 'reproduce', 'audit_payload',
+             'file_sha256', 'replay_code_sha256', 'replay_source_fingerprints',
+             'validate_replay_cases', 'cached_replay', 'save_replay_cache'}
+    constants = {'EXPECTED', 'COMMON_KEYS', 'FORBIDDEN', 'FROZEN_CRN4_SHA256',
+                 'REPLAY_CACHE_VERSION', 'REPLAY_CASE_KEYS'}
+    tree = ast.parse(Path(__file__).read_text(encoding='utf-8'))
+    nodes = [node for node in tree.body if
+             isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in names or
+             isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id in constants
+                                                  for t in node.targets)]
+    require({node.name for node in nodes if isinstance(node, ast.FunctionDef)} == names,
+            'Replay fingerprint function inventory mismatch')
+    return digest(ast.dump(ast.Module(body=nodes, type_ignores=[]), include_attributes=False))
+
+
+def replay_source_fingerprints(args, ledger, v2_checkpoint=None):
+    """Hash replay inputs without network execution or scenario reconstruction.
+
+    Sensor3d replay reads metadata, calibration pickles and label text, not
+    camera pixels. Fingerprint all val metadata (scenario resolution) and all
+    calibration/label inputs for cohort scenarios, including file inventories.
+    """
+    from importlib.metadata import version
+    from traffic_llm.carla_map import find_xodr
+    checkpoint = RUN/'crn4/collision_risk_final.pt'
+    checkpoint_hash = file_sha256(checkpoint)
+    require(checkpoint_hash == FROZEN_CRN4_SHA256, 'CRN checkpoint changed')
+    import torch
+    # Loading checkpoint metadata does not construct or execute either network.
+    saved = torch.load(checkpoint, map_location='cpu', weights_only=False)
+    require(saved['max_horizon'] == 4, 'Expected frozen CRN-4 horizon')
+    saved_v2 = str(Path(saved['v2_checkpoint']).resolve())
+    if v2_checkpoint is not None:
+        require(str(Path(v2_checkpoint).resolve()) == saved_v2, 'Cached V2 checkpoint identity mismatch')
+    v2_checkpoint = saved_v2
+    artifacts = [checkpoint, ROOT/'out/predict_model_joint_scene_v2/joint_scene_motionnet_v2_best.pt',
+                 Path(v2_checkpoint), ROOT/'out/pair_reranker_v4/model_bucket1/pair_reranker_v4.json',
+                 ROOT/'out/pair_reranker_v4/model_bucket2/pair_reranker_v4.json',
+                 RUN/'val104.jsonl', COHORT, RUN/'val104.manifest.json']
+    artifact_hashes = {str(p.resolve()):file_sha256(p) for p in artifacts}
+    code_paths = list((ROOT/'traffic_llm').rglob('*.py'))
+    # Provider request conversion and language/prompt schemas do not produce replay evidence.
+    code_paths = [p for p in code_paths if p.name not in ('providers.py', 'i18n.py')]
+    code_paths.extend(ROOT/'examples'/name for name in (
+        'evaluate_pair_reranker_v4_0_2.py', 'diagnose_crn4_false_positives.py',
+        'train_collision_risk_net.py', 'audit_gt_carla_boxes.py', 'plot_v4_crn4_error_cases.py',
+        'audit_gt_xy_source_ablation.py', 'audit_gt_heading_source_ablation.py',
+        'audit_predictor_trajectory_contacts.py'))
+    code = {str(p.relative_to(ROOT)):file_sha256(p) for p in sorted(code_paths)}
+    code['evaluator_replay_semantics'] = replay_code_sha256()
+    source_root = Path(args.root).resolve(strict=True)
+    val_root = source_root if source_root.name == 'val' else source_root/'val'
+    require(val_root.is_dir(), f'Missing official val source directory: {val_root}')
+    data_files = set(val_root.glob('*/meta/*.txt'))
+    require(bool(data_files), 'Missing val scenario metadata')
+    # Calibration/label inventories for non-cohort scenarios affect whether
+    # the source resolves to the official 104 scenarios, even though those
+    # scenarios are never reconstructed by the frozen cohort replay.
+    resolution_inventory = {}
+    for meta in sorted(data_files):
+        base, scenario = meta.parent.parent, meta.stem
+        inputs = list(base.glob(f'*/calib/{scenario}/*.pkl')) + list(base.glob(f'*/label/{scenario}/*.txt'))
+        resolution_inventory[str(meta.relative_to(val_root))] = sorted(str(p.relative_to(val_root)) for p in inputs)
+    for sid in sorted({r['scenario_id'] for r in ledger.values()}):
+        scenario_type, scenario = sid.split('/')
+        base = val_root/scenario_type
+        require((base/'meta'/f'{scenario}.txt').is_file(), f'Missing cohort scenario source: {sid}')
+        calibrations = set(base.glob(f'*/calib/{scenario}/*.pkl'))
+        labels = set(base.glob(f'*/label/{scenario}/*.txt'))
+        require(bool(calibrations) and bool(labels), f'Missing cohort sensor3d inputs: {sid}')
+        data_files.update(calibrations | labels)
+    dataset_inventory = {str(p.relative_to(val_root)):file_sha256(p) for p in sorted(data_files)}
+    maps_root = Path(args.carla_maps).resolve(strict=True)
+    maps = {}
+    for town in sorted({r['scenario_id'].rsplit('/', 1)[-1].split('_')[0] for r in ledger.values()}):
+        path = find_xodr(town, [str(maps_root)])
+        require(bool(path), f'Missing map: {town}')
+        maps[str(Path(path).resolve())] = file_sha256(path)
+    identity = lambda p: dict(path=str(p), device=p.stat().st_dev, inode=p.stat().st_ino)
+    return dict(v2_checkpoint=v2_checkpoint, frozen_crn_thresholds=saved['threshold_by_horizon'],
+                artifacts=artifact_hashes, code=code,
+                dataset_source=identity(source_root), val_source=identity(val_root),
+                dataset_inventory_sha256=digest(canonical(dataset_inventory)),
+                scenario_resolution_inventory_sha256=digest(canonical(resolution_inventory)),
+                dataset_input_files=len(dataset_inventory), map_source=identity(maps_root), maps=maps,
+                runtime=dict(python=sys.version, torch=version('torch'), numpy=version('numpy')),
+                replay_settings=dict(device=args.device, batch_size=args.batch_size))
+
+
+def validate_replay_cases(cases, ledger, provenance, sources):
+    """Recheck compact evidence against both immutable ledger and collector GT."""
+    from examples import train_collision_risk_net as collector
+    require(len(cases) == 219 and len(ledger) == 219, 'Replay cache requires exactly 219 unique windows')
+    assert_networks(cases, ledger)
+    collector.verify_manifest(RUN/'val104.jsonl', 'val', smoke=False)
+    collector_rows = {r['window_id']:r for r in collector.read_rows(RUN/'val104.jsonl', 'val')}
+    require(set(cases) <= set(collector_rows), 'Cache window missing from frozen collector')
+    expected_artifacts = set(sources['artifacts']) - {str((RUN/'val104.manifest.json').resolve())}
+    hashes = {str(Path(p).resolve()):h for p,h in provenance['network_checkpoint_SHA256'].items()}
+    require(set(hashes) == expected_artifacts and all(hashes[p] == sources['artifacts'][p] for p in hashes),
+            'Replay provenance artifact mismatch')
+    thresholds = provenance['frozen_thresholds']
+    require(thresholds['crn4'] == sources['frozen_crn_thresholds'], 'Frozen CRN threshold metadata mismatch')
+    for k in (1,2):
+        model_path = ROOT/f'out/pair_reranker_v4/model_bucket{k}/pair_reranker_v4.json'
+        require(thresholds['v4'][str(k)] == json.loads(model_path.read_text())['decision_threshold'],
+                'Frozen V4 threshold mismatch')
+    for wid,c in cases.items():
+        require(set(c) == REPLAY_CASE_KEYS, f'Unexpected cached case fields: {wid}')
+        require(type(c['gt_bucket']) is int and c['gt_bucket'] == collector_rows[wid]['gt_bucket'],
+                f'Collector GT mismatch: {wid}')
+        actors = c['observation']['actors']
+        require(isinstance(actors,list), 'Invalid cached observation actor schema')
+        actor_keys = set(('actor_id kind cls world_xy heading_deg speed_mps accel_mps2 maneuver observed_by '
+                         'confidence position_quality track_age_s heading_source observed_range_m source_track_ids '
+                         'placement footprint_length_width_m observed_history').split())
+        require(all(isinstance(a,dict) and set(a) == actor_keys for a in actors),
+                'Invalid cached observation actor schema')
+        window = c['observation']['observation_window']
+        require(set(window) == {'t_start_s','t_end_s','history_s','time_reference'} and window['history_s'] == 5,
+                'Invalid cached observation window schema')
+        require(set(c['observation']['map_conventions']) ==
+                {'coordinates','heading','drive_side','lane_numbering','lane_width_m'}, 'Invalid cached map schema')
+        ids = [a['actor_id'] for a in actors]
+        require(all(isinstance(a,str) for a in ids) and len(ids) == len(set(ids)), 'Invalid cached actor IDs')
+        groups = c['gt_groups']
+        require(isinstance(groups,list) and all(isinstance(g,list) and all(isinstance(a,str) for a in g)
+                                                and len(g) == len(set(g)) for g in groups), 'Invalid cached GT groups')
+        # Keep the original grading representation, including empty groups
+        # for unobserved vehicles and aliases shared by identity groups.
+        require(c['gt_bucket'] in (1,2) or not groups, 'Invalid cached GT pair groups')
+        match = lambda pair: any((pair[0] in g and pair[1] in h) or (pair[1] in g and pair[0] in h)
+                                 for i,g in enumerate(groups) for h in groups[i+1:])
+        row = collector_rows[wid]
+        collector_ids = [a['actor_id'] for a in row['actors']]
+        pair_labels = {frozenset(pair):label for pair,label in zip(itertools.combinations(collector_ids,2), row['pair_labels'])}
+        for pair,label in zip(itertools.combinations(collector_ids,2), row['pair_labels']):
+            if c['gt_bucket'] in (1,2):
+                require(match(pair) == (label == c['gt_bucket']), f'Collector GT-pair membership mismatch: {wid}')
+        for condition in ('v4','crn4'):
+            network = c[condition]
+            require(set(network) == {'decision','pairs','evidence'} and type(network['decision']) is bool,
+                    'Invalid cached network fields')
+            require(isinstance(network['pairs'],list) and all(isinstance(p,list) and len(p) == 2 and
+                    p[0] != p[1] and set(p) <= set(ids) for p in network['pairs']), 'Invalid cached selected pair')
+            audit_payload(dict(observation=c['observation'], network_evidence=network['evidence'], horizon_s=2),
+                          condition, network)
+            hit = c['gt_bucket'] in (1,2) and network['decision'] and any(match(p) for p in network['pairs'])
+            require(hit == (ledger[wid][condition+'_correct_pair_hit'] == 'True'), f'Frozen GT-pair hit mismatch: {wid}')
+        require(c['v4']['pairs'] == json.loads(ledger[wid]['v4_selected_pairs']), f'Frozen V4 pair mismatch: {wid}')
+        selected = list(ast.literal_eval(ledger[wid]['crn4_selected_pair']))
+        require(c['crn4']['pairs'] == [selected], f'Frozen CRN4 pair mismatch: {wid}')
+        require(pair_labels.get(frozenset(selected)) == int(ledger[wid]['crn4_selected_pair_gt_label']),
+                f'Frozen selected-pair GT membership mismatch: {wid}')
+        evidence = c['crn4']['evidence']['selected_interaction']
+        require([evidence['actor_a'],evidence['actor_b']] == selected, 'CRN evidence selected-pair mismatch')
+        require(c['crn4']['evidence']['source_type'] == 'observation_pair_risk', 'Invalid CRN evidence source')
+        for key in ('hazard_1','hazard_2','event_probability_1','event_probability_2','cumulative_risk_1','cumulative_risk_2'):
+            require(type(evidence[key]) in (int,float) and 0 <= evidence[key] <= 1, 'Invalid CRN probability')
+        h1,h2 = evidence['hazard_1'],evidence['hazard_2']
+        require(all(math.isclose(evidence[key],value,abs_tol=1e-12) for key,value in (
+            ('event_probability_1',h1), ('event_probability_2',(1-h1)*h2),
+            ('cumulative_risk_1',h1), ('cumulative_risk_2',1-(1-h1)*(1-h2)))), 'Inconsistent CRN evidence probabilities')
+        require(math.isclose(evidence['cumulative_risk_2'], float(ledger[wid]['crn4_risk_2s']), abs_tol=2e-6),
+                'Frozen CRN risk mismatch')
+        threshold = thresholds['crn4']['2']
+        require(threshold == float(ledger[wid]['crn4_threshold_2s']) and
+                c['crn4']['decision'] == (evidence['cumulative_risk_2'] >= threshold), 'Frozen CRN threshold/decision mismatch')
+        require(c['v4']['evidence']['source_type'] == 'trajectory_pair_verifier', 'Invalid V4 evidence source')
+        require(set(c['v4']['evidence']) == {'source_type','accepted_interactions'}, 'Invalid V4 evidence schema')
+        accepted = c['v4']['evidence']['accepted_interactions']
+        require(c['v4']['decision'] == bool(accepted), 'Cached V4 acceptance mismatch')
+        for k in (1,2):
+            require(any(p['k'] == k for p in accepted) == (ledger[wid][f'v4_bucket{k}_prediction'] == 'True'),
+                    f'Frozen V4 bucket decision mismatch: {wid}')
+        for p in accepted:
+            require(set(p) == {'actor_a','actor_b','k','verifier_score','future_coordinates',
+                'predicted_minimum_footprint_clearance_m','time_of_predicted_minimum_clearance_s',
+                'predicted_contact','first_predicted_contact_s','current_clearance_m','contact_duration_s',
+                'contact_event','contact_at_observation','contact_before_observation'}, 'Invalid V4 interaction schema')
+            require(type(p['k']) is int and type(p['verifier_score']) in (int,float) and
+                    math.isfinite(p['verifier_score']) and p['verifier_score'] >= thresholds['v4'][str(p['k'])],
+                    'Invalid accepted V4 score')
+            for paths_for_actor in p['future_coordinates'].values():
+                require(isinstance(paths_for_actor,list) and all(isinstance(path,dict) and
+                    set(path) == {'coordinates_enu_m'} and isinstance(path['coordinates_enu_m'],list) and
+                    all(isinstance(point,list) and len(point) == 3 and all(type(v) in (int,float)
+                        and math.isfinite(v) for v in point) and 0 <= point[0] <= 2
+                        for point in path['coordinates_enu_m']) for path in paths_for_actor),
+                    'Invalid V4 future-coordinate schema')
+
+
+def save_replay_cache(path, document):
+    """Atomically publish a new cache; never replace an existing cache."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
+                                         prefix=path.name+'.', suffix='.tmp', delete=False) as f:
+            temp_path = Path(f.name)
+            f.write(canonical(document)+'\n')
+            f.flush()
+            os.fsync(f.fileno())
+        os.link(temp_path, path)
+    finally:
+        if temp_path is not None:
+            temp_path.unlink()
+
+
+def cached_replay(args, ledger):
+    path = args.replay_cache
+    if path.exists() or path.is_symlink():
+        cache_bytes = path.read_bytes()
+        cache_hash = hashlib.sha256(cache_bytes).hexdigest()
+        document = json.loads(cache_bytes)
+        require(set(document) == {'version','cases','provenance','sources','content_sha256'}, 'Invalid replay cache envelope')
+        require(type(document['version']) is int and document['version'] == REPLAY_CACHE_VERSION,
+                'Incompatible replay cache version')
+        content = {k:v for k,v in document.items() if k != 'content_sha256'}
+        require(digest(canonical(content)) == document['content_sha256'], 'Replay cache content integrity mismatch')
+        sources = replay_source_fingerprints(args, ledger, document['sources']['v2_checkpoint'])
+        require(sources == document['sources'], 'Stale replay cache source-artifact fingerprints')
+        rows = document['cases']
+        require(isinstance(rows,list) and len(rows) == 219 and
+                len({r['window_id'] for r in rows}) == 219, 'Replay cache requires exactly 219 unique windows')
+        require(all(set(r) == REPLAY_CASE_KEYS | {'window_id'} for r in rows), 'Unexpected cached window schema')
+        cases = {r['window_id']:{k:v for k,v in r.items() if k != 'window_id'} for r in rows}
+        provenance = document['provenance']
+        validate_replay_cases(cases, ledger, provenance, sources)
+        origin = 'validated_cache'
+    else:
+        sources = replay_source_fingerprints(args, ledger)
+        cases, provenance = reproduce(args, ledger)
+        cases = {wid:json.loads(canonical({k:c[k] for k in REPLAY_CASE_KEYS})) for wid,c in cases.items()}
+        require(replay_source_fingerprints(args, ledger, sources['v2_checkpoint']) == sources,
+                'Replay sources changed during cache creation')
+        validate_replay_cases(cases, ledger, provenance, sources)
+        content = dict(version=REPLAY_CACHE_VERSION,
+                       cases=[dict(window_id=wid, **c) for wid,c in cases.items()],
+                       provenance=provenance, sources=sources)
+        document = dict(content, content_sha256=digest(canonical(content)))
+        save_replay_cache(path, document)
+        cache_hash = hashlib.sha256((canonical(document)+'\n').encode('utf-8')).hexdigest()
+        origin = 'fresh_replay'
+    require(file_sha256(path) == cache_hash, 'Replay cache changed during validation')
+    return cases, provenance, dict(evidence_source=origin, replay_cache_path=str(path.resolve()),
+                                  replay_cache_sha256=cache_hash,
+                                  replay_cache_content_sha256=document['content_sha256'],
+                                  replay_cache_provenance=document['sources'])
+
+
 def prepare(cases, args):
     requests = []
     conditions = ('v4', 'crn4') if args.condition == 'both' else (args.condition,)
@@ -316,10 +630,14 @@ def prepare(cases, args):
             if args.thinking_config is not None:
                 require(args.provider == 'gemini', '--thinking-config is Gemini-only')
                 extra['generationConfig']['thinkingConfig'] = json.loads(args.thinking_config)
-            body = providers.build_request(args.provider, system=PROMPT, blocks=[canonical(payload), QUESTION],
+            prompt = CRN4_PROMPT_V2 if condition == 'crn4' else PROMPT
+            body = providers.build_request(args.provider, system=prompt, blocks=[canonical(payload), QUESTION],
                 schema=schema(), model=args.model, max_tokens=args.max_output_tokens, effort='', extra=extra)
             requests.append(dict(request_id=f'{wid}__{condition}', window_id=wid, condition=condition,
                                  body=body, observation_hash=digest(common)))
+            if condition == 'crn4':
+                selected = c[condition]['evidence']['selected_interaction']
+                requests[-1]['selected_pair'] = [selected['actor_a'], selected['actor_b']]
     random.Random(args.seed).shuffle(requests)
     require(len(requests) == 219 * len(conditions), 'Wrong request count')
     if args.condition == 'both':
@@ -330,7 +648,7 @@ def prepare(cases, args):
     return requests
 
 
-def validate_response(response, actor_ids):
+def validate_response(response, actor_ids, selected_pair=None):
     def check(value, spec):
         typ = spec['type']
         valid = {'object': isinstance(value, dict), 'array': isinstance(value, list),
@@ -355,6 +673,8 @@ def validate_response(response, actor_ids):
         ids = p['involved_actor_ids']
         require(len(ids)==len(set(ids)) and set(ids) <= set(actor_ids), 'Unknown/duplicate actor ids')
         require(not ids if not p['accident_expected'] else len(ids)>=2, 'Invalid collision actor ids')
+        if selected_pair is not None and p['accident_expected']:
+            require(len(ids) == 2 and set(ids) == set(selected_pair), 'CRN4 prediction must use exactly the selected pair')
     return response
 
 
@@ -397,7 +717,7 @@ def transitions(cases, results, condition):
         sum(counts[f'network_TP -> LLM_{b}'] for b in ('TP','FN'))),
         new_FPs_introduced_by_LLM=counts['network_TN -> LLM_FP'],
         network_FNs_recovered_by_LLM=counts['network_FN -> LLM_TP'],
-        unscored=219-sum(counts.values()), fraction_denominator='scored network strata only')
+        unscored=len(cases)-sum(counts.values()), fraction_denominator='scored network strata only')
     return out
 
 
@@ -462,7 +782,7 @@ def resume_response(out, request, ids):
     require(saved['request_id'] == request['request_id'] and saved['body_hash'] == digest(canonical(request['body'])),
             'Resume request changed')
     try:
-        return validate_response(saved['parsed_response'], ids)
+        return validate_response(saved['parsed_response'], ids, request.get('selected_pair'))
     except Exception:
         return None
 
@@ -498,7 +818,8 @@ def execute(args, request, ids, append):
             http_status, raw = call_api(args, request['body'])
             api = json.loads(raw)
             usage = providers.usage_of(args.provider, api)
-            parsed = validate_response(json.loads(''.join(providers.response_texts(args.provider, api))), ids)
+            parsed = validate_response(json.loads(''.join(providers.response_texts(args.provider, api))), ids,
+                                       request.get('selected_pair'))
         except urllib.error.HTTPError as exc:
             http_status, raw = exc.code, exc.read().decode(errors='replace')
             error = f'HTTP {exc.code}'
@@ -547,9 +868,17 @@ def outputs(args, cases, records):
         paired.append(row)
     scores['paired'] = {key:summary[key] for key in ('both_correct','V4+LLM_only_correct',
         'CRN+LLM_only_correct','both_wrong','both_TN','V4+LLM_FP_only','CRN+LLM_FP_only','both_FP','unscored_pairs')}
-    write_json(args.out/'scores.json', scores)
-    write_json(args.out/'network_to_llm_transitions.json', {c:transitions(cases,results,c) for c in conditions})
-    with (args.out/'paired_v4_crn_results.csv').open('w',newline='') as f:
+    transition_results = {c:transitions(cases,results,c) for c in conditions}
+    prefix = ''
+    if getattr(args, 'window_ids_file', None) is not None:
+        prefix = 'diagnostic_subset_'
+        scope = dict(evaluation_scope='diagnostic_subset', full_cohort_metrics=False,
+                     window_count=len(cases), selected_window_ids=list(cases))
+        scores.update(scope)
+        transition_results.update(scope)
+    write_json(args.out/(prefix+'scores.json'), scores)
+    write_json(args.out/(prefix+'network_to_llm_transitions.json'), transition_results)
+    with (args.out/(prefix+'paired_v4_crn_results.csv')).open('w',newline='') as f:
         writer = csv.DictWriter(f,fieldnames=list(paired[0]))
         writer.writeheader()
         writer.writerows(paired)
@@ -562,11 +891,15 @@ def main(argv=None):
     parser.add_argument('--model', required=True)
     parser.add_argument('--api-key-env', default='GEMINI_API_KEY')
     parser.add_argument('--workers', type=int, default=4)
-    parser.add_argument('--max-output-tokens', type=int, default=4096)
-    parser.add_argument('--temperature', type=float, default=0.)
+    parser.add_argument('--max-output-tokens', type=int, default=32768)
+    parser.add_argument('--temperature', type=float, default=1.0)
     parser.add_argument('--thinking-config', help='Explicit Gemini thinkingConfig JSON; omitted means provider default')
     parser.add_argument('--seed', type=int, default=20261007, help='Request shuffle seed; not an API sampling seed')
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--window-ids-file', type=Path,
+                        help='Diagnostic subset: one frozen window ID per nonblank line; full replay still required')
+    parser.add_argument('--replay-cache', type=Path,
+                        help='Reuse source-validated frozen 219-window evidence; create atomically if absent')
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--root', default=str(Path.home()/'inclab-nas/DeepAccident'))
@@ -577,20 +910,47 @@ def main(argv=None):
     parser.add_argument('--backoff', type=float, default=2.)
     parser.add_argument('--timeout', type=float, default=180.)
     args = parser.parse_args(argv)
+    if not args.dry_run:
+        require(bool(os.environ.get(args.api_key_env)), f'Missing {args.api_key_env}')
     require(args.workers>0 and args.batch_size>0 and args.max_output_tokens>0 and args.retries>=0,
             'Invalid counts')
     require(args.temperature>=0 and args.backoff>=0 and args.timeout>0, 'Invalid generation/retry setting')
+    if args.replay_cache is not None:
+        output_root, cache_path = args.out.resolve(), args.replay_cache.resolve()
+        reserved = {'experiment_manifest.json','dry_run_audit.json','requests.jsonl','records.jsonl',
+                    'api_attempts.jsonl','failures.jsonl','scores.json','network_to_llm_transitions.json',
+                    'paired_v4_crn_results.csv','diagnostic_subset_scores.json',
+                    'diagnostic_subset_network_to_llm_transitions.json','diagnostic_subset_paired_v4_crn_results.csv'}
+        reserved |= {name+'.tmp' for name in reserved}
+        require(cache_path not in {output_root/name for name in reserved} and cache_path != output_root and
+                not any(cache_path.is_relative_to(output_root/name) for name in ('raw_responses','parsed_responses')),
+                'Replay cache path conflicts with experiment outputs')
     args.out.mkdir(parents=True,exist_ok=True)
     manifest_path = args.out/'experiment_manifest.json'
     require(args.resume or not manifest_path.exists(), 'Output exists; use --resume or a new --out')
     try:
         ledger = load_cohort()
-        cases, provenance = reproduce(args, ledger)
+        cache_info = None
+        if args.replay_cache is None:
+            cases, provenance = reproduce(args, ledger)
+        else:
+            cases, provenance, cache_info = cached_replay(args, ledger)
         requests = prepare(cases, args)
+        selected_window_ids = None
+        if args.window_ids_file is not None:
+            selected_window_ids = load_window_ids(args.window_ids_file, ledger)
+            require(set(selected_window_ids) <= set(cases), 'Subset window absent from reproduced cohort')
+            selected = set(selected_window_ids)
+            requests = [r for r in requests if r['window_id'] in selected]
         audit = dict(passed=True, windows=len(cases), requests=len(requests), confusion=EXPECTED,
             invariants=['strict cohort join','independent network reproduction','paired byte-identical observations',
                 'no GT/model metadata leakage','CRN risk only','V4 accepted geometry only',
                 'actor membership','exact two response buckets validated'], api_calls=0)
+        if cache_info is not None:
+            audit.update(cache_info)
+        if selected_window_ids is not None:
+            audit.update(evaluation_scope='diagnostic_subset', full_frozen_cohort_validated=True,
+                         selected_window_ids=selected_window_ids, selected_windows=len(selected_window_ids))
     except Exception as exc:
         write_json(args.out/'dry_run_audit.json', dict(passed=False,error=f'{type(exc).__name__}: {exc}',api_calls=0))
         raise
@@ -604,8 +964,22 @@ def main(argv=None):
         evaluator_source_SHA256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         condition=args.condition, request_hashes={r['request_id']:digest(canonical(r['body'])) for r in requests},
         retries=args.retries, backoff=args.backoff, timeout=args.timeout, **provenance)
+    if cache_info is not None:
+        manifest.update(cache_info)
+        manifest['prompt_hashes'] = {condition:digest(CRN4_PROMPT_V2 if condition == 'crn4' else PROMPT)
+                                     for condition in sorted({r['condition'] for r in requests})}
+    if selected_window_ids is not None:
+        manifest.update(evaluation_scope='diagnostic_subset', full_cohort_metrics=False,
+                        window_ids_file=str(args.window_ids_file.resolve()),
+                        selected_window_ids=selected_window_ids, full_frozen_cohort_windows=len(cases))
     if manifest_path.exists():
-        require(json.loads(manifest_path.read_text()) == manifest, 'Resume manifest/settings changed')
+        previous = json.loads(manifest_path.read_text())
+        if cache_info is not None:
+            # A cache created by this experiment is loaded on resume. Preserve
+            # its creation-time origin in the manifest; the audit records the
+            # current invocation's fresh/cache source.
+            manifest['evidence_source'] = previous.get('evidence_source')
+        require(previous == manifest, 'Resume manifest/settings changed')
     else:
         write_json(manifest_path, manifest)
     request_definitions(args.out, requests, args.resume)
@@ -620,8 +994,6 @@ def main(argv=None):
             f.flush()
             os.fsync(f.fileno())
     records = []
-    if not args.dry_run:
-        require(bool(os.environ.get(args.api_key_env)), f'Missing {args.api_key_env}')
     def work(r):
         c = cases[r['window_id']]
         ids = [a['actor_id'] for a in c['observation']['actors']]
@@ -646,7 +1018,8 @@ def main(argv=None):
     records = [by_id[r['request_id']] for r in requests]
     # Dry runs use the same snapshot file; live resume replaces the entire file.
     write_jsonl(args.out/'records.jsonl', records)
-    outputs(args,cases,records)
+    output_cases = cases if selected_window_ids is None else {wid:cases[wid] for wid in selected_window_ids}
+    outputs(args,output_cases,records)
     print(f'Wrote {len(records)} records to {args.out}', flush=True)
     if not args.dry_run:
         failures = sum(r['grading']['status'] != 'SCORED' for r in records)
